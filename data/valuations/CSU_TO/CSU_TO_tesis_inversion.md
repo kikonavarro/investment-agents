@@ -1,136 +1,133 @@
-# CSU.TO — Constellation Software Inc. | 🟡 COMPRA CON CONVICCIÓN A ESTOS PRECIOS
+## CSU.TO — Constellation Software Inc. | **COMPRAR**
 
 ---
 
-## Resumen ejecutivo
+### Resumen ejecutivo
 
-**Precio actual:** C$2.700 | **Precio objetivo (base):** C$4.194 (media analistas) | **Escenario base DCF:** ~C$3.800–4.200 estimado | **Margen de seguridad:** ~40–55%
-
-Constellation Software cotiza un 38% por debajo de sus máximos históricos, ofreciendo una ventana de entrada inusual en uno de los compounders más consistentes de Canadá. Con un FCF de C$2.129 millones en 2024, un modelo de negocio defensivo basado en software vertical de misión crítica, y un historial de asignación de capital sin parangón, la acción presenta una relación riesgo/recompensa muy favorable a los precios actuales.
+Constellation Software cotiza hoy en **C$2.567,93**, un **38% por debajo de su máximo histórico** y muy por debajo del precio objetivo base de nuestro modelo DCF, que arroja **C$4.100** (escenario base), lo que implica un **margen de seguridad del ~60%**. Para el escenario conservador obtenemos ~C$2.650 y para el optimista ~C$6.200. Incluso con supuestos prudentes, el precio actual ofrece escasa penalización por error. Recomendamos **COMPRAR** con horizonte de 3-5 años.
 
 ---
 
-## El negocio
+### El negocio
 
-Constellation Software es, en esencia, una **máquina de adquisiciones de software vertical**. Fundada en 1995 y con sede en Toronto, su modelo consiste en identificar, adquirir y gestionar empresas de software especializado (VMS, *Vertical Market Software*) que sirven nichos muy específicos: gestiones municipales, software para clínicas dentales, administración de campings, sistemas para ópticas, concesionarios de maquinaria agrícola... El denominador común: software que los clientes **no pueden permitirse cambiar**.
+Constellation Software es una **holding canadiense especializada en adquirir, construir y gestionar software de mercados verticales** (Vertical Market Software, VMS). Su modelo no consiste en construir un producto estrella, sino en identificar y comprar cientos de pequeñas y medianas empresas de software que proporcionan soluciones **críticas y de difícil sustitución** para nichos muy concretos: gestiones municipales, software hospitalario, gestión de clubes deportivos, concesionarios de vehículos, agencias de viajes, etc.
 
-Este enfoque genera un moat extraordinariamente robusto por varias razones:
+Opera en **Canadá, EE.UU., Reino Unido, Europa y mercados internacionales** a través de sus filiales, entre las que destaca **Topicus.com** (cotizada por separado en el TSX) como vehículo de adquisición prioritario en Europa.
 
-- **Costes de cambio brutales:** los clientes llevan décadas con los mismos sistemas, los procesos están integrados, el personal está formado y la migración resultaría prohibitivamente cara.
-- **Nichos pequeños pero altamente rentables:** al operar en verticales con 50–500 clientes, Constellation evita la competencia directa con grandes players como Salesforce o SAP.
-- **Descentralización extrema como ventaja operativa:** cada negocio adquirido mantiene su gestión, cultura e incentivos propios, pero bajo una disciplina financiera común impuesta desde el holding.
-- **Reinversión compulsiva del FCF:** Mark Leonard, su fundador, ha construido una cultura donde el capital se reinvierte a tasas de retorno superiores al 20% de forma sistemática, rechazando los dividendos ordinarios en favor de la adquisición perpetua de nuevas empresas.
+**El moat es extraordinariamente sólido y multi-capa:**
 
-Opera principalmente en Canadá, EE.UU., Reino Unido y Europa, con una exposición creciente a mercados internacionales a través de subsidiarias como **Topicus.com** (listada en TSX Venture) y **Lumine Group**.
+- **Switching costs brutales**: los clientes integran el software de CSU en sus operaciones críticas durante décadas. El coste de cambio —en tiempo, riesgo operativo y formación— es prohibitivo.
+- **Escala en M&A**: CSU ha perfeccionado durante 30 años el proceso de identificar, valorar, integrar y optimizar adquisiciones de VMS. Esta capacidad organizativa no se replica fácilmente.
+- **Diversificación extrema**: ningún cliente o vertical representa un riesgo de concentración significativo. Con cientos de negocios en cartera, la volatilidad del conjunto es sorprendentemente baja.
+- **Modelo de ingresos recurrentes**: mantenimiento, soporte, SaaS y servicios recurrentes constituyen la gran mayoría de los ingresos, lo que genera flujos de caja altamente predecibles.
+
+Mark Leonard, fundador y presidente, es ampliamente considerado uno de los mejores asignadores de capital de la historia moderna del sector tecnológico.
 
 ---
 
-## Análisis financiero
+### Análisis financiero
 
-### Crecimiento de ingresos: constante y acelerado
+**Crecimiento de ingresos sostenido y acelerado:**
 
 | Año | Revenue (C$M) | Crecimiento |
 |-----|--------------|-------------|
-| 2021 | 5.107 | — |
-| 2022 | 6.622 | +29,6% |
+| 2022 | 6.622 | — |
 | 2023 | 8.405 | +26,9% |
 | 2024 | 10.066 | +19,8% |
+| 2025 | 11.623 | +15,5% |
 
-En cuatro años, Constellation ha duplicado prácticamente sus ingresos, pasando de C$5.1B a C$10.1B. Este crecimiento es casi enteramente **inorgánico**: el motor son las adquisiciones continuas de empresas pequeñas a múltiplos bajos (3–8x EBITDA habitualmente), que al integrarse en el holding se revalorizan sustancialmente.
+En cuatro años, CSU ha prácticamente **duplicado sus ingresos**, pasando de C$6.600M a C$11.600M, impulsado principalmente por un ritmo de adquisiciones que no muestra señales de desaceleración. El crecimiento orgánico se complementa con un pipeline M&A que se extiende ahora más agresivamente a mercados emergentes y Europa a través de Topicus.
 
-### Márgenes: sólidos y en recuperación
+**Márgenes y calidad del negocio:**
 
-- **Margen bruto:** ~35,9% (consistente, típico de software vertical con alta base de mantenimiento)
-- **Margen operativo:** 16,3% en 2024 vs. 18,3% en 2021 — ligera compresión por el mayor peso de adquisiciones más grandes y complejas, pero en recuperación con el EBITDA escalando a C$2.485B
-- **Margen neto:** 7,3% — artificialmente deprimido por amortización de intangibles (clave en negocios adquiridos) y costes de financiación. **El FCF es la métrica que importa.**
+- **Margen bruto**: ~37,6% (2025). Estable, reflejo de la naturaleza de software aunque algo comprimido por la mezcla de hardware y servicios profesionales en algunas subsidiarias.
+- **Margen operativo**: 18,1% en 2025, mejorando desde 15,6% en 2022. Tendencia positiva.
+- **EBITDA**: C$2.578M en 2025 (+58% vs. 2022 en términos absolutos).
+- **Free Cash Flow**: **C$2.664M en 2025**, superando el EBITDA, lo que refleja la extraordinaria conversión de caja del modelo. El FCF por acción ronda los **C$125,7**, una cifra espectacular.
+- **Margen neto**: comprimido en 2025 (4,4%) respecto a 2024 (7,3%), probablemente por mayores cargos de amortización derivados de adquisiciones y por mayor deuda. Esto es **ruido contable**, no deterioro operativo. El FCF cuenta la verdadera historia.
 
-### Free Cash Flow: la joya del modelo
+**Balance:**
 
-El FCF ha crecido de C$1.271B (2021) a **C$2.129B (2024)**, con un yield sobre capitalización de mercado de aproximadamente el **3,7%** a precios actuales — nada despreciable para un negocio que reinvierte ese capital al 20%+.
+- **Deuda total**: C$5.787M, incluyendo las series de debentures emitidas para financiar adquisiciones (una de ellas al 8,6% anualizado según noticias recientes).
+- **Caja**: C$3.089M.
+- **Deuda neta**: ~C$2.698M, equivalente a ~1x EBITDA. Nivel manejable para una empresa con C$2.664M de FCF anual.
+- **Equity**: C$4.268M.
 
-El EBITDA de C$2.485B en 2024 supone casi **doblar** el dato de 2021 (C$1.066B), reflejando la mejora de la calidad operativa del portfolio adquirido.
-
-### Balance: deuda manejable, estructura diseñada para adquirir
-
-- **Deuda total:** C$4.533B
-- **Caja:** C$1.980B
-- **Deuda neta:** ~C$2.553B → ~1,0x EBITDA 2024
-
-El nivel de apalancamiento es conservador dado el poder de generación de caja. Constellation ha emitido debentures (como el Series 1 al 8,6% anunciado en enero) para financiar adquisiciones, manteniendo el balance sano. La deuda es una **herramienta de crecimiento**, no una amenaza existencial.
+La deuda de CSU no es preocupante en absoluto dado que sus flujos de caja son recurrentes y predecibles, y que históricamente la empresa ha gestionado su apalancamiento con disciplina quirúrgica.
 
 ---
 
-## Valoración DCF
+### Valoración DCF
 
-### Metodología
+**Metodología aplicada:**
 
-El modelo proyecta los ingresos futuros de Constellation durante 5 años y aplica los **márgenes históricos promedio** (gross margin ~35,7%, SG&A, D&A, impuestos) para llegar al **Unlevered Free Cash Flow (UFCF)** en cada período.
+El modelo proyecta los ingresos futuros durante 10 años aplicando tasas de crecimiento decrecientes desde los niveles actuales hacia una tasa terminal. Sobre esos revenues se aplican **márgenes históricos promedio** (bruto, SGA, I+D, D&A, impuestos) para derivar el **Unlevered Free Cash Flow (UFCF)**.
 
-Un detalle metodológico importante: el CapEx utilizado en el modelo es exclusivamente el de **mantenimiento** (aproximado a la Depreciación & Amortización de activos tangibles). El CapEx de crecimiento —en el caso de Constellation, fundamentalmente el capital destinado a **adquisiciones**— **no se resta** del UFCF porque ya está capturado implícitamente en las tasas de crecimiento de revenue proyectadas. Esto es relevante: Constellation destina virtualmente todo su FCF libre a adquisiciones, por lo que el "CapEx de crecimiento real" es enorme. El modelo lo trata correctamente al separar ambos conceptos, pero el inversor debe ser consciente de que los flujos no distribuibles son el motor del crecimiento proyectado.
+Un aspecto clave del modelo: el **CapEx utilizado es exclusivamente de mantenimiento** (aproximado a la depreciación contable). El CapEx de crecimiento —que en CSU se materializa principalmente como **precio de adquisición de nuevas empresas**, no como CapEx contable tradicional— no se resta directamente, porque el crecimiento de ingresos proyectado ya **incorpora implícitamente el resultado de esas adquisiciones futuras**. Es importante señalar que en CSU la diferencia entre el CapEx contable de mantenimiento y el desembolso real en adquisiciones es **muy significativa** (las adquisiciones pueden superar los C$2.000-3.000M anuales), lo que hace que el modelo sea especialmente sensible al supuesto de crecimiento de revenue como proxy del retorno sobre ese capital desplegado.
 
-El **Valor Terminal** se calcula mediante **múltiplo de salida por sector** (EV/EBITDA de software de aplicación), no por Gordon Growth, evitando la sensibilidad excesiva a la tasa de crecimiento a perpetuidad. El **WACC** se construye vía CAPM real, con la **beta de 0,66** de Constellation —notablemente baja para tecnología, reflejo de la naturaleza defensiva y recurrente de sus ingresos—, lo que reduce el coste de capital y apoya valoraciones más altas.
+El **valor terminal** se calcula mediante un **múltiplo de salida por sector** (EV/EBITDA del sector Software-Application), no mediante el modelo Gordon Growth, lo que lo hace menos sensible a pequeñas variaciones en la tasa de descuento perpetua.
 
-### Los tres escenarios
+El **WACC** se ha calculado vía CAPM real: con una beta de **0,663** (notablemente baja para una tech, reflejo de la estabilidad de los ingresos recurrentes), una prima de riesgo de mercado estándar y la tasa libre de riesgo canadiense actual, obtenemos un WACC base de **7,74%**.
 
-| Parámetro | 🐻 Bear | 📊 Base | 🐂 Bull |
-|-----------|---------|---------|---------|
-| Crecimiento ingresos Año 1 | +12,3% | +17,5% | +22,8% |
-| Crecimiento ingresos Año 5 | +7,4% | +10,5% | +13,6% |
-| Margen bruto | 33,7% | 35,7% | 37,7% |
-| WACC | 9,76% | 7,76% | 6,76% |
-| Múltiplo terminal EV/EBITDA | 16x | 19x | 21x |
-| **Precio implícito estimado** | **~C$2.800–3.100** | **~C$3.900–4.200** | **~C$5.000–5.500** |
+**Escenarios:**
 
-**Escenario base:** Con revenues escalando desde C$10B hacia ~C$18B en 5 años (asumiendo el ritmo adquisidor continúa) y márgenes estables, el valor intrínseco se sitúa en el rango de **C$3.900–4.200**, alineado con la media de los analistas de sell-side (C$4.194). A C$2.700, el margen de seguridad es del **44%**.
+| Escenario | Crec. Revenue Y1 | Crec. Revenue Y5 | Margen Bruto | WACC | Múltiplo Terminal | Precio Objetivo |
+|-----------|-----------------|-----------------|-------------|------|------------------|-----------------|
+| **Conservador (Bear)** | +12,25% | +7,35% | 33,9% | 9,74% | 16x EBITDA | ~**C$2.650** |
+| **Base** | +17,5% | +10,5% | 35,9% | 7,74% | 19x EBITDA | ~**C$4.100** |
+| **Optimista (Bull)** | +22,75% | +13,65% | 37,9% | 6,74% | 21x EBITDA | ~**C$6.200** |
 
-**Escenario bear:** Incluso en el escenario pesimista —crecimiento más lento, márgenes comprimidos y coste de capital más elevado—, el precio justo supera el actual. Esto indica que la acción cotiza con descuento incluso bajo supuestos desfavorables, lo que es extraordinariamente raro en una empresa de esta calidad.
+**¿Por qué es razonable el precio objetivo base de C$4.100?**
 
-**Escenario bull:** Si el despliegue de capital hacia nuevos mercados y la estrategia de "ever larger" acquisitions mantiene las tasas de retorno, el precio podría alcanzar los **C$5.000–5.500**, en línea con el objetivo más alto de los analistas (C$5.513).
+El escenario base asume un crecimiento de ingresos del 17,5% en el primer año, moderándose hasta el 10,5% en el año 5. Es completamente coherente con el historial reciente (CAGR 2022-2025 del ~20,5%) asumiendo cierta desaceleración natural por el mayor tamaño. Los márgenes brutos del 35,9% están por debajo del promedio histórico reciente (375-376 puntos básicos de descuento), siendo conservadores. El múltiplo terminal de 19x EBITDA está en línea con el mercado de software de calidad media-alta, muy por debajo de los múltiplos a los que ha cotizado históricamente CSU (que en sus mejores momentos ha superado 30x EBITDA). El precio objetivo de C$4.100 implica un EV/EBITDA 2025 de entrada de apenas **~23x**, atractivo para una empresa de este calibre.
 
----
-
-## Riesgos principales
-
-1. **Escasez de targets de adquisición a buen precio:** El crecimiento de Constellation depende de encontrar empresas VMS a múltiplos razonables. A medida que el mercado conoce el "Constellation playbook", los vendedores piden más. Si los múltiplos de entrada suben materialmente, la tasa de retorno sobre el capital invertido caerá.
-
-2. **Tamaño y ley de los grandes números:** Con C$10B de revenue, mantener tasas de crecimiento del 15–20% requiere desplegar cada vez más capital. Constellation ya está mirando adquisiciones de mayor tamaño ("elephant hunting"), con perfiles de riesgo diferentes a los negocios pequeños que históricamente han sido su nicho.
-
-3. **Riesgo de integración y cultura:** La descentralización es una fortaleza, pero también una fragilidad. Adquisiciones más grandes o en geografías culturalmente distantes (Asia, Latinoamérica) pueden erosionar la disciplina operativa que ha caracterizado al grupo.
-
-4. **Tipo de cambio y exposición geográfica:** Con operaciones en múltiples monedas (USD, GBP, EUR), una apreciación sostenida del CAD podría impactar negativamente los resultados reportados, aunque este riesgo es relativamente manejable dado el carácter natural del hedging geográfico.
+El consenso de analistas apunta a una media de **C$4.210**, con un máximo de C$5.564, validando nuestros rangos.
 
 ---
 
-## Catalizadores
+### Riesgos principales
 
-**Al alza (12–24 meses):**
-- **Aceleración del despliegue de capital:** cualquier anuncio de adquisiciones de tamaño relevante con múltiplos atractivos dispararía la confianza del mercado en la sostenibilidad del modelo.
-- **Expansión de múltiplo post-corrección:** La acción ha caído ~38% desde máximos. Una normalización de sentimiento hacia el sector tech canadiense, combinada con resultados sólidos de Q1 y Q2 2026, podría catalizar una revalorización rápida.
-- **Resultados de Topicus:** La subsidiaria europea sigue creciendo con fuerza. Mejores resultados o una aceleración en Europa confirmarían la replicabilidad del modelo fuera de Norteamérica.
-- **Estrategia AI:** Los titulares recientes apuntan a que Constellation está explorando cómo integrar IA en su portfolio de software vertical — si consigue monetizar esto sin canibalizar márgenes, sería muy positivo.
+1. **Escasez de targets de adquisición a precio razonable**: CSU necesita crecer a través de adquisiciones. A medida que el mercado de VMS se sofistica y hay más compradores estratégicos (incluidas las propias filiales de CSU compitiendo entre sí), la inflación de múltiplos de adquisición puede comprimir los retornos sobre el capital desplegado. Este es el riesgo estructural más importante.
+
+2. **Tipo de cambio CAD/USD y exposición internacional**: con operaciones globales crecientes (Europa vía Topicus, mercados emergentes), la fortaleza o debilidad del dólar canadiense introduce volatilidad en los reportes consolidados, aunque no afecta la economía subyacente de los negocios locales.
+
+3. **Dependencia del equipo directivo y cultura organizativa**: el modelo de CSU es, en gran medida, una manifestación de la filosofía y el talento de Mark Leonard y su equipo de gestión de portafolio. Cualquier cambio de liderazgo o dilución cultural en las subsidiarias representa un riesgo difícil de cuantificar.
+
+4. **Apalancamiento creciente y entorno de tipos altos**: la emisión reciente de debentures al 8,6% refleja un coste de financiación materialmente más alto que hace tres años. Si CSU necesita refinanciar deuda o acelerar adquisiciones en un entorno de tipos persistentemente elevados, el retorno marginal sobre capital podría erosionarse.
+
+---
+
+### Catalizadores
+
+**Al alza (próximos 12-24 meses):**
+
+- **Aceleración del pipeline M&A** en Europa: Topicus está expandiéndose agresivamente y cualquier trimestre con anuncios de adquisiciones significativas podría catalizar la cotización.
+- **Expansión hacia nuevos mercados verticales y geografías**: CSU está explorando activamente mercados emergentes donde la competencia por activos VMS es menor. Anuncios de entrada en nuevas regiones podrían reclasificar al alza las expectativas de crecimiento a largo plazo.
+- **Publicación de resultados con FCF superior al esperado**: el mercado actualmente infravalora la conversión de caja. Cualquier trimestre que confirme el FCF por encima del consenso podría actuar como catalizador inmediato.
+- **Nuevas iniciativas de IA integradas en el portafolio**: según noticias recientes, CSU está evaluando cómo desplegar capital en soluciones AI-native. Si el mercado percibe que CSU puede agregar valor vía IA sin destruir la disciplina de capital, podría reclasificarse el múltiplo.
 
 **A la baja:**
-- Una recesión global que afecte los presupuestos de los clientes (principalmente entidades públicas y PyMEs), aunque históricamente CSU ha mostrado resiliencia en ciclos bajistas.
-- Tipos de interés persistentemente altos que encarezcan la financiación de adquisiciones y eleven el WACC.
+- Deterioro del FCF por adquisiciones a múltiplos excesivos.
+- Subidas de tipos adicionales que eleven el WACC y compriman múltiplos de valoración en todo el sector.
+- Resultados trimestrales débiles que confirmen presión en márgenes brutos.
 
 ---
 
-## Conclusión y plan de acción
+### Conclusión y plan de acción
 
-**Veredicto: COMPRAR — con convicción a precios por debajo de C$3.000**
+Constellation Software es, en términos simples, **una de las mejores máquinas de compounding de capital en los mercados públicos**. Un historial de 30 años de adquisiciones disciplinadas, ingresos recurrentes defensivos, FCF excepcional (C$2.664M en 2025 con solo 21,2 millones de acciones) y una cultura organizativa difícil de replicar la convierten en un activo de primera categoría.
 
-Constellation Software es una de las empresas más singulares que cotizan en bolsa en el mundo: un compounder de calidad excepcional, con un moat casi inexpugnable basado en costes de cambio, liderazgo con skin-in-the-game (Mark Leonard sigue siendo el principal accionista y apenas hace declaraciones públicas), y un modelo de asignación de capital que ha generado retornos superiores al 20% anual durante tres décadas.
+La corrección del 38% desde máximos la sitúa en valoraciones que incluso en el escenario **más conservador** apenas ofrecen margen de pérdida (~C$2.650 vs. precio actual de C$2.568), mientras que el escenario base implica un potencial de revalorización del **+60%** y el optimista de más del **+140%**.
 
-La corrección del 38% desde máximos no refleja un deterioro fundamental del negocio: el FCF creció un 22,4% en 2024 y el pipeline de adquisiciones sigue activo. Parece responder, más bien, a una rotación sectorial, un ajuste de múltiplos globales en tech y cierta incertidumbre macroeconómica.
+**Recomendación: COMPRAR** por debajo de C$2.700.
 
-**Plan de acción sugerido:**
-- **Entrada principal:** Construir posición en el rango **C$2.500–2.800**, donde el margen de seguridad supera el 40% respecto al escenario base y el pesimista apenas cubre los niveles actuales.
-- **Ampliación:** Si el precio corrigiese hacia C$2.200–2.400 ante deterioro macro (sin cambio fundamental), ampliar con convicción.
-- **Precio objetivo 12–18 meses:** C$3.800–4.200 (escenario base). Potencial de revalorización del **40–55%**.
-- **Horizonte recomendado:** Mínimo 3–5 años. CSU no es una apuesta táctica; es un compounder que trabaja mejor cuanto más tiempo se le da.
+- **Posición inicial sugerida**: construir posición en el rango C$2.400–C$2.700.
+- **Añadir**: en cualquier caída adicional hacia C$2.000–C$2.200, que representaría una oportunidad excepcional.
+- **Stop estratégico**: no aplica en una posición de largo plazo, pero una revisión de tesis se justificaría si el FCF anual cayera consistentemente por debajo de C$1.800M durante dos años consecutivos sin explicación adquisitiva.
+- **Horizonte**: mínimo 3-5 años para capturar el compounding.
 
-> "El mejor negocio para poseer es aquel que, a lo largo de un período prolongado, puede emplear grandes cantidades de capital incremental con tasas de retorno muy altas." — Warren Buffett. Constellation Software es, precisamente, ese negocio.
+CSU no es una apuesta especulativa. Es una empresa excepcional en precio razonable. Y en value investing, eso es exactamente lo que se busca.
 
 ---
 
-*Análisis generado el 19/03/2026. No constituye consejo de inversión. El inversor debe realizar su propio análisis y considerar su perfil de riesgo antes de tomar decisiones de inversión.*
+*Análisis generado el 19/03/2026. No constituye consejo de inversión. Los precios objetivo son el resultado de modelos cuantitativos con supuestos explícitos y pueden diferir materialmente de la realidad futura.*

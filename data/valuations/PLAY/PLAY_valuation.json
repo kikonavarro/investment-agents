@@ -1,0 +1,162 @@
+{
+  "ticker": "PLAY",
+  "company": "Dave & Buster's Entertainment, Inc.",
+  "currency": "$",
+  "date": "2026-03-19",
+  "current_price": 13.76,
+  "shares_outstanding": 34680265,
+  "market_cap": 477200448,
+  "sector": "Communication Services",
+  "industry": "Entertainment",
+  "country": "United States",
+  "business_summary": "Dave & Buster's Entertainment, Inc. owns and operates entertainment and dining venues for adults and families in North America. Its venues offer a menu of entrées and appetizers, as well as a selection of alcoholic and non-alcoholic beverages; and an assortment of entertainment attractions centered on playing games and watching live sports, and other televised events. The company also offers food, drinks, and entertainment, including bowling, laser tag, arcade games, and virtual reality. The company operates its venues under the Dave & Buster's and Main Event brands. Dave & Buster's Entertainment, Inc. was founded in 1982 and is headquartered in Coppell, Texas.",
+  "beta": 1.754,
+  "analyst_targets": {
+    "high": 46.0,
+    "low": 19.0,
+    "mean": 27.25,
+    "current": 13.76
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 2132700000.0,
+    "net_income": 58300000.0,
+    "ebitda": 433200000.0,
+    "free_cashflow": -217900000.0,
+    "gross_margin": 0.8525812350541567,
+    "operating_margin": 0.11211140807427204,
+    "net_margin": 0.02733624044638252,
+    "total_debt": 3139000000.0,
+    "cash": 6900000.0,
+    "total_equity": 145800000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 1304000000.0,
+      "net_income": 108700000.0,
+      "ebitda": 315700000.0,
+      "fcf": 191000000.0,
+      "operating_income": 195300000.0
+    },
+    "2023": {
+      "revenue": 1964400000.0,
+      "net_income": 137100000.0,
+      "ebitda": 422400000.0,
+      "fcf": 210200000.0,
+      "operating_income": 277100000.0
+    },
+    "2024": {
+      "revenue": 2205300000.0,
+      "net_income": 126900000.0,
+      "ebitda": 491900000.0,
+      "fcf": 34000000.0,
+      "operating_income": 325000000.0
+    },
+    "2025": {
+      "revenue": 2132700000.0,
+      "net_income": 58300000.0,
+      "ebitda": 433200000.0,
+      "fcf": -217900000.0,
+      "operating_income": 239100000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Entertainment",
+      "revenues": {
+        "2022": 1304000000.0,
+        "2023": 1964400000.0,
+        "2024": 2205300000.0,
+        "2025": 2132700000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": -0.0009999999999999992,
+      "revenue_growth_y5": 0.03900000000000001,
+      "gross_margin": 0.8427129497765707,
+      "wacc": 0.0515,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.019,
+      "revenue_growth_y5": 0.011399999999999999,
+      "gross_margin": 0.8627129497765708,
+      "wacc": 0.041499999999999995,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": -0.030999999999999993,
+      "revenue_growth_y5": 0.009000000000000008,
+      "gross_margin": 0.8227129497765707,
+      "wacc": 0.0715,
+      "terminal_multiple": 9
+    }
+  },
+  "news": [
+    {
+      "title": "3 Cash-Burning Stocks Walking a Fine Line",
+      "date": "Wed, 18 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "TSM Stock: Why Selling Puts Is The Win-Win Play - Forbes",
+      "date": "Wed, 18 Ma",
+      "source": "Forbes"
+    },
+    {
+      "title": "Undervalued Small Caps With Insider Activity To Watch In February 2026",
+      "date": "Wed, 18 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Undervalued Small Caps With Insider Action Across Regions",
+      "date": "Wed, 11 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dave & Buster’s Entertainment, Inc. to Report Fourth Quarter and Fiscal Year End 2025 Financial Results on March 31, 2026",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dave & Buster's results call on Q4 and fiscal 2025 set for Mar. 31 - Stock Titan",
+      "date": "Tue, 17 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "3 ‘Underappreciated’ Energy Stocks to Play Oil’s Rise - Barron's",
+      "date": "Tue, 17 Ma",
+      "source": "Barron's"
+    },
+    {
+      "title": "Shell: Defensive Play In An Uncertain Energy Market - Seeking Alpha",
+      "date": "Tue, 17 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "CoreWeave Just Landed a Deal With Perplexity. Why This Neocloud Stock Could Be the Comeback Play of 2026. - The Motley Fool",
+      "date": "Tue, 17 Ma",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Darden Restaurants (DRI) Q3 Earnings Match Estimates",
+      "date": "Thu, 19 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PLAY/PLAY_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PLAY/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PLAY/SEC_filings/10K_2024.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PLAY/SEC_filings/10K_2023.htm"
+    ]
+  }
+}

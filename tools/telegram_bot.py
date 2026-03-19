@@ -28,16 +28,161 @@ def _load_config():
     return token, user_id, group_id, api_base
 
 
-def send_message(api_base: str, chat_id: str, text: str):
-    """Envia un mensaje por Telegram. Divide si supera 4096 chars."""
+def _escape_html(text: str) -> str:
+    """Escapa caracteres especiales para HTML de Telegram."""
+    return (text
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;"))
+
+
+def _md_to_html(text: str) -> str:
+    """Convierte markdown basico a HTML de Telegram."""
+    import re
+    # Escapar HTML primero
+    text = _escape_html(text)
+    # **bold** -> <b>bold</b>
+    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+    # *italic* -> <i>italic</i> (pero no si es parte de **)
+    text = re.sub(r'(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)', r'<i>\1</i>', text)
+    # `code` -> <code>code</code>
+    text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
+    return text
+
+
+def _format_for_telegram(text: str) -> str:
+    """Convierte el output del pipeline a formato HTML limpio para Telegram."""
+    import re
+    lines = text.split("\n")
+    result = []
+
+    for raw_line in lines:
+        stripped = raw_line.strip()
+
+        # Saltar lineas de solo separadores (===, ---, ***)
+        if re.match(r'^[=\-\*]{3,}$', stripped):
+            continue
+
+        # Lineas vacias
+        if not stripped:
+            if result and result[-1] != "":
+                result.append("")
+            continue
+
+        # Markdown headers: ## Titulo -> negrita
+        m = re.match(r'^#{1,4}\s+(.+)$', stripped)
+        if m:
+            result.append(f"\n<b>{_escape_html(m.group(1))}</b>")
+            continue
+
+        # Titulo del pipeline: "Valoracion de TICKER" o "VALORACION COMPLETADA:"
+        if re.match(r'(Valoracion de|VALORACION COMPLETADA:)', stripped):
+            result.append(f"\n{'─' * 25}")
+            result.append(f"<b>{_escape_html(stripped)}</b>")
+            result.append(f"{'─' * 25}")
+            continue
+
+        # Pasos: "--- PASO 1/5: ... ---"
+        m = re.match(r'^-{2,}\s*(PASO \d/\d:.+?)\s*-{2,}$', stripped)
+        if m:
+            result.append(f"\n📋 <b>{_escape_html(m.group(1))}</b>")
+            continue
+
+        # Secciones de agente: "--- ANALYST ---"
+        m = re.match(r'^-{2,}\s*([A-Z_]+)\s*-{2,}$', stripped)
+        if m:
+            result.append(f"\n🔹 <b>{_escape_html(m.group(1))}</b>")
+            continue
+
+        # Fechas standalone
+        if re.match(r'^\d{4}-\d{2}-\d{2}', stripped):
+            result.append(f"<i>{_escape_html(stripped)}</i>")
+            continue
+
+        # Escenarios: "Bear:", "Base:", "Bull:" al inicio
+        m = re.match(r'^(Bear|Base|Bull|bear|base|bull):\s*(.*)$', stripped)
+        if m:
+            emoji = {"bear": "🐻", "base": "📊", "bull": "🐂"}.get(m.group(1).lower(), "•")
+            result.append(f"  {emoji} <b>{_escape_html(m.group(1))}:</b> {_escape_html(m.group(2))}")
+            continue
+
+        # Lineas clave: valor (con indentacion en el original)
+        if raw_line.startswith("    ") or raw_line.startswith("\t"):
+            m = re.match(r'^([\w\s]+?):\s+(.+)$', stripped)
+            if m:
+                result.append(f"  <b>{_escape_html(m.group(1))}:</b> {_escape_html(m.group(2))}")
+                continue
+
+        # Archivos: "├──" y "└──"
+        if "├──" in stripped or "└──" in stripped:
+            result.append(f"  <code>{_escape_html(stripped)}</code>")
+            continue
+
+        # Instruccion y Plan del pipeline
+        if stripped.startswith("Instruccion:") or stripped.startswith("Plan:"):
+            result.append(f"<b>{_escape_html(stripped)}</b>")
+            continue
+
+        # Markdown tables: | col1 | col2 | -> formato limpio
+        if stripped.startswith("|") and "|" in stripped[1:]:
+            # Saltar lineas separadoras de tabla |---|---|
+            if re.match(r'^\|[\s\-:|]+\|$', stripped):
+                continue
+            cells = [c.strip() for c in stripped.split("|")[1:-1]]
+            if cells:
+                result.append("  " + " │ ".join(_escape_html(c) for c in cells))
+            continue
+
+        # Listas markdown: - item o * item
+        m = re.match(r'^[\-\*]\s+(.+)$', stripped)
+        if m:
+            result.append(f"  • {_md_to_html(m.group(1))}")
+            continue
+
+        # Listas numeradas: 1. item
+        m = re.match(r'^(\d+)\.\s+(.+)$', stripped)
+        if m:
+            result.append(f"  {m.group(1)}. {_md_to_html(m.group(2))}")
+            continue
+
+        # Resto: convertir markdown inline
+        result.append(_md_to_html(stripped))
+
+    # Limpiar lineas vacias consecutivas
+    cleaned = []
+    for line in result:
+        if line == "" and cleaned and cleaned[-1] == "":
+            continue
+        cleaned.append(line)
+
+    return "\n".join(cleaned).strip()
+
+
+def send_message(api_base: str, chat_id: str, text: str, html: bool = True):
+    """Envia un mensaje por Telegram con formato HTML. Divide si supera 4096 chars."""
     url = f"{api_base}/sendMessage"
-    chunks = [text[i:i + 4096] for i in range(0, len(text), 4096)]
+
+    if html:
+        formatted = _format_for_telegram(text)
+    else:
+        formatted = text
+
+    chunks = [formatted[i:i + 4096] for i in range(0, len(formatted), 4096)]
     for chunk in chunks:
         try:
-            requests.post(url, json={
-                "chat_id": chat_id,
-                "text": chunk,
-            })
+            payload = {"chat_id": chat_id, "text": chunk}
+            if html:
+                payload["parse_mode"] = "HTML"
+            resp = requests.post(url, json=payload)
+            resp_data = resp.json()
+            if not resp_data.get("ok"):
+                # Log del error HTML para depurar
+                print(f"[Telegram] HTML falló: {resp_data.get('description', 'unknown')}")
+                # Reintentar sin formato, dividiendo el texto original
+                plain_chunks = [text[i:i + 4096] for i in range(0, len(text), 4096)]
+                for plain_chunk in plain_chunks:
+                    requests.post(url, json={"chat_id": chat_id, "text": plain_chunk})
+                return  # Ya enviamos todo en plain, no seguir con chunks HTML
         except Exception as e:
             print(f"[Telegram] Error enviando mensaje: {e}")
 
@@ -214,7 +359,7 @@ def run_bot():
             user_name = msg.get("from", {}).get("first_name", "Usuario")
             print(f"[Telegram] Mensaje de {user_name} ({chat_type}): {text}")
 
-            send_message(api_base, chat_id, "Procesando tu solicitud...")
+            send_message(api_base, chat_id, "⏳ Procesando tu solicitud...", html=False)
 
             response = process_message(text, from_group=is_allowed_group, chat_id=chat_id)
 
