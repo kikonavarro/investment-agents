@@ -1,0 +1,140 @@
+{
+  "ticker": "IVN.TO",
+  "company": "Ivanhoe Mines Ltd.",
+  "currency": "C$",
+  "date": "2026-03-18",
+  "current_price": 11.59,
+  "shares_outstanding": 1425962853,
+  "market_cap": 16526910464,
+  "sector": "Basic Materials",
+  "industry": "Other Industrial Metals & Mining",
+  "country": "Canada",
+  "business_summary": "Ivanhoe Mines Ltd., together with its subsidiaries, engages in the mining, development, and exploration of minerals and precious metals in Africa. The company explores gold, platinum, palladium, rhodium, nickel, copper, zinc, germanium, silver, and lead deposits. Its projects include the Kamoa-Kakula Copper Complex mine located in the Central African Copperbelt; the Kipushi Zinc mine in Southern Haut-Katanga Province, Democratic Republic of Congo; and the Platreef PGM-Nickel mine located in the Northern Limb of South Africa's Bushveld Igneous Complex. It also holds interest in the Western Foreland exploration project covering an area of approximately 2,390 square kilometers located in the Democratic Republic of Congo. The company was formerly known as Ivanplats Limited and changed its name to Ivanhoe Mines Ltd. in August 2013. The company was incorporated in 1993 and is based in Vancouver, Canada.",
+  "beta": 1.768,
+  "analyst_targets": {
+    "high": 24.008484,
+    "low": 14.504811,
+    "mean": 19.209526,
+    "current": 11.59
+  },
+  "historical_years": [
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 441615000.0,
+    "net_income": 261555000.0,
+    "ebitda": 324606000.0,
+    "free_cashflow": -469263000.0,
+    "gross_margin": 0.0383999637693466,
+    "operating_margin": -0.21155984284954088,
+    "net_margin": 0.5922692843313746,
+    "total_debt": 1266719000.0,
+    "cash": 764267000.0,
+    "total_equity": 5725096000.0
+  },
+  "historical_data": {
+    "2024": {
+      "revenue": 40818000.0,
+      "net_income": 228135000.0,
+      "ebitda": 208112000.0,
+      "fcf": -644144000.0,
+      "operating_income": -133028000.0
+    },
+    "2025": {
+      "revenue": 441615000.0,
+      "net_income": 261555000.0,
+      "ebitda": 324606000.0,
+      "fcf": -469263000.0,
+      "operating_income": -93428000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Other Industrial Metals & Mining",
+      "revenues": {
+        "2024": 40818000.0,
+        "2025": 441615000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.4,
+      "revenue_growth_y5": 0.24,
+      "gross_margin": 0.1,
+      "wacc": 0.1349,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.52,
+      "revenue_growth_y5": 0.312,
+      "gross_margin": 0.1,
+      "wacc": 0.1249,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": 0.28,
+      "revenue_growth_y5": 0.168,
+      "gross_margin": 0.1,
+      "wacc": 0.15489999999999998,
+      "terminal_multiple": 9
+    }
+  },
+  "news": [
+    {
+      "title": "Ivanhoe Mines Issues 2025 First Quarter Financial Results, Overview of Construction and Exploration Activities - Ivanhoe Mines",
+      "date": "Wed, 30 Ap",
+      "source": "Ivanhoe Mines"
+    },
+    {
+      "title": "Ivanhoe Mines Ltd (IVPAF) Q4 2025 Earnings Call Highlights: Record Revenue and Strategic ...",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Ivanhoe Mines Issues 2025 Fourth Quarter and Annual Financial Results",
+      "date": "Wed, 18 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Ivanhoe Mines (TSX:IVN): Assessing Valuation After Recent 24% Share Price Surge - Yahoo Finance",
+      "date": "Wed, 15 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Earnings Preview: Ivanhoe Mines Ltd. (IVPAF) Q4 Earnings Expected to Decline",
+      "date": "Wed, 11 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Copper Prices and Mining Stocks Fell Hard on Iran War. Why the Dip Is Worth Buying.",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Surging Earnings Estimates Signal Upside for Ivanhoe Mines Ltd. (IVPAF) Stock",
+      "date": "Wed, 04 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is It Too Late To Consider Ivanhoe Mines (TSX:IVN) After Strong Multi‑Year Gains?",
+      "date": "Wed, 04 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Ivanhoe Mines Q4 Earnings Call Highlights",
+      "date": "Tue, 24 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is It Time To Reassess Ivanhoe Mines (TSX:IVN) After Recent Share Price Pullback",
+      "date": "Tue, 24 Fe",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/IVN_TO/IVN_TO_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

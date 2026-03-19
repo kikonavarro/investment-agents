@@ -1,0 +1,162 @@
+{
+  "ticker": "OSCR",
+  "company": "Oscar Health, Inc.",
+  "currency": "$",
+  "date": "2026-03-12",
+  "current_price": 13.4,
+  "shares_outstanding": 262157000,
+  "market_cap": 3989822976,
+  "sector": "Healthcare",
+  "industry": "Healthcare Plans",
+  "country": "United States",
+  "business_summary": "Oscar Health, Inc. operates as a healthcare technology company in the United States. The company offers health plans to individuals, families, employees, and small group markets. It also provides +Oscar platform that power others throughout the healthcare system; Campaign Builder platform, an engagement and recommendation platform for providers and payors; and reinsurance products. In addition, the company offers brokerage services and enrollment platform for brokers and consumers to shop, buy, and enroll in medical and supplemental health products. The company was formerly known as Mulberry Health Inc. and changed its name to Oscar Health, Inc. in January 2021. Oscar Health, Inc. was incorporated in 2012 and is headquartered in New York, New York.",
+  "beta": 1.902,
+  "analyst_targets": {
+    "high": 23.0,
+    "low": 10.0,
+    "mean": 15.4,
+    "current": 13.4
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 11701427000.0,
+    "net_income": -443151000.0,
+    "ebitda": -390804000.0,
+    "free_cashflow": 1058482000.0,
+    "gross_margin": 0.0,
+    "operating_margin": -0.03586707843410893,
+    "net_margin": -0.03787153481365991,
+    "total_debt": 430095000.0,
+    "cash": 2774151000.0,
+    "total_equity": 980735000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 4125584000.0,
+      "net_income": -606275000.0,
+      "ebitda": -572169000.0,
+      "fcf": 351337000.0,
+      "operating_income": -587452000.0
+    },
+    "2023": {
+      "revenue": 5862869000.0,
+      "net_income": -270728000.0,
+      "ebitda": -212003000.0,
+      "fcf": -297736000.0,
+      "operating_income": -242697000.0
+    },
+    "2024": {
+      "revenue": 9177941000.0,
+      "net_income": 25432000.0,
+      "ebitda": 89305000.0,
+      "fcf": 950296000.0,
+      "operating_income": 57160000.0
+    },
+    "2025": {
+      "revenue": 11701427000.0,
+      "net_income": -443151000.0,
+      "ebitda": -390804000.0,
+      "fcf": 1058482000.0,
+      "operating_income": -419696000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Healthcare Plans",
+      "revenues": {
+        "2022": 4125584000.0,
+        "2023": 5862869000.0,
+        "2024": 9177941000.0,
+        "2025": 11701427000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.173,
+      "revenue_growth_y5": 0.10379999999999999,
+      "gross_margin": 0.4,
+      "wacc": 0.1374,
+      "terminal_multiple": 16
+    },
+    "bull": {
+      "revenue_growth_y1": 0.2249,
+      "revenue_growth_y5": 0.13493999999999998,
+      "gross_margin": 0.42000000000000004,
+      "wacc": 0.12739999999999999,
+      "terminal_multiple": 18
+    },
+    "bear": {
+      "revenue_growth_y1": 0.12109999999999999,
+      "revenue_growth_y5": 0.07265999999999999,
+      "gross_margin": 0.38,
+      "wacc": 0.15739999999999998,
+      "terminal_multiple": 13
+    }
+  },
+  "news": [
+    {
+      "title": "Assessing Oscar Health (OSCR) Valuation After Recent Weak Share Price Performance",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Longleaf Partners Small-Cap Fund’s Investment in Oscar Health (OSCR) Paid Off",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Oscar Health Tumbles: Can This Insurtech Disruptor Bounce Back? - Forbes",
+      "date": "Wed, 25 Fe",
+      "source": "Forbes"
+    },
+    {
+      "title": "Oscar Health Stock Tumbled 22% – Opportunity or Trap? - Trefis",
+      "date": "Wed, 25 Fe",
+      "source": "Trefis"
+    },
+    {
+      "title": "Is 21.7% Fall In Oscar Health (OSCR) Stock A Buying Opportunity? - Trefis",
+      "date": "Wed, 25 Fe",
+      "source": "Trefis"
+    },
+    {
+      "title": "Why Is Oscar Health Stock Down 34% From Its 52-Week High - TIKR.com",
+      "date": "Wed, 24 De",
+      "source": "TIKR.com"
+    },
+    {
+      "title": "Raymond James Upgrades Oscar Health, Inc. (OSCR), UBS Lowers PT",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Time To Buy The Dip In Oscar Health Stock? - Trefis",
+      "date": "Wed, 11 Ma",
+      "source": "Trefis"
+    },
+    {
+      "title": "Oscar Health, Inc. (OSCR) Stock Slides as Market Rises: Facts to Know Before You Trade - Yahoo Finance",
+      "date": "Tue, 27 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Oscar Health’s Q4 Earnings Call: Our Top 5 Analyst Questions",
+      "date": "Tue, 17 Fe",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/OSCR/OSCR_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/OSCR/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/OSCR/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/OSCR/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

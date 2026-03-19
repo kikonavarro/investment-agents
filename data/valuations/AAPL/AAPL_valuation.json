@@ -1,0 +1,162 @@
+{
+  "ticker": "AAPL",
+  "company": "Apple Inc.",
+  "currency": "$",
+  "date": "2026-03-10",
+  "current_price": 259.88,
+  "shares_outstanding": 14681140000,
+  "market_cap": 3819697078272,
+  "sector": "Technology",
+  "industry": "Consumer Electronics",
+  "country": "United States",
+  "business_summary": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and wearables, home, and accessories comprising AirPods, Apple Vision Pro, Apple TV, Apple Watch, Beats products, and HomePod, as well as Apple branded and third-party accessories. It also provides AppleCare support and cloud services; and operates various platforms, including the App Store that allow customers to discover and download applications and digital content, such as books, music, video, games, and podcasts, as well as advertising services include third-party licensing arrangements and its own advertising platforms. In addition, the company offers various subscription-based services, such as Apple Arcade, a game subscription service; Apple Fitness+, a personalized fitness service; Apple Music, which offers users a curated listening experience with on-demand radio stations; Apple News+, a subscription news and magazine service; Apple TV, which offers exclusive original content and live sports; Apple Card, a co-branded credit card; and Apple Pay, a cashless payment service, as well as licenses its intellectual property. The company serves consumers, and small and mid-sized businesses; and the education, enterprise, and government markets. It distributes third-party applications for its products through the App Store. The company also sells its products through its retail and online stores, and direct sales force; and third-party cellular network carriers and resellers. The company was formerly known as Apple Computer, Inc. and changed its name to Apple Inc. in January 2007. Apple Inc. was founded in 1976 and is headquartered in Cupertino, California.",
+  "beta": 1.116,
+  "analyst_targets": {
+    "high": 350.0,
+    "low": 205.0,
+    "mean": 295.43536,
+    "current": 259.88
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 416161000000.0,
+    "net_income": 112010000000.0,
+    "ebitda": 144748000000.0,
+    "free_cashflow": 98767000000.0,
+    "gross_margin": 0.4690516410716045,
+    "operating_margin": 0.31970799762591884,
+    "net_margin": 0.2691506412181824,
+    "total_debt": 98657000000.0,
+    "cash": 35934000000.0,
+    "total_equity": 73733000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 394328000000.0,
+      "net_income": 99803000000.0,
+      "ebitda": 130541000000.0,
+      "fcf": 111443000000.0,
+      "operating_income": 119437000000.0
+    },
+    "2023": {
+      "revenue": 383285000000.0,
+      "net_income": 96995000000.0,
+      "ebitda": 125820000000.0,
+      "fcf": 99584000000.0,
+      "operating_income": 114301000000.0
+    },
+    "2024": {
+      "revenue": 391035000000.0,
+      "net_income": 93736000000.0,
+      "ebitda": 134661000000.0,
+      "fcf": 108807000000.0,
+      "operating_income": 123216000000.0
+    },
+    "2025": {
+      "revenue": 416161000000.0,
+      "net_income": 112010000000.0,
+      "ebitda": 144748000000.0,
+      "fcf": 98767000000.0,
+      "operating_income": 133050000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Consumer Electronics",
+      "revenues": {
+        "2022": 394328000000.0,
+        "2023": 383285000000.0,
+        "2024": 391035000000.0,
+        "2025": 416161000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.157,
+      "revenue_growth_y5": 0.09419999999999999,
+      "gross_margin": 0.4513806851524051,
+      "wacc": 0.1048,
+      "terminal_multiple": 19
+    },
+    "bull": {
+      "revenue_growth_y1": 0.2041,
+      "revenue_growth_y5": 0.12246,
+      "gross_margin": 0.4713806851524051,
+      "wacc": 0.09480000000000001,
+      "terminal_multiple": 21
+    },
+    "bear": {
+      "revenue_growth_y1": 0.1099,
+      "revenue_growth_y5": 0.06594,
+      "gross_margin": 0.4313806851524051,
+      "wacc": 0.12480000000000001,
+      "terminal_multiple": 16
+    }
+  },
+  "news": [
+    {
+      "title": "Apple Stock (AAPL) Opinions on New MacBook Neo Launch - Quiver Quantitative",
+      "date": "Sun, 08 Ma",
+      "source": "Quiver Quantitative"
+    },
+    {
+      "title": "Apple (AAPL) Stock Gets $350 Target From Wedbush as One Pre-IPO Entry Quietly Targets 267x Returns - openPR.com",
+      "date": "Sun, 08 Ma",
+      "source": "openPR.com"
+    },
+    {
+      "title": "Apple (NASDAQ:AAPL) Stock Price Down 1.1% - Should You Sell? - National Today",
+      "date": "Sun, 08 Ma",
+      "source": "National Today"
+    },
+    {
+      "title": "Will AAPL stock gain from lower inflation - 2025 Short Interest & Weekly High Momentum Picks - Naître et grandir",
+      "date": "Sat, 07 Ma",
+      "source": "Naître et grandir"
+    },
+    {
+      "title": "Apple Stock Week Ahead: March 11 Rollout and CPI Test AAPL After Friday Pullback - TechStock²",
+      "date": "Sat, 07 Ma",
+      "source": "TechStock²"
+    },
+    {
+      "title": "Apple (AAPL) Stock Trades Up, Here Is Why - Yahoo Finance",
+      "date": "Mon, 26 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Apple’s New Budget AI Devices Test Valuation And Services Growth Story",
+      "date": "Mon, 09 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Apple's Latest Move Is a Brilliant One, and It Could Be a Game Changer for the Stock",
+      "date": "Mon, 09 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Apple Faces a Memory Crunch. Why Analysts Say the Stock Is Still a Buy.",
+      "date": "Mon, 09 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Apple Postpones Smart Home Display Launch as It Waits for New AI and Siri",
+      "date": "Mon, 09 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AAPL/AAPL_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AAPL/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AAPL/SEC_filings/10K_2024.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AAPL/SEC_filings/10K_2023.htm"
+    ]
+  }
+}

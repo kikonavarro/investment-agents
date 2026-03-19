@@ -1,0 +1,119 @@
+{
+  "ticker": "1ZG.F",
+  "company": "Zegona Communications plc",
+  "currency": "$",
+  "date": "2026-03-18",
+  "current_price": 20.4,
+  "shares_outstanding": 229433802,
+  "market_cap": 4786967552,
+  "sector": "Communication Services",
+  "industry": "Telecom Services",
+  "country": "United Kingdom",
+  "business_summary": "Zegona Communications plc provides integrated telecommunications services in Spain. The company offers broadband, mobile, TV, voice, data, and other value-added products and services. It serves business-to-consumer and business-to-business markets. The company was incorporated in 2015 and is based in London, the United Kingdom. Zegona Communications plc is a subsidiary of Ejlshm Funding Limited.",
+  "beta": 3.834,
+  "analyst_targets": {
+    "high": 0,
+    "low": 0,
+    "mean": 0,
+    "current": 20.4
+  },
+  "historical_years": [],
+  "latest_financials": {
+    "revenue": 0,
+    "net_income": 0,
+    "ebitda": 0,
+    "free_cashflow": 0,
+    "gross_margin": 0,
+    "operating_margin": 0,
+    "net_margin": 0,
+    "total_debt": 0,
+    "cash": 0,
+    "total_equity": 0
+  },
+  "historical_data": {},
+  "segments": [
+    {
+      "name": "Telecom Services",
+      "revenues": {}
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.4,
+      "revenue_growth_y5": 0.24,
+      "gross_margin": 0.4,
+      "wacc": 0.146,
+      "terminal_multiple": 17
+    },
+    "bull": {
+      "revenue_growth_y1": 0.52,
+      "revenue_growth_y5": 0.312,
+      "gross_margin": 0.42000000000000004,
+      "wacc": 0.13599999999999998,
+      "terminal_multiple": 19
+    },
+    "bear": {
+      "revenue_growth_y1": 0.28,
+      "revenue_growth_y5": 0.168,
+      "gross_margin": 0.38,
+      "wacc": 0.16599999999999998,
+      "terminal_multiple": 14
+    }
+  },
+  "news": [
+    {
+      "title": "Is Zegona Communications plc (LON:ZEG) Trading At A 31% Discount?",
+      "date": "Wed, 08 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "An Intrinsic Calculation For Zegona Communications plc (LON:ZEG) Suggests It's 45% Undervalued",
+      "date": "Tue, 08 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "UK Stocks Trading Below Estimated Value In January 2026",
+      "date": "Thu, 22 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 UK Stocks That May Be Priced Below Their Estimated Value In October 2025",
+      "date": "Thu, 16 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "UK Value Stocks Trading At Estimated Discounts For September 2025",
+      "date": "Thu, 11 Se",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Telecoms boss lands record £131m payday",
+      "date": "Sun, 27 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Zegona Communications plc (LON:ZEG) Is About To Turn The Corner",
+      "date": "Sun, 17 Au",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Returns Are Gaining Momentum At Zegona Communications (LON:ZEG)",
+      "date": "Sat, 19 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "UK Stocks That Might Be Trading Below Their Estimated Value",
+      "date": "Mon, 21 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Market Chatter: AXA Investment in Advanced Talks to Buy 30% Stake in FiberPass",
+      "date": "Mon, 11 Au",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/1ZG_F/1ZG_F_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

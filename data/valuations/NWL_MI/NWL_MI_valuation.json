@@ -1,0 +1,158 @@
+{
+  "ticker": "NWL.MI",
+  "company": "NewPrinces S.p.A.",
+  "currency": "$",
+  "date": "2026-03-16",
+  "current_price": 17.62,
+  "shares_outstanding": 42247079,
+  "market_cap": 745408768,
+  "sector": "Consumer Defensive",
+  "industry": "Packaged Foods",
+  "country": "Italy",
+  "business_summary": "NewPrinces S.p.A. engages in the agri-food sector in Italy, Germany, the United Kingdom, and internationally. It operates through Pasta, Milk Products, Bakery Products, Dairy Products, Special Products, Instant Noodles and Bakery Mixes, Foods, Drinks, Fish, Italian Products, Oils, and Other Products segments. The company offers baby food comprising liquid and powdered milk, whole and granulated biscuits, freeze-dried meats, and precooked cereals; bakery products consisting of crispbreads, crostini, and puffed crackers; beverages, such as fruit juices, carbonated and flavored soft drinks, spirits, cocktails, and ready-to-drink beverages; canned food, including legumes, peas, soup, fruits, and vegetables; and canned tomatoes. It also provides canned fish products comprising tuna, mackerel, and sardines; home baking products consisting of creams, puddings, cake mixes, mousses, and spoon desserts; milk and dairy products, such as fresh milk, cream, mascarpone, and cheese; sunflower and olive oils, and margarine; pasta; plant-based alternatives, including plant-based drinks and fermented preparations; and ready-to-eat meals. The company sells its products under the 3 Glocken, Ala, Batchelors, Birkel, Branston, Cappuccino Lovers, Centrale del Latte di Salerno, Tapporosso - Centrale del Latte di Torino, EXPERT - Centrale del Latte d'Italia, Centrale del Latte Vicenza, Chicken Tonight, Ciccarese, Corticella, Crisp 'N Dry, Crosse & Blackwell, Delverde, Farrow's, Fior di Salento, Flora, Giglio, Guacci, Hunger Breaks, Jucee, Latte Tigullio, Matese, Mazola, Minuto, Mug Shot, Mukki, Mukki Bimbo, Naked Noodle, Napolina, Olivio, Optimus, Pezzullo, Polenghi Lombardo, Princes, Ragu, Torre in Pietra, Trex, Vier Diamanten, and Wielkopolski brands. The company was formerly known as Newlat Food S.p.A. and changed its name to NewPrinces S.p.A. in May 2025. The company was founded in 2004 and is headquartered in Reggio Emilia, Italy. NewPrinces S.p.A. is a subsidiary of Newlat Group S.A.",
+  "beta": 0.492,
+  "analyst_targets": {
+    "high": 30.5,
+    "low": 28.5,
+    "mean": 29.5,
+    "current": 17.62
+  },
+  "historical_years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "latest_financials": {
+    "revenue": 1641109000.0,
+    "net_income": 157933000.0,
+    "ebitda": 261692000.0,
+    "free_cashflow": 253009000.0,
+    "gross_margin": 0.16537414638515785,
+    "operating_margin": 0.02594099477853086,
+    "net_margin": 0.09623553341063878,
+    "total_debt": 1272803000.0,
+    "cash": 455135000.0,
+    "total_equity": 395942000.0
+  },
+  "historical_data": {
+    "2021": {
+      "revenue": 555864000.0,
+      "net_income": 5134000.0,
+      "ebitda": 47746000.0,
+      "fcf": 47920000.0,
+      "operating_income": 18196000.0
+    },
+    "2022": {
+      "revenue": 741095000.0,
+      "net_income": 6223000.0,
+      "ebitda": 54350000.0,
+      "fcf": 2328000.0,
+      "operating_income": 21340000.0
+    },
+    "2023": {
+      "revenue": 793339000.0,
+      "net_income": 14325000.0,
+      "ebitda": 75948000.0,
+      "fcf": 37452000.0,
+      "operating_income": 27835000.0
+    },
+    "2024": {
+      "revenue": 1641109000.0,
+      "net_income": 157933000.0,
+      "ebitda": 261692000.0,
+      "fcf": 253009000.0,
+      "operating_income": 42572000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Packaged Foods",
+      "revenues": {
+        "2021": 555864000.0,
+        "2022": 741095000.0,
+        "2023": 793339000.0,
+        "2024": 1641109000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.182,
+      "revenue_growth_y5": 0.10919999999999999,
+      "gross_margin": 0.18148935113462467,
+      "wacc": 0.0527,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.23659999999999998,
+      "revenue_growth_y5": 0.14195999999999998,
+      "gross_margin": 0.20148935113462466,
+      "wacc": 0.042699999999999995,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": 0.1274,
+      "revenue_growth_y5": 0.07644000000000001,
+      "gross_margin": 0.16148935113462468,
+      "wacc": 0.0727,
+      "terminal_multiple": 9
+    }
+  },
+  "news": [
+    {
+      "title": "Does NewPrinces Still Offer Value After a 61.4% Surge in 2025?",
+      "date": "Wed, 17 De",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NewPrinces (BIT:NWL) Earnings Surge With EUR 1.3 Billion Sales And EUR 21 Million Income",
+      "date": "Wed, 10 Se",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NewPrinces ‘eyes October listing in London for Princes’",
+      "date": "Tue, 22 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NewPrinces (BIT:NWL): Exploring Valuation After Recent Stock Volatility and Momentum",
+      "date": "Tue, 09 Se",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Morgan Stanley, Houlihan Lokey top consumer M&A adviser charts – data",
+      "date": "Tue, 04 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NewPrinces’ move for Carrefour’s Italy stores stuns food sector",
+      "date": "Thu, 31 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Undiscovered Gems And 2 Other Promising European Stocks To Watch",
+      "date": "Thu, 11 Se",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NewPrinces strikes deal to buy Kraft Heinz baby-food assets",
+      "date": "Thu, 10 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Princes Group London IPO gets muted response as trading starts",
+      "date": "Fri, 31 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Princes Group starts London trading with £1.16bn valuation",
+      "date": "Fri, 31 Oc",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NWL_MI/NWL_MI_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "ticker": "NTSK",
+  "company": "Netskope, Inc.",
+  "currency": "$",
+  "date": "2026-03-17",
+  "current_price": 9.66,
+  "shares_outstanding": 156000000,
+  "market_cap": 3864000000,
+  "sector": "Technology",
+  "industry": "Software - Infrastructure",
+  "country": "United States",
+  "business_summary": "Netskope, Inc., a cybersecurity company, provides security, networking, and analytics solutions to largest enterprises to mid-sized companies worldwide. It develops Netskope One platform, a cloud-native platform for securing and accelerating the digital interactions of enterprises. Its platform offers security products comprising cloud inline security, cloud access security broker, data loss prevention, threat protection, secure web gateway, private access, remote browser isolation, Software-as-a-Service (SaaS) security posture management, data security posture management, and enterprise browser solutions for safeguarding human users, non-human entities, and data from cyber threats through the use of zero trust principles. The company's platform also provides networking products, such as Firewall-as-a-Service, internet of things/operational technology intelligence, software-defined wide-area network, dedicated egress IP, and Cloud Packet Stream solutions that enhance performance, resilience, connectivity, and security; and analytics solutions, including advanced analytics, user and entity behavior analytics, and digital experience management that enables enterprises with insights into user activity, data movement, and security events across the web, cloud, SaaS, AI applications, private applications, and other environments. Netskope, Inc. was formerly known as Skope, Inc. and changed its name to Netskope, Inc. in November 2012. Netskope, Inc. was incorporated in 2012 and is based in Santa Clara, California.",
+  "beta": 1.0,
+  "analyst_targets": {
+    "high": 28.0,
+    "low": 13.0,
+    "mean": 18.41176,
+    "current": 9.66
+  },
+  "historical_years": [
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 538268000.0,
+    "net_income": -354510000.0,
+    "ebitda": -204197000.0,
+    "free_cashflow": -151100000.0,
+    "gross_margin": 0.6463304524883515,
+    "operating_margin": -0.4751183425356885,
+    "net_margin": -0.6586124384135784,
+    "total_debt": 662697000.0,
+    "cash": 166012000.0,
+    "total_equity": -485589000.0
+  },
+  "historical_data": {
+    "2024": {
+      "revenue": 406883000.0,
+      "net_income": -344852000.0,
+      "ebitda": -263250000.0,
+      "fcf": -208318000.0,
+      "operating_income": -312798000.0
+    },
+    "2025": {
+      "revenue": 538268000.0,
+      "net_income": -354510000.0,
+      "ebitda": -204197000.0,
+      "fcf": -151100000.0,
+      "operating_income": -255741000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Software - Infrastructure",
+      "revenues": {
+        "2024": 406883000.0,
+        "2025": 538268000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.322,
+      "revenue_growth_y5": 0.1932,
+      "gross_margin": 0.6220840800670192,
+      "wacc": 0.0901,
+      "terminal_multiple": 21
+    },
+    "bull": {
+      "revenue_growth_y1": 0.4186,
+      "revenue_growth_y5": 0.25116,
+      "gross_margin": 0.6420840800670192,
+      "wacc": 0.0801,
+      "terminal_multiple": 23
+    },
+    "bear": {
+      "revenue_growth_y1": 0.2254,
+      "revenue_growth_y5": 0.13524,
+      "gross_margin": 0.6020840800670192,
+      "wacc": 0.1101,
+      "terminal_multiple": 18
+    }
+  },
+  "news": [
+    {
+      "title": "Netskope (NTSK) Q4 2026 Earnings Call Transcript",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Netskope Q4 Earnings Call Highlights",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Netskope: Fiscal Q4 Earnings Snapshot",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Netskope Announces Strong Fourth Quarter and Fiscal Year 2026 Financial Results",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Netskope Unveils Netskope One AI Security, Delivering High-Performance Protection Across the Entire AI Ecosystem",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "390M Netskope shares unlock March 13 after 2026 results - Stock Titan",
+      "date": "Wed, 11 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Netskope shares tumble 15% despite earnings beat on lockup period expiry - Investing.com",
+      "date": "Wed, 11 Ma",
+      "source": "Investing.com"
+    },
+    {
+      "title": "NTSK Stock Down Over 65% From Highs. Here’s What’s Driving the Move - TIKR.com",
+      "date": "Tue, 24 Fe",
+      "source": "TIKR.com"
+    },
+    {
+      "title": "February inflation data, earnings, Fed commentary: What to Watch",
+      "date": "Tue, 10 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Wells Fargo Breaks Down Cyber Stocks",
+      "date": "Tue, 03 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NTSK/NTSK_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

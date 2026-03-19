@@ -1,0 +1,162 @@
+{
+  "ticker": "SLP",
+  "company": "Simulations Plus, Inc.",
+  "currency": "$",
+  "date": "2026-03-17",
+  "current_price": 12.12,
+  "shares_outstanding": 20146585,
+  "market_cap": 244176624,
+  "sector": "Healthcare",
+  "industry": "Health Information Services",
+  "country": "United States",
+  "business_summary": "Simulations Plus, Inc. develops drug discovery and development software for modeling and simulation, and prediction of molecular properties utilizing artificial intelligence and machine learning based technology worldwide. It operates through Software and Services segments. The company offers GastroPlus, which predicts absorption, biopharmaceutics, pharmacokinetics, and pharmacodynamics in humans and animals; and DDDPlus and MembranePlus simulation products. It also provides products based on mechanistic and mathematical models, such as DILIsym, NAFLDsym, ILDsym, IPFsym, RENAsym, MITOsym, OBESITYsym, and Thales products. In addition, the company offers Absorption, Distribution, Metabolism, Excretion, and Toxicity (ADMET) predictor for chemistry-based computer program that takes molecular structures as inputs and predicts their properties; and MedChem Designer, as well as MonolixSuite products for modeling and simulation that allows for population analyses, rapid clinical trial data analyses, and regulatory submissions. Further, it provides clinical-pharmacology-based consulting services, which includes population pharmacokinetic and pharmacodynamic modeling, exposure-response analyses, clinical trial simulations, data programming, and technical writing services in support of regulatory submissions; and early drug discovery services. Additionally, the company offers creative and insightful consulting services to support its quantitative systems pharmacology and other modeling systems. The company serves pharmaceutical, biotechnology, agrochemical, cosmetics, and food industry companies, as well as academic and regulatory agencies. Simulations Plus, Inc. was incorporated in 1996 and is headquartered in Research Triangle Park, North Carolina.",
+  "beta": 1.217,
+  "analyst_targets": {
+    "high": 31.0,
+    "low": 19.0,
+    "mean": 24.66667,
+    "current": 12.12
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 79179000.0,
+    "net_income": -64718000.0,
+    "ebitda": 14703000.0,
+    "free_cashflow": 14403000.0,
+    "gross_margin": 0.5837532679119464,
+    "operating_margin": 0.08199143712347971,
+    "net_margin": -0.8173631897346518,
+    "total_debt": 616000.0,
+    "cash": 30853000.0,
+    "total_equity": 124801000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 53906000.0,
+      "net_income": 12483000.0,
+      "ebitda": 18485000.0,
+      "fcf": 13930000.0,
+      "operating_income": 14911000.0
+    },
+    "2023": {
+      "revenue": 59577000.0,
+      "net_income": 9961000.0,
+      "ebitda": 13065000.0,
+      "fcf": 17583000.0,
+      "operating_income": 9225000.0
+    },
+    "2024": {
+      "revenue": 70013000.0,
+      "net_income": 9954000.0,
+      "ebitda": 11796000.0,
+      "fcf": 9019000.0,
+      "operating_income": 6131000.0
+    },
+    "2025": {
+      "revenue": 79179000.0,
+      "net_income": -64718000.0,
+      "ebitda": 14703000.0,
+      "fcf": 14403000.0,
+      "operating_income": 6492000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Health Information Services",
+      "revenues": {
+        "2022": 53906000.0,
+        "2023": 59577000.0,
+        "2024": 70013000.0,
+        "2025": 79179000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": -0.017,
+      "revenue_growth_y5": 0.023000000000000003,
+      "gross_margin": 0.7010288075637667,
+      "wacc": 0.1118,
+      "terminal_multiple": 13
+    },
+    "bull": {
+      "revenue_growth_y1": 0.002999999999999999,
+      "revenue_growth_y5": 0.0017999999999999995,
+      "gross_margin": 0.7210288075637667,
+      "wacc": 0.1018,
+      "terminal_multiple": 15
+    },
+    "bear": {
+      "revenue_growth_y1": -0.04699999999999999,
+      "revenue_growth_y5": -0.006999999999999992,
+      "gross_margin": 0.6810288075637667,
+      "wacc": 0.1318,
+      "terminal_multiple": 10
+    }
+  },
+  "news": [
+    {
+      "title": "Seagate's Q2 Earnings Top, Revenues Soar Y/Y on AI-Led Storage Demand",
+      "date": "Wed, 28 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "SLP STOCK NOTICE: Simulations Plus, Inc. Investors with Losses may have been Affected by Securities Fraud – Contact BFA Law about its Pending Investigation - GlobeNewswire",
+      "date": "Wed, 22 Oc",
+      "source": "GlobeNewswire"
+    },
+    {
+      "title": "Simulations Plus Highlights Platform Innovation and Strategic Direction at 2026 Investor Day",
+      "date": "Wed, 21 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "SLP Resources Berhad (KLSE:SLP) investors are sitting on a loss of 4.3% if they invested three years ago",
+      "date": "Tue, 30 De",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Estimating The Intrinsic Value Of Simulations Plus, Inc. (NASDAQ:SLP)",
+      "date": "Tue, 20 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Understanding Momentum Shifts in (SLP) - Stock Traders Daily",
+      "date": "Tue, 10 Ma",
+      "source": "Stock Traders Daily"
+    },
+    {
+      "title": "Sylvania Platinum Limited's (LON:SLP) Stock Financial Prospects Look Bleak: Should Shareholders Be Prepared For A Share Price Correction? - Yahoo Finance",
+      "date": "Tue, 09 Se",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Simulations Plus Convenes Industry and Regulatory Leaders to Define Responsible AI in MIDD",
+      "date": "Tue, 03 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "FDA and pharma leaders grapple with responsible AI in drug development - Stock Titan",
+      "date": "Tue, 03 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Simulations Plus to Participate in Upcoming Investor Conferences",
+      "date": "Tue, 03 Fe",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SLP/SLP_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SLP/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SLP/SEC_filings/10K_2024.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SLP/SEC_filings/10K_2023.htm"
+    ]
+  }
+}

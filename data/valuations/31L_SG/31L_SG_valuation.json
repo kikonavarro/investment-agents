@@ -1,0 +1,158 @@
+{
+  "ticker": "31L.SG",
+  "company": "Sylvania Platinum Limited",
+  "currency": "$",
+  "date": "2026-03-17",
+  "current_price": 1.07,
+  "shares_outstanding": 0,
+  "market_cap": 318838624,
+  "sector": "",
+  "industry": "",
+  "country": "",
+  "business_summary": "",
+  "beta": 1.0,
+  "analyst_targets": {
+    "high": 0,
+    "low": 0,
+    "mean": 0,
+    "current": 0
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 104234170.0,
+    "net_income": 20167315.0,
+    "ebitda": 34894437.0,
+    "free_cashflow": -11079132.0,
+    "gross_margin": 0.238906272290555,
+    "operating_margin": 0.21387153560104138,
+    "net_margin": 0.19348084222285264,
+    "total_debt": 471288.0,
+    "cash": 60893292.0,
+    "total_equity": 243943335.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 151944273.0,
+      "net_income": 56150844.0,
+      "ebitda": 84478532.0,
+      "fcf": 53206283.0,
+      "operating_income": 80417097.0
+    },
+    "2023": {
+      "revenue": 130196100.0,
+      "net_income": 45351769.0,
+      "ebitda": 71744389.0,
+      "fcf": 48496125.0,
+      "operating_income": 61174165.0
+    },
+    "2024": {
+      "revenue": 81712471.0,
+      "net_income": 6983819.0,
+      "ebitda": 20014491.0,
+      "fcf": -1111420.0,
+      "operating_income": 8641633.0
+    },
+    "2025": {
+      "revenue": 104234170.0,
+      "net_income": 20167315.0,
+      "ebitda": 34894437.0,
+      "fcf": -11079132.0,
+      "operating_income": 22292722.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Principal",
+      "revenues": {
+        "2022": 151944273.0,
+        "2023": 130196100.0,
+        "2024": 81712471.0,
+        "2025": 104234170.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": -0.06996683345831206,
+      "revenue_growth_y5": -0.029966833458312053,
+      "gross_margin": 0.3540471063136609,
+      "wacc": 0.1,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": -0.039966833458312055,
+      "revenue_growth_y5": 3.316654168794564e-05,
+      "gross_margin": 0.3740471063136609,
+      "wacc": 0.09000000000000001,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": -0.09996683345831206,
+      "revenue_growth_y5": -0.05996683345831205,
+      "gross_margin": 0.33404710631366086,
+      "wacc": 0.12000000000000001,
+      "terminal_multiple": 9
+    }
+  },
+  "news": [
+    {
+      "title": "Why The Story Around Sylvania Platinum AIM SLP Is Shifting After New Target And Valuation Assumptions",
+      "date": "Wed, 21 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Unveiling 3 Undiscovered Gems in the United Kingdom Market",
+      "date": "Wed, 14 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "How The Narrative Around Sylvania Platinum (AIM:SLP) Is Shifting With New Targets And Assumptions",
+      "date": "Wed, 04 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Concurrent Technologies And 2 Other Undiscovered Gems In The United Kingdom",
+      "date": "Tue, 16 De",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "How Recent Target Revisions Are Shaping The Sylvania Platinum (AIM:SLP) Investment Story",
+      "date": "Tue, 06 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "This small-cap music stock turned ₹10k into ₹31 lakh in 10 years - Value Research",
+      "date": "Thu, 09 Oc",
+      "source": "Value Research"
+    },
+    {
+      "title": "How Recent Developments Are Rewriting the Story for Sylvania Platinum",
+      "date": "Sun, 30 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "What Analysts Say Is Shaping the Next Chapter for Sylvania Platinum",
+      "date": "Sat, 15 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Looking at the Narrative for Sylvania Platinum as Analysts Revise Their Outlook",
+      "date": "Sat, 04 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Why the Narrative Around Sylvania Platinum Is Shifting After Recent Analyst Developments",
+      "date": "Sat, 01 No",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/31L_SG/31L_SG_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "ticker": "MA",
+  "company": "Mastercard Incorporated",
+  "currency": "$",
+  "date": "2026-03-17",
+  "current_price": 508.68,
+  "shares_outstanding": 885216386,
+  "market_cap": 453965185024,
+  "sector": "Financial Services",
+  "industry": "Credit Services",
+  "country": "United States",
+  "business_summary": "Mastercard Incorporated, a technology company, provides transaction processing and other payment-related products and services in the United States and internationally. The company offers products and services for account holders, merchants, financial institutions, digital partners, businesses, governments, and other organizations, such as programs that enable issuers to provide consumers with credits to defer payments; payment products and solutions that allow its customers to access funds in deposit and other accounts; prepaid programs services; consumer bill payment services; and commercial credit, debit, and prepaid payment products and solutions. It also provides solutions that enable businesses or governments to make payments to businesses, including Virtual Card Number, which is generated dynamically from an existing account and leverages the credit limit of the funding account; and a platform to optimize supplier payment enablement campaigns for financial institutions. In addition, the company offers Mastercard Move, which partners with digital messaging and payment platforms to enable consumers to send money directly within applications to other consumers; and partners with central banks, fintechs, and financial institutions, as well as enables various cross-border payment flows. Further, it provides security solutions; marketing, personalization, and issuer and merchant loyalty services; business and operational intelligence, advanced analytics and AI, consulting and agentic solutions, and payments and portfolio optimization; digital and authentication; processing and gateway solutions; and other solutions. The company offers payment solutions and services under the MasterCard, Maestro, and Cirrus names. Mastercard Incorporated was founded in 1966 and is headquartered in Purchase, New York.",
+  "beta": 0.836,
+  "analyst_targets": {
+    "high": 739.0,
+    "low": 550.0,
+    "mean": 662.58826,
+    "current": 508.68
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 32791000000.0,
+    "net_income": 14968000000.0,
+    "ebitda": 20443000000.0,
+    "free_cashflow": 16433000000.0,
+    "gross_margin": 0.7788722515324327,
+    "operating_margin": 0.5951023146595102,
+    "net_margin": 0.45646671342746487,
+    "total_debt": 19000000000.0,
+    "cash": 10566000000.0,
+    "total_equity": 7746000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 22237000000.0,
+      "net_income": 9930000000.0,
+      "ebitda": 12953000000.0,
+      "fcf": 10098000000.0,
+      "operating_income": 12722000000.0
+    },
+    "2023": {
+      "revenue": 25098000000.0,
+      "net_income": 11195000000.0,
+      "ebitda": 15013000000.0,
+      "fcf": 10892000000.0,
+      "operating_income": 14630000000.0
+    },
+    "2024": {
+      "revenue": 28167000000.0,
+      "net_income": 12874000000.0,
+      "ebitda": 16797000000.0,
+      "fcf": 13586000000.0,
+      "operating_income": 16327000000.0
+    },
+    "2025": {
+      "revenue": 32791000000.0,
+      "net_income": 14968000000.0,
+      "ebitda": 20443000000.0,
+      "fcf": 16433000000.0,
+      "operating_income": 19514000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Credit Services",
+      "revenues": {
+        "2022": 22237000000.0,
+        "2023": 25098000000.0,
+        "2024": 28167000000.0,
+        "2025": 32791000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.176,
+      "revenue_growth_y5": 0.10559999999999999,
+      "gross_margin": 0.7663366914459802,
+      "wacc": 0.0888,
+      "terminal_multiple": 11
+    },
+    "bull": {
+      "revenue_growth_y1": 0.22879999999999998,
+      "revenue_growth_y5": 0.13727999999999999,
+      "gross_margin": 0.7863366914459802,
+      "wacc": 0.07880000000000001,
+      "terminal_multiple": 13
+    },
+    "bear": {
+      "revenue_growth_y1": 0.1232,
+      "revenue_growth_y5": 0.07392,
+      "gross_margin": 0.7463366914459801,
+      "wacc": 0.10880000000000001,
+      "terminal_multiple": 8
+    }
+  },
+  "news": [
+    {
+      "title": "Why Mastercard is acquiring a stablecoin company for $1.8B",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "2 S&P 500 Stocks Worth Investigating and 1 We Brush Off",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "‘Anyone else never hear of BVNK?’: Mastercard buys $1.8B crypto firm",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Sector Update: Financial Stocks Rise Tuesday Afternoon",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard to Buy Stablecoin Firm BVNK in Up To $1.8 Billion Deal",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard's $1.8 billion BVNK deal boosts its stablecoin agenda",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard to Buy Stablecoin Startup BVNK for $1.8 Billion. It’s Prepping for the Crypto Era.",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard, Visa can appeal UK ruling that merchant fees breach antitrust law",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Update: Market Chatter: Visa, Mastercard Win Right to Appeal UK Ruling on Merchant Fees",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard and 9 Other Stocks to Buy as the Chip Rally Wanes",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MA/MA_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MA/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MA/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MA/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

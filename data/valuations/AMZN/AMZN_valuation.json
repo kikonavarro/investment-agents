@@ -1,0 +1,162 @@
+{
+  "ticker": "AMZN",
+  "company": "Amazon.com, Inc.",
+  "currency": "$",
+  "date": "2026-03-07",
+  "current_price": 213.21,
+  "shares_outstanding": 10734920870,
+  "market_cap": 2288792633344,
+  "sector": "Consumer Cyclical",
+  "industry": "Internet Retail",
+  "country": "United States",
+  "business_summary": "Amazon.com, Inc. engages in the retail sale of consumer products, advertising, and subscriptions service through online and physical stores in North America and internationally. The company operates through three segments: North America, International, and Amazon Web Services (AWS). It also manufactures and sells electronic devices, including Kindle, fire tablets, fire TVs, echo, ring, blink, and eero; and develops and produces media content. In addition, the company offers programs that enable sellers to sell their products in its stores; and programs that allow authors, independent publishers, musicians, filmmakers, Twitch streamers, skill and app developers, and others to publish and sell content. Further, it provides compute, storage, Artificial intelligence, database, analytics, machine learning, and other services, as well as advertising services through programs, such as sponsored ads, display, and video advertising. Additionally, the company offers Amazon Prime, a membership program. The company's products offered through its stores include merchandise and content purchased for resale and products offered by third-party sellers. It serves consumers, sellers, developers, enterprises, content creators, advertisers, and employees. The company was incorporated in 1994 and is headquartered in Seattle, Washington.",
+  "beta": 1.42,
+  "analyst_targets": {
+    "high": 360.0,
+    "low": 175.0,
+    "mean": 280.46774,
+    "current": 213.21
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 716924000000.0,
+    "net_income": 77670000000.0,
+    "ebitda": 165341000000.0,
+    "free_cashflow": 7695000000.0,
+    "gross_margin": 0.5028566486824266,
+    "operating_margin": 0.11155296795755199,
+    "net_margin": 0.10833784334183261,
+    "total_debt": 152987000000.0,
+    "cash": 86810000000.0,
+    "total_equity": 411065000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 513983000000.0,
+      "net_income": -2722000000.0,
+      "ebitda": 38352000000.0,
+      "fcf": -16893000000.0,
+      "operating_income": 12248000000.0
+    },
+    "2023": {
+      "revenue": 574785000000.0,
+      "net_income": 30425000000.0,
+      "ebitda": 89402000000.0,
+      "fcf": 32217000000.0,
+      "operating_income": 36852000000.0
+    },
+    "2024": {
+      "revenue": 637959000000.0,
+      "net_income": 59248000000.0,
+      "ebitda": 123815000000.0,
+      "fcf": 32878000000.0,
+      "operating_income": 68593000000.0
+    },
+    "2025": {
+      "revenue": 716924000000.0,
+      "net_income": 77670000000.0,
+      "ebitda": 165341000000.0,
+      "fcf": 7695000000.0,
+      "operating_income": 79975000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Internet Retail",
+      "revenues": {
+        "2022": 513983000000.0,
+        "2023": 574785000000.0,
+        "2024": 637959000000.0,
+        "2025": 716924000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.136,
+      "revenue_growth_y5": 0.0816,
+      "gross_margin": 0.4748187178818158,
+      "wacc": 0.1171,
+      "terminal_multiple": 13
+    },
+    "bull": {
+      "revenue_growth_y1": 0.1768,
+      "revenue_growth_y5": 0.10608000000000001,
+      "gross_margin": 0.4948187178818158,
+      "wacc": 0.1071,
+      "terminal_multiple": 15
+    },
+    "bear": {
+      "revenue_growth_y1": 0.0952,
+      "revenue_growth_y5": 0.057120000000000004,
+      "gross_margin": 0.45481871788181577,
+      "wacc": 0.1371,
+      "terminal_multiple": 10
+    }
+  },
+  "news": [
+    {
+      "title": "Amazon (AMZN) Stock Trades Up, Here Is Why - Yahoo Finance",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Amazon shares jump 4% as OpenAI partnership spotlights AWS AI demand - Quiver Quantitative",
+      "date": "Wed, 04 Ma",
+      "source": "Quiver Quantitative"
+    },
+    {
+      "title": "Amazon Stock: Rebound Ahead or Prolonged Bearish Pressure in 2026? - Barchart.com",
+      "date": "Wed, 04 Ma",
+      "source": "Barchart.com"
+    },
+    {
+      "title": "Would You Still Hold Amazon.com Stock If It Fell Another 30%? - Trefis",
+      "date": "Tue, 03 Ma",
+      "source": "Trefis"
+    },
+    {
+      "title": "Anthropic is showing astronomical growth. There's a Mag 7 stock to ride the AI company's success - CNBC",
+      "date": "Thu, 05 Ma",
+      "source": "CNBC"
+    },
+    {
+      "title": "The Best Stocks to Invest $1,000 in Right Now - The Motley Fool",
+      "date": "Thu, 05 Ma",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Amazon: Berkshire Hathaway Q4 Trimming And Capital Lease Accounting In Focus (NASDAQ:AMZN) - Seeking Alpha",
+      "date": "Thu, 05 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Cathie Wood Buys What This Billionaire Is Selling: Ark Adds Amazon And Alibaba Stock, Dumps This Chip Giant - Benzinga",
+      "date": "Thu, 05 Ma",
+      "source": "Benzinga"
+    },
+    {
+      "title": "Nvidia vs. Amazon: Which AI Stock Is a Better Buy Now? - The Motley Fool",
+      "date": "Thu, 05 Ma",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "‘This Could Change the AWS Story,’ Says BofA about Amazon Stock - TipRanks",
+      "date": "Thu, 05 Ma",
+      "source": "TipRanks"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMZN/AMZN_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMZN/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMZN/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMZN/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

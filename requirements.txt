@@ -1,0 +1,20 @@
+# API Claude
+anthropic>=0.39.0
+
+# Datos financieros
+yfinance>=0.2.40
+
+# Excel
+openpyxl>=3.1.0
+
+# Documentos
+python-docx>=1.1.0
+markdown>=3.5.0
+
+# Utilidades
+pandas>=2.2.0
+numpy>=1.26.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+rich>=13.7.0
+schedule>=1.2.0

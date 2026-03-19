@@ -1,0 +1,162 @@
+{
+  "ticker": "V",
+  "company": "Visa Inc.",
+  "currency": "$",
+  "date": "2026-03-17",
+  "current_price": 308.4225,
+  "shares_outstanding": 1681093942,
+  "market_cap": 594650726400,
+  "sector": "Financial Services",
+  "industry": "Credit Services",
+  "country": "United States",
+  "business_summary": "Visa Inc. operates as a payment technology company in the United States and internationally. The company operates VisaNet, a transaction processing network that enables authorization, clearing, and settlement of payment transactions. It also offers credit, debit, and prepaid card products; tap to pay, tokenization, and click to pay services; Visa Direct, a platform which facilitates money movement, enabling clients to collect, hold, convert, and send funds across its network; and issuing solutions, such as airport lounge access, dining reservations, shopping experiences, event tickets, and seller offers. In addition, the company provides acceptance solutions, an omnichannel payment integration with e-commerce platforms; risk detection and prevention solutions; and advisory and other services comprising consulting practice, proprietary analytics models, data scientists and economists, marketing services, and managed services. It provides its services under the Visa, Visa Electron, V PAY, Interlink, and PLUS brands. The company serves consumers, sellers, financial institutions, and government entities. Visa Inc. was founded in 1958 and is headquartered in San Francisco, California.",
+  "beta": 0.791,
+  "analyst_targets": {
+    "high": 450.0,
+    "low": 323.0,
+    "mean": 400.2003,
+    "current": 308.4225
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 40000000000.0,
+    "net_income": 20058000000.0,
+    "ebitda": 26003000000.0,
+    "free_cashflow": 21577000000.0,
+    "gross_margin": 0.803625,
+    "operating_margin": 0.6639,
+    "net_margin": 0.50145,
+    "total_debt": 25171000000.0,
+    "cash": 17164000000.0,
+    "total_equity": 37909000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 29310000000.0,
+      "net_income": 14957000000.0,
+      "ebitda": 19535000000.0,
+      "fcf": 17879000000.0,
+      "operating_income": 19681000000.0
+    },
+    "2023": {
+      "revenue": 32653000000.0,
+      "net_income": 17273000000.0,
+      "ebitda": 22624000000.0,
+      "fcf": 19696000000.0,
+      "operating_income": 21927000000.0
+    },
+    "2024": {
+      "revenue": 35926000000.0,
+      "net_income": 19743000000.0,
+      "ebitda": 25591000000.0,
+      "fcf": 18693000000.0,
+      "operating_income": 24057000000.0
+    },
+    "2025": {
+      "revenue": 40000000000.0,
+      "net_income": 20058000000.0,
+      "ebitda": 26003000000.0,
+      "fcf": 21577000000.0,
+      "operating_income": 26556000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Credit Services",
+      "revenues": {
+        "2022": 29310000000.0,
+        "2023": 32653000000.0,
+        "2024": 35926000000.0,
+        "2025": 40000000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.146,
+      "revenue_growth_y5": 0.0876,
+      "gross_margin": 0.8027243618306326,
+      "wacc": 0.0868,
+      "terminal_multiple": 11
+    },
+    "bull": {
+      "revenue_growth_y1": 0.1898,
+      "revenue_growth_y5": 0.11388,
+      "gross_margin": 0.8227243618306326,
+      "wacc": 0.07680000000000001,
+      "terminal_multiple": 13
+    },
+    "bear": {
+      "revenue_growth_y1": 0.10219999999999999,
+      "revenue_growth_y5": 0.061319999999999986,
+      "gross_margin": 0.7827243618306325,
+      "wacc": 0.1068,
+      "terminal_multiple": 8
+    }
+  },
+  "news": [
+    {
+      "title": "Sector Update: Financial Stocks Rise Tuesday Afternoon",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard to Buy Stablecoin Firm BVNK in Up To $1.8 Billion Deal",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard to Buy Stablecoin Startup BVNK for $1.8 Billion. It’s Prepping for the Crypto Era.",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard, Visa can appeal UK ruling that merchant fees breach antitrust law",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Update: Market Chatter: Visa, Mastercard Win Right to Appeal UK Ruling on Merchant Fees",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard Adds TRON: A Measured Step Into Crypto Depth",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "PayPal Expands Its Stablecoin To 70 Additional Markets",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Mastercard to Buy Stablecoin Infrastructure Firm BVNK for Up to $1.8 Billion",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Visa (V) Integrates AI for Fraud Protection and Digital Payments",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "European acquirers to get single API access to Visa Acceptance via Fiserv",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/V/V_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/V/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/V/SEC_filings/10K_2024.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/V/SEC_filings/10K_2023.htm"
+    ]
+  }
+}

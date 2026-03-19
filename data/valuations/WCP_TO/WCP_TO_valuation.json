@@ -1,0 +1,158 @@
+{
+  "ticker": "WCP.TO",
+  "company": "Whitecap Resources Inc.",
+  "currency": "C$",
+  "date": "2026-03-16",
+  "current_price": 14.325,
+  "shares_outstanding": 1213800000,
+  "market_cap": 17387683840,
+  "sector": "Energy",
+  "industry": "Oil & Gas E&P",
+  "country": "Canada",
+  "business_summary": "Whitecap Resources Inc. engages in the acquisition, development, and holding of interests in petroleum and natural gas properties and assets in Western Canada. Its primary areas of focus are development programs located in Northern Alberta, British Columbia, Central Alberta, and Western and Eastern Saskatchewan. The company was founded in 2009 and is headquartered in Calgary, Canada.",
+  "beta": 0.844,
+  "analyst_targets": {
+    "high": 16.5,
+    "low": 13.0,
+    "mean": 15.15625,
+    "current": 14.325
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 5908800000.0,
+    "net_income": 984600000.0,
+    "ebitda": 3176200000.0,
+    "free_cashflow": 609400000.0,
+    "gross_margin": 0.5856349851069591,
+    "operating_margin": 0.1991267262388302,
+    "net_margin": 0.16663281884646627,
+    "total_debt": 3767200000.0,
+    "cash": 59400000.0,
+    "total_equity": 11002200000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 4780400000.0,
+      "net_income": 1676100000.0,
+      "ebitda": 3094000000.0,
+      "fcf": 1488600000.0,
+      "operating_income": 1791100000.0
+    },
+    "2023": {
+      "revenue": 3848900000.0,
+      "net_income": 889000000.0,
+      "ebitda": 2124500000.0,
+      "fcf": 617600000.0,
+      "operating_income": 1024500000.0
+    },
+    "2024": {
+      "revenue": 3937900000.0,
+      "net_income": 812300000.0,
+      "ebitda": 2140200000.0,
+      "fcf": 696800000.0,
+      "operating_income": 937300000.0
+    },
+    "2025": {
+      "revenue": 5908800000.0,
+      "net_income": 984600000.0,
+      "ebitda": 3176200000.0,
+      "fcf": 609400000.0,
+      "operating_income": 1176600000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Oil & Gas E&P",
+      "revenues": {
+        "2022": 4780400000.0,
+        "2023": 3848900000.0,
+        "2024": 3937900000.0,
+        "2025": 5908800000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.4,
+      "revenue_growth_y5": 0.24,
+      "gross_margin": 0.6127553031225936,
+      "wacc": 0.0822,
+      "terminal_multiple": 11
+    },
+    "bull": {
+      "revenue_growth_y1": 0.52,
+      "revenue_growth_y5": 0.312,
+      "gross_margin": 0.6327553031225936,
+      "wacc": 0.0722,
+      "terminal_multiple": 13
+    },
+    "bear": {
+      "revenue_growth_y1": 0.28,
+      "revenue_growth_y5": 0.168,
+      "gross_margin": 0.5927553031225936,
+      "wacc": 0.1022,
+      "terminal_multiple": 8
+    }
+  },
+  "news": [
+    {
+      "title": "Whitecap Veren Integration Reshapes Scale Cash Flows And Risk Profile",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Whitecap Resources Q4 Earnings Call Highlights",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Pre-Market Most Active: WCP.TO Whitecap (TSX) C$13.59 25 Feb 2026: Centrica deal - Meyka",
+      "date": "Wed, 25 Fe",
+      "source": "Meyka"
+    },
+    {
+      "title": "Earnings Flash (WCP.TO) Whitecap Resources Inc. Reports Q3 Petroleum and Natural Gas Revenue $1.66B - marketscreener.com",
+      "date": "Wed, 22 Oc",
+      "source": "marketscreener.com"
+    },
+    {
+      "title": "6.3% Dividend Yield? I’m Buying This Monthly Passive-Income Stock in Bulk - Yahoo! Finance Canada",
+      "date": "Wed, 19 No",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "WCP.TO Whitecap C$11.44 pre-market (TSX) 14 Jan 2026: Heavy volume before earnings - Meyka",
+      "date": "Wed, 14 Ja",
+      "source": "Meyka"
+    },
+    {
+      "title": "Why Whitecap Resources Stock Below $15 Is My Top Pick for 2026 - Yahoo! Finance Canada",
+      "date": "Tue, 27 Ja",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "Whitecap WCP.TO (TSX) +3.77% to C$12.66 on 27 Jan 2026: volume may sustain rally - Meyka",
+      "date": "Tue, 27 Ja",
+      "source": "Meyka"
+    },
+    {
+      "title": "Whitecap says scale gained with Veren takeover helped secure global gas contracts",
+      "date": "Tue, 24 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Whitecap Resources Maintained at Outperform at BMO Following Q4 Results; Price Target Raised to C$15.00",
+      "date": "Tue, 24 Fe",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/WCP_TO/WCP_TO_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

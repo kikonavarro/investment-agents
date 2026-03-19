@@ -1,0 +1,162 @@
+{
+  "ticker": "NWL",
+  "company": "Newell Brands Inc.",
+  "currency": "$",
+  "date": "2026-03-16",
+  "current_price": 3.96,
+  "shares_outstanding": 419200000,
+  "market_cap": 1660032000,
+  "sector": "Consumer Defensive",
+  "industry": "Household & Personal Products",
+  "country": "United States",
+  "business_summary": "Newell Brands Inc. engages in the design, manufacture, sourcing, and distribution of consumer and commercial products worldwide. The company operates in three segments: Home and Commercial Solutions, Learning and Development, and Outdoor and Recreation. The Commercial Solutions segment provides commercial cleaning and maintenance solution products under the Rubbermaid, Rubbermaid Commercial Products, Mapa, and Spontex brands; closet and garage organization products; hygiene systems and material handling solutions; household products, such as kitchen appliances under the Crockpot, Mr. Coffee, Oster, and Sunbeam brands; small appliances under the Breville brand name in Europe; food and home storage products under the FoodSaver, Rubbermaid, Ball, and Sistema brands; fresh preserving products; vacuum sealing products; and gourmet cookware, bakeware, and cutlery under the Calphalon brand; and home fragrance products under the Chesapeake Bay, WoodWick, and Yankee Candle brands. The Learning and Development segment offers writing instruments, including markers and highlighters, pens, and pencils; art products; activity-based products; labeling solutions; and baby gear and infant care products under the Dymo, Elmer's, EXPO, Graco, NUK, Paper Mate, Parker, and Sharpie brands. The Outdoor and Recreation segment provides outdoor and outdoor-related products, inlcuding technical apparel and on-the-go beverageware under the Bubba, Campingaz, Coleman, Contigo, and Marmot brands. It serves large mass merchandisers, discount stores, home centers, warehouse clubs, office superstores, direct-to-consumer channels, specialty retailers and wholesalers, commercial distributors and e-commerce retailers, grocery stores, and sporting goods, as well as direct to consumers online, select contract customers, and other professional customers. The company was founded in 1903 and is headquartered in Atlanta, Georgia.",
+  "beta": 0.87,
+  "analyst_targets": {
+    "high": 8.0,
+    "low": 4.5,
+    "mean": 5.375,
+    "current": 3.96
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 7204000000.0,
+    "net_income": -285000000.0,
+    "ebitda": 331000000.0,
+    "free_cashflow": 17000000.0,
+    "gross_margin": 0.3375902276513048,
+    "operating_margin": 0.06538034425319267,
+    "net_margin": -0.039561354802887284,
+    "total_debt": 5219000000.0,
+    "cash": 203000000.0,
+    "total_equity": 2391000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 9459000000.0,
+      "net_income": 197000000.0,
+      "ebitda": 688000000.0,
+      "fcf": -584000000.0,
+      "operating_income": 803000000.0
+    },
+    "2023": {
+      "revenue": 8133000000.0,
+      "net_income": -388000000.0,
+      "ebitda": 74000000.0,
+      "fcf": 646000000.0,
+      "operating_income": 352000000.0
+    },
+    "2024": {
+      "revenue": 7582000000.0,
+      "net_income": -216000000.0,
+      "ebitda": 358000000.0,
+      "fcf": 237000000.0,
+      "operating_income": 478000000.0
+    },
+    "2025": {
+      "revenue": 7204000000.0,
+      "net_income": -285000000.0,
+      "ebitda": 331000000.0,
+      "fcf": 17000000.0,
+      "operating_income": 471000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Household & Personal Products",
+      "revenues": {
+        "2022": 9459000000.0,
+        "2023": 8133000000.0,
+        "2024": 7582000000.0,
+        "2025": 7204000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": -0.017,
+      "revenue_growth_y5": 0.023000000000000003,
+      "gross_margin": 0.31564332224328767,
+      "wacc": 0.052,
+      "terminal_multiple": 9
+    },
+    "bull": {
+      "revenue_growth_y1": 0.002999999999999999,
+      "revenue_growth_y5": 0.0017999999999999995,
+      "gross_margin": 0.3356433222432877,
+      "wacc": 0.041999999999999996,
+      "terminal_multiple": 11
+    },
+    "bear": {
+      "revenue_growth_y1": -0.04699999999999999,
+      "revenue_growth_y5": -0.006999999999999992,
+      "gross_margin": 0.29564332224328765,
+      "wacc": 0.072,
+      "terminal_multiple": 6
+    }
+  },
+  "news": [
+    {
+      "title": "$NWL stock is up 4% today. Here's what we see in our data. - Quiver Quantitative",
+      "date": "Wed, 26 No",
+      "source": "Quiver Quantitative"
+    },
+    {
+      "title": "Should Value Investors Buy Newell Brands (NWL) Stock? - Yahoo Finance",
+      "date": "Wed, 22 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Newell Brands: Baby-Step Recovery, But Shareholders Could Get Rubbed Away - Strong Sell - Seeking Alpha",
+      "date": "Wed, 14 Ja",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Newell Brands to Present at 2026 CAGNY Conference",
+      "date": "Wed, 11 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Newell Brands' 2026 Outlook: Stabilization or More Pain Ahead?",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Newell Brands Touts Turnaround Progress at CAGNY, Sees 2026 Acceleration as Innovation Ramps",
+      "date": "Tue, 24 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Newell's Productivity Plan & Other Strategies to Bolster Growth",
+      "date": "Tue, 10 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "A Look At Newell Brands (NWL) Valuation After Recent Share Price Momentum",
+      "date": "Tue, 10 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "A Look At Newell Brands’ (NWL) Valuation After Recent Share Price Volatility",
+      "date": "Thu, 26 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Newell Brands leans on tariff playbook again in 2026",
+      "date": "Thu, 26 Fe",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NWL/NWL_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NWL/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NWL/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NWL/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

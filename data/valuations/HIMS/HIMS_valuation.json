@@ -1,0 +1,162 @@
+{
+  "ticker": "HIMS",
+  "company": "Hims & Hers Health, Inc.",
+  "currency": "$",
+  "date": "2026-03-08",
+  "current_price": 15.74,
+  "shares_outstanding": 219561143,
+  "market_cap": 3587756032,
+  "sector": "Healthcare",
+  "industry": "Drug Manufacturers - Specialty & Generic",
+  "country": "United States",
+  "business_summary": "Hims & Hers Health, Inc. operates as a consumer-first health and wellness platform that connects consumers to licensed healthcare professionals in the United States, the United Kingdom, Canada, Germany, the Republic of Ireland, France, Spain, and internationally. The company offers a range of curated prescription and non-prescription health and wellness products and services available to purchase on its websites and mobile application directly by customers. It also provides personalized health and wellness products; over-the-counter drug and device products, cosmetics, and supplement products primarily focusing on general wellness, skincare, sexual health and wellness, and hair care under the Hims & Hers brand name; and laboratory testing services to measure a set of biomarkers. Additionally, it offers medical consultation, post-consultation support services, and delivery of laboratory testing results services. Further, the company provides treatments and products for various chronic conditions related to hormone health, weight loss, dermatology, and mental health. The company offers its products through retail partnerships, in stores, and online. Hims & Hers Health, Inc. is based in San Francisco, California.",
+  "beta": 2.608,
+  "analyst_targets": {
+    "high": 30.0,
+    "low": 12.5,
+    "mean": 20.1875,
+    "current": 15.74
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 2347637000.0,
+    "net_income": 128365000.0,
+    "ebitda": 160115000.0,
+    "free_cashflow": 57415000.0,
+    "gross_margin": 0.7383500941585092,
+    "operating_margin": 0.04498693792950103,
+    "net_margin": 0.054678385116608746,
+    "total_debt": 1120590000.0,
+    "cash": 228616000.0,
+    "total_equity": 540928000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 526916000.0,
+      "net_income": -65678000.0,
+      "ebitda": -61223000.0,
+      "fcf": -33778000.0,
+      "operating_income": -68697000.0
+    },
+    "2023": {
+      "revenue": 872000000.0,
+      "net_income": -23546000.0,
+      "ebitda": -19938000.0,
+      "fcf": 46991000.0,
+      "operating_income": -29453000.0
+    },
+    "2024": {
+      "revenue": 1476514000.0,
+      "net_income": 126038000.0,
+      "ebitda": 78991000.0,
+      "fcf": 198334000.0,
+      "operating_income": 61903000.0
+    },
+    "2025": {
+      "revenue": 2347637000.0,
+      "net_income": 128365000.0,
+      "ebitda": 160115000.0,
+      "fcf": 57415000.0,
+      "operating_income": 105613000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Drug Manufacturers - Specialty & Generic",
+      "revenues": {
+        "2022": 526916000.0,
+        "2023": 872000000.0,
+        "2024": 1476514000.0,
+        "2025": 2347637000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.284,
+      "revenue_growth_y5": 0.17039999999999997,
+      "gross_margin": 0.7821157918099402,
+      "wacc": 0.153,
+      "terminal_multiple": 18
+    },
+    "bull": {
+      "revenue_growth_y1": 0.3692,
+      "revenue_growth_y5": 0.22151999999999997,
+      "gross_margin": 0.8021157918099402,
+      "wacc": 0.143,
+      "terminal_multiple": 20
+    },
+    "bear": {
+      "revenue_growth_y1": 0.19879999999999998,
+      "revenue_growth_y5": 0.11927999999999998,
+      "gross_margin": 0.7621157918099402,
+      "wacc": 0.173,
+      "terminal_multiple": 15
+    }
+  },
+  "news": [
+    {
+      "title": "Hims & Hers Slips as FDA Targets GLP-1 Compounders",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Canaccord Lowers Hims & Hers Health, Inc. (HIMS) Price Target Patent Amid Dispute and FDA Scrutiny",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Hims expansion may not come in time for risky GLP-1 business - Reuters",
+      "date": "Tue, 03 Ma",
+      "source": "Reuters"
+    },
+    {
+      "title": "Hims & Hers Health: Leaving GLP-1s Behind (NYSE:HIMS) - Seeking Alpha",
+      "date": "Tue, 03 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Barclays Lowers its Price Target on Hims & Hers Health, Inc. (HIMS) to $25 and Keeps an Overweight Rating",
+      "date": "Thu, 05 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Sector Update: Financial Stocks Lower in Afternoon Trading",
+      "date": "Thu, 05 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Hims and Hers Expands Its Technology Driven Consumer Health Platform",
+      "date": "Thu, 05 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "PacBio, Myriad Genetics, LeMaitre, Hims & Hers Health, and GoodRx Shares Are Falling, What You Need To Know",
+      "date": "Sat, 28 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Hims And Hers Surges 40% On Deal To Sell Novo Nordisk Obesity Drugs",
+      "date": "Sat, 07 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Hims & Hers Surprise Rescue: Stock Explodes 40% on GLP-1 Truce",
+      "date": "Sat, 07 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/HIMS/HIMS_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/HIMS/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/HIMS/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/HIMS/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

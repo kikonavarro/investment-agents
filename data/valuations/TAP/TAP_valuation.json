@@ -1,0 +1,162 @@
+{
+  "ticker": "TAP",
+  "company": "Molson Coors Beverage Company",
+  "currency": "$",
+  "date": "2026-03-08",
+  "current_price": 46.64,
+  "shares_outstanding": 175592622,
+  "market_cap": 9208036352,
+  "sector": "Consumer Defensive",
+  "industry": "Beverages - Brewers",
+  "country": "United States",
+  "business_summary": "Molson Coors Beverage Company manufactures, markets, distributes, and sells beer and other malt beverage products in the Americas, Europe, the Middle East, Africa, and the Asia Pacific. It offers flavored malt beverages including hard seltzers, craft, spirits, and ready to drink beverages. The company also provides non-alcoholic beverages including premium mixers and energy drinks. It offers its products under Arnold Palmer Spiked, Aspall Cider, Blue Moon, Beck's, Blue Run Spirits, Cobra, Corona Extra, Coors Original, Fever-Tree, Heineken, Hidra, Leinenkugel's, Madri, Miller Genuine Draft, Molson Ultra, Peroni Nastro Azurro, Pilsner Urquell, Redd's, Rekorderlig, Sharp's, Simply Spiked, Staropramen, Stella Artois, Topo Chico Hard Seltzer, ZOA Energy, and Vizzy Hard Seltzer above premium brands; Bergenbier, Borsodi, Burgasko, Carling, Coors Banquet, Coors Light, Jelen, Miller Lite, Molson Canadian brands, Niksicko, and Oujsko under the premium brands; and Branik, Icehouse, Keystone, Lowenbrau, Miller High Life, Milwaukee's Best, and Steel Reserve under the economy brands. The company was formerly known as Molson Coors Brewing Company and changed its name to Molson Coors Beverage Company in January 2020. Molson Coors Beverage Company was founded in 1774 and is based in Golden, Colorado.",
+  "beta": 0.449,
+  "analyst_targets": {
+    "high": 61.0,
+    "low": 36.0,
+    "mean": 48.0,
+    "current": 46.64
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 11140800000.0,
+    "net_income": -2139600000.0,
+    "ebitda": -1544400000.0,
+    "free_cashflow": 1067800000.0,
+    "gross_margin": 0.3836887835703002,
+    "operating_margin": 0.14637189429843458,
+    "net_margin": -0.19205084015510557,
+    "total_debt": 6352300000.0,
+    "cash": 896500000.0,
+    "total_equity": 10542700000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 10701000000.0,
+      "net_income": -175300000.0,
+      "ebitda": 872900000.0,
+      "fcf": 840600000.0,
+      "operating_income": 1036400000.0
+    },
+    "2023": {
+      "revenue": 11702100000.0,
+      "net_income": 948900000.0,
+      "ebitda": 2177200000.0,
+      "fcf": 1407500000.0,
+      "operating_income": 1588900000.0
+    },
+    "2024": {
+      "revenue": 11627000000.0,
+      "net_income": 1122400000.0,
+      "ebitda": 2556400000.0,
+      "fcf": 1236200000.0,
+      "operating_income": 1815900000.0
+    },
+    "2025": {
+      "revenue": 11140800000.0,
+      "net_income": -2139600000.0,
+      "ebitda": -1544400000.0,
+      "fcf": 1067800000.0,
+      "operating_income": 1630700000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Beverages - Brewers",
+      "revenues": {
+        "2022": 10701000000.0,
+        "2023": 11702100000.0,
+        "2024": 11627000000.0,
+        "2025": 11140800000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": -0.017,
+      "revenue_growth_y5": 0.023000000000000003,
+      "gross_margin": 0.3721254625713831,
+      "wacc": 0.0572,
+      "terminal_multiple": 9
+    },
+    "bull": {
+      "revenue_growth_y1": 0.002999999999999999,
+      "revenue_growth_y5": 0.0017999999999999995,
+      "gross_margin": 0.39212546257138314,
+      "wacc": 0.0472,
+      "terminal_multiple": 11
+    },
+    "bear": {
+      "revenue_growth_y1": -0.04699999999999999,
+      "revenue_growth_y5": -0.006999999999999992,
+      "gross_margin": 0.3521254625713831,
+      "wacc": 0.0772,
+      "terminal_multiple": 6
+    }
+  },
+  "news": [
+    {
+      "title": "Why Molson Coors Plunged Today",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Nasdaq extends gains as AI takes center stage with Nvidia, Salesforce earnings due",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Oracle upgraded, Workday downgraded: Wall Street's top analyst calls",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Molson Coors: Results Were Not Refreshing (NYSE:TAP) - Seeking Alpha",
+      "date": "Wed, 25 Fe",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "BofA cuts Molson Coors to underperform on weak beer consumption outlook (TAP:NYSE) - Seeking Alpha",
+      "date": "Wed, 25 Fe",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Molson Coors (NYSE:TAP) Misses Q4 CY2025 Revenue Estimates, Stock Drops - StockStory",
+      "date": "Wed, 18 Fe",
+      "source": "StockStory"
+    },
+    {
+      "title": "Molson Coors takes $2.1B loss yet generates $1.8B in cash - Stock Titan",
+      "date": "Wed, 18 Fe",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "3 Consumer Stocks That Fall Short",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "JPMorgan Lowers its Price Target on Molson Coors Beverage Company (TAP) to $45 and Maintains a Neutral Rating",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Quantbot Technologies LP Raises Stock Position in Molson Coors Beverage Company $TAP - MarketBeat",
+      "date": "Wed, 04 Ma",
+      "source": "MarketBeat"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/TAP/TAP_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/TAP/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/TAP/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/TAP/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

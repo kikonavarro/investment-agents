@@ -1,0 +1,11 @@
+2026-03-02 19:25:43,067 [INFO] Programado: daily_portfolio_check a las 09:00
+2026-03-02 19:25:43,067 [INFO] Programado: weekly_screener los lunes a las 08:00
+2026-03-04 23:32:54,909 [INFO] Ejecutando news scan manualmente...
+2026-03-04 23:32:56,133 [INFO] --- News scan ---
+2026-03-04 23:32:57,617 [INFO] Sin tickers para monitorizar.
+2026-03-04 23:33:04,271 [INFO] Ejecutando price update manualmente...
+2026-03-04 23:33:04,272 [INFO] --- Actualización de precios ---
+2026-03-04 23:33:04,899 [INFO] Sin posiciones auto para actualizar.
+2026-03-04 23:33:07,521 [INFO] Ejecutando tweet generation manualmente...
+2026-03-04 23:33:07,526 [INFO] --- Auto tweet generation ---
+2026-03-04 23:33:09,575 [INFO] Sin noticias de alto interes para tuitear.

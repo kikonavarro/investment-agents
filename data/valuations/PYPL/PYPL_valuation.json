@@ -1,0 +1,162 @@
+{
+  "ticker": "PYPL",
+  "company": "PayPal Holdings, Inc.",
+  "currency": "$",
+  "date": "2026-03-17",
+  "current_price": 45.42,
+  "shares_outstanding": 920664542,
+  "market_cap": 42497310720,
+  "sector": "Financial Services",
+  "industry": "Credit Services",
+  "country": "United States",
+  "business_summary": "PayPal Holdings, Inc. operates a technology platform that enables digital payments for merchants and consumers worldwide. The company operates a two-sided network at scale that connects merchants and consumers that enables its customers to connect, transact, and send and receive payments through online and in person, as well as transfer and withdraw funds using various funding sources, such as bank accounts, PayPal or Venmo account balance, consumer credit and debit products, credit and debit cards, and cryptocurrencies, as well as other stored value products, including gift cards and eligible rewards. It provides payment solutions under the PayPal, PayPal Credit, Braintree, Venmo, Xoom, Hyperwallet, Honey, and Paidy names. The company was founded in 1998 and is headquartered in San Jose, California.",
+  "beta": 1.459,
+  "analyst_targets": {
+    "high": 100.0,
+    "low": 32.0,
+    "mean": 50.22581,
+    "current": 45.42
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 33172000000.0,
+    "net_income": 5233000000.0,
+    "ebitda": 7696000000.0,
+    "free_cashflow": 5564000000.0,
+    "gross_margin": 0.4662064391655613,
+    "operating_margin": 0.19281321596527193,
+    "net_margin": 0.15775352707102375,
+    "total_debt": 9987000000.0,
+    "cash": 8049000000.0,
+    "total_equity": 20256000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 27518000000.0,
+      "net_income": 2419000000.0,
+      "ebitda": 4987000000.0,
+      "fcf": 5107000000.0,
+      "operating_income": 4044000000.0
+    },
+    "2023": {
+      "revenue": 29771000000.0,
+      "net_income": 4246000000.0,
+      "ebitda": 6830000000.0,
+      "fcf": 4220000000.0,
+      "operating_income": 4944000000.0
+    },
+    "2024": {
+      "revenue": 31797000000.0,
+      "net_income": 4147000000.0,
+      "ebitda": 6743000000.0,
+      "fcf": 6767000000.0,
+      "operating_income": 5763000000.0
+    },
+    "2025": {
+      "revenue": 33172000000.0,
+      "net_income": 5233000000.0,
+      "ebitda": 7696000000.0,
+      "fcf": 5564000000.0,
+      "operating_income": 6396000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Credit Services",
+      "revenues": {
+        "2022": 27518000000.0,
+        "2023": 29771000000.0,
+        "2024": 31797000000.0,
+        "2025": 33172000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.037,
+      "revenue_growth_y5": 0.022199999999999998,
+      "gross_margin": 0.47200395268735124,
+      "wacc": 0.106,
+      "terminal_multiple": 10
+    },
+    "bull": {
+      "revenue_growth_y1": 0.067,
+      "revenue_growth_y5": 0.0402,
+      "gross_margin": 0.49200395268735125,
+      "wacc": 0.096,
+      "terminal_multiple": 12
+    },
+    "bear": {
+      "revenue_growth_y1": 0.006999999999999999,
+      "revenue_growth_y5": 0.0042,
+      "gross_margin": 0.4520039526873512,
+      "wacc": 0.126,
+      "terminal_multiple": 7
+    }
+  },
+  "news": [
+    {
+      "title": "Buying PYPL at a Discount? You Are Getting Paid to Do It - Trefis",
+      "date": "Thu, 12 Ma",
+      "source": "Trefis"
+    },
+    {
+      "title": "Peter Thiel warned real estate ‘catastrophe’ will deal massive blow to young Americans. Is his prediction coming true?",
+      "date": "Sun, 15 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Crypto Currents: SEC, CFTC sign MOU for Joint Harmonization Initiative",
+      "date": "Sat, 14 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Why Mastercard and Visa Are the Definition of Forever Stocks",
+      "date": "Sat, 14 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "PayPal (PYPL) Initiates BofA with Neutral Rating and $48 PT",
+      "date": "Sat, 14 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NVIDIA Enters Production With Dynamo, the Broadly Adopted Inference Operating System for AI Factories",
+      "date": "Mon, 16 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Peter Thiel is actively convincing billionaires to abandon The Giving Pledge — and it may be working",
+      "date": "Mon, 16 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "PayPal’s Collapsing Stock Price Directly Affects PYPY’s Absurd 75% Dividend Yield",
+      "date": "Mon, 16 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "PayPal vs. MasterCard: Which Fintech Stock Offers Greater Upside Now?",
+      "date": "Mon, 16 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Can Circle's Enterprise Integrations Accelerate Future Revenue Growth?",
+      "date": "Mon, 16 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PYPL/PYPL_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PYPL/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PYPL/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PYPL/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

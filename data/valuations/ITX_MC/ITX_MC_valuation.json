@@ -1,0 +1,158 @@
+{
+  "ticker": "ITX.MC",
+  "company": "Industria de Diseño Textil, S.A.",
+  "currency": "EUR ",
+  "date": "2026-03-12",
+  "current_price": 52.74,
+  "shares_outstanding": 3116167768,
+  "market_cap": 164357193728,
+  "sector": "Consumer Cyclical",
+  "industry": "Apparel Retail",
+  "country": "Spain",
+  "business_summary": "Industria de Diseño Textil, S.A., together with its subsidiaries, engages in the retail and online distribution of clothing, footwear, accessories, and household products in Spain, rest of Europe, the Americas, Asia, and internationally. The company sells its products under the Zara, Pull&Bear, Massimo Dutti, Bershka, Stradivarius, Oysho, and Zara Home brands. It is also involved in the textile manufacturing, logistics, design, insurance, construction, and real estate businesses, as well as provides financial services. The company was founded in 1963 and is headquartered in Corunna, Spain.",
+  "beta": 0.902,
+  "analyst_targets": {
+    "high": 67.0,
+    "low": 41.5,
+    "mean": 58.06042,
+    "current": 52.74
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 38632000000.0,
+    "net_income": 5866000000.0,
+    "ebitda": 10946000000.0,
+    "free_cashflow": 6616000000.0,
+    "gross_margin": 0.5783547318285359,
+    "operating_margin": 0.19861772623731622,
+    "net_margin": 0.15184303168357838,
+    "total_debt": 5909000000.0,
+    "cash": 6382000000.0,
+    "total_equity": 19676000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 27716000000.0,
+      "net_income": 3243000000.0,
+      "ebitda": 7231000000.0,
+      "fcf": 5628000000.0,
+      "operating_income": 4282000000.0
+    },
+    "2023": {
+      "revenue": 32569000000.0,
+      "net_income": 4130000000.0,
+      "ebitda": 8278000000.0,
+      "fcf": 5259000000.0,
+      "operating_income": 5895000000.0
+    },
+    "2024": {
+      "revenue": 35947000000.0,
+      "net_income": 5381000000.0,
+      "ebitda": 10038000000.0,
+      "fcf": 6795000000.0,
+      "operating_income": 6914000000.0
+    },
+    "2025": {
+      "revenue": 38632000000.0,
+      "net_income": 5866000000.0,
+      "ebitda": 10946000000.0,
+      "fcf": 6616000000.0,
+      "operating_income": 7673000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Apparel Retail",
+      "revenues": {
+        "2022": 27716000000.0,
+        "2023": 32569000000.0,
+        "2024": 35947000000.0,
+        "2025": 38632000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.049,
+      "revenue_growth_y5": 0.0294,
+      "gross_margin": 0.5740841427180992,
+      "wacc": 0.0928,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.079,
+      "revenue_growth_y5": 0.0474,
+      "gross_margin": 0.5940841427180992,
+      "wacc": 0.0828,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": 0.019000000000000003,
+      "revenue_growth_y5": 0.011400000000000002,
+      "gross_margin": 0.5540841427180991,
+      "wacc": 0.1128,
+      "terminal_multiple": 9
+    }
+  },
+  "news": [
+    {
+      "title": "Inditex (BME:ITX): Evaluating Valuation After Notable Share Price Momentum - Yahoo Finance",
+      "date": "Wed, 29 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Are Retail-Wholesale Stocks Lagging  Hennes & Mauritz (HNNMY) This Year?",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Stocks to Watch Wednesday Recap: Caesars, Rheinmetall, Petco, Oracle",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Industria De Diseno Textil SA (IDEXF) Full Year 2025 Earnings Call Highlights: Strong Financial ...",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Zara owner Inditex reassures investors with strong start to quarter",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Zara Parent Inditex Posts Fresh Sales Uptick Despite Middle East Conflict",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Sales jump for Zara owner Inditex as it taps into AI for virtual changing rooms",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Inditex Touts Ability to ‘Spin on a Dime’ as It Sees Limited Impact From Middle East Turmoil So Far",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Inditex Q4 Growth Slows as Currency Headwinds Hit, Full-Year Results Remain Solid - Yahoo! Finance Canada",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "Zara owner Inditex reports better start to autumn sales, boosting shares - Reuters",
+      "date": "Wed, 10 Se",
+      "source": "Reuters"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/ITX_MC/ITX_MC_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

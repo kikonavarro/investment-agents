@@ -1,0 +1,158 @@
+{
+  "ticker": "WOSG.L",
+  "company": "Watches of Switzerland Group PLC",
+  "currency": "GBP ",
+  "date": "2026-03-11",
+  "current_price": 477.0,
+  "shares_outstanding": 231412113,
+  "market_cap": 1103835776,
+  "sector": "Consumer Cyclical",
+  "industry": "Luxury Goods",
+  "country": "United Kingdom",
+  "business_summary": "Watches of Switzerland Group PLC operates as a retailer of luxury watches and jewelry in the United Kingdom, Europe, and the United States. The company engages in the sale of fashion and classic watches, and jewelry; and gifts, as well as provides servicing, repairs, and product insurance services. It trades under the Watches of Switzerland, Mappin & Webb, Goldsmiths, Mayors, Betteridge, Analog:Shift, and Hodinkee brands, as well as hosts Rolex, Cartier, OMEGA, TUDOR, and TAG Heuer brands. The company sells its products through showrooms, and online and wholesale channel. Watches of Switzerland Group PLC was founded in 1775 and is based in Leicester, the United Kingdom.",
+  "beta": 1.865,
+  "analyst_targets": {
+    "high": 700.0,
+    "low": 430.00003,
+    "mean": 538.636,
+    "current": 477.0
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 1651500000.0,
+    "net_income": 53800000.0,
+    "ebitda": 213600000.0,
+    "free_cashflow": 108300000.0,
+    "gross_margin": 0.12788374205267938,
+    "operating_margin": 0.10148349984862247,
+    "net_margin": 0.03257644565546473,
+    "total_debt": 647400000.0,
+    "cash": 79700000.0,
+    "total_equity": 539600000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 1238000000.0,
+      "net_income": 101000000.0,
+      "ebitda": 212200000.0,
+      "fcf": 126300000.0,
+      "operating_income": 143700000.0
+    },
+    "2023": {
+      "revenue": 1542800000.0,
+      "net_income": 121800000.0,
+      "ebitda": 263800000.0,
+      "fcf": 134200000.0,
+      "operating_income": 178800000.0
+    },
+    "2024": {
+      "revenue": 1537900000.0,
+      "net_income": 59100000.0,
+      "ebitda": 220100000.0,
+      "fcf": 107300000.0,
+      "operating_income": 152400000.0
+    },
+    "2025": {
+      "revenue": 1651500000.0,
+      "net_income": 53800000.0,
+      "ebitda": 213600000.0,
+      "fcf": 108300000.0,
+      "operating_income": 167600000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Luxury Goods",
+      "revenues": {
+        "2022": 1238000000.0,
+        "2023": 1542800000.0,
+        "2024": 1537900000.0,
+        "2025": 1651500000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.077,
+      "revenue_growth_y5": 0.0462,
+      "gross_margin": 0.13489123573127648,
+      "wacc": 0.1084,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.107,
+      "revenue_growth_y5": 0.0642,
+      "gross_margin": 0.15489123573127647,
+      "wacc": 0.0984,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": 0.047,
+      "revenue_growth_y5": 0.0282,
+      "gross_margin": 0.11489123573127648,
+      "wacc": 0.1284,
+      "terminal_multiple": 9
+    }
+  },
+  "news": [
+    {
+      "title": "UK Penny Stocks Spotlight: ITM Power And 2 Promising Picks",
+      "date": "Wed, 26 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Burberry is top turnaround prospect in depressed luxury sector, says broker - Yahoo Finance UK",
+      "date": "Wed, 18 Fe",
+      "source": "Yahoo Finance UK"
+    },
+    {
+      "title": "Watches of Switzerland Lifts Sales, Profit Projections After Robust Holiday Trading",
+      "date": "Wed, 04 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Watches of Switzerland Group Q3 Earnings Call Highlights",
+      "date": "Wed, 04 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Rolex Seller Watches of Switzerland Lifts Sales View on Strong Demand",
+      "date": "Wed, 04 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "UK Penny Stock Spotlight: Foresight Group Holdings And 2 Other Promising Picks",
+      "date": "Thu, 19 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Watches of Switzerland shares tick higher on brighter outlook - Reuters",
+      "date": "Thu, 16 Ma",
+      "source": "Reuters"
+    },
+    {
+      "title": "Discover UK Penny Stocks: Diaceutics And 2 More Hidden Opportunities",
+      "date": "Thu, 08 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "US demand keeps Swiss watch sales ticking despite hefty tariffs",
+      "date": "Thu, 04 De",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Watches of Switzerland warns of margin hit as US tariffs bite - Reuters",
+      "date": "Thu, 03 Ju",
+      "source": "Reuters"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/WOSG_L/WOSG_L_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

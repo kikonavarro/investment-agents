@@ -1,0 +1,162 @@
+{
+  "ticker": "HPQ",
+  "company": "HP Inc.",
+  "currency": "$",
+  "date": "2026-03-07",
+  "current_price": 19.46,
+  "shares_outstanding": 914550199,
+  "market_cap": 17863976960,
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "country": "United States",
+  "business_summary": "HP Inc. provides personal computing, printing, 3D printing, hybrid work, gaming, and other related technologies in the United States and internationally. The company operates through three segments: Personal Systems, Printing, and Corporate Investments. The Personal Systems segment offers commercial and consumer desktops and notebooks, workstations, thin clients, retail point-of-sale systems, displays, software, hybrid systems, and endpoint security and services, as well as lifecycle services, including support and deployment, configurations, and extended warranty services. The Printing segment provides consumer and commercial printer hardware, supplies, and solutions, as well as office and home printing solutions; and focuses on graphics, 3D printing, and personalization solutions for the commercial and industrial markets. The Corporate Investments segment is involved in the business incubation and investment projects. It serves small- and medium-sized businesses, public sector, and enterprises. The company was formerly known as Hewlett-Packard Company and changed its name to HP Inc. in October 2015. HP Inc. was founded in 1939 and is headquartered in Palo Alto, California.",
+  "beta": 1.178,
+  "analyst_targets": {
+    "high": 30.0,
+    "low": 16.0,
+    "mean": 19.99375,
+    "current": 19.46
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 55295000000.0,
+    "net_income": 2529000000.0,
+    "ebitda": 4139000000.0,
+    "free_cashflow": 2800000000.0,
+    "gross_margin": 0.20602224432588842,
+    "operating_margin": 0.06553937969074962,
+    "net_margin": 0.04573650420472014,
+    "total_debt": 10882000000.0,
+    "cash": 3690000000.0,
+    "total_equity": -346000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 62910000000.0,
+      "net_income": 3132000000.0,
+      "ebitda": 5463000000.0,
+      "fcf": 3698000000.0,
+      "operating_income": 5117000000.0
+    },
+    "2023": {
+      "revenue": 53718000000.0,
+      "net_income": 3263000000.0,
+      "ebitda": 4471000000.0,
+      "fcf": 2978000000.0,
+      "operating_income": 4223000000.0
+    },
+    "2024": {
+      "revenue": 53559000000.0,
+      "net_income": 2775000000.0,
+      "ebitda": 4716000000.0,
+      "fcf": 3157000000.0,
+      "operating_income": 4202000000.0
+    },
+    "2025": {
+      "revenue": 55295000000.0,
+      "net_income": 2529000000.0,
+      "ebitda": 4139000000.0,
+      "fcf": 2800000000.0,
+      "operating_income": 3624000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Computer Hardware",
+      "revenues": {
+        "2022": 62910000000.0,
+        "2023": 53718000000.0,
+        "2024": 53559000000.0,
+        "2025": 55295000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.069,
+      "revenue_growth_y5": 0.0414,
+      "gross_margin": 0.20895880844983267,
+      "wacc": 0.0831,
+      "terminal_multiple": 18
+    },
+    "bull": {
+      "revenue_growth_y1": 0.099,
+      "revenue_growth_y5": 0.0594,
+      "gross_margin": 0.22895880844983266,
+      "wacc": 0.0731,
+      "terminal_multiple": 20
+    },
+    "bear": {
+      "revenue_growth_y1": 0.03900000000000001,
+      "revenue_growth_y5": 0.023400000000000004,
+      "gross_margin": 0.18895880844983268,
+      "wacc": 0.1031,
+      "terminal_multiple": 15
+    }
+  },
+  "news": [
+    {
+      "title": "HPQ stock slips nearly 5% premarket as HP warns memory costs will squeeze 2026 outlook - TechStock²",
+      "date": "Wed, 25 Fe",
+      "source": "TechStock²"
+    },
+    {
+      "title": "HP Eyes Fresh Low After Dialing Back FY Profit View As Rising Memory Costs Bite - Stocktwits",
+      "date": "Wed, 25 Fe",
+      "source": "Stocktwits"
+    },
+    {
+      "title": "Apple’s New MacBook Is Cheaper Than an iPhone. The Stock Is Down.",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Apple Expands Mac Portfolio With New Devices: Can They Revive Growth?",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Morgan Stanley Lowers its Price Target on HP Inc. (HPQ) to $16 and Maintains an Underweight Rating",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "The Bull Case For HP (HPQ) Could Change Following Mixed Q1 Results And Steady Buybacks - Learn Why - simplywall.st",
+      "date": "Wed, 04 Ma",
+      "source": "simplywall.st"
+    },
+    {
+      "title": "Bahl & Gaynor Inc. Lowers Position in HP Inc. $HPQ - MarketBeat",
+      "date": "Wed, 04 Ma",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "Why HP (HPQ) Stock Is Trading Lower Today - Yahoo Finance",
+      "date": "Tue, 20 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "How Low Can HP Stock Go? - Forbes",
+      "date": "Tue, 06 Ja",
+      "source": "Forbes"
+    },
+    {
+      "title": "Mint Innovation Achieves Industry-First Closed Loop Recycled Copper Production in Collaboration with HP",
+      "date": "Tue, 03 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/HPQ/HPQ_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/HPQ/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/HPQ/SEC_filings/10K_2024.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/HPQ/SEC_filings/10K_2023.htm"
+    ]
+  }
+}

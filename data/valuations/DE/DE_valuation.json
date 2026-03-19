@@ -1,0 +1,162 @@
+{
+  "ticker": "DE",
+  "company": "Deere & Company",
+  "currency": "$",
+  "date": "2026-03-07",
+  "current_price": 589.77,
+  "shares_outstanding": 270107282,
+  "market_cap": 159301189632,
+  "sector": "Industrials",
+  "industry": "Farm & Heavy Construction Machinery",
+  "country": "United States",
+  "business_summary": "Deere & Company engages in the manufacture and distribution of various equipment worldwide. The company operates through four segments: Production and Precision Agriculture, Small Agriculture and Turf, Construction and Forestry, and Financial Services. The Production and Precision Agriculture segment provides four-wheel-drive track and row crop tractors, harvesters, cotton pickers and strippers, sugarcane harvesters and loaders, soil preparation, tillage, seeding, and crop care equipment, as well as application equipment, including sprayers and nutrient management, soil preparation machinery, and related attachments and service parts. The Small Agriculture and Turf segment offers specialty, utility, and compact tractors; self-propelled forage harvesters and attachments; rotary mowers, hay and forage equipment, and utility vehicles; turf and utility equipment, including riding lawn, commercial mowing, and golf course equipment, and utility vehicles, as well as implements for mowing, tilling, snow and debris handling, aerating, residential, commercial, golf, and sports turf care applications. The Construction and Forestry segment provides backhoe loaders, crawler dozers and loaders, four-wheel-drive loaders, excavators, motor graders, articulated dump trucks, skid-steer loaders, milling machines, recyclers, slipform and asphalt pavers, surface miners, compactors, tandem, static rollers, mobile crushers and screens, mobile and stationary asphalt plants, and log harvesters; and road building and rehabilitation equipment. The Financial Services segment finances sales and leases agriculture and turf, and construction and forestry equipment. It also offers wholesale financing to dealers of the foregoing equipment; and extended equipment warranties, as well as finances retail revolving charge accounts. The company was founded in 1837 and is headquartered in Moline, Illinois.",
+  "beta": 0.961,
+  "analyst_targets": {
+    "high": 793.0,
+    "low": 500.0,
+    "mean": 665.7859,
+    "current": 589.77
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 44665000000.0,
+    "net_income": 5027000000.0,
+    "ebitda": 11656000000.0,
+    "free_cashflow": 3231000000.0,
+    "gross_margin": 0.3648270457852905,
+    "operating_margin": 0.18842494122915035,
+    "net_margin": 0.11254897570804881,
+    "total_debt": 64250000000.0,
+    "cash": 8276000000.0,
+    "total_equity": 26007000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 51282000000.0,
+      "net_income": 7131000000.0,
+      "ebitda": 12084000000.0,
+      "fcf": 911000000.0,
+      "operating_income": 9026000000.0
+    },
+    "2023": {
+      "revenue": 60248000000.0,
+      "net_income": 10166000000.0,
+      "ebitda": 17476000000.0,
+      "fcf": 4121000000.0,
+      "operating_income": 14591000000.0
+    },
+    "2024": {
+      "revenue": 50518000000.0,
+      "net_income": 7100000000.0,
+      "ebitda": 14672000000.0,
+      "fcf": 4429000000.0,
+      "operating_income": 11427000000.0
+    },
+    "2025": {
+      "revenue": 44665000000.0,
+      "net_income": 5027000000.0,
+      "ebitda": 11656000000.0,
+      "fcf": 3231000000.0,
+      "operating_income": 8416000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Farm & Heavy Construction Machinery",
+      "revenues": {
+        "2022": 51282000000.0,
+        "2023": 60248000000.0,
+        "2024": 50518000000.0,
+        "2025": 44665000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.13,
+      "revenue_growth_y5": 0.078,
+      "gross_margin": 0.3569251909068355,
+      "wacc": 0.0813,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.169,
+      "revenue_growth_y5": 0.1014,
+      "gross_margin": 0.3769251909068355,
+      "wacc": 0.0713,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": 0.091,
+      "revenue_growth_y5": 0.054599999999999996,
+      "gross_margin": 0.3369251909068355,
+      "wacc": 0.1013,
+      "terminal_multiple": 9
+    }
+  },
+  "news": [
+    {
+      "title": "Zip Appoints Former Ironclad and Salesforce Sales Leader Dallas Stonhaus as Chief Sales Officer to Accelerate Enterprise Expansion",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is Deere & Company Stock Outperforming the Dow?",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is Deere Stock Outperforming Its Rivals? - Trefis",
+      "date": "Wed, 04 Ma",
+      "source": "Trefis"
+    },
+    {
+      "title": "G1A.DE stock €62.30 pre-market ahead of 09 Mar earnings: margins will matter - Meyka",
+      "date": "Wed, 04 Ma",
+      "source": "Meyka"
+    },
+    {
+      "title": "Assessing Deere’s (DE) Valuation After Recent Share Price Momentum And Autonomy Growth Narrative",
+      "date": "Tue, 03 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Stronger Guidance And Bayer Tech Tie-Up Might Change The Case For Investing In Deere (DE)",
+      "date": "Tue, 03 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "AI Stocks: The HALO Trade As A Hedge Against The AI Sell-Off",
+      "date": "Thu, 05 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "DE Gains 33% in a Year: What's the Right Strategy for Investors Now?",
+      "date": "Thu, 05 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "R3NK.DE Stock Today: March 05 – Dividend Hike, Conservative Outlook Hits Stock - Meyka",
+      "date": "Thu, 05 Ma",
+      "source": "Meyka"
+    },
+    {
+      "title": "Best 3 Blue-Chip Stocks to Buy After This Week's Market Pullback",
+      "date": "Sun, 01 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DE/DE_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DE/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DE/SEC_filings/10K_2024.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DE/SEC_filings/10K_2023.htm"
+    ]
+  }
+}

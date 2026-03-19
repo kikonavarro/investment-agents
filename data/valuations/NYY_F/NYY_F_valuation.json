@@ -1,0 +1,158 @@
+{
+  "ticker": "NYY.F",
+  "company": "NWF Group plc",
+  "currency": "$",
+  "date": "2026-03-16",
+  "current_price": 1.53,
+  "shares_outstanding": 49597701,
+  "market_cap": 78195960,
+  "sector": "Energy",
+  "industry": "Oil & Gas Refining & Marketing",
+  "country": "United Kingdom",
+  "business_summary": "NWF Group plc, together with its subsidiaries, engages in the sale and distribution of fuel oils in the United Kingdom. It operates through Fuels, Food, and Feeds segments. The Fuels segment sells and distributes domestic heating, industrial, and road fuels. This segment owns and operates through a network of 27 depots. The Food segment is involved in the warehousing and distribution of grocery and other products to supermarkets and other retail distribution centers. The Feeds segment manufactures and sells animal feeds and other agricultural products. The company was founded in 1871 and is headquartered in Nantwich, the United Kingdom.",
+  "beta": 0.203,
+  "analyst_targets": {
+    "high": 0,
+    "low": 0,
+    "mean": 0,
+    "current": 1.53
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 903100000.0,
+    "net_income": 6200000.0,
+    "ebitda": 31900000.0,
+    "free_cashflow": 19900000.0,
+    "gross_margin": 0.05569704351677555,
+    "operating_margin": 0.013951943306389105,
+    "net_margin": 0.006865241944413686,
+    "total_debt": 64800000.0,
+    "cash": 10900000.0,
+    "total_equity": 87200000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 878600000.0,
+      "net_income": 8400000.0,
+      "ebitda": 27200000.0,
+      "fcf": 26500000.0,
+      "operating_income": 13200000.0
+    },
+    "2023": {
+      "revenue": 1053900000.0,
+      "net_income": 14900000.0,
+      "ebitda": 35900000.0,
+      "fcf": 29300000.0,
+      "operating_income": 20600000.0
+    },
+    "2024": {
+      "revenue": 950600000.0,
+      "net_income": 9100000.0,
+      "ebitda": 31400000.0,
+      "fcf": 10600000.0,
+      "operating_income": 14300000.0
+    },
+    "2025": {
+      "revenue": 903100000.0,
+      "net_income": 6200000.0,
+      "ebitda": 31900000.0,
+      "fcf": 19900000.0,
+      "operating_income": 12600000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Oil & Gas Refining & Marketing",
+      "revenues": {
+        "2022": 878600000.0,
+        "2023": 1053900000.0,
+        "2024": 950600000.0,
+        "2025": 903100000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": -0.032999999999999995,
+      "revenue_growth_y5": 0.007000000000000006,
+      "gross_margin": 0.1,
+      "wacc": 0.05,
+      "terminal_multiple": 6
+    },
+    "bull": {
+      "revenue_growth_y1": -0.0029999999999999975,
+      "revenue_growth_y5": 0.037000000000000005,
+      "gross_margin": 0.1,
+      "wacc": 0.04,
+      "terminal_multiple": 8
+    },
+    "bear": {
+      "revenue_growth_y1": -0.063,
+      "revenue_growth_y5": -0.022999999999999993,
+      "gross_margin": 0.1,
+      "wacc": 0.07,
+      "terminal_multiple": 5
+    }
+  },
+  "news": [
+    {
+      "title": "Top UK Dividend Stocks To Watch In October 2025",
+      "date": "Wed, 29 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Top UK Dividend Stocks To Consider In November 2025",
+      "date": "Wed, 19 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Top UK Dividend Stocks For November 2025",
+      "date": "Wed, 12 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NWF Group plc's (LON:NWF) Intrinsic Value Is Potentially 87% Above Its Share Price",
+      "date": "Wed, 04 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Top UK Dividend Stocks To Consider In October 2025",
+      "date": "Tue, 28 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "UK Dividend Stocks To Consider For Your Portfolio",
+      "date": "Thu, 30 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Returns On Capital At NWF Group (LON:NWF) Paint A Concerning Picture",
+      "date": "Thu, 23 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Top UK Dividend Stocks To Watch In November 2025",
+      "date": "Thu, 20 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NWF Group PLC (FRA:NYY) (Q2 2026) Earnings Call Highlights: Navigating Market Challenges with ...",
+      "date": "Thu, 05 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 UK Dividend Stocks To Consider With Up To 6.3% Yield",
+      "date": "Mon, 27 Oc",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NYY_F/NYY_F_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "ticker": "IREN",
+  "company": "IREN Limited",
+  "currency": "$",
+  "date": "2026-03-17",
+  "current_price": 44.94,
+  "shares_outstanding": 331759177,
+  "market_cap": 14909256704,
+  "sector": "Financial Services",
+  "industry": "Capital Markets",
+  "country": "Australia",
+  "business_summary": "IREN Limited operates in the vertically integrated data center business in Australia and Canada. The company owns and operates computing hardware, as well as electrical infrastructure and data centers. It also mines Bitcoin, a scarce digital asset that is created and transmitted through the operation of a peer-to-peer network of computers running the Bitcoin software. The company was formerly known as Iris Energy Limited and changed its name to IREN Limited in November 2024. The company was incorporated in 2018 and is based in Sydney, Australia.",
+  "beta": 4.321,
+  "analyst_targets": {
+    "high": 125.0,
+    "low": 39.0,
+    "mean": 80.0,
+    "current": 44.94
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 501023000.0,
+    "net_income": 86941000.0,
+    "ebitda": 285682000.0,
+    "free_cashflow": -1126741000.0,
+    "gross_margin": 0.6826652668639963,
+    "operating_margin": 0.04415366160834932,
+    "net_margin": 0.17352696383199973,
+    "total_debt": 964232000.0,
+    "cash": 564526000.0,
+    "total_equity": 1817488000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 59037000.0,
+      "net_income": -419770000.0,
+      "ebitda": 16136000.0,
+      "fcf": -331727000.0,
+      "operating_income": 462000.0
+    },
+    "2023": {
+      "revenue": 75509000.0,
+      "net_income": -171827000.0,
+      "ebitda": -122557000.0,
+      "fcf": -110335000.0,
+      "operating_income": -48558000.0
+    },
+    "2024": {
+      "revenue": 187192000.0,
+      "net_income": -28920000.0,
+      "ebitda": 25101000.0,
+      "fcf": -427690000.0,
+      "operating_income": -27277000.0
+    },
+    "2025": {
+      "revenue": 501023000.0,
+      "net_income": 86941000.0,
+      "ebitda": 285682000.0,
+      "fcf": -1126741000.0,
+      "operating_income": 22122000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Capital Markets",
+      "revenues": {
+        "2022": 59037000.0,
+        "2023": 75509000.0,
+        "2024": 187192000.0,
+        "2025": 501023000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.4,
+      "revenue_growth_y5": 0.24,
+      "gross_margin": 0.5687263431985272,
+      "wacc": 0.2328,
+      "terminal_multiple": 13
+    },
+    "bull": {
+      "revenue_growth_y1": 0.52,
+      "revenue_growth_y5": 0.312,
+      "gross_margin": 0.5887263431985272,
+      "wacc": 0.2228,
+      "terminal_multiple": 15
+    },
+    "bear": {
+      "revenue_growth_y1": 0.28,
+      "revenue_growth_y5": 0.168,
+      "gross_margin": 0.5487263431985272,
+      "wacc": 0.2528,
+      "terminal_multiple": 10
+    }
+  },
+  "news": [
+    {
+      "title": "Nvidia Invests $2B in AI Cloud Company Nebius. CoreWeave Stock Isn’t the Only ‘NeoCloud’ Play.",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Zacks Investment Ideas feature highlights Microsoft, Alphabet, Amazon, Meta, Oracle, Micron, Sandisk, Bloom Energy, IREN, and   NVIDIA",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Better AI Infrastructure Stock: IREN vs. Applied Digital - The Motley Fool",
+      "date": "Wed, 11 Ma",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Iren Stock Jumps 9% on Nvidia’s $2B Deal with Nebius — What’s Next? - TipRanks",
+      "date": "Wed, 11 Ma",
+      "source": "TipRanks"
+    },
+    {
+      "title": "IREN Stock Surge: Buy or Sell After the 8.08% Jump? - EBC Financial Group",
+      "date": "Tue, 17 Ma",
+      "source": "EBC Financial Group"
+    },
+    {
+      "title": "Investis (IREN.SW, SIX) pre-market CHF151.50 17 Mar 2026 earnings: IREN.SW stock EPS focus - Meyka",
+      "date": "Tue, 17 Ma",
+      "source": "Meyka"
+    },
+    {
+      "title": "IREN Just Dropped To $35, And The Market Is Missing The Point (NASDAQ:IREN) - Seeking Alpha",
+      "date": "Tue, 10 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Why IREN Limited Plunged Over 20% in February - The Motley Fool",
+      "date": "Tue, 10 Ma",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Bitcoin holds $70,000 floor with strong ETF inflows as bitcoin mining stock prices fall",
+      "date": "Thu, 12 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "IREN Ltd (IREN) Soars 10.13% as Nvidia Ramps up AI Investments",
+      "date": "Thu, 12 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/IREN/IREN_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/IREN/SEC_filings/10K_2025.htm"
+    ]
+  }
+}
