@@ -10,15 +10,106 @@ Funciones principales:
 """
 
 import re
+import json as _json
+from datetime import date, datetime, timedelta
+from pathlib import Path
 import requests
 import numpy as np
 import pandas as pd
 from yahooquery import Ticker
+from config import settings
 
 
 HEADERS = {
     "User-Agent": "InvestmentAgents/1.0 (contacto@valoracion.com)",
 }
+
+
+# --- Caché de datos financieros ---
+
+def _cache_path(ticker: str, for_date: date = None) -> Path:
+    """Ruta del archivo de caché para un ticker y fecha."""
+    d = for_date or date.today()
+    settings.CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    return settings.CACHE_DIR / f"{ticker}_{d.isoformat()}.json"
+
+
+def _serialize_for_cache(data: dict) -> dict:
+    """Convierte DataFrames a formato JSON-serializable para caché."""
+    out = {}
+    for key, val in data.items():
+        if isinstance(val, pd.DataFrame):
+            if val.empty:
+                out[key] = {"__type__": "dataframe", "data": None}
+            else:
+                out[key] = {
+                    "__type__": "dataframe",
+                    "data": val.to_json(date_format="iso"),
+                }
+        else:
+            out[key] = val
+    return out
+
+
+def _deserialize_from_cache(data: dict) -> dict:
+    """Restaura DataFrames desde formato de caché."""
+    out = {}
+    for key, val in data.items():
+        if isinstance(val, dict) and val.get("__type__") == "dataframe":
+            if val["data"] is None:
+                out[key] = pd.DataFrame()
+            else:
+                out[key] = pd.read_json(val["data"])
+        else:
+            out[key] = val
+    return out
+
+
+def _load_cache(ticker: str) -> dict | None:
+    """Carga datos de caché del día actual. Devuelve None si no existe."""
+    path = _cache_path(ticker)
+    if not path.exists():
+        return None
+    try:
+        raw = _json.loads(path.read_text(encoding="utf-8"))
+        print(f"  [cache] Usando datos cacheados de {ticker} ({path.name})")
+        return _deserialize_from_cache(raw)
+    except Exception as e:
+        print(f"  [cache] Error leyendo caché: {e}. Descargando datos frescos...")
+        return None
+
+
+def _save_cache(ticker: str, data: dict):
+    """Guarda datos en caché."""
+    path = _cache_path(ticker)
+    try:
+        serialized = _serialize_for_cache(data)
+        path.write_text(_json.dumps(serialized, default=str, ensure_ascii=False),
+                        encoding="utf-8")
+        print(f"  [cache] Datos guardados en {path.name}")
+    except Exception as e:
+        print(f"  [cache] Error guardando caché: {e}")
+
+
+def cleanup_cache():
+    """Elimina archivos de caché más antiguos que CACHE_TTL_DAYS."""
+    if not settings.CACHE_DIR.exists():
+        return
+    cutoff = date.today() - timedelta(days=settings.CACHE_TTL_DAYS)
+    removed = 0
+    for f in settings.CACHE_DIR.glob("*.json"):
+        # Extraer fecha del nombre: TICKER_YYYY-MM-DD.json
+        parts = f.stem.rsplit("_", 1)
+        if len(parts) == 2:
+            try:
+                file_date = date.fromisoformat(parts[1])
+                if file_date < cutoff:
+                    f.unlink()
+                    removed += 1
+            except ValueError:
+                continue
+    if removed:
+        print(f"  [cache] Limpieza: {removed} archivo(s) antiguo(s) eliminado(s)")
 
 
 def search_ticker(query: str, max_results: int = 5) -> list[dict]:
@@ -77,8 +168,15 @@ def resolve_ticker(query: str) -> str | None:
 def get_company_data(ticker: str) -> dict:
     """
     Obtiene todos los datos financieros necesarios para la valoracion.
+    Usa caché del día si existe (salvo FORCE_FRESH).
     """
-    print(f"  [data] Obteniendo datos financieros para {ticker}...")
+    # Intentar caché (salvo --fresh)
+    if not settings.FORCE_FRESH:
+        cached = _load_cache(ticker)
+        if cached is not None:
+            return cached
+
+    print(f"  [data] Descargando datos financieros para {ticker}...")
 
     stock = Ticker(ticker)
 
@@ -125,7 +223,7 @@ def get_company_data(ticker: str) -> dict:
     except Exception:
         hist = pd.DataFrame()
 
-    return {
+    result = {
         "info": info,
         "income_stmt": income_stmt,
         "balance_sheet": balance_sheet,
@@ -136,6 +234,12 @@ def get_company_data(ticker: str) -> dict:
         "shares_outstanding": shares_outstanding,
         "history": hist,
     }
+
+    # Guardar en caché y limpiar archivos antiguos
+    _save_cache(ticker, result)
+    cleanup_cache()
+
+    return result
 
 
 def _build_info_dict(price_data, fin_data, profile, key_stats, summary, ticker):

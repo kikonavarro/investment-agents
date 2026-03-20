@@ -27,6 +27,7 @@ Thumbs.db
 
 # Data (large/generated files)
 data/valuations/*/SEC_filings/
+data/cache/
 
 # Claude Code
 .claude/

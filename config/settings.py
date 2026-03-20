@@ -37,6 +37,11 @@ PORTFOLIO_FILE = DATA_DIR / "mi_cartera.xlsx"
 # --- Modo data-only (sin llamadas API, para usar desde Claude Code) ---
 DATA_ONLY_MODE = False
 
+# --- Caché de datos financieros ---
+CACHE_DIR = DATA_DIR / "cache"
+CACHE_TTL_DAYS = 7        # Limpiar caché de más de 7 días
+FORCE_FRESH = False       # --fresh para forzar descarga nueva
+
 # --- Scheduler ---
 TWEETS_DIR = DATA_DIR / "tweets"
 DB_PATH = DATA_DIR / "scheduler_state.db"
