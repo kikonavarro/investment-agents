@@ -136,10 +136,14 @@ def run_analyst(ticker: str) -> dict:
         ticker, company_name, data, historical, scenarios, news,
         excel_path, downloaded_files, currency
     )
+    # Guardar versión actual (backward compat)
     json_path = str(output_dir / f"{folder_name}_valuation.json")
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(valuation_summary, f, ensure_ascii=False, indent=2, default=str)
     print(f"    JSON guardado: {json_path}")
+
+    # Guardar versión con timestamp + actualizar historial
+    _save_versioned(output_dir, folder_name, valuation_summary)
 
     # Resumen final
     elapsed = time.time() - start_time
@@ -243,3 +247,60 @@ def _summarize_year(d):
         "fcf": d.get("free_cashflow", 0),
         "operating_income": d.get("operating_income", 0),
     }
+
+
+# --- Versionado de análisis ---
+
+def _save_versioned(output_dir: Path, folder_name: str, valuation: dict):
+    """Guarda copia con timestamp y actualiza history.json."""
+    today = datetime.now().strftime("%Y%m%d")
+    versioned_path = output_dir / f"{folder_name}_{today}_valuation.json"
+    with open(versioned_path, "w", encoding="utf-8") as f:
+        json.dump(valuation, f, ensure_ascii=False, indent=2, default=str)
+
+    # Extraer métricas clave para el historial
+    scenarios = valuation.get("scenarios", {})
+    entry = {
+        "date": valuation.get("date", today),
+        "file": versioned_path.name,
+        "current_price": valuation.get("current_price", 0),
+        "currency": valuation.get("currency", "$"),
+        "fair_value_bear": scenarios.get("bear", {}).get("wacc", 0),
+        "fair_value_base": scenarios.get("base", {}).get("wacc", 0),
+        "fair_value_bull": scenarios.get("bull", {}).get("wacc", 0),
+        "revenue": valuation.get("latest_financials", {}).get("revenue", 0),
+        "gross_margin": valuation.get("latest_financials", {}).get("gross_margin", 0),
+        "growth_y1_base": scenarios.get("base", {}).get("revenue_growth_y1", 0),
+        "wacc_base": scenarios.get("base", {}).get("wacc", 0),
+        "tv_base": scenarios.get("base", {}).get("terminal_multiple", 0),
+    }
+
+    # Leer/crear historial
+    history_path = output_dir / "history.json"
+    history = []
+    if history_path.exists():
+        try:
+            history = json.loads(history_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, Exception):
+            history = []
+
+    # Reemplazar entrada del mismo día si existe, si no añadir
+    history = [h for h in history if h.get("date") != entry["date"]]
+    history.append(entry)
+    history.sort(key=lambda h: h["date"])
+
+    history_path.write_text(json.dumps(history, indent=2, ensure_ascii=False, default=str),
+                            encoding="utf-8")
+    print(f"    Versión guardada: {versioned_path.name} ({len(history)} en historial)")
+
+
+def load_history(ticker: str) -> list[dict]:
+    """Carga el historial de valoraciones de un ticker."""
+    folder_name = _clean_ticker(ticker)
+    history_path = VALUATIONS_DIR / folder_name / "history.json"
+    if not history_path.exists():
+        return []
+    try:
+        return json.loads(history_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, Exception):
+        return []
