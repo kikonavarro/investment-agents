@@ -3,10 +3,12 @@ scheduler.py — automatización de tareas periódicas (always-on).
 
 Tareas programadas:
   - Cada 2h (08-20h):  news_scan() — RSS → SQLite → score con Haiku
-  - Diaria (09:00):    daily_portfolio_check() — precios + alertas
+  - Diaria (09:00):    daily_portfolio_check() — precios + alertas + Telegram
   - 3x/día:            price_update() — actualiza precios en Excel
   - 2x/día:            auto_tweet_generation() — mejor noticia → hilo → archivo
-  - Semanal (lun 08h):  weekly_screener() — screener Graham
+  - Semanal (lun 08h):  weekly_screener() — screener Graham + Telegram
+  - Semanal (vie 18h):  weekly_portfolio_summary() — resumen cartera → Telegram
+  - Semanal (sáb 10h):  weekly_revaluation() — re-analiza posiciones + alerta cambios
 
 Uso:
     python scheduler.py                  # Loop continuo
@@ -15,6 +17,8 @@ Uso:
     python scheduler.py --now news       # Fetch + score noticias
     python scheduler.py --now tweets     # Generar tweets
     python scheduler.py --now prices     # Actualizar precios
+    python scheduler.py --now revalue    # Re-valorar posiciones
+    python scheduler.py --now summary    # Resumen semanal
     python scheduler.py --now status     # Estado del sistema
 """
 import sys
@@ -103,6 +107,9 @@ def daily_portfolio_check():
             # Persistir en SQLite
             log_alert("PORTFOLIO", alert.split("]")[0].strip("["), alert)
         _save_alerts(alerts)
+        # Notificar por Telegram
+        from tools.notifier import notify_portfolio_alerts
+        notify_portfolio_alerts(alerts)
     else:
         log.info("Sin alertas activas.")
 
@@ -366,11 +373,86 @@ def weekly_screener():
     save_screener_report(result)
 
     log.info(f"Candidatas encontradas: {result.get('total_candidates_found', 0)}")
-    for item in result.get("top_5", []):
+    top5 = result.get("top_5", [])
+    for item in top5:
         log.info(f"  #{item['rank']} {item['ticker']:8s} — {item.get('reason', '')[:60]}")
+
+    # Notificar por Telegram
+    if top5:
+        from tools.notifier import notify_screener_results
+        notify_screener_results(top5, filter_name="graham_default")
 
     log.info("=== Screener completado ===\n")
     return result
+
+
+# ─── Tarea semanal: re-valoración de posiciones ──────────────────────────────────
+
+def weekly_revaluation():
+    """
+    Re-ejecuta el analyst para cada posición de la cartera.
+    Compara el nuevo fair value con el anterior y alerta si cambia >10%.
+    """
+    log.info("=== TAREA SEMANAL: Re-valoración ===")
+
+    from tools.excel_portfolio import read_portfolio
+    from agents.analyst import run_analyst, load_valuation, load_history
+
+    positions = read_portfolio()
+    auto_tickers = [
+        p["ticker"] for p in positions
+        if p.get("source") == "auto" and p.get("ticker")
+    ]
+
+    if not auto_tickers:
+        log.info("Sin posiciones auto para re-valorar.")
+        return
+
+    from tools.notifier import notify_revaluation
+
+    for ticker in auto_tickers:
+        log.info(f"Re-valorando {ticker}...")
+        try:
+            # Guardar precio anterior del historial
+            history = load_history(ticker)
+            old_price = history[-1]["current_price"] if history else None
+
+            # Re-ejecutar analyst (genera nuevo JSON + historial)
+            result = run_analyst(ticker)
+            new_price = result.get("current_price", 0)
+
+            # Comparar con valoración anterior
+            if old_price and old_price > 0:
+                change_pct = (new_price / old_price - 1) * 100
+                if abs(change_pct) > 10:
+                    currency = result.get("currency", "$")
+                    notify_revaluation(ticker, old_price, new_price, change_pct, currency)
+                    log.warning(f"  {ticker}: precio cambió {change_pct:+.1f}%")
+                else:
+                    log.info(f"  {ticker}: sin cambio significativo ({change_pct:+.1f}%)")
+
+        except Exception:
+            log.error(f"  Error re-valorando {ticker}:\n{traceback.format_exc()}")
+
+    log.info("=== Re-valoración completada ===\n")
+
+
+# ─── Tarea semanal: resumen de cartera ──────────────────────────────────────────
+
+def weekly_portfolio_summary():
+    """Envía un resumen semanal del estado de la cartera por Telegram."""
+    log.info("=== TAREA SEMANAL: Resumen de cartera ===")
+
+    from tools.excel_portfolio import get_portfolio_summary
+    from tools.notifier import notify_weekly_summary
+
+    summary = get_portfolio_summary()
+    notify_weekly_summary(summary)
+
+    total = summary.get("total_value", 0)
+    pnl = summary.get("total_pnl_pct", 0)
+    log.info(f"Resumen enviado: valor={total:,.2f} | P&L={pnl:+.2f}%")
+    log.info("=== Resumen completado ===\n")
 
 
 # ─── Status ──────────────────────────────────────────────────────────────────────
@@ -428,6 +510,14 @@ def setup_schedule():
     schedule.every().monday.at("08:00").do(lambda: _safe_run(weekly_screener))
     log.info("Programado: weekly_screener los lunes a las 08:00")
 
+    # Re-valoración semanal: sábado 10:00 (mercado cerrado, sin interferir)
+    schedule.every().saturday.at("10:00").do(lambda: _safe_run(weekly_revaluation))
+    log.info("Programado: weekly_revaluation los sábados a las 10:00")
+
+    # Resumen semanal: viernes 18:00
+    schedule.every().friday.at("18:00").do(lambda: _safe_run(weekly_portfolio_summary))
+    log.info("Programado: weekly_portfolio_summary los viernes a las 18:00")
+
 
 def run_loop():
     """Loop principal del scheduler. Corre indefinidamente."""
@@ -454,7 +544,7 @@ def main():
     parser = argparse.ArgumentParser(description="Scheduler de tareas de inversion")
     parser.add_argument(
         "--now",
-        choices=["daily", "weekly", "news", "tweets", "prices", "status"],
+        choices=["daily", "weekly", "news", "tweets", "prices", "revalue", "summary", "status"],
         help="Ejecuta una tarea inmediatamente sin esperar al horario",
     )
     args = parser.parse_args()
@@ -489,6 +579,14 @@ def main():
     elif args.now == "prices":
         log.info("Ejecutando price update manualmente...")
         price_update()
+
+    elif args.now == "revalue":
+        log.info("Ejecutando re-valoración manualmente...")
+        weekly_revaluation()
+
+    elif args.now == "summary":
+        log.info("Ejecutando resumen semanal manualmente...")
+        weekly_portfolio_summary()
 
     elif args.now == "status":
         _print_scheduler_status()
