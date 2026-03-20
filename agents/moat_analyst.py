@@ -41,13 +41,21 @@ def run_moat_analyst(analysis: dict | str) -> dict:
             raise ValueError(f"No existe valoración para {ticker}. Ejecuta --analyst primero.")
 
     ticker = analysis.get("ticker", "?")
-    print(f"  [moat_analyst] Evaluando ventaja competitiva de {ticker}...")
+    company = analysis.get("company", ticker)
+    print(f"  [moat_analyst] Evaluando ventaja competitiva de {ticker} (con web search)...")
+
+    # Añadir instrucción de búsqueda al mensaje
+    data = _prepare_data(analysis)
+    data += (f"\n\nBusca información reciente sobre la posición competitiva de "
+             f"{company} ({ticker}): cuota de mercado, nuevos competidores, "
+             f"ventajas tecnológicas, patentes relevantes o cambios en el sector.")
 
     result = call_agent_json(
         system_prompt=MOAT_ANALYST,
-        user_message=_prepare_data(analysis),
+        user_message=data,
         model_tier="standard",
-        max_tokens=1500,
+        max_tokens=2000,
         agent_name="moat_analyst",
+        web_search=True,
     )
     return result

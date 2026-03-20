@@ -131,20 +131,25 @@ def _should_retry(error: Exception) -> bool:
 
 
 def _call_with_retry(model: str, system_prompt: str, user_message: str,
-                     max_tokens: int, tier: str) -> anthropic.types.Message:
+                     max_tokens: int, tier: str,
+                     tools: list | None = None) -> anthropic.types.Message:
     """Llama a la API con reintentos y backoff exponencial."""
     timeout = TIMEOUTS.get(tier, 60)
     last_error = None
 
+    kwargs = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "system": system_prompt,
+        "messages": [{"role": "user", "content": user_message}],
+        "timeout": timeout,
+    }
+    if tools:
+        kwargs["tools"] = tools
+
     for attempt in range(MAX_RETRIES):
         try:
-            response = client.messages.create(
-                model=model,
-                max_tokens=max_tokens,
-                system=system_prompt,
-                messages=[{"role": "user", "content": user_message}],
-                timeout=timeout,
-            )
+            response = client.messages.create(**kwargs)
             return response
         except Exception as e:
             last_error = e
@@ -158,6 +163,15 @@ def _call_with_retry(model: str, system_prompt: str, user_message: str,
     raise last_error
 
 
+def _extract_text(response: anthropic.types.Message) -> str:
+    """Extrae el texto de una respuesta que puede tener múltiples content blocks."""
+    text_parts = []
+    for block in response.content:
+        if hasattr(block, "text"):
+            text_parts.append(block.text)
+    return "\n".join(text_parts) if text_parts else ""
+
+
 def call_agent(
     system_prompt: str,
     user_message: str,
@@ -167,6 +181,7 @@ def call_agent(
     force_api: bool = False,
     allow_fallback: bool = True,
     agent_name: str = "",
+    web_search: bool = False,
 ) -> str:
     """
     Llamada genérica a Claude con reintentos y fallback.
@@ -180,6 +195,7 @@ def call_agent(
         force_api: Si True, usa la API aunque DATA_ONLY_MODE esté activo.
         allow_fallback: Si True, intenta modelo inferior si el principal falla.
         agent_name: Nombre del agente (para tracking de costes).
+        web_search: Si True, habilita búsqueda web en la llamada.
 
     Returns:
         Texto de respuesta de Claude.
@@ -191,13 +207,15 @@ def call_agent(
     if settings.DATA_ONLY_MODE and not force_api:
         return "[DATA_ONLY]"
 
+    tools = [{"type": "web_search_20250305"}] if web_search else None
+
     current_tier = model_tier
     while current_tier is not None:
         model = MODELS[current_tier]
         try:
             t0 = time.time()
             response = _call_with_retry(model, system_prompt, user_message,
-                                        max_tokens, current_tier)
+                                        max_tokens, current_tier, tools=tools)
             duration = time.time() - t0
             # Registrar uso de tokens
             usage = response.usage
@@ -212,7 +230,7 @@ def call_agent(
             if current_tier != model_tier:
                 print(f"  [fallback] Respuesta obtenida con {current_tier} "
                       f"(modelo original: {model_tier})")
-            return response.content[0].text
+            return _extract_text(response)
         except Exception as e:
             if allow_fallback and FALLBACK_CHAIN.get(current_tier):
                 fallback = FALLBACK_CHAIN[current_tier]
@@ -234,6 +252,7 @@ def call_agent_json(
     force_api: bool = False,
     allow_fallback: bool = True,
     agent_name: str = "",
+    web_search: bool = False,
 ) -> dict:
     """Wrapper que llama a call_agent y parsea el JSON de respuesta."""
     # Modo data-only: devolver sentinel sin llamar a la API
@@ -248,6 +267,7 @@ def call_agent_json(
         json_output=True,
         allow_fallback=allow_fallback,
         agent_name=agent_name,
+        web_search=web_search,
     )
     # Limpiar posibles backticks markdown
     raw = raw.strip()
