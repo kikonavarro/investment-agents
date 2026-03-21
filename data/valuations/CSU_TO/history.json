@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-21",
+    "file": "CSU_TO_20260321_valuation.json",
+    "current_price": 2499.22,
+    "currency": "C$",
+    "fair_value_bear": 0.08729999999999999,
+    "fair_value_base": 0.0773,
+    "fair_value_bull": 0.0673,
+    "revenue": 11623000000.0,
+    "gross_margin": 0.37580659038114084,
+    "growth_y1_base": 0.175,
+    "wacc_base": 0.0773,
+    "tv_base": 19
+  }
+]

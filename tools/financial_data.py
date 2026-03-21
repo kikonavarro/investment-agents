@@ -465,8 +465,10 @@ def generate_scenarios(data, historical):
     base_growth = analyst_growth if analyst_growth and analyst_growth != 0 else avg_growth
     base_growth = max(min(base_growth, 0.40), -0.15)
 
-    bull_premium = max(abs(base_growth) * 0.3, 0.03)
-    bear_discount = max(abs(base_growth) * 0.3, 0.03)
+    # Offsets calibrados para dispersión profesional (~1.6-1.8x bull/bear)
+    # Growth: ±15% del base (vs ±30% anterior)
+    bull_premium = max(abs(base_growth) * 0.15, 0.015)
+    bear_discount = max(abs(base_growth) * 0.15, 0.015)
     wacc_base = _estimate_wacc(info)
     tv_base = _estimate_terminal_multiple(info)
 
@@ -475,11 +477,19 @@ def generate_scenarios(data, historical):
             return g * (1 - 0.1 * i)
         return g + 0.01 * (i + 1)
 
+    # Offsets calibrados para dispersión profesional (~1.5-1.8x bull/bear):
+    #   Growth: ±15% del base
+    #   Gross margin: ±1pp
+    #   SGA: ±0.5pp
+    #   R&D: sin cambio bear/bull
+    #   CapEx: bear 1.15x (menos eficiencia), bull 0.90x (más eficiencia)
+    #   WACC: ±1pp simétrico
+    #   TV Multiple: ±2 simétrico
     scenarios = {}
     for key, name, g_offset, gm_off, sga_off, rd_off, capex_mult, wacc_off, tv_off in [
         ("base", "Base Case", 0, 0, 0, 0, 1.0, 0, 0),
-        ("bull", "Bull Case", bull_premium, 0.02, -0.01, 0, 1.0, -0.01, 2),
-        ("bear", "Bear Case", -bear_discount, -0.02, 0.01, 0.005, 1.1, 0.02, -3),
+        ("bull", "Bull Case", bull_premium, 0.01, -0.005, 0, 0.90, -0.01, 2),
+        ("bear", "Bear Case", -bear_discount, -0.01, 0.005, 0, 1.15, 0.01, -2),
     ]:
         g = base_growth + g_offset
         sc = {"name": name}

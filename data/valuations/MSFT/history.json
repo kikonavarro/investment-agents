@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-21",
+    "file": "MSFT_20260321_valuation.json",
+    "current_price": 381.87,
+    "currency": "$",
+    "fair_value_bear": 0.1132,
+    "fair_value_base": 0.1032,
+    "fair_value_bull": 0.0932,
+    "revenue": 281724000000.0,
+    "gross_margin": 0.6882374238616519,
+    "growth_y1_base": 0.167,
+    "wacc_base": 0.1032,
+    "tv_base": 19
+  }
+]

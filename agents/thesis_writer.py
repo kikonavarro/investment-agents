@@ -74,7 +74,7 @@ def run_thesis_writer(analysis: dict | str) -> str:
     thesis = call_agent(
         system_prompt=prompt_with_date,
         user_message=message,
-        model_tier="deep",
+        model_tier="standard",
         max_tokens=4000,
         json_output=False,
     )

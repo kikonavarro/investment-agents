@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-21",
+    "file": "NKE_20260321_valuation.json",
+    "current_price": 52.37,
+    "currency": "$",
+    "fair_value_bear": 0.11599999999999999,
+    "fair_value_base": 0.106,
+    "fair_value_bull": 0.096,
+    "revenue": 46309000000.0,
+    "gross_margin": 0.42734673605562634,
+    "growth_y1_base": 0.006,
+    "wacc_base": 0.106,
+    "tv_base": 12
+  }
+]
