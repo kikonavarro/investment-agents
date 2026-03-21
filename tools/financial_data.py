@@ -474,8 +474,12 @@ def generate_scenarios(data, historical):
 
     def _tapering(g, i, positive):
         if positive:
+            # Crecimiento positivo: desacelera gradualmente (10% menos cada año)
             return g * (1 - 0.1 * i)
-        return g + 0.01 * (i + 1)
+        # Crecimiento negativo: recupera hacia 0 y luego crece ligeramente
+        # Ej: -5% Y1 → -2% Y2 → +1% Y3 → +3% Y4 → +4% Y5
+        recovery = g + 0.02 * (i + 1)
+        return min(recovery, 0.05)  # Cap en 5% de crecimiento post-recuperación
 
     # Offsets calibrados para dispersión profesional (~1.5-1.8x bull/bear):
     #   Growth: ±15% del base
@@ -506,6 +510,22 @@ def generate_scenarios(data, historical):
         sc["segments"] = [{"name": s["name"], "growth_rates": [sc[f"revenue_growth_y{y}"] for y in range(1, 6)]} for s in segments]
         scenarios[key] = sc
 
+    # Sanity check: EBITDA implícito vs real
+    # Si el margen EBITDA implícito (GM - SGA - R&D) difiere >10pp del real, ajustar SGA
+    latest_year = sorted_years[-1] if sorted_years else None
+    if latest_year:
+        real_rev = historical[latest_year].get("total_revenue", 0)
+        real_ebitda = historical[latest_year].get("ebitda", 0)
+        if real_rev and real_ebitda:
+            real_ebitda_margin = real_ebitda / real_rev
+            base_sc = scenarios["base"]
+            implicit_ebitda_margin = base_sc["gross_margin"] - base_sc["sga_pct"] - base_sc["rd_pct"]
+            gap = real_ebitda_margin - implicit_ebitda_margin
+            if abs(gap) > 0.05:  # >5pp de diferencia
+                # Ajustar SGA para que el EBITDA implícito coincida con el real
+                for key in scenarios:
+                    scenarios[key]["sga_pct"] = max(scenarios[key]["sga_pct"] - gap, 0.01)
+
     return scenarios
 
 
@@ -534,7 +554,7 @@ def _calculate_avg_margins(historical, sorted_years):
     return {
         "gross_margin": np.mean(gm) if gm else 0.40,
         "sga_pct": np.mean(sga) if sga else 0.15,
-        "rd_pct": np.mean(rd) if rd else 0.05,
+        "rd_pct": np.mean(rd) if rd else 0.0,  # 0 si no hay datos (no inventar R&D)
         "da_pct": np.mean(da) if da else 0.03,
         "capex_pct": np.mean(capex) if capex else 0.04,
         "tax_rate": min(np.mean(tax), 0.35) if tax else 0.21,
@@ -554,13 +574,26 @@ SECTOR_TV = {"Technology": 18, "Communication Services": 14, "Consumer Cyclical"
              "Consumer Defensive": 11, "Healthcare": 15, "Financial Services": 10,
              "Industrials": 11, "Energy": 8, "Utilities": 9, "Real Estate": 12, "Basic Materials": 9}
 
+# Industrias premium que merecen múltiplos más altos dentro de su sector
+INDUSTRY_TV_BONUS = {
+    "Luxury Goods": 4, "Apparel - Luxury": 4,
+    "Software - Infrastructure": 4, "Software - Application": 4,
+    "Semiconductors": 3, "Internet Content & Information": 3,
+    "Drug Manufacturers": 3, "Biotechnology": 2,
+    "Aerospace & Defense": 2,
+}
+
 
 def _estimate_terminal_multiple(info):
     m = SECTOR_TV.get(info.get("sector", ""), 12)
+    # Bonus por industria premium
+    industry = info.get("industry", "")
+    m += INDUSTRY_TV_BONUS.get(industry, 0)
+    # Ajuste por crecimiento (solo para growth sostenido, no penalizar baches cíclicos)
     g = info.get("revenueGrowth", 0) or 0
     if g > 0.20: m += 3
     elif g > 0.10: m += 1
-    elif g < 0: m -= 2
+    # No penalizar growth negativo — puede ser un bache cíclico, no estructural
     return max(m, 5)
 
 

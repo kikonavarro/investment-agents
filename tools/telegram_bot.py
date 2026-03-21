@@ -496,7 +496,7 @@ def get_updates(api_base: str, offset: int = 0) -> list:
 
 # Agentes permitidos en el grupo (solo lectura, sin modificar datos)
 GROUP_ALLOWED_AGENTS = {"analyst", "thesis_writer", "social_media", "news_fetcher",
-                        "content_writer", "screener"}
+                        "content_writer", "screener", "email_sender"}
 GROUP_BLOCKED_AGENTS = {"portfolio_tracker"}
 
 # Contexto por chat: ultimo ticker usado
@@ -568,40 +568,40 @@ def process_message(text: str, from_group: bool = False, chat_id: str = "") -> s
                         f"Para cartera/portfolio, escríbeme en privado.")
 
         old_stdout = sys.stdout
-        sys.stdout = buffer = io.StringIO()
+        buffer = io.StringIO()
+        sys.stdout = buffer
 
         try:
             context = run_pipeline(enriched_text)
             output = buffer.getvalue()
-
-            # Guardar ticker del contexto para futuros mensajes
-            if isinstance(context, dict) and chat_id:
-                ticker = _extract_ticker_from_steps(context.get("_steps", []))
-                if not ticker:
-                    for key, val in context.items():
-                        if isinstance(val, dict) and val.get("ticker"):
-                            ticker = val["ticker"]
-                            break
-                if ticker:
-                    _chat_context[chat_id] = ticker
-
-            if not output.strip() and context:
-                parts = []
-                for key, value in context.items():
-                    if key.startswith("_"):
-                        continue
-                    if isinstance(value, str):
-                        parts.append(value)
-                    elif isinstance(value, dict):
-                        parts.append(json.dumps(value, indent=2, ensure_ascii=False))
-                output = "\n".join(parts)
-
-            return output.strip() if output.strip() else "Procesado, pero sin output visible."
-
         except Exception as e:
             return f"Error procesando: {e}"
         finally:
             sys.stdout = old_stdout
+
+        # Guardar ticker del contexto para futuros mensajes
+        if isinstance(context, dict) and chat_id:
+            ticker = _extract_ticker_from_steps(context.get("_steps", []))
+            if not ticker:
+                for key, val in context.items():
+                    if isinstance(val, dict) and val.get("ticker"):
+                        ticker = val["ticker"]
+                        break
+            if ticker:
+                _chat_context[chat_id] = ticker
+
+        if not output.strip() and context:
+            parts = []
+            for key, value in context.items():
+                if key.startswith("_"):
+                    continue
+                if isinstance(value, str):
+                    parts.append(value)
+                elif isinstance(value, dict):
+                    parts.append(json.dumps(value, indent=2, ensure_ascii=False))
+            output = "\n".join(parts)
+
+        return output.strip() if output.strip() else "Procesado, pero sin output visible."
 
     finally:
         os.chdir(original_cwd)
@@ -612,11 +612,9 @@ def run_bot():
     token, allowed_user_id, allowed_group_id, api_base = _load_config()
 
     if not token:
-        print("[Telegram] Error: TELEGRAM_BOT_TOKEN no configurado en .env")
-        sys.exit(1)
+        raise RuntimeError("[Telegram] TELEGRAM_BOT_TOKEN no configurado en .env")
     if not allowed_user_id:
-        print("[Telegram] Error: TELEGRAM_CHAT_ID no configurado en .env")
-        sys.exit(1)
+        raise RuntimeError("[Telegram] TELEGRAM_CHAT_ID no configurado en .env")
 
     print(f"[Telegram] Bot activo. Polling cada {POLL_INTERVAL}s.")
     print(f"[Telegram] Chat privado: solo user_id {allowed_user_id}")
@@ -624,7 +622,16 @@ def run_bot():
         print(f"[Telegram] Grupo autorizado: {allowed_group_id} (todos los miembros)")
     print("[Telegram] Ctrl+C para detener.\n")
 
-    offset = 0
+    # Descartar mensajes pendientes al arrancar (evitar reprocesar mensajes viejos)
+    try:
+        stale = get_updates(api_base, offset=0)
+        if stale:
+            offset = stale[-1]["update_id"] + 1
+            print(f"[Telegram] Descartados {len(stale)} mensajes pendientes al arrancar.")
+        else:
+            offset = 0
+    except Exception:
+        offset = 0
 
     while True:
         updates = get_updates(api_base, offset)
@@ -655,13 +662,28 @@ def run_bot():
 
             send_message(api_base, chat_id, "⏳ Procesando tu solicitud...", html=False)
 
-            response = process_message(text, from_group=is_allowed_group, chat_id=chat_id)
-
-            send_message(api_base, chat_id, response)
-            print(f"[Telegram] Respuesta enviada ({len(response)} chars)")
+            try:
+                response = process_message(text, from_group=is_allowed_group, chat_id=chat_id)
+                send_message(api_base, chat_id, response)
+                print(f"[Telegram] Respuesta enviada ({len(response)} chars)")
+            except Exception as e:
+                error_msg = f"Error procesando mensaje: {e}"
+                print(f"[Telegram] {error_msg}")
+                send_message(api_base, chat_id, f"⚠️ {error_msg}", html=False)
 
         time.sleep(POLL_INTERVAL)
 
 
 if __name__ == "__main__":
-    run_bot()
+    import datetime
+    while True:
+        try:
+            run_bot()
+        except KeyboardInterrupt:
+            print("\n[Telegram] Bot detenido.")
+            break
+        except BaseException as e:
+            ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            print(f"[Telegram] [{ts}] Bot crashed: {type(e).__name__}: {e}. Reiniciando en 10s...",
+                  flush=True)
+            time.sleep(10)

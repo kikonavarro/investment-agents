@@ -78,40 +78,40 @@
   ],
   "scenarios": {
     "base": {
-      "revenue_growth_y1": -0.037,
-      "revenue_growth_y5": 0.0030000000000000027,
+      "revenue_growth_y1": -0.027,
+      "revenue_growth_y5": 0.05,
       "gross_margin": 0.6763019964726482,
-      "sga_pct": 0.43140881873937414,
-      "rd_pct": 0.05,
+      "sga_pct": 0.35640396783651523,
+      "rd_pct": 0.0,
       "da_pct": 0.08825225940030977,
       "capex_pct": 0.06953831239270093,
       "tax_rate": 0.2693866919386977,
       "wacc": 0.0841,
-      "terminal_multiple": 10
+      "terminal_multiple": 16
     },
     "bull": {
-      "revenue_growth_y1": -0.022,
-      "revenue_growth_y5": 0.018000000000000002,
+      "revenue_growth_y1": -0.012,
+      "revenue_growth_y5": 0.05,
       "gross_margin": 0.6863019964726482,
-      "sga_pct": 0.42640881873937414,
-      "rd_pct": 0.05,
+      "sga_pct": 0.35140396783651523,
+      "rd_pct": 0.0,
       "da_pct": 0.08825225940030977,
       "capex_pct": 0.06258448115343083,
       "tax_rate": 0.2693866919386977,
       "wacc": 0.0741,
-      "terminal_multiple": 12
+      "terminal_multiple": 18
     },
     "bear": {
-      "revenue_growth_y1": -0.052,
-      "revenue_growth_y5": -0.011999999999999997,
+      "revenue_growth_y1": -0.041999999999999996,
+      "revenue_growth_y5": 0.038000000000000006,
       "gross_margin": 0.6663019964726482,
-      "sga_pct": 0.43640881873937415,
-      "rd_pct": 0.05,
+      "sga_pct": 0.36140396783651524,
+      "rd_pct": 0.0,
       "da_pct": 0.08825225940030977,
       "capex_pct": 0.07996905925160606,
       "tax_rate": 0.2693866919386977,
       "wacc": 0.09409999999999999,
-      "terminal_multiple": 8
+      "terminal_multiple": 14
     }
   },
   "news": [
@@ -161,9 +161,9 @@
       "source": "Yahoo Finance"
     },
     {
-      "title": "Lvmh Moët Hennessy - Louis Vuitton Société Européenne Stock Price Forecast. Should You Buy MC.PA? - StockInvest.us",
-      "date": "Tue, 01 De",
-      "source": "StockInvest.us"
+      "title": "MC.PA Stock Today: January 29 Slide as Profit Drops Despite Q4 Beat - Meyka",
+      "date": "Thu, 29 Ja",
+      "source": "Meyka"
     }
   ],
   "files": {

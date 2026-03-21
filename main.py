@@ -33,6 +33,7 @@ from agents.capital_allocation import run_capital_allocation
 from agents.risk_analyst import run_risk_analyst
 from tools.document_generator import save_analysis_json, save_screener_report
 from tools.quality_gates import validate_valuation, print_quality_report
+from tools.email_sender import send_thesis_email
 
 AGENT_MAP = {
     "analyst": run_analyst,
@@ -42,11 +43,15 @@ AGENT_MAP = {
     "portfolio_tracker": run_portfolio_tracker,
     "content_writer": run_content_writer,
     "screener": run_screener,
+    "email_sender": send_thesis_email,
 }
 
 
 def _is_dependent(step: dict) -> bool:
     """Comprueba si un step depende del output de otro agente."""
+    # email_sender siempre va después de thesis_writer
+    if step.get("agent") == "email_sender":
+        return True
     inp = str(step.get("input", "")).lower()
     return inp.startswith("from_")
 
@@ -95,6 +100,21 @@ def run_pipeline(user_input: str) -> dict:
         else:
             valid_steps.append(step)
 
+    # Si hay email_sender y la tesis ya existe en disco, saltar thesis_writer
+    has_email = any(s["agent"] == "email_sender" for s in valid_steps)
+    if has_email:
+        email_step = next(s for s in valid_steps if s["agent"] == "email_sender")
+        ticker_for_email = email_step.get("input", {}).get("ticker", "") if isinstance(email_step.get("input"), dict) else ""
+        if ticker_for_email:
+            from agents.analyst import _clean_ticker
+            from config.settings import VALUATIONS_DIR
+            clean = _clean_ticker(ticker_for_email)
+            md_path = VALUATIONS_DIR / clean / f"{clean}_tesis_inversion.md"
+            if md_path.exists():
+                # Tesis ya existe — saltar thesis_writer, ir directo a email
+                valid_steps = [s for s in valid_steps if s["agent"] != "thesis_writer"]
+                print(f"  [email] Tesis de {ticker_for_email} ya existe, enviando directamente.")
+
     context = {"_steps": steps, "_errors": []}
     waves = _split_waves(valid_steps)
 
@@ -140,7 +160,7 @@ def run_pipeline(user_input: str) -> dict:
 
 
 def _resolve_input(agent_input, agent_name, context):
-    s = str(agent_input).lower()
+    s = str(agent_input).lower() if isinstance(agent_input, str) else ""
     if "from_analyst" in s or s == "from_analyst":
         return context.get("analyst_output", {})
     if agent_input == "from_screener_top3":
@@ -148,6 +168,11 @@ def _resolve_input(agent_input, agent_name, context):
         return [t["ticker"] for t in top5[:3]]
     if "from_news" in s or s == "from_news":
         return context.get("news_fetcher_output", {})
+    # email_sender: pasar thesis_md del contexto si existe
+    if agent_name == "email_sender" and isinstance(agent_input, dict):
+        thesis_output = context.get("thesis_writer_output")
+        if isinstance(thesis_output, str) and thesis_output:
+            agent_input["thesis_md"] = thesis_output
     return agent_input
 
 
@@ -190,6 +215,14 @@ def _call_agent(agent_name, agent_input):
         return fn(topic=str(agent_input))
     elif agent_name == "screener":
         return fn(filter_name=agent_input if isinstance(agent_input, str) else "graham_default")
+    elif agent_name == "email_sender":
+        if isinstance(agent_input, dict):
+            return fn(
+                ticker=agent_input.get("ticker", ""),
+                recipient=agent_input.get("email"),
+                thesis_md=agent_input.get("thesis_md"),
+            )
+        return fn(ticker=str(agent_input))
     return fn(agent_input)
 
 
@@ -217,6 +250,12 @@ def _print_result(agent_name, result):
         else:
             for item in result.get("top_5", []):
                 print(f"  #{item['rank']} {item['ticker']:8s} -- {item['reason']}")
+    elif agent_name == "email_sender":
+        if isinstance(result, dict):
+            if result.get("success"):
+                print(f"  ✉ {result.get('message', 'Email enviado')}")
+            else:
+                print(f"  [!] {result.get('message', 'Error enviando email')}")
     elif isinstance(result, str):
         print(result)
     elif isinstance(result, dict):
