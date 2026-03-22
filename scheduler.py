@@ -232,45 +232,43 @@ def news_scan():
 
 
 def _score_news_batch():
-    """Puntua noticias sin score usando Haiku en una sola llamada batch."""
+    """Puntua noticias sin score con reglas por keywords (sin API, sin coste)."""
     from tools.state_db import get_unscored_news, update_news_score
-    from agents.base import call_agent_json
+
+    # Keywords de alto impacto para value investing
+    HIGH_SCORE = {
+        10: ["bankruptcy", "quiebra", "fraud", "fraude", "restatement"],
+        9: ["acquisition", "adquisicion", "merger", "fusión", "takeover", "buyout",
+            "activist investor", "proxy fight"],
+        8: ["earnings beat", "earnings miss", "guidance raise", "guidance cut",
+            "dividend cut", "dividend increase", "stock split", "buyback",
+            "share repurchase", "ceo resign", "ceo fired", "cfo resign"],
+        7: ["upgrade", "downgrade", "price target", "precio objetivo",
+            "rating change", "beat estimates", "miss estimates",
+            "revenue growth", "profit warning", "restructuring"],
+        6: ["earnings", "resultados", "quarterly results", "annual report",
+            "10-K", "10-Q", "SEC filing", "insider buying", "insider selling",
+            "new product", "patent", "regulation", "regulación"],
+    }
 
     unscored = get_unscored_news()
     if not unscored:
         return
 
-    # Limitar batch a 20 noticias por llamada
-    batch = unscored[:20]
+    scored_count = 0
+    for news in unscored:
+        title_lower = (news.get("title", "") + " " + news.get("summary", "")).lower()
+        score = 3  # default: ruido de mercado
 
-    news_list = "\n".join(
-        f"ID:{n['id']} | {n['ticker']} | {n['title'][:100]}"
-        for n in batch
-    )
+        for pts, keywords in HIGH_SCORE.items():
+            if any(kw in title_lower for kw in keywords):
+                score = pts
+                break
 
-    prompt = (
-        "Eres un analista value investing. Puntua cada noticia de 1 a 10 segun su "
-        "relevancia para un inversor value (1=ruido, 10=evento material que afecta "
-        "valoracion: earnings, guidance, M&A, regulacion, cambio directivo).\n"
-        "Responde SOLO con JSON: {\"scores\": [{\"id\": <int>, \"score\": <int>}, ...]}"
-    )
+        update_news_score(news["id"], score)
+        scored_count += 1
 
-    try:
-        result = call_agent_json(
-            system_prompt=prompt,
-            user_message=news_list,
-            model_tier="quick",
-            max_tokens=800,
-        )
-        scores = result.get("scores", [])
-        for item in scores:
-            news_id = item.get("id")
-            score = item.get("score", 0)
-            if news_id and 1 <= score <= 10:
-                update_news_score(news_id, score)
-        log.info(f"Noticias puntuadas: {len(scores)}")
-    except Exception:
-        log.error(f"Error puntuando noticias:\n{traceback.format_exc()}")
+    log.info(f"Noticias puntuadas (por reglas): {scored_count}")
 
 
 # ─── Tarea: Auto tweet generation (2x/dia) ──────────────────────────────────────
@@ -279,62 +277,52 @@ def auto_tweet_generation():
     """
     1. Chequea cap diario (max 2)
     2. Busca mejor noticia no tuiteada (score >= 6)
-    3. Genera hilo con social_media agent
-    4. Guarda en archivo + SQLite
+    3. Encola para Claude Code (Opus) en vez de llamar a la API
     """
     log.info("--- Auto tweet generation ---")
 
     from tools.state_db import (
         init_db, get_today_tweet_count, get_best_untweeted_news,
-        save_generated_tweets, mark_news_tweeted,
     )
-    from agents.social_media import run_social_media
+    from tools.message_queue import enqueue_message
+    from tools.notifier import is_enabled
 
     init_db()
 
-    # Check cap diario
     today_count = get_today_tweet_count()
     if today_count >= 2:
         log.info(f"Cap diario alcanzado ({today_count}/2 hilos). Saltando.")
         return
 
-    # Buscar mejor noticia
     news = get_best_untweeted_news(min_score=6)
     if not news:
         log.info("Sin noticias de alto interes para tuitear.")
         return
 
-    log.info(f"Generando hilo para: [{news['ticker']}] {news['title'][:60]}...")
+    log.info(f"Noticia para tweets: [{news['ticker']}] {news['title'][:60]}...")
 
-    # Generar tweets
-    content = {
-        "ticker": news["ticker"],
-        "headline": news["title"],
-        "summary": news.get("summary", ""),
-        "interest_score": news["interest_score"],
-    }
-    tweets = run_social_media(content, content_type="news")
-
-    if not tweets:
-        log.warning("Social media agent no genero tweets.")
-        return
-
-    # Guardar en archivo
-    file_path = _save_tweets_to_file(news["ticker"], tweets)
-
-    # Guardar en SQLite
-    save_generated_tweets(
-        ticker=news["ticker"],
-        tweets=tweets,
-        file_path=str(file_path),
-        news_id=news["id"],
-        content_type="news",
+    # Encolar como mensaje para Claude Code
+    msg_text = (
+        f"[SCHEDULER] Genera un hilo de tweets sobre esta noticia:\n"
+        f"Ticker: {news['ticker']}\n"
+        f"Titular: {news['title']}\n"
+        f"Resumen: {news.get('summary', 'N/A')}\n"
+        f"Score: {news['interest_score']}/10\n"
+        f"News ID: {news['id']}"
     )
-    mark_news_tweeted(news["id"])
 
-    log.info(f"Hilo generado ({len(tweets)} tweets) -> {file_path}")
-    for i, t in enumerate(tweets, 1):
-        log.info(f"  Tweet {i}: {t[:80]}...")
+    # Encolar en la cola del owner para que Opus lo procese
+    import os
+    from dotenv import load_dotenv
+    from pathlib import Path
+    load_dotenv(Path(__file__).parent / ".env")
+    owner_chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+
+    if owner_chat_id:
+        enqueue_message(owner_chat_id, "SCHEDULER", msg_text, from_group=False)
+        log.info(f"Encolado para Opus: tweet sobre {news['ticker']}")
+    else:
+        log.warning("Sin TELEGRAM_CHAT_ID, no se puede encolar.")
 
 
 def _save_tweets_to_file(ticker: str, tweets: list[str]) -> Path:
@@ -360,30 +348,55 @@ def _save_tweets_to_file(ticker: str, tweets: list[str]) -> Path:
 
 def weekly_screener():
     """
-    1. Corre el screener con filtros Graham por defecto
-    2. Guarda el informe en data/reports/
-    3. Loguea el top 5
+    1. Corre solo la parte Python del screener (filtros cuantitativos)
+    2. Encola resultados para que Claude Code (Opus) haga el ranking cualitativo
     """
     log.info("=== TAREA SEMANAL: Screener ===")
 
-    from agents.screener import run_screener
-    from tools.document_generator import save_screener_report
+    from tools.screener_engine import run_screen
+    from tools.message_queue import enqueue_message
 
-    result = run_screener(filter_name="graham_default", markets=["SP500"])
-    save_screener_report(result)
+    candidates = run_screen("graham_default", ["SP500"])
 
-    log.info(f"Candidatas encontradas: {result.get('total_candidates_found', 0)}")
-    top5 = result.get("top_5", [])
-    for item in top5:
-        log.info(f"  #{item['rank']} {item['ticker']:8s} — {item.get('reason', '')[:60]}")
+    if not candidates:
+        log.info("Ninguna empresa pasó los filtros.")
+        return
 
-    # Notificar por Telegram
-    if top5:
-        from tools.notifier import notify_screener_results
-        notify_screener_results(top5, filter_name="graham_default")
+    top15 = candidates[:15]
+    log.info(f"Candidatas encontradas: {len(candidates)}, top 15 para ranking")
+
+    # Formatear resumen para Opus
+    lines = [f"[SCHEDULER] Screener semanal Graham — {len(candidates)} pasaron filtros. Top 15:"]
+    for i, c in enumerate(top15, 1):
+        ticker = c.get("ticker", "?")
+        pe = c.get("pe_ratio", 0)
+        pb = c.get("pb_ratio", 0)
+        dy = c.get("dividend_yield", 0)
+        mc = c.get("market_cap", 0)
+        lines.append(
+            f"  {i:2d}. {ticker:8s} | P/E={pe:.1f} | P/B={pb:.1f} | DY={dy:.1%} | MCap={mc/1e9:.1f}B"
+        )
+    lines.append("\nHaz el ranking cualitativo (moat, calidad del negocio, riesgos) y envía el top 5.")
+
+    import os
+    from dotenv import load_dotenv
+    from pathlib import Path
+    load_dotenv(Path(__file__).parent / ".env")
+    owner_chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+
+    if owner_chat_id:
+        enqueue_message(owner_chat_id, "SCHEDULER", "\n".join(lines), from_group=False)
+        log.info("Encolado para Opus: ranking cualitativo del screener")
+
+    # Notificar datos crudos por Telegram
+    from tools.notifier import send_alert
+    header = f"🔍 <b>SCREENER SEMANAL</b> — graham_default\n{len(candidates)} pasaron filtros\n\n"
+    body = "\n".join(f"  {i}. <b>{c.get('ticker','?')}</b> P/E={c.get('pe_ratio',0):.1f}"
+                     for i, c in enumerate(top15[:5], 1))
+    send_alert(header + body + "\n\n⏳ Opus está preparando el ranking cualitativo...")
 
     log.info("=== Screener completado ===\n")
-    return result
+    return candidates
 
 
 # ─── Tarea semanal: re-valoración de posiciones ──────────────────────────────────

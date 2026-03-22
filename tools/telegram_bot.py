@@ -609,8 +609,27 @@ def process_message(text: str, from_group: bool = False, chat_id: str = "") -> s
         os.chdir(original_cwd)
 
 
+def _check_and_send_responses(api_base: str):
+    """Revisa la cola por respuestas listas y las envía."""
+    try:
+        from tools.message_queue import get_pending, INBOX_DIR
+        import json
+        for f in sorted(INBOX_DIR.glob("*.json")):
+            try:
+                msg = json.loads(f.read_text(encoding="utf-8"))
+                if msg.get("status") == "responded" and msg.get("response"):
+                    send_message(api_base, msg["chat_id"], msg["response"])
+                    from tools.message_queue import mark_sent
+                    mark_sent(msg["id"])
+                    print(f"[Telegram] Respuesta de Opus enviada a {msg['user_name']} ({len(msg['response'])} chars)")
+            except Exception as e:
+                print(f"[Telegram] Error enviando respuesta: {e}")
+    except Exception:
+        pass
+
+
 def run_bot():
-    """Loop principal del bot: polling cada 60 segundos."""
+    """Loop principal del bot: polling + cola de mensajes para Claude Code (Opus)."""
     token, allowed_user_id, allowed_group_id, api_base = _load_config()
 
     if not token:
@@ -618,7 +637,8 @@ def run_bot():
     if not allowed_user_id:
         raise RuntimeError("[Telegram] TELEGRAM_CHAT_ID no configurado en .env")
 
-    print(f"[Telegram] Bot activo. Polling cada {POLL_INTERVAL}s.")
+    print(f"[Telegram] Bot activo (modo cola → Claude Code Opus).")
+    print(f"[Telegram] Polling cada {POLL_INTERVAL}s.")
     print(f"[Telegram] Chat privado: solo user_id {allowed_user_id}")
     if allowed_group_id:
         print(f"[Telegram] Grupo autorizado: {allowed_group_id} (todos los miembros)")
@@ -635,7 +655,10 @@ def run_bot():
     except Exception:
         offset = 0
 
+    from tools.message_queue import enqueue_message
+
     while True:
+        # 1. Recibir nuevos mensajes y encolarlos
         updates = get_updates(api_base, offset)
 
         for update in updates:
@@ -650,8 +673,6 @@ def run_bot():
             if not text or text.startswith("/"):
                 continue
 
-            # En el grupo autorizado: aceptar mensajes de cualquier miembro
-            # En chat privado: solo del usuario autorizado
             is_allowed_group = allowed_group_id and chat_id == allowed_group_id
             is_allowed_private = chat_type == "private" and user_id == allowed_user_id
 
@@ -662,36 +683,15 @@ def run_bot():
             user_name = msg.get("from", {}).get("first_name", "Usuario")
             print(f"[Telegram] Mensaje de {user_name} ({chat_type}): {text}")
 
-            send_message(api_base, chat_id, "⏳ Procesando tu solicitud...", html=False)
+            # Encolar para Claude Code (Opus)
+            msg_id = enqueue_message(chat_id, user_name, text, from_group=is_allowed_group)
+            send_message(api_base, chat_id,
+                        "⏳ Tu mensaje está siendo analizado por Opus. Te respondo en breve.",
+                        html=False)
+            print(f"[Telegram] Encolado: {msg_id}")
 
-            # Procesar en thread separado con timeout para no bloquear el polling
-            result_container = [None, None]  # [response, error]
-
-            def _process():
-                try:
-                    result_container[0] = process_message(
-                        text, from_group=is_allowed_group, chat_id=chat_id)
-                except Exception as e:
-                    result_container[1] = e
-
-            worker = threading.Thread(target=_process, daemon=True)
-            worker.start()
-            worker.join(timeout=MESSAGE_TIMEOUT)
-
-            if worker.is_alive():
-                print(f"[Telegram] Timeout ({MESSAGE_TIMEOUT}s) procesando mensaje de {user_name}")
-                send_message(api_base, chat_id,
-                             f"⚠️ La solicitud tardó más de {MESSAGE_TIMEOUT}s y se canceló. "
-                             f"Puede que la API esté saturada. Inténtalo de nuevo en unos minutos.",
-                             html=False)
-            elif result_container[1]:
-                error_msg = f"Error procesando mensaje: {result_container[1]}"
-                print(f"[Telegram] {error_msg}")
-                send_message(api_base, chat_id, f"⚠️ {error_msg}", html=False)
-            else:
-                response = result_container[0] or "Procesado sin output."
-                send_message(api_base, chat_id, response)
-                print(f"[Telegram] Respuesta enviada ({len(response)} chars)")
+        # 2. Enviar respuestas que Claude Code haya preparado
+        _check_and_send_responses(api_base)
 
         time.sleep(POLL_INTERVAL)
 

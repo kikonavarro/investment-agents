@@ -42,11 +42,35 @@ El portfolio tracker **siempre usa la API** (necesita automatización):
 python main.py --portfolio status
 ```
 
+## Cola de mensajes Telegram (Investment Bot → Claude Code)
+
+El Investment Bot ya NO llama a la API de Anthropic. Encola mensajes para que Claude Code (Opus) los procese:
+
+```bash
+# Ver mensajes pendientes de amigos
+python tools/check_inbox.py
+
+# Responder (guarda + envía por Telegram automáticamente)
+python tools/check_inbox.py respond <msg_id> respuesta.md
+python tools/check_inbox.py respond <msg_id> --text "respuesta corta"
+
+# Enviar respuestas guardadas
+python tools/check_inbox.py send-all
+```
+
+Cola en: `data/telegram_queue/inbox/` (JSON por mensaje).
+El bot comprueba respuestas cada 60s y las envía automáticamente.
+
+El scheduler también encola tareas (tweets, screener) como mensajes `[SCHEDULER]`.
+
 ## Estructura de archivos clave
 - `config/prompts.py` — todos los system prompts (referencia para escribir tesis/tweets/artículos)
 - `config/settings.py` — modelos, rutas, configuración
 - `config/screener_filters.yaml` — filtros cuantitativos del screener
 - `data/valuations/{TICKER}/` — output del analyst (JSON + Excel + SEC)
+- `data/telegram_queue/` — cola de mensajes Investment Bot ↔ Claude Code
+- `tools/message_queue.py` — sistema de cola
+- `tools/check_inbox.py` — CLI para gestionar la cola
 - `tools/` — módulos Python puros (sin LLM)
 
 ## Tickers internacionales
