@@ -948,13 +948,13 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
         ws.cell(row=row, column=val_col, value=formula).number_format = NUM_FORMAT_M
     row += 2
 
-    # Terminal Value
+    # Terminal Value (EV/EBITDA exit multiple — SECTOR_TV son múltiplos de EBITDA, no UFCF)
     _set_label(ws, row, 1, "Terminal Value ($M)", bold=True)
     tv_row = row
     last_proj = _col(max(proj_cols))
     tv_cell = f"${_col(first_data_col)}${tv_mult_row}"
     ws.cell(row=row, column=max(proj_cols),
-            value=f"={last_proj}{ufcf_dcf_row}*{tv_cell}").number_format = NUM_FORMAT_M
+            value=f"={last_proj}{ebitda_dcf_row}*{tv_cell}").number_format = NUM_FORMAT_M
     row += 1
 
     # PV of TV
@@ -1081,8 +1081,8 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
                 ufcf_cell = f"{_col(proj_cols[k])}${ufcf_dcf_row}"
                 parts.append(f"{ufcf_cell}/(1+$A${sens_row})^{k+1}")
 
-            last_ufcf = f"{_col(max(proj_cols))}${ufcf_dcf_row}"
-            tv_formula = f"{last_ufcf}*{tv_val}/(1+$A${sens_row})^{n_proj}"
+            last_ebitda = f"{_col(max(proj_cols))}${ebitda_dcf_row}"
+            tv_formula = f"{last_ebitda}*{tv_val}/(1+$A${sens_row})^{n_proj}"
 
             nd_cell = f"${_col(first_data_col)}${net_debt_row}"
             sh_cell = f"${_col(first_data_col)}${shares_row}"

@@ -551,12 +551,20 @@ def _calculate_avg_margins(historical, sorted_years):
         ebt = yr.get("operating_income", 0)
         if t and ebt and ebt > 0:
             tax.append(abs(t) / ebt)
+
+    # CapEx: usar mediana (robusta contra outliers como spikes de inversión AI/cloud)
+    # Si el último año es >1.5x la mediana del resto, es un outlier
+    capex_val = 0.04
+    if capex:
+        capex_median = float(np.median(capex))
+        capex_val = capex_median
+
     return {
         "gross_margin": np.mean(gm) if gm else 0.40,
         "sga_pct": np.mean(sga) if sga else 0.15,
         "rd_pct": np.mean(rd) if rd else 0.0,  # 0 si no hay datos (no inventar R&D)
         "da_pct": np.mean(da) if da else 0.03,
-        "capex_pct": np.mean(capex) if capex else 0.04,
+        "capex_pct": capex_val,
         "tax_rate": min(np.mean(tax), 0.35) if tax else 0.21,
     }
 
@@ -579,6 +587,7 @@ INDUSTRY_TV_BONUS = {
     "Luxury Goods": 4, "Apparel - Luxury": 4,
     "Software - Infrastructure": 4, "Software - Application": 4,
     "Semiconductors": 3, "Internet Content & Information": 3,
+    "Internet Retail": 3,
     "Drug Manufacturers": 3, "Biotechnology": 2,
     "Aerospace & Defense": 2,
 }
