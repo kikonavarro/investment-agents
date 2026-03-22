@@ -1,6 +1,0 @@
-{
-  "eval_id": 2,
-  "eval_name": "alertas-telegram",
-  "prompt": "Necesito un agente que tome las alertas del portfolio tracker y las envie por Telegram. Tengo un bot creado con token y chat_id en .env",
-  "assertions": []
-}

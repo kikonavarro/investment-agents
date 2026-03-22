@@ -1,6 +1,0 @@
-{
-  "eval_id": 3,
-  "eval_name": "dividend-analyzer",
-  "prompt": "Crea un agente que analice el historial de dividendos de una empresa — crecimiento del dividendo, payout ratio, dividend yield vs historico, y que Claude evalue si es una buena dividend stock",
-  "assertions": []
-}
