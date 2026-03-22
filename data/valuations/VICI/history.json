@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-21",
+    "file": "VICI_20260321_valuation.json",
+    "current_price": 26.83,
+    "currency": "$",
+    "fair_value_bear": 0.07669999999999999,
+    "fair_value_base": 0.0667,
+    "fair_value_bull": 0.05669999999999999,
+    "revenue": 4006116000.0,
+    "gross_margin": 0.993327701943728,
+    "growth_y1_base": 0.038,
+    "wacc_base": 0.0667,
+    "tv_base": 12
+  }
+]

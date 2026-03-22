@@ -1,0 +1,177 @@
+{
+  "ticker": "TSLA",
+  "company": "Tesla, Inc.",
+  "currency": "$",
+  "date": "2026-03-22",
+  "current_price": 367.96,
+  "shares_outstanding": 3752431984,
+  "market_cap": 1380744822784,
+  "sector": "Consumer Cyclical",
+  "industry": "Auto Manufacturers",
+  "country": "United States",
+  "business_summary": "Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems in the United States, China, and internationally. The company operates in two segments, Automotive; and Energy Generation and Storage. The company offers electric vehicles, as well as sells automotive regulatory credits; and non-warranty maintenance services and collision, automotive insurance services, as well as part sales and retail merchandise sale. It also provides sedans and sport utility vehicles through direct and used vehicle sales, a network of Tesla Superchargers, and in-app upgrades; purchase financing and leasing services; services for electric vehicles through its company-owned service locations and Tesla mobile service technicians; and vehicle limited warranties and extended service plans. In addition, the company engages in the design, manufacture, installation, sale, and leasing of solar energy generation and energy storage products, and related services to residential, commercial, and industrial customers and utilities through its website, stores, and galleries, as well as through a network of channel partners. Further, it provides services and repairs to its energy product customers, including under warranty and extended service plans; and various financing options to its residential customers; lithium-ion battery energy storage products, such as Powerwall and Megapack; energy generation products, including solar panels and solar roof; self-driving development and artificial intelligence software, vehicle control and infotainment software, and battery and powertrain. The company was formerly known as Tesla Motors, Inc. and changed its name to Tesla, Inc. in February 2017. Tesla, Inc. was incorporated in 2003 and is headquartered in Austin, Texas.",
+  "beta": 1.926,
+  "analyst_targets": {
+    "high": 600.0,
+    "low": 119.0,
+    "mean": 421.2722,
+    "current": 367.96
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 94827000000.0,
+    "net_income": 3794000000.0,
+    "ebitda": 11764000000.0,
+    "free_cashflow": 6220000000.0,
+    "gross_margin": 0.18026511436616155,
+    "operating_margin": 0.05113522519957396,
+    "net_margin": 0.04000970187815706,
+    "total_debt": 14719000000.0,
+    "cash": 16513000000.0,
+    "total_equity": 82865000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 81462000000.0,
+      "net_income": 12583000000.0,
+      "ebitda": 17657000000.0,
+      "fcf": 7552000000.0,
+      "operating_income": 13832000000.0
+    },
+    "2023": {
+      "revenue": 96773000000.0,
+      "net_income": 14999000000.0,
+      "ebitda": 14796000000.0,
+      "fcf": 4357000000.0,
+      "operating_income": 8891000000.0
+    },
+    "2024": {
+      "revenue": 97690000000.0,
+      "net_income": 7130000000.0,
+      "ebitda": 14708000000.0,
+      "fcf": 3581000000.0,
+      "operating_income": 7760000000.0
+    },
+    "2025": {
+      "revenue": 94827000000.0,
+      "net_income": 3794000000.0,
+      "ebitda": 11764000000.0,
+      "fcf": 6220000000.0,
+      "operating_income": 4849000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Auto Manufacturers",
+      "revenues": {
+        "2022": 81462000000.0,
+        "2023": 96773000000.0,
+        "2024": 97690000000.0,
+        "2025": 94827000000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": -0.011,
+      "revenue_growth_y5": 0.05,
+      "gross_margin": 0.19934117096231818,
+      "sga_pct": 0.053070179485140645,
+      "rd_pct": 0.048210508272924515,
+      "da_pct": 0.05350158820965327,
+      "capex_pct": 0.09093955713189708,
+      "tax_rate": 0.293626874600607,
+      "wacc": 0.1498,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.004,
+      "revenue_growth_y5": 0.05,
+      "gross_margin": 0.2093411709623182,
+      "sga_pct": 0.04807017948514065,
+      "rd_pct": 0.048210508272924515,
+      "da_pct": 0.05350158820965327,
+      "capex_pct": 0.08184560141870738,
+      "tax_rate": 0.293626874600607,
+      "wacc": 0.13979999999999998,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": -0.026,
+      "revenue_growth_y5": 0.05,
+      "gross_margin": 0.18934117096231817,
+      "sga_pct": 0.05807017948514064,
+      "rd_pct": 0.048210508272924515,
+      "da_pct": 0.05350158820965327,
+      "capex_pct": 0.10458049070168164,
+      "tax_rate": 0.293626874600607,
+      "wacc": 0.1598,
+      "terminal_multiple": 10
+    }
+  },
+  "news": [
+    {
+      "title": "TSLA Stock: Analyzing The 80% Rally - Forbes",
+      "date": "Wed, 11 Ma",
+      "source": "Forbes"
+    },
+    {
+      "title": "UBS cuts Tesla Q1 delivery estimate and says concerns are growing that robotaxis might not wow investors - Business Insider",
+      "date": "Thu, 19 Ma",
+      "source": "Business Insider"
+    },
+    {
+      "title": "4 stocks to watch on Thursday: RIVN, SNDK, TSLA, MRK - Seeking Alpha",
+      "date": "Thu, 19 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Tesla Fades: Three Big Stories Are Moving the Stock Today and They’re Pulling in Different Directions - Yahoo Finance",
+      "date": "Thu, 19 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Tesla Stock (TSLA) Slides as FSD Probe Just Got Bigger - TipRanks",
+      "date": "Thu, 19 Ma",
+      "source": "TipRanks"
+    },
+    {
+      "title": "VTI is down 0.5% today, on TSLA stock price movement - Quiver Quantitative",
+      "date": "Thu, 19 Ma",
+      "source": "Quiver Quantitative"
+    },
+    {
+      "title": "Get Ready For Dow Jones Futures After Trump Threatens To 'Obliterate' Iran's Power Plants",
+      "date": "Sun, 22 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Coinbase Launches 24/7 Stock Trading For Tesla, Apple, Nvidia With 10X Leverage",
+      "date": "Sun, 22 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Elon Musk unveils chip manufacturing plans for SpaceX and Tesla",
+      "date": "Sun, 22 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Tesla, SpaceX Plan to Build New Chip Factory in Texas",
+      "date": "Sun, 22 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/TSLA/TSLA_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/TSLA/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/TSLA/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/TSLA/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

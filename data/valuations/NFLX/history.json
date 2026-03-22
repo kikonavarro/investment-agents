@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-03-21",
+    "file": "NFLX_20260321_valuation.json",
+    "current_price": 91.82,
+    "currency": "$",
+    "fair_value_bear": 0.1451,
+    "fair_value_base": 0.1351,
+    "fair_value_bull": 0.1251,
+    "revenue": 45183036000.0,
+    "gross_margin": 0.48486575802475956,
+    "growth_y1_base": 0.176,
+    "wacc_base": 0.1351,
+    "tv_base": 15
+  },
+  {
+    "date": "2026-03-22",
+    "file": "NFLX_20260322_valuation.json",
+    "current_price": 91.82,
+    "currency": "$",
+    "fair_value_bear": 0.1451,
+    "fair_value_base": 0.1351,
+    "fair_value_bull": 0.1251,
+    "revenue": 45183036000.0,
+    "gross_margin": 0.48486575802475956,
+    "growth_y1_base": 0.176,
+    "wacc_base": 0.1351,
+    "tv_base": 15
+  }
+]

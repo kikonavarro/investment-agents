@@ -26,11 +26,12 @@ def validate_valuation(valuation: dict) -> dict:
     warnings.extend(_check_historical_depth(valuation))
     warnings.extend(_check_shares(valuation))
     warnings.extend(_check_debt_sanity(valuation))
+    warnings.extend(_check_extreme_valuation(valuation))
 
     critical = sum(1 for w in warnings if w["level"] == "critical")
     warning_count = sum(1 for w in warnings if w["level"] == "warning")
 
-    total_checks = 8
+    total_checks = 9
     failed = critical + warning_count
 
     if critical >= 2:
@@ -145,4 +146,31 @@ def _check_debt_sanity(v: dict) -> list[dict]:
     if equity < 0:
         return [{"level": "warning", "check": "patrimonio",
                  "message": "Patrimonio neto negativo"}]
+    return []
+
+
+def _check_extreme_valuation(v: dict) -> list[dict]:
+    """Early warning si EV/EBITDA > 50x (valoración extrema)."""
+    price = v.get("current_price", 0)
+    shares = v.get("shares_outstanding", 0)
+    latest = v.get("latest_financials", {})
+    debt = latest.get("total_debt", 0) or 0
+    cash = latest.get("cash", 0) or 0
+    ebitda = latest.get("ebitda", 0) or 0
+
+    if not ebitda or ebitda <= 0 or not price or not shares:
+        return []
+
+    market_cap = price * shares
+    ev = market_cap + debt - cash
+    ev_ebitda = ev / ebitda
+
+    if ev_ebitda > 50:
+        return [{"level": "info", "check": "valoracion_extrema",
+                 "message": (
+                     f"EV/EBITDA = {ev_ebitda:.0f}x (>50x). Valoración extrema. "
+                     f"Los escenarios automáticos pueden no ser apropiados. "
+                     f"Considerar diseñar escenarios manuales con múltiplos/growth "
+                     f"coherentes con el perfil de la empresa."
+                 )}]
     return []

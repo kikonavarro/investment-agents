@@ -1,0 +1,177 @@
+{
+  "ticker": "VICI",
+  "company": "VICI Properties Inc.",
+  "currency": "$",
+  "date": "2026-03-21",
+  "current_price": 26.83,
+  "shares_outstanding": 1068988999,
+  "market_cap": 28680974336,
+  "sector": "Real Estate",
+  "industry": "REIT - Diversified",
+  "country": "United States",
+  "business_summary": "VICI Properties Inc. is an S&P 500 experiential real estate investment trust that owns one of the largest portfolios of market-leading gaming, hospitality, wellness, entertainment and leisure destinations, including Caesars Palace Las Vegas, MGM Grand and the Venetian Resort Las Vegas, three of the most iconic entertainment facilities on the Las Vegas Strip. VICI Properties owns 93 experiential assets across a geographically diverse portfolio consisting of 54 gaming properties and 39 other experiential properties across the United States and Canada. The portfolio is comprised of approximately 127 million square feet and features approximately 60,300 hotel rooms and over 500 restaurants, bars, nightclubs and sportsbooks. Its properties are occupied by industry-leading gaming, leisure and hospitality operators under long-term, triple-net lease agreements. VICI Properties has a growing array of real estate and financing partnerships with leading developers and operators in other experiential sectors, including Cabot, Cain, Canyon Ranch, Chelsea Piers, Great Wolf Resorts, Homefield, Kalahari Resorts and Lucky Strike Entertainment. VICI Properties also owns four championship golf courses and approximately 33 acres of undeveloped and underdeveloped land adjacent to the Las Vegas Strip. VICI Properties' goal is to create the highest quality and most productive experiential real estate portfolio through a strategy of partnering with the highest quality experiential place makers and operators. VICI Properties Inc. was incorporated in 2016 in Maryland, USA.",
+  "beta": 0.699,
+  "analyst_targets": {
+    "high": 40.0,
+    "low": 30.0,
+    "mean": 34.78261,
+    "current": 26.83
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 4006116000.0,
+    "net_income": 2775493000.0,
+    "ebitda": 3668230000.0,
+    "free_cashflow": 2508656000.0,
+    "gross_margin": 0.993327701943728,
+    "operating_margin": 0.912430144309351,
+    "net_margin": 0.6928139374895784,
+    "total_debt": 17689740000.0,
+    "cash": 563479000.0,
+    "total_equity": 28222587000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 2600697000.0,
+      "net_income": 1117635000.0,
+      "ebitda": 1682278000.0,
+      "fcf": 1941520000.0,
+      "operating_income": 1632450000.0
+    },
+    "2023": {
+      "revenue": 3611988000.0,
+      "net_income": 2513540000.0,
+      "ebitda": 3370835000.0,
+      "fcf": 2176974000.0,
+      "operating_income": 3344848000.0
+    },
+    "2024": {
+      "revenue": 3849205000.0,
+      "net_income": 2678810000.0,
+      "ebitda": 3561168000.0,
+      "fcf": 2373972000.0,
+      "operating_income": 3544934000.0
+    },
+    "2025": {
+      "revenue": 4006116000.0,
+      "net_income": 2775493000.0,
+      "ebitda": 3668230000.0,
+      "fcf": 2508656000.0,
+      "operating_income": 3655301000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "REIT - Diversified",
+      "revenues": {
+        "2022": 2600697000.0,
+        "2023": 3611988000.0,
+        "2024": 3849205000.0,
+        "2025": 4006116000.0
+      }
+    }
+  ],
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.038,
+      "revenue_growth_y5": 0.022799999999999997,
+      "gross_margin": 0.95,
+      "sga_pct": 0.01732213033906427,
+      "rd_pct": 0.0,
+      "da_pct": 0.001098239082520027,
+      "capex_pct": 0.0010317269598814631,
+      "tax_rate": 0.0017503275872862445,
+      "wacc": 0.0667,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.053,
+      "revenue_growth_y5": 0.031799999999999995,
+      "gross_margin": 0.95,
+      "sga_pct": 0.01232213033906427,
+      "rd_pct": 0.0,
+      "da_pct": 0.001098239082520027,
+      "capex_pct": 0.0009285542638933169,
+      "tax_rate": 0.0017503275872862445,
+      "wacc": 0.05669999999999999,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": 0.023,
+      "revenue_growth_y5": 0.0138,
+      "gross_margin": 0.95,
+      "sga_pct": 0.022322130339064272,
+      "rd_pct": 0.0,
+      "da_pct": 0.001098239082520027,
+      "capex_pct": 0.0011864860038636824,
+      "tax_rate": 0.0017503275872862445,
+      "wacc": 0.07669999999999999,
+      "terminal_multiple": 10
+    }
+  },
+  "news": [
+    {
+      "title": "Is VICI Properties (VICI) a Cheap REIT to Look at",
+      "date": "Wed, 18 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is VICI Properties (VICI) a cheap REIT to look at? - MSN",
+      "date": "Wed, 18 Ma",
+      "source": "MSN"
+    },
+    {
+      "title": "VICI Properties Inc. stock falls Wednesday, underperforms market - MarketWatch",
+      "date": "Wed, 18 Ma",
+      "source": "MarketWatch"
+    },
+    {
+      "title": "Why VICI Properties Inc. (VICI) Dipped More Than Broader Market Today",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Oracle, Nike upgraded: Wall Street's top analyst calls",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Here Are Wednesday’s Top Wall Street Analyst Research Calls: CrowdStrike, Harley-Davidson, Intuitive Surgical, Medline, Nike, Oracle, Planet Fitness, Vici Properties, and More",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "VICI PROPERTIES INC. ($VICI) CEO 2025 Pay Revealed - Quiver Quantitative",
+      "date": "Tue, 17 Ma",
+      "source": "Quiver Quantitative"
+    },
+    {
+      "title": "These Dividend Stocks Pay More Than 10-Year Treasury Bonds",
+      "date": "Tue, 10 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "VICI Properties: A Buy In The Falling T-Bond Market - Seeking Alpha",
+      "date": "Tue, 03 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "VICI Properties Stock: Revisiting The Thesis After The Recent Pullback (NYSE:VICI) - Seeking Alpha",
+      "date": "Thu, 19 Ma",
+      "source": "Seeking Alpha"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VICI/VICI_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VICI/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VICI/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VICI/SEC_filings/10K_2024.htm"
+    ]
+  }
+}
