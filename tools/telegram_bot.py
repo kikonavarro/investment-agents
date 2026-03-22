@@ -9,11 +9,13 @@ import sys
 import time
 import io
 import requests
+import threading
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 POLL_INTERVAL = 60  # segundos
+MESSAGE_TIMEOUT = 180  # max segundos por mensaje (evita bloqueos por API timeout)
 
 
 def _load_config():
@@ -662,14 +664,34 @@ def run_bot():
 
             send_message(api_base, chat_id, "⏳ Procesando tu solicitud...", html=False)
 
-            try:
-                response = process_message(text, from_group=is_allowed_group, chat_id=chat_id)
-                send_message(api_base, chat_id, response)
-                print(f"[Telegram] Respuesta enviada ({len(response)} chars)")
-            except Exception as e:
-                error_msg = f"Error procesando mensaje: {e}"
+            # Procesar en thread separado con timeout para no bloquear el polling
+            result_container = [None, None]  # [response, error]
+
+            def _process():
+                try:
+                    result_container[0] = process_message(
+                        text, from_group=is_allowed_group, chat_id=chat_id)
+                except Exception as e:
+                    result_container[1] = e
+
+            worker = threading.Thread(target=_process, daemon=True)
+            worker.start()
+            worker.join(timeout=MESSAGE_TIMEOUT)
+
+            if worker.is_alive():
+                print(f"[Telegram] Timeout ({MESSAGE_TIMEOUT}s) procesando mensaje de {user_name}")
+                send_message(api_base, chat_id,
+                             f"⚠️ La solicitud tardó más de {MESSAGE_TIMEOUT}s y se canceló. "
+                             f"Puede que la API esté saturada. Inténtalo de nuevo en unos minutos.",
+                             html=False)
+            elif result_container[1]:
+                error_msg = f"Error procesando mensaje: {result_container[1]}"
                 print(f"[Telegram] {error_msg}")
                 send_message(api_base, chat_id, f"⚠️ {error_msg}", html=False)
+            else:
+                response = result_container[0] or "Procesado sin output."
+                send_message(api_base, chat_id, response)
+                print(f"[Telegram] Respuesta enviada ({len(response)} chars)")
 
         time.sleep(POLL_INTERVAL)
 

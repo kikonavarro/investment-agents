@@ -17,7 +17,7 @@ log = logging.getLogger(__name__)
 
 _config = None
 
-MAX_ATTACHMENT_MB = 20
+MAX_ATTACHMENT_MB = 25
 
 
 def _get_config():
