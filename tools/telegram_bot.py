@@ -14,8 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-POLL_INTERVAL = 60  # segundos
-MESSAGE_TIMEOUT = 180  # max segundos por mensaje (evita bloqueos por API timeout)
+from config.settings import TELEGRAM_POLL_INTERVAL as POLL_INTERVAL, TELEGRAM_MESSAGE_TIMEOUT as MESSAGE_TIMEOUT
 
 
 def _load_config():
@@ -454,8 +453,9 @@ def _smart_chunk(text: str, max_len: int = 4096) -> list[str]:
     return chunks
 
 
-def send_message(api_base: str, chat_id: str, text: str, html: bool = True):
-    """Envia un mensaje por Telegram con formato HTML. Divide si supera 4096 chars."""
+def send_message(api_base: str, chat_id: str, text: str, html: bool = True) -> bool:
+    """Envia un mensaje por Telegram con formato HTML. Divide si supera 4096 chars.
+    Retorna True si todos los chunks se enviaron correctamente, False si hubo error."""
     url = f"{api_base}/sendMessage"
 
     if html:
@@ -477,10 +477,14 @@ def send_message(api_base: str, chat_id: str, text: str, html: bool = True):
                 clean = _strip_html(formatted)
                 plain_chunks = [clean[i:i + 4096] for i in range(0, len(clean), 4096)]
                 for plain_chunk in plain_chunks:
-                    requests.post(url, json={"chat_id": chat_id, "text": plain_chunk})
-                return
+                    fallback_resp = requests.post(url, json={"chat_id": chat_id, "text": plain_chunk})
+                    if not fallback_resp.json().get("ok"):
+                        return False
+                return True
         except Exception as e:
             print(f"[Telegram] Error enviando mensaje: {e}")
+            return False
+    return True
 
 
 def get_updates(api_base: str, offset: int = 0) -> list:

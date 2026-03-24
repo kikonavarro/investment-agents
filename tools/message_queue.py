@@ -74,7 +74,8 @@ def save_response(msg_id: str, response: str):
 
 
 def send_response(msg_id: str) -> bool:
-    """Envía la respuesta via Investment Bot y marca como enviado."""
+    """Envía la respuesta via Investment Bot y marca como enviado.
+    Si falla, marca como send_failed y mantiene en inbox/ para reintento."""
     path = INBOX_DIR / f"{msg_id}.json"
     if not path.exists():
         return False
@@ -86,11 +87,46 @@ def send_response(msg_id: str) -> bool:
     # Enviar por Telegram
     from tools.telegram_bot import send_message, _load_config
     _, _, _, api_base = _load_config()
-    send_message(api_base, msg["chat_id"], msg["response"])
+    success = send_message(api_base, msg["chat_id"], msg["response"])
 
-    # Mover a done/
-    mark_sent(msg_id)
-    return True
+    if success:
+        mark_sent(msg_id)
+        return True
+    else:
+        # Marcar como fallido, mantener en inbox/ para reintento
+        msg["status"] = "send_failed"
+        msg["retry_count"] = msg.get("retry_count", 0) + 1
+        msg["failed_at"] = datetime.now().isoformat()
+        path.write_text(json.dumps(msg, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"  [queue] Fallo al enviar {msg_id} (intento {msg['retry_count']})")
+        return False
+
+
+def get_failed() -> list[dict]:
+    """Retorna mensajes con status send_failed."""
+    _init()
+    msgs = []
+    for f in sorted(INBOX_DIR.glob("*.json")):
+        try:
+            msg = json.loads(f.read_text(encoding="utf-8"))
+            if msg.get("status") == "send_failed":
+                msgs.append(msg)
+        except (json.JSONDecodeError, Exception):
+            continue
+    return msgs
+
+
+def retry_failed(max_retries: int = 3) -> int:
+    """Reintenta mensajes fallidos. Retorna número de mensajes reenviados con éxito."""
+    failed = get_failed()
+    sent = 0
+    for msg in failed:
+        if msg.get("retry_count", 0) >= max_retries:
+            print(f"  [queue] {msg['id']} excede max reintentos ({max_retries}), saltando")
+            continue
+        if send_response(msg["id"]):
+            sent += 1
+    return sent
 
 
 def mark_sent(msg_id: str):

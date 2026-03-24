@@ -27,11 +27,15 @@ def validate_valuation(valuation: dict) -> dict:
     warnings.extend(_check_shares(valuation))
     warnings.extend(_check_debt_sanity(valuation))
     warnings.extend(_check_extreme_valuation(valuation))
+    warnings.extend(_check_negative_fair_value(valuation))
+    warnings.extend(_check_terminal_value_fraction(valuation))
+    warnings.extend(_check_revenue_decline_base(valuation))
+    warnings.extend(_check_wacc_range_by_market(valuation))
 
     critical = sum(1 for w in warnings if w["level"] == "critical")
     warning_count = sum(1 for w in warnings if w["level"] == "warning")
 
-    total_checks = 9
+    total_checks = 13
     failed = critical + warning_count
 
     if critical >= 2:
@@ -174,3 +178,112 @@ def _check_extreme_valuation(v: dict) -> list[dict]:
                      f"coherentes con el perfil de la empresa."
                  )}]
     return []
+
+
+def _check_negative_fair_value(v: dict) -> list[dict]:
+    """Detecta fair values negativos o cero en algún escenario."""
+    scenarios = v.get("scenarios", {})
+    warnings = []
+    for name, sc in scenarios.items():
+        # Calcular fair value implícito si hay datos suficientes
+        # Buscar fair_value directo o inferir de EV negativo
+        wacc = sc.get("wacc", 0)
+        tv = sc.get("terminal_multiple", 0)
+        latest = v.get("latest_financials", {})
+        debt = latest.get("total_debt", 0) or 0
+        cash = latest.get("cash", 0) or 0
+        ebitda = latest.get("ebitda", 0) or 0
+        shares = v.get("shares_outstanding", 0)
+
+        if not all([ebitda, tv, shares, wacc]):
+            continue
+
+        # Estimación rápida: TV = EBITDA * multiple, descontado 5 años
+        implied_ev = (ebitda * tv) / ((1 + wacc) ** 5)
+        implied_equity = implied_ev - debt + cash
+        implied_fair_value = implied_equity / shares if shares > 0 else 0
+
+        if implied_fair_value <= 0:
+            warnings.append({"level": "critical", "check": "fair_value_negativo",
+                             "message": f"Escenario {name}: fair value implícito ≤ 0 "
+                                        f"(EV implícito={implied_ev:,.0f}, deuda neta={debt-cash:,.0f})"})
+    return warnings
+
+
+def _check_terminal_value_fraction(v: dict) -> list[dict]:
+    """Avisa si el terminal value domina la valoración (>85% del total)."""
+    scenarios = v.get("scenarios", {})
+    base = scenarios.get("base", {})
+    wacc = base.get("wacc", 0)
+    tv_multiple = base.get("terminal_multiple", 0)
+    latest = v.get("latest_financials", {})
+    ebitda = latest.get("ebitda", 0) or 0
+    rev = latest.get("revenue", 0) or 0
+    gm = base.get("gross_margin", 0) or 0
+    sga = base.get("sga_pct", 0) or 0
+    rd = base.get("rd_pct", 0) or 0
+    da = base.get("da_pct", 0) or 0
+    capex = base.get("capex_pct", 0) or 0
+    tax = base.get("tax_rate", 0.21) or 0.21
+    g1 = base.get("revenue_growth_y1", 0) or 0
+
+    if not all([wacc, tv_multiple, ebitda, rev]):
+        return []
+
+    try:
+        # Estimar UFCF año 1 para tener referencia
+        rev_y1 = rev * (1 + g1)
+        ebitda_margin = gm - sga - rd
+        ebitda_y1 = rev_y1 * ebitda_margin
+        ebit_y1 = ebitda_y1 - rev_y1 * da
+        ufcf_y1 = ebitda_y1 - ebit_y1 * tax - rev_y1 * capex
+
+        # Suma simple de UFCF descontados (aprox con UFCF constante)
+        pv_ufcf = sum(ufcf_y1 / ((1 + wacc) ** y) for y in range(1, 6))
+        pv_tv = (ebitda * tv_multiple) / ((1 + wacc) ** 5)
+        total = pv_ufcf + pv_tv
+
+        if total > 0:
+            tv_pct = pv_tv / total
+            if tv_pct > 0.85:
+                return [{"level": "warning", "check": "tv_dominante",
+                         "message": f"Terminal Value = {tv_pct:.0%} del valor total. "
+                                    f"La valoración depende casi completamente del múltiplo de salida ({tv_multiple:.0f}x)."}]
+    except (ZeroDivisionError, TypeError):
+        pass
+    return []
+
+
+def _check_revenue_decline_base(v: dict) -> list[dict]:
+    """Avisa si el escenario base proyecta caída de revenue en Y1."""
+    scenarios = v.get("scenarios", {})
+    base = scenarios.get("base", {})
+    g1 = base.get("revenue_growth_y1", 0)
+    if g1 is not None and g1 < 0:
+        return [{"level": "info", "check": "revenue_decline_base",
+                 "message": f"Escenario base con revenue decreciente Y1: {g1:.1%}. "
+                            f"Verificar que no es un artefacto de datos."}]
+    return []
+
+
+def _check_wacc_range_by_market(v: dict) -> list[dict]:
+    """WACC fuera de rango según mercado (desarrollado vs emergente)."""
+    scenarios = v.get("scenarios", {})
+    ticker = v.get("ticker", "")
+
+    # Inferir mercado del sufijo del ticker
+    emerging_suffixes = (".SA", ".MX", ".NS", ".BO", ".IS", ".JK")
+    is_emerging = any(ticker.endswith(s) for s in emerging_suffixes)
+
+    wacc_min = 0.04 if not is_emerging else 0.06
+    wacc_max = 0.18 if not is_emerging else 0.25
+
+    warnings = []
+    for name, sc in scenarios.items():
+        wacc = sc.get("wacc", 0)
+        if wacc and (wacc < wacc_min or wacc > wacc_max):
+            market_type = "emergente" if is_emerging else "desarrollado"
+            warnings.append({"level": "warning", "check": "wacc_rango_mercado",
+                             "message": f"WACC {name} = {wacc:.1%} fuera de rango para mercado "
+                                        f"{market_type} ({wacc_min:.0%}-{wacc_max:.0%})"})
+    return warnings

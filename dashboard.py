@@ -240,23 +240,6 @@ def page_detail():
             seg_df = pd.DataFrame(seg_data)
             st.bar_chart(seg_df.set_index("Segmento"), height=250)
 
-    # Deep analysis
-    deep_path = VALUATIONS_DIR / v["ticker"].replace(".", "_") / f"{v['ticker'].replace('.', '_')}_deep_analysis.json"
-    if deep_path.exists():
-        st.subheader("Análisis profundo")
-        deep = json.loads(deep_path.read_text(encoding="utf-8"))
-        tabs = st.tabs([k.replace("_", " ").title() for k in deep.keys()])
-        for tab, (name, data) in zip(tabs, deep.items()):
-            with tab:
-                score = data.get(f"{name}_score", data.get("moat_score",
-                         data.get("risk_score", data.get("business_model_score", "?"))))
-                rating = (data.get(f"{name}_rating") or data.get("moat_rating")
-                          or data.get("overall_risk_level") or data.get("revenue_quality") or "")
-                if rating:
-                    st.metric("Score", f"{score}/10", delta=rating)
-                else:
-                    st.metric("Score", f"{score}/10")
-                st.write(data.get("summary", ""))
 
 
 def page_portfolio():

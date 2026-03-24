@@ -24,7 +24,7 @@ from datetime import datetime
 from pathlib import Path
 
 from config.settings import VALUATIONS_DIR
-from tools.financial_data import get_company_data, extract_historical_data, generate_scenarios
+from tools.financial_data import get_company_data, extract_historical_data, generate_scenarios, DataQualityError
 from tools.excel_generator import generate_valuation_excel
 from tools.sec_downloader import download_10k_filings
 from tools.news_fetcher import fetch_news
@@ -53,11 +53,21 @@ def _clean_ticker(ticker: str) -> str:
     return ticker.replace(".", "_")
 
 
+_CURRENCY_MAP = {
+    ".AX": "A$", ".L": "GBP ", ".TO": "C$", ".V": "C$",
+    ".MC": "EUR ", ".PA": "EUR ", ".DE": "EUR ", ".AS": "EUR ",
+    ".BR": "EUR ", ".MI": "EUR ", ".SW": "CHF ",
+    ".HK": "HK$", ".T": "JPY ", ".TW": "NT$",
+    ".NS": "INR ", ".BO": "INR ",
+    ".SA": "R$", ".MX": "MX$",
+    ".KS": "KRW ", ".SI": "S$",
+}
+
+
 def _get_currency_symbol(ticker: str) -> str:
-    if ticker.endswith(".AX"): return "A$"
-    if ticker.endswith(".L"): return "GBP "
-    if ticker.endswith(".TO") or ticker.endswith(".V"): return "C$"
-    if ticker.endswith(".MC") or ticker.endswith(".PA") or ticker.endswith(".DE"): return "EUR "
+    for suffix, symbol in _CURRENCY_MAP.items():
+        if ticker.endswith(suffix):
+            return symbol
     return "$"
 
 
@@ -100,7 +110,12 @@ def run_analyst(ticker: str) -> dict:
 
     # PASO 2: Datos financieros
     print(f"\n--- PASO 2/5: Datos financieros (yahooquery) ---")
-    data = get_company_data(ticker)
+    try:
+        data = get_company_data(ticker)
+    except DataQualityError as e:
+        print(f"\n  [ERROR] {e}")
+        print(f"  No se puede generar valoración con datos inválidos.")
+        return {"error": str(e), "ticker": ticker}
     historical = extract_historical_data(data)
     scenarios = generate_scenarios(data, historical)
 

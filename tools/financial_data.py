@@ -25,6 +25,11 @@ HEADERS = {
 }
 
 
+class DataQualityError(Exception):
+    """Error cuando los datos financieros descargados no pasan validación mínima."""
+    pass
+
+
 # --- Caché de datos financieros ---
 
 def _cache_path(ticker: str, for_date: date = None) -> Path:
@@ -110,6 +115,60 @@ def cleanup_cache():
                 continue
     if removed:
         print(f"  [cache] Limpieza: {removed} archivo(s) antiguo(s) eliminado(s)")
+
+
+def _validate_raw_data(data: dict, ticker: str):
+    """
+    Valida datos financieros descargados antes de cachear.
+    Lanza DataQualityError si los datos son inutilizables.
+    Imprime warnings si hay problemas menores.
+    """
+    errors = []
+    warnings = []
+
+    # Precio actual
+    price = data.get("current_price", 0)
+    if not price or price <= 0:
+        errors.append(f"Precio actual inválido: {price}")
+
+    # Shares outstanding
+    shares = data.get("shares_outstanding", 0)
+    if not shares or shares <= 0:
+        errors.append(f"Shares outstanding inválido: {shares}")
+
+    # Income statement con al menos 1 período con revenue > 0
+    income = data.get("income_stmt", pd.DataFrame())
+    has_revenue = False
+    if isinstance(income, pd.DataFrame) and not income.empty:
+        for col in income.columns:
+            rev = _safe_get_multi(income, ["TotalRevenue", "OperatingRevenue"], col)
+            if rev > 0:
+                has_revenue = True
+                break
+    if not has_revenue:
+        errors.append("Income Statement sin datos de revenue válidos")
+
+    # Balance sheet no vacío
+    balance = data.get("balance_sheet", pd.DataFrame())
+    if isinstance(balance, pd.DataFrame) and balance.empty:
+        warnings.append("Balance Sheet vacío — ratios de deuda no disponibles")
+    elif not isinstance(balance, pd.DataFrame):
+        warnings.append("Balance Sheet no es un DataFrame válido")
+
+    # Cash flow (warning, no crítico)
+    cf = data.get("cash_flow", pd.DataFrame())
+    if isinstance(cf, pd.DataFrame) and cf.empty:
+        warnings.append("Cash Flow vacío — FCF no disponible")
+
+    # Imprimir warnings
+    for w in warnings:
+        print(f"  [validación] ⚠ {ticker}: {w}")
+
+    # Si hay errores críticos, no cachear
+    if errors:
+        msg = f"Datos de {ticker} no pasan validación mínima:\n"
+        msg += "\n".join(f"  - {e}" for e in errors)
+        raise DataQualityError(msg)
 
 
 def search_ticker(query: str, max_results: int = 5) -> list[dict]:
@@ -234,6 +293,9 @@ def get_company_data(ticker: str) -> dict:
         "shares_outstanding": shares_outstanding,
         "history": hist,
     }
+
+    # Validar datos ANTES de cachear (evitar envenenar caché con datos basura)
+    _validate_raw_data(result, ticker)
 
     # Guardar en caché y limpiar archivos antiguos
     _save_cache(ticker, result)
@@ -571,39 +633,54 @@ def _calculate_avg_margins(historical, sorted_years):
 
 def _estimate_wacc(info):
     beta = info.get("beta", 1.0) or 1.0
-    ke = 0.045 + abs(beta) * 0.055
+    currency = info.get("currency", "USD") or "USD"
+
+    # Risk-free rate y ERP según divisa/mercado
+    wacc_cfg = settings.WACC_DEFAULTS
+    rf_rates = wacc_cfg["risk_free_rates"]
+    erp_rates = wacc_cfg["equity_risk_premiums"]
+    rf = rf_rates.get(currency, rf_rates["default"])
+    erp = erp_rates.get(currency, erp_rates["default"])
+
+    ke = rf + abs(beta) * erp
     mc = info.get("marketCap", 0) or 0
     td = info.get("totalDebt", 0) or 0
     ew = mc / (mc + td) if mc > 0 else 0.8
-    return round(max(ke * ew + 0.05 * (1 - 0.21) * (1 - ew), 0.05), 4)
+
+    # Coste de deuda: risk-free + credit spread (200bps por defecto)
+    kd = rf + wacc_cfg.get("credit_spread", 0.02)
+    tax_rate = 0.21  # Tasa corporativa genérica
+
+    wacc = ke * ew + kd * (1 - tax_rate) * (1 - ew)
+    return round(max(wacc, 0.04), 4)
 
 
-SECTOR_TV = {"Technology": 18, "Communication Services": 14, "Consumer Cyclical": 12,
-             "Consumer Defensive": 11, "Healthcare": 15, "Financial Services": 10,
-             "Industrials": 11, "Energy": 8, "Utilities": 9, "Real Estate": 12, "Basic Materials": 9}
-
-# Industrias premium que merecen múltiplos más altos dentro de su sector
-INDUSTRY_TV_BONUS = {
-    "Luxury Goods": 4, "Apparel - Luxury": 4,
-    "Software - Infrastructure": 4, "Software - Application": 4,
-    "Semiconductors": 3, "Internet Content & Information": 3,
-    "Internet Retail": 3,
-    "Drug Manufacturers": 3, "Biotechnology": 2,
-    "Aerospace & Defense": 2,
-}
+def _load_valuation_params():
+    """Carga parámetros de valoración desde config/valuation_params.yaml."""
+    import yaml
+    params_path = Path(__file__).parent.parent / "config" / "valuation_params.yaml"
+    with open(params_path) as f:
+        return yaml.safe_load(f)
 
 
 def _estimate_terminal_multiple(info):
-    m = SECTOR_TV.get(info.get("sector", ""), 12)
+    params = _load_valuation_params()
+    sector_tv = params.get("sector_tv", {})
+    industry_bonus = params.get("industry_tv_bonus", {})
+    growth_adj = params.get("growth_adjustments", {})
+
+    m = sector_tv.get(info.get("sector", ""), sector_tv.get("default", 12))
     # Bonus por industria premium
     industry = info.get("industry", "")
-    m += INDUSTRY_TV_BONUS.get(industry, 0)
+    m += industry_bonus.get(industry, 0)
     # Ajuste por crecimiento (solo para growth sostenido, no penalizar baches cíclicos)
     g = info.get("revenueGrowth", 0) or 0
-    if g > 0.20: m += 3
-    elif g > 0.10: m += 1
+    if g > growth_adj.get("high_growth_threshold", 0.20):
+        m += growth_adj.get("high_growth_bonus", 3)
+    elif g > growth_adj.get("moderate_growth_threshold", 0.10):
+        m += growth_adj.get("moderate_growth_bonus", 1)
     # No penalizar growth negativo — puede ser un bache cíclico, no estructural
-    return max(m, 5)
+    return max(m, growth_adj.get("min_multiple", 5))
 
 
 def _safe_get(df, key, col):

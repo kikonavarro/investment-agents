@@ -136,6 +136,66 @@ def format_screener_results_for_llm(candidates: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def format_comparison_for_llm(val1: dict, val2: dict) -> str:
+    """
+    Comprime dos valoraciones para comparación lado a lado.
+    Usado por el skill `comparator` y el flag --compare.
+    """
+    lines = [f"COMPARACIÓN | {val1.get('ticker', '?')} vs {val2.get('ticker', '?')}"]
+    lines.append("")
+
+    header = f"{'Métrica':25s} | {val1.get('ticker', '?'):>12s} | {val2.get('ticker', '?'):>12s}"
+    lines.append(header)
+    lines.append("-" * len(header))
+
+    # Datos básicos
+    for label, key in [
+        ("Precio", "current_price"),
+        ("Market Cap", "market_cap"),
+    ]:
+        v1 = val1.get(key, 0)
+        v2 = val2.get(key, 0)
+        if key == "market_cap":
+            lines.append(f"{label:25s} | {_format_large_number(v1):>12s} | {_format_large_number(v2):>12s}")
+        else:
+            lines.append(f"{label:25s} | {v1:>12,.2f} | {v2:>12,.2f}")
+
+    lines.append(f"{'Sector':25s} | {val1.get('sector', 'N/A'):>12s} | {val2.get('sector', 'N/A'):>12s}")
+    lines.append(f"{'Moneda':25s} | {val1.get('currency', '$'):>12s} | {val2.get('currency', '$'):>12s}")
+
+    # Financials
+    lines.append("")
+    for label, key in [
+        ("Revenue", "revenue"),
+        ("Net Income", "net_income"),
+        ("EBITDA", "ebitda"),
+        ("FCF", "free_cashflow"),
+    ]:
+        v1 = val1.get("latest_financials", {}).get(key, 0)
+        v2 = val2.get("latest_financials", {}).get(key, 0)
+        lines.append(f"{label:25s} | {_format_large_number(v1):>12s} | {_format_large_number(v2):>12s}")
+
+    for label, key in [
+        ("Margen bruto", "gross_margin"),
+        ("Margen operativo", "operating_margin"),
+        ("Margen neto", "net_margin"),
+    ]:
+        v1 = val1.get("latest_financials", {}).get(key, 0)
+        v2 = val2.get("latest_financials", {}).get(key, 0)
+        lines.append(f"{label:25s} | {v1:>11.1%} | {v2:>11.1%}")
+
+    # Escenarios
+    lines.append("")
+    for scenario in ["bear", "base", "bull"]:
+        sc1 = val1.get("scenarios", {}).get(scenario, {})
+        sc2 = val2.get("scenarios", {}).get(scenario, {})
+        lines.append(f"{scenario.capitalize() + ' Growth Y1':25s} | {sc1.get('revenue_growth_y1', 0):>11.1%} | {sc2.get('revenue_growth_y1', 0):>11.1%}")
+        lines.append(f"{scenario.capitalize() + ' WACC':25s} | {sc1.get('wacc', 0):>11.1%} | {sc2.get('wacc', 0):>11.1%}")
+        lines.append(f"{scenario.capitalize() + ' TV Multiple':25s} | {sc1.get('terminal_multiple', 0):>11.0f}x | {sc2.get('terminal_multiple', 0):>11.0f}x")
+
+    return "\n".join(lines)
+
+
 # --- Helpers ---
 
 def _format_large_number(n: float) -> str:

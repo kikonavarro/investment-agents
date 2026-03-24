@@ -1,0 +1,38 @@
+# Parámetros de valoración — Terminal Value multiples y ajustes
+# Modificar aquí en lugar de en el código Python.
+
+# Múltiplos EV/EBITDA por sector (base)
+sector_tv:
+  Technology: 18
+  Communication Services: 14
+  Consumer Cyclical: 12
+  Consumer Defensive: 11
+  Healthcare: 15
+  Financial Services: 10
+  Industrials: 11
+  Energy: 8
+  Utilities: 9
+  Real Estate: 12
+  Basic Materials: 9
+  default: 12
+
+# Bonus por industrias premium (se suma al sector base)
+industry_tv_bonus:
+  Luxury Goods: 4
+  Apparel - Luxury: 4
+  Software - Infrastructure: 4
+  Software - Application: 4
+  Semiconductors: 3
+  Internet Content & Information: 3
+  Internet Retail: 3
+  Drug Manufacturers: 3
+  Biotechnology: 2
+  Aerospace & Defense: 2
+
+# Ajuste por crecimiento de revenue
+growth_adjustments:
+  high_growth_threshold: 0.20    # >20% revenue growth → +3 al múltiplo
+  high_growth_bonus: 3
+  moderate_growth_threshold: 0.10 # >10% → +1
+  moderate_growth_bonus: 1
+  min_multiple: 5                 # Múltiplo mínimo absoluto

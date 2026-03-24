@@ -18,19 +18,55 @@ from config.settings import MODELS
 
 client = anthropic.Anthropic()
 
-# Timeouts por tier de modelo (segundos)
-TIMEOUTS = {
-    "quick": 30,
-    "standard": 60,
-    "deep": 120,
+# --- Circuit breaker ---
+_circuit_breaker = {
+    "failures": 0,
+    "open": False,
+    "opened_at": 0.0,
+    "cooldown_s": 60,
+    "threshold": 3,
 }
 
-# Coste por millón de tokens (input, output) por tier
-COST_PER_M_TOKENS = {
-    "quick":    (1.00,  5.00),   # Haiku
-    "standard": (3.00, 15.00),   # Sonnet
-    "deep":    (15.00, 75.00),   # Opus
-}
+
+def _circuit_check():
+    """Verifica si el circuit breaker permite la llamada. Raise si está abierto."""
+    cb = _circuit_breaker
+    if not cb["open"]:
+        return
+    elapsed = time.time() - cb["opened_at"]
+    if elapsed >= cb["cooldown_s"]:
+        # Half-open: permitir un intento
+        cb["open"] = False
+        cb["failures"] = 0
+        print(f"  [circuit-breaker] Half-open tras {cb['cooldown_s']}s de cooldown")
+        return
+    raise AgentError(
+        f"Circuit breaker abierto ({cb['failures']} fallos consecutivos). "
+        f"Reintento en {cb['cooldown_s'] - elapsed:.0f}s.",
+        tier="", partial=False,
+    )
+
+
+def _circuit_record_success():
+    """Registra éxito → resetea contador."""
+    _circuit_breaker["failures"] = 0
+    _circuit_breaker["open"] = False
+
+
+def _circuit_record_failure():
+    """Registra fallo → abre circuit si supera threshold."""
+    cb = _circuit_breaker
+    cb["failures"] += 1
+    if cb["failures"] >= cb["threshold"]:
+        cb["open"] = True
+        cb["opened_at"] = time.time()
+        print(f"  [circuit-breaker] ABIERTO tras {cb['failures']} fallos consecutivos. "
+              f"Cooldown: {cb['cooldown_s']}s")
+
+
+# Timeouts, costes y reintentos — desde settings.py
+TIMEOUTS = settings.API_TIMEOUTS
+COST_PER_M_TOKENS = settings.API_COST_PER_M_TOKENS
 
 # --- Tracker de costes ---
 _call_log: list[dict] = []
@@ -105,9 +141,8 @@ FALLBACK_CHAIN = {
 # Errores HTTP que justifican reintento
 _RETRYABLE_STATUS = {429, 500, 502, 503, 529}
 
-# Config de reintentos
-MAX_RETRIES = 3
-INITIAL_BACKOFF = 2  # segundos
+MAX_RETRIES = settings.API_MAX_RETRIES
+INITIAL_BACKOFF = settings.API_INITIAL_BACKOFF
 
 
 class AgentError(Exception):
@@ -119,8 +154,23 @@ class AgentError(Exception):
         self.partial = partial
 
 
+def _is_permanent_error(error: Exception) -> bool:
+    """True para errores que no tiene sentido reintentar (auth, bad request)."""
+    if isinstance(error, anthropic.AuthenticationError):
+        return True
+    if isinstance(error, anthropic.BadRequestError):
+        return True
+    if isinstance(error, anthropic.PermissionDeniedError):
+        return True
+    if isinstance(error, anthropic.NotFoundError):
+        return True
+    return False
+
+
 def _should_retry(error: Exception) -> bool:
     """Determina si un error es transitorio y merece reintento."""
+    if _is_permanent_error(error):
+        return False
     if isinstance(error, anthropic.RateLimitError):
         return True
     if isinstance(error, anthropic.APIStatusError):
@@ -207,6 +257,9 @@ def call_agent(
     if settings.DATA_ONLY_MODE and not force_api:
         return "[DATA_ONLY]"
 
+    # Circuit breaker: fail fast si hay muchos fallos consecutivos
+    _circuit_check()
+
     tools = [{"type": "web_search_20250305"}] if web_search else None
 
     current_tier = model_tier
@@ -217,6 +270,8 @@ def call_agent(
             response = _call_with_retry(model, system_prompt, user_message,
                                         max_tokens, current_tier, tools=tools)
             duration = time.time() - t0
+            # Éxito: resetear circuit breaker
+            _circuit_record_success()
             # Registrar uso de tokens
             usage = response.usage
             _log_call(
@@ -232,12 +287,20 @@ def call_agent(
                       f"(modelo original: {model_tier})")
             return _extract_text(response)
         except Exception as e:
+            # Errores permanentes: no reintentar ni hacer fallback
+            if _is_permanent_error(e):
+                _circuit_record_failure()
+                raise AgentError(
+                    f"Error permanente ({type(e).__name__}): {e}",
+                    tier=model_tier,
+                )
             if allow_fallback and FALLBACK_CHAIN.get(current_tier):
                 fallback = FALLBACK_CHAIN[current_tier]
                 print(f"  [fallback] {current_tier} agotó reintentos "
                       f"({type(e).__name__}). Bajando a {fallback}...")
                 current_tier = fallback
             else:
+                _circuit_record_failure()
                 raise AgentError(
                     f"API falló tras {MAX_RETRIES} reintentos: {e}",
                     tier=model_tier,

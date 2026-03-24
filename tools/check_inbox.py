@@ -16,7 +16,7 @@ from pathlib import Path
 # Asegurar imports desde raíz del proyecto
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from tools.message_queue import get_pending, save_response, send_response, INBOX_DIR
+from tools.message_queue import get_pending, get_failed, save_response, send_response, retry_failed, INBOX_DIR
 
 
 def show_pending():
@@ -86,10 +86,38 @@ def send_all():
     print(f"\n{count} respuestas enviadas.")
 
 
+def show_failed():
+    """Muestra mensajes con envío fallido."""
+    failed = get_failed()
+    if not failed:
+        print("No hay mensajes fallidos.")
+        return
+
+    print(f"\n{'='*60}")
+    print(f"  MENSAJES FALLIDOS ({len(failed)})")
+    print(f"{'='*60}\n")
+
+    for msg in failed:
+        ts = msg.get("failed_at", "?")[:19].replace("T", " ")
+        retries = msg.get("retry_count", 0)
+        print(f"  ID: {msg['id']}")
+        print(f"  De: {msg['user_name']}")
+        print(f"  Último fallo: {ts}")
+        print(f"  Reintentos: {retries}/3")
+        print(f"  {'─'*50}")
+    print()
+
+
+def retry_all_failed():
+    """Reintenta enviar todos los mensajes fallidos."""
+    sent = retry_failed(max_retries=3)
+    print(f"\n{sent} mensajes reenviados con éxito.")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Gestionar cola de mensajes del Investment Bot")
     parser.add_argument("action", nargs="?", default="pending",
-                       choices=["pending", "respond", "send", "send-all"])
+                       choices=["pending", "respond", "send", "send-all", "failed", "retry"])
     parser.add_argument("msg_id", nargs="?", help="ID del mensaje")
     parser.add_argument("file", nargs="?", help="Archivo con la respuesta")
     parser.add_argument("--text", "-t", help="Respuesta inline")
@@ -110,6 +138,10 @@ def main():
         send(args.msg_id)
     elif args.action == "send-all":
         send_all()
+    elif args.action == "failed":
+        show_failed()
+    elif args.action == "retry":
+        retry_all_failed()
 
 
 if __name__ == "__main__":

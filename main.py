@@ -6,7 +6,7 @@ Uso:
     python main.py "Analiza AAPL"         # Modo directo
     python main.py --analyst AAPL         # Valoracion completa (Excel + JSON)
     python main.py --thesis AAPL          # Valoracion + tesis
-    python main.py --deep AAPL            # Analisis profundo (4 agentes especializados + tesis)
+    python main.py --compare AAPL MSFT    # Datos para comparar dos empresas
     python main.py --portfolio status     # Estado de cartera
     python main.py --screener             # Buscar ideas value
 """
@@ -27,10 +27,6 @@ from agents.social_media import run_social_media
 from agents.portfolio_tracker import run_portfolio_tracker
 from agents.content_writer import run_content_writer
 from agents.screener import run_screener
-from agents.business_model import run_business_model
-from agents.moat_analyst import run_moat_analyst
-from agents.capital_allocation import run_capital_allocation
-from agents.risk_analyst import run_risk_analyst
 from tools.document_generator import save_analysis_json, save_screener_report
 from tools.quality_gates import validate_valuation, print_quality_report
 from tools.email_sender import send_thesis_email
@@ -262,33 +258,6 @@ def _print_result(agent_name, result):
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
 
-def _print_specialized(name: str, result: dict):
-    """Imprime resumen breve de un agente especializado."""
-    score = result.get(f"{name}_score", result.get("moat_score", result.get("risk_score", "?")))
-    summary = result.get("summary", "")
-    # Extraer el rating/nivel principal
-    rating = (result.get(f"{name}_rating") or result.get("moat_rating")
-              or result.get("overall_risk_level") or result.get("revenue_quality") or "")
-    if rating:
-        print(f"  Score: {score}/10 | Rating: {rating}")
-    else:
-        print(f"  Score: {score}/10")
-    if summary:
-        print(f"  {summary[:200]}")
-
-
-def _save_deep_analysis(ticker: str, specialized: dict):
-    """Guarda el análisis especializado en la carpeta de valoración."""
-    from agents.analyst import _clean_ticker
-    from config.settings import VALUATIONS_DIR
-    folder = VALUATIONS_DIR / _clean_ticker(ticker)
-    if not folder.exists():
-        return
-    path = folder / f"{_clean_ticker(ticker)}_deep_analysis.json"
-    path.write_text(json.dumps(specialized, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\n  Análisis profundo guardado: {path}")
-
-
 def _print_quick_summary(v):
     """Genera y muestra el resumen rápido con 3 escenarios + conclusión."""
     ticker = v.get("ticker", "?")
@@ -337,8 +306,8 @@ Ejemplos:
                         help="Valoracion completa: Excel + JSON + SEC filings")
     parser.add_argument("--thesis", metavar="TICKER",
                         help="Escribe tesis (ejecuta valoracion si no existe)")
-    parser.add_argument("--deep", metavar="TICKER",
-                        help="Analisis profundo: valoracion + 4 agentes especializados + tesis")
+    parser.add_argument("--compare", nargs=2, metavar="TICKER",
+                        help="Genera datos de valoracion para comparar dos empresas")
     parser.add_argument("--portfolio", metavar="ACTION", default=None,
                         help="Gestiona cartera: status|update_prices|...")
     parser.add_argument("--screener", metavar="FILTER", nargs="?", const="graham_default",
@@ -376,51 +345,20 @@ Ejemplos:
             print_quality_report(validate_valuation(result))
             _print_quick_summary(result)
 
-    elif args.deep:
-        ticker = args.deep.upper()
-        # 1. Valoración base
-        existing = load_valuation(ticker)
-        if existing is None:
-            print(f"\n=== Valoracion: {ticker} ===")
-            existing = run_analyst(ticker)
-        else:
-            print(f"\n=== Usando valoracion existente de {ticker} ===")
-
-        # 1b. Quality gate
-        qg = validate_valuation(existing)
-        print_quality_report(qg)
-        if qg["confidence"] == "low":
-            print("\n  [!] Confianza BAJA en los datos. Los análisis pueden ser poco fiables.")
-            print("  [!] Considera re-ejecutar con --fresh o verificar los datos manualmente.")
-
-        # 2. Agentes especializados (en paralelo)
-        print(f"\n  Ejecutando 4 agentes especializados en paralelo...")
-        specialized = {}
-        agents_to_run = [
-            ("business_model", run_business_model),
-            ("moat", run_moat_analyst),
-            ("capital_allocation", run_capital_allocation),
-            ("risk", run_risk_analyst),
-        ]
-        with ThreadPoolExecutor(max_workers=4) as executor:
-            futures = {executor.submit(fn, ticker): name for name, fn in agents_to_run}
-            for future in as_completed(futures):
-                name = futures[future]
-                try:
-                    specialized[name] = future.result()
-                    print(f"\n--- {name.upper().replace('_', ' ')} ---")
-                    _print_specialized(name, specialized[name])
-                except Exception as e:
-                    print(f"\n--- {name.upper().replace('_', ' ')} ---")
-                    print(f"  [!] {name} falló: {e}")
-
-        # 3. Guardar análisis especializado junto a la valoración
-        _save_deep_analysis(ticker, specialized)
-
-        # 4. Tesis enriquecida
-        print(f"\n=== Redactando tesis enriquecida: {ticker} ===")
-        thesis = run_thesis_writer(ticker)
-        print(thesis)
+    elif args.compare:
+        ticker1, ticker2 = args.compare[0].upper(), args.compare[1].upper()
+        print(f"\n=== Comparación: {ticker1} vs {ticker2} ===")
+        # Ejecutar analyst para ambos en paralelo
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            f1 = executor.submit(run_analyst, ticker1)
+            f2 = executor.submit(run_analyst, ticker2)
+            r1, r2 = f1.result(), f2.result()
+        print_quality_report(validate_valuation(r1))
+        print_quality_report(validate_valuation(r2))
+        print(f"\n  Datos generados para ambas empresas.")
+        print(f"  JSON 1: data/valuations/{ticker1.replace('.', '_')}/")
+        print(f"  JSON 2: data/valuations/{ticker2.replace('.', '_')}/")
+        print(f"  Usa Claude Code para interpretar y comparar.")
 
     elif args.thesis:
         ticker = args.thesis.upper()
@@ -497,7 +435,7 @@ Ejemplos:
             run_pipeline(user_input)
 
     # Resumen de costes para comandos directos (run_pipeline lo imprime internamente)
-    direct_command = (args.analyst or args.deep or args.thesis
+    direct_command = (args.analyst or args.compare or args.thesis
                       or args.portfolio is not None
                       or args.screener is not None or args.tweets or args.article)
     if direct_command:
