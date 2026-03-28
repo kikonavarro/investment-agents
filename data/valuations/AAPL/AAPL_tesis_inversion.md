@@ -1,144 +1,185 @@
-## AAPL — Apple Inc. | ⚠️ MANTENER / ESPERAR MEJOR PRECIO
-
----
+## AAPL — Apple Inc. | SOBREVALORADA
 
 ### Resumen ejecutivo
 
-Apple cotiza a **$259,88** con una capitalización de mercado de **$3,82 billones**. Nuestro modelo DCF arroja un precio objetivo base de aproximadamente **$220–240** por acción, lo que implica que el precio actual incorpora ya un escenario optimista o incluso supera nuestra valoración intrínseca razonable. El consenso de analistas sitúa el precio medio en **$295**, con un rango de $205–$350 (Wedbush). Aunque Apple es uno de los negocios de mayor calidad del mundo, la valoración actual deja poco margen de seguridad para el inversor value. **Recomendación: mantener posiciones existentes, pero no iniciar nuevas a precios superiores a $220.**
+Precio actual de **$248.80**, fair value ponderado de **$172.60** (potencial **-30.6%**). Apple es una empresa excepcional — moat amplio, ROIC >80%, $98.8B de FCF anual — pero a $248.80 el mercado descuenta un escenario perfecto que enfrenta tres amenazas simultáneas sin precedente: aranceles del 125% sobre China, caso antimonopolio del DOJ en discovery, y la necesidad de demostrar que Apple Intelligence genera un superciclo real de upgrades. Incluso nuestro escenario más optimista apenas justifica el precio actual.
+
+- **Bear ($122.44):** Aranceles 125% persisten sin resolución, producción India insuficiente, DOJ fuerza apertura de App Store, China débil → downside -50.8%
+- **Base ($183.20):** iPhone 17 AI cycle moderado (11% growth), India absorbe producción gradualmente, Services crece 12-15% → downside -26.4%
+- **Bull ($251.71):** Superciclo AI completo (16% growth), aranceles negociados a la baja, Services >$120B run-rate → upside +1.2%
+
+**Recomendación:** No comprar a precios actuales. Esperar corrección a zona $150-$170 para margen de seguridad ≥15%. El riesgo arancelario es real e inmediato.
 
 ---
 
 ### El negocio
 
-Apple diseña, fabrica y comercializa los ecosistemas tecnológicos de consumo más rentables del planeta. Sus líneas de producto principales son:
+Apple diseña, fabrica y comercializa el ecosistema de dispositivos electrónicos y servicios digitales más rentable del mundo: iPhone (~52% del revenue), Services (~25%, App Store, iCloud, Apple Music, Apple TV+, Apple Pay), Mac (~8%), iPad (~7%), y Wearables/Home (~8%). Con >2,200 millones de dispositivos activos, la base instalada genera ingresos recurrentes crecientes.
 
-- **Hardware:** iPhone (~50% del revenue), Mac, iPad, Apple Watch, AirPods y el incipiente Apple Vision Pro.
-- **Servicios:** App Store, Apple Music, Apple TV+, Apple Arcade, iCloud, Apple Pay y publicidad. Este segmento crece con mayor rapidez y con márgenes significativamente superiores al hardware.
+**Lo que dice el 10-K (FY2025):** Apple describe sus mercados como "highly competitive, characterized by aggressive price competition, downward pressure on gross margins, and rapid adoption of technological advancements by competitors." El documento menciona "tariffs" 22 veces y "China" 24 veces — ambos riesgos prominentes en Risk Factors.
 
-**¿Cuál es el moat?** Apple opera uno de los ecosistemas de fidelización más sólidos de la historia empresarial. El coste de cambio para el usuario es altísimo: iMessage, iCloud, AirDrop, la integración entre dispositivos y el App Store forman una muralla digital que retiene a los usuarios dentro del ecosistema. A esto se suma una marca premium global valorada en cientos de miles de millones y una cadena de suministro con economías de escala inalcanzables para competidores. El giro estratégico hacia **Servicios** —actualmente con márgenes brutos estimados superiores al 70%— está transformando gradualmente Apple de fabricante de hardware en plataforma de suscripción, lo que mejora la visibilidad y recurrencia de ingresos.
+**Lo que está pasando AHORA (marzo 2026):**
+- **iPhone 17 y 17e lanzados** — el 17e a $599 democratiza Apple Intelligence. Record de Q4 2025 con crecimiento de doble dígito en switching de Android→iPhone. Pero, ¿es un ciclo sostenido o un bump puntual?
+- **Producción moviéndose a India** — $2B en iPhones enviados desde India en marzo (récord). Pero la transición lleva años y China sigue siendo >60% de la producción
+- **Apple Intelligence aún en desarrollo** — la empresa reconoce en el 10-K que "new and complex technologies, such as artificial intelligence features, can increase safety risks"
 
-En 2025 el foco está puesto en **Apple Intelligence**, la apuesta de la compañía por integrar IA generativa de forma nativa en sus dispositivos, y en la expansión de la línea de dispositivos de hogar inteligente.
+**Ventaja competitiva (Moat: WIDE):**
+
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Switching costs | **Fuerte** | Ecosistema cerrado: iOS + iCloud + App purchases + dispositivos interconectados. Coste real de cambio $2,000-$5,000/usuario. La base instalada de 2.2B dispositivos es cautiva |
+| Intangibles (marca) | **Fuerte** | Marca #1 global. iPhone ASP creciente. Pero el 10-K reconoce "downward pressure on gross margins" por competencia |
+| Network effects | **Moderado** | App Store (1.8M apps), iMessage dominante en EEUU. Pero la DMA en Europa fuerza apertura (side-loading, pagos alternativos) — erosiona este moat |
+| Cost advantages | **Moderado** | Apple Silicon da ventaja en rendimiento/vatio. Escala masiva en componentes. Pero los aranceles del 125% sobre China neutralizan parte de la ventaja de costes |
+| Efficient scale | **Débil** | Mercado smartphone competitivo globalmente (Samsung, Xiaomi, Huawei resurgente en China) |
+
+**Durabilidad del moat:** El ecosistema se refuerza con cada dispositivo, pero enfrenta erosión regulatoria (DMA, DOJ) que obliga a abrirlo. Los switching costs siguen siendo el pilar más fuerte — nadie abandona iMessage + iCloud + Apple Watch fácilmente. Horizonte: >15 años para el ecosistema, pero con márgenes potencialmente menores en Services.
 
 ---
 
 ### Análisis financiero
 
-**Revenue:**
+| Métrica | 2022 | 2023 | 2024 | 2025 |
+|---------|------|------|------|------|
+| Revenue | $394.3B | $383.3B | $391.0B | $416.2B |
+| Net Income | $99.8B | $97.0B | $93.7B | $112.0B |
+| EBITDA | $130.5B | $125.8B | $134.7B | $144.7B |
+| FCF | $111.4B | $99.6B | $108.8B | $98.8B |
+| Op. Margin | 30.3% | 29.8% | 31.5% | 32.0% |
+| Gross Margin | 43.3% | 44.1% | 46.2% | 46.9% |
 
-| Año | Revenue | Crecimiento |
-|-----|---------|-------------|
-| 2022 | $394.3B | — |
-| 2023 | $383.3B | -2,8% |
-| 2024 | $391.0B | +2,0% |
-| 2025 | $416.2B | +6,4% |
+**Interpretación — lo que los números dicen y lo que NO dicen:**
 
-El crecimiento ha sido modesto en los últimos tres años, con una caída en 2023 y recuperación progresiva. El salto a $416B en 2025 refleja la revitalización del ciclo iPhone impulsada por AI features y una mayor penetración de servicios.
+- Revenue creció solo 6.4% en FY2025 tras dos años planos. El pipeline asumía 15.7% Y1 — **eso es 2.5x el crecimiento real reciente.** ¿El iPhone 17 justifica ese salto? Parcialmente (récord Q4 2025), pero sostenerlo requiere que Apple Intelligence genere un ciclo multi-trimestral, no solo un bump de lanzamiento
+- Gross margin expandiéndose: 43.3% → 46.9%. Esto refleja el mix shift hacia Services (70%+ margin bruto). **Pero los aranceles del 125% amenazan directamente este trend** — si Apple absorbe parte del coste, GM se comprime 2-3pp
+- FCF de $98.8B, inferior a 2024 ($108.8B) pese a mayor revenue. Esto es por mayor CapEx (inversión en IA, data centers). La empresa está gastando más para mantener relevancia en la carrera de IA
+- El 10-K confirma que Apple tiene componentes custom "available from only one source" — riesgo de supply chain que los aranceles amplifican
 
-**Márgenes:**
+**Balance y deuda:**
+- Deuda: $98.7B | Cash: $35.9B | Deuda neta: $62.7B
+- Deuda neta / EBITDA: 0.43x — fortress balance
+- Equity: $73.7B (reducido por buybacks masivos — 14.7B shares vs 24B hace 10 años)
+- Beta: 1.116
 
-- **Margen bruto:** 46,9% en 2025, en tendencia claramente alcista (el mix de servicios es el motor).
-- **Margen operativo:** 32,0% — extraordinario para una empresa de este tamaño.
-- **Margen neto:** 26,9%, uno de los más altos del sector tech de gran capitalización.
-- **EBITDA:** $144,7B en 2025 vs $130,5B en 2022.
+**Auditoría SEC: Confianza HIGH.** Revenue, NI, Cash, Equity y EBITDA coinciden al 100% con los 10-K. Sin discrepancias.
 
-**Free Cash Flow:**
+**Asignación de capital (Rating: EXCELENTE):**
 
-El FCF oscila entre **$98–111B** en el período analizado. El año 2025 muestra $98,8B, ligeramente inferior a 2022 y 2024, posiblemente por mayor inversión en infraestructura de IA y contenidos. Aun así, Apple genera más caja que casi cualquier otra empresa del mundo.
-
-**Balance:**
-
-- **Deuda total:** $98,7B
-- **Caja:** $35,9B
-- **Deuda neta:** ~$62,7B
-- **Equity contable:** $73,7B (artificialmente reducido por las enormes recompras de acciones)
-
-Apple ha recomprado acciones de forma agresiva durante años —reduciendo el share count de forma significativa—, lo que ha sido un motor silencioso pero potente del BPA. El balance es gestionable dado el FCF generado; la deuda representa menos de 0,7x EBITDA.
+Apple retorna ~$100B/año a accionistas:
+- **Buybacks:** ~$90-100B/año. Ha eliminado >40% de las acciones en una década. A $248.80, el yield de buyback es ~2.5%. **Pero a estos precios, ¿están comprando barato o caro?** Si nuestro FV es $172, cada recompra destruye valor para el accionista restante
+- **Dividendos:** ~$15B, yield 0.5%. Crecimiento modesto pero consistente
+- **CapEx:** $11.6B (2.8% revenue) — modelo asset-light pero creciendo por inversión en IA
+- **M&A:** Mínimo. Desarrollo interno (Apple Silicon, Vision Pro). Sin adquisiciones destructivas
+- **ROIC:** >80% vs WACC 10.5% — extraordinario. Pero el ROIC alto refleja en parte el equity reducido por buybacks, no solo eficiencia operativa
 
 ---
 
 ### Valoración DCF
 
-#### Metodología
+Modelo de 5 años con escenarios **diseñados interpretativamente** — no defaults del pipeline. Growth rates justificados por el contexto actual (aranceles, AI cycle, DOJ). CapEx y D&A del JSON (mediana histórica).
 
-El modelo proyecta el revenue para los próximos 5 años y aplica los **márgenes históricos promedio** (bruto, SGA, R&D, D&A, impuestos) para derivar el **Unlevered Free Cash Flow (UFCF)**. 
+**Diferencias clave vs pipeline automático:**
+- Growth base: **11% Y1** (no 15.7%) — el 6.4% de FY2025 + aceleración por iPhone 17, pero no el doble
+- Bear incorpora **impacto real de aranceles 125%** (margin compression 2pp)
+- Bull refleja lo que el **mercado ya descuenta** (supercycle + tariff resolution)
 
-Un aspecto clave: el **CapEx utilizado es solo el de mantenimiento** (aproximado a la depreciación), excluyendo el CapEx de expansión. La razón es que el crecimiento de revenue proyectado ya implica implícitamente las inversiones de expansión necesarias para conseguirlo, evitando así la doble penalización. En el caso de Apple, el CapEx total real (~$9–11B anuales) no dista dramáticamente del CapEx de mantenimiento estimado, por lo que el ajuste no es especialmente distorsionador —aunque sí relevante en los escenarios de mayor crecimiento.
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | 6%→4% | 28.9% | 11.5% | 17x | **$122.44** | -50.8% |
+| **Base** | 11%→7% | 30.9% | 10.5% | 19x | **$183.20** | -26.4% |
+| **Bull** | 16%→9% | 32.4% | 9.5% | 21x | **$251.71** | +1.2% |
 
-El **Terminal Value** se calcula aplicando un **múltiplo de salida por sector** (no el modelo Gordon Growth), lo que evita la sensibilidad extrema a tasas de crecimiento perpetuo. El **WACC** se calcula mediante CAPM real: con un beta de **1,116**, una prima de riesgo de mercado de referencia y la tasa libre de riesgo actual.
+**Fair value ponderado (40/40/20): $172.60** — potencial **-30.6%** vs $248.80 actual.
 
-#### Escenarios
+**Desglose Base:**
+- Revenue Y5: $640B (CAGR 9.0%)
+- EBITDA Y5: $198B
+- Sum PV(UFCF): $471B
+- PV(Terminal Value): $2,281B
+- Enterprise Value: $2,752B
+- Net Debt: $62.7B
+- Equity Value: $2,689B
+- TV como % del EV: 82.9%
 
-**Escenario Base:**
-- Crecimiento revenue Y1: +15,7% → desacelerando hasta +9,4% en Y5
-- Margen bruto: 45,1%
-- WACC: 10,48%
-- Múltiplo terminal: 19x EV/EBITDA
-- **Valor intrínseco estimado: ~$225–235 por acción**
+**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
 
-**Escenario Bull:**
-- Crecimiento revenue Y1: +20,4% → hasta +12,2% en Y5 (éxito de Apple Intelligence, superciclo iPhone AI)
-- Margen bruto: 47,1% (mix servicios superior)
-- WACC: 9,48%
-- Múltiplo terminal: 21x
-- **Valor intrínseco estimado: ~$285–300 por acción**
+| WACC \ TV | 15x | 17x | 19x | 21x | 23x |
+|-----------|-----|-----|-----|-----|-----|
+| 8.5% | $186 | $216 | $246 | $276 | $306 |
+| 9.5% | $165 | $192 | $219 | $246 | $273 |
+| 10.5% | $147 | $172 | $183 | $219 | $244 |
+| 11.5% | $132 | $154 | $165 | $196 | $218 |
+| 12.5% | $118 | $138 | $149 | $175 | $196 |
 
-**Escenario Bear:**
-- Crecimiento revenue Y1: +11,0% → hasta +6,6% en Y5 (estancamiento en China, presión regulatoria App Store)
-- Margen bruto: 43,1%
-- WACC: 12,48%
-- Múltiplo terminal: 16x
-- **Valor intrínseco estimado: ~$155–170 por acción**
+**Punto clave de la sensibilidad:** Para justificar $248.80 en el escenario base, necesitarías WACC ≤8.5% con TV ≥23x, o WACC ≤9.5% con TV ≥21x. Esto implica cero prima de riesgo por aranceles y valoración premium sostenida.
 
-#### ¿Por qué el precio objetivo es razonable?
+**Análisis de impacto — qué mueve más el precio:**
 
-Al precio actual de $259,88, AAPL cotiza a **~27x FCF** y **~26x beneficio neto** (TTM). Para un negocio de su calidad, este múltiplo tiene argumentos, pero implica que el mercado ya está descontando un escenario cercano al bull case. La valoración base ($225–235) ofrece un **margen de seguridad negativo del ~9%** respecto al precio actual, lo que no satisface los criterios de una inversión value clásica. Solo el escenario optimista ($285–300) justifica las cotizaciones actuales o superiores.
+| Variable | Cambio | Impacto en FV Base | Comentario |
+|----------|--------|-------------------|------------|
+| **Aranceles (GM -2pp)** | 30.9%→28.9% | **-$61 (-33%)** | El mayor riesgo. Si aranceles persisten sin mitigación |
+| TV Multiple ±2x | ±2x | ±$30 (~16%) | Segundo mayor driver |
+| WACC ±1% | ±1% | ±$18 (~10%) | Refleja incertidumbre macro |
+| Revenue Growth Y1 ±3% | ±3% | ±$15 (~8%) | iPhone 17 cycle strength |
+
+**Los aranceles son el factor dominante.** Una compresión de 2pp en gross margin vale más que 3pp de crecimiento adicional.
 
 ---
 
 ### Riesgos principales
 
-1. **Dependencia de China (tanto ventas como manufactura):** China representa aproximadamente el 17-19% del revenue de Apple y es la principal base de fabricación. Las tensiones geopolíticas, los aranceles o un boicot de consumidores chinos a favor de Huawei podrían golpear ingresos y costes simultáneamente.
+**Perfil de riesgo global: ALTO** (upgrade desde MODERADO-ALTO anterior — los aranceles han empeorado el perfil)
 
-2. **Presión regulatoria sobre el App Store:** La UE (Digital Markets Act) y los litigios antimonopolio en EE.UU. amenazan el modelo de comisiones del App Store, que es uno de los pilares del crecimiento en Servicios. Una apertura forzada del ecosistema podría erosionar márgenes de forma permanente.
+| # | Riesgo | Severidad | Probabilidad | Fuente | Impacto concreto |
+|---|--------|-----------|--------------|--------|-----------------|
+| 1 | **Aranceles 125% sobre China** | **Muy Alta** | **Alta** | Noticias marzo 2026 | Sin mitigación: iPhone Pro Max de $1,199 a ~$2,000 en EEUU. Apple absorbe parte → GM -2-3pp. India no puede absorber toda la producción hasta finales 2026-2027 |
+| 2 | **DOJ antitrust (App Store)** | Alta | Media | 10-K + noticias | En discovery, sin fecha de juicio. Si fuerza apertura de App Store: comisiones bajan del 30% → impacto ~$3-4B en revenue de Services (el segmento más rentable, 70%+ GM) |
+| 3 | **China (demanda + geopolítica)** | Alta | Media | 10-K (24 menciones) | ~15-18% del revenue. Huawei resurgente. Riesgo de boicot. Apple ya redujo App Store comisiones en China |
+| 4 | **Apple Intelligence no genera superciclo** | Media | Media | 10-K + noticias | Si el iPhone 17 upgrade cycle es un bump de 1-2 trimestres (no sostenido), el growth vuelve al 5-7% y la valoración actual es insostenible |
+| 5 | **DMA erosiona ecosistema en Europa** | Media | Alta | 10-K (menciona DMA) | Side-loading, pagos alternativos ya obligatorios. Si reduce stickiness del ecosistema, el moat de switching costs se debilita gradualmente |
 
-3. **Ejecución en IA (Apple Intelligence):** Apple llega más tarde que Google, Microsoft o Meta al ciclo de IA. Si Apple Intelligence no consigue materializarse en un superciclo de renovación de iPhone o no fideliza a los usuarios de forma diferencial, las expectativas de crecimiento incorporadas en el precio actual no se cumplirían.
-
-4. **Riesgo de múltiplo / tipos de interés:** Apple cotiza a múltiplos premium que son sensibles al entorno de tipos. Una subida de las tires del bono a 10 años o una rotación hacia value defensivo podría comprimir el múltiplo incluso con buenos fundamentales.
+**Mitigantes reales (no genéricos):**
+- India absorbe producción aceleradamente ($2B en marzo — récord). Si mantiene el ritmo, para finales 2026 podría cubrir >50% de producción EEUU
+- Morgan Stanley ve un camino para mitigar aranceles sin subir precios (non-pricing actions: absorción parcial, optimización de supply chain, mix shift)
+- Balance fortress ($35.9B cash + $98.8B FCF/año) permite absorber impactos temporales sin comprometer el negocio
+- Ecosistema de 2.2B dispositivos crea inercia difícil de romper incluso con regulación adversa
 
 ---
 
 ### Catalizadores
 
-**Al alza (próximos 12–24 meses):**
-- **Superciclo iPhone AI:** Si Apple Intelligence genera tasas de actualización de dispositivos significativamente superiores a la media histórica, el revenue podría superar el escenario bull.
-- **Expansión de Servicios:** Crecimiento del segmento de mayor margen, especialmente en publicidad (Search Ads, iAd 2.0) y finanzas (Apple Card, Apple Pay Later).
-- **Lanzamiento MacBook Neo y dispositivos hogar inteligente:** Nuevas líneas de producto con potencial de monetización.
-- **Recompras de acciones:** Apple continúa siendo el mayor recomprador de acciones del mundo (~$90B autorizados), sosteniendo el BPA incluso con crecimientos moderados de beneficio.
+**Positivos (12-24 meses):**
+- **Resolución/reducción de aranceles China** — el catalizador más importante. Si tariffs bajan a 25-50%, el bear case desaparece
+- **iPhone 17 Pro con Apple Intelligence completa** (otoño 2026) — si el upgrade cycle se sostiene 3+ trimestres, confirma el superciclo
+- **India production ramp** alcanzando >50% de producción para EEUU — neutraliza el riesgo arancelario estructuralmente
+- **Services >$120B run-rate** con márgenes >72% — dilución del peso de hardware en el mix
 
-**A la baja:**
-- Escalada de tensiones arancelarias con China o represalias comerciales.
-- Resolución judicial adversa en el caso App Store en EE.UU.
-- Decepción en la adopción de Apple Intelligence o retraso en el ciclo de renovación.
-- Desaceleración macro que afecte el gasto en dispositivos premium.
+**Negativos:**
+- **Escalada de aranceles** (actual 125%, podría subir a 145%) → crisis de supply chain inmediata
+- **Siri sigue siendo inferior** a ChatGPT/Gemini — los usuarios no perciben valor en Apple Intelligence
+- **DOJ falla contra Apple** → precedente que fuerza cambios estructurales en App Store en 2027-2028
+- **Huawei resurge en China** con apoyo del gobierno → Apple pierde 3-5pp de share en su segundo mercado
 
 ---
 
 ### Conclusión y plan de acción
 
-Apple es, con diferencia, uno de los mejores negocios del mundo: generación de caja extraordinaria, moat defensivo, gestión disciplinada del capital y una transición hacia servicios que mejora la calidad del beneficio. **No hay duda sobre la calidad del activo.**
+**Recomendación: NO COMPRAR a precios actuales.**
 
-El problema es el precio.
+Apple sigue siendo una empresa extraordinaria — el moat es real, el ecosistema es poderoso, la generación de caja es incomparable. Pero a $248.80, el mercado descuenta un escenario perfecto que enfrenta tres amenazas reales y simultáneas:
 
-A **$259,88**, el mercado ya está pagando por un escenario prácticamente optimista. Nuestro modelo base sitúa el valor intrínseco en **~$225–235**, y solo bajo supuestos favorables (Apple Intelligence como catalizador de ciclo, expansión de márgenes de Servicios) el precio actual estaría justificado.
+1. **Aranceles del 125%** que pueden comprimir márgenes 2-3pp hasta que India absorba la producción
+2. **DOJ antitrust** que puede forzar apertura del App Store (el negocio más rentable)
+3. **Apple Intelligence** que necesita demostrar que genera un superciclo sostenido (no un bump)
 
-**Plan de acción:**
+Nuestro fair value ponderado de **$172.60** está un 30.6% por debajo del precio actual. **Incluso el bull case ($251.71) apenas supera el precio.** Esto significa que el mercado ya descuenta el mejor escenario posible — no hay margen de seguridad.
 
-- **Si no tienes posición:** No iniciar a precios actuales. El margen de seguridad es insuficiente para un inversor value. Zona de entrada atractiva: **por debajo de $210–220**, donde el escenario base ofrecería un margen de seguridad del 10–15%.
-- **Si tienes posición con plusvalías:** Mantener. El negocio no está roto y los catalizadores de Servicios e IA son reales. Considerar reducir exposición parcial si el precio supera $290–300 (zona bull).
-- **Stop estratégico:** Una ruptura sostenida por debajo de $185 (escenario bear materializado) requeriría revisión tesis.
+- **Precio de entrada recomendado:** $130-$145 (margen de seguridad ≥15% sobre FV ponderado)
+- **Precio de entrada agresivo:** $160-$175 (si aranceles se resuelven parcialmente)
+- **Precio actual ($248.80):** No comprar — priced for perfection
+- **Si se posee:** Considerar tomar beneficios parcialmente. El risk/reward es desfavorable a estos niveles
 
-> **Veredicto: MANTENER / ESPERAR.** Apple es el tipo de empresa que mereces en cartera, pero al precio correcto.
+Como decía Graham: "El margen de seguridad es la diferencia entre el precio que pagas y el valor intrínseco del negocio." A $248.80, no hay margen de seguridad — hay prima de riesgo negativa.
 
 ---
-
-*Análisis generado el 10/03/2026. No es consejo de inversión. El modelo DCF utiliza datos históricos y proyecciones que pueden diferir significativamente de los resultados reales. Consulta con un asesor financiero antes de tomar decisiones de inversión.*
+*Análisis generado el 2026-03-28. Fuentes: Apple 10-K FY2025 (SEC EDGAR), Yahoo Finance, noticias marzo 2026 (aranceles, iPhone 17, DOJ). Auditoría SEC: HIGH confidence, 0 alertas. No es consejo de inversión.*

@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-28",
+    "file": "NTSK_20260328_valuation.json",
+    "current_price": 7.73,
+    "currency": "$",
+    "fair_value_bear": 0.10049999999999999,
+    "fair_value_base": 0.0905,
+    "fair_value_bull": 0.0805,
+    "revenue": 538268000.0,
+    "gross_margin": 0.6463304524883515,
+    "growth_y1_base": 0.322,
+    "wacc_base": 0.0905,
+    "tv_base": 25
+  }
+]

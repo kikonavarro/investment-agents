@@ -42,6 +42,11 @@ El portfolio tracker **siempre usa la API** (necesita automatización):
 python main.py --portfolio status
 ```
 
+## AL INICIAR SESIÓN — Acciones obligatorias
+
+1. **Activar polling de Telegram:** Ejecutar `/loop 1m python tools/check_inbox.py` para comprobar la bandeja de entrada cada minuto. Sin esto, los mensajes del Investment Bot no se procesan.
+2. Si hay mensajes pendientes, procesarlos según el tipo (tesis, screener, tweets, etc.)
+
 ## Cola de mensajes Telegram (Investment Bot → Claude Code)
 
 El Investment Bot ya NO llama a la API de Anthropic. Encola mensajes para que Claude Code (Opus) los procese:

@@ -12,5 +12,19 @@
     "growth_y1_base": 0.157,
     "wacc_base": 0.1048,
     "tv_base": 19
+  },
+  {
+    "date": "2026-03-28",
+    "file": "AAPL_20260328_valuation.json",
+    "current_price": 248.8,
+    "currency": "$",
+    "fair_value_bear": 0.1151,
+    "fair_value_base": 0.1051,
+    "fair_value_bull": 0.0951,
+    "revenue": 416161000000.0,
+    "gross_margin": 0.4690516410716045,
+    "growth_y1_base": 0.157,
+    "wacc_base": 0.1051,
+    "tv_base": 19
   }
 ]

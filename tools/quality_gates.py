@@ -31,11 +31,15 @@ def validate_valuation(valuation: dict) -> dict:
     warnings.extend(_check_terminal_value_fraction(valuation))
     warnings.extend(_check_revenue_decline_base(valuation))
     warnings.extend(_check_wacc_range_by_market(valuation))
+    warnings.extend(_check_acquisition_detected(valuation))
+    warnings.extend(_check_captive_finance(valuation))
+    warnings.extend(_check_multiple_compression(valuation))
+    warnings.extend(_check_analyst_consensus_gap(valuation))
 
     critical = sum(1 for w in warnings if w["level"] == "critical")
     warning_count = sum(1 for w in warnings if w["level"] == "warning")
 
-    total_checks = 13
+    total_checks = 17
     failed = critical + warning_count
 
     if critical >= 2:
@@ -170,12 +174,23 @@ def _check_extreme_valuation(v: dict) -> list[dict]:
     ev_ebitda = ev / ebitda
 
     if ev_ebitda > 50:
-        return [{"level": "info", "check": "valoracion_extrema",
+        # Verificar si los TV multiples son coherentes con la valoración actual
+        scenarios = v.get("scenarios", {})
+        tv_max = max(sc.get("terminal_multiple", 0) for sc in scenarios.values()
+                     if isinstance(sc, dict) and not str(sc).startswith("_"))
+        if tv_max and tv_max < 20 and ev_ebitda > tv_max * 3:
+            return [{"level": "critical", "check": "valoracion_extrema",
+                     "message": (
+                         f"EV/EBITDA = {ev_ebitda:.0f}x pero TV máximo = {tv_max:.0f}x. "
+                         f"Compresión de múltiplo del {(1 - tv_max/ev_ebitda)*100:.0f}% implícita. "
+                         f"ACCIÓN REQUERIDA: diseñar escenarios manuales con múltiplos "
+                         f"coherentes (20-35x para tech/growth) o usar Sum-of-Parts."
+                     )}]
+        return [{"level": "warning", "check": "valoracion_extrema",
                  "message": (
                      f"EV/EBITDA = {ev_ebitda:.0f}x (>50x). Valoración extrema. "
                      f"Los escenarios automáticos pueden no ser apropiados. "
-                     f"Considerar diseñar escenarios manuales con múltiplos/growth "
-                     f"coherentes con el perfil de la empresa."
+                     f"Considerar diseñar escenarios manuales."
                  )}]
     return []
 
@@ -266,6 +281,43 @@ def _check_revenue_decline_base(v: dict) -> list[dict]:
     return []
 
 
+def _check_captive_finance(v: dict) -> list[dict]:
+    """Alerta si se detectó un banco cautivo (Financial Services) que infla la deuda total."""
+    captive = v.get("captive_finance")
+    if captive and captive.get("detected"):
+        total_debt = captive.get("total_debt", 0)
+        industrial_debt = captive.get("estimated_industrial_debt", 0)
+        ratio = captive.get("debt_to_ebitda", 0)
+        return [{"level": "warning", "check": "banco_cautivo",
+                 "message": (
+                     f"Empresa con segmento Financial Services cautivo. "
+                     f"Deuda total {total_debt/1e6:,.0f}M incluye préstamos del segmento financiero. "
+                     f"Deuda industrial estimada: ~{industrial_debt/1e6:,.0f}M. "
+                     f"El DCF usa deuda industrial ajustada (no total)."
+                 )}]
+    return []
+
+
+def _check_acquisition_detected(v: dict) -> list[dict]:
+    """Alerta si se detectó una posible adquisición que distorsiona los datos."""
+    acq = v.get("acquisition_detected")
+    if acq and acq.get("detected"):
+        jump = acq.get("jump_pct", 0)
+        year = acq.get("year", "?")
+        prev_rev = acq.get("prev_revenue", 0)
+        new_rev = acq.get("new_revenue", 0)
+        return [{"level": "warning", "check": "adquisicion_detectada",
+                 "message": (
+                     f"Revenue saltó {jump:.0%} en {year} "
+                     f"({prev_rev/1e6:,.0f}M → {new_rev/1e6:,.0f}M). "
+                     f"Probable adquisición — datos Yahoo pueden ser parciales (no pro-forma). "
+                     f"Growth ajustado a tasas orgánicas. "
+                     f"ACCIÓN REQUERIDA: buscar presentaciones de Investor Relations "
+                     f"para obtener cifras pro-forma, revenue combinado real, y sinergias esperadas."
+                 )}]
+    return []
+
+
 def _check_wacc_range_by_market(v: dict) -> list[dict]:
     """WACC fuera de rango según mercado (desarrollado vs emergente)."""
     scenarios = v.get("scenarios", {})
@@ -287,3 +339,87 @@ def _check_wacc_range_by_market(v: dict) -> list[dict]:
                              "message": f"WACC {name} = {wacc:.1%} fuera de rango para mercado "
                                         f"{market_type} ({wacc_min:.0%}-{wacc_max:.0%})"})
     return warnings
+
+
+def _check_multiple_compression(v: dict) -> list[dict]:
+    """CRITICAL si el DCF implica una compresión de múltiplo absurda vs mercado actual."""
+    price = v.get("current_price", 0)
+    shares = v.get("shares_outstanding", 0)
+    latest = v.get("latest_financials", {})
+    debt = latest.get("total_debt", 0) or 0
+    cash = latest.get("cash", 0) or 0
+    ebitda = latest.get("ebitda", 0) or 0
+    scenarios = v.get("scenarios", {})
+    base = scenarios.get("base", {})
+    wacc = base.get("wacc", 0)
+    tv = base.get("terminal_multiple", 0)
+
+    if not all([price, shares, ebitda, ebitda > 0, wacc, tv]):
+        return []
+
+    market_cap = price * shares
+    ev_actual = market_cap + debt - cash
+    ev_ebitda_actual = ev_actual / ebitda
+
+    # Estimar fair value implícito rápido (solo TV descontado + proxy de UFCF)
+    pv_tv = (ebitda * tv) / ((1 + wacc) ** 5)
+    implied_equity = pv_tv - (debt - cash)
+    implied_fv = implied_equity / shares if shares > 0 else 0
+
+    if implied_fv > 0 and price > 0:
+        ratio = implied_fv / price
+        if ratio < 0.2:
+            return [{"level": "critical", "check": "compresion_multiplo",
+                     "message": (
+                         f"DCF implica fair value ~${implied_fv:.2f} vs precio ${price:.2f} "
+                         f"(solo {ratio:.0%} del precio). EV/EBITDA actual={ev_ebitda_actual:.0f}x "
+                         f"vs TV={tv:.0f}x. Compresión del {(1-tv/ev_ebitda_actual)*100:.0f}%. "
+                         f"Los escenarios son incoherentes — diseñar escenarios manuales o Sum-of-Parts."
+                     )}]
+        if ratio < 0.3:
+            return [{"level": "warning", "check": "compresion_multiplo",
+                     "message": (
+                         f"DCF implica fair value ~${implied_fv:.2f} = {ratio:.0%} del precio actual. "
+                         f"Verificar coherencia de los escenarios."
+                     )}]
+    return []
+
+
+def _check_analyst_consensus_gap(v: dict) -> list[dict]:
+    """WARNING/CRITICAL si el fair value diverge enormemente del consenso de analistas."""
+    targets = v.get("analyst_targets", {})
+    mean_target = targets.get("mean", 0)
+    price = v.get("current_price", 0)
+    shares = v.get("shares_outstanding", 0)
+    latest = v.get("latest_financials", {})
+    debt = latest.get("total_debt", 0) or 0
+    cash = latest.get("cash", 0) or 0
+    ebitda = latest.get("ebitda", 0) or 0
+    scenarios = v.get("scenarios", {})
+    base = scenarios.get("base", {})
+    wacc = base.get("wacc", 0)
+    tv = base.get("terminal_multiple", 0)
+
+    if not all([mean_target, ebitda, ebitda > 0, wacc, tv, shares]):
+        return []
+
+    # Fair value implícito rápido
+    pv_tv = (ebitda * tv) / ((1 + wacc) ** 5)
+    implied_fv = (pv_tv - (debt - cash)) / shares if shares > 0 else 0
+
+    if implied_fv > 0 and mean_target > 0:
+        ratio = implied_fv / mean_target
+        if ratio < 0.1:
+            return [{"level": "critical", "check": "gap_consenso",
+                     "message": (
+                         f"Fair value implícito (${implied_fv:.2f}) es {ratio:.0%} del consenso "
+                         f"de analistas (${mean_target:.2f}). Divergencia del {(1-ratio)*100:.0f}%. "
+                         f"Revisar escenarios — probable error en TV multiple o WACC."
+                     )}]
+        if ratio < 0.2:
+            return [{"level": "warning", "check": "gap_consenso",
+                     "message": (
+                         f"Fair value implícito (${implied_fv:.2f}) está un {(1-ratio)*100:.0f}% "
+                         f"por debajo del consenso (${mean_target:.2f}). Verificar supuestos."
+                     )}]
+    return []

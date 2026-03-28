@@ -128,8 +128,28 @@ def run_analyst(ticker: str) -> dict:
     print(f"    Anios historicos: {sorted(historical.keys())}")
     print(f"    Segmentos: {[s['name'] for s in data['segments']]}")
     for k, v in scenarios.items():
+        if k.startswith("_"):
+            continue
         print(f"    {k.capitalize()}: Growth Y1={v['revenue_growth_y1']:.1%}, "
               f"WACC={v['wacc']:.1%}, TV={v['terminal_multiple']:.0f}x")
+
+    # PASO 2.5: Auditoría SEC 10-K (solo EEUU)
+    sec_audit = None
+    if is_us and downloaded_files:
+        try:
+            from tools.sec_parser import audit_company
+            sec_audit = audit_company(ticker, str(output_dir))
+            if sec_audit.get("has_10k"):
+                confidence = sec_audit.get("confidence", "N/A")
+                alerts = sec_audit.get("alerts", [])
+                if alerts:
+                    print(f"  [!] SEC AUDIT ({confidence}): {len(alerts)} discrepancia(s) Yahoo vs 10-K")
+                    for a in alerts:
+                        print(f"      [{a['level'].upper()}] {a['message']}")
+                else:
+                    print(f"  [OK] SEC AUDIT: datos Yahoo coinciden con 10-K")
+        except Exception as e:
+            print(f"  [!] SEC audit error: {e}")
 
     # PASO 3: Noticias
     print(f"\n--- PASO 3/5: Noticias recientes ---")
@@ -140,6 +160,21 @@ def run_analyst(ticker: str) -> dict:
         print(f"    Aviso: Error noticias: {e}")
         news = []
 
+    # Si se detectó adquisición, buscar noticias de M&A específicas
+    if scenarios.get("_acquisition_detected"):
+        try:
+            from tools.news_fetcher import get_ticker_news
+            import urllib.parse
+            from tools.news_fetcher import _fetch_rss
+            acq_query = urllib.parse.quote(f"{company_name} acquisition merger")
+            acq_url = f"https://news.google.com/rss/search?q={acq_query}&hl=en-US&gl=US&ceid=US:en"
+            acq_news = _fetch_rss(acq_url, 10, "Google News M&A")
+            if acq_news:
+                news.extend(acq_news)
+                print(f"    +{len(acq_news)} noticias de M&A encontradas")
+        except Exception:
+            pass
+
     # PASO 4: Excel
     print(f"\n--- PASO 4/5: Modelo Excel ---")
     excel_path = str(output_dir / f"{folder_name}_modelo_valoracion.xlsx")
@@ -149,7 +184,7 @@ def run_analyst(ticker: str) -> dict:
     print(f"\n--- PASO 5/5: Guardando resumen ---")
     valuation_summary = _build_valuation_summary(
         ticker, company_name, data, historical, scenarios, news,
-        excel_path, downloaded_files, currency
+        excel_path, downloaded_files, currency, sec_audit
     )
     # Guardar versión actual (backward compat)
     json_path = str(output_dir / f"{folder_name}_valuation.json")
@@ -196,7 +231,7 @@ def load_valuation(ticker: str) -> dict | None:
 
 
 def _build_valuation_summary(ticker, company_name, data, historical, scenarios, news,
-                              excel_path, sec_files, currency):
+                              excel_path, sec_files, currency, sec_audit=None):
     """Construye el dict resumen completo de la valoracion."""
     info = data["info"]
     sorted_years = sorted(historical.keys())
@@ -236,6 +271,13 @@ def _build_valuation_summary(ticker, company_name, data, historical, scenarios, 
         },
         "historical_data": {str(y): _summarize_year(d) for y, d in historical.items()},
         "segments": [{"name": s["name"], "revenues": s.get("revenues", {})} for s in data["segments"]],
+        "acquisition_detected": scenarios.get("_acquisition_detected"),
+        "captive_finance": scenarios.get("_captive_finance"),
+        "sec_audit": {
+            "confidence": sec_audit.get("confidence"),
+            "alerts": sec_audit.get("alerts", []),
+            "comparisons": sec_audit.get("comparisons", []),
+        } if sec_audit and sec_audit.get("has_10k") else None,
         "scenarios": {
             k: {
                 "revenue_growth_y1": v["revenue_growth_y1"],
@@ -249,7 +291,7 @@ def _build_valuation_summary(ticker, company_name, data, historical, scenarios, 
                 "wacc": v["wacc"],
                 "terminal_multiple": v["terminal_multiple"],
             }
-            for k, v in scenarios.items()
+            for k, v in scenarios.items() if not k.startswith("_")
         },
         "news": [{"title": n["title"], "date": n["date"], "source": n.get("source", "")} for n in news[:10]],
         "files": {

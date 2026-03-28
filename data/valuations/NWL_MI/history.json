@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-28",
+    "file": "NWL_MI_20260328_valuation.json",
+    "current_price": 18.6,
+    "currency": "EUR ",
+    "fair_value_bear": 0.0623,
+    "fair_value_base": 0.0523,
+    "fair_value_bull": 0.0423,
+    "revenue": 1641109000.0,
+    "gross_margin": 0.16537414638515785,
+    "growth_y1_base": 0.07049568543843909,
+    "wacc_base": 0.0523,
+    "tv_base": 12
+  }
+]

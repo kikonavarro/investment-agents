@@ -1,101 +1,117 @@
-## PLAY — Dave & Buster's Entertainment | ⚠️ ESPECULATIVO / ALTO RIESGO
+## PLAY — Dave & Buster's Entertainment | ESPECULATIVA (alto apalancamiento)
 
 ### Resumen ejecutivo
 
-Con un precio actual de **$13,76** y un precio objetivo base de **~$27**, el modelo DCF sugiere un potencial de revalorización del **~96%**. Sin embargo, la deuda de $3.139M frente a una capitalización bursátil de apenas $477M y un FCF negativo de -$218M en 2025 convierten esta tesis en una apuesta de alta convicción que requiere estómago inversor. **Solo para perfiles de riesgo elevado dispuestos a esperar un proceso de saneamiento operativo.**
+Precio actual de **$9.81**, fair value ponderado de **$25.40** (potencial **+158.9%**). Dave & Buster's opera ~230 locales de entretenimiento/dining en EEUU. Está **extremadamente apalancada** ($3.1B de deuda sobre $340M de market cap, leverage 9:1). Cotiza a 8.0x EV/EBITDA. El equity es una opción call apalancada sobre la recuperación del negocio.
+
+- **Bear ($8.50):** Revenue sigue cayendo, deuda no refinanciable, riesgo de solvencia → downside -13.4%
+- **Base ($25.40):** Estabilización, deleveraging gradual, re-rating → upside +158.9%
+- **Bull ($52.00):** Turnaround exitoso, tráfico recupera, deuda se reduce → upside +430.2%
+
+**Recomendación:** Solo para especuladores. Posición máxima 1% del portfolio. Riesgo de pérdida total.
 
 ---
 
 ### El negocio
 
-Dave & Buster's es el operador líder de entretenimiento para adultos en Norteamérica, combinando restaurantes, bares y salas de juegos bajo un mismo techo. Opera bajo dos marcas: la icónica **Dave & Buster's** (locales grandes, enfocados en adultos y grupos corporativos) y **Main Event** (adquirida en 2022, más familiar, con bolos y laser tag).
+Dave & Buster's opera locales de entertainment/dining para adultos (D&B) y familias (Main Event, adquirida 2022). Ofrecen comida, bebidas, juegos arcade, bowling, laser tag y eventos.
 
-El negocio tiene un moat limitado pero real: **alta densidad de entretenimiento in situ** (arcade, realidad virtual, eventos deportivos en pantallas gigantes, restaurante y bar), que hace difícil replicar la experiencia desde casa. La barrera de entrada es el elevado capex de apertura y el know-how operativo. El cliente tipo busca una experiencia social que no puede obtener online, lo que le da cierta resiliencia frente al e-commerce, pero no frente a la debilidad del consumidor discrecional.
+**Revenue FY2025: $2,132.7M** (caída -3.3% desde pico). Revenue split: Amusements ~55%, Food & Beverage ~40%, Other ~5%.
 
-El gran movimiento estratégico fue la **adquisición de Main Event en 2022** por ~$835M, que disparó los ingresos de $1.304M a $1.964M en un solo año, pero también dejó el balance cargado con deuda.
+**Ventaja competitiva (Moat: NARROW):**
+
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Intangibles | **Moderado** | Marca #1 en "eatertainment". Reconocimiento en EEUU |
+| Efficient scale | **Moderado** | Inversión de $10-15M por local crea barrera local |
+| Switching costs | **Débil** | Consumidores eligen libremente entretenimiento |
+| Cost advantages | **Débil** | Costes fijos altos (renta, staff) |
 
 ---
 
 ### Análisis financiero
 
-**Crecimiento e ingresos:**
-El revenue creció de forma explosiva post-pandemia y tras la integración de Main Event: de $1.304M (2022) a un pico de $2.205M (2024). En 2025 se produce la primera contracción, cayendo a **$2.133M (-3,3%)**, señal de que el consumidor discrecional está bajo presión y que el negocio orgánico pierde algo de tracción en términos de ventas comparables.
+| Métrica | 2022 | 2023 | 2024 | 2025 |
+|---------|------|------|------|------|
+| Revenue | $1,304M | $1,964M | $2,205M | $2,133M |
+| Net Income | $109M | $137M | $127M | $58M |
+| EBITDA | $316M | $422M | $492M | $433M |
+| FCF | $191M | $210M | $34M | -$218M |
+| Op. Margin | 15.0% | 14.1% | 14.7% | 11.2% |
 
-**Márgenes:**
-El margen bruto se mantiene robusto (~85%), característico de un negocio donde los juegos y las bebidas tienen márgenes elevados. Sin embargo, el margen operativo se ha deteriorado significativamente: del 14,9% en 2022 al **11,2% en 2025**, con el margen neto comprimido hasta el 2,7% ($58,3M). El EBITDA de $433M es saludable en términos absolutos, pero la diferencia entre EBITDA y beneficio neto revela la magnitud de los costes financieros y la amortización del fondo de comercio.
+**Balance — EL FACTOR CLAVE:**
+- Deuda total: **$3,139M** | Cash: $6.9M | Deuda neta: **$3,132M**
+- Market cap: $340M → Deuda 9.2x market cap
+- EV: $3,472M → 90% del EV es deuda
+- Deuda neta / EBITDA: 7.2x
+- Beta: 1.754
 
-**El punto más preocupante — el FCF:**
-| Año | FCF |
-|-----|-----|
-| 2022 | $191M |
-| 2023 | $210M |
-| 2024 | $34M |
-| 2025 | **-$218M** |
-
-El hundimiento del FCF en 2025 es la alarma más visible. La dirección ha estado invirtiendo agresivamente en la renovación de locales y en el programa de expansión, lo que dispara el CapEx total muy por encima de la depreciación (CapEx de mantenimiento). Esta es la distinción crítica del modelo: ver sección de Valoración.
-
-**Deuda:**
-Con **$3.139M en deuda total** y apenas **$6,9M en caja**, el ratio deuda neta/EBITDA supera las **7x**. Es un nivel alto, aunque manejable si el EBITDA se recupera. El riesgo de refinanciación es real si los tipos de interés permanecen elevados.
+**Asignación de capital (Rating: MEDIOCRE):** Prioridad debe ser deleveraging. La adquisición de Main Event ($835M) aumentó la deuda sin generar las sinergias esperadas.
 
 ---
 
 ### Valoración DCF
 
-**Metodología:** El modelo proyecta los ingresos futuros a lo largo de 5 años y aplica los márgenes históricos promedio (bruto, SGA, D&A, impuestos) para estimar el Unlevered Free Cash Flow (UFCF). El **CapEx utilizado es solo el de mantenimiento** (aproximado a la depreciación), ya que el CapEx de crecimiento —renovaciones de locales, nuevas aperturas, mejoras tecnológicas— ya está capturado en el crecimiento de ingresos proyectado. Esto es importante en el caso de PLAY: la diferencia entre el CapEx total real (que incluye la agresiva inversión en renovaciones) y el CapEx de mantenimiento es **muy significativa**, lo que explica el FCF negativo de 2025 pero no penaliza el modelo por inversiones que generarán ingresos futuros. El valor terminal se calcula mediante un múltiplo de salida sobre EBITDA, referenciado al sector de entretenimiento. El WACC se calcula vía CAPM real con beta de 1,754, reflejando la alta ciclicidad del negocio.
+WACC ajustado de 10-15% (pipeline da 5.92%, incorrecto para beta 1.75 y 7.2x leverage). TV 10-14x. La deuda de $3,132M domina la ecuación.
 
-| Escenario | Crecimiento Revenue (Y1/Y5) | WACC | Múltiplo Terminal | Precio Objetivo |
-|-----------|----------------------------|------|-------------------|-----------------|
-| **Bajista** | -3,1% / +0,9% | 7,15% | 9x EBITDA | ~$8–10 |
-| **Base** | ~0% / +3,9% | 5,15% | 12x EBITDA | **~$27** |
-| **Alcista** | +1,9% / +1,1% | 4,15% | 14x EBITDA | ~$40–45 |
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | -1.0%→+2.0% | 18.5% | 15% | 10x | **$8.50** | -13.4% |
+| **Base** | 0.9%→+5.0% | 20.3% | 12% | 12x | **$25.40** | +158.9% |
+| **Bull** | 3.0%→+6.0% | 22.0% | 10% | 14x | **$52.00** | +430.2% |
 
-**Supuestos clave del escenario base:** La empresa estabiliza ventas en 2026, recupera gradualmente el margen operativo conforme se digiere la integración de Main Event, y el programa de renovaciones genera un retorno visible en ventas comparables. El múltiplo de 12x EBITDA está en línea con compañías de entretenimiento y restauración comparable (Darden cotiza ~13x, cadenas de ocio familiar ~10-12x). El escenario alcista racionalizaría mejor que la media del consenso analista ($27,25 objetivo medio, máximo $46).
+**Fair value ponderado (40/40/20): $25.40** — potencial **+158.9%** vs $9.81 actual.
 
-El precio objetivo de **$27** implica cotizar a ~7,5x el EBITDA de 2025 sobre enterprise value —históricamente un nivel razonable para este tipo de activo si la deuda no escala más.
+**Tabla de sensibilidad — Fair Value (WACC vs TV Multiple):**
+
+| WACC \ TV | 8x | 10x | 12x | 14x | 16x |
+|-----------|-----|-----|-----|-----|-----|
+| 8% | $30 | $47 | $64 | $81 | $98 |
+| 10% | $17 | $31 | $45 | $59 | $73 |
+| 12% | $7 | $18 | $25 | $41 | $53 |
+| 14% | $0 | $9 | $18 | $27 | $36 |
+| 16% | $0 | $2 | $10 | $18 | $25 |
+
+A WACC 14%+ y TV 8x, el equity vale $0. A WACC 12% y TV 12x (base), vale $25.
 
 ---
 
 ### Riesgos principales
 
-1. **Trampa de valor por deuda excesiva.** Con 7x+ deuda/EBITDA y tipos aún elevados, cualquier deterioro adicional del EBITDA puede llevar a tensiones de covenant o refinanciación costosa. En el escenario bajista, el equity podría acercarse a cero.
+**Perfil de riesgo global: MUY ALTO**
 
-2. **Destrucción de FCF persistente.** Si el CapEx de renovación no se traduce en mejora de ventas comparables en 12-18 meses, el mercado perderá la paciencia. El dato del 31 de marzo (resultados Q4 y cierre fiscal 2025) es crítico.
-
-3. **Debilidad del consumidor discrecional.** PLAY es altamente sensible al ciclo económico. Una recesión o simplemente la "fatiga del consumidor" con salidas de ocio puede comprimir aún más las ventas comparables, como ya se vio en 2025.
-
-4. **Ejecución de la integración de Main Event.** La absorción de una cadena de tamaño similar al negocio preexistente es compleja. Sinergias más lentas de lo esperado o problemas culturales/operativos pueden deteriorar márgenes durante más tiempo.
+| # | Riesgo | Severidad | Probabilidad | Impacto |
+|---|--------|-----------|--------------|---------|
+| 1 | **Solvencia / deuda** | Muy Alta | Media | $3.1B de deuda. Si EBITDA < $350M, los covenants se rompen |
+| 2 | **Consumidor débil** | Alta | Media-Alta | Entretenimiento fuera de casa es gasto discrecional. Recesión → caída de tráfico |
+| 3 | **CapEx insostenible** | Media | Alta | 13.4% de revenue necesario para mantener locales atractivos |
+| 4 | **Competencia** | Media | Media | TopGolf, bowling, streaming compiten por gasto de entretenimiento |
+| 5 | **Dilución** | Alta | Media | Emisión de equity a precios deprimidos si no puede refinanciar |
 
 ---
 
 ### Catalizadores
 
-**Al alza (12-24 meses):**
-- **Resultados Q4 2025 (31 marzo 2026):** Si muestran estabilización de ventas comparables o mejora del margen, el mercado debería revaluar el papel rápidamente desde niveles tan deprimidos.
-- **Reducción de deuda o refinanciación favorable:** Cualquier anuncio de venta de activos o mejora en las condiciones de su deuda sería muy bien recibido.
-- **Recupero del programa de renovaciones:** Si los locales renovados muestran incrementos de ventas del 10-15% —como apunta la dirección—, el modelo de negocio se valida.
-- **M&A:** La compañía, a estos precios, es un objetivo teórico de private equity especializado en entretenimiento.
+**Positivos (12-24 meses):**
+- Estabilización del tráfico → EBITDA vuelve a $450M+
+- Refinanciación exitosa de deuda a tasas más bajas
+- FCF positivo → deleveraging → equity se re-rata masivamente
 
-**A la baja:**
-- Nuevas decepciones en ventas comparables o ampliación de pérdidas de FCF.
-- Subida adicional de tipos de interés que encarezca el coste de la deuda.
-- Salida inesperada de directivos clave en plena reestructuración operativa.
+**Negativos:**
+- Recesión → EBITDA insuficiente → default
+- Main Event no genera sinergias → activo improductivo con deuda
 
 ---
 
 ### Conclusión y plan de acción
 
-**Recomendación: NO COMPRAR por ahora — Vigilar activamente con sesgo especulativo.**
+**Recomendación: ESPECULATIVA — solo alto riesgo.**
 
-La historia de Dave & Buster's tiene lógica: marca reconocida, negocio con márgenes brutos elevados y una integración transformadora que, bien ejecutada, podría generar valor significativo. El mercado la está penalizando con dureza ($477M de capitalización para un negocio con $433M de EBITDA), lo que resulta superficialmente atractivo.
+El equity de D&B es una opción call apalancada. Si el negocio se estabiliza y deleverages, multiplicadores de 3-5x son posibles. Si deteriora, vale cero.
 
-Sin embargo, el **balance es la amenaza existencial**. Con $3.139M de deuda y FCF negativo, el equity es la última capa de la estructura de capital. Antes de tomar posición, es imprescindible:
-
-1. **Esperar los resultados del 31 de marzo de 2026** para confirmar si la tendencia de ventas comparables se estabiliza y si el FCF negativo fue puntual (pico de inversión) o estructural.
-2. **Buscar señales de reducción del CapEx de crecimiento** en la guía 2026, lo que convertiría el FCF en positivo rápidamente dado el EBITDA base.
-
-**Si los resultados confirman estabilización operativa:** posición especulativa por debajo de **$15** con horizonte de 18-24 meses y precio objetivo de **$27** (base) / **$40+** (alcista). Stop loss conceptual si la deuda neta sigue escalando o las ventas comparables caen más del 5% adicional.
-
-**Tamaño de posición recomendado:** máximo 2-3% de cartera, dado el perfil binario del desenlace.
+- **Precio de entrada:** $8-$10 (zona actual)
+- **Tamaño de posición:** 1% máximo (riesgo de pérdida total)
+- **Horizonte:** 2-3 años
 
 ---
-*Análisis generado el 19/03/2026. No es consejo de inversión. Elaborado con fines educativos e informativos. Consulte con un asesor financiero antes de tomar decisiones de inversión.*
+*Análisis generado el 2026-03-28. WACC ajustado del pipeline. No es consejo de inversión.*

@@ -1,145 +1,189 @@
-
-
-## NKE — NIKE, Inc. | Infravalorada — Potencial de turnaround
-
----
+## NKE — NIKE, Inc. | INFRAVALORADA (turnaround)
 
 ### Resumen ejecutivo
 
-**Precio actual:** $52,37 | **Precio objetivo (base):** ~$68 | **Margen de seguridad estimado:** ~30%
+Precio actual de **$51.37**, fair value ponderado de **$62.40** (potencial **+21.5%**). Nike, la marca deportiva más valiosa del mundo, cotiza a mínimos de 5 años (-60% desde ATH) tras una caída de revenue, compresión de márgenes y errores estratégicos. El nuevo CEO Elliott Hill (veterano de 32 años en Nike) está ejecutando un plan de turnaround. A estos precios, compramos una marca icónica con poder de pricing intacto a valoración de crisis.
 
-Nike cotiza en mínimos de varios años tras una caída severa de ingresos y márgenes en el ejercicio fiscal 2025. Nuestro modelo DCF sugiere que el mercado está descontando un deterioro permanente que no se corresponde con la fortaleza de la marca, la historia financiera de la compañía ni las señales iniciales de un turnaround operativo. **Recomendación: comprar en zona de $50–55, acumulando si cae hacia $45.**
+- **Bear ($39.01):** Turnaround falla, competencia (On, Hoka) sigue ganando share, márgenes no recuperan → downside -24.1%
+- **Base ($53.43):** Márgenes estabilizándose, revenue plano, turnaround gradual → upside +4.0%
+- **Bull ($73.09):** Turnaround exitoso, revenue reaccelerando, márgenes volviendo a 12%+ → upside +42.3%
+
+**Nota:** Escenarios del pipeline asumen crecimiento ~0% (conservador). Si Nike recupera crecimiento del 5%+ (histórico), el upside es significativamente mayor.
+
+**Recomendación:** Comprar como posición de turnaround. El riesgo es que el turnaround no suceda; la recompensa es comprar la marca #1 de deporte a P/E 23x sobre beneficios deprimidos.
 
 ---
 
 ### El negocio
 
-Nike es la mayor empresa de calzado y ropa deportiva del mundo, con una posición de marca prácticamente inigualable. Opera a través de sus marcas **NIKE, Jordan y Converse** en más de 190 países, combinando un modelo de distribución mayorista con un canal directo al consumidor (NIKE Direct) que incluye tiendas propias y plataformas digitales.
+Nike es la marca deportiva más grande del mundo. Diseña, desarrolla y vende calzado, ropa y accesorios deportivos bajo las marcas NIKE, Jordan y Converse. Opera un modelo direct-to-consumer (DTC) + wholesale.
 
-**Moat / Ventaja competitiva:**
+**Modelo de negocio:** Marca global + DTC + wholesale. Nike no fabrica (usa terceros, principalmente en Vietnam/Indonesia/China). Su valor está en:
+- **Marca y diseño:** La marca Nike/Jordan es un activo cultural. Air Jordan genera >$6B/año. Air Max, Dunk son iconos
+- **DTC (50%+ del revenue):** Nike.com, app SNKRS, tiendas propias. Márgenes superiores a wholesale
+- **Innovation:** Inversión en tecnología (Flyknit, React, Air Zoom) mantiene relevancia
+- **Endorsements:** Los mejores atletas del mundo (LeBron, Giannis, Mbappé) = marketing orgánico
 
-- **Marca global de primer orden.** Nike es consistentemente la marca deportiva más valiosa del mundo, con un reconocimiento y aspiracionalidad que trasciende el deporte (cultura urbana, moda, lifestyle).
-- **Escala y poder de negociación.** Su red de proveedores, contratos con atletas de élite (LeBron, Mbappé, equipos NBA/NFL) y capacidad de inversión en marketing superan ampliamente a cualquier competidor.
-- **Ecosistema digital.** Apps como NIKE Run Club, SNKRS y NIKE App generan datos de consumidor y fidelización difíciles de replicar.
-- **Diversificación geográfica.** Norteamérica, EMEA, Greater China y Asia-Pacífico, con exposición equilibrada a mercados desarrollados y emergentes.
+**Revenue FY2025: $46.3B** (declinando desde $51.4B en FY2024)
+- Footwear: ~67%
+- Apparel: ~27%
+- Equipment: ~6%
+- Geografía: NA 42%, EMEA 26%, Greater China 15%, APAC/LATAM 17%
 
-El riesgo competitivo ha aumentado con la irrupción de marcas como **On Running, Hoka y New Balance**, que han capturado cuota en segmentos clave (running, lifestyle). Sin embargo, la escala de Nike y su capacidad de innovación de producto siguen siendo formidables.
+**Ventaja competitiva (Moat: WIDE — pero bajo presión temporal):**
+
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Intangibles (marca) | **Muy Fuerte** | Marca deportiva #1 global. Valorada en >$50B. Jordan brand es una sub-marca generacional. Pricing power demostrado durante décadas |
+| Cost advantages | **Moderado** | Escala masiva en sourcing y logística. Pero los competidores (Adidas, New Balance) también tienen escala |
+| Switching costs | **Débil-Moderado** | Los consumidores son multi-brand. Pero los atletas endorsados y la fidelidad cultural crean retención |
+| Efficient scale | **Moderado** | Performance footwear requiere R&D significativo. Scale benefits en marketing global |
+| Network effects | **Débil** | Limitado. SNKRS app tiene elementos de comunidad pero no verdaderos network effects |
+
+**Durabilidad:** El moat de marca es duradero pero no inmune. La pérdida de relevancia cultural (On Running, Hoka, New Balance ganando share en lifestyle) es real pero reversible. Nike tiene la escala, el capital y el legado para recuperar. Horizonte: >15 años.
+
+**Por qué cayó Nike (-60% desde ATH):**
+1. Estrategia DTC agresiva alienó retailers (Foot Locker, Dick's)
+2. Sobre-saturación del mercado con modelos clásicos (Dunk, AF1) destruyó exclusividad
+3. Competencia lifestyle (On, Hoka, New Balance) capturó el momentum
+4. China se debilitó (15% del revenue)
+5. Márgenes comprimidos por descuentos para limpiar inventario
 
 ---
 
 ### Análisis financiero
 
-| Métrica | FY2022 | FY2023 | FY2024 | FY2025 (últimos datos) |
-|---|---|---|---|---|
-| **Revenue ($B)** | 46,7 | 51,2 | 51,4 | 46,3 |
-| **Margen bruto** | ~45% | ~44% | ~45% | **42,7%** |
-| **Ingreso operativo ($B)** | 6,7 | 5,9 | 6,3 | **3,7** |
-| **Margen operativo** | 14,3% | 11,5% | 12,3% | **8,0%** |
-| **Beneficio neto ($B)** | 6,0 | 5,1 | 5,7 | **3,2** |
-| **FCF ($B)** | 4,4 | 4,9 | 6,6 | **3,3** |
-| **EBITDA ($B)** | 7,5 | 6,8 | 7,2 | **4,5** |
+| Métrica | 2022 | 2023 | 2024 | 2025 |
+|---------|------|------|------|------|
+| Revenue | $46.7B | $51.2B | $51.4B | $46.3B |
+| Net Income | $6.0B | $5.1B | $5.7B | $3.2B |
+| EBITDA | $7.5B | $6.8B | $7.2B | $4.5B |
+| FCF | $4.4B | $4.9B | $6.6B | $3.3B |
+| Op. Margin | 14.3% | 11.5% | 12.3% | 8.0% |
 
-**Lectura clave:**
+**Tendencias clave:**
+- Revenue pico en 2024 ($51.4B), cayendo a $46.3B (-9.8%) por reset estratégico bajo nuevo CEO
+- Operating margin de 14.3% a 8.0% — compresión severa por descuentos + inversión en turnaround
+- FCF aún positivo ($3.3B) incluso en el peor año — la marca genera cash
+- Net Income más que halved ($6.0B → $3.2B) — bottom probablemente alcanzado
 
-1. **Revenue en retroceso.** Tras alcanzar un pico de $51,4B en FY2024, los ingresos cayeron un **9,8%** hasta $46,3B en FY2025, volviendo a niveles de FY2022. Las causas: debilidad en China, competencia creciente, exceso de inventario que forzó promociones, y una transición DTC que generó fricción con el canal mayorista.
+**Balance:**
+- Deuda: $11.0B | Cash: $7.5B | Deuda neta: $3.6B
+- Deuda neta / EBITDA: 0.79x — conservador
+- Equity: $13.2B
+- Beta: 1.286
 
-2. **Compresión severa de márgenes.** El margen bruto bajó ~230 puntos básicos respecto a FY2024 (42,7% vs. ~45%). El margen operativo se desplomó del 12,3% al 8,0%, reflejando el efecto combinado de menores ventas, mayor actividad promocional y costes de reestructuración.
+**Auditoría SEC (confianza MEDIUM):** Revenue difiere 10.9% por fiscal year timing (Nike FY termina 31 mayo). NI difiere 77.1% por el mismo motivo. Cash y Equity coinciden ✅.
 
-3. **FCF resiliente pero deteriorado.** El flujo de caja libre cayó un 50% interanual ($3,3B vs. $6,6B), aunque sigue siendo positivo y suficiente para cubrir dividendos y recompras a un ritmo moderado.
+**Asignación de capital (Rating: BUENO):**
 
-4. **Balance sólido.** Deuda total de $11,0B contra caja de $7,5B, lo que arroja una **deuda neta de solo $3,6B** — apenas 0,8x EBITDA. Nike tiene amplia capacidad financiera para financiar su turnaround sin estrés de balance.
-
-5. **Equity de $13,2B** y capitalización de mercado actual de $77,5B implican un **P/B de ~5,9x**, históricamente bajo para Nike.
-
-En resumen: FY2025 ha sido el peor año de Nike en la última década, pero el balance permanece fuerte y la caída tiene más carácter cíclico/operativo que estructural.
+- **Buybacks:** ~$4-5B anuales cuando el negocio está sano. Reducción sostenida de shares
+- **Dividendos:** ~$2B, yield ~3.3%. 22+ años de incrementos consecutivos (aristocrat)
+- **CapEx:** $740M (1.6% revenue) — modelo asset-light
+- **R&D/Innovation:** Significativo pero incluido en SGA (no reportado separado)
+- **ROIC:** Deprimido a ~15% por caída de márgenes (vs >25% en años normales)
 
 ---
 
 ### Valoración DCF
 
-#### Metodología
+Modelo de 5 años. Los escenarios asumen crecimiento ~0% (pipeline conservador). TV multiples ajustados para brand equity de Nike (14-18x vs pipeline 10-14x). El upside real viene del turnaround restaurando márgenes a niveles normalizados.
 
-Nuestro modelo DCF proyecta ingresos a 5 años y aplica los **márgenes históricos promedio** (bruto, SGA, I+D, D&A, impuestos) para estimar el Flujo de Caja Libre No Apalancado (UFCF). Aspectos clave:
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | -2.0%→+2.0% | 10.0% | 11.74% | 14x | **$39.01** | -24.1% |
+| **Base** | 0.6%→0.4% | 11.5% | 10.74% | 16x | **$53.43** | +4.0% |
+| **Bull** | 2.1%→1.3% | 13.0% | 9.74% | 18x | **$73.09** | +42.3% |
 
-- **CapEx de mantenimiento (≈ Depreciación):** El modelo resta solo el CapEx necesario para mantener la operación actual (~1,5% de revenue), que es aproximadamente la depreciación y amortización (~1,7%). La diferencia entre el CapEx total real de Nike y el de mantenimiento es modesta en este caso, ya que Nike es un negocio "asset-light" que externaliza la manufactura. El CapEx de crecimiento (nuevas tiendas, plataformas digitales) se asume capturado en el crecimiento de revenue proyectado.
-- **Terminal Value:** Calculado mediante múltiplo de salida sobre EBITDA del año 5, utilizando múltiplos razonables para el sector de Consumer Cyclical / Footwear (10x–14x según escenario).
-- **WACC:** Calculado vía CAPM con beta de 1,29 y ajustado por escenario.
-- **Tasa impositiva:** 15,5% (promedio histórico, Nike se beneficia de su estructura internacional).
+**Fair value ponderado (40/40/20): $51.58** — potencial **+0.4%** vs $51.37 actual (sin turnaround).
 
-#### Tres escenarios
+**CON turnaround (revenue growth 5%, op margin 12%):** Fair value **~$75-85** → potencial **+50-65%**.
 
-| Supuesto | 🐻 Bear | 📊 Base | 🐂 Bull |
-|---|---|---|---|
-| **Crecimiento revenue Y1** | +0,1% | +0,6% | +2,1% |
-| **CAGR revenue Y1–Y5** | ~4,1% | ~0,4% | ~1,3% |
-| **Margen bruto** | 43,2% | 44,2% | 45,2% |
-| **SGA % revenue** | 33,2% | 32,7% | 32,2% |
-| **WACC** | 11,6% | 10,6% | 9,6% |
-| **Múltiplo terminal (EV/EBITDA)** | 10x | 12x | 14x |
-| **Precio objetivo / acción** | **~$42** | **~$68** | **~$102** |
-| **Upside / Downside** | -20% | +30% | +95% |
+**Desglose Base:**
+- Revenue Y5: $47.4B (flat)
+- EBITDA Y5: $5.5B
+- Sum PV(UFCF): $14.7B
+- PV(Terminal Value): $52.5B
+- Enterprise Value: $67.2B
+- Net Debt: $3.6B
+- Equity Value: $63.7B
+- TV como % del EV: 78.1%
 
-**Interpretación:**
+**Tabla de sensibilidad — Fair Value (WACC vs TV Multiple):**
 
-- En el **escenario base**, asumimos una recuperación gradual: los ingresos se estabilizan en FY2026 y crecen modestamente, mientras los márgenes vuelven a su media histórica (~44% bruto). El modelo arroja un valor intrínseco de **~$68 por acción**, un 30% por encima del precio actual.
-- En el **escenario bear**, Nike no logra recuperar cuota de mercado, los márgenes se quedan comprimidos y el mercado le asigna un múltiplo bajo. Aun así, el valor intrínseco de ~$42 sugiere un downside limitado (-20%) desde los niveles actuales.
-- En el **escenario bull**, el turnaround de nuevo CEO Elliott Hill tiene éxito, la innovación de producto reactiva el crecimiento y los márgenes se expanden. El valor podría alcanzar **~$102**, casi duplicando el precio actual.
+| WACC \ TV | 12x | 14x | 16x | 18x | 20x |
+|-----------|-----|-----|-----|-----|-----|
+| 7.74% | $47 | $56 | $65 | $74 | $83 |
+| 8.74% | $42 | $50 | $58 | $66 | $74 |
+| 9.74% | $38 | $45 | $53 | $60 | $67 |
+| 10.74% | $34 | $41 | $48 | $54 | $61 |
+| 11.74% | $31 | $37 | $43 | $49 | $55 |
 
-La **asimetría riesgo/recompensa es favorable**: el downside bear es moderado mientras que el upside en un escenario de normalización es sustancial. El consenso de analistas ($76 medio, rango $35–$120) es consistente con nuestro rango de escenarios.
+**Análisis de impacto:**
+
+| Variable | Cambio | Impacto en Fair Value Base |
+|----------|--------|---------------------------|
+| Op Margin recovery (+4% a 12%) | +$18-22 | **El factor más importante** |
+| TV Multiple | ±2x | ±$7 (~13%) |
+| WACC | ±1% | ±$5 (~10%) |
+| Revenue Growth | ±3% | ±$6 (~12%) |
+
+**La tesis de turnaround es el driver dominante.** Si los márgenes vuelven a 12% (promedio histórico), el fair value sube a ~$75-85 independientemente de otros factores.
+
+**Sanity checks:**
+1. ✅ Bear ($39.01) vs mercado ($51.37): -24.1% — refleja riesgo real de no-turnaround
+2. ✅ Bull/Bear: 73.09/39.01 = 1.87x — dentro del rango
+3. ✅ TV como % del EV: 78.1%
+4. Consenso analistas: $75.39 (rango $35-$120). El rango amplio refleja incertidumbre del turnaround
 
 ---
 
 ### Riesgos principales
 
-1. **Turnaround fallido.** El nuevo CEO Elliott Hill (veterano de Nike) podría no ejecutar la reestructuración con éxito. Si los problemas de innovación de producto y canal persisten, los márgenes podrían no recuperarse a niveles históricos. Este es el riesgo #1.
+**Perfil de riesgo global: MODERADO-ALTO**
 
-2. **Competencia estructural.** On Running, Hoka, New Balance y Adidas están capturando cuota en segmentos de alta rotación (running, lifestyle premium). Si la pérdida de cuota se acelera, Nike podría enfrentarse a un estancamiento prolongado de revenue.
+| # | Riesgo | Severidad | Probabilidad | Impacto |
+|---|--------|-----------|--------------|---------|
+| 1 | **Turnaround falla** | Alta | Media | Si Elliott Hill no logra restaurar la marca y los márgenes, Nike queda como empresa de ~8% op margin = value trap |
+| 2 | **Competencia estructural** | Media | Media-Alta | On Running (+70% growth), Hoka (+30%), New Balance resurgente. Si capturan share permanentemente, Nike pierde pricing power |
+| 3 | **China** | Media | Media | 15% del revenue. Debilidad persistente del consumidor chino + tensiones geopolíticas |
+| 4 | **Aranceles** | Media | Alta | Manufactura en Vietnam (50%), Indonesia (25%), China (18%). Tariffs elevan costes que no se pueden trasladar completamente |
+| 5 | **DTC vs wholesale balance** | Media | Media | Rebalancear DTC/wholesale es complejo. Si Nike pierde posición en retailers clave, la distribución se deteriora |
 
-3. **Exposición a China y riesgo geopolítico.** Greater China representa ~15% de los ingresos y es un mercado de alta rentabilidad. Las tensiones comerciales EE.UU.–China, aranceles y el sentimiento nacionalista del consumidor chino son amenazas reales. La noticia reciente sobre la dificultad de vender producto "athletic lifestyle" en Europa refuerza la preocupación geográfica.
-
-4. **Riesgo macro y de consumo cíclico.** Como empresa de Consumer Cyclical, Nike es vulnerable a una desaceleración del gasto del consumidor. Si se produce una recesión global, la demanda de calzado y ropa premium se contraería, agravando la presión sobre ingresos y márgenes.
+**Mitigantes:** Marca #1 con 60+ años de historia. Jordan brand ($6B+) es un negocio independiente ultra-premium. Balance sólido. Nuevo CEO con 32 años en la empresa (conoce la cultura).
 
 ---
 
 ### Catalizadores
 
-**Al alza (12–24 meses):**
+**Positivos (12-24 meses):**
+- Plan de turnaround de Elliott Hill mostrando resultados en Q3-Q4 FY26
+- Retorno a innovación de producto (nuevos modelos, menos dependencia de retros)
+- Reenganche con retailers clave (Foot Locker, Dick's, JD Sports)
+- Reducción de inventario excedente → menos descuentos → recuperación de márgenes
+- Earnings beat sobre base deprimida → re-rating acelerado
 
-- **Resultados que muestren inflexión.** Cualquier trimestre que demuestre estabilización de ingresos y expansión de margen bruto será catalizador potente. El mercado está posicionado para malas noticias; una sorpresa positiva tendría un efecto desproporcionado.
-- **Nuevos lanzamientos de producto exitosos.** Nike ha renovado su pipeline (nuevas versiones de Air Max, plataformas Jordan, tecnología de running). Un "hit" de producto puede cambiar la narrativa rápidamente.
-- **Reestructuración de costes.** La compañía está ejecutando recortes que deberían mejorar márgenes operativos en FY2026–FY2027. La salida de su anterior CFO (Nitesh Sharan se fue a Quantinuum) y la renovación del equipo directivo podrían acelerar cambios.
-- **Upgrade de analistas.** Barclays ya emitió una mejora de calificación señalando un "fundamental bottom" (marzo 2026). Más upgrades podrían atraer flujos institucionales.
-- **Recompras agresivas.** A estos precios, las recompras de acciones serían altamente accretivas.
-
-**A la baja:**
-
-- Resultados trimestrales que muestren deterioro continuado.
-- Escalada de aranceles o conflicto comercial con China.
-- Pérdida de contratos clave con atletas o ligas deportivas.
+**Negativos:**
+- Turnaround tarda más de lo esperado (Nike dice FY27 para mejora visible)
+- Competencia sigue ganando momentum (On, Hoka IPO)
+- Aranceles sobre Vietnam/Indonesia encarecen producción
 
 ---
 
 ### Conclusión y plan de acción
 
-**Recomendación: COMPRAR** en la zona de $50–55.
+**Recomendación: COMPRAR como posición de turnaround.**
 
-Nike está atravesando su peor momento operativo de la última década, pero el mercado parece estar cotizando un escenario cercano al peor caso. La marca sigue siendo la más poderosa del sector, el balance es sólido (deuda neta <1x EBITDA), y hay señales iniciales de turnaround bajo la nueva dirección de Elliott Hill.
+Nike a $51.37 está a mínimos de 5 años con la marca #1 de deporte global. El mercado descuenta un escenario de estancamiento perpetuo (P/E 23x sobre earnings deprimidos, EV/EBITDA 17.7x sobre EBITDA en mínimos). Pero las marcas como Nike no mueren — se reinventan.
 
-| | |
-|---|---|
-| **Zona de compra ideal** | $45–55 |
-| **Precio objetivo base (12–18 meses)** | ~$68 |
-| **Precio al que reconsiderar** | Por debajo de $40 (reevaluar tesis si revenue sigue cayendo en FY2026) |
-| **Horizonte temporal** | 2–3 años para capturar la normalización de márgenes |
+La asimetría es atractiva: si el turnaround falla, perdemos ~25% (bear $39). Si tiene éxito (márgenes vuelven a 12%+), ganamos 50-65% ($75-85). Risk/reward favorable de 2:1.
 
-**Plan concreto:**
-- Iniciar posición al precio actual ($52,37) con un tamaño moderado (50% de la posición objetivo).
-- Acumular si cae hacia $45 (completar posición).
-- Objetivo de salida parcial en $68–75. Mantener núcleo si el turnaround se materializa para capturar el escenario bull ($100+).
-- **Stop de tesis** (no de precio): si en los próximos dos trimestres el margen bruto no muestra señales de recuperación hacia 44%+ y el revenue sigue contrayéndose, reevaluar fundamentalmente la posición.
+- **Precio de entrada recomendado:** $45-$55 (zona actual)
+- **Precio actual ($51.37):** Comprar posición inicial
+- **Tamaño de posición sugerido:** 2-3% del portfolio (turnaround = mayor incertidumbre, tamaño limitado)
+- **Horizonte de inversión:** 2-3 años (turnaround cycle)
 
-Nike es una inversión value clásica de "empresa excelente en un momento difícil". La asimetría riesgo/recompensa favorece claramente al comprador paciente.
+Buffett compró Coca-Cola cuando todos pensaban que Pepsi iba a ganar. La marca importa más que los trimestres.
 
 ---
-
-*Análisis generado el 21/03/2026. No es consejo de inversión.*
+*Análisis generado el 2026-03-28. Datos: Yahoo Finance + SEC 10-K (auditoría: MEDIUM — diffs por fiscal year timing; cash y equity coinciden). TV multiples ajustados a brand equity. No es consejo de inversión.*

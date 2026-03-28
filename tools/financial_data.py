@@ -507,6 +507,102 @@ def extract_historical_data(data):
     return {y: d for y, d in years_data.items() if d.get("total_revenue", 0) != 0}
 
 
+def _detect_captive_finance(info, historical, sorted_years):
+    """
+    Detecta si la empresa tiene un segmento de Financial Services cautivo
+    (banco que financia ventas de equipos, ej: Deere, CAT, GE).
+    La deuda de estos segmentos no debe restarse del EV como deuda industrial.
+    """
+    sector = info.get("sector", "")
+    industry = info.get("industry", "")
+    summary = info.get("longBusinessSummary", "").lower()
+
+    # Solo aplica a empresas NO financieras que tienen segmento financiero
+    if sector == "Financial Services":
+        return None  # Es un banco/aseguradora real, no cautivo
+
+    # Keywords que indican banco cautivo
+    captive_keywords = [
+        "financial services", "financing sales", "leases equipment",
+        "finances sales", "retail financing", "wholesale financing",
+        "credit services", "financial products", "captive finance",
+        "revolving charge", "equipment financing",
+    ]
+
+    has_captive = any(kw in summary for kw in captive_keywords)
+    if not has_captive:
+        return None
+
+    # Heurística: si deuda/revenue > 1.0x, probablemente la deuda incluye el libro de préstamos
+    latest = sorted_years[-1] if sorted_years else None
+    if not latest:
+        return None
+
+    total_debt = historical[latest].get("total_debt", 0) or 0
+    revenue = historical[latest].get("total_revenue", 0) or 0
+    ebitda = historical[latest].get("ebitda", 0) or 0
+
+    if not revenue or not total_debt:
+        return None
+
+    debt_to_rev = total_debt / revenue
+    debt_to_ebitda = total_debt / ebitda if ebitda > 0 else 0
+
+    if debt_to_rev < 0.8:
+        return None  # Deuda parece normal, no hay banco cautivo significativo
+
+    # Estimar deuda industrial (heurística: ~15-25% de revenue para industrial típica)
+    estimated_industrial_debt = revenue * 0.20
+    estimated_fs_debt = total_debt - estimated_industrial_debt
+
+    return {
+        "detected": True,
+        "total_debt": total_debt,
+        "estimated_industrial_debt": estimated_industrial_debt,
+        "estimated_fs_debt": estimated_fs_debt,
+        "debt_to_revenue": debt_to_rev,
+        "debt_to_ebitda": debt_to_ebitda,
+        "message": (
+            f"Banco cautivo detectado (Financial Services en {sector}). "
+            f"Deuda total {total_debt/1e6:,.0f}M incluye ~{estimated_fs_debt/1e6:,.0f}M "
+            f"de préstamos del segmento financiero. "
+            f"Deuda industrial estimada: ~{estimated_industrial_debt/1e6:,.0f}M. "
+            f"Deuda/Revenue={debt_to_rev:.1f}x, Deuda/EBITDA={debt_to_ebitda:.1f}x."
+        ),
+    }
+
+
+def _detect_acquisition(historical, sorted_years):
+    """
+    Detecta posible adquisición si hay un salto de revenue >40% en un solo año.
+    Devuelve dict con info de la detección o None si no hay señal.
+    """
+    if len(sorted_years) < 2:
+        return None
+
+    for i in range(1, len(sorted_years)):
+        prev = historical[sorted_years[i-1]].get("total_revenue", 0)
+        curr = historical[sorted_years[i]].get("total_revenue", 0)
+        if prev and curr and prev > 0:
+            yoy = curr / prev - 1
+            if yoy > 0.40:  # >40% jump = probable acquisition
+                return {
+                    "detected": True,
+                    "year": sorted_years[i],
+                    "prev_year": sorted_years[i-1],
+                    "prev_revenue": prev,
+                    "new_revenue": curr,
+                    "jump_pct": yoy,
+                    "message": (
+                        f"Revenue saltó {yoy:.0%} en {sorted_years[i]} "
+                        f"({prev/1e6:,.0f}M → {curr/1e6:,.0f}M). "
+                        f"Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). "
+                        f"Crecimiento ajustado a tasas orgánicas (2-6%)."
+                    ),
+                }
+    return None
+
+
 def generate_scenarios(data, historical):
     info = data["info"]
     estimates = data["estimates"]
@@ -523,8 +619,36 @@ def generate_scenarios(data, historical):
     avg_growth = np.mean(revenue_growths) if revenue_growths else 0.05
     margins = _calculate_avg_margins(historical, sorted_years)
 
+    # --- Detección de banco cautivo (Financial Services) ---
+    captive_finance = _detect_captive_finance(info, historical, sorted_years)
+    if captive_finance:
+        print(f"  [!] BANCO CAUTIVO: {captive_finance['message']}")
+
+    # --- Detección de adquisiciones ---
+    acquisition = _detect_acquisition(historical, sorted_years)
+    if acquisition:
+        print(f"  [!] ADQUISICIÓN DETECTADA: {acquisition['message']}")
+        # Excluir años con saltos inorgánicos (>30%) del cálculo de crecimiento promedio
+        organic_growths = [g for g in revenue_growths if g <= 0.30]
+        if organic_growths:
+            avg_growth = np.mean(organic_growths)
+        else:
+            # Si todos los años tienen saltos, usar crecimiento conservador del sector
+            sector = info.get("sector", "")
+            avg_growth = {"Consumer Defensive": 0.03, "Consumer Cyclical": 0.04,
+                          "Industrials": 0.04, "Technology": 0.08,
+                          "Healthcare": 0.06}.get(sector, 0.04)
+            print(f"  [!] Sin datos orgánicos — usando crecimiento sectorial: {avg_growth:.0%}")
+
     analyst_growth = estimates.get("revenue_growth", {}).get("current", None)
     base_growth = analyst_growth if analyst_growth and analyst_growth != 0 else avg_growth
+
+    # Si hubo adquisición y el analyst growth parece inflado (>15%), ignorarlo
+    if acquisition and base_growth > 0.15:
+        print(f"  [!] Analyst growth ({base_growth:.0%}) parece inflado post-adquisición. "
+              f"Usando media orgánica: {avg_growth:.0%}")
+        base_growth = avg_growth
+
     base_growth = max(min(base_growth, 0.40), -0.15)
 
     # Offsets calibrados para dispersión profesional (~1.6-1.8x bull/bear)
@@ -532,7 +656,12 @@ def generate_scenarios(data, historical):
     bull_premium = max(abs(base_growth) * 0.15, 0.015)
     bear_discount = max(abs(base_growth) * 0.15, 0.015)
     wacc_base = _estimate_wacc(info)
-    tv_base = _estimate_terminal_multiple(info)
+    # Datos para coherencia TV vs mercado
+    _cp = data.get("current_price", 0)
+    _shares = data.get("shares_outstanding", 0)
+    _latest_ebitda = historical.get(sorted_years[-1], {}).get("ebitda", 0) if sorted_years else 0
+    tv_base = _estimate_terminal_multiple(info, current_price=_cp,
+                                           shares=_shares, ebitda_latest=_latest_ebitda)
 
     def _tapering(g, i, positive):
         if positive:
@@ -587,6 +716,12 @@ def generate_scenarios(data, historical):
                 # Ajustar SGA para que el EBITDA implícito coincida con el real
                 for key in scenarios:
                     scenarios[key]["sga_pct"] = max(scenarios[key]["sga_pct"] - gap, 0.01)
+
+    # Adjuntar info de adquisición y banco cautivo si se detectaron
+    if acquisition:
+        scenarios["_acquisition_detected"] = acquisition
+    if captive_finance:
+        scenarios["_captive_finance"] = captive_finance
 
     return scenarios
 
@@ -663,7 +798,7 @@ def _load_valuation_params():
         return yaml.safe_load(f)
 
 
-def _estimate_terminal_multiple(info):
+def _estimate_terminal_multiple(info, current_price=0, shares=0, ebitda_latest=0):
     params = _load_valuation_params()
     sector_tv = params.get("sector_tv", {})
     industry_bonus = params.get("industry_tv_bonus", {})
@@ -680,7 +815,26 @@ def _estimate_terminal_multiple(info):
     elif g > growth_adj.get("moderate_growth_threshold", 0.10):
         m += growth_adj.get("moderate_growth_bonus", 1)
     # No penalizar growth negativo — puede ser un bache cíclico, no estructural
-    return max(m, growth_adj.get("min_multiple", 5))
+    m = max(m, growth_adj.get("min_multiple", 5))
+
+    # Coherencia con valoración actual del mercado
+    market_cap = (current_price * shares) if current_price and shares else (info.get("marketCap", 0) or 0)
+    total_debt = info.get("totalDebt", 0) or 0
+    cash = info.get("totalCash", 0) or info.get("cash", 0) or 0
+    ebitda = ebitda_latest or (info.get("ebitda", 0) or 0)
+    if market_cap and ebitda and ebitda > 0:
+        ev = market_cap + total_debt - cash
+        current_ev_ebitda = ev / ebitda
+        if current_ev_ebitda > m * 5:
+            # Compresión extrema — ajustar TV al mínimo de: sector×2 o actual×0.5
+            adjusted = min(m * 2, current_ev_ebitda * 0.5)
+            adjusted = max(adjusted, m)  # nunca bajar del sector default
+            adjusted = min(adjusted, 35)  # cap en 35x
+            print(f"  [!] TV ajustado: {m:.0f}x → {adjusted:.0f}x "
+                  f"(EV/EBITDA actual={current_ev_ebitda:.0f}x, compresión {m}x→{current_ev_ebitda:.0f}x era incoherente)")
+            m = adjusted
+
+    return m
 
 
 def _safe_get(df, key, col):

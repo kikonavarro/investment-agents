@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-03-27",
+    "file": "DE_20260327_valuation.json",
+    "current_price": 566.64,
+    "currency": "$",
+    "fair_value_bear": 0.0943,
+    "fair_value_base": 0.0843,
+    "fair_value_bull": 0.0743,
+    "revenue": 44665000000.0,
+    "gross_margin": 0.3648270457852905,
+    "growth_y1_base": 0.13,
+    "wacc_base": 0.0843,
+    "tv_base": 12
+  },
+  {
+    "date": "2026-03-28",
+    "file": "DE_20260328_valuation.json",
+    "current_price": 566.64,
+    "currency": "$",
+    "fair_value_bear": 0.0943,
+    "fair_value_base": 0.0843,
+    "fair_value_bull": 0.0743,
+    "revenue": 44665000000.0,
+    "gross_margin": 0.3648270457852905,
+    "growth_y1_base": 0.13,
+    "wacc_base": 0.0843,
+    "tv_base": 12
+  }
+]

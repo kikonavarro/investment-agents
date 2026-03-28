@@ -453,6 +453,39 @@ def _smart_chunk(text: str, max_len: int = 4096) -> list[str]:
     return chunks
 
 
+ATTACHMENTS_DIR = Path(__file__).parent.parent / "data" / "telegram_queue" / "attachments"
+
+
+def _download_telegram_file(api_base: str, file_id: str, file_name: str) -> str | None:
+    """Descarga un archivo de Telegram y lo guarda en data/telegram_queue/attachments/."""
+    if not file_id:
+        return None
+    try:
+        ATTACHMENTS_DIR.mkdir(parents=True, exist_ok=True)
+        # Obtener ruta del archivo en servidores de Telegram
+        resp = requests.get(f"{api_base}/getFile", params={"file_id": file_id})
+        if not resp.json().get("ok"):
+            return None
+        remote_path = resp.json()["result"]["file_path"]
+        # Construir URL de descarga
+        bot_token = api_base.split("/bot")[-1]
+        download_url = f"https://api.telegram.org/file/bot{bot_token}/{remote_path}"
+        # Descargar
+        file_resp = requests.get(download_url)
+        if file_resp.status_code != 200:
+            return None
+        # Guardar con timestamp para evitar colisiones
+        from datetime import datetime
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        safe_name = file_name.replace("/", "_").replace("\\", "_")
+        local_path = ATTACHMENTS_DIR / f"{ts}_{safe_name}"
+        local_path.write_bytes(file_resp.content)
+        return str(local_path)
+    except Exception as e:
+        print(f"[Telegram] Error descargando archivo: {e}")
+        return None
+
+
 def send_message(api_base: str, chat_id: str, text: str, html: bool = True) -> bool:
     """Envia un mensaje por Telegram con formato HTML. Divide si supera 4096 chars.
     Retorna True si todos los chunks se enviaron correctamente, False si hubo error."""
@@ -672,9 +705,25 @@ def run_bot():
             user_id = str(msg.get("from", {}).get("id", ""))
             chat_id = str(msg.get("chat", {}).get("id", ""))
             chat_type = msg.get("chat", {}).get("type", "private")
-            text = msg.get("text", "")
+            text = msg.get("text", "") or msg.get("caption", "") or ""
 
-            if not text or text.startswith("/"):
+            # Descargar archivos adjuntos (PDF, Excel, imágenes)
+            attachments = []
+            document = msg.get("document")
+            if document:
+                file_path = _download_telegram_file(api_base, document.get("file_id"),
+                                                     document.get("file_name", "document"))
+                if file_path:
+                    attachments.append(file_path)
+                    print(f"[Telegram] Archivo descargado: {file_path}")
+
+            # Si no hay texto ni archivos, saltar
+            if not text and not attachments:
+                if not msg.get("text", "").startswith("/"):
+                    continue
+                continue
+
+            if text.startswith("/"):
                 continue
 
             is_allowed_group = allowed_group_id and chat_id == allowed_group_id
@@ -685,6 +734,10 @@ def run_bot():
                 continue
 
             user_name = msg.get("from", {}).get("first_name", "Usuario")
+            # Incluir info de archivos en el texto del mensaje
+            if attachments:
+                attach_info = " ".join(f"[Archivo: {a}]" for a in attachments)
+                text = f"{text} {attach_info}".strip() if text else attach_info
             print(f"[Telegram] Mensaje de {user_name} ({chat_type}): {text}")
 
             # Encolar para Claude Code (Opus)

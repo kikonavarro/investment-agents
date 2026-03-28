@@ -1011,7 +1011,15 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
     except Exception:
         pass
 
-    _set_label(ws, row, 1, "(-) Net Debt ($M)")
+    # Ajustar net debt si hay banco cautivo (Financial Services)
+    captive = scenarios.get("_captive_finance") if isinstance(scenarios, dict) else None
+    if captive and captive.get("detected"):
+        industrial_debt = captive["estimated_industrial_debt"]
+        cash_for_calc = cash_val if cash_val else 0
+        net_debt = industrial_debt - cash_for_calc
+        _set_label(ws, row, 1, "(-) Net Debt ($M) [ajustada — excl. Financial Services]")
+    else:
+        _set_label(ws, row, 1, "(-) Net Debt ($M)")
     net_debt_row = row
     _set_input(ws, row, first_data_col, -net_debt / 1e6)
     ws.cell(row=row, column=first_data_col).number_format = NUM_FORMAT_M

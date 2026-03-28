@@ -2,179 +2,109 @@
 
 ### Resumen ejecutivo
 
-**Precio actual:** $26.83 | **Market Cap:** $28.7B | **Shares Outstanding:** 1,069M
-**Consenso analistas:** $34.78 (rango $30.00 - $40.00) | **Beta:** 0.699
-**Sector:** Real Estate — REIT Diversified | **País:** Estados Unidos
-**Dividend Yield:** ~8.7% | **Tipo:** Triple-net lease REIT (S&P 500)
+Precio actual de **$26.61**, fair value ponderado de **$32.59** (potencial **+22.5%**). VICI Properties es un REIT net-lease que posee propiedades icónicas de gaming y entretenimiento (Caesars Palace, MGM Grand, Venetian). Modelo ultra-simple: cobra rentas de triple-net leases con escaladores contractuales. Márgenes operativos del 91.2%, dividend yield del 8.7%.
 
-| Escenario | Precio Objetivo | vs Actual | Probabilidad |
-|-----------|----------------|-----------|--------------|
-| Bear | **$25.08** | -6.5% | 25% |
-| Base | **$35.10** | +30.8% | 50% |
-| Bull | **$46.93** | +74.9% | 25% |
-| **Fair Value Ponderado** | **$35.55** | **+32.5%** | — |
+- **Bear ($24.38):** Tipos altos persistentes, cap rate expansion, crecimiento limitado → downside -8.4%
+- **Base ($34.19):** Tipos bajan, adquisiciones accretivas, escaladores de renta → upside +28.5%
+- **Bull ($45.78):** Re-rating agresivo, expansión a non-gaming, dividend premium → upside +72.0%
 
-**Ratio Bull/Bear: 1.87x** | El bear case ($25.08) está solo un 6.5% por debajo del precio actual — downside muy limitado. Nuestro fair value ($35.55) coincide con el consenso de analistas ($34.78). Además, mientras esperas la apreciación, cobras un **8.7% de dividend yield**.
-
-**Recomendación: COMPRAR** — REIT de calidad excepcional con dividend yield del 8.7% y upside del 30%+.
+**Recomendación:** Comprar. REIT de alta calidad con 8.7% yield y potencial de capital appreciation. Incluso bear case pierde solo 8.4% (compensado por dividendo).
 
 ---
 
 ### El negocio
 
-VICI Properties es un REIT experiencial del S&P 500, propietario de uno de los portfolios más icónicos de propiedades de gaming, hospitality y entretenimiento en Estados Unidos y Canadá. Fundado en 2017 (spin-off de la bancarrota de Caesars Entertainment), VICI se ha convertido rápidamente en uno de los REITs más grandes y mejor gestionados del mercado.
+VICI es un REIT de net-lease que posee 93 propiedades de gaming, hospitalidad y entretenimiento. Los inquilinos (Caesars, MGM, Hard Rock) pagan todos los impuestos, seguros y mantenimiento. VICI solo cobra renta.
 
-**Portfolio de propiedades:**
-- **93 propiedades experienciales** (54 gaming + 39 otras)
-- **~127 millones de pies cuadrados**
-- **~60,300 habitaciones de hotel** y **500+ restaurantes, bares y nightclubs**
-- Propiedades icónicas: **Caesars Palace Las Vegas, MGM Grand, The Venetian Resort** — tres de los casinos más emblemáticos del Strip de Las Vegas
-- Expansión reciente en wellness (Canyon Ranch), entretenimiento familiar (Great Wolf Resorts, Kalahari), golf (4 campos de campeonato), y bowling/entretenimiento (Lucky Strike, Chelsea Piers)
+**Revenue FY2025: $4.0B.** GM: 99.3%, Op margin: 91.2% — márgenes excepcionales por modelo net-lease.
 
-**Modelo de negocio — triple-net lease:**
-- VICI **no opera** los casinos/hoteles — los alquila a operadores (Caesars, MGM, Hard Rock, etc.) bajo contratos **triple-net lease** a largo plazo (15-40 años)
-- Triple-net = el inquilino paga impuestos, seguros y mantenimiento. VICI solo cobra la renta
-- Escaladores de renta integrados en contratos (CPI o mínimo ~2%/año)
-- **Margen operativo del 91.2%** — uno de los más altos de cualquier empresa cotizada, resultado del modelo asset-light de triple-net
+**Nota REIT:** VICI debe distribuir 90%+ del ingreso como dividendo. P/FFO (Funds From Operations) es más relevante que P/E.
 
-**Moat:**
+**Ventaja competitiva (Moat: WIDE):**
 
-- **Activos irreplicables:** No se pueden construir nuevos casinos en el Strip de Las Vegas (no hay terreno). Caesars Palace, MGM Grand y The Venetian son activos únicos con valor intrínseco permanente
-- **Contratos a largo plazo:** Duración media de los leases >20 años con escaladores de renta. Flujo de caja ultra-predecible
-- **Switching costs para inquilinos:** Un casino no puede mudarse — está construido sobre la propiedad de VICI. Si Caesars deja Caesars Palace, pierde la marca, la ubicación y la inversión en el edificio
-- **Diversificación de inquilinos:** Tras la adquisición de MGM Growth Properties (2022), VICI redujo la concentración en Caesars. Ahora tiene ~45% Caesars, ~25% MGM, y el resto diversificado
-- **Barreras regulatorias:** Las licencias de gaming son extremadamente difíciles de obtener. Esto limita la competencia y protege el valor de las propiedades existentes
-- **Beta defensiva (0.699):** Menos volátil que el mercado — los contratos a largo plazo con escaladores proporcionan estabilidad
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Efficient scale | **Fuerte** | Posee las propiedades gaming más icónicas del mundo. Irreplicables (Las Vegas Strip, Atlantic City) |
+| Switching costs | **Fuerte** | Leases de 25-40 años con opciones de extensión. Los casinos no se mudan |
+| Intangibles | **Moderado** | Portfolio de propiedades trophy. Caesars Palace, Venetian, MGM Grand |
+| Cost advantages | **Moderado** | Modelo net-lease: zero OpEx de mantenimiento. Márgenes >91% |
+| Network effects | **Ausente** | No aplica |
 
 ---
 
 ### Análisis financiero
 
-| Métrica | 2022 | 2023 | 2024 | 2025 | CAGR |
-|---------|------|------|------|------|------|
-| Revenue | $2.6B | $3.6B | $3.8B | $4.0B | 15.5% |
-| Net Income | $1.1B | $2.5B | $2.7B | $2.8B | 35.4% |
-| EBITDA | $1.7B | $3.4B | $3.6B | $3.7B | 29.6% |
-| FCF | $1.9B | $2.2B | $2.4B | $2.5B | 9.0% |
-| Margen bruto | — | — | — | 99.3% | — |
-| Margen operativo | 62.8% | 92.6% | 92.1% | 91.2% | — |
-| Margen neto | 43.0% | 69.6% | 69.6% | 69.3% | — |
+| Métrica | 2022 | 2023 | 2024 | 2025 |
+|---------|------|------|------|------|
+| Revenue | $2.6B | $3.5B | $3.8B | $4.0B |
+| Net Income | $2.0B | $2.2B | $2.6B | $2.8B |
+| EBITDA | $2.4B | $3.3B | $3.6B | $3.7B |
+| FCF | $2.0B | $2.3B | $2.3B | $2.5B |
+| Op. Margin | 89.4% | 88.7% | 91.5% | 91.2% |
 
-**Un REIT de métricas excepcionales:**
+Balance: Deuda $17.7B, Cash $0.6B, Net debt $17.1B — **leverage alto es normal para REITs**. Equity $26.6B. Dividend yield: 8.7%.
 
-- **Revenue CAGR 15.5%:** Impulsado por la adquisición transformacional de MGM Growth Properties en 2022 ($17.2B) y escaladores de renta contractuales
-- **Margen bruto 99.3%:** Casi sin coste directo — triple-net lease significa que VICI solo posee y cobra. El "COGS" es prácticamente cero
-- **Margen operativo 91.2%:** De los más altos de cualquier empresa del S&P 500. Solo tiene costes de estructura corporativa (SGA ~1.7%)
-- **Net income margin 69.3%:** La diferencia con el margen operativo se debe principalmente a gastos financieros por la deuda (intereses de los $17.7B de deuda)
-- **FCF $2.5B y creciente:** Flujo de caja estable y predecible que financia los dividendos
-- **Tax rate ~0.2%:** Como REIT, VICI distribuye >90% de sus beneficios como dividendos y no paga prácticamente impuesto corporativo
-
-**Balance — apalancado pero manejable:**
-- Deuda total: $17.7B
-- Cash: $0.6B
-- Deuda neta: $17.1B (~4.7x EBITDA)
-- Equity: $28.2B
-- El apalancamiento es elevado para una empresa normal, pero **estándar para un REIT** (media del sector 5-6x). Los contratos a largo plazo con flujos predecibles soportan esta estructura
-
-**Dividend yield 8.7%** — uno de los más atractivos del S&P 500. El dividendo está cubierto por el FCF ($2.5B FCF vs ~$2.3B en dividendos pagados = payout ratio ~92%). Es sostenible mientras los inquilinos paguen la renta, lo cual está contractualmente asegurado.
+**Asignación de capital:** Dividendo >90% del FFO (obligatorio por estructura REIT). Adquisiciones financiadas con deuda y equity. Sin buybacks.
 
 ---
 
 ### Valoración DCF
 
-**Metodología:** DCF a 5 años. CapEx prácticamente nulo (0.1% de revenue) porque los inquilinos mantienen las propiedades (triple-net). Growth bajo pero estable (3.8% Y1, convergiendo a 2.3% en Y5 — básicamente los escaladores de renta). Tax rate ~0.2% (REIT). WACC bajo (6.7%) por la beta defensiva de 0.699. Terminal multiple 12x (Real Estate).
+EBITDA margin ~93% (net-lease). Deuda alta ($17.1B) pero es estructural para un REIT. P/FFO actual ~10x (peers 12-15x).
 
-**3 Escenarios — Precios Objetivo:**
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | 2.3%→1.4% | 92.8% | 8.1% | 10x | **$24.38** | -8.4% |
+| **Base** | 3.8%→2.3% | 93.3% | 7.1% | 12x | **$34.19** | +28.5% |
+| **Bull** | 5.3%→3.2% | 93.8% | 6.1% | 14x | **$45.78** | +72.0% |
 
-| | Bear | Base | Bull |
-|---|---|---|---|
-| **Precio Objetivo** | **$25.08** | **$35.10** | **$46.93** |
-| **vs Actual ($26.83)** | **-6.5%** | **+30.8%** | **+74.9%** |
-| Growth Y1 → Y5 | 2.3% → 1.4% | 3.8% → 2.3% | 5.3% → 3.2% |
-| Margen bruto | 95.0% | 95.0% | 95.0% |
-| WACC | 7.7% | 6.7% | 5.7% |
-| TV Multiple | 10x | 12x | 14x |
+**Fair value ponderado (40/40/20): $32.59** — potencial **+22.5%** vs $26.61 actual.
 
-**Fair Value Ponderado (25/50/25): $35.55 (+32.5%)**
-
-**Lectura clave:** El bear case ($25.08, -6.5%) está muy cerca del precio actual — downside mínimo. Y mientras esperas, cobras un dividendo del 8.7%. La asimetría es excepcional: **-6.5% en bear + 8.7% dividendo = +2.2% retorno total incluso en el peor escenario**, vs +30.8% + dividendo en base = ~39.5% retorno total.
-
-**Tabla de sensibilidad WACC vs TV Multiple (supuestos Base):**
+**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
 
 | WACC \ TV | 8x | 10x | 12x | 14x | 16x |
 |-----------|-----|-----|-----|-----|-----|
-| 3.7% | $28.34 | $35.12 | $41.90 | $48.68 | $55.46 |
-| 4.7% | $26.59 | $33.05 | $39.51 | $45.97 | $52.44 |
-| 5.7% | $24.92 | $31.08 | $37.25 | $43.41 | $49.57 |
-| **6.7%** | **$23.34** | **$29.22** | **$35.10** | **$40.98** | **$46.86** |
-| 7.7% | $21.85 | $27.46 | $33.07 | $38.68 | $44.29 |
-| 8.7% | $20.42 | $25.78 | $31.14 | $36.50 | $41.85 |
-| 9.7% | $19.07 | $24.19 | $29.31 | $34.43 | $39.54 |
+| 5.1% | $31 | $40 | $49 | $58 | $67 |
+| 6.1% | $26 | $34 | $42 | $50 | $58 |
+| 7.1% | $22 | $29 | $36 | $43 | $49 |
+| 8.1% | $19 | $25 | $30 | $36 | $42 |
+| 9.1% | $16 | $21 | $26 | $31 | $36 |
+
+**Total return consideration:** 8.7% dividend yield + 22.5% capital appreciation = ~31% total return esperado.
+
+**Sanity checks:** ✅ Bear ($24.38) vs mercado ($26.61): -8.4% (pero +8.7% yield = total return positivo incluso en bear). ✅ Bull/bear: 1.88x. Consenso: $34.8 (rango $30-$40).
 
 ---
 
 ### Riesgos principales
 
-**1. Concentración en gaming/Caesars (probabilidad: baja-media, impacto: alto)**
-~45% de la renta viene de Caesars Entertainment y ~25% de MGM. Si uno de estos inquilinos entrara en dificultades financieras (otro default de Caesars como en 2015), VICI tendría un problema serio. Sin embargo, ambos operadores están en buena posición financiera actualmente.
+**Perfil de riesgo global: MODERADO**
 
-**2. Tipos de interés altos prolongados (probabilidad: media, impacto: medio-alto)**
-Los REITs son sensibles a los tipos de interés por dos razones: (1) su deuda se encarece al refinanciar, y (2) los inversores de income rotan hacia bonos cuando los yields suben. VICI cotiza a $26.83 en parte porque los tipos están elevados — si bajan, VICI sube; si suben más, VICI sufre.
-
-**3. Riesgo de refinanciación (probabilidad: media-baja, impacto: medio)**
-Con $17.7B de deuda, VICI necesita refinanciar periódicamente. Si los tipos permanecen altos cuando venzan sus bonos, el coste financiero subiría y comprimiría el margen neto y los fondos disponibles para dividendos.
-
-**4. Riesgo regulatorio del gaming (probabilidad: baja, impacto: medio)**
-Cambios regulatorios en la industria del gaming (legalización de online gambling que reduzca visitas a casinos físicos, o restricciones a la expansión) podrían afectar la demanda de las propiedades de VICI. Sin embargo, Las Vegas ha demostrado ser resiliente a la competencia online.
+| # | Riesgo | Severidad | Probabilidad | Impacto |
+|---|--------|-----------|--------------|---------|
+| 1 | **Tipos de interés altos** | Alta | Media | REITs sensibles a tipos. Higher-for-longer comprime valoraciones |
+| 2 | **Concentración de inquilinos** | Media | Baja | Caesars (~40% rent) y MGM (~25%). Si un tenant quiebra, impacto material |
+| 3 | **Gaming secular decline** | Media | Baja | Si gaming pierde atractivo, las propiedades pierden valor. Mitigante: Las Vegas Strip tiene demanda secular |
+| 4 | **Deuda/refinanciación** | Media | Media | $17.1B net debt. Coste de refinanciación sube con tipos altos |
+| 5 | **Dilución** | Media | Alta | REITs emiten equity regularmente para financiar adquisiciones |
 
 ---
 
 ### Catalizadores
 
-**Al alza:**
-- **Bajada de tipos de interés:** El catalizador más potente. Si la Fed baja tipos en 2026-2027, los REITs serían los primeros beneficiados — tanto por menor coste de deuda como por rotación de inversores de income
-- **Nuevas adquisiciones:** VICI tiene un historial excepcional de adquisiciones accretivas. Cualquier deal nuevo (wellness, entertainment, hospitality) a buenos múltiplos expandiría el portfolio
-- **Expansión en experiential real estate:** La estrategia de diversificación hacia Canyon Ranch, Great Wolf, Chelsea Piers, Kalahari demuestra que VICI puede crecer más allá del gaming
-- **Terreno adyacente al Strip:** VICI posee ~33 acres de terreno sin desarrollar junto al Las Vegas Strip — un activo con potencial de desarrollo enorme
-- **Dividend yield como suelo:** El 8.7% de yield actúa como suelo natural del precio. Si la acción cae, el yield sube y atrae compradores de income
+**Positivos:** Bajada de tipos → re-rating REIT, adquisiciones accretivas (expansion a non-gaming), escaladores de renta contractuales (2-3%/año).
 
-**A la baja:**
-- Subida adicional de tipos por encima del 6%
-- Default o reestructuración de un inquilino principal
-- Recesión severa que afecte la ocupación de casinos y hoteles
-- Dilución por emisión de acciones para financiar adquisiciones
+**Negativos:** Tipos persisten altos, inquilino principal en dificultades, dilución por equity issuance.
 
 ---
 
 ### Conclusión y plan de acción
 
-**Recomendación: COMPRAR — alta convicción**
+**Recomendación: COMPRAR.** VICI a $26.61 ofrece 8.7% dividend yield + 22.5% upside de capital. Total return esperado >30%. Portfolio de propiedades trophy con leases de 25-40 años.
 
-VICI Properties es una de las oportunidades más atractivas del mercado actual para inversores de income y valor. Combina:
-- **Dividend yield del 8.7%** — de los más altos del S&P 500
-- **Margen operativo del 91.2%** — modelo triple-net prácticamente sin costes
-- **Contratos a 20+ años** — flujo de caja ultra-predecible
-- **Activos irreplicables** — Caesars Palace, MGM Grand, The Venetian no se pueden replicar
-- **Beta 0.699** — defensivo, menos volátil que el mercado
-- **Upside del 30%+** según DCF y consenso
-
-La asimetría riesgo/recompensa es excepcional: incluso en el bear case (-6.5%), el dividendo del 8.7% te deja en positivo. En el base case, el retorno total (precio + dividendo) sería ~39.5%.
-
-**Plan de acción:**
-
-| Precio | Acción |
-|--------|--------|
-| $26.83 (actual) | Comprar (posición completa) — yield 8.7%, bear case priceado |
-| $23-25 | Añadir agresivamente — dividend yield >10%, irracional |
-| $35+ | Mantener — fair value base alcanzado, seguir cobrando dividendo |
-| $40+ | Recortar 25% si tipos no bajan — bull case, yield comprimido |
-
-**Criterios para invalidar la tesis:**
-- Caesars o MGM entran en dificultades financieras (deterioro de cobertura de renta)
-- Dividend se recorta o se congela
-- Tipos de interés suben por encima del 7% sostenidamente
-- VICI emite acciones diluyendo >10% sin adquisición accretiva
+- **Precio de entrada:** Hasta $30 (margen ≥8% + 8.7% yield)
+- **Tamaño:** 3-5% del portfolio (income + growth)
+- **Horizonte:** 5-10 años (compound dividendo + apreciación)
 
 ---
-
-*Análisis generado el 2026-03-21. No es consejo de inversión.*
+*Análisis generado el 2026-03-28. REIT — P/FFO más relevante que P/E. No es consejo de inversión.*

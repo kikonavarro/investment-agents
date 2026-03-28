@@ -1,0 +1,226 @@
+{
+  "ticker": "MCD",
+  "company": "McDonald's Corporation",
+  "currency": "$",
+  "date": "2026-03-28",
+  "current_price": 305.9,
+  "shares_outstanding": 712154350,
+  "market_cap": 218291585024,
+  "sector": "Consumer Cyclical",
+  "industry": "Restaurants",
+  "country": "United States",
+  "business_summary": "McDonald's Corporation owns, operates, and franchises restaurants under the McDonald's brand in the United States and internationally. It offers food and beverages, including hamburgers and cheeseburgers, various chicken sandwiches, fries, shakes, frozen desserts, sundaes, soft serve cones, cookies, pies, soft drinks, coffee, and other beverages; and full or limited breakfast, as well as sells various other products during limited-time promotions. The company owns and operates franchised restaurants under various structures, including conventional franchise, developmental license, or affiliate. McDonald's Corporation was founded in 1940 and is based in Chicago, Illinois.",
+  "beta": 0.496,
+  "analyst_targets": {
+    "high": 407.0,
+    "low": 260.0,
+    "mean": 345.21213,
+    "current": 305.9
+  },
+  "historical_years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "latest_financials": {
+    "revenue": 25920000000.0,
+    "net_income": 8223000000.0,
+    "ebitda": 13948000000.0,
+    "free_cashflow": 6672000000.0,
+    "gross_margin": 0.5675154320987654,
+    "operating_margin": 0.4572145061728395,
+    "net_margin": 0.31724537037037037,
+    "total_debt": 51948000000.0,
+    "cash": 1085000000.0,
+    "total_equity": -3797000000.0
+  },
+  "historical_data": {
+    "2021": {
+      "revenue": 23222900000.0,
+      "net_income": 7545200000.0,
+      "ebitda": 12181800000.0,
+      "fcf": 7101500000.0,
+      "operating_income": 9872700000.0
+    },
+    "2022": {
+      "revenue": 23182000000.0,
+      "net_income": 6177000000.0,
+      "ebitda": 10903000000.0,
+      "fcf": 5488000000.0,
+      "operating_income": 10345000000.0
+    },
+    "2023": {
+      "revenue": 25495000000.0,
+      "net_income": 8469000000.0,
+      "ebitda": 13861000000.0,
+      "fcf": 7255000000.0,
+      "operating_income": 11747000000.0
+    },
+    "2024": {
+      "revenue": 25920000000.0,
+      "net_income": 8223000000.0,
+      "ebitda": 13948000000.0,
+      "fcf": 6672000000.0,
+      "operating_income": 11851000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Restaurants",
+      "revenues": {
+        "2021": 23222900000.0,
+        "2022": 23182000000.0,
+        "2023": 25495000000.0,
+        "2024": 25920000000.0
+      }
+    }
+  ],
+  "acquisition_detected": null,
+  "captive_finance": null,
+  "sec_audit": {
+    "confidence": "MEDIUM",
+    "alerts": [
+      {
+        "level": "critical",
+        "metric": "Cash",
+        "message": "Cash: SEC 10-K = 774M vs Yahoo = 1,085M (28.7% diff)"
+      }
+    ],
+    "comparisons": [
+      {
+        "metric": "Revenue",
+        "sec_10k": 26885.0,
+        "yahoo": 25920.0,
+        "diff_pct": 3.7229938271604937,
+        "match": true
+      },
+      {
+        "metric": "Net Income",
+        "sec_10k": 8563.0,
+        "yahoo": 8223.0,
+        "diff_pct": 4.13474401070169,
+        "match": true
+      },
+      {
+        "metric": "Cash",
+        "sec_10k": 774.0,
+        "yahoo": 1085.0,
+        "diff_pct": 28.663594470046082,
+        "match": false
+      },
+      {
+        "metric": "Total Equity",
+        "sec_10k": 1791.0,
+        "yahoo": -3797.0,
+        "diff_pct": -147.16881748749014,
+        "match": true
+      },
+      {
+        "metric": "EBITDA (calculated)",
+        "sec_10k": 12850.0,
+        "yahoo": 13948.0,
+        "diff_pct": 7.872096357900775,
+        "match": true
+      }
+    ]
+  },
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": 0.097,
+      "revenue_growth_y5": 0.0582,
+      "gross_margin": 0.5625473108730454,
+      "sga_pct": 0.024430026922428155,
+      "rd_pct": 0.0,
+      "da_pct": 0.07990948460735962,
+      "capex_pct": 0.09014691298831753,
+      "tax_rate": 0.16833875800782613,
+      "wacc": 0.0681,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.112,
+      "revenue_growth_y5": 0.0672,
+      "gross_margin": 0.5725473108730454,
+      "sga_pct": 0.01943002692242815,
+      "rd_pct": 0.0,
+      "da_pct": 0.07990948460735962,
+      "capex_pct": 0.08113222168948578,
+      "tax_rate": 0.16833875800782613,
+      "wacc": 0.05809999999999999,
+      "terminal_multiple": 14
+    },
+    "bear": {
+      "revenue_growth_y1": 0.082,
+      "revenue_growth_y5": 0.0492,
+      "gross_margin": 0.5525473108730454,
+      "sga_pct": 0.02943002692242816,
+      "rd_pct": 0.0,
+      "da_pct": 0.07990948460735962,
+      "capex_pct": 0.10366894993656516,
+      "tax_rate": 0.16833875800782613,
+      "wacc": 0.07809999999999999,
+      "terminal_multiple": 10
+    }
+  },
+  "news": [
+    {
+      "title": "McDonald's (MCD) Beats Stock Market Upswing: What Investors Need to Know",
+      "date": "Wed, 25 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "4 Consumer Favorites Look Oversold Right Now: Disney, McDonald’s and More",
+      "date": "Wed, 25 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "McDonald’s Force Builds a Winning Financial Strategy with Esker",
+      "date": "Wed, 25 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Stronger Bet Than McDonald’s Stock: DRI, QSR Deliver More - Trefis",
+      "date": "Wed, 25 Ma",
+      "source": "Trefis"
+    },
+    {
+      "title": "McDonald’s (MCD) Stock Dips as Insider Sells, But Analysts Still See Upside - MEXC",
+      "date": "Wed, 25 Ma",
+      "source": "MEXC"
+    },
+    {
+      "title": "McDonald's shares snap six-session losing streak - MSN",
+      "date": "Wed, 25 Ma",
+      "source": "MSN"
+    },
+    {
+      "title": "So Much Meat, So Little Time: Fast-Food Chains Say the Limited-Time Offer May Have Lost Sizzle",
+      "date": "Tue, 24 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Erlinger, McDonald’s USA president, sells $104k in MCD stock - Investing.com",
+      "date": "Tue, 24 Ma",
+      "source": "Investing.com"
+    },
+    {
+      "title": "3 Dividend Stocks to Buy and Hold Forever - The Motley Fool",
+      "date": "Tue, 24 Ma",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "McDonald's Corp (MCD) Stock Price, Trades & News - GuruFocus",
+      "date": "Tue, 24 Ma",
+      "source": "GuruFocus"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MCD/MCD_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MCD/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MCD/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MCD/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

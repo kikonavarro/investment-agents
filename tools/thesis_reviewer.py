@@ -37,6 +37,8 @@ def review_thesis(ticker: str, thesis_text: str, valuation: dict) -> dict:
     issues.extend(_check_required_sections(thesis_text))
     issues.extend(_check_sensitivity_table(thesis_text))
     issues.extend(_check_price_consistency(thesis_text, valuation))
+    issues.extend(_check_consensus_gap(thesis_text, valuation))
+    issues.extend(_check_primary_sources(thesis_text))
 
     critical = [i for i in issues if i["level"] == "critical"]
     warnings = [i for i in issues if i["level"] == "warning"]
@@ -130,17 +132,20 @@ def _check_fair_value_sanity(ticker: str, thesis_text: str, valuation: dict) -> 
         })
         return issues
 
-    # Para empresas normales (EV/EBITDA < 50x): bear debería estar cerca del mercado
-    if ev_ebitda < 50:
-        bear = fv.get("bear", 0)
-        if bear and bear < price * 0.20:
+    # Bear check: siempre activo, con umbral ajustado por tipo de empresa
+    bear = fv.get("bear", 0)
+    if bear and price:
+        # EV/EBITDA < 50x: bear > 20% del precio (empresa "normal")
+        # EV/EBITDA >= 50x: bear > 5% del precio (empresa de alta valoración, más tolerancia)
+        threshold = 0.20 if ev_ebitda < 50 else 0.05
+        if bear < price * threshold:
             issues.append({
                 "level": "critical",
                 "check": "bear_absurdo",
                 "message": (
-                    f"Bear (${bear:.2f}) es <20% del precio actual (${price:.2f}). "
-                    f"Para empresa con EV/EBITDA {ev_ebitda:.0f}x, el bear debería estar "
-                    f"cerca del precio de mercado. Revisar supuestos/múltiplos."
+                    f"Bear (${bear:.2f}) es <{threshold:.0%} del precio actual (${price:.2f}). "
+                    f"EV/EBITDA={ev_ebitda:.0f}x. Los escenarios son demasiado pesimistas "
+                    f"o los múltiplos terminales son incoherentes con el mercado."
                 ),
             })
 
@@ -290,6 +295,69 @@ def _check_price_consistency(thesis_text: str, valuation: dict) -> list:
             pass
 
     return issues
+
+
+def _check_consensus_gap(thesis_text: str, valuation: dict) -> list:
+    """CRITICAL: Fair value ponderado diverge >80% del consenso de analistas."""
+    issues = []
+    targets = valuation.get("analyst_targets", {})
+    mean_target = targets.get("mean", 0)
+    if not mean_target:
+        return issues
+
+    fv = _extract_fair_values(thesis_text)
+    if not fv or len(fv) < 2:
+        return issues
+
+    bear = fv.get("bear", 0)
+    base = fv.get("base", 0)
+    bull = fv.get("bull", 0)
+    if not (bear and base):
+        return issues
+
+    weighted = bear * 0.4 + base * 0.4 + bull * 0.2 if bull else bear * 0.5 + base * 0.5
+    if weighted > 0 and mean_target > 0:
+        ratio = weighted / mean_target
+        if ratio < 0.15:
+            issues.append({
+                "level": "critical",
+                "check": "gap_consenso_extremo",
+                "message": (
+                    f"Fair value ponderado (${weighted:.2f}) es {ratio:.0%} del consenso "
+                    f"de analistas (${mean_target:.2f}). Divergencia del {(1-ratio)*100:.0f}%. "
+                    f"El DCF es implausible — revisar múltiplos o usar Sum-of-Parts."
+                ),
+            })
+        elif ratio < 0.30:
+            issues.append({
+                "level": "warning",
+                "check": "gap_consenso",
+                "message": (
+                    f"Fair value ponderado (${weighted:.2f}) está un {(1-ratio)*100:.0f}% "
+                    f"por debajo del consenso (${mean_target:.2f}). Verificar supuestos."
+                ),
+            })
+    return issues
+
+
+def _check_primary_sources(thesis_text: str) -> list:
+    """WARNING: Tesis sin referencias a fuentes primarias."""
+    source_patterns = [
+        r"(?i)10-K", r"(?i)SEC", r"(?i)investor\s+relations",
+        r"(?i)IR\b", r"(?i)annual\s+report", r"(?i)informe\s+anual",
+        r"(?i)auditor[ií]a\s+SEC", r"(?i)filings?"
+    ]
+    has_source = any(re.search(p, thesis_text) for p in source_patterns)
+    if not has_source:
+        return [{
+            "level": "warning",
+            "check": "sin_fuentes_primarias",
+            "message": (
+                "Tesis sin referencias a fuentes primarias (10-K, SEC, IR, annual report). "
+                "Se recomienda citar datos de filings oficiales."
+            ),
+        }]
+    return []
 
 
 def print_review(result: dict):

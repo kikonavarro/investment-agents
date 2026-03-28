@@ -12,5 +12,33 @@
     "growth_y1_base": 0.167,
     "wacc_base": 0.1032,
     "tv_base": 19
+  },
+  {
+    "date": "2026-03-25",
+    "file": "MSFT_20260325_valuation.json",
+    "current_price": 372.74,
+    "currency": "$",
+    "fair_value_bear": 0.11359999999999999,
+    "fair_value_base": 0.1036,
+    "fair_value_bull": 0.0936,
+    "revenue": 281724000000.0,
+    "gross_margin": 0.6882374238616519,
+    "growth_y1_base": 0.167,
+    "wacc_base": 0.1036,
+    "tv_base": 23
+  },
+  {
+    "date": "2026-03-28",
+    "file": "MSFT_20260328_valuation.json",
+    "current_price": 356.77,
+    "currency": "$",
+    "fair_value_bear": 0.11349999999999999,
+    "fair_value_base": 0.1035,
+    "fair_value_bull": 0.0935,
+    "revenue": 281724000000.0,
+    "gross_margin": 0.6882374238616519,
+    "growth_y1_base": 0.167,
+    "wacc_base": 0.1035,
+    "tv_base": 23
   }
 ]

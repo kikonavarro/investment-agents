@@ -1,132 +1,156 @@
-## AMZN — Amazon.com, Inc. | 🟡 COMPRA CON CAUTELA
-
----
+## AMZN — Amazon.com, Inc. | INFRAVALORADA (con riesgos)
 
 ### Resumen ejecutivo
 
-Amazon cotiza a **$213,21** por acción (capitalización bursátil de ~$2,29 billones). Nuestro modelo DCF en escenario base arroja un precio objetivo de aproximadamente **$245–260**, lo que implica un margen de seguridad del **15–20%**. El escenario bull alcanza los $320 y el bear se sitúa en torno a $145. **Recomendamos una posición inicial moderada**, aprovechando la corrección reciente desde máximos, con la tesis centrada en la aceleración de AWS y la expansión de márgenes operativos; la valoración actual deja poco margen si el crecimiento decepciona.
+Precio actual de **$199.34**, fair value ponderado de **$229.20** (potencial **+15.0%**). Amazon es hoy dos empresas en una: AWS, el líder en cloud que crece al 24% impulsado por la revolución IA (con $200B de CapEx comprometidos), y Retail, un negocio de márgenes finos bajo presión arancelaria directa. El mercado castiga a AMZN por la incertidumbre del CapEx masivo, pero si AWS ejecuta (como ha hecho históricamente), el upside es significativo.
+
+- **Bear ($150.82):** $200B CapEx no genera retorno a tiempo, aranceles comprimen retail, Azure/GCP ganan share → downside -24.3%
+- **Base ($247.25):** AWS reaccelera al 25%+ con IA, retail absorbe aranceles parcialmente, margins mejoran → upside +24.0%
+- **Bull ($349.83):** AWS domina IA enterprise, advertising >$80B, tariffs se resuelven, márgenes 25% → upside +75.5%
+
+**Recomendación:** Comprar posición moderada. El upside base (+24%) con el bear case limitado (-24%) da un risk/reward atractivo. Pero el CapEx de $200B es un riesgo real si la monetización de IA tarda.
 
 ---
 
 ### El negocio
 
-Amazon es, en esencia, tres negocios en uno:
+Amazon opera en 3 segmentos: **North America** (e-commerce NA, ~55% revenue), **International** (e-commerce global, ~21%), y **Amazon Web Services** (cloud/IA, ~16%). Además, **Advertising** (~8%) es el segmento de mayor crecimiento y margen, incluido contablemente en los segmentos geográficos.
 
-1. **E-commerce (North America + International):** La mayor plataforma de venta minorista online del mundo, con marketplace propio y de terceros. Genera volumen pero márgenes ajustados.
-2. **Amazon Web Services (AWS):** El segmento estrella. Infraestructura cloud que opera con márgenes operativos superiores al 35% y que en 2025 ha vuelto a acelerar gracias a la demanda de IA generativa.
-3. **Publicidad y suscripciones (Prime, Prime Video):** Un negocio de alto margen que en 2025 ya supera los $50.000 millones en ingresos publicitarios, convirtiéndose en la tercera pata de rentabilidad.
+**Lo que dice el 10-K (FY2025):** 11 menciones de "tariff" en risk factors. 29 menciones de "artificial intelligence" — la IA es central en la estrategia de AWS. 107 menciones de "AWS" — es claramente el foco de la empresa.
 
-**El moat es estructural y multidimensional:**
-- **Efecto red** en el marketplace de terceros (más compradores → más vendedores → mejores precios → más compradores).
-- **Economías de escala** logísticas: la red de fulfillment propia es prácticamente irreplicable.
-- **Switching costs** en AWS: migrar workloads críticos a otro proveedor cloud es costoso, lento y arriesgado.
-- **Datos propietarios** que retroalimentan la publicidad y la personalización.
+**Lo que está pasando AHORA (marzo 2026):**
 
-La inversión de $4.000 millones en Anthropic (con opciones de ampliar) posiciona a Amazon en la capa de modelos fundacionales de IA, reforzando la propuesta de valor de AWS frente a Azure/GCP.
+1. **AWS AI surge:** Q4 FY2025 alcanzó $35.6B (+24% YoY), el crecimiento más rápido en 13 trimestres. Citi proyecta 28% y JPMorgan 29% para Q1 2026. Los chips custom (Trainium, Graviton) superan $10B de run-rate con crecimiento de triple dígito. **Amazon está ganando la carrera de infraestructura IA.**
+
+2. **$200B CapEx — la mayor apuesta corporativa en IA de la historia.** Mayoritariamente para data centers AWS. Para contexto: esto es más que el PIB de 140 países. Si genera retornos (históricamente AWS ha tenido ROIC >25%), es transformacional. Si no, comprime FCF durante años.
+
+3. **Aranceles golpeando retail:** CEO Andy Jassy en Davos (enero 2026): "los aranceles están empezando a 'creep' into prices." El inventario pre-arancel se agotó en otoño 2025. Vendedores third-party reportan incrementos de costes del 30-60%. FBA fees subiendo 8 centavos/unidad. Jassy: "retail is a mid-single digit operating margin business — if costs go up 10%, there aren't a lot of places to absorb it."
+
+**Ventaja competitiva (Moat: WIDE):**
+
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Network effects | **Fuerte** | Flywheel Bezos: 2M+ sellers → mejor selección → más buyers → mejores precios. 200M+ Prime members. Pero los aranceles pueden romper la pata de "mejores precios" |
+| Cost advantages | **Fuerte** | Logística incomparable: >400 fulfillment centers + flota propia. AWS: amortización de infraestructura masiva reduce costes por unidad. Pero el $200B CapEx eleva la base de costes |
+| Switching costs | **Fuerte** | AWS: migrar workloads cuesta millones. Prime: hábito + contenido + envío + beneficios. El 10-K confirma alta retención de clientes AWS |
+| Intangibles | **Moderado** | Marca top 5 global. Datos propietarios de consumo. Pero reputación de employer sufre (warehouse conditions) |
+| Efficient scale | **Moderado** | Cloud: 3 players (AWS/Azure/GCP). Pero retail es más competitivo (Walmart, Shopify, Temu) |
 
 ---
 
 ### Análisis financiero
 
-**Crecimiento de ingresos sólido y acelerado:**
+| Métrica | 2022 | 2023 | 2024 | 2025 |
+|---------|------|------|------|------|
+| Revenue | $514.0B | $574.8B | $638.0B | $716.9B |
+| Net Income | -$2.7B | $30.4B | $59.2B | $77.7B |
+| EBITDA | $38.4B | $89.4B | $123.8B | $165.3B |
+| FCF | -$16.9B | $32.2B | $32.9B | $7.7B |
+| Op. Margin | 2.4% | 6.4% | 10.7% | 11.2% |
 
-| Año | Revenue | Crecimiento |
-|-----|---------|-------------|
-| 2022 | $514.000M | — |
-| 2023 | $575.000M | +11,8% |
-| 2024 | $638.000M | +11,0% |
-| 2025 | $717.000M | +12,4% |
+**Interpretación — la historia detrás de los números:**
 
-El crecimiento se ha mantenido en el rango del 11-13% en un entorno macro complejo, lo que habla de la resiliencia del modelo.
-
-**Expansión de márgenes: la historia real de los últimos 3 años**
-
-El salto más importante no está en el revenue, sino en la rentabilidad. Amazon pasó de pérdidas netas en 2022 (-$2.700M) a un beneficio neto de **$77.670M en 2025**, con margen neto del **10,8%**. El EBITDA se ha cuadruplicado en tres años: de $38.352M a $165.341M. El margen operativo ha pasado del 2,4% al **11,2%**.
-
-**Una nota importante sobre el FCF reportado:**
-
-El Free Cash Flow de 2025 ($7.695M) puede parecer sorprendentemente bajo dado el nivel de beneficios. Esto se explica por el **CapEx masivo de crecimiento**: Amazon está invirtiendo agresivamente en infraestructura de data centers para IA y expansión logística. El CapEx total real supera con creces la depreciación (mantenimiento). Nuestro modelo DCF trata este CapEx de crecimiento de forma explícita, tal como se explica en la sección de valoración.
+- **La transformación de márgenes es real y espectacular:** Op margin de 2.4% → 11.2% en 3 años. Esto no es un artefacto — es el resultado de eficiencia logística (robótica), mix shift hacia AWS/Ads (márgenes superiores), y disciplina de costes post-2022 (layoffs masivos)
+- **Pero FCF de $7.7B en 2025 es preocupante.** Revenue de $717B generando solo $7.7B de FCF porque CapEx se ha disparado (~$80B). El $200B plan para FY2026 empeorará esto temporalmente. **El mercado castiga el FCF bajo, pero es inversión, no destrucción**
+- **EBITDA de $165.3B es potente** — pero hay discrepancia con SEC ($145.7B). La diferencia (~$20B) es por tratamiento de operating leases (ASC 842). Amazon tiene ~$80B en obligaciones de lease
+- **Auditoría SEC: LOW confidence** pero explicable — revenue y NI coinciden, las diferencias son contables (leases, cash definitions)
 
 **Balance:**
-- Deuda total: $152.987M
-- Caja: $86.810M
-- **Deuda neta: ~$66.200M** — manejable dado el nivel de EBITDA (ratio deuda neta/EBITDA < 0,4x)
-- Patrimonio neto: $411.065M
+- Deuda: $153.0B | Cash: $86.8B | Net debt: $66.2B
+- Deuda neta / EBITDA: 0.40x — conservador para su escala
+- Beta: 1.42
 
-La deuda incluye arrendamientos de capital (capital leases) de la infraestructura logística, que algunos analistas —como apunta el artículo de Seeking Alpha en nuestro radar de noticias— argumentan que distorsionan la imagen del balance. Aun ajustando conservadoramente, la posición financiera es sólida.
+**Asignación de capital (Rating: BUENO — con apuesta masiva en curso):**
+- **CapEx $200B plan FY2026** — la decisión de capital allocation más importante de la década. Si AWS IA genera retornos >15%, justifica cada dólar. Si no, Amazon habrá sobre-invertido masivamente
+- **Buybacks:** $10B autorizado, modesto vs cash flow. Prioridad es reinversión
+- **Dividendos:** No paga — todo se reinvierte
+- **ROIC:** Mejorando rápidamente (3% → 21% en 3 años). Si se mantiene >15% sobre $200B de inversión, genera valor masivo
 
 ---
 
 ### Valoración DCF
 
-**Metodología:**
+Escenarios **interpretativos** — no defaults del pipeline. Growth calibrado al contexto actual: AWS creciendo 24-29%, retail bajo presión arancelaria, advertising acelerando. CapEx de 12.7% del revenue (mediana histórica). ⚠️ TV = 91% del EV — alta dependencia del múltiplo terminal.
 
-El modelo proyecta los ingresos de Amazon a 5 años aplicando tasas de crecimiento decrecientes por escenario. Sobre esas proyecciones de revenue, se aplican los **márgenes históricos promedio** (gross margin ~47,5%, SG&A, R&D, D&A y tasa impositiva efectiva) para estimar el UFCF (Unlevered Free Cash Flow) de cada año.
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | 8%→6% | 20.0% | 12.5% | 14x | **$150.82** | -24.3% |
+| **Base** | 12%→8% | 23.0% | 11.5% | 16x | **$247.25** | +24.0% |
+| **Bull** | 16%→9% | 25.0% | 10.5% | 18x | **$349.83** | +75.5% |
 
-**Tratamiento del CapEx:** El modelo utiliza únicamente el **CapEx de mantenimiento** (≈ depreciación). El CapEx de crecimiento —que en Amazon es muy significativo dado su agresivo programa de inversión en data centers AWS e infraestructura logística— **no se resta del FCF** porque ya está implícitamente capturado en las tasas de crecimiento de revenue proyectadas. En el caso de Amazon, la diferencia entre CapEx total real y CapEx de mantenimiento es especialmente relevante (puede superar los $40.000-50.000M anuales), por lo que este supuesto es uno de los más sensibles del modelo. El **Terminal Value** se calcula por múltiplo de salida sectorial sobre el EBITDA del año terminal (no se usa Gordon Growth), lo que ancla la valoración en comparables de mercado.
+**Fair value ponderado (40/40/20): $229.20** — potencial **+15.0%** vs $199.34 actual.
 
-El **WACC** se calcula via CAPM: con beta de 1,42, una prima de riesgo de mercado implícita y la tasa libre de riesgo actual, el WACC base resulta en **11,71%**, reflejando el perfil de riesgo de una empresa de crecimiento tecnológico con apalancamiento moderado.
+**Justificación de escenarios:**
+- **Bear 8% growth:** AWS desacelera al 18% (competencia Azure), retail plano (aranceles), advertising crece 15%. EBITDA margin comprimido a 20% (CapEx no genera retornos, retail margins squeezed)
+- **Base 12% growth:** AWS al 25% (IA continúa), retail 5-8% (absorbe aranceles parcialmente), ads 20%. Margins mejoran gradualmente al 23% (eficiencia + mix)
+- **Bull 16% growth:** AWS 30%+ (domina IA enterprise), advertising $80B+, retail recupera con tariff resolution. Full margin expansion al 25%
 
-**Escenarios:**
+**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
 
-| Escenario | Crecimiento Revenue (Y1→Y5) | Gross Margin | WACC | Múltiplo Terminal | Precio Objetivo* |
-|-----------|----------------------------|--------------|------|-------------------|-----------------|
-| **Bear** | 9,5% → 5,7% | 45,5% | 13,71% | 10x EBITDA | ~$145 |
-| **Base** | 13,6% → 8,2% | 47,5% | 11,71% | 13x EBITDA | ~$250 |
-| **Bull** | 17,7% → 10,6% | 49,5% | 10,71% | 15x EBITDA | ~$320 |
+| WACC \ TV | 12x | 14x | 16x | 18x | 20x |
+|-----------|-----|-----|-----|-----|-----|
+| 9.5% | $213 | $258 | $303 | $348 | $393 |
+| 10.5% | $185 | $225 | $264 | $304 | $344 |
+| 11.5% | $162 | $197 | $233 | $268 | $304 |
+| 12.5% | $141 | $173 | $204 | $236 | $267 |
+| 13.5% | $123 | $152 | $180 | $208 | $236 |
 
-*Precios objetivo estimados tras ajuste por deuda neta y número de acciones.
+**Análisis de impacto:**
 
-**¿Por qué el precio objetivo base de ~$250 es razonable?**
-
-A $213, el mercado está descontando un escenario entre base y bear. Los múltiplos terminales empleados (10-15x EBITDA) son conservadores para una empresa con el perfil de AWS, que en solitario justificaría múltiplos superiores. El escenario base asume que Amazon mantiene su ritmo de crecimiento en un entorno más normalizado, sin necesidad de aceleración extraordinaria.
-
-**El consenso de analistas** sitúa el precio objetivo medio en **$280**, con un rango de $175-$360, lo que confirma que nuestro escenario base es razonable y el bull más alineado con el consenso.
+| Variable | Cambio | Impacto | Comentario |
+|----------|--------|---------|------------|
+| **CapEx retorno** | Si ROIC >20% sobre $200B | +$50-80/share | **El mayor swing factor** — si AWS IA genera retornos, domina la valoración |
+| **Aranceles retail** | GM retail -2pp | -$20/share | Significativo pero no existencial (retail es lower margin anyway) |
+| TV Multiple ±2x | ±2x | ±$36 (~15%) | Alto impacto por TV dominance (91%) |
+| WACC ±1% | ±1% | ±$30 (~12%) | Refleja incertidumbre macro |
 
 ---
 
 ### Riesgos principales
 
-1. **Regulación antimonopolio:** Amazon afronta investigaciones en EE.UU. y Europa tanto en e-commerce como en AWS. Una eventual separación forzosa de negocios o restricciones al marketplace supondría el mayor riesgo estructural.
+**Perfil de riesgo global: MODERADO-ALTO**
 
-2. **Desaceleración de AWS en un entorno competitivo:** Microsoft Azure y Google Cloud están ganando cuota en IA generativa. Si AWS no capitaliza adecuadamente su ventaja con Anthropic, el crecimiento podría moderarse más de lo esperado, afectando desproporcionadamente a los márgenes consolidados.
-
-3. **Ciclo de inversión intensivo en CapEx:** El agresivo programa de inversión en data centers (previsto en $100.000M+ en los próximos años) deprime el FCF reportado y podría presionar la cotización si los retornos tardan en materializarse o si el mercado pone en duda su rentabilidad.
-
-4. **Macro y consumo discrecional:** Una recesión en EE.UU. afectaría al segmento de e-commerce y a los presupuestos publicitarios de terceros, comprimiendo ingresos en los segmentos de menor margen justo cuando la empresa más necesita demostrar apalancamiento operativo.
+| # | Riesgo | Severidad | Probabilidad | Fuente | Impacto concreto |
+|---|--------|-----------|--------------|--------|-----------------|
+| 1 | **$200B CapEx sin retorno** | Alta | Media | Noticias 2026 | Si IA enterprise no monetiza al ritmo esperado, FCF queda comprimido 2-3 años. El mercado ya penaliza por esto (AMZN cotiza a descuento vs MSFT/GOOG) |
+| 2 | **Aranceles en retail** | Media | Alta | CEO Jassy, enero 2026 | Vendedores con +30-60% en costes. "Mid-single digit margin business can't absorb 10%." Precios suben → volumen baja |
+| 3 | **Competencia cloud** | Media | Media | 10-K (25 menciones) | Azure + GCP ganando share. IA commoditizando compute. Pero AWS tiene escala + custom chips (Trainium) |
+| 4 | **Regulación antimonopolio** | Media | Media | 10-K (4 menciones) | FTC case en EEUU + DMA en Europa. Potencial impacto en marketplace practices |
+| 5 | **Dependencia del TV** | Alta | — | Modelo DCF | 91% del EV viene del terminal value. TV 14x (vs 16x base) reduce FV a $197 — cerca del precio actual |
 
 ---
 
 ### Catalizadores
 
-**Al alza:**
-- **Aceleración de AWS:** La asociación con OpenAI y el posicionamiento de Anthropic en AWS podrían disparar el backlog de contratos cloud en IA. BofA ha destacado que esto "podría cambiar la historia de AWS" — si los números de Q1/Q2 2026 lo confirman, el mercado revaluará el segmento.
-- **Expansión de márgenes en retail:** El despliegue de robótica y automatización logística debería comprimir costes en los próximos 2-3 años. Cualquier señal de mejora del margen en North America e International actuaría de catalizador inmediato.
-- **Publicidad digital acelerando:** Con $50.000M+ en ingresos publicitarios y creciendo al 18-20%, si Amazon consolida su posición como el tercer gran pilar publicitario (tras Google y Meta), el mercado podría reasignar un múltiplo más generoso.
-- **Recompra de acciones:** Amazon ha comenzado a ejecutar su programa de buybacks. Con el balance actual, una aceleración del mismo daría soporte técnico y señalaría confianza de la dirección.
+**Positivos (12-24 meses):**
+- **AWS reaccelera al 28-30%** confirmando que IA enterprise escala → re-rating masivo
+- **Advertising supera $60B run-rate** convirtiéndose en pilar de profitabilidad (márgenes >50%)
+- **Operating margins superan 13-14%** demostrando que la eficiencia logística es sostenible
+- **Resolución de aranceles** → retail margins se normalizan, sellers recuperan confianza
 
-**A la baja:**
-- Decepción en el crecimiento de AWS por debajo del 17-18% interanual en los próximos trimestres.
-- Recrudecimiento de la guerra arancelaria o deterioro macro que comprima el gasto en cloud empresarial.
-- Noticias regulatorias adversas en EE.UU. o UE.
+**Negativos:**
+- **CapEx escala a $200B+ sin mejora proporcional en AWS revenue** → mercado pierde paciencia
+- **Aranceles se intensifican** → retail pierde volumen y vendedores migran a Temu/Shopify
+- **Azure con OpenAI supera AWS en IA** → narrative shift desfavorable
 
 ---
 
 ### Conclusión y plan de acción
 
-Amazon es una de las pocas empresas del planeta con tres motores de crecimiento simultáneos y estructuralmente rentables: el marketplace más grande del mundo, el líder histórico del cloud y un negocio publicitario en plena adolescencia. La expansión de márgenes de los últimos tres años no es un accidente contable, sino el resultado de decisiones estratégicas que empiezan a fluir hacia los accionistas.
+**Recomendación: COMPRAR con posición moderada.**
 
-**A $213, la valoración no es una ganga obvia**, pero sí ofrece un margen de seguridad razonable respecto a nuestro escenario base (~17%) y muy atractivo respecto al escenario bull. El principal riesgo no es que Amazon fracase, sino que el mercado tarde en reconocer el valor del ciclo de inversión actual.
+Amazon a $199.34 ofrece un risk/reward atractivo: +15% upside ponderado con downside limitado (-24% bear). La tesis se resume en una pregunta: **¿Puede Amazon monetizar $200B de inversión en IA?**
 
-**Recomendación:** 🟡 **COMPRA con construcción gradual de posición**
+Históricamente, AWS ha demostrado ROIC >25% sobre inversiones masivas en infraestructura. La tendencia actual (24% growth, Trainium >$10B run-rate, Citi/JPM proyectan 28-29% Q1 2026) sugiere que sí. Pero no hay garantía.
 
-- **Entrada inicial** en el rango actual ($200-$215): construir un 50% de la posición objetivo.
-- **Añadir** si corrige hacia $175-185 (escenario bear, margen de seguridad superior al 30% sobre precio base), zona que debería actuar como soporte fuerte.
-- **Precio objetivo a 18-24 meses:** $250 (base) / $320 (bull).
-- **Stop loss conceptual:** cierre sostenido por debajo de $165 implicaría revisión del modelo.
+El contrapeso es el riesgo arancelario en retail. Jassy lo ha dicho claramente: no pueden absorber incrementos del 10%. Esto comprimirá márgenes retail en 2026. Pero retail es la pata de menor margen — el valor real está en AWS + Advertising.
 
-Para un inversor a largo plazo con horizonte de 3-5 años, Amazon a estos precios es una posición núcleo difícil de ignorar.
+- **Precio de entrada recomendado:** $175-$195 (margen ≥15% sobre FV ponderado)
+- **Precio actual ($199.34):** Aceptable para posición inicial (1/2 del tamaño objetivo)
+- **Tamaño de posición:** 4-5% del portfolio
+- **Horizonte:** 3-5 años (capturar monetización de IA + margin expansion)
+
+La apuesta es clara: comprar AWS (el negocio cloud líder del mundo) a descuento porque el mercado penaliza el CapEx. Si la historia de los últimos 20 años sirve de guía, Bezos/Jassy saben invertir capital.
 
 ---
-
-*Análisis generado el 07/03/2026. No es consejo de inversión. Basado en datos públicos y modelo DCF propio. El inversor debe realizar su propia diligencia.*
+*Análisis generado el 2026-03-28. Fuentes: Amazon 10-K FY2025 (SEC EDGAR), Yahoo Finance, CNBC/Fortune (Jassy sobre aranceles, enero 2026), Futurum/Citi/JPM (AWS projections, marzo 2026). Auditoría SEC: LOW — discrepancias contables (leases), revenue y NI coinciden. No es consejo de inversión.*

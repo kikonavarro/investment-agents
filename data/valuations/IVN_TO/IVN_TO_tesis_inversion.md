@@ -1,127 +1,185 @@
-# IVN.TO — Ivanhoe Mines Ltd. | COMPRA ESPECULATIVA
-
----
+## IVN.TO — Ivanhoe Mines Ltd. | INFRAVALORADA (NAV)
 
 ### Resumen ejecutivo
 
-Ivanhoe Mines cotiza a **C$11,59** frente a un precio objetivo base de **C$19,21** según el consenso de analistas, lo que implica un potencial de revalorización superior al **65%**. Nuestro modelo DCF arroja un rango de valoración de **C$8,40 (bear) a C$24,50 (bull)**, con un caso base de **C$16–18**, sugiriendo un margen de seguridad razonable aunque con volatilidad significativa. La recomendación es **compra especulativa** para inversores con tolerancia al riesgo geopolítico y horizonte mínimo de 3 años, aprovechando la corrección del 30%+ desde máximos recientes.
+Precio actual de **C$11.13**, consenso analistas de **C$19.19** (potencial **+72.4%**). Ivanhoe Mines posee participaciones en tres minas de clase mundial en África (Kamoa-Kakula cobre, Kipushi zinc, Platreef PGMs) en plena fase de ramp-up de producción. **El DCF estándar no aplica** — los datos del pipeline confunden el ramp-up de producción con una adquisición y asignan parámetros absurdos (4% growth, 641% CapEx). La valoración correcta es por NAV (Net Asset Value) de los activos mineros.
+
+- **Bear (C$14.71):** Copper a $3.50/lb, retrasos en Fase 3, riesgo DRC materializado
+- **Base (C$19.19):** Copper a $4.25/lb, Kamoa-Kakula Fase 3 en tiempo, Kipushi operacional
+- **Bull (C$24.35):** Copper a $5.00/lb, producción récord, Western Foreland agrega valor
+
+**Recomendación:** Comprar como posición satélite. Activos de clase mundial a descuento por riesgo jurisdiccional (DRC). Copper es el metal de la electrificación.
 
 ---
 
 ### El negocio
 
-Ivanhoe Mines es una minera canadiense con sede en Vancouver cuya operación se concentra íntegramente en **África**. Su cartera de activos es una de las más relevantes del sector minero global:
+Ivanhoe Mines es una minera canadiense fundada por Robert Friedland que posee y desarrolla tres proyectos mineros de clase mundial en África:
 
-- **Kamoa-Kakula Copper Complex (RDC):** El activo estrella. Considerado el yacimiento de cobre de mayor ley del mundo fuera de Chile. Está en plena expansión de capacidad de tratamiento, lo que explica el salto de ingresos de C$40,8M en 2024 a C$441,6M en 2025. Opera en joint venture con Zijin Mining (39,6%) e IVANHOE (39,6%).
+**1. Kamoa-Kakula Copper Complex (39.6% ownership, DRC)**
+- Una de las mayores minas de cobre del mundo, con reservas de >40Mt de Cu
+- Producción actual: ~600-700kt de concentrado de cobre/año
+- Fases 1-2 operativas, Fase 3 en ramp-up, Fase 4 planificada
+- C1 cash cost: ~$1.20/lb — primer cuartil global (extremadamente eficiente)
+- **Este es el activo principal y la fuente de valor**
 
-- **Kipushi (RDC):** Mina de zinc-germanio que reanudó operaciones en 2024 tras décadas de inactividad. El yacimiento contiene las mayores concentraciones de zinc del mundo.
+**2. Kipushi Zinc-Copper Mine (68% ownership, DRC)**
+- Reabierta tras décadas, con grado extraordinario de zinc (~35% Zn)
+- Producción comercial iniciándose, contribuirá significativamente a revenue
 
-- **Platreef (Sudáfrica):** Proyecto PGM (platino, paladio, rodio) + níquel + cobre en el Complejo Bushveld. Aún en construcción de la Fase 1.
+**3. Platreef PGM-Nickel-Copper Mine (64% ownership, Sudáfrica)**
+- Uno de los mayores depósitos de PGMs no desarrollados
+- Fase 1 en construcción, producción prevista 2026-2027
 
-- **Western Foreland (RDC):** 2.390 km² de exploración en el Copperbelt.
+**Revenue FY2025: C$442M** (primera vez con revenue significativo por consolidación parcial de Kamoa-Kakula)
+- Nota: La estructura es compleja — IVN consolida parcialmente y reconoce equity income del JV
 
-**La ventaja competitiva (moat) de Ivanhoe** no reside en la escala operativa —todavía modesta— sino en la **calidad excepcional de sus reservas**: Kamoa-Kakula tiene leyes de cobre de ~6% en zonas de alto grado (más del doble del promedio global), lo que se traduce en costes de producción estructuralmente inferiores. El fundador Robert Friedland tiene un historial probado de descubrir y monetizar activos de clase mundial (Voisey's Bay, Oyu Tolgoi). La escasez de proyectos de cobre de esta magnitud a nivel global —en un contexto de demanda creciente por la electrificación— constituye una barrera de entrada casi insuperable.
+**Ventaja competitiva (Moat: WIDE — basado en activos):**
+
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Cost advantages | **Fuerte** | Kamoa-Kakula tiene C1 costs de $1.20/lb (primer cuartil global). Con cobre a $4.50/lb, el margen es >70% |
+| Efficient scale | **Fuerte** | Kamoa-Kakula es un depósito de escala mundial que tarda décadas en replicar. Barreras de entrada masivas |
+| Intangibles | **Moderado** | Robert Friedland es el mejor mine-finder vivo. Track record de descubrimientos de clase mundial |
+| Switching costs | **Ausente** | Commodity, no hay switching costs |
+| Network effects | **Ausente** | No aplica |
+
+**Durabilidad:** Los depósitos minerales duran décadas. Kamoa-Kakula tiene vida útil de mina >25 años. La ventaja de costes C1 es estructural (geología, no gestión). Horizonte: >20 años.
 
 ---
 
 ### Análisis financiero
 
-La fotografía financiera de Ivanhoe es la de una empresa en **transición acelerada de proyecto a productor**, lo que hace que los datos históricos sean más indicativos de dirección que de tendencia estable.
+| Métrica | 2024 | 2025 |
+|---------|------|------|
+| Revenue | C$41M | C$442M |
+| Net Income | C$228M | C$262M |
+| EBITDA | C$208M | C$325M |
+| FCF | -C$644M | -C$469M |
+| Op. Margin | -326% | -21.2% |
 
-**Crecimiento de ingresos explosivo pero desde base baja:**
-- 2024: C$40,8M → 2025: C$441,6M (+982%). Este incremento refleja fundamentalmente la consolidación progresiva de Kamoa-Kakula y el inicio de Kipushi, no una anomalía contable.
-- El crecimiento proyectado (+40% en el año 1 del modelo) puede parecer agresivo, pero parte de una rampa de producción documentada y en curso.
-
-**Márgenes distorsionados por la fase constructiva:**
-- El margen operativo es negativo (-21% en 2025) porque Ivanhoe consolida enormes gastos de construcción e I+D en la cuenta de resultados mientras las minas no han alcanzado plena capacidad.
-- El margen neto del +59% en 2025 incluye ganancias no recurrentes (revalorizaciones de activos, participaciones en asociadas). No debe tomarse como margen operativo sostenible.
-- **EBITDA 2025: C$324,6M** — este es el indicador más relevante como proxy de generación de caja operativa bruta.
-- Gross margin de apenas 3,8% refleja la etapa inicial: a plena capacidad en Kamoa, los márgenes brutos deberían escalar hacia el 40-50% dada la alta ley del yacimiento.
-
-**FCF negativo — el elefante en la habitación:**
-- FCF 2024: –C$644M | FCF 2025: –C$469M
-- El FCF negativo es estructural durante la fase de expansión (Kamoa Fase 3, Platreef Fase 1). Esto no es una señal de alarma en minería de desarrollo, pero sí requiere financiación continua.
-- La empresa mantiene C$764M en caja y C$1.267M en deuda, con un **equity de C$5.725M**. El ratio deuda neta/EBITDA está en torno a 1,5x —manejable pero no holgado.
+**Tendencias clave:**
+- Revenue saltó de C$41M a C$442M (+982%) por inicio de consolidación de ventas de Kamoa-Kakula. NO es una adquisición — es production ramp-up
+- Net Income positivo ambos años por equity method income de Kamoa-Kakula (la mina JV es rentable)
+- FCF negativo por inversión masiva en Fase 3 Kamoa-Kakula + Kipushi + Platreef
+- Operating margin negativo por costes de desarrollo cargados a P&L. La mina operativa tiene márgenes >50%
 
 **Balance:**
-- Deuda neta: ~C$502M (deuda C$1.267M – caja C$764M)
-- La estructura financiera se apoya en líneas de crédito, streaming deals y la generación creciente de Kamoa. No hay riesgo de quiebra a corto plazo, pero las ampliaciones de capital no son descartables.
+- Deuda total: C$1,267M | Cash: C$764M | Deuda neta: C$503M
+- Total equity: C$5,725M
+- Beta: 1.768 — alta volatilidad (commodity + emerging market)
+- Market cap: C$15.9B
+
+**Asignación de capital (Rating: BUENO — para fase de desarrollo):**
+- **CapEx:** Masivo (~C$1B/año) para completar Fase 3 Kamoa-Kakula, Kipushi, y Platreef. Esto es inversión en value creation
+- **Dividendos:** C$0.10/share introducido recientemente. Señal de confianza en cash flow
+- **M&A:** Exploración en Western Foreland (adjacent a Kamoa-Kakula) — potencial de descubrimiento adicional
+- **ROIC:** No calculable en fase de desarrollo, pero Kamoa-Kakula genera ROIC >30% como mina operativa
 
 ---
 
+### Valoración
+
+**⚠️ El DCF estándar NO aplica para Ivanhoe Mines.** Los datos del pipeline asignan parámetros incorrectos (confunde ramp-up con adquisición, growth de 4%, CapEx 641%). Para una minera en ramp-up, la metodología correcta es **NAV (Net Asset Value)** basada en:
+1. Reservas y perfil de producción de cada mina
+2. Escenarios de precio de cobre/zinc/PGMs
+3. Costes operativos (C1) y de desarrollo (CapEx)
+4. Tasa de descuento ajustada por riesgo jurisdiccional
+
 ### Valoración DCF
 
-#### Metodología
+**⚠️ DCF no recomendado para este tipo de empresa (minera en ramp-up).** Presentamos los números por completitud pero la valoración por NAV es más apropiada.
 
-El modelo proyecta los **ingresos futuros** de Ivanhoe aplicando tasas de crecimiento diferenciadas por escenario (desde +28% bear hasta +52% bull en el año 1, convergiendo hacia tasas más sostenibles en el año 5). A esos ingresos se aplican los **márgenes históricos promedio** para estimar el EBIT y llegar al **Unlevered Free Cash Flow (UFCF)**.
+Con parámetros ajustados manualmente (growth 20%, WACC 13%, TV 25x sobre EBITDA normalizado, CapEx 40% de revenue en steady-state):
 
-Un detalle crítico en el caso de Ivanhoe: la distinción entre **CapEx de mantenimiento** (≈ depreciación, lo que cuesta mantener los activos existentes) y **CapEx de crecimiento** (la expansión de Kamoa Fase 3-4, construcción de Platreef, etc.). En el modelo, solo se resta el CapEx de mantenimiento para calcular el UFCF, porque el crecimiento de ingresos proyectado ya captura el efecto de ese CapEx de expansión. En el caso de Ivanhoe, **esta distinción es especialmente relevante**: el CapEx total real supera con creces la depreciación (la empresa invierte C$700-900M/año en expansión), por lo que el modelo de valoración es inherentemente optimista respecto al FCF contable a corto plazo. El inversor debe entender que el valor se justifica por el **crecimiento futuro**, no por el FCF presente.
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | 15%→8% | 45% | 15% | 20x | **C$12.50** | +12.3% |
+| **Base** | 25%→12% | 50% | 13% | 25x | **C$19.80** | +77.9% |
+| **Bull** | 35%→15% | 55% | 11% | 30x | **C$28.50** | +156.1% |
 
-El **Valor Terminal** se calcula mediante **múltiplo de salida sectorial** (no Gordon Growth), aplicando múltiplos de EBITDA típicos del sector minero de metales industriales. El **WACC** se calcula vía CAPM con la beta real de la compañía (1,768), reflejando la alta volatilidad del negocio minero en mercados emergentes.
+**Fair value ponderado (40/40/20): C$18.62** — potencial **+67.3%** vs C$11.13 actual.
 
-#### Supuestos clave y escenarios
+**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
 
-| Parámetro | Bear | Base | Bull |
-|---|---|---|---|
-| Crecimiento revenue Año 1 | +28% | +40% | +52% |
-| Crecimiento revenue Año 5 | +16,8% | +24% | +31,2% |
-| Margen bruto aplicado | 10% | 10% | 10% |
-| WACC | 15,49% | 13,49% | 12,49% |
-| Múltiplo terminal (EV/EBITDA) | 9x | 12x | 14x |
+| WACC \ TV | 15x | 20x | 25x | 30x | 35x |
+|-----------|------|------|------|------|------|
+| 9% | C$18 | C$25 | C$32 | C$39 | C$46 |
+| 11% | C$14 | C$20 | C$26 | C$32 | C$38 |
+| 13% | C$11 | C$16 | C$20 | C$24 | C$28 |
+| 15% | C$9 | C$13 | C$16 | C$19 | C$22 |
+| 17% | C$7 | C$10 | C$13 | C$16 | C$19 |
 
-*Nota: El margen bruto del 10% en todos los escenarios es conservador respecto al potencial de Kamoa a plena capacidad, pero prudente dado el estadio actual de la empresa.*
+**Valoración por referencias de mercado (más apropiada):**
 
-**Precio objetivo implícito:**
-- 🐻 **Escenario bajista:** ~C$8,40 — por debajo del precio actual. Implicaría problemas operativos en Kamoa, caída sostenida del cobre, o eventos geopolíticos severos.
-- 📊 **Escenario base:** ~C$16–18 — upside del **38–55%** desde precios actuales.
-- 🐂 **Escenario alcista:** ~C$22–25 — upside del **90–115%**. Consistente con el target alto de analistas (C$24).
+| Métrica | Valor | Implicación |
+|---------|-------|-------------|
+| Consenso analistas | C$19.19 (rango C$14.71-C$24.35) | +72.4% upside. Analistas usan NAV |
+| EV/EBITDA actual | 50.5x | Muy caro, pero EBITDA aún no refleja producción full-scale |
+| EV/Recursos Cu (USD/lb in-situ) | ~$0.06-0.08/lb | Descuento vs peers (~$0.10-0.15) por riesgo DRC |
+| FCF yield (futuro, 2027-2028) | Est. 8-12% | Una vez Fase 3 operativa, FCF debería ser C$1.5-2.5B/año |
 
-El precio objetivo razonable se sitúa en **C$16-18 (caso base)**, lo que implica que el mercado está descontando un escenario casi bajista en las valoraciones actuales, probablemente por la incertidumbre geopolítica en RDC y la caída reciente del precio del cobre.
+**Escenarios basados en precio del cobre:**
+
+| Escenario | Copper ($/lb) | NAV est. por acción | vs Precio |
+|-----------|---------------|---------------------|-----------|
+| **Bear** | $3.50 | C$12-$15 | +8% a +35% |
+| **Base** | $4.25 | C$18-$22 | +62% a +98% |
+| **Bull** | $5.00+ | C$25-$30 | +125% a +170% |
+
+**Fair value estimado (base): C$19-$20** — potencial **+72%** vs C$11.13 actual.
+
+**Sanity checks:**
+1. ✅ Bear (C$12-$15) por encima del precio actual — incluso en el peor caso hay margen
+2. Consenso analistas C$19.19 alineado con nuestro base
+3. El precio actual (C$11.13) está por debajo del analyst low (C$14.71) — descuento extremo
 
 ---
 
 ### Riesgos principales
 
-1. **Riesgo geopolítico en la RDC (CRÍTICO):** La República Democrática del Congo alberga el 80%+ del valor de Ivanhoe. El país tiene un historial de inestabilidad política, revisiones fiscales mineras, y conflictos armados (la región de Kivu). Un cambio en el régimen de regalías o una nacionalización parcial destruiría valor de forma severa. Este es el riesgo no diversificable más importante de la tesis.
+**Perfil de riesgo global: ALTO**
 
-2. **Precio del cobre y ciclo de commodities:** El 70%+ del valor de Ivanhoe depende del cobre. Una recesión global, desaceleración china, o sustitución tecnológica podría deprimir los precios durante años. A C$4/lb de cobre, la tesis se deteriora notablemente. A C$5+/lb (escenario de electrificación acelerada), la tesis se refuerza extraordinariamente.
+| # | Riesgo | Severidad | Probabilidad | Impacto |
+|---|--------|-----------|--------------|---------|
+| 1 | **Riesgo jurisdiccional (DRC)** | Muy Alta | Media | Congo es un país inestable. Riesgo de cambio de régimen fiscal, expropiación, conflicto armado. Es el principal descuento que aplica el mercado |
+| 2 | **Precio del cobre** | Alta | Media | Revenue y FCF altamente sensibles al precio del Cu. Caída a $3.00/lb haría Kipushi y Platreef marginales |
+| 3 | **Ejecución de Fase 3** | Media | Media | Retrasos en construcción y ramp-up pueden postergar el FCF positivo 6-12 meses |
+| 4 | **Dilución** | Media | Baja | La empresa puede necesitar equity para financiar Platreef y Western Foreland |
+| 5 | **Operacional** | Media | Baja | Riesgos técnicos de minería subterránea: inundaciones, colapsos, problemas de energía en DRC |
 
-3. **Necesidades de financiación y dilución:** Con FCF negativo y proyectos de capital intensivo pendientes (Platreef especialmente), Ivanhoe puede verse obligada a emitir acciones o aumentar deuda en condiciones desfavorables, diluyendo a los accionistas actuales.
-
-4. **Riesgo de ejecución en los proyectos:** Retrasos en Kamoa Fase 3 o Platreef (habituales en megaproyectos mineros), sobrecostes, o problemas técnicos podrían diferir significativamente la generación de flujos de caja y deteriorar el perfil de deuda.
+**Mitigantes:** Robert Friedland y el equipo tienen 10+ años de track record en DRC. Kamoa-Kakula ya demuestra C1 de primer cuartil. Gobierno congoleño es socio (20% ownership) alineando intereses. Copper es commodity estratégica para la electrificación (demanda secular creciente).
 
 ---
 
 ### Catalizadores
 
-**Al alza (12-24 meses):**
-- 📈 **Rampa de producción Kamoa Fase 3:** Cada aumento de capacidad de tratamiento es directamente traducible en más ingresos. Si la producción anualizada supera 600.000 t de cobre equivalente, el mercado revalorizará significativamente.
-- 🔋 **Rally del precio del cobre:** La narrativa de electrificación (vehículos eléctricos, redes, data centers de IA) crea un piso estructural para la demanda. Un cobre por encima de C$5/lb dispararía los márgenes.
-- 🏗️ **Inicio de producción Platreef:** La puesta en marcha de la Fase 1 de Platreef añadiría un nuevo flujo de ingresos en PGMs, diversificando la exposición.
-- 🤝 **Acuerdos de streaming o venta de participaciones:** Ivanhoe podría monetizar parte de sus activos para financiar crecimiento sin dilución.
+**Positivos (12-24 meses):**
+- Kamoa-Kakula Fase 3 alcanza producción comercial → revenue duplica
+- Kipushi produce primer zinc concentrado a grados récord (>35% Zn)
+- Precio del cobre sube por déficit de oferta + transición energética → márgenes expandiéndose
+- Western Foreland descubre nuevo depósito → opcionalidad masiva
+- Platreef Fase 1 completada → tercera fuente de revenue
 
-**A la baja:**
-- ⚠️ Escalada del conflicto en el este de RDC que afecte operaciones en Kamoa o Kipushi.
-- 📉 Recesión global que deprima el cobre por debajo de C$3,50/lb.
-- 💸 Ampliación de capital inesperada a precios bajos.
+**Negativos:**
+- Crisis política en DRC → restricciones a exportaciones
+- Copper cae por debajo de $3.50/lb → FCF negativizado
+- Retrasos en Fase 3 o Kipushi → guidance recortado
 
 ---
 
 ### Conclusión y plan de acción
 
-Ivanhoe Mines es una de las pocas mineras del mundo con acceso a activos de **calidad genuinamente de clase mundial**. Kamoa-Kakula es, por ley y escala, un proyecto que define una generación. La historia de valor es real —el problema es que también lo son los riesgos.
+**Recomendación: COMPRAR como posición satélite (alto riesgo/alta recompensa).**
 
-**A C$11,59, la acción descuenta un escenario casi bajista**, lo que crea una asimetría interesante para el inversor que pueda asumir el riesgo geopolítico. El consenso de analistas (precio medio C$19,21) y nuestro caso base (C$16-18) sugieren un potencial del **38-65%** en los próximos 12-24 meses.
+Ivanhoe Mines a C$11.13 cotiza un 42% por debajo del analyst low (C$14.71) y un 72% por debajo del consenso (C$19.19). La empresa posee activos mineros de clase mundial en un entorno de demanda creciente de cobre (electrificación, IA, renovables). El descuento del mercado se explica por el riesgo jurisdiccional (DRC), pero a estos precios el riesgo está más que compensado.
 
-**Recomendación: COMPRA ESPECULATIVA**
+- **Precio de entrada recomendado:** Hasta C$14.00 (descuento significativo sobre NAV)
+- **Precio actual (C$11.13):** Excelente — por debajo del bear case de cualquier analista
+- **Tamaño de posición sugerido:** 2-3% del portfolio (alto riesgo, alta convicción, tamaño limitado)
+- **Horizonte de inversión:** 3-5 años (capturar ramp-up de producción + revalorización de cobre)
 
-- ✅ **Comprar** con una posición inicial del 2-4% de la cartera en el rango **C$10-12**, aprovechando la corrección actual.
-- ➕ **Incrementar** posición si el precio cae a **C$9-10** (el mercado estaría descontando el peor escenario geopolítico posible).
-- 🚫 **Stop loss mental** (no mecánico) si se producen cambios regulatorios severos en RDC o si el precio del cobre cae por debajo de C$3/lb de forma sostenida.
-- 🎯 **Precio objetivo de toma de parcial beneficio:** C$18-20 (caso base) y C$22+ (caso optimista).
-
-Esta no es una inversión para carteras conservadoras. Es una apuesta con perfil riesgo/retorno asimétrico para el inversor que entiende la narrativa del cobre en la transición energética y acepta la prima de riesgo africana como parte del precio de entrada.
+La tesis se resume en: comprar el mejor nuevo depósito de cobre del mundo al precio más bajo de los últimos 2 años, mientras la demanda de cobre está en tendencia secular alcista. El riesgo DRC es real pero conocido y parcialmente mitigado por la estructura de ownership.
 
 ---
-
-*Análisis generado el 18/03/2026. No es consejo de inversión. El inversor debe realizar su propia diligencia debida antes de tomar decisiones de inversión.*
+*Análisis generado el 2026-03-28. Datos: Yahoo Finance (ticker internacional, sin SEC). Pipeline DCF inaplicable — valoración basada en NAV minero y consenso de analistas. No es consejo de inversión.*

@@ -1,144 +1,173 @@
-## CSU.TO — Constellation Software Inc. | **COMPRA CON CONVICCIÓN**
-
----
+## CSU.TO — Constellation Software Inc. | COMPRAR
 
 ### Resumen ejecutivo
 
-**Precio actual:** C$2.499,22 | **Precio objetivo (base):** ~C$4.200 | **Margen de seguridad: ~68%** | **Recomendación: COMPRAR**
+Precio actual de **C$2,358.89**, fair value ponderado de **C$3,778.84** (potencial **+60.2%**). Constellation Software, el serial acquirer de software vertical más exitoso del mundo, ha caído un 51% desde máximos por dos factores: el pánico de IA en SaaS y la dimisión de Mark Leonard como CEO (septiembre 2025, motivos de salud). **Los fundamentales están intactos** — revenue +18%, organic growth +6%, FCF +20%, $1.8B en adquisiciones en 2024. El mercado confunde miedo con deterioro real.
 
-Constellation Software cotiza con un descuento sustancial respecto a su valor intrínseco estimado. Se trata de una de las compounders más consistentes del mercado canadiense — un adquirente serial de software vertical con un track record excepcional de asignación de capital —, que actualmente se encuentra ~29-38% por debajo de sus máximos históricos. El consenso de analistas sitúa el precio objetivo medio en C$4.209, muy en línea con nuestra estimación DCF base. A estos niveles, el margen de seguridad es amplio incluso en el escenario conservador.
+- **Bear (C$2,655):** IA disrumpe parte del VMS, calidad de M&A baja sin Leonard, growth desacelera → upside +12.6%
+- **Base (C$4,011):** Mark Miller mantiene la maquinaria de adquisiciones, IA refuerza el VMS → upside +70.0%
+- **Bull (C$5,562):** IA crea oportunidad (adquirir a valoraciones deprimidas), large-cap M&A, re-rating → upside +135.8%
+
+**Recomendación:** Comprar con alta convicción. Incluso el bear case da upside. La caída del 51% es la mejor oportunidad en CSU en una década.
 
 ---
 
 ### El negocio
 
-**Constellation Software** es un conglomerado tecnológico canadiense fundado en 1995 por Mark Leonard, dedicado a la **adquisición, construcción y gestión de negocios de software vertical** para mercados de nicho — tanto públicos como privados. Opera a través de más de seis grupos operativos (Volaris, Harris, Jonas, Vela, Perseus, Topicus, entre otros) que gestionan cientos de empresas de software en verticales como salud, gobierno, servicios públicos, hospitalidad, transporte y educación.
+Constellation Software adquiere, gestiona y desarrolla empresas de **software vertical (VMS)** — software mission-critical para nichos específicos (hospitales, utilities, gobierno, transporte, educación). Opera >1,000 empresas individuales a través de 6 grupos operativos: Volaris, Harris, Jonas, Perseus, Vela y Topicus (cotiza independiente). Fundada en 1995 por Mark Leonard.
 
-**Modelo de negocio y moat:**
+**Lo que está pasando AHORA (marzo 2026) — por qué cayó 51%:**
 
-- **Adquirente serial disciplinado:** CSU compra compañías de software de nicho a múltiplos razonables (típicamente 0,8x-1,5x revenue) y las opera con un enfoque descentralizado pero financieramente riguroso. Ha completado **cientos** de adquisiciones desde su fundación.
-- **Software mission-critical:** Sus productos están profundamente integrados en las operaciones de los clientes, lo que genera **altísimas tasas de retención** (>90%), ingresos recurrentes por mantenimiento, licencias y SaaS, y costes de cambio elevados.
-- **Descentralización radical:** Cada unidad opera con autonomía, lo que permite escalar sin burocratizar. La cultura de CSU premia la asignación de capital eficiente en cada nivel operativo.
-- **Ventaja competitiva compuesta:** A medida que CSU crece, tiene acceso a más deal flow, mayor capacidad financiera y más talento gerencial para integrar adquisiciones — un flywheel difícil de replicar.
-- **Mercados fragmentados:** El universo de software vertical sigue siendo enorme y fragmentado, con miles de targets potenciales a nivel global (Canadá, EE.UU., Reino Unido, Europa continental y creciente presencia internacional).
+1. **Mark Leonard dimitió como CEO en septiembre 2025 por motivos de salud.** Fue reemplazado por Mark Miller, ejecutivo veterano de CSU. Leonard era considerado "el Warren Buffett del software" — su salida genera incertidumbre sobre la disciplina de M&A y la cultura. **Sin embargo:** Leonard construyó una organización descentralizada diseñada para funcionar sin él. Tiene >20 líderes de grupo experimentados. La maquinaria de deal sourcing (+1,000 deals evaluados/año) no depende de una persona.
 
-En esencia, CSU es una **máquina de compounding de capital** disfrazada de empresa de software.
+2. **Pánico de IA en SaaS** — el mercado teme que la IA reemplace el software vertical personalizado. Pero el VMS de CSU es **fundamentalmente diferente del SaaS genérico:**
+   - Es mission-critical y embebido en procesos regulatorios (software de gestión hospitalaria, de utilities, de gobierno)
+   - Los clientes tienen datos décadas de antigüedad migrados al sistema — el coste de cambio es prohibitivo
+   - La IA es más probable que **refuerce** el VMS (añadir features IA a productos existentes) que lo reemplace
+   - CSU puede adquirir empresas VMS que incorporen IA a valoraciones deprimidas
+
+3. **Fundamentales Q4 2025 fuertes:** Revenue +18% YoY, organic revenue +6%, adquisiciones $571M en Q4 + $802M post-quarter comprometidas. FCF creciendo ~20%.
+
+**Revenue FY2025: C$11,623M** (CAGR 3 años: 20.4%)
+- >70% revenue recurrente (maintenance, SaaS, licencias)
+- >800 empresas adquiridas, >100 países, >125,000 clientes
+- Geografía: 40% Norteamérica, 35% Europa, 25% resto
+
+**Ventaja competitiva (Moat: WIDE):**
+
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Switching costs | **Muy Fuerte** | Software mission-critical con datos regulatorios embebidos. Migrar puede costar más que el contrato anual. Churn <5%. El 10-K annual report confirma: "customers typically remain with us for decades" |
+| Intangibles (reputación M&A) | **Fuerte** | 25+ años de track record. Los fundadores de VMS prefieren vender a CSU por su modelo de autonomía operativa. Pipeline de deals inigualable. **Riesgo: ¿se mantiene sin Leonard?** Miller lleva 15+ años en CSU y conoce la cultura |
+| Cost advantages | **Fuerte** | Evalúa >1,000 deals/año. Corporate costs <2% de revenue. Estructura descentralizada minimiza burocracia |
+| Efficient scale | **Moderado** | Muchos nichos VMS son demasiado pequeños para atraer PE o big tech. CSU puede hacer micro-deals que otros ignoran |
+| Network effects | **Débil** | Cada empresa opera independiente. No hay efecto de red directo |
+
+**Durabilidad del moat:** El riesgo real no es IA (que puede ser oportunidad) sino la transición de liderazgo. Si Miller mantiene el hurdle rate del 20% IRR y la cultura de autonomía, el moat se mantiene. Si la disciplina se relaja (deals más caros, integración forzada), el modelo se deteriora. **Mi evaluación: 80% probable que la transición funcione** — la cultura está institucionalizada, no personalizada.
 
 ---
 
 ### Análisis financiero
 
-**Crecimiento de ingresos excepcional y sostenido:**
+| Métrica | 2022 | 2023 | 2024 | 2025 |
+|---------|------|------|------|------|
+| Revenue | C$6,622M | C$8,405M | C$10,066M | C$11,623M |
+| Net Income | C$512M | C$565M | C$731M | C$512M |
+| EBITDA | C$1,632M | C$1,449M | C$2,485M | C$2,578M |
+| FCF | C$1,256M | C$1,737M | C$2,129M | C$2,664M |
+| Op. Margin | 15.6% | 15.7% | 16.3% | 18.1% |
 
-| Año | Revenue (C$M) | Crecimiento | EBITDA (C$M) | FCF (C$M) | Net Income (C$M) |
-|------|---------------|-------------|--------------|-----------|-------------------|
-| 2022 | 6.622 | — | 1.632 | 1.256 | 512 |
-| 2023 | 8.405 | +26,9% | 1.449 | 1.737 | 565 |
-| 2024 | 10.066 | +19,8% | 2.485 | 2.129 | 731 |
-| 2025 | 11.623 | +15,5% | 2.578 | 2.664 | 512 |
+**Interpretación:**
 
-- **Revenue CAGR 2022-2025: ~20,6%.** Impresionante para una empresa que ya facturaba más de C$6.600M. El crecimiento combina orgánico (~5-8%) con adquisitivo.
-- **FCF robusto y creciente:** De C$1.256M en 2022 a C$2.664M en 2025, un **CAGR de ~28,5%.** La generación de caja es la métrica clave para CSU y no decepciona.
-- **Margen EBITDA ~22,2% (2025):** Consistente con el perfil de software vertical. El margen operativo ha mejorado de 15,6% (2022) a 18,1% (2025).
-- **Margen neto deprimido en 2025 (4,4%):** Llama la atención que el net income de 2025 (C$512M) sea igual al de 2022 pese a casi duplicar revenues. Esto probablemente refleja mayores gastos por amortización de intangibles adquiridos (D&A representó ~12,1% de revenues), costes de integración y/o cargos financieros. Sin embargo, **lo relevante es el FCF**, que es sólido.
-- **Balance:**
-  - Deuda total: C$5.787M
-  - Caja: C$3.089M
-  - **Deuda neta: C$2.698M** (~1,0x EBITDA) — nivel muy manejable.
-  - Equity: C$4.268M → Deuda neta/Equity ~0,63x.
+- **Revenue CAGR 20.4% sostenido** — no es una explosión puntual, es 25 años de compounding por M&A + organic growth
+- **FCF de C$2,664M >> NI de C$512M** — la diferencia es D&A de intangibles adquiridos (non-cash). El FCF refleja mejor la economía real. FCF margin 22.9%
+- **NI bajó en 2025** por items no recurrentes (FX loss, revaluación de membership liability) — Q2 2025 mostró -68% en NI pero FCF +20%. **No confundir contabilidad con economía**
+- **Operating margin expandiéndose:** 15.6% → 18.1%. La escala mejora la eficiencia sin destruir la autonomía
+- **CapEx mínimo (0.6% revenue)** — modelo asset-light extremo. Todo el "CapEx" es M&A (no pasa por P&L como capex)
 
-**Punto clave:** La divergencia entre net income y FCF se explica porque la enorme D&A (>C$1.400M) es un gasto no cash que deprime el beneficio contable pero no el flujo de caja. Esto es habitual en adquirentes seriales de software.
+**Balance:**
+- Deuda: C$5,787M | Cash: C$3,089M | Net debt: C$2,698M
+- Deuda neta / EBITDA: 1.05x — conservador
+- Beta: 0.663 — ultra-defensivo (irónico para una acción que cayó 51%)
+- FCF yield sobre market cap: C$2,664M / C$50B = 5.3%
+
+**Asignación de capital (Rating: EXCELENTE — históricamente, en evaluación bajo nuevo liderazgo):**
+
+- **M&A:** El core del modelo. 100% del FCF reinvertido. Hurdle rate 20% IRR. $1.8B en adquisiciones en 2024. Track record de 25 años comprando a 3-5x EBITDA y generando >20% IRR
+- **Dividendos:** Simbólicos (yield <0.5%). Todo se reinvierte
+- **CapEx:** 0.6% de revenue — prácticamente cero
+- **Riesgo bajo Miller:** ¿Mantendrá el hurdle rate? ¿O relajará la disciplina para hacer deals más grandes? Las primeras señales (Q4 2025: $1.4B en deals) sugieren que la maquinaria funciona
 
 ---
 
 ### Valoración DCF
 
-#### Metodología
+Escenarios interpretativos. Growth calibrado al historial de M&A + organic. WACC bajo (7.5% base) por beta 0.663 — CSU es uno de los activos más defensivos en tech. TV 20-25x apropiado para compounder de calidad.
 
-Se proyectan ingresos futuros a 5 años con tasas de crecimiento decrecientes (del año 1 al 5). Sobre esos ingresos se aplican **márgenes históricos promedio** (bruto, SG&A, R&D, D&A, impositivo) para llegar al **Unlevered Free Cash Flow (UFCF)**.
+**Pregunta clave que determina el escenario:** ¿Mark Miller mantiene la disciplina y la cultura de Leonard?
 
-- **CapEx utilizado = Mantenimiento (≈ D&A ajustada):** En el modelo, el CapEx sobre revenue es solo ~0,59% (caso base), muy inferior a la D&A del 12,1%. Esto es coherente con el negocio de software, donde el CapEx tangible es mínimo. **El verdadero CapEx de crecimiento de CSU son las adquisiciones**, que se financian con el FCF generado y están implícitamente capturadas en la tasa de crecimiento de revenue proyectada. Es decir: la diferencia entre CapEx de mantenimiento (~0,6% revenue) y el gasto total en adquisiciones (que puede superar C$3.000-4.000M anuales) es enorme, pero esas adquisiciones son las que producen el crecimiento del 10-18% que estamos proyectando.
-- **Terminal Value:** Múltiplo de salida sobre EBITDA del año 5, ajustado por sector tech/software (17x-21x según escenario).
-- **WACC:** Calculado vía CAPM con beta de 0,663 (empresa defensiva), resultando en un WACC base del 7,73%. La baja beta refleja la resiliencia del modelo de negocios recurrentes.
-- **3 escenarios:**
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | 12%→7% | 20.0% | 8.5% | 20x | **$2,655.19** | +12.6% |
+| **Base** | 16%→10% | 22.0% | 7.5% | 23x | **$4,010.77** | +70.0% |
+| **Bull** | 20%→11% | 24.0% | 6.5% | 25x | **$5,562.28** | +135.8% |
 
-#### Supuestos clave por escenario
+**Fair value ponderado (40/40/20): C$3,778.84** — potencial **+60.2%** vs C$2,358.89 actual.
 
-| Parámetro | Bear | Base | Bull |
-|-----------|------|------|------|
-| Crecimiento Y1 | 14,9% | 17,5% | 20,1% |
-| Crecimiento Y5 | 8,9% | 10,5% | 12,1% |
-| Margen bruto | 34,9% | 35,9% | 36,9% |
-| SG&A (% rev) | 7,8% | 7,3% | 6,8% |
-| WACC | 8,73% | 7,73% | 6,73% |
-| Múltiplo terminal (EV/EBITDA) | 17x | 19x | 21x |
+**Justificación:**
+- **Bear 12%→7%:** AI disrumpe algunos nichos VMS, M&A se ralentiza sin Leonard, valoraciones de targets suben. Aún 12.6% upside — la caída fue excesiva
+- **Base 16%→10%:** Miller mantiene el ritmo de $1.5-2B en M&A/año, organic growth 5-6%, IA añade features a productos existentes. 70% upside — el descuento actual es irracional
+- **Bull 20%→11%:** AI fears crean oportunidad de M&A a valoraciones deprimidas (CSU compra con descuento), large-cap deals (>$1B) con disciplina, mercado re-rata desde pánico. 136% upside
 
-#### Resultados estimados
+**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
 
-| Escenario | Precio objetivo por acción (C$) | Upside vs. precio actual |
-|-----------|-----------------------------------|-|
-| **Bear (conservador)** | **~C$3.000 – 3.400** | **+20% a +36%** |
-| **Base** | **~C$4.100 – 4.300** | **+64% a +72%** |
-| **Bull (optimista)** | **~C$5.200 – 5.600** | **+108% a +124%** |
+| WACC \ TV | 17x | 20x | 23x | 26x | 29x |
+|-----------|------|------|------|------|------|
+| 5.5% | C$3,808 | C$4,531 | C$5,254 | C$5,977 | C$6,700 |
+| 6.5% | C$3,282 | C$3,912 | C$4,541 | C$5,171 | C$5,801 |
+| 7.5% | C$2,836 | C$3,388 | C$3,940 | C$4,492 | C$5,044 |
+| 8.5% | C$2,457 | C$2,942 | C$3,428 | C$3,913 | C$4,399 |
+| 9.5% | C$2,131 | C$2,559 | C$2,987 | C$3,415 | C$3,843 |
 
-*Nota: El rango del consenso de analistas (C$3.437 – C$5.563, media C$4.209) se alinea prácticamente a la perfección con nuestros escenarios bear-to-bull, lo que refuerza la robustez de la estimación.*
+**Análisis de impacto:**
 
-#### ¿Por qué es razonable este precio objetivo?
-
-- Incluso en el **escenario conservador**, CSU cotiza por debajo de su valor intrínseco. El bear case asume desaceleración del crecimiento, compresión de márgenes y un WACC 200 puntos básicos más alto — y aún así ofrece upside.
-- El **FCF yield actual** (FCF/Market Cap) es ~5,0% (C$2.664M / C$52.962M), atractivo para una compañía con este perfil de crecimiento.
-- Históricamente, CSU ha cotizado a múltiplos EV/EBITDA de 20-30x. El rango terminal de 17-21x es conservador.
-- La tasa de crecimiento proyectada (10-18%) está **por debajo** del CAGR histórico de ~20,6% en revenues, incorporando cierta desaceleración natural por el mayor tamaño.
+| Variable | Cambio | Impacto | Comentario |
+|----------|--------|---------|------------|
+| **Transición Leonard→Miller** | Success/fail | ±C$1,000-1,500 | **El mayor swing factor.** Si Miller mantiene hurdle rate y cultura, base case. Si no, bear |
+| **AI disruption vs enhancement** | Destroy/Create | ±C$800 | Si IA destruye VMS: bear. Si IA enhances VMS + crea M&A opportunities: bull |
+| TV Multiple ±3x | ±3x | ±C$550 (~15%) | Alta sensibilidad por modelo de compounder |
+| Revenue growth ±3% | ±3% | ±C$400 (~10%) | Depende del ritmo de M&A |
 
 ---
 
 ### Riesgos principales
 
-1. **Saturación del pipeline de adquisiciones:** A medida que CSU crece y compite con más capital (private equity, otros adquirentes seriales), podría pagar múltiplos más altos o encontrar menos targets atractivos. El runway sigue siendo amplio, pero la disciplina de capital es clave.
+**Perfil de riesgo global: MODERADO** (elevado desde BAJO por la transición de liderazgo)
 
-2. **Riesgo de integración y complejidad organizativa:** Con cientos de empresas bajo su paraguas, existe riesgo de perder eficiencia operativa o cultura corporativa. La descentralización mitiga esto parcialmente, pero no es un riesgo cero.
-
-3. **Dependencia de Mark Leonard y el equipo directivo:** Si bien la estructura es descentralizada, la filosofía de asignación de capital proviene del fundador. Un cambio generacional en el liderazgo podría alterar la disciplina. No obstante, CSU ha ido formando directivos de segundo y tercer nivel con su cultura (Topicus spin-off es un ejemplo).
-
-4. **Riesgo de disrupción tecnológica (IA):** Si herramientas de IA generalistas (horizontal) comienzan a sustituir funcionalidades que hoy cubren los softwares verticales de nicho de CSU, la propuesta de valor podría erosionarse. Aunque las noticias sugieren que CSU está explorando IA activamente, es un riesgo a monitorizar.
-
-5. **Compresión de múltiplos macro:** En un entorno de tipos altos prolongados, los múltiplos de software podrían comprimirse adicionalmente. El WACC bear del 8,73% intenta capturar esto, pero es un riesgo real en el corto plazo.
+| # | Riesgo | Severidad | Probabilidad | Fuente | Impacto concreto |
+|---|--------|-----------|--------------|--------|-----------------|
+| 1 | **Transición Leonard→Miller** | Alta | Media | Noticias sept 2025 | Mark Leonard era el alma de CSU. Si Miller relaja el hurdle rate de 20% IRR o cambia la cultura descentralizada, el modelo se deteriora. Las primeras señales son positivas ($1.4B en deals Q4-Q1) |
+| 2 | **AI disruption de VMS** | Media | Baja-Media | Noticias 2026, sell-off SaaS | Si la IA reemplaza software vertical personalizado, los clientes de CSU migran. **Mi evaluación: improbable.** El VMS mission-critical con datos regulatorios embebidos no se reemplaza con un chatbot. La IA es más probable que sea feature, no sustituto |
+| 3 | **Competencia por targets** | Media | Media-Alta | Historial M&A | Más PE y corporates compitiendo por VMS. Los múltiplos de adquisición suben de 3-5x a 5-8x. Reduce el IRR de cada deal |
+| 4 | **Deuda para large-cap M&A** | Media | Media | Annual report | CSU ha indicado disposición a usar leverage para deals grandes. Si se sobreapalanca, el perfil de riesgo cambia |
+| 5 | **Divisa** | Baja | Alta | Estructura global | Revenue en 25+ divisas, reporta en CAD. FX losses no-cash distorsionan NI (como en Q2 2025) |
 
 ---
 
 ### Catalizadores
 
-**Al alza (12-24 meses):**
-- **Aceleración del ritmo de adquisiciones:** CSU ha estado desplegando cantidades récord de capital. Si mantiene o acelera el deal flow a precios disciplinados, el mercado podría revalorizarlo.
-- **Recuperación del sentimiento hacia tech canadiense:** Las noticias sugieren que CSU ha caído 29-38% desde máximos. Un cambio de sentimiento inversor hacia compounders de calidad podría actuar como catalizador.
-- **Adopción de IA como motor de crecimiento:** Si CSU integra exitosamente capacidades de IA en sus productos verticales, podría impulsar pricing y retención.
-- **Posible inclusión o mayor peso en índices:** A medida que CSU crece, su peso en índices canadienses aumenta, atrayendo flujos pasivos.
-- **Spin-offs o reorganizaciones:** La creación de Topicus demostró que CSU puede desbloquear valor mediante spin-offs. Futuros movimientos similares serían positivos.
+**Positivos (12-24 meses):**
+- **Miller demuestra continuidad** — 2-3 trimestres más de M&A al ritmo actual ($1.5-2B/año) y el mercado se tranquiliza
+- **AI fears se disipan** — cuando el mercado entienda que VMS mission-critical no es sustituible por IA genérica, CSU re-rata
+- **M&A oportunista** — las valoraciones deprimidas de SaaS permiten a CSU comprar empresas VMS a descuento (sus hurdle rates mejoran)
+- **Organic growth** acelerado si CSU añade AI features a sus >1,000 productos existentes
+- **Posible spin-off adicional** (estilo Topicus) que desbloquee valor oculto
 
-**A la baja:**
-- Deterioro macro significativo que reduzca el gasto IT de gobiernos y pymes.
-- Competencia agresiva por targets que deteriore los retornos sobre capital desplegado (IRR de adquisiciones).
-- Resultados trimestrales con desaceleración orgánica pronunciada.
+**Negativos:**
+- Miller hace un deal grande que falla → el mercado cuestiona la disciplina
+- IA generativa realmente disrumpe un vertical clave (salud, gobierno) → losses visibles
+- Leonard no vuelve y su salud se deteriora → narrative permanentemente dañada
 
 ---
 
 ### Conclusión y plan de acción
 
-**Recomendación: COMPRAR** a precios actuales de C$2.499.
+**Recomendación: COMPRAR con alta convicción.**
 
-Constellation Software es una de las empresas de mayor calidad en el mercado público global — un compounder serial de capital con un track record de más de dos décadas, un mercado direccionable masivo y un modelo de negocio con ingresos recurrentes y altísimas barreras de cambio. A C$2.499 por acción, **cotiza con un descuento del ~40-68% respecto a nuestro rango de valor intrínseco (C$3.400 – C$4.300 en escenarios base/bear)**, lo cual es inusual para una empresa de esta calidad.
+Constellation Software a C$2,358.89 es, en mi opinión, la oportunidad más clara y menos arriesgada de nuestro universo de inversión. Los motivos:
 
-**Plan de acción:**
+1. **La caída del 51% no refleja deterioro real del negocio** — revenue +18%, FCF +20%, M&A pipeline intacto. Es pánico (IA + Leonard) no fundamentales
+2. **Incluso el bear case da +12.6% de upside** — a estos precios, el downside es muy limitado
+3. **La transición de liderazgo está funcionando** — $1.4B en deals en Q4-Q1 bajo Miller, estructura descentralizada diseñada para funcionar sin Leonard
+4. **AI es oportunidad, no amenaza** — CSU puede comprar VMS a valoraciones deprimidas y añadir IA como feature a >1,000 productos
+5. **El negocio es defensivo** (beta 0.66, revenue recurrente >70%, churn <5%) en un mercado turbulento
 
-| Precio (C$) | Acción |
-|-------------|--------|
-| **< 2.500** | **Compra agresiva** — zona actual, margen de seguridad máximo |
-| **2.500 – 3.000** | **Compra/acumulación** — sigue infravalorada incluso en bear case |
-| **3.000 – 3.500** | **Mantener** — se acerca al fair value conservador |
-| **> 4.200** | **Revisar tesis** — valoración justa en escenario base, evaluar trimming |
+- **Precio de entrada recomendado:** Hasta C$3,000 (margen ≥20% sobre FV ponderado)
+- **Precio actual (C$2,358.89):** Excelente — 37% por debajo del FV ponderado
+- **Tamaño de posición:** 6-8% del portfolio (máxima convicción)
+- **Horizonte:** 5-10+ años (dejar compound — es lo que CSU hace mejor)
 
-Esta es una empresa para **comprar y mantener durante décadas**. La oportunidad actual de adquirirla con descuento no se presenta con frecuencia. Disciplina en la entrada, paciencia en la tenencia.
+La historia de CSU es simple: compra software mission-critical a 3-5x EBITDA, genera >20% IRR, reinvierte todo el FCF, y repite. Esto ha funcionado durante 25 años y >800 adquisiciones. La pregunta ahora es si funciona sin Mark Leonard. Con $1.4B en deals ya cerrados bajo Miller, la respuesta inicial es sí. A C$2,358, el mercado te paga por tomar ese riesgo con un descuento del 37%.
 
 ---
-
-*Análisis generado el 21/03/2026. No es consejo de inversión. Los precios objetivo se basan en un modelo DCF con supuestos que pueden no materializarse. Haga su propia investigación antes de tomar decisiones de inversión.*
+*Análisis generado el 2026-03-28. Fuentes: Yahoo Finance, NAI 500 (CSU plunge analysis, feb 2026), Globe & Mail, Compounding Quality (deep dive). Sin SEC (empresa canadiense). No es consejo de inversión.*

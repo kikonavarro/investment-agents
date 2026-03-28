@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-28",
+    "file": "IVN_TO_20260328_valuation.json",
+    "current_price": 11.13,
+    "currency": "C$",
+    "fair_value_bear": 0.1406,
+    "fair_value_base": 0.1306,
+    "fair_value_bull": 0.1206,
+    "revenue": 441615000.0,
+    "gross_margin": 0.0383999637693466,
+    "growth_y1_base": 0.04,
+    "wacc_base": 0.1306,
+    "tv_base": 12
+  }
+]

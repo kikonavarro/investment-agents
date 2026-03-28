@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-03-22",
+    "file": "AMZN_20260322_valuation.json",
+    "current_price": 205.37,
+    "currency": "$",
+    "fair_value_bear": 0.1268,
+    "fair_value_base": 0.1168,
+    "fair_value_bull": 0.1068,
+    "revenue": 716924000000.0,
+    "gross_margin": 0.5028566486824266,
+    "growth_y1_base": 0.136,
+    "wacc_base": 0.1168,
+    "tv_base": 16
+  },
+  {
+    "date": "2026-03-28",
+    "file": "AMZN_20260328_valuation.json",
+    "current_price": 199.34,
+    "currency": "$",
+    "fair_value_bear": 0.1276,
+    "fair_value_base": 0.1176,
+    "fair_value_bull": 0.1076,
+    "revenue": 716924000000.0,
+    "gross_margin": 0.5028566486824266,
+    "growth_y1_base": 0.136,
+    "wacc_base": 0.1176,
+    "tv_base": 16
+  }
+]

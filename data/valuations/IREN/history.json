@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-03-26",
+    "file": "IREN_20260326_valuation.json",
+    "current_price": 38.035,
+    "currency": "$",
+    "fair_value_bear": 0.2387,
+    "fair_value_base": 0.2287,
+    "fair_value_bull": 0.21869999999999998,
+    "revenue": 501023000.0,
+    "gross_margin": 0.6826652668639963,
+    "growth_y1_base": 0.4,
+    "wacc_base": 0.2287,
+    "tv_base": 13
+  },
+  {
+    "date": "2026-03-28",
+    "file": "IREN_20260328_valuation.json",
+    "current_price": 35.09,
+    "currency": "$",
+    "fair_value_bear": 0.2353,
+    "fair_value_base": 0.2253,
+    "fair_value_bull": 0.2153,
+    "revenue": 501023000.0,
+    "gross_margin": 0.6826652668639963,
+    "growth_y1_base": 0.27901146738486027,
+    "wacc_base": 0.2253,
+    "tv_base": 13
+  }
+]

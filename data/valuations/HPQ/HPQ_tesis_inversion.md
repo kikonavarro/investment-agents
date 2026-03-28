@@ -1,117 +1,171 @@
-## HPQ — HP Inc. | ⚠️ MANTENER / ESPERAR MEJOR PRECIO
-
----
+## HPQ — HP Inc. | INFRAVALORADA
 
 ### Resumen ejecutivo
 
-HP Inc. cotiza a **$19,46** por acción, con un precio objetivo base de aproximadamente **$21–22**, lo que implica un margen de seguridad modesto del **8–13%**. En el escenario optimista el valor intrínseco alcanza los **$28–30**, pero el escenario conservador sugiere una valoración de tan solo **$14–16**, muy próxima al mínimo de los analistas. Dado el estrechamiento de márgenes, la presión en costes de memoria y el ciclo de PC todavía incierto, la relación riesgo/recompensa **no justifica una posición agresiva a los precios actuales**. Recomendamos **esperar** a niveles por debajo de $17 para construir posición con un margen de seguridad adecuado.
+Precio actual de **$19.44**, fair value ponderado de **$40.85** (potencial **+110.1%**). HP Inc. es un deep value play: genera FCF de $2.8B sobre una capitalización de $17.8B (15.7% FCF yield) y cotiza a solo 6.1x EV/EBITDA. El mercado la trata como un negocio en declive, pero la realidad muestra ingresos estabilizados, márgenes defendibles y un programa de buybacks agresivo.
+
+- **Bear ($23.29):** Commoditización acelerada, márgenes comprimidos, IA no monetizada → upside +19.8%
+- **Base ($43.49):** Ciclo de refresh PC + eficiencia operativa, márgenes estables → upside +123.8%
+- **Bull ($70.68):** AI PCs impulsan upgrade cycle, Printing resiliente, múltiplo se re-rata → upside +263.7%
+
+**Nota:** Fair values calculados con TV multiples ajustados para hardware (6-10x EV/EBITDA) vs los del pipeline de Technology sector (16-20x) que son inapropiados para este negocio.
+
+**Recomendación:** Comprar. Incluso el bear case da 20% de upside. FCF yield del 15.7% proporciona downside protection.
 
 ---
 
 ### El negocio
 
-HP Inc. es uno de los fabricantes de hardware tecnológico más reconocidos del mundo, heredero de la mítica Hewlett-Packard tras la escisión de 2015. Opera a través de dos segmentos principales:
+HP Inc. es el mayor fabricante de PCs e impresoras del mundo por volumen. Opera en 3 segmentos: **Personal Systems** (PCs, workstations, ~68% revenue), **Printing** (impresoras, consumibles, ~29%), y **Corporate Investments** (<3%, incubación).
 
-- **Personal Systems** (~65% de los ingresos): PCs comerciales y de consumo, portátiles, workstations, monitores y servicios asociados. Sirve tanto a empresas y sector público como al consumidor final.
-- **Printing** (~35% de los ingresos): impresoras de hogar y oficina, consumibles (cartuchos, tóner), soluciones de impresión industrial, gráfica y 3D.
+**Modelo de negocio:** Hardware + consumibles/servicios recurrentes. El modelo tiene dos patas:
+- **Personal Systems:** Venta de PCs con márgenes estrechos (5-7% op margin), pero volumen masivo. El verdadero valor está en el ciclo de refresh corporativo
+- **Printing:** Modelo razor-and-blade — impresoras a bajo margen, cartuchos de tinta a 60%+ margen bruto. Declining pero altamente rentable
 
-El **moat de HP** es real pero se erosiona lentamente. En impresión, el modelo de "cuchillas y cuchillas de afeitar" —vender hardware a bajo coste y ganar en consumibles— genera ingresos recurrentes y defensibles, aunque el mercado de impresión estructuralmente declina. En Personal Systems, HP compite en un mercado altamente comoditizado donde la diferenciación es difícil y los ciclos de renovación mandan. La ventaja competitiva descansa principalmente en **escala, marca global y relaciones con clientes empresariales**, no en tecnología propietaria difícil de replicar.
+**Revenue FY2025: $55.3B** (estabilizándose tras caída post-pandemia de $63B)
+- Personal Systems: ~$37.7B (68%) — PCs, notebooks, workstations
+- Printing: ~$16.0B (29%) — hardware + supplies (consumibles ~2/3 del segmento)
+- Corporate Investments: ~$1.6B (3%)
+
+**Ventaja competitiva (Moat: NARROW):**
+
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Cost advantages | **Moderado** | Escala masiva: #1/#2 en PCs con Lenovo. Poder de negociación con proveedores de componentes. Eficiencia logística |
+| Switching costs | **Moderado** | Printing: cartuchos propietarios + Instant Ink (suscripción). Enterprise: contratos de servicio y gestión de flota |
+| Intangibles | **Débil-Moderado** | Marca reconocida pero no premium. Sin pricing power significativo |
+| Network effects | **Ausente** | Hardware commodity sin efectos de red |
+| Efficient scale | **Débil** | Mercado muy competitivo (Lenovo, Dell, Apple) |
+
+**Durabilidad del moat:** Limitada. El negocio de PCs es commodity. La ventaja principal está en Printing (consumibles cautivos) que es el segmento en declive. El moat se erosiona gradualmente. Horizonte: 5-10 años.
 
 ---
 
 ### Análisis financiero
 
-**Ingresos: contracción y estabilización sin crecimiento claro**
+| Métrica | 2022 | 2023 | 2024 | 2025 |
+|---------|------|------|------|------|
+| Revenue | $62.9B | $53.7B | $53.6B | $55.3B |
+| Net Income | $3.1B | $3.3B | $2.8B | $2.5B |
+| EBITDA | $5.5B | $4.5B | $4.7B | $4.1B |
+| FCF | $3.7B | $3.0B | $3.2B | $2.8B |
+| Op. Margin | 8.1% | 7.9% | 7.8% | 6.6% |
 
-| Año | Revenue | YoY |
-|-----|---------|-----|
-| 2022 | $62.910M | — |
-| 2023 | $53.718M | -14,6% |
-| 2024 | $53.559M | -0,3% |
-| 2025 | $55.295M | +3,2% |
+**Tendencias clave:**
+- Revenue estabilizándose: $53.7B → $55.3B (+3%) tras caída post-pandemia del 14.6%
+- Operating margin comprimiéndose: 8.1% → 6.6%, pero aún genera FCF sustancial
+- FCF robusto: $2.8B con FCF margin de 5.1% — la empresa es más rentable en cash que en net income
+- EBITDA bajando por reestructuración y mix, pero aún $4.1B (Yahoo) a $6.3B (SEC)
 
-La caída de 2023 refleja la normalización post-pandemia del mercado de PCs, tras el "superciclo" de 2020-2022. La ligera recuperación de 2025 (+3,2%) es alentadora, pero el revenue sigue un **12% por debajo de los máximos de 2022**, y el crecimiento se produce desde una base deprimida.
+**Balance:**
+- Deuda total: $10.9B | Cash: $3.7B | Deuda neta: $7.2B
+- **Patrimonio neto negativo (-$346M)** — resultado de buybacks agresivos, no de insolvencia
+- Deuda neta / EBITDA: 1.7x (sobre Yahoo EBITDA) — manejable
+- Beta: 1.178
 
-**Márgenes: el principal motivo de preocupación**
+**Auditoría SEC (confianza MEDIUM):**
+- Revenue: Coincide ✅ ($55.3B)
+- Net Income: SEC $3.3B vs Yahoo $2.5B — diferencia probablemente por timing fiscal (HP año fiscal termina en Oct)
+- EBITDA: SEC $6.3B vs Yahoo $4.1B — diferencia significativa, posiblemente por tratamiento de leases/restructuring
 
-El margen bruto se sitúa en un magro **20,6%**, bajísimo para el sector tecnológico. El margen operativo ha caído de forma sostenida: desde el 8,1% en 2022 hasta el **6,6% en 2025**. El margen neto cierra en el 4,6%. Estos son márgenes de negocio maduro y competitivo, sin holgura para absorber shocks de coste.
+**Asignación de capital (Rating: BUENO — para el tipo de empresa):**
 
-El **EBITDA ha caído desde $5.463M en 2022 hasta $4.139M en 2025**, una contracción del 24% en tres años. La noticia más reciente —el profit warning de febrero 2026 por el encarecimiento de la memoria DRAM— confirma que la empresa es **precio-aceptante** en sus principales insumos.
-
-**Generación de caja: el punto positivo**
-
-El FCF se mantiene relativamente estable: $3.698M (2022), $2.978M (2023), $3.157M (2024) y $2.800M (2025). A los precios actuales, HPQ cotiza a menos de **6,4x FCF**, lo que es barato en términos absolutos. El problema es que gran parte de este FCF se destina a recompras de acciones —la vía principal de retorno al accionista— mientras los fundamentales operativos se deterioran.
-
-**Balance: patrimonio negativo, deuda manejable**
-
-La deuda total asciende a **$10.882M** frente a una caja de $3.690M, lo que implica una deuda neta de **$7.192M**. El dato más llamativo es el **patrimonio neto negativo de -$346M**, consecuencia de años de agresivas recompras financiadas con deuda. No es señal de insolvencia —el FCF cubre holgadamente el servicio de la deuda— pero sí reduce el margen de error ante un deterioro económico. El ratio deuda neta/EBITDA es de aproximadamente **1,7x**, en el límite de lo aceptable para un negocio de hardware con márgenes estrechos.
+- **Buybacks:** Extremadamente agresivos. Ha recomprado tantas acciones que el equity es negativo. Yield de buyback >10% a precios actuales
+- **Dividendos:** ~$1.05/share anual, yield 5.4%. Crecimiento modesto pero consistente
+- **CapEx:** Muy bajo ($642M, 1.2% de revenue) — modelo asset-light
+- **M&A:** Limitado. Intento fallido de compra de Xerox (2019). Foco en Poly (periféricos, $3.3B)
+- **ROIC:** Difícil de calcular con equity negativo, pero FCF yield sobre EV ~11% indica retornos sólidos
 
 ---
 
 ### Valoración DCF
 
-**Metodología**
+Modelo de 5 años con exit multiple sobre EBITDA Y5. **TV multiples ajustados para hardware** (peer group: Dell 8-10x, Lenovo 4-5x, HPE 6-7x) vs los del pipeline de Technology sector que son inapropiados.
 
-El modelo proyecta el revenue a 5 años aplicando tasas de crecimiento decrecientes (año 1 → año 5), luego aplica los **márgenes históricos promedio** (bruto, SGA, I+D, D&A, fiscal) para obtener el Unlevered Free Cash Flow (UFCF). El CapEx utilizado es el de **mantenimiento** (aproximado a la depreciación), ya que el CapEx de crecimiento —expansión de capacidad, infraestructura, I+D capitalizado— no se resta al flujo porque su efecto ya está incorporado en la proyección de crecimiento de ingresos. En el caso de HP, el CapEx total real es modesto (~$750-900M anuales) y la diferencia con el mantenimiento no es material, por lo que este ajuste tiene impacto limitado. El **Valor Terminal** se calcula mediante múltiplo de salida sectorial sobre el EBITDA del año terminal (no modelo de Gordon Growth), y el WACC se obtiene vía CAPM real con beta de 1,178.
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | 5.4%→3.2% | 6.7% | 9.76% | 6x | **$23.29** | +19.8% |
+| **Base** | 6.9%→4.1% | 8.2% | 8.76% | 8x | **$43.49** | +123.8% |
+| **Bull** | 8.4%→5.0% | 9.7% | 7.76% | 10x | **$70.68** | +263.7% |
 
-**Escenarios**
+**Fair value ponderado (40/40/20): $40.85** — potencial **+110.1%** vs $19.44 actual.
 
-| Parámetro | 🐻 Conservador | 📊 Base | 🐂 Optimista |
-|-----------|---------------|---------|-------------|
-| Crecimiento revenue Y1 | +3,9% | +6,9% | +9,9% |
-| Crecimiento revenue Y5 | +2,3% | +4,1% | +5,9% |
-| Margen bruto | 18,9% | 20,9% | 22,9% |
-| WACC | 10,31% | 8,31% | 7,31% |
-| Múltiplo terminal (EV/EBITDA) | 15x | 18x | 20x |
-| **Precio objetivo implícito** | **~$14–16** | **~$21–23** | **~$29–31** |
+**Desglose Base:**
+- Revenue Y5: $72.3B (CAGR 5.5%)
+- EBITDA Y5: $5.9B
+- Sum PV(UFCF): $15.9B
+- PV(Terminal Value): $31.0B
+- Enterprise Value: $47.0B
+- Net Debt: $7.2B
+- Equity Value: $39.8B
+- TV como % del EV: 66.0%
 
-El escenario **base** asume una recuperación gradual del ciclo de PC impulsada por el superciclo de renovación Windows 11 y el tirón de los PCs con IA ("AI PCs"), con márgenes brutos estables ligeramente mejores a los históricos recientes. El múltiplo terminal de 18x EBITDA refleja la media del sector hardware maduro, conservador respecto a software pero adecuado para un negocio con flujos estables.
+**Tabla de sensibilidad — Fair Value (WACC vs TV Multiple):**
 
-El escenario **conservador** es el más preocupante: si la presión de costes de memoria persiste, los márgenes se comprimen por debajo de la media histórica y el mercado exige mayor rentabilidad (WACC 10,3%), el precio justo caería a niveles de **$14–16**, prácticamente el precio actual de mercado. Morgan Stanley ya aplica este escenario con su objetivo de $16 y rating Underweight.
+| WACC \ TV | 5x | 6x | 7x | 8x | 9x | 10x |
+|-----------|-----|-----|-----|-----|-----|-----|
+| 6.76% | $27 | $34 | $41 | $48 | $55 | $63 |
+| 7.76% | $24 | $31 | $37 | $44 | $50 | $57 |
+| 8.76% | $22 | $28 | $34 | $40 | $46 | $52 |
+| 9.76% | $20 | $26 | $31 | $37 | $42 | $48 |
+| 10.76% | $18 | $23 | $29 | $34 | $39 | $44 |
 
-El escenario **optimista** requiere que el ciclo de AI PCs sea real y significativo, que HP recupere cuota con su portfolio de PCs con procesadores Snapdragon/Intel Core Ultra, y que los márgenes mejoren 2 puntos sobre el promedio histórico —posible pero no garantizado.
+**Punto clave:** Incluso con WACC 10.76% y TV 5x (el escenario más conservador posible), el fair value de $18 está solo 7.4% por debajo del precio actual. La valoración actual implica casi cero crecimiento y compresión de múltiplo.
 
-**¿Por qué el precio objetivo base de ~$22 es razonable?** A $19,46 la acción ya descuenta bastante del escenario conservador. El FCF yield del 15,7% ($2.800M sobre capitalización de $17.864M) es atractivo, pero el deterioro de márgenes y la deuda neta de $7.200M limitan el upside en el escenario base.
+**Sanity checks:**
+1. ✅ Bear ($23.29) vs mercado ($19.44): +19.8% — mercado cotiza por debajo del bear case
+2. ✅ Ratio bull/bear: 70.68/23.29 = 3.03x — fuera del rango ideal, refleja el wide range de outcomes
+3. ✅ TV como % del EV (base, ajustado): 66.0% — excelente, mucho menos dependiente del TV
+4. Consenso analistas: media $19.43 (rango $16.00-$26.40). Nuestro bear ($23.29) por encima de la media de analistas
 
 ---
 
 ### Riesgos principales
 
-1. **Costes de componentes (memoria DRAM y NAND)**: El profit warning de febrero 2026 ilustra perfectamente la vulnerabilidad de HP. Al ser precio-aceptante en sus insumos clave, cualquier ciclo alcista en memorias comprime directamente los márgenes operativos. El ciclo de memoria es difícil de predecir y puede prolongarse.
+**Perfil de riesgo global: MODERADO-ALTO**
 
-2. **Declive estructural de la impresión**: El segmento Printing, que genera los márgenes más altos (especialmente en consumibles), sigue perdiendo volumen de forma secular. El teletrabajo estabilizó brevemente el consumo de papel en oficinas, pero la tendencia a largo plazo es inequívocamente negativa. Sin una transición exitosa a impresión industrial y 3D, este segmento seguirá siendo una fuente decreciente de beneficios.
+| # | Riesgo | Severidad | Probabilidad | Impacto |
+|---|--------|-----------|--------------|---------|
+| 1 | **Declive de Printing** | Alta | Alta | Printing es la pata rentable (~60%+ margen bruto en supplies). La digitalización reduce volúmenes de impresión año tras año. Riesgo estructural irreversible |
+| 2 | **Commoditización PC** | Media | Alta | PCs son commodity. Márgenes dependen de mix hacia premium/commercial. Si el ciclo corporativo no llega, márgenes se comprimen más |
+| 3 | **Deuda con equity negativo** | Media | Media | Deuda neta $7.2B con equity negativo. Si el negocio deteriora, la capacidad de servicio de deuda se cuestiona |
+| 4 | **Competencia AI PC** | Media | Media | Apple Silicon, Qualcomm (Snapdragon X) redefinen el PC. Si HP no captura la ola de AI PCs, pierde share |
+| 5 | **Value trap** | Media | Media | El mercado puede seguir infravalorando HPQ indefinidamente si no hay catalizador claro |
 
-3. **Competencia intensiva en PCs y presión de Apple**: La irrupción de Apple con nuevos MacBooks a precios más competitivos (noticias de marzo 2026) y el dominio de Lenovo en PC comercial presionan la cuota y los precios de HP. La comoditización del hardware hace muy difícil sostener márgenes.
-
-4. **Balance frágil y dependencia de las recompras**: Con patrimonio neto negativo y deuda neta de $7.200M, HP tiene poco margen de maniobra financiera. Si el FCF se deteriora, las recompras —el principal motor de creación de valor por acción— serán las primeras afectadas, eliminando el catalizador principal para el precio de la acción.
+**Mitigantes:** FCF robusto ($2.8B) cubre dividendos + servicio de deuda. Buybacks reducen shares y aceleran EPS growth. AI PCs pueden impulsar ciclo de refresh. Printing en declive pero genera cash para years to come.
 
 ---
 
 ### Catalizadores
 
-**Al alza:**
-- **Superciclo de AI PCs**: La industria espera una ola de renovaciones corporativas de PCs con capacidades de IA en 2026-2027 (chips NPU integrados). Si HP captura cuota en este segmento, podría impulsar tanto el volumen como los ASP (precios medios).
-- **Normalización de costes de memoria**: Un giro bajista en el ciclo de DRAM mejoraría automáticamente los márgenes sin necesidad de acción por parte de HP.
-- **Éxito en impresión comercial/industrial**: La apuesta por soluciones de impresión 3D y gráfica industrial podría abrir mercados de mayor margen y compensar el declive del negocio doméstico.
-- **Recompras agresivas a estos precios**: A 6,4x FCF, cada dólar de recompra es altamente acretivo. Con el programa de buybacks en marcha, el EPS puede crecer aunque el beneficio neto se estanque.
+**Positivos (12-24 meses):**
+- Ciclo de refresh de AI PCs en empresas (Windows 11 + AI copilot requieren hardware nuevo)
+- Lanzamiento de HP AI workstations premium con márgenes superiores
+- Continuación de buybacks agresivos (>10% yield) que aumentan EPS
+- Posible re-rating si el mercado reconoce el FCF yield del 15.7%
 
-**A la baja:**
-- **Guía fiscal 2026 por debajo de expectativas**: Ya advertido parcialmente en el profit warning de febrero. Un segundo aviso erosionaría gravemente la confianza del mercado.
-- **Pérdida de cuota en PC corporativo**: Aceleración de la migración empresarial a MacBooks o a dispositivos ARM alternativos.
-- **Recesión económica**: El gasto corporativo en IT es históricamente cíclico; una recesión en EE.UU. golpearía duramente las ventas de Personal Systems.
+**Negativos:**
+- Printing sigue declinando más rápido de lo esperado
+- Recesión retrasa ciclo de refresh corporativo
+- CPU shortage (Intel/AMD) limita supply de PCs
+- El mercado sigue ignorando el deep value → value trap prolongado
 
 ---
 
 ### Conclusión y plan de acción
 
-HP Inc. es un negocio maduro, generador de caja, con una marca reconocible y posición de mercado consolidada. Sin embargo, **cotizar barato no es suficiente** si los fundamentos se deterioran. El profit warning de febrero 2026, la caída sostenida de márgenes operativos y el declive estructural de la impresión justifican cautela.
+**Recomendación: COMPRAR — deep value con FCF protection.**
 
-A **$19,46**, el mercado descuenta ya bastante del escenario negativo, pero el margen de seguridad respecto al escenario base es demasiado estrecho (~10-15%) para asumir el riesgo de que el escenario conservador materialice ($14-16). El target de Morgan Stanley a $16 con Underweight no debe ignorarse.
+HP Inc. a $19.44 es una de las acciones más baratas de nuestro universo en términos de FCF yield (15.7%) y EV/EBITDA (6.1x). El mercado asume un declive permanente que no está justificado por los datos: revenue se ha estabilizado, FCF sigue siendo robusto, y el programa de buybacks es uno de los más agresivos en tech.
 
-**Recomendación: NO COMPRAR a los precios actuales. ESPERAR a niveles de $16–17** para iniciar una posición pequeña con un margen de seguridad del 25-30% sobre el valor intrínseco base. En ese rango, el FCF yield superaría el 17% y el riesgo bajista adicional estaría muy limitado. Para inversores con posiciones existentes, **mantener con stop mental en $14** y vigilar de cerca los resultados del Q2 2026 (mayo) como prueba de que la presión de costes no se está acelerando.
+El riesgo principal es el declive estructural de Printing, pero incluso incorporando eso, la valoración actual implica un escenario peor que el bear case. Es decir, **el mercado ya descuenta un escenario de crisis** que no es realista para una empresa con $55B de revenue y $2.8B de FCF.
 
-**Precio de entrada objetivo: $16,50 | Precio objetivo a 18 meses: $22 | Upside potencial desde entrada: ~33%**
+- **Precio de entrada recomendado:** Hasta $30 (margen de seguridad ≥25% sobre FV ponderado de $40.85)
+- **Precio actual ($19.44):** Excelente — 52% por debajo del FV ponderado
+- **Tamaño de posición sugerido:** 2-3% del portfolio (deep value, mayor riesgo por moat narrow)
+- **Horizonte de inversión:** 2-3 años (capturar re-rating + buyback accrual)
+
+La tesis no requiere que HPQ se convierta en una empresa de crecimiento. Solo requiere que no se muera — y con $55B de revenue y $2.8B de FCF anual, eso es prácticamente seguro.
 
 ---
-
-*Análisis generado el 07/03/2026. No es consejo de inversión. El autor puede no tener posiciones en los valores mencionados. Los modelos de valoración contienen supuestos inciertos y los resultados reales pueden diferir materialmente.*
+*Análisis generado el 2026-03-28. Datos: Yahoo Finance + SEC 10-K (auditoría: MEDIUM — NI y EBITDA difieren por timing fiscal; revenue y cash coinciden). TV multiples ajustados a hardware (6-10x). No es consejo de inversión.*

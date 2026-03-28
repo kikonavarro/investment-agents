@@ -1,110 +1,174 @@
-## IREN — IREN Limited | ⚠️ ESPECULATIVO / SEGUIMIENTO ACTIVO
-
----
+## IREN — IREN Limited | ESPECULATIVA
 
 ### Resumen ejecutivo
 
-**Precio actual:** $44,94 | **Precio objetivo base:** ~$38–42 | **Margen de seguridad:** Negativo en escenario base; atractivo solo en escenario bull ($72–80)
+Precio actual de **$35.09**, fair value ponderado de **$18.96** (potencial **-46.0%** en DCF ajustado). IREN es una empresa australiana de infraestructura digital que pivota de Bitcoin mining a data centers para IA/HPC (GPU-as-a-service). Está en fase de inversión masiva ($9.3B en financiación, 150K GPUs objetivo) con CapEx del 265% del revenue y FCF de -$1.1B. **El DCF tradicional no captura la opcionalidad del buildout de infraestructura.**
 
-IREN Limited es una apuesta de alta convicción en la intersección del minado de Bitcoin y la infraestructura de IA, pero cotiza a una valoración que ya descuenta buena parte del crecimiento optimista. **No se recomienda compra agresiva a precios actuales**; sería interesante iniciar posición en correcciones hacia los $28–32, donde el margen de seguridad se vuelve razonable incluso en escenario base.
+- **Bear ($12.12):** Retrasos en buildout, caída de Bitcoin, competencia en GPU hosting → downside -65.5%
+- **Base ($18.96):** Ejecución parcial del plan, revenue scale-up gradual → downside -46.0%
+- **Bull ($29.22):** Ejecución completa, contratos AI de largo plazo, márgenes estabilizándose → downside -16.7%
+
+**Recomendación:** No es una inversión value. Es una apuesta especulativa de alto riesgo/alta recompensa en infraestructura IA. No comprar con mentalidad de value investing. Solo para inversores con tolerancia al riesgo extremo y horizonte largo.
+
+**Nota:** DCF calculado con WACC ajustado (12-16% vs 22.5% del pipeline) y CapEx normalizado (30% vs 265% actual) para reflejar steady-state post-buildout. Aún así, el precio actual descuenta una ejecución que no está garantizada.
 
 ---
 
 ### El negocio
 
-IREN Limited (anteriormente Iris Energy, rebautizada en noviembre de 2024) opera centros de datos integrados verticalmente en **Australia y Canadá**. El negocio tiene dos motores entrelazados:
+IREN Limited (antes Iris Energy) posee y opera data centers verticalmente integrados con acceso a energía renovable. Originalmente minero de Bitcoin, está pivotando hacia AI/HPC cloud computing (GPU-as-a-service con Nvidia H100/H200/B200). Opera en Australia, Canadá y EEUU.
 
-1. **Minería de Bitcoin:** IREN posee y opera hardware de computación (ASICs) alimentado por infraestructura eléctrica propia, principalmente energía renovable. Es uno de los mineros listados más grandes del mundo por hashrate.
+**Modelo de negocio:** Infraestructura de computación con dos patas:
+- **Bitcoin Mining:** Ingresos por minería y venta de BTC. Revenue volátil, dependiente del precio de Bitcoin y halving
+- **AI/HPC Cloud:** Alquiler de capacidad GPU a empresas de IA. Contratos de largo plazo, revenue predecible. Esta es la pata en crecimiento
+- **Ventaja clave:** Acceso a energía renovable barata (hidroeléctrica en BC, Canadá) que reduce costes de operación significativamente
 
-2. **Infraestructura de IA / Cloud (NeoCloud):** La compañía está pivotando activamente hacia el alquiler de capacidad de cómputo GPU para cargas de trabajo de inteligencia artificial, compitiendo en el segmento "NeoCloud" junto a nombres como CoreWeave o Applied Digital.
+**Revenue FY2025: $501M** (crecimiento explosivo: $59M en 2022 → $501M en 2025)
+- Bitcoin Mining: ~60-70% (volátil)
+- AI/HPC Cloud: ~30-40% (creciendo rápidamente)
 
-**Ventaja competitiva (moat):** IREN construye y posee su propia infraestructura eléctrica y los centros de datos, lo que le da control sobre costes operativos y acceso a energía de bajo coste. Sin embargo, el moat es cuestionable: la minería de Bitcoin es un commodity competitivo y el negocio de IA cloud está dominado por hipercalers y bien financiados rivales privados. La ventaja real está en la **ejecución operativa**, el acceso a energía barata y la capacidad de reutilizar infraestructura entre ambos negocios.
+**Ventaja competitiva (Moat: NARROW — en construcción):**
+
+| Fuente de moat | Rating | Evidencia |
+|----------------|--------|-----------|
+| Cost advantages | **Moderado** | Acceso a energía renovable barata. Power Purchase Agreements de largo plazo. Coste por MW-hora inferior a competidores |
+| Switching costs | **Débil** | GPU hosting es relativamente commodity. Pero contratos de largo plazo crean lock-in |
+| Efficient scale | **Débil-Moderado** | Capacidad de data center no es fácil de replicar rápidamente (permisos, energía, cooling) |
+| Intangibles | **Débil** | Sin marca significativa. Sin patentes relevantes |
+| Network effects | **Ausente** | Infraestructura pura, sin efectos de red |
+
+**Durabilidad del moat:** Baja. La ventaja principal (energía barata) puede replicarse. El sector de GPU hosting es nuevo y competitivo (CoreWeave, Applied Digital, Core Scientific). Horizonte de moat: 3-5 años máximo.
 
 ---
 
 ### Análisis financiero
 
-**Crecimiento de revenue explosivo pero joven:**
+| Métrica | 2022 | 2023 | 2024 | 2025 |
+|---------|------|------|------|------|
+| Revenue | $59M | $76M | $187M | $501M |
+| Net Income | -$420M | -$172M | -$29M | $87M |
+| EBITDA | $16M | -$123M | $25M | $286M |
+| FCF | -$332M | -$110M | -$428M | -$1,127M |
+| Op. Margin | 0.8% | -64.3% | -14.6% | 4.4% |
 
-| Año | Revenue | EBITDA | FCF |
-|-----|---------|--------|-----|
-| 2022 | $59M | $16M | -$332M |
-| 2023 | $75M | -$123M | -$110M |
-| 2024 | $187M | $25M | -$428M |
-| 2025 | $501M | $286M | -$1.127B |
+**Tendencias clave:**
+- Revenue creciendo explosivamente: $59M → $501M en 3 años (CAGR 104%)
+- Primer año de NI positivo en 2025 ($87M), pero FCF masivamente negativo (-$1.1B) por inversión en infraestructura
+- EBITDA margin mejorando drásticamente: -64% → 57% (economías de escala en operación de data centers)
+- Operating margin apenas positivo (4.4%) por alta D&A (29% de revenue = amortización de equipos GPU)
+- **La discrepancia entre NI positivo y FCF negativo es la clave:** todo el cash se reinvierte en capacidad futura
 
-El salto de revenue de 2024 a 2025 es notable: **+168%**, pasando de $187M a $501M. El EBITDA también se disparó hasta $286M, lo que implica un margen EBITDA del ~57%. Esto refleja el apalancamiento operativo del negocio una vez que la infraestructura está construida y generando.
+**Balance:**
+- Deuda total: $964M | Cash: $565M | Deuda neta: $399M
+- Total equity: $1,817M
+- Beta: 4.321 — extremadamente volátil (correlación cripto + growth stock)
 
-**La trampa del FCF negativo:** El FCF en 2025 fue **-$1.127B**, el más negativo de su historia. Esto no es necesariamente una señal de alarma per se —es consecuencia directa del CapEx masivo de expansión en nuevos centros de datos y hardware GPU— pero requiere que el mercado confíe en que ese capital se convierte en flujos futuros. La empresa está en modo "construir primero, cobrar después".
+**Auditoría SEC (confianza LOW — falso negativo):**
+Las discrepancias SEC vs Yahoo son por unidades (SEC reporta en miles AUD, Yahoo en millones). Revenue $501M coincide al comparar en las mismas unidades. Sin embargo, hay una discrepancia real en Net Income: SEC reporta $180M vs Yahoo $87M — posiblemente por tratamiento de gains/losses en Bitcoin holdings.
 
-**Margen bruto histórico:** ~68% en 2025 (aunque el promedio histórico usado en el modelo es ~57%, más conservador por los años de pérdidas). El margen operativo apenas alcanza el 4,4%, penalizado por D&A elevada y SG&A.
+**Asignación de capital (Rating: NO EVALUABLE — fase de inversión):**
 
-**Balance:** Deuda total de $964M frente a caja de $565M → deuda neta de ~$400M. Equity contable de $1.817B. La estructura financiera es manejable pero deja poco margen si el ciclo de Bitcoin se deteriora o si los contratos de IA cloud tardan en materializarse.
+IREN está en plena fase de inversión, por lo que el framework de capital allocation no aplica de manera estándar:
+- **CapEx:** $1.3B+ (265% de revenue) — construcción de data centers y compra de GPUs (Nvidia H100/H200/B200). Objetivo: 150K GPUs
+- **Financiación:** $9.3B entre deuda y equity para financiar el buildout
+- **Dividendos/Buybacks:** No aplica — todo el capital se reinvierte
+- **ROIC:** Negativo por ahora (fase de inversión). El retorno se evaluará cuando la capacidad esté operativa
 
 ---
 
 ### Valoración DCF
 
-**Metodología:** El modelo proyecta el revenue futuro de IREN aplicando tasas de crecimiento decrecientes (del +40% en año 1 hasta ~+24% en año 5 para el escenario base). Sobre ese revenue se aplican los márgenes históricos promedio (gross margin ~57%, SG&A, D&A, impuestos) para estimar el UFCF (Unlevered Free Cash Flow).
+**⚠️ LIMITACIONES IMPORTANTES:**
+1. El DCF estándar no captura bien empresas en fase de inversión masiva con CapEx >>100% del revenue
+2. El WACC del pipeline (22.5%) es absurdo — usamos 12-16% (alto pero razonable para el riesgo)
+3. El CapEx actual (265%) refleja fase de buildout, no operación normal. Normalizamos a 30% para steady-state
+4. La valoración depende críticamente de la capacidad de IREN de convertir CapEx actual en revenue futuro
 
-**Nota importante sobre CapEx:** Se utiliza exclusivamente CapEx de mantenimiento (aproximado como la depreciación del periodo). El CapEx de crecimiento —que en IREN es masivo, superando $1.000M en 2025— **no se resta**, porque ya está implícito en la tasa de crecimiento de revenue proyectada. Esto es metodológicamente correcto pero el inversor debe entender que la diferencia entre el CapEx total real (~$1.1B) y el de mantenimiento es enorme; IREN está en una fase de inversión intensiva que consume todo el flujo de caja y requiere financiación externa continua.
+**DCF con parámetros ajustados (WACC 12-16%, CapEx normalizado 30%):**
 
-**Terminal Value:** Se calcula mediante múltiplo de salida por sector (no Gordon Growth), usando EV/EBITDA terminal.
+| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
+|-----------|--------------|---------------|------|-------------|------------|-----------|
+| **Bear** | 23.7%→14.2% | 54.9% | 16% | 11x | **$12.12** | -65.5% |
+| **Base** | 27.9%→16.7% | 55.9% | 14% | 13x | **$18.96** | -46.0% |
+| **Bull** | 32.1%→19.3% | 56.9% | 12% | 15x | **$29.22** | -16.7% |
 
-**WACC:** Calculado via CAPM real. Con un **beta de 4,32**, el WACC resultante es elevadísimo (23,3% en escenario base), lo que refleja apropiadamente el riesgo de una empresa con exposición dual a Bitcoin y a un negocio de IA cloud en construcción.
+**Fair value ponderado (40/40/20): $18.96** — potencial **-46.0%** vs $35.09 actual.
 
-| Escenario | Crec. Y1 | Margen Bruto | WACC | Múltiplo Terminal | Precio Implícito |
-|-----------|----------|--------------|------|-------------------|-----------------|
-| **Bear** | +28% | 54,9% | 25,3% | 10x EBITDA | ~$18–22 |
-| **Base** | +40% | 56,9% | 23,3% | 13x EBITDA | ~$38–42 |
-| **Bull** | +52% | 58,9% | 22,3% | 15x EBITDA | ~$70–80 |
+**Desglose Base:**
+- Revenue Y5: $1,368M (CAGR 22.3%)
+- EBITDA Y5: $764M
+- Sum PV(UFCF): $535M
+- PV(Terminal Value): $5,159M
+- Enterprise Value: $5,694M
+- Net Debt: $399M
+- Equity Value: $5,295M
+- TV como % del EV: 90.6% ⚠️
 
-El precio actual de $44,94 está **por encima del escenario base** y en el rango medio del camino hacia el bull case. Los analistas tienen un target medio de $80 (máximo $125), lo que implica que el consenso está descontando un escenario claramente optimista.
+**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
 
-**¿Por qué el precio objetivo base de ~$38–42 es razonable?** Porque con un WACC del 23%, el mercado exige una prima de riesgo brutal para descontar flujos de caja que hoy son negativos y que dependen de que (a) el precio de Bitcoin se mantenga o suba, (b) los contratos de IA cloud escalen rápido, y (c) la ejecución operativa no falle. A $40, el inversor compra con un colchón respecto al escenario base.
+| WACC \ TV | 9x | 11x | 13x | 15x | 17x |
+|-----------|-----|-----|-----|-----|-----|
+| 10% | $19 | $24 | $29 | $34 | $39 |
+| 12% | $15 | $19 | $24 | $28 | $33 |
+| 14% | $12 | $16 | $19 | $22 | $26 |
+| 16% | $10 | $13 | $16 | $19 | $21 |
+| 18% | $8 | $11 | $13 | $16 | $18 |
+
+**Lo que el precio actual ($35.09) implica:**
+Para justificar $35.09, necesitarías WACC ≤10% y TV ≥17x, o un escenario de crecimiento aún más agresivo. Esto equivale a asumir que IREN ejecuta perfectamente su plan de 150K GPUs Y obtiene contratos de largo plazo que estabilicen revenue.
+
+**Consenso analistas:** Media $76.14 (rango $26-$125). Los analistas claramente ven opcionalidad que el DCF no captura. Esto refuerza que un DCF estándar no es el framework correcto para IREN.
 
 ---
 
 ### Riesgos principales
 
-1. **Ciclo de Bitcoin:** El revenue de minería depende directamente del precio de BTC y de la dificultad de red. Un bear market en crypto (BTC por debajo de $50.000–60.000) comprimiría márgenes drásticamente y podría volver negativo el EBITDA. El halving ya ajustó recompensas a la baja en 2024.
+**Perfil de riesgo global: MUY ALTO**
 
-2. **Competencia en IA Cloud / Ejecución:** El mercado NeoCloud está atrayendo capital masivo (CoreWeave, Nebius, Applied Digital). IREN necesita cerrar contratos de largo plazo con clientes de IA antes de que los hipercalers (AWS, Azure, GCP) absorban la demanda. El riesgo de quedarse sin contratos es real.
+| # | Riesgo | Severidad | Probabilidad | Impacto |
+|---|--------|-----------|--------------|---------|
+| 1 | **Ejecución del buildout** | Muy Alta | Media | $9.3B de inversión en capacidad que puede sufrir retrasos, sobrecostes, o problemas de supply chain (Nvidia GPUs) |
+| 2 | **Precio de Bitcoin** | Alta | Media | 60-70% del revenue actual depende de BTC. Si BTC cae a $30-40K, la minería deja de ser rentable y la empresa pierde su fuente principal de cash |
+| 3 | **Competencia GPU hosting** | Alta | Alta | CoreWeave, Applied Digital, Lambda, Core Scientific compiten por los mismos contratos de AI compute. Riesgo de commoditización |
+| 4 | **Dilución** | Alta | Alta | Con equity negativa y necesidad de $9.3B en financiación, las emisiones de acciones diluirán significativamente a los accionistas |
+| 5 | **Financiación** | Alta | Media | Si el mercado se enfría para AI infrastructure, el acceso a capital se encarece o desaparece. IREN depende de seguir financiándose |
 
-3. **Necesidades de financiación continua:** Con FCF negativo estructural durante los próximos 2–3 años de expansión, IREN depende del mercado de capitales. Dilución de accionistas o emisión de deuda adicional son escenarios probables. Con 331M de acciones actuales, cualquier ampliación tiene impacto directo en el precio.
-
-4. **Riesgo regulatorio y energético:** Opera en Australia y Canadá, mercados con riesgos regulatorios crecientes en torno al consumo energético de la minería de Bitcoin. Restricciones o costes energéticos al alza erosionarían el principal moat de la compañía.
+**Mitigantes:** Acceso a energía renovable barata, diversificación Bitcoin + AI, contratos de GPU hosting de largo plazo en negociación, equipo con track record en infraestructura.
 
 ---
 
 ### Catalizadores
 
-**Al alza:**
-- Anuncio de contratos significativos de IA cloud a largo plazo con clientes Tier-1 (similar al tipo de deal que Nvidia hizo con Nebius), que validen el modelo NeoCloud.
-- Bitcoin sostenido por encima de $90.000–100.000, maximizando el margen de minería.
-- Partnership o inversión estratégica de un gran player tecnológico (el movimiento de Nvidia con Nebius despertó interés por IREN; algo similar sería un catalizador explosivo).
-- Reducción de beta conforme el negocio de IA cloud madure y dé visibilidad de ingresos recurrentes.
+**Positivos (12-24 meses):**
+- Contratos de GPU hosting de largo plazo con hyperscalers o empresas de IA
+- Bitcoin superando $100K → cash flow de minería financia buildout
+- Completar fase 1 del buildout de data centers → revenue empieza a escalar
+- IPO o spin-off del negocio de AI/HPC que desbloquee valor
 
-**A la baja:**
-- Corrección de Bitcoin hacia $50.000 o por debajo.
-- Retrasos en la construcción de nuevos data centers o sobrecostes de CapEx.
-- Emisión dilutiva de acciones para financiar expansión.
-- Macro adversa que eleve tasas y comprima múltiplos de empresas de alto crecimiento con FCF negativo.
+**Negativos:**
+- Retrasos en entrega de GPUs Nvidia → ingresos retrasados
+- Caída de Bitcoin → crisis de liquidez
+- Competencia baja precios de GPU hosting → márgenes inferiores a los proyectados
+- Emisión de acciones masiva → dilución destruye valor por acción
 
 ---
 
 ### Conclusión y plan de acción
 
-IREN es una empresa fascinante que ha logrado algo difícil: construir un negocio rentable a nivel EBITDA (+$286M en 2025) combinando minería de Bitcoin con infraestructura de IA, con un crecimiento de revenue superior al 150% interanual. El potencial del escenario bull es real y los analistas lo reflejan en targets de hasta $125.
+**Recomendación: NO COMPRAR — fuera de nuestro universo value.**
 
-**Sin embargo, a $44,94 el precio ya supera el valor intrínseco calculado en el escenario base.** Comprar aquí implica apostar directamente al escenario optimista, lo que requiere convicción en (1) Bitcoin sostenido en niveles altos, (2) éxito del pivot hacia IA cloud, y (3) ejecución impecable del equipo gestor.
+IREN no es una inversión value. Es una apuesta especulativa en infraestructura de IA con:
+- FCF negativo (-$1.1B)
+- CapEx 265% del revenue
+- Dependencia de Bitcoin para cash flow a corto plazo
+- Beta de 4.3 (volatilidad extrema)
+- Riesgo de dilución significativo
 
-**Recomendación:**
-- **No iniciar posición a precios actuales** si se es un inversor value disciplinado.
-- **Zona de compra atractiva: $28–33**, donde el precio cotiza con margen de seguridad respecto al escenario base y ofrece asimetría interesante hacia el bull case.
-- **Para inversores con perfil especulativo y horizonte 2–3 años**, una posición pequeña ($44 o menos) puede justificarse como apuesta al pivote IA cloud, con stop loss conceptual si Bitcoin cae sostenidamente o si no hay noticias de contratos de IA en H1 2026.
+Nuestro DCF ajustado da un fair value de $18.96, un 46% por debajo del precio actual. Para justificar $35.09, se necesita asumir ejecución perfecta del buildout de $9.3B + contratos de largo plazo + normalización de márgenes — todo lo cual es posible pero no probable con certeza.
 
-**En resumen: empresa de alta calidad en un sector de altísimo riesgo. Precio atractivo solo en correcciones significativas.**
+- **Para especuladores:** Si se cree en la tesis de infraestructura IA, la zona de entrada sería $18-$22 (nuestro bear-base range)
+- **Para value investors:** No hay margen de seguridad a $35.09. Hay alternativas con mejor risk/reward en nuestro universo
+- **Si se posee:** Considerar reducir posición dado el riesgo de dilución y la sobrevaloración vs DCF
 
 ---
-*Análisis generado el 17/03/2026. No es consejo de inversión. Rentabilidades pasadas no garantizan resultados futuros.*
+*Análisis generado el 2026-03-28. Datos: Yahoo Finance + SEC (auditoría: LOW — discrepancias por unidades AUD miles vs millones, NI difiere). WACC y CapEx ajustados del pipeline. No es consejo de inversión.*

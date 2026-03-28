@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-03-22",
+    "file": "MCD_20260322_valuation.json",
+    "current_price": 308.85,
+    "currency": "$",
+    "fair_value_bear": 0.07569999999999999,
+    "fair_value_base": 0.0657,
+    "fair_value_bull": 0.05569999999999999,
+    "revenue": 25920000000.0,
+    "gross_margin": 0.5675154320987654,
+    "growth_y1_base": 0.097,
+    "wacc_base": 0.0657,
+    "tv_base": 12
+  },
+  {
+    "date": "2026-03-28",
+    "file": "MCD_20260328_valuation.json",
+    "current_price": 305.9,
+    "currency": "$",
+    "fair_value_bear": 0.07809999999999999,
+    "fair_value_base": 0.0681,
+    "fair_value_bull": 0.05809999999999999,
+    "revenue": 25920000000.0,
+    "gross_margin": 0.5675154320987654,
+    "growth_y1_base": 0.097,
+    "wacc_base": 0.0681,
+    "tv_base": 12
+  }
+]
