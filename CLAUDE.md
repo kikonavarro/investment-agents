@@ -3,46 +3,71 @@
 ## Principio clave
 Python hace el trabajo pesado (datos, cálculos, Excel, filtros). Claude Code hace la interpretación y escritura (sin coste API adicional, usa tu suscripción Max).
 
+## Sistema de skills (referencia principal)
+
+Las 14 skills en `.claude/skills/` son la referencia operativa principal. Cada skill define qué hacer, cómo hacerlo, y los quality gates. **Leer siempre la skill antes de ejecutar.**
+
+| Skill | Cuándo usarla |
+|-------|---------------|
+| `orchestrator` | **Entry point.** Enruta mensajes del bot y peticiones de inversión a la skill correcta |
+| `thesis-writer` | Tesis de inversión completa (incluye fórmula DCF corregida) |
+| `dcf-valuation` | Referencia teórica: normalización FCF, WACC, Gordon Growth, sanity checks |
+| `business-model` | Modelo de negocio, unit economics, pricing power (obligatorio en toda tesis) |
+| `moat-analyst` | Ventaja competitiva Morningstar/Buffett (obligatorio en toda tesis) |
+| `capital-allocation` | ROIC, dividendos, recompras, M&A (obligatorio en toda tesis) |
+| `risk-analyst` | Riesgos materiales priorizados (obligatorio en toda tesis) |
+| `screener-ranking` | Ranking cualitativo de las top 15 del screener cuantitativo |
+| `comparator` | Comparación lado a lado de dos empresas |
+| `thesis-reviewer` | Revisar/comparar tesis externa contra la nuestra |
+| `ir-auditor` | Auditar cifras del IR vs cuentas oficiales (detectar maquillaje) |
+| `tweet-generator` | Hilos Twitter/X sobre inversiones |
+| `content-writer` | Artículos Substack/blog |
+| `invest-new-agent` | Guía para crear nuevos agentes/capacidades del sistema |
+
+**Nota sobre DCF:** La fórmula usa EBIT = Rev × (GM - SGA% - R&D%), EBITDA = EBIT + D&A. UFCF = EBIT×(1-T) + D&A - CapEx. Terminal Value sobre EBITDA (no EBIT). Ver `thesis-writer` Paso 1B.
+
 ## Pipeline de inversión (modo sin API)
 
-Cuando el usuario pida análisis, tesis, screener, tweets o artículos, usa el flag `--data-only` para ejecutar solo el Python y luego haz la interpretación tú mismo.
+Usar el flag `--data-only` para ejecutar solo Python y luego interpretar con Claude Code.
 
-### 1. Valoración completa (analyst)
+### Valoración completa
+```bash
+python main.py --analyst TICKER --data-only
+python main.py --analyst AAPL MSFT GOOGL --data-only  # múltiples
+```
+Genera en `data/valuations/{TICKER}/`: JSON + Excel DCF + SEC filings.
+Quality gates se ejecutan automáticamente — verificar confianza (HIGH/MEDIUM/LOW).
+
+### Tesis de inversión
 ```bash
 python main.py --analyst TICKER --data-only
 ```
-- Genera: `data/valuations/{TICKER}/{TICKER}_valuation.json` + Excel DCF + SEC filings
-- Ya es 100% Python, no usa API ni con ni sin `--data-only`
-- Lee el JSON generado para ver los resultados
+Leer JSON + SEC filings. Escribir tesis siguiendo skill `thesis-writer` (NO `config/prompts.py`).
+Guardar en `data/valuations/{TICKER}/{TICKER}_tesis_inversion.md`.
+**Review gate obligatorio:** `python tools/thesis_reviewer.py TICKER` antes de enviar.
 
-### 2. Tesis de inversión
+### Comparar empresas
 ```bash
-python main.py --analyst TICKER --data-only
+python main.py --compare TICKER1 TICKER2 --data-only
 ```
-Luego lee `data/valuations/{TICKER}/{TICKER}_valuation.json` y escribe la tesis tú mismo siguiendo el prompt de `config/prompts.py` → `THESIS_WRITER`. Guarda el resultado en:
-- `data/valuations/{TICKER}/{TICKER}_tesis_inversion.md`
+Genera datos de ambas. Comparar siguiendo skill `comparator`.
 
-### 3. Screener (buscar ideas value)
+### Screener
 ```bash
 python main.py --screener graham_default --data-only
 ```
-- Devuelve top 15 candidatos con métricas cuantitativas
-- Haz el ranking cualitativo tú mismo (evalúa moat, calidad del negocio, riesgos)
-- Filtros disponibles: `graham_default`, `value_aggressive`, `bargain_hunter`
+Filtros: `graham_default`, `value_aggressive`, `bargain_hunter`. Ranking cualitativo con skill `screener-ranking`.
 
-### 4. Tweets
-Ejecuta analyst o news_fetcher con `--data-only`, lee los datos, y genera el hilo de tweets tú mismo siguiendo el prompt `SOCIAL_MEDIA` de `config/prompts.py`.
-
-### 5. Artículo Substack
-Lee los datos disponibles y escribe el artículo siguiendo el prompt `CONTENT_WRITER` de `config/prompts.py`.
-
-### 6. Portfolio tracker
-El portfolio tracker **siempre usa la API** (necesita automatización):
+### Otros
 ```bash
-python main.py --portfolio status
+python main.py --tweets TICKER          # datos para tweets
+python main.py --article "topic"        # datos para artículo
+python main.py --portfolio status       # cartera (usa API)
+python main.py --history TICKER         # historial de valoraciones
+python main.py --fresh --analyst TICKER # forzar refresh cache
 ```
 
-## AL INICIAR SESIÓN — Acciones obligatorias
+## AL INICIAR SESION — Acciones obligatorias
 
 1. **Activar polling de Telegram:** Ejecutar `/loop 1m python tools/check_inbox.py` para comprobar la bandeja de entrada cada minuto. Sin esto, los mensajes del Investment Bot no se procesan.
 2. Si hay mensajes pendientes, procesarlos según el tipo (tesis, screener, tweets, etc.)
@@ -52,7 +77,7 @@ python main.py --portfolio status
 El Investment Bot ya NO llama a la API de Anthropic. Encola mensajes para que Claude Code (Opus) los procese:
 
 ```bash
-# Ver mensajes pendientes de amigos
+# Ver mensajes pendientes
 python tools/check_inbox.py
 
 # Responder (guarda + envía por Telegram automáticamente)
@@ -65,18 +90,21 @@ python tools/check_inbox.py send-all
 
 Cola en: `data/telegram_queue/inbox/` (JSON por mensaje).
 El bot comprueba respuestas cada 60s y las envía automáticamente.
-
-El scheduler también encola tareas (tweets, screener) como mensajes `[SCHEDULER]`.
+El scheduler encola tareas (tweets, screener) como mensajes `[SCHEDULER]`.
 
 ## Estructura de archivos clave
-- `config/prompts.py` — todos los system prompts (referencia para escribir tesis/tweets/artículos)
+- `.claude/skills/` — **referencia principal** (14 skills con instrucciones detalladas)
+- `config/prompts.py` — system prompts para llamadas API (legacy, skills son preferentes)
 - `config/settings.py` — modelos, rutas, configuración
 - `config/screener_filters.yaml` — filtros cuantitativos del screener
-- `data/valuations/{TICKER}/` — output del analyst (JSON + Excel + SEC)
+- `data/valuations/{TICKER}/` — output del analyst (JSON + Excel + SEC + tesis)
 - `data/telegram_queue/` — cola de mensajes Investment Bot ↔ Claude Code
-- `tools/message_queue.py` — sistema de cola
 - `tools/check_inbox.py` — CLI para gestionar la cola
+- `tools/quality_gates.py` — validación automática de cada valoración
+- `tools/thesis_reviewer.py` — review gate antes de enviar tesis
 - `tools/` — módulos Python puros (sin LLM)
+
+**Nota:** Directorios parciales en `data/valuations/` (solo JSON+Excel, sin tesis) son normales — representan runs `--data-only` sin interpretación posterior.
 
 ## Tickers internacionales
 - España: añadir `.MC` (ej: TEF.MC, ITX.MC, SAN.MC)
