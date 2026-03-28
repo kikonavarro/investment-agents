@@ -30,5 +30,11 @@ data/valuations/*/SEC_filings/
 data/cache/
 data/telegram_queue/
 
+# Eval workspaces
+invest-new-agent-workspace/
+
+# Screening PDF reports
+data/Informe_Screening_*.pdf
+
 # Claude Code
 .claude/

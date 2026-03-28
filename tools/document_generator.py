@@ -9,19 +9,19 @@ from docx import Document
 from docx.shared import Pt, RGBColor, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
-from config.settings import ANALYSES_DIR, REPORTS_DIR
+from config.settings import VALUATIONS_DIR
 
 
 def save_thesis_markdown(thesis_text: str, ticker: str) -> Path:
     """
-    Guarda la tesis en Markdown en data/analyses/.
+    Guarda la tesis en Markdown en data/valuations/{TICKER}/.
 
     Returns:
         Path del archivo creado.
     """
-    ANALYSES_DIR.mkdir(parents=True, exist_ok=True)
-    today = date.today().strftime("%Y%m%d")
-    path = ANALYSES_DIR / f"{today}_{ticker}_tesis.md"
+    ticker_dir = VALUATIONS_DIR / ticker
+    ticker_dir.mkdir(parents=True, exist_ok=True)
+    path = ticker_dir / f"{ticker}_tesis_inversion.md"
     path.write_text(thesis_text, encoding="utf-8")
     print(f"  [doc] Tesis guardada: {path}")
     return path
@@ -34,9 +34,10 @@ def save_thesis_docx(thesis_text: str, ticker: str, company_name: str = "") -> P
     Returns:
         Path del archivo .docx creado.
     """
-    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    ticker_dir = VALUATIONS_DIR / ticker
+    ticker_dir.mkdir(parents=True, exist_ok=True)
     today = date.today().strftime("%Y%m%d")
-    path = REPORTS_DIR / f"{today}_{ticker}_tesis.docx"
+    path = ticker_dir / f"{ticker}_tesis.docx"
 
     doc = _create_styled_document()
 
@@ -55,11 +56,12 @@ def save_thesis_docx(thesis_text: str, ticker: str, company_name: str = "") -> P
 
 
 def save_analysis_json(analysis: dict, ticker: str) -> Path:
-    """Guarda el JSON del analyst en data/analyses/."""
+    """Guarda el JSON del analyst en data/valuations/{TICKER}/."""
     import json
-    ANALYSES_DIR.mkdir(parents=True, exist_ok=True)
+    ticker_dir = VALUATIONS_DIR / ticker
+    ticker_dir.mkdir(parents=True, exist_ok=True)
     today = date.today().strftime("%Y%m%d")
-    path = ANALYSES_DIR / f"{today}_{ticker}_analysis.json"
+    path = ticker_dir / f"{today}_{ticker}_analysis.json"
     path.write_text(json.dumps(analysis, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"  [doc] Análisis guardado: {path}")
     return path
@@ -67,9 +69,10 @@ def save_analysis_json(analysis: dict, ticker: str) -> Path:
 
 def save_screener_report(screener_result: dict) -> Path:
     """Genera un informe Markdown del screener."""
-    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    screener_dir = VALUATIONS_DIR / "screener_reports"
+    screener_dir.mkdir(parents=True, exist_ok=True)
     today = date.today().strftime("%Y%m%d")
-    path = REPORTS_DIR / f"{today}_screener_report.md"
+    path = screener_dir / f"{today}_screener_report.md"
 
     lines = [f"# Screener Report — {date.today().strftime('%d/%m/%Y')}\n"]
     lines.append(f"Candidatas encontradas: {screener_result.get('total_candidates_found', 0)}\n")

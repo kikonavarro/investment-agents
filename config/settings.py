@@ -10,8 +10,6 @@ load_dotenv()
 # --- Paths ---
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
-ANALYSES_DIR = DATA_DIR / "analyses"
-REPORTS_DIR = DATA_DIR / "reports"
 VALUATIONS_DIR = DATA_DIR / "valuations"
 
 # --- API ---
