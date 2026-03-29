@@ -81,21 +81,21 @@
       "revenue_growth_y1": -0.017,
       "revenue_growth_y5": 0.023000000000000003,
       "gross_margin": 0.3721254625713831,
-      "wacc": 0.0572,
+      "wacc": 0.07,
       "terminal_multiple": 9
     },
     "bull": {
       "revenue_growth_y1": 0.002999999999999999,
       "revenue_growth_y5": 0.0017999999999999995,
       "gross_margin": 0.39212546257138314,
-      "wacc": 0.0472,
+      "wacc": 0.06,
       "terminal_multiple": 11
     },
     "bear": {
       "revenue_growth_y1": -0.04699999999999999,
       "revenue_growth_y5": -0.006999999999999992,
       "gross_margin": 0.3521254625713831,
-      "wacc": 0.0772,
+      "wacc": 0.08,
       "terminal_multiple": 6
     }
   },

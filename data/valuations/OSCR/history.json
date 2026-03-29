@@ -12,5 +12,19 @@
     "growth_y1_base": 0.27495121182409,
     "wacc_base": 0.1368,
     "tv_base": 16
+  },
+  {
+    "date": "2026-03-29",
+    "file": "OSCR_20260329_valuation.json",
+    "current_price": 11.14,
+    "currency": "$",
+    "fair_value_bear": 0.1468,
+    "fair_value_base": 0.1368,
+    "fair_value_bull": 0.1268,
+    "revenue": 11701427000.0,
+    "gross_margin": 0.0,
+    "growth_y1_base": 0.27495121182409,
+    "wacc_base": 0.1368,
+    "tv_base": 16
   }
 ]

@@ -782,12 +782,35 @@ def _estimate_wacc(info):
     td = info.get("totalDebt", 0) or 0
     ew = mc / (mc + td) if mc > 0 else 0.8
 
-    # Coste de deuda: risk-free + credit spread (200bps por defecto)
-    kd = rf + wacc_cfg.get("credit_spread", 0.02)
+    # Credit spread dinámico basado en leverage (D/E ratio)
+    # Empresas con más deuda = mayor riesgo de default = mayor spread
+    de_ratio = td / mc if mc > 0 else 10.0
+    if de_ratio < 0.5:
+        credit_spread = 0.015   # 150bps — bajo apalancamiento (investment grade)
+    elif de_ratio < 1.0:
+        credit_spread = 0.02    # 200bps — apalancamiento moderado
+    elif de_ratio < 2.0:
+        credit_spread = 0.03    # 300bps — apalancamiento alto
+    elif de_ratio < 4.0:
+        credit_spread = 0.05    # 500bps — muy apalancada
+    else:
+        credit_spread = 0.08    # 800bps — distress financiero
+
+    kd = rf + credit_spread
     tax_rate = 0.21  # Tasa corporativa genérica
 
     wacc = ke * ew + kd * (1 - tax_rate) * (1 - ew)
-    return round(max(wacc, 0.04), 4)
+
+    # WACC floor: empresas de alto riesgo no pueden tener WACC < coste de equity razonable
+    # Sin floor, empresas con 90% deuda obtienen WACC ~5-6% (absurdo)
+    if beta > 1.5:
+        wacc_floor = 0.10   # High-beta: mínimo 10%
+    elif beta > 1.0:
+        wacc_floor = 0.08   # Beta moderado: mínimo 8%
+    else:
+        wacc_floor = 0.07   # Estable: mínimo 7%
+
+    return round(max(wacc, wacc_floor), 4)
 
 
 def _load_valuation_params():

@@ -12,5 +12,19 @@
     "growth_y1_base": 0.009000000000000001,
     "wacc_base": 0.0592,
     "tv_base": 14
+  },
+  {
+    "date": "2026-03-29",
+    "file": "PLAY_20260329_valuation.json",
+    "current_price": 9.81,
+    "currency": "$",
+    "fair_value_bear": 0.0692,
+    "fair_value_base": 0.0592,
+    "fair_value_bull": 0.0492,
+    "revenue": 2132700000.0,
+    "gross_margin": 0.8525812350541567,
+    "growth_y1_base": 0.009000000000000001,
+    "wacc_base": 0.0592,
+    "tv_base": 14
   }
 ]

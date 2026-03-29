@@ -28,6 +28,7 @@ from tools.financial_data import get_company_data, extract_historical_data, gene
 from tools.excel_generator import generate_valuation_excel
 from tools.sec_downloader import download_10k_filings
 from tools.news_fetcher import fetch_news
+from tools.web_dashboard import calc_dcf
 from agents.base import call_agent
 from config.prompts import QUICK_VALUATION
 
@@ -43,6 +44,90 @@ def quick_summary(ticker: str) -> str:
         model_tier="quick",
         max_tokens=800,
     )
+
+
+def _validate_and_correct(data: dict, scenarios: dict, historical: dict) -> tuple[dict, bool, list]:
+    """
+    Valida los escenarios generados y auto-corrige problemas detectados.
+    Retorna (scenarios_corregidos, dcf_reliable, lista_de_acciones).
+
+    Sanity checks:
+    1. EV/EBITDA >50x → dcf_reliable=False (narrative stock)
+    2. D/E >5x → dcf_reliable=False (financial distress)
+    3. Fair value >5x precio (profitable company) → TV demasiado alto, reducir
+    4. Fair value negativo → dcf_reliable=False
+    """
+    info = data["info"]
+    price = data["current_price"]
+    shares = data["shares_outstanding"]
+    mc = info.get("marketCap", 0) or 0
+    td = info.get("totalDebt", 0) or 0
+    cash = info.get("totalCash", 0) or info.get("cash", 0) or 0
+    sorted_years = sorted(historical.keys())
+    ebitda = historical.get(sorted_years[-1], {}).get("ebitda", 0) if sorted_years else 0
+    revenue = historical.get(sorted_years[-1], {}).get("total_revenue", 0) if sorted_years else 0
+
+    actions = []
+    dcf_reliable = True
+    net_debt = td - cash
+
+    # --- Check 1: EV/EBITDA extremo ---
+    if ebitda and ebitda > 0 and mc:
+        ev = mc + net_debt
+        ev_ebitda = ev / ebitda
+        if ev_ebitda > 50:
+            dcf_reliable = False
+            actions.append(f"EV/EBITDA={ev_ebitda:.0f}x (>50x): narrative stock, DCF no fiable")
+
+    # --- Check 2: Distress financiero ---
+    de_ratio = td / mc if mc > 0 else 99
+    if de_ratio > 5:
+        dcf_reliable = False
+        actions.append(f"D/E={de_ratio:.1f}x (>5x): financial distress, DCF no fiable")
+
+    # --- Check 3 y 4: Fair values implícitos ---
+    base_sc = scenarios.get("base", {})
+    if revenue and shares and base_sc.get("sga_pct") is not None:
+        try:
+            result = calc_dcf(revenue, base_sc, net_debt, shares)
+            fv = result["fair_value"]
+
+            # Check 4: Fair value negativo
+            if fv <= 0:
+                dcf_reliable = False
+                actions.append(f"Fair value base negativo ({fv:.2f}): DCF no fiable")
+
+            # Check 3: Fair value >5x precio en empresa profitable
+            elif fv > price * 5 and price > 0 and ebitda > 0:
+                # TV probablemente demasiado alto — reducir hasta que FV < 3x precio
+                max_iterations = 5
+                for i in range(max_iterations):
+                    for key in ["base", "bull", "bear"]:
+                        sc = scenarios.get(key, {})
+                        if sc.get("terminal_multiple", 0) > 8:
+                            sc["terminal_multiple"] = max(sc["terminal_multiple"] - 2, 8)
+                    result = calc_dcf(revenue, scenarios["base"], net_debt, shares)
+                    fv = result["fair_value"]
+                    if fv <= price * 3:
+                        break
+
+                actions.append(
+                    f"FV base era >{price*5:.0f} (5x precio). TV reducido a "
+                    f"{scenarios['base']['terminal_multiple']:.0f}x. FV ajustado: {fv:.2f}"
+                )
+
+            # Check adicional: FV < 15% del precio (no ya capturado por check 1)
+            elif fv < price * 0.15 and dcf_reliable:
+                # No auto-corregible — pero marcar para revisión manual
+                actions.append(
+                    f"FV base ({fv:.2f}) = {fv/price:.0%} del precio ({price:.2f}). "
+                    f"Posible compresión de múltiplo excesiva"
+                )
+
+        except Exception as e:
+            actions.append(f"Error calculando FV implícito: {e}")
+
+    return scenarios, dcf_reliable, actions
 
 
 def _is_us_ticker(ticker: str) -> bool:
@@ -119,6 +204,15 @@ def run_analyst(ticker: str) -> dict:
     historical = extract_historical_data(data)
     scenarios = generate_scenarios(data, historical)
 
+    # VALIDACIÓN Y AUTO-CORRECCIÓN de escenarios
+    scenarios, dcf_reliable, corrections = _validate_and_correct(data, scenarios, historical)
+    if corrections:
+        print(f"\n  [VALIDACIÓN] {len(corrections)} ajuste(s):")
+        for c in corrections:
+            print(f"    → {c}")
+        if not dcf_reliable:
+            print(f"  [!!] DCF marcado como NO FIABLE — usar Sum-of-Parts o análisis cualitativo")
+
     company_name = data["info"].get("longName", ticker)
     current_price = data["current_price"]
 
@@ -132,6 +226,8 @@ def run_analyst(ticker: str) -> dict:
             continue
         print(f"    {k.capitalize()}: Growth Y1={v['revenue_growth_y1']:.1%}, "
               f"WACC={v['wacc']:.1%}, TV={v['terminal_multiple']:.0f}x")
+    if not dcf_reliable:
+        print(f"    ⚠️  dcf_reliable: False")
 
     # PASO 2.5: Auditoría SEC 10-K (solo EEUU)
     sec_audit = None
@@ -186,6 +282,9 @@ def run_analyst(ticker: str) -> dict:
         ticker, company_name, data, historical, scenarios, news,
         excel_path, downloaded_files, currency, sec_audit
     )
+    valuation_summary["dcf_reliable"] = dcf_reliable
+    if not dcf_reliable:
+        valuation_summary["dcf_unreliable_reasons"] = corrections
     # Guardar versión actual (backward compat)
     json_path = str(output_dir / f"{folder_name}_valuation.json")
     with open(json_path, "w", encoding="utf-8") as f:
@@ -320,18 +419,38 @@ def _save_versioned(output_dir: Path, folder_name: str, valuation: dict):
     with open(versioned_path, "w", encoding="utf-8") as f:
         json.dump(valuation, f, ensure_ascii=False, indent=2, default=str)
 
-    # Extraer métricas clave para el historial
+    # Extraer métricas clave para el historial — calcular fair values reales con DCF
     scenarios = valuation.get("scenarios", {})
+    latest = valuation.get("latest_financials", {})
+    revenue = latest.get("revenue", 0)
+    net_debt = (latest.get("total_debt", 0) or 0) - (latest.get("cash", 0) or 0)
+    shares = valuation.get("shares_outstanding", 0)
+
+    fv_bear, fv_base, fv_bull = 0, 0, 0
+    for sc_name, attr in [("bear", "fv_bear"), ("base", "fv_base"), ("bull", "fv_bull")]:
+        sc = scenarios.get(sc_name, {})
+        if sc and revenue and shares and "sga_pct" in sc:
+            try:
+                result = calc_dcf(revenue, sc, net_debt, shares)
+                if sc_name == "bear":
+                    fv_bear = round(result["fair_value"], 2)
+                elif sc_name == "base":
+                    fv_base = round(result["fair_value"], 2)
+                else:
+                    fv_bull = round(result["fair_value"], 2)
+            except Exception:
+                pass
+
     entry = {
         "date": valuation.get("date", today),
         "file": versioned_path.name,
         "current_price": valuation.get("current_price", 0),
         "currency": valuation.get("currency", "$"),
-        "fair_value_bear": scenarios.get("bear", {}).get("wacc", 0),
-        "fair_value_base": scenarios.get("base", {}).get("wacc", 0),
-        "fair_value_bull": scenarios.get("bull", {}).get("wacc", 0),
-        "revenue": valuation.get("latest_financials", {}).get("revenue", 0),
-        "gross_margin": valuation.get("latest_financials", {}).get("gross_margin", 0),
+        "fair_value_bear": fv_bear,
+        "fair_value_base": fv_base,
+        "fair_value_bull": fv_bull,
+        "revenue": latest.get("revenue", 0),
+        "gross_margin": latest.get("gross_margin", 0),
         "growth_y1_base": scenarios.get("base", {}).get("revenue_growth_y1", 0),
         "wacc_base": scenarios.get("base", {}).get("wacc", 0),
         "tv_base": scenarios.get("base", {}).get("terminal_multiple", 0),

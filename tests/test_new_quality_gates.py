@@ -88,7 +88,7 @@ def test_wacc_normal_no_warning():
 
 # --- Test total_checks updated ---
 
-def test_total_checks_is_13():
+def test_total_checks_is_17():
     v = _minimal()
     result = validate_valuation(v)
-    assert result["passed"] + result["failed"] == 13
+    assert result["passed"] + result["failed"] == 17

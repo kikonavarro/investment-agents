@@ -71,7 +71,7 @@
       "da_pct": 0.10876677706614268,
       "capex_pct": 0.08811803001061608,
       "tax_rate": 0.21,
-      "wacc": 0.0907,
+      "wacc": 0.0905,
       "terminal_multiple": 25
     },
     "bull": {
@@ -83,7 +83,7 @@
       "da_pct": 0.10876677706614268,
       "capex_pct": 0.07930622700955448,
       "tax_rate": 0.21,
-      "wacc": 0.0807,
+      "wacc": 0.0805,
       "terminal_multiple": 27
     },
     "bear": {
@@ -95,7 +95,7 @@
       "da_pct": 0.10876677706614268,
       "capex_pct": 0.10133573451220848,
       "tax_rate": 0.21,
-      "wacc": 0.1007,
+      "wacc": 0.10049999999999999,
       "terminal_multiple": 23
     }
   },
