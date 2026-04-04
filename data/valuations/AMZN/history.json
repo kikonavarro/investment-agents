@@ -40,5 +40,19 @@
     "growth_y1_base": 0.136,
     "wacc_base": 0.1176,
     "tv_base": 16
+  },
+  {
+    "date": "2026-04-04",
+    "file": "AMZN_20260404_valuation.json",
+    "current_price": 209.77,
+    "currency": "$",
+    "fair_value_bear": 144.93,
+    "fair_value_base": 213.13,
+    "fair_value_bull": 296.99,
+    "revenue": 716924000000.0,
+    "gross_margin": 0.5028566486824266,
+    "growth_y1_base": 0.136,
+    "wacc_base": 0.1157,
+    "tv_base": 16
   }
 ]

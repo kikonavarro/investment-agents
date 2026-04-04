@@ -26,5 +26,19 @@
     "growth_y1_base": 0.175,
     "wacc_base": 0.0734,
     "tv_base": 23
+  },
+  {
+    "date": "2026-04-04",
+    "file": "CSU_TO_20260404_valuation.json",
+    "current_price": 2441.27,
+    "currency": "$",
+    "fair_value_bear": 4559.81,
+    "fair_value_base": 5943.28,
+    "fair_value_bull": 7674.25,
+    "revenue": 11623000000.0,
+    "gross_margin": 0.37580659038114084,
+    "growth_y1_base": 0.175,
+    "wacc_base": 0.0732,
+    "tv_base": 23
   }
 ]

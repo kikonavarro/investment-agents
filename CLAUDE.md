@@ -72,6 +72,8 @@ python main.py --fresh --analyst TICKER # forzar refresh cache
 1. **Activar polling de Telegram:** Ejecutar `/loop 1m python tools/check_inbox.py` para comprobar la bandeja de entrada cada minuto. Sin esto, los mensajes del Investment Bot no se procesan.
 2. Si hay mensajes pendientes, procesarlos según el tipo (tesis, screener, tweets, etc.)
 
+**⚠️ NUNCA lanzar `telegram_bot.py` desde esta sesión.** El bot ya corre como servicio permanente via launchd (`com.investment.telegrambot`). Lanzar otra copia causa mensajes duplicados. Solo usar `check_inbox.py` para leer y responder la cola.
+
 ## Cola de mensajes Telegram (Investment Bot → Claude Code)
 
 El Investment Bot ya NO llama a la API de Anthropic. Encola mensajes para que Claude Code (Opus) los procese:

@@ -40,5 +40,19 @@
     "growth_y1_base": 0.038,
     "wacc_base": 0.0711,
     "tv_base": 12
+  },
+  {
+    "date": "2026-04-04",
+    "file": "VICI_20260404_valuation.json",
+    "current_price": 27.66,
+    "currency": "$",
+    "fair_value_bear": 24.22,
+    "fair_value_base": 33.99,
+    "fair_value_bull": 45.51,
+    "revenue": 4006116000.0,
+    "gross_margin": 0.993327701943728,
+    "growth_y1_base": 0.038,
+    "wacc_base": 0.0724,
+    "tv_base": 12
   }
 ]

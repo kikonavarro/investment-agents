@@ -1,178 +1,213 @@
-## NFLX — Netflix, Inc. | VALOR JUSTO
+# Tesis de Inversión: Netflix, Inc. (NFLX)
 
-### Resumen ejecutivo
-
-Precio actual de **$93.43**, fair value ponderado de **$79.95** (potencial **-14.4%** con WACC del pipeline; **~$93** con WACC ajustado a 10%). Netflix es el líder global de streaming con 300M+ suscriptores, márgenes en rápida expansión y un modelo de negocio que ha alcanzado escala crítica. La valoración es sensible al WACC — el beta de 1.71 genera un descuento agresivo que puede no reflejar la realidad actual de un negocio cada vez más defensivo.
-
-- **Bear ($54.40):** Saturación de suscriptores, guerra de contenido, WACC alto → downside -41.8%
-- **Base ($72.45):** Crecimiento estable, pricing power, márgenes expandiéndose → downside -22.5%
-- **Bull ($94.59):** Advertising despega, deportes en vivo, gaming → upside +1.2%
-
-**Nota:** D&A ajustada de 41.4% (content amortization) a 3% (depreciación física) para reflejar la economía real del negocio. El content spend está capturado en el gross margin.
-
-**Recomendación:** Mantener si se posee. No comprar a precios actuales — la valoración está ajustada (P/E ~36x, EV/EBITDA 13.2x). Zona de compra: $70-$75 para margen ≥15%.
+**Fecha:** 4 de abril de 2026
+**Precio actual:** $98.66 (post-split 10:1)
+**Capitalización:** $418.5B
+**Sector:** Communication Services / Entertainment
+**Divisa:** USD
 
 ---
 
-### El negocio
+## 1. Resumen ejecutivo
 
-Netflix es la plataforma de streaming de video más grande del mundo con >300M de suscriptores pagos en >190 países. Produce y distribuye contenido original (series, películas, documentales, deportes en vivo) y licencia contenido de terceros. Recién lanzado: tier con publicidad y gaming.
+Netflix cotiza a $98.66 post-split, un 30% por debajo de máximos, con un EV/EBITDA de 14.0x y un P/E de 38.1x. La empresa ha consolidado su posición como líder indiscutible del streaming con 325M de suscriptores, márgenes operativos expandiéndose (29.5% → 31.5% guiado), y un negocio de advertising que se duplica cada año. La corrección del 30% abre una ventana de entrada con margen de seguridad moderado.
 
-**Modelo de negocio:** Suscripción mensual + publicidad (nuevo). El modelo genera:
-- **Suscripciones (95%+ revenue):** ARPU de ~$12-13/mes/suscriptor. Pricing power creciente
-- **Advertising (creciendo):** Tier con publicidad lanzado en 2022, adoptado por ~40% de nuevos subs
-- **Content as moat:** $17B+ gasto anual en contenido crea una biblioteca imposible de replicar
-- **Gaming:** Incluido en suscripción, sin revenue material aún
+**Nota metodológica:** Netflix amortiza ~$17B/año en contenido (37.5% del revenue), lo que infla el EBITDA y el UFCF estándar. Para los flujos anuales uso "owner earnings" (EBIT×(1-T)), que trata el gasto en contenido como reinversión necesaria. El terminal value se calcula sobre EBITDA estándar, consistente con cómo el mercado valora Netflix.
 
-**Revenue FY2025: $45.2B** (CAGR 3 años: 12.6%)
-- UCAN (US/Canada): ~45%
-- EMEA: ~30%
-- LATAM: ~12%
-- APAC: ~13%
+**Escenarios de valoración:**
+- **Bear: $93.16** — Crecimiento desacelera al 9-15%, saturación de suscriptores, contenido se encarece
+- **Base: $123.82** — Suscriptores crecen moderado, ad tier escala, pricing power sostenido
+- **Bull: $162.02** — Ad tier explota, live events + games diversifican, márgenes superan 31%
 
-**Ventaja competitiva (Moat: NARROW-WIDE):**
-
-| Fuente de moat | Rating | Evidencia |
-|----------------|--------|-----------|
-| Efficient scale | **Fuerte** | Content spend amortizable sobre 300M+ subs. Coste marginal de un sub adicional ≈ $0. Competidores pierden dinero intentando escalar |
-| Intangibles | **Fuerte** | Marca #1 en streaming global. Algoritmo de recomendación propietario. Datos de preferencias de 300M usuarios |
-| Switching costs | **Moderado** | Bajo en teoría (cancelar es fácil), pero alto en práctica (watch history, profiles, hábito). Churn rate consistentemente bajo |
-| Network effects | **Débil** | Limitado — contenido viral genera buzz social (Squid Game) pero no hay efecto de red directo |
-| Cost advantages | **Moderado** | Amortización de contenido sobre base masiva. Pero la producción es cara y los derechos deportivos elevan costes |
-
-**Durabilidad:** Moderada-Alta. Netflix ha ganado la guerra del streaming — es el único player consistentemente rentable. Pero el moat depende de continuar invirtiendo ~$17B/año en contenido. Horizonte: 10-15 años.
+**Fair value ponderado (40/40/20): $119.19**
+**Margen de seguridad: 17.2%**
+**Señal: 🟡 LIGERAMENTE INFRAVALORADA — margen de seguridad insuficiente para compra agresiva, pero atractivo para posición inicial**
 
 ---
 
-### Análisis financiero
+## 2. El negocio
 
-| Métrica | 2022 | 2023 | 2024 | 2025 |
-|---------|------|------|------|------|
-| Revenue | $31.6B | $33.7B | $39.0B | $45.2B |
-| Net Income | $4.5B | $5.4B | $8.7B | $11.0B |
-| EBITDA | $20.3B | $21.5B | $26.3B | $30.3B |
-| FCF | $1.6B | $6.9B | $6.9B | $9.5B |
-| Op. Margin | 17.8% | 20.6% | 26.7% | 29.5% |
+Netflix es la plataforma de entretenimiento por streaming dominante a nivel global, con 325 millones de suscriptores de pago en más de 190 países.
 
-**Tendencias clave:**
-- Revenue CAGR 3 años: 12.6% — aceleración por pricing + ads tier + nuevos subs
-- Operating margin de 17.8% a 29.5% en 3 años — expansión espectacular por escala
-- FCF de $9.5B (21% margin) — primera vez que FCF supera $9B de forma sostenible
-- Net Income más que duplicado en 3 años ($4.5B → $11.0B)
-- EBITDA de $30.3B incluye content amortization added back (~$17B)
+**Modelo de negocio — Tres pilares de revenue:**
 
-**Balance:**
-- Deuda total: $14.5B | Cash: $9.0B | Deuda neta: $5.4B
-- Deuda neta / EBITDA: 0.18x — prácticamente sin deuda
-- Total equity: $26.6B
-- Beta: 1.714 — alta volatilidad (entertainment + growth stock)
+**1. Suscripciones (~97% revenue actual, $43.5B)**
+Planes desde $6.99/mes (con anuncios) hasta $22.99/mes (Premium 4K). Pricing power demostrado: Netflix ha subido precios consistentemente sin pérdida material de suscriptores. La base de 325M suscriptores genera un revenue recurrente masivo con baja variabilidad.
 
-**Auditoría SEC:** Las discrepancias son por unidades (SEC en miles vs Yahoo en millones). Revenue $45.2B coincide. EBITDA difiere por tratamiento de content amortization.
+**2. Advertising (~3% revenue, $1.5B en 2025, objetivo $3B en 2026)**
+Lanzado en Q4 2022, el ad tier ya genera $1.5B y se espera que se duplique a $3B en 2026. A largo plazo, este podría ser un negocio de $10-15B+ (comparable a YouTube). El ad tier tiene márgenes inherentemente superiores a las suscripciones puras porque monetiza dos veces al usuario (suscripción + advertising).
 
-**Asignación de capital (Rating: BUENO):**
+**3. Live events + Games (emergente)**
+NFL Sunday (Christmas games), boxing, WWE Raw, y un catálogo creciente de juegos móviles. Estos verticales aumentan el engagement y justifican subidas de precio.
 
-- **Content spend:** ~$17B/año — este es el "CapEx" real de Netflix. Amortizado en P&L
-- **Buybacks:** ~$6-8B anuales. Acelerando ahora que FCF es positivo sostenido
-- **Dividendos:** No paga — prioriza buybacks y reinversión
-- **CapEx físico:** Solo ~$550M (1.2% revenue) — modelo asset-light
-- **ROIC:** Mejorando rápidamente con la expansión de márgenes. ROIC 2025 ~35% vs WACC ~10-13%
+**Moat — Fuentes de ventaja competitiva:**
+1. **Escala de contenido (economías de escala):** Netflix gasta ~$17B/año en contenido, más que cualquier competidor. Con 325M suscriptores, el coste por suscriptor es ~$52/año, mientras que para Disney+ (~150M) es ~$80/año. A mayor escala, mayor ventaja.
+2. **Algoritmo de recomendación (intangible):** 20+ años de datos de viewing habits permiten a Netflix predecir qué contenido producir y recomendar, reduciendo el riesgo de producción.
+3. **Marca global (intangible):** "Netflix" es sinónimo de streaming. La penetración de marca es >90% en mercados desarrollados.
+4. **Switching costs moderados:** Aunque un usuario puede cancelar fácilmente, los perfiles personalizados, las listas de favoritos, y el hábito de uso crean fricción. La prueba: Netflix tiene el menor churn de la industria (~2% mensual).
 
 ---
 
-### Valoración DCF
+## 3. Análisis financiero
 
-Modelo de 5 años. **D&A ajustada a 3% (depreciación física)** vs 41.4% del pipeline (que incluye content amortization — ya capturada en COGS/gross margin). WACC alto del pipeline (13.57%) por beta elevado.
+### Evolución histórica (FY2022-FY2025)
 
-| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
-|-----------|--------------|---------------|------|-------------|------------|-----------|
-| **Bear** | 15.0%→9.0% | 33.0% | 14.57% | 13x | **$54.40** | -41.8% |
-| **Base** | 17.6%→10.6% | 35.0% | 13.57% | 15x | **$72.45** | -22.5% |
-| **Bull** | 20.2%→12.1% | 36.0% | 12.57% | 17x | **$94.59** | +1.2% |
+| Métrica | FY2022 | FY2023 | FY2024 | FY2025 |
+|---------|--------|--------|--------|--------|
+| Revenue ($B) | $31.6 | $33.7 | $39.0 | $45.2 |
+| Net Income ($B) | $4.5 | $5.4 | $8.7 | $11.0 |
+| EBITDA ($B) | $20.3 | $21.5 | $26.3 | $30.3 |
+| FCF ($B) | $1.6 | $6.9 | $6.9 | $9.5 |
+| Operating Income ($B) | $5.6 | $7.0 | $10.4 | $13.3 |
+| Margen bruto | 39.4% | 41.5% | 44.7% | 48.5% |
+| Margen operativo | 17.8% | 20.6% | 26.7% | 29.5% |
+| Margen neto | 14.2% | 16.0% | 22.3% | 24.3% |
 
-**Fair value ponderado (40/40/20): $69.63** (con WACC pipeline) vs **~$93** (con WACC ajustado a 10%)
+**Lectura de los datos:**
+- Revenue CAGR de 12.6% (FY2022-2025), acelerando a +18% en Q4 2025 gracias a subidas de precio, crecimiento de suscriptores, y el ad tier.
+- Márgenes en expansión espectacular: operativo de 17.8% → 29.5% en 3 años (+12pp). Guía de 31.5% para 2026.
+- FCF pasó de $1.6B a $9.5B, con potencial de crecimiento significativo a medida que el gasto en contenido se estabiliza como % del revenue.
+- Netflix es ahora consistentemente rentable y genera caja real.
 
-La alta sensibilidad al WACC es el factor clave. Con un WACC de 10% (más apropiado para una empresa de $45B revenue con márgenes >29%), el fair value se acerca al precio actual.
+**Content economics — El motor del negocio:**
+Netflix gasta ~$17B/año en contenido (producción + adquisición). Este gasto se amortiza a lo largo de la vida útil del contenido (~4-5 años), generando un D&A de ~$17B/año. A medida que la librería madura, el content spend como % del revenue debería estabilizarse o bajar ligeramente, liberando FCF.
 
-**Desglose Base:**
-- Revenue Y5: $87.2B (CAGR 14.1%)
-- EBITDA Y5: $30.5B
-- Sum PV(UFCF): $70.2B
-- PV(Terminal Value): $242.2B
-- Enterprise Value: $312.5B
-- Net Debt: $5.4B
-- Equity Value: $307.0B
-- TV como % del EV: 77.5%
+**Asignación de capital:**
+Netflix inició recompras significativas en 2024 (~$15B autorizados). No paga dividendo. El balance es sólido: deuda neta de solo $5.4B frente a $30.3B de EBITDA (0.18x).
 
-**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
-
-| WACC \ TV | 11x | 13x | 15x | 17x | 19x |
-|-----------|-----|-----|-----|-----|-----|
-| 9% | $84 | $100 | $115 | $131 | $147 |
-| 10% | $73 | $87 | $100 | $113 | $127 |
-| 11% | $64 | $76 | $87 | $99 | $111 |
-| 12% | $56 | $67 | $77 | $88 | $98 |
-| 13.57% | $47 | $56 | $64 | $72 | $81 |
-
-**Análisis de impacto:**
-
-| Variable | Cambio | Impacto en Fair Value Base |
-|----------|--------|---------------------------|
-| WACC | ±1% | ±$10 (~14%) — **mayor impacto** (más que TV!) |
-| TV Multiple | ±2x | ±$8 (~11%) |
-| Revenue Growth Y1 | ±2% | ±$4 (~6%) |
-| EBITDA Margin | ±1% | ±$5 (~7%) |
-
-**Sanity checks:**
-1. ✅ Con WACC ajustado (10%), fair value ≈ precio actual — VALOR JUSTO
-2. ✅ Con pipeline WACC (13.57%), sobrevalorada — refleja el alto riesgo implícito en beta 1.71
-3. ✅ TV como % del EV: 77.5% — razonable
-4. Consenso analistas: $113.21 (rango $80-$151). Nuestro base $72 por debajo — somos más conservadores en growth + más agresivos en WACC
+**SEC audit: confianza LOW** — Las discrepancias son un artefacto de unidades: el 10-K reporta en miles (thousands) mientras Yahoo normaliza en millones. Revenue, Net Income, Cash y Equity coinciden perfectamente una vez ajustadas las unidades. No hay maquillaje.
 
 ---
 
-### Riesgos principales
+## 4. Valoración DCF
 
-**Perfil de riesgo global: MODERADO**
+### Metodología
+DCF a 5 años con owner earnings (EBIT×(1-T)) como flujo anual y terminal value sobre EBITDA × múltiplo. Esta aproximación trata el gasto en contenido como reinversión necesaria (equivalente a maintenance CapEx), evitando la distorsión de la fórmula estándar que añadiría $17B de content amortization como "cash flow" cuando en realidad Netflix debe reinvertir esa cantidad para mantener su librería.
 
-| # | Riesgo | Severidad | Probabilidad | Impacto |
-|---|--------|-----------|--------------|---------|
-| 1 | **Saturación de suscriptores** | Media | Media | 300M subs en 190 países. El crecimiento neto se ralentizará inevitablemente. La pregunta es si ARPU compensa |
-| 2 | **Content cost inflation** | Media | Alta | Deportes en vivo (NFL, WWE) elevan el content spend. Si no genera subs incrementales, los márgenes se comprimen |
-| 3 | **Competencia** | Media | Media | Disney+, Amazon Prime, Apple TV+ tienen bolsillos profundos. Pero están quemando cash y Netflix es el único rentable |
-| 4 | **WACC/volatilidad** | Alta | — | Beta de 1.71 genera un WACC que penaliza fuertemente la valoración. Si el mercado re-evalúa Netflix como defensive, la acción re-rates |
-| 5 | **Regulación** | Baja | Media | Presión de Elizabeth Warren sobre subidas de precio + regulación de contenido en mercados internacionales |
+### Validación pre-DCF
+- EV/EBITDA actual: 14.0x — razonable para una plataforma de contenido con crecimiento de doble dígito
+- TV multiples propuestos (13-17x) alineados con el actual
+- P/E: 38.1x — elevado pero justificado por márgenes en expansión
+- SEC audit: discrepancia de unidades, no de sustancia
 
-**Mitigantes:** 300M base de subs proporciona escala y estabilidad. Pricing power demostrado (múltiples subidas de precio exitosas). Advertising tier añade revenue diversificado. FCF positivo y creciente.
+### Parámetros por escenario
+
+| Parámetro | Bear | Base | Bull |
+|-----------|------|------|------|
+| Crecimiento Y1 | 15.0% | 17.6% | 20.2% |
+| Crecimiento Y5 | 9.0% | 10.6% | 12.1% |
+| Margen operativo | 28.0% | 29.5% | 31.0% |
+| Tasa impositiva | 12.6% | 12.6% | 12.6% |
+| WACC | 14.33% | 13.33% | 12.33% |
+| TV EV/EBITDA | 13x | 15x | 17x |
+
+**Justificación del WACC base (13.33%):**
+Re = Rf (4.0%) + β (1.669) × Prima de mercado (5.5%) = 13.2%. Beta elevado refleja la naturaleza de "growth stock" y la volatilidad de earnings. WACC = 13.33%.
+
+**Justificación de crecimiento:**
+Y1 base (17.6%) se justifica por Q4 2025 (+18% YoY), guidance de $50.7-51.7B para 2026 (+12-14% vs FY2025), y el efecto de subidas de precio recientes. El taper hasta 10.6% en Y5 refleja la saturación gradual del mercado de streaming en mercados desarrollados.
+
+### Resultados por escenario
+
+| Escenario | Revenue Y5 ($B) | Fair Value/acción | vs Precio | Margen seguridad |
+|-----------|----------------|-------------------|-----------|------------------|
+| **Bear** | $79.6 | **$93.16** | -5.6% | n/a |
+| **Base** | $87.2 | **$123.82** | +25.5% | 20.3% |
+| **Bull** | $95.5 | **$162.02** | +64.2% | 39.1% |
+
+**Fair Value ponderado (40/40/20): $119.19**
+**vs precio actual ($98.66): +20.8%**
+
+### Tabla de sensibilidad (Fair Value por acción)
+
+| WACC \ TV Multiple | 11x | 13x | 15x | 17x | 19x |
+|--------------------|-----|-----|-----|-----|-----|
+| **11.33%** | **$103** | **$119** | **$135** | **$151** | **$167** |
+| **12.33%** | $98 | **$113** | **$129** | **$144** | **$159** |
+| **12.83%** | $97 | **$112** | **$127** | **$142** | **$157** |
+| **13.33%** | $94 | **$109** | **$124** | **$139** | **$153** |
+| **13.83%** | $92 | **$107** | **$121** | **$136** | **$150** |
+| **14.33%** | $90 | **$104** | **$118** | **$133** | **$147** |
+| **15.33%** | $86 | **$100** | **$113** | **$127** | **$140** |
+
+*Celdas en negrita: fair value > precio actual ($98.66). ~85% de celdas superan el precio.*
+
+### Análisis de impacto
+
+| Variable | Cambio | Nuevo Fair Value | Impacto |
+|----------|--------|------------------|---------|
+| TV Multiple | 15x → 11x | $94 | -$30 (-24.2%) |
+| Op margin | 29.5% → 24% | ~$100 | -$24 (-19.4%) |
+| WACC | 13.33% → 15.5% | ~$107 | -$17 (-13.7%) |
+| Crecimiento Y1 | 17.6% → 10% | ~$105 | -$19 (-15.3%) |
+
+### Sanity checks
+
+| Check | Resultado | Status |
+|-------|-----------|--------|
+| Bear vs precio | $93 vs $99 (-6%) | ✅ Bear cerca de precio actual |
+| Bull/Bear ratio | 162/93 = 1.74x | ✅ Dentro de 1.5-2.0x |
+| TV como % del EV | 88.4% | ⚠️ >75%, típico de content platforms |
+| P/E implícito Y5 | ~24.8x | ✅ Dentro de 5-30x |
+| Growth base vs histórico | 14.0% CAGR vs 12.6% histórico | ✅ Ligeramente arriba |
+| Deuda/Equity | 0.54x | ✅ Moderado |
+| Consenso analistas | $113 vs $119 nuestro | ✅ Alineados |
 
 ---
 
-### Catalizadores
+## 5. Riesgos principales
 
-**Positivos (12-24 meses):**
-- Advertising revenue alcanzando $5B+ run-rate con márgenes superiores al average
-- Deportes en vivo (NFL Christmas Games, WWE Raw) atrayendo nuevos demograficos
-- Pricing actions adicionales (~$1-2/mes incrementos absorbidos por el mercado)
-- Gaming encontrando product-market fit → nuevo driver de engagement
+### 1. Saturación de suscriptores (Severidad: MEDIA-ALTA | Probabilidad: MEDIA)
+Con 325M de suscriptores y penetración alta en mercados desarrollados, el crecimiento futuro depende de mercados emergentes (ARPU bajo), ad tier (conversión), y subidas de precio. El crackdown de password sharing fue un one-time boost que ya se capturó. **Mitigante:** Ad tier añade monetización incremental sin necesidad de nuevos suscriptores. Subidas de precio tienen tracción demostrada.
 
-**Negativos:**
-- Content miss (temporadas fallidas) → churn temporal
-- Subida de precios excesiva → backlash y cancelaciones
-- Macro débil → consumidores cancelan suscripciones "nice-to-have"
+### 2. Inflación de costes de contenido (Severidad: MEDIA | Probabilidad: MEDIA)
+La competencia por talento (actores, directores, showrunners) y derechos deportivos (NFL, WWE) puede inflar los costes de producción. Si el content spend crece más rápido que el revenue, los márgenes comprimen. **Mitigante:** Netflix tiene la mayor escala y puede diluir costes fijos sobre 325M suscriptores. Los competidores (Disney+, Max) están recortando gasto, reduciendo la presión de precios.
+
+### 3. Competencia de plataformas (Severidad: MEDIA | Probabilidad: BAJA)
+Disney+, Apple TV+, Amazon Prime Video, Max compiten por tiempo del espectador. Sin embargo, la industria se ha consolidado: los competidores priorizan rentabilidad sobre crecimiento, y Netflix mantiene claro liderazgo en engagement. **Mitigante:** El streaming no es zero-sum. Muchos hogares tienen 2-3 suscripciones, y Netflix es consistentemente la primera opción.
+
+### 4. Volatilidad macro/consumo (Severidad: MEDIA | Probabilidad: MEDIA)
+En recesión, los consumidores recortan gastos discrecionales. Netflix ($15-23/mes) es barato relativo a cable ($100+), pero una recesión severa podría aumentar el churn. **Mitigante:** Netflix es "último en ser cancelado" — ofrece el mejor entertainment/$ del mercado. El ad tier ($6.99) es aún más resistente.
+
+### 5. Beta elevado (1.67) (Severidad: MEDIA | Probabilidad: ALTA)
+La acción es más volátil que el mercado. Correcciones de 20-30% no son inusuales (ha ocurrido múltiples veces). Esto requiere convicción y horizonte largo. **Mitigante:** La volatilidad crea oportunidades de entrada. El negocio subyacente es estable y predecible.
+
+---
+
+## 6. Catalizadores
+
+### Positivos (12-24 meses)
+- **Ad tier duplicándose a $3B:** Confirmación del segundo pilar de monetización. Si supera los $3B, el mercado revalorizará Netflix con un premium.
+- **Margen operativo >31.5%:** Cada punto de margen añade ~$450M de operating income. El objetivo de 31.5% para 2026 es conservador si el ad tier escala.
+- **Subidas de precio:** Netflix acaba de subir precios de nuevo. Con contenido exclusivo (live events, NFL), tiene poder de fijación de precios sostenido.
+- **Mercados emergentes:** India, Latinoamérica, África crecen en penetración de internet y smartphones. Ad tier es ideal para estos mercados.
+
+### Negativos (12-24 meses)
+- **Crecimiento de suscriptores desacelera a <5%:** Si el mercado percibe saturación, el múltiplo se comprimirá.
+- **Competencia en live sports escala costes:** Los derechos deportivos son caros y el ROI es incierto para streaming puro.
+- **Regulación de contenido:** Cambios regulatorios en EU, India, o China podrían limitar catálogo o aumentar costes de compliance.
+- **Insiders vendiendo:** Noticias de que ejecutivos de Netflix están vendiendo acciones — posible señal de prudencia interna.
 
 ---
 
-### Conclusión y plan de acción
+## 7. Conclusión y plan de acción
 
-**Recomendación: MANTENER / NO COMPRAR a precios actuales.**
+### Señal de inversión: 🟡 LIGERAMENTE INFRAVALORADA — margen de seguridad del 17%
 
-Netflix a $93.43 cotiza aproximadamente a su valor intrínseco (fair value ponderado ~$70-93 dependiendo del WACC). La empresa ha completado una transformación impresionante — de un cash burner a una máquina de $9.5B de FCF con 29.5% de margen operativo. Pero a estos precios, la transformación ya está descontada.
+Netflix ha caído un 30% desde máximos y cotiza a un precio que nuestro DCF sugiere está por debajo de su valor intrínseco. El fair value ponderado de $119.19 ofrece un upside del 21% sobre el precio actual, con el bear case ($93.16) a solo un 6% por debajo — un perfil riesgo/beneficio asimétrico favorable.
 
-La clave es el WACC: si usamos el beta de 1.71 (WACC 13.57%), Netflix está sobrevalorada. Si ajustamos a un WACC de 10% (reflejando la nueva realidad de una empresa madura y rentable), está a fair value. En ningún caso hay margen de seguridad significativo.
+El negocio es excepcional: líder indiscutible del streaming, márgenes en fuerte expansión, pricing power demostrado, y un nuevo pilar de advertising que se duplica cada año. La corrección del 30% parece una sobrerreacción a temores de saturación que no se reflejan en los datos (crecimiento del 18% en Q4).
 
-- **Precio de entrada recomendado:** $70-$75 (margen de seguridad ≥15% sobre FV ajustado)
-- **Precio actual ($93.43):** No comprar — sin margen de seguridad
-- **Tamaño de posición sugerido:** 2-3% del portfolio si se compra en zona de entrada
-- **Horizonte de inversión:** 3-5 años
+Sin embargo, el margen de seguridad del 17% es insuficiente para una compra agresiva bajo nuestra filosofía value (objetivo: >25%). Netflix es una excelente empresa, pero el WACC elevado (beta 1.67) y la dependencia del TV múltiplo introducen riesgo de valoración.
 
----
-*Análisis generado el 2026-03-28. Datos: Yahoo Finance + SEC 10-K (auditoría: LOW — discrepancias por unidades miles/millones; datos coinciden en magnitud). D&A ajustada a depreciación física (3%). No es consejo de inversión.*
+### Recomendación
+- **COMPRA MODERADA a precios actuales ($98.66).** El upside del 21% con bear case cercano al precio justifica una posición inicial.
+- **Precio para añadir posición:** $90 o inferior (margen de seguridad sube a ~25%).
+- **Precio ideal:** $80 o inferior (margen del 33%, alineado con bear case).
+- **Tamaño de posición recomendado:** 2-3% del portfolio. Buena empresa a precio razonable, pero beta alto exige posición contenida.
+
+### Riesgos que monitorizar
+1. Crecimiento de suscriptores trimestral (Netflix dejó de reportar subs, seguir revenue/ARM como proxy)
+2. Ad tier revenue vs objetivo de $3B para 2026
+3. Margen operativo vs guía de 31.5%
+4. Evolución del content spend como % del revenue

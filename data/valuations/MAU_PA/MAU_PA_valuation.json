@@ -1,0 +1,177 @@
+{
+  "ticker": "MAU_PA",
+  "company": "Etablissements Maurel & Prom S.A.",
+  "currency": "$",
+  "date": "2026-04-04",
+  "current_price": 10.92,
+  "shares_outstanding": 199530081,
+  "market_cap": 2178868480,
+  "sector": "Energy",
+  "industry": "Oil & Gas E&P",
+  "country": "France",
+  "business_summary": "Etablissements Maurel & Prom S.A. engages in exploration and production of oil and gas, and hydrocarbons in Gabon, Tanzania, Angola, and Venezuela. The company operates through three segments: Oil production, Exploration, Gas Production, and Drilling. Etablissements Maurel & Prom S.A. was founded in 1831 and is headquartered in Paris, France. Etablissements Maurel & Prom S.A. operates as a subsidiary of PT Pertamina Internasional Eksplorasi dan Produksi.",
+  "beta": 0.12,
+  "analyst_targets": {
+    "high": 11.0,
+    "low": 6.5,
+    "mean": 9.625,
+    "current": 10.92
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 577524000.0,
+    "net_income": 410079000.0,
+    "ebitda": 515074000.0,
+    "free_cashflow": -21725000.0,
+    "gross_margin": 0.5108965168547108,
+    "operating_margin": 0.24478636385674016,
+    "net_margin": 0.7100639973403703,
+    "total_debt": 285962000.0,
+    "cash": 460249000.0,
+    "total_equity": 1545996000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 676480000.0,
+      "net_income": 204817000.0,
+      "ebitda": 430620000.0,
+      "fcf": 263383000.0,
+      "operating_income": 354834000.0
+    },
+    "2023": {
+      "revenue": 682150000.0,
+      "net_income": 210195000.0,
+      "ebitda": 321863000.0,
+      "fcf": 124579000.0,
+      "operating_income": 253225000.0
+    },
+    "2024": {
+      "revenue": 808386000.0,
+      "net_income": 233183000.0,
+      "ebitda": 340516000.0,
+      "fcf": 131479000.0,
+      "operating_income": 255985000.0
+    },
+    "2025": {
+      "revenue": 577524000.0,
+      "net_income": 410079000.0,
+      "ebitda": 515074000.0,
+      "fcf": -21725000.0,
+      "operating_income": 141370000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Oil & Gas E&P",
+      "revenues": {
+        "2022": 676480000.0,
+        "2023": 682150000.0,
+        "2024": 808386000.0,
+        "2025": 577524000.0
+      }
+    }
+  ],
+  "acquisition_detected": null,
+  "captive_finance": null,
+  "sec_audit": null,
+  "scenarios": {
+    "base": {
+      "revenue_growth_y1": -0.13,
+      "revenue_growth_y5": -0.04999999999999999,
+      "gross_margin": 0.5866238377767949,
+      "sga_pct": 0.3418374739200548,
+      "rd_pct": 0.0,
+      "da_pct": 0.15075443807855443,
+      "capex_pct": 0.1938838827825478,
+      "tax_rate": 0.35,
+      "wacc": 0.07,
+      "terminal_multiple": 8
+    },
+    "bull": {
+      "revenue_growth_y1": -0.1075,
+      "revenue_growth_y5": -0.027499999999999997,
+      "gross_margin": 0.596623837776795,
+      "sga_pct": 0.3368374739200548,
+      "rd_pct": 0.0,
+      "da_pct": 0.15075443807855443,
+      "capex_pct": 0.17449549450429302,
+      "tax_rate": 0.35,
+      "wacc": 0.060000000000000005,
+      "terminal_multiple": 10
+    },
+    "bear": {
+      "revenue_growth_y1": -0.1525,
+      "revenue_growth_y5": -0.07249999999999998,
+      "gross_margin": 0.5766238377767949,
+      "sga_pct": 0.3468374739200548,
+      "rd_pct": 0.0,
+      "da_pct": 0.15075443807855443,
+      "capex_pct": 0.22296646519992996,
+      "tax_rate": 0.35,
+      "wacc": 0.08,
+      "terminal_multiple": 6
+    }
+  },
+  "news": [
+    {
+      "title": "NCAA 99: Corteza, Gozum halt Mapua’s streak, lift Benilde to share of fourth - Tiebreaker Times",
+      "date": "Wed, 25 Oc",
+      "source": "Tiebreaker Times"
+    },
+    {
+      "title": "DLSU’s Mur Alao, Mapua high school standouts join UE Red Warriors - all-starmagazine.com",
+      "date": "Wed, 24 Ap",
+      "source": "all-starmagazine.com"
+    },
+    {
+      "title": "From no pictures to playing Drake songs: Mapua University student-athletes share their game superstitions - GMA Network",
+      "date": "Wed, 17 Fe",
+      "source": "GMA Network"
+    },
+    {
+      "title": "NCAA: Mapua dumps San Sebastian to keep share of top seed - ABS-CBN",
+      "date": "Wed, 13 No",
+      "source": "ABS-CBN"
+    },
+    {
+      "title": "Yuchengo Group switch on Mapua rooftop solar project - Manila Bulletin",
+      "date": "Tue, 09 Ju",
+      "source": "Manila Bulletin"
+    },
+    {
+      "title": "Etablissements Maurel & Prom SA (MAU.PA) Stock Price, News & Analyst Forecast - eToro",
+      "date": "Thu, 27 Ju",
+      "source": "eToro"
+    },
+    {
+      "title": "NCAA: EAC squeaks past Lyceum, Mapua grabs share of No. 2 - Inquirer.net",
+      "date": "Sun, 29 Se",
+      "source": "Inquirer.net"
+    },
+    {
+      "title": "NCAA: Mapua staves off JRU for share of second in Season 100 - ABS-CBN",
+      "date": "Sun, 29 Se",
+      "source": "ABS-CBN"
+    },
+    {
+      "title": "Mapua University expansion underway, says iPeople - Philstar.com",
+      "date": "Sun, 08 Ma",
+      "source": "Philstar.com"
+    },
+    {
+      "title": "Mapua launches School of Medicine with Arizona State U - Manila Bulletin",
+      "date": "Mon, 16 De",
+      "source": "Manila Bulletin"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MAU_PA/MAU_PA_modelo_valoracion.xlsx",
+    "sec_filings": []
+  },
+  "dcf_reliable": true
+}

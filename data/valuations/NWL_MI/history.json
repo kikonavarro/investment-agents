@@ -12,5 +12,19 @@
     "growth_y1_base": 0.07049568543843909,
     "wacc_base": 0.0523,
     "tv_base": 12
+  },
+  {
+    "date": "2026-04-04",
+    "file": "NWL_MI_20260404_valuation.json",
+    "current_price": 15.36,
+    "currency": "$",
+    "fair_value_bear": 11.42,
+    "fair_value_base": 29.5,
+    "fair_value_bull": 53.04,
+    "revenue": 1641109000.0,
+    "gross_margin": 0.16537414638515785,
+    "growth_y1_base": 0.07049568543843909,
+    "wacc_base": 0.0748,
+    "tv_base": 14
   }
 ]

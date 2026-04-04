@@ -40,5 +40,19 @@
     "growth_y1_base": -0.011,
     "wacc_base": 0.1499,
     "tv_base": 24
+  },
+  {
+    "date": "2026-04-04",
+    "file": "TSLA_20260404_valuation.json",
+    "current_price": 360.59,
+    "currency": "$",
+    "fair_value_bear": 39.54,
+    "fair_value_base": 53.69,
+    "fair_value_bull": 70.31,
+    "revenue": 94827000000.0,
+    "gross_margin": 0.18026511436616155,
+    "growth_y1_base": -0.011,
+    "wacc_base": 0.1492,
+    "tv_base": 24
   }
 ]

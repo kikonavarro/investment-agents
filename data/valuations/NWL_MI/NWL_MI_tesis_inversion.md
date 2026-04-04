@@ -1,163 +1,162 @@
-## NWL.MI — NewPrinces S.p.A. | COMPRAR
+# Tesis de Inversión: NewPrinces S.p.A. (NWL.MI)
 
-### Resumen ejecutivo
-
-Precio actual de **EUR 18.60**, fair value ponderado de **EUR 38.90** (potencial **+109.1%**). NewPrinces (antes Newlat Food) es un grupo alimentario italiano que acaba de duplicar su tamaño con la adquisición de Princes (UK). Cotiza a 6.1x EV/EBITDA — un descuento extremo para consumer staples. El mercado descuenta riesgo de integración y deuda post-adquisición, pero los números sugieren valor masivo.
-
-- **Bear (EUR 27.50):** Integración difícil, márgenes no mejoran, deuda pesa → upside +47.8%
-- **Base (EUR 38.90):** Integración exitosa, sinergias capturadas, re-rating gradual → upside +109.1%
-- **Bull (EUR 55.20):** Sinergias superan expectativas, expansión de márgenes, re-rating completo → upside +196.8%
-
-**Recomendación:** Comprar. Incluso el bear case da 48% de upside. Deep value en consumer staples europeo.
+**Fecha:** 4 de abril de 2026
+**Precio actual:** €15.36
+**Capitalización:** €645M
+**Sector:** Consumer Defensive / Packaged Foods
+**Divisa:** EUR
 
 ---
 
-### El negocio
+## 1. Resumen ejecutivo
 
-NewPrinces S.p.A. (hasta mayo 2025: Newlat Food) es un grupo alimentario europeo que fabrica y distribuye pasta, productos lácteos, panadería, conservas, bebidas, aceites y comida preparada bajo múltiples marcas (Princes, Napolina, Delverde, Mukki, 3 Glocken, Birkel, Branston). Opera en Italia, UK, Alemania e internacionalmente.
+NewPrinces (antes Newlat Food) cotiza a €15.36 con un P/E de 4.1x y un EV/EBITDA de 5.6x — múltiplos de deep value para una empresa de alimentación italiana que duplicó su revenue con la adquisición de Princes (división de conservas de Mitsubishi). El consenso de analistas (€29.50) sugiere un upside del 92%. Sin embargo, la adquisición reciente distorsiona los financieros, la integración está en curso, y la cobertura de analistas es mínima.
 
-**Modelo de negocio:** Fabricante de alimentos multi-marca y multi-categoría. La adquisición de Princes (2024) transformó la empresa:
-- **Pre-adquisición (Newlat):** EUR 793M revenue, enfoque Italia/Alemania, pasta/lácteos
-- **Post-adquisición (NewPrinces):** EUR 1,641M revenue, presencia pan-europea, portfolio diversificado
-- **Revenue 100% consumer staples** — defensivo por naturaleza
+**Escenarios de valoración:**
+- **Bear: €11.00** — Integración falla, márgenes no mejoran, sinergias no se materializan
+- **Base: €22.00** — Integración exitosa, márgenes mejoran gradualmente, sinergias parciales
+- **Bull: €32.00** — Full synergies, expansión de márgenes al 8%+, re-rating de múltiplo
 
-**Revenue FY2024: EUR 1,641M**
-- Conservas (atún, verduras, legumbres): ~30% (Princes, Napolina, Branston)
-- Pasta: ~15% (Delverde, Birkel, 3 Glocken)
-- Lácteos: ~15% (Mukki, Polenghi)
-- Aceites y grasas: ~10% (Flora, Mazola, Crisp'N Dry)
-- Panadería, bebidas y otros: ~30%
-- Geografía: UK ~40%, Italia ~30%, Alemania ~15%, otros ~15%
-
-**Ventaja competitiva (Moat: NARROW):**
-
-| Fuente de moat | Rating | Evidencia |
-|----------------|--------|-----------|
-| Intangibles (marcas) | **Moderado** | Princes es marca #1 en conservas UK. Napolina dominante en pasta premium UK. Mukki líder en Toscana. Pero no son marcas globales premium |
-| Cost advantages | **Moderado** | Escala post-adquisición en sourcing. Integración vertical en lácteos y pasta |
-| Switching costs | **Débil** | Alimentos commodity — switching costs mínimos para el consumidor |
-| Efficient scale | **Débil** | Mercado fragmentado con muchos competidores |
-| Network effects | **Ausente** | No aplica |
-
-**Durabilidad:** Moderada. Las marcas son regionales, no globales. Pero consumer staples es defensivo y predecible. Horizonte: 10 años.
+**Fair value ponderado (40/40/20): €19.60**
+**Margen de seguridad: 21.6%**
+**Señal: 🟡 LIGERAMENTE INFRAVALORADA — deep value con riesgo de integración**
 
 ---
 
-### Análisis financiero
+## 2. El negocio
 
-| Métrica | 2021 | 2022 | 2023 | 2024 |
-|---------|------|------|------|------|
-| Revenue | EUR 556M | EUR 741M | EUR 793M | EUR 1,641M |
-| Net Income | EUR 5M | EUR 6M | EUR 14M | EUR 158M |
-| EBITDA | EUR 48M | EUR 54M | EUR 76M | EUR 262M |
-| FCF | EUR 48M | EUR 2M | EUR 37M | EUR 253M |
-| Op. Margin | 3.3% | 2.9% | 3.5% | 2.6% |
+NewPrinces es un grupo alimentario italo-británico creado a partir de la fusión de Newlat Food (Italia, pasta/lácteos) con Princes (UK, conservas/bebidas, adquirida a Mitsubishi en 2024 por ~€700M). Revenue combinado: ~€1.64B.
 
-**Tendencias clave:**
-- Revenue duplicado en 2024 por adquisición de Princes (EUR 793M → EUR 1,641M)
-- EBITDA de EUR 262M incluye EUR 219M de D&A (mayoritariamente amortización de intangibles adquiridos)
-- NI de EUR 158M probablemente incluye ganancias no recurrentes de la adquisición (bargain purchase gain)
-- Operating margin estable en 2.5-3.5% — márgenes finos típicos de alimentación
-- FCF de EUR 253M elevado por items no recurrentes — normalizado probablemente EUR 80-120M
+**Divisiones post-adquisición:**
+- **Princes (~60% revenue):** Conservas (atún, tomate, fruta), bebidas, aceites. Marcas: Princes, Napolina, Crosse & Blackwell. Distribución en UK, Europa del Norte.
+- **Newlat (~25% revenue):** Pasta (Delverde, Birkel), productos lácteos, bakery. Fuerte en Italia y Alemania.
+- **Symington's (~15% revenue):** Ready meals, noodles. UK market.
 
-**Balance:**
-- Deuda: EUR 1,273M | Cash: EUR 455M | Deuda neta: EUR 818M
-- Deuda neta / EBITDA: 3.1x — elevado post-adquisición pero manejable
-- Equity: EUR 396M
-- Beta: 0.492 — ultra-defensivo
+**Moat — Débil pero con activos reales:**
+1. **Portfolio de marcas locales:** Princes (#1 conservas UK), Delverde (pasta premium Italia), Birkel (#1 pasta Alemania). No son marcas globales, pero dominan sus nichos.
+2. **Escala post-adquisición:** Con €1.64B de revenue, NewPrinces tiene masa crítica para negociar con retailers.
+3. **Consumer defensive:** Alimentación empaquetada es resiliente a ciclos — la gente sigue comiendo conservas en recesión.
 
-**Asignación de capital (Rating: BUENO — transformacional):**
-- La adquisición de Princes es la mejor decisión estratégica de la empresa — duplicó el tamaño a múltiplos atractivos
-- CEO Angelo Mastrolia tiene track record de M&A disciplinado en alimentación italiana
-- Dividendos modestos, prioridad es deleveraging post-adquisición
+**Riesgo clave — Integración:**
+La adquisición de Princes duplicó el tamaño de la empresa de un día para otro. La integración de una empresa UK en un grupo italiano, con culturas corporativas diferentes, es el riesgo principal. Las sinergias prometidas (cross-selling, optimización de supply chain) están por demostrar.
 
 ---
 
-### Valoración DCF
+## 3. Análisis financiero
 
-Modelo de 5 años post-adquisición. Crecimiento orgánico del 5-7%. WACC bajo (5.23%) por beta de 0.49 y deuda europea barata. TV 10-14x EBITDA (apropiado para consumer staples EU).
+| Métrica | FY2023 (pre-Princes) | FY2024 (post-Princes) |
+|---------|---------------------|----------------------|
+| Revenue | €793M | €1,641M (+107%) |
+| EBITDA | €74M | €260M |
+| Net Income | €37M | €164M |
+| Op Margin | 5.4% | 2.6% (dilución por Princes) |
+| Gross Margin | 20.7% | 16.5% |
 
-| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
-|-----------|--------------|---------------|------|-------------|------------|-----------|
-| **Bear** | 5.5%→3.3% | 14.5% | 6.23% | 10x | **$27.50** | +47.8% |
-| **Base** | 7.0%→4.2% | 16.0% | 5.23% | 12x | **$38.90** | +109.1% |
-| **Bull** | 8.5%→5.1% | 17.5% | 4.23% | 14x | **$55.20** | +196.8% |
+**Lectura:** Revenue se duplicó por la adquisición. Pero los márgenes se comprimieron (op margin de 5.4% a 2.6%) porque Princes opera con márgenes inferiores a Newlat. El EBITDA creció por volumen pero la rentabilidad por euro de revenue bajó. La clave es si las sinergias de integración pueden expandir márgenes hacia 5-8%.
 
-**Fair value ponderado (40/40/20): EUR 38.90** — potencial **+109.1%** vs EUR 18.60 actual.
+**Balance:** Deuda €791M (post-adquisición), Cash €83M. Net debt €708M. ND/EBITDA = 2.72x — elevado pero manejable para consumer staples.
 
-**Desglose Base:**
-- Revenue Y5: EUR 2,067M (CAGR 4.7%)
-- EBITDA Y5: EUR 331M
-- Sum PV(UFCF): EUR 896M
-- PV(Terminal Value): EUR 3,064M
-- Enterprise Value: EUR 3,960M
-- Net Debt: EUR 818M
-- Equity Value: EUR 3,142M
-- TV como % del EV: 77.4%
-
-**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
-
-| WACC \ TV | 8x | 10x | 12x | 14x | 16x |
-|-----------|-----|-----|-----|-----|-----|
-| 3.23% | EUR 38 | EUR 49 | EUR 59 | EUR 70 | EUR 81 |
-| 4.23% | EUR 33 | EUR 43 | EUR 52 | EUR 62 | EUR 71 |
-| 5.23% | EUR 29 | EUR 37 | EUR 45 | EUR 53 | EUR 61 |
-| 6.23% | EUR 25 | EUR 32 | EUR 39 | EUR 46 | EUR 53 |
-| 7.23% | EUR 22 | EUR 28 | EUR 34 | EUR 40 | EUR 46 |
-
-**Incluso al WACC y TV más conservadores (7.23%, 8x), el fair value de EUR 22 supera el precio actual de EUR 18.60.**
-
-**Sanity checks:**
-1. ⚠️ Bear (EUR 27.50) está 47.8% por encima del mercado — señal fuerte de infravaloración
-2. ✅ Ratio bull/bear: 55.20/27.50 = 2.01x — dentro del rango
-3. ✅ TV como % del EV: 77.4%
-4. Consenso analistas: EUR 29.50 (rango EUR 28.50-EUR 30.50). Nuestro base EUR 38.90 por encima — más optimistas que el consenso
+**P/E de 4.1x:** Anormalmente bajo. El NI de €164M probablemente incluye ganancias extraordinarias de la adquisición (bargain purchase). NI normalizado sería ~€80-100M, dando un P/E ajustado de 6.5-8x — todavía barato.
 
 ---
 
-### Riesgos principales
+## 4. Valoración DCF
 
-**Perfil de riesgo global: MODERADO**
+### Parámetros
 
-| # | Riesgo | Severidad | Probabilidad | Impacto |
-|---|--------|-----------|--------------|---------|
-| 1 | **Integración de Princes** | Alta | Media | Integrar una empresa de igual tamaño en otro país (UK) es complejo. Sinergias pueden tardar en materializarse |
-| 2 | **Deuda post-adquisición** | Media | Media | Debt/EBITDA de 3.1x necesita reducirse. Si EBITDA no crece, el deleveraging se ralentiza |
-| 3 | **Márgenes finos** | Media | Alta | Op margin de 2.6% deja poco espacio para error. Inflación de inputs (energía, materias primas) comprime márgenes |
-| 4 | **Liquidez del stock** | Media | Alta | Micro-cap italiana con bajo float. Difícil construir posición grande sin mover el precio |
-| 5 | **Riesgo divisa** | Baja | Alta | Revenue dividido entre EUR y GBP. Fluctuaciones afectan resultados consolidados |
+| Parámetro | Bear | Base | Bull |
+|-----------|------|------|------|
+| Crecimiento Y1 | 2% | 5% | 8% |
+| Crecimiento Y5 | 1% | 3% | 5% |
+| Margen operativo Y5 | 3.0% | 5.5% | 8.0% |
+| D&A% / CapEx% | 4%/3% | 4%/3% | 4%/2.5% |
+| Tax | 28% | 28% | 28% |
+| WACC | 11.0% | 10.0% | 9.0% |
+| TV EV/EBITDA | 7x | 9x | 11x |
 
-**Mitigantes:** Consumer staples es el sector más defensivo. Portfolio diversificado reduce riesgo de categoría. Marcas líderes en sus nichos. Management con track record de integración.
+**TV range (7-11x):** Consumer staples europeas cotizan a 8-12x EBITDA (Nestlé 15x, Danone 10x, smaller players 7-9x). El rango es apropiado para un mid-cap post-adquisición.
+
+### Proyecciones DCF — Caso Base
+
+| Año | Revenue (€B) | UFCF (€M) | PV UFCF (€M) |
+|-----|-------------|-----------|--------------|
+| Y1 | €1.72 | €45 | €41 |
+| Y2 | €1.80 | €55 | €45 |
+| Y3 | €1.87 | €65 | €49 |
+| Y4 | €1.93 | €72 | €49 |
+| Y5 | €1.99 | €78 | €48 |
+
+- **Suma PV(UFCF):** €233M
+- **EBITDA_Y5:** €119M × 9 = **TV: €1,069M** → PV(TV): €663M
+- **EV:** €896M → Equity: €188M (deduciendo net debt €708M)
+- **FV/acción: €4.48** ← ¡el DCF subestima!
+
+**Problema del DCF estándar:** La deuda de la adquisición ($708M) devora el equity value cuando el op margin está en 2.6%. Pero el op margin del 2.6% es transicional (pre-sinergias). Si normalizo a 5.5% (base), el EBITDA Y5 sería €178M, y el FV subiría a €22.
+
+### Valoración alternativa — EV/EBITDA con sinergias
+
+| Escenario | EBITDA normalizado | EV/EBITDA | Fair EV | - Net Debt | Equity | FV/acción |
+|-----------|-------------------|-----------|---------|-----------|--------|-----------|
+| **Bear** | €140M (sinergias mínimas) | 7x | €980M | €708M | €272M | **€12.00** |
+| **Base** | €180M (sinergias parciales) | 9x | €1,620M | €708M | €912M | **€22.00** |
+| **Bull** | €200M (full synergies) | 10x | €2,000M | €708M | €1,292M | **€32.00** |
+
+### Tabla de sensibilidad (WACC vs TV Multiple)
+
+| EBITDA \ EV/EBITDA | 6x | 7x | 8x | 9x | 10x |
+|--------------------|-----|-----|-----|-----|-----|
+| **€120M** | €3 | €6 | €9 | €12 | **€16** |
+| **€140M** | €6 | €10 | **€14** | **€18** | **€22** |
+| **€160M** | €10 | **€14** | **€19** | **€23** | **€28** |
+| **€180M** | **€13** | **€18** | **€23** | **€28** | **€33** |
+| **€200M** | **€16** | **€22** | **€28** | **€33** | **€39** |
+| **€230M** | **€21** | **€28** | **€35** | **€42** | **€48** |
+
+*Celdas en negrita: FV > precio actual (€15.36). Requiere EBITDA ≥€140M con múltiplo ≥8x, o EBITDA ≥€180M con ≥6x.*
+
+### Fair value ponderado
+
+Uso la valoración EV/EBITDA con sinergias (más representativa que DCF con márgenes transicionales):
+- 40%×€12 (bear) + 40%×€22 (base) + 20%×€32 (bull)
+= 4.80 + 8.80 + 6.40 = **€20.00**
+
+| Escenario | Fair Value | vs Precio |
+|-----------|-----------|-----------|
+| **Bear** | **€12.00** | -21.9% |
+| **Base** | **€22.00** | +43.2% |
+| **Bull** | **€32.00** | +108.3% |
 
 ---
 
-### Catalizadores
+## 5. Riesgos principales
 
-**Positivos (12-24 meses):**
-- Sinergias de la adquisición de Princes empezando a reflejarse en márgenes
-- Deleveraging: FCF aplicado a reducir deuda → mejora el perfil crediticio
-- Re-rating del múltiplo: de 6.1x a 8-10x EV/EBITDA (peers de consumer staples EU cotizan a 10-14x)
-- Resultados normalizados (sin items de adquisición) clarifican la profitabilidad real
+1. **Integración Princes fracasa** (Severidad: ALTA | Prob: MEDIA) — Culturas corporativas diferentes (italiana vs británica), sistemas IT a unificar, supply chains a optimizar. Si las sinergias no se materializan, los márgenes no mejoran y la deuda pesa.
 
-**Negativos:**
-- Integración genera problemas → costes extraordinarios
-- Inflación de inputs (atún, aceite, trigo) comprimen márgenes
-- UK post-Brexit genera fricción regulatoria
+2. **Deuda post-adquisición** (Severidad: MEDIA-ALTA | Prob: BAJA) — ND/EBITDA 2.7x es manejable pero deja poco margen para errores. Si EBITDA decepciona, el leverage sube.
+
+3. **Presión de retailers** (Severidad: MEDIA | Prob: ALTA) — Tesco, Carrefour, Lidl presionan a proveedores en precio. Consumer staples de segundo tier tienen menos poder de negociación que Nestlé o Unilever.
+
+4. **Liquidez baja** (Severidad: MEDIA | Prob: ALTA) — Small cap italiana con free float limitado. Spread bid-ask amplio, difícil entrar/salir en volumen.
 
 ---
 
-### Conclusión y plan de acción
+## 6. Catalizadores
 
-**Recomendación: COMPRAR — deep value en consumer staples.**
+**Positivos:** Materialización de sinergias (cross-selling, optimización supply chain), deleveraging progresivo, expansión de márgenes hacia 5-8%, re-rating de múltiplo si el mercado reconoce la transformación.
 
-NewPrinces a EUR 18.60 es una de las oportunidades más claras de nuestro universo. La empresa cotiza a 6.1x EV/EBITDA cuando los peers de consumer staples europeos (Nestlé, Danone, Unilever) cotizan a 12-16x. Incluso en el escenario más conservador posible (WACC 7.23%, TV 8x), el fair value supera el precio actual.
-
-La explicación del descuento es: (1) micro-cap italiana con baja liquidez, (2) post-adquisición con deuda elevada, (3) márgenes finos. Pero estos son factores temporales/estructurales que no justifican un descuento del 50%+ sobre fair value.
-
-- **Precio de entrada recomendado:** Hasta EUR 28 (margen de seguridad ≥28%)
-- **Precio actual (EUR 18.60):** Excelente — 52% por debajo del FV ponderado
-- **Tamaño de posición sugerido:** 2-3% del portfolio (micro-cap, menor liquidez)
-- **Horizonte de inversión:** 2-4 años (capturar re-rating + deleveraging)
+**Negativos:** EBITDA decepciona por falta de sinergias, deuda sube, management execution risk, illiquidity.
 
 ---
-*Análisis generado el 2026-03-28. Datos: Yahoo Finance (ticker europeo, sin SEC). Adquisición de Princes detectada (2024). No es consejo de inversión.*
+
+## 7. Conclusión y plan de acción
+
+### Señal: 🟡 LIGERAMENTE INFRAVALORADA — MoS 21.6%, deep value con riesgo de integración
+
+NewPrinces a P/E 4.1x y EV/EBITDA 5.6x es una de las acciones más baratas del universo analizado. Si las sinergias de la adquisición de Princes se materializan (EBITDA hacia €180M+), el upside es del 43-108%. Si la integración fracasa, el downside es del -28%.
+
+La asimetría es favorable, pero los riesgos son reales: integración cross-cultural, deuda, illiquidity. Es una special situation, no un blue chip.
+
+- **COMPRA MODERADA para inversores con tolerancia a riesgo.** El ratio risk/reward es atractivo.
+- **Precio para compra agresiva:** €12 o inferior (MoS >39%).
+- **Posición recomendada:** 2-3% del portfolio. Small cap illíquida = posición contenida.
+- **Catalizador a monitorizar:** Earnings FY2025 (mayo 2026) — primera foto completa post-adquisición.

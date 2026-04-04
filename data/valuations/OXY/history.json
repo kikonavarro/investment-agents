@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-04-02",
+    "file": "OXY_20260402_valuation.json",
+    "current_price": 62.65,
+    "currency": "$",
+    "fair_value_bear": 288.3,
+    "fair_value_base": 379.92,
+    "fair_value_bull": 490.57,
+    "revenue": 21593000000.0,
+    "gross_margin": 0.3493261705182235,
+    "growth_y1_base": 0.4,
+    "wacc_base": 0.07,
+    "tv_base": 8
+  },
+  {
+    "date": "2026-04-04",
+    "file": "OXY_20260404_valuation.json",
+    "current_price": 62.97,
+    "currency": "$",
+    "fair_value_bear": 171.12,
+    "fair_value_base": 238.47,
+    "fair_value_bull": 320.58,
+    "revenue": 21593000000.0,
+    "gross_margin": 0.3493261705182235,
+    "growth_y1_base": 0.4,
+    "wacc_base": 0.07,
+    "tv_base": 8
+  }
+]

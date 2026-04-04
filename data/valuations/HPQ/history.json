@@ -26,5 +26,19 @@
     "growth_y1_base": 0.069,
     "wacc_base": 0.0876,
     "tv_base": 18
+  },
+  {
+    "date": "2026-04-04",
+    "file": "HPQ_20260404_valuation.json",
+    "current_price": 19.51,
+    "currency": "$",
+    "fair_value_bear": 38.96,
+    "fair_value_base": 53.84,
+    "fair_value_bull": 83.83,
+    "revenue": 55295000000.0,
+    "gross_margin": 0.20602224432588842,
+    "growth_y1_base": 0.069,
+    "wacc_base": 0.086,
+    "tv_base": 8
   }
 ]

@@ -54,5 +54,19 @@
     "growth_y1_base": 0.176,
     "wacc_base": 0.1357,
     "tv_base": 15
+  },
+  {
+    "date": "2026-04-04",
+    "file": "NFLX_20260404_valuation.json",
+    "current_price": 98.66,
+    "currency": "$",
+    "fair_value_bear": 118.55,
+    "fair_value_base": 152.84,
+    "fair_value_bull": 195.16,
+    "revenue": 45183036000.0,
+    "gross_margin": 0.48486575802475956,
+    "growth_y1_base": 0.176,
+    "wacc_base": 0.1333,
+    "tv_base": 15
   }
 ]

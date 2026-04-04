@@ -52,10 +52,10 @@ def respond(msg_id: str, text: str = None, file_path: str = None):
         print("Error: necesitas --text o un archivo de respuesta")
         sys.exit(1)
 
-    save_response(msg_id, response)
+    save_response(msg_id, response, auto_send=True)
     print(f"Respuesta guardada para {msg_id} ({len(response)} chars)")
 
-    # Enviar automáticamente
+    # Enviar automáticamente (status='sending' evita que el bot lo duplique)
     if send_response(msg_id):
         print(f"Respuesta enviada por Telegram.")
     else:

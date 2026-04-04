@@ -72,7 +72,7 @@ def _extract_fair_values(thesis_text: str) -> dict:
     values = {}
     for scenario in ["bear", "base", "bull"]:
         # Buscar precio en negrita **$XXX** en la fila del escenario
-        pattern = rf"\|\s*\**{scenario}\**\s*\|.*?\*\*\$\s*([\d,.]+)\*\*"
+        pattern = rf"\|\s*\**{scenario}\**\s*\|.*?\*\*[\$€£]\s*([\d,.]+)\*\*"
         match = re.search(pattern, thesis_text, re.IGNORECASE)
         if match:
             price_str = match.group(1).replace(",", "")
@@ -88,7 +88,7 @@ def _extract_fair_values(thesis_text: str) -> dict:
                 row = row_match.group(0)
                 # Buscar todos los valores $ en la fila, tomar el que parece un precio por acción
                 # (no billones: sin B/M después)
-                price_matches = re.findall(r"\$\s*([\d,.]+)(?![BMbm])", row)
+                price_matches = re.findall(r"[\$€£]\s*([\d,.]+)(?![BMbm])", row)
                 if price_matches:
                     price_str = price_matches[-1].replace(",", "")
                     try:

@@ -1,179 +1,160 @@
-## MA — Mastercard Incorporated | INFRAVALORADA
+# Tesis de Inversión: Mastercard Incorporated (MA)
 
-### Resumen ejecutivo
-
-Precio actual de **$484.24**, fair value ponderado de **$630** (potencial **+30.1%**). Mastercard es un peaje sobre el comercio global con moat prácticamente indestructible: márgenes operativos del 59.5%, ROIC >50%, y crecimiento orgánico sostenido del 13-14% anual. La acción ha corregido desde máximos creando oportunidad en un compounder de élite.
-
-- **Bear ($430):** Regulación de interchange fees + desaceleración macro → downside -11.2%
-- **Base ($670):** Crecimiento secular de pagos digitales, márgenes estables → upside +38.4%
-- **Bull ($950):** Expansión en nuevos flujos de pago (B2B, cross-border, cripto) → upside +96.2%
-
-**Nota:** TV multiples ajustados a 16-24x EV/EBITDA (apropiados para redes de pago de duopoly) vs 9-13x del pipeline (inapropiados para este tipo de negocio).
-
-**Recomendación:** Comprar. Mastercard es de las pocas empresas donde "comprar y olvidar" funciona. A $484, cotiza por debajo del fair value con amplio margen.
+**Fecha:** 4 de abril de 2026
+**Precio actual:** $493.44
+**Capitalización:** $440.4B
+**Sector:** Financial Services / Credit Services
+**Divisa:** USD
 
 ---
 
-### El negocio
+## 1. Resumen ejecutivo
 
-Mastercard opera la segunda red de procesamiento de pagos más grande del mundo (después de Visa). No es un banco — no asume riesgo crediticio ni presta dinero. Cobra una comisión por cada transacción procesada a través de su red, actuando como peaje sobre el comercio global.
+Mastercard cotiza a $493.44, un 25% por debajo de su máximo y del consenso de analistas ($657). La empresa opera un duopolio global de procesamiento de pagos con Visa, con márgenes operativos del 60%, crecimiento del 18%, y prácticamente cero riesgo de crédito. Nuestro DCF con WACC del 10% (mínimo value) y TV de 20x (rango payment networks: 16-24x) muestra un fair value significativamente superior al precio actual.
 
-**Modelo de negocio:** Red de pagos (toll booth). Por cada transacción con tarjeta Mastercard:
-- **Assessment fees:** % del volumen total procesado (GDV — Gross Dollar Volume)
-- **Transaction processing fees:** Tarifa fija por transacción
-- **Cross-border fees:** Prima por transacciones internacionales (25-30% del revenue, márgenes altísimos)
-- **Services & Solutions:** Consultoría, analytics, ciberseguridad, tokenización — crecimiento acelerado
+**Escenarios de valoración:**
+- **Bear: $472** — Crecimiento modera al 9-15%, múltiplo comprime a 18x, cross-border desacelera
+- **Base: $639** — Crecimiento 11-18%, digitalización del cash sostiene volúmenes, márgenes estables
+- **Bull: $820** — Cross-border y value-added services aceleran, márgenes expanden
 
-**Revenue FY2025: $32.8B** (CAGR 3 años: 13.8%)
-- Payment network: ~65% (domestic + cross-border)
-- Value-added services: ~35% (datos, analytics, consultoría, seguridad) — creciendo más rápido
-- Geografía: ~40% EEUU, ~35% Europa, ~25% resto del mundo
-
-**Ventaja competitiva (Moat: WIDE — de los más anchos del mercado):**
-
-| Fuente de moat | Rating | Evidencia |
-|----------------|--------|-----------|
-| Network effects | **Muy Fuerte** | Más tarjetas → más merchants aceptan MA → más consumidores quieren MA. Red bilateral auto-reforzante con >3B tarjetas, aceptación en >210 países |
-| Switching costs | **Fuerte** | Bancos emisores tienen integración profunda con la red MA (APIs, compliance, programas). Cambiar red requiere migrar millones de tarjetas |
-| Efficient scale | **Fuerte** | Solo 2 redes globales dominan (MA + V = >90% del procesamiento fuera de China). Coste marginal de una transacción adicional ≈ $0. Economías de escala infinitas |
-| Intangibles | **Fuerte** | Marca top 10 global. Relaciones con >25,000 instituciones financieras. Trust construido en 60 años |
-| Cost advantages | **Fuerte** | Modelo asset-light: CapEx solo 4.3% de revenue. Zero credit risk. Márgenes operativos >59% |
-
-**Durabilidad del moat:** Excepcional. La transición de cash a digital payments es un trend secular de décadas. El duopolio MA/V es prácticamente imposible de disrumpir — incluso las fintechs (PayPal, Stripe, Square) usan la red MA/V como rails. Horizonte: >20 años.
-
-Evidencia cuantitativa: Op margin estable 57-60% (4 años), ROIC >50%, revenue CAGR 13.8%.
+**Fair value ponderado (40/40/20): $608**
+**Margen de seguridad: 18.9%**
+**Señal: 🟡 LIGERAMENTE INFRAVALORADA — atractiva para posición inicial**
 
 ---
 
-### Análisis financiero
+## 2. El negocio
 
-| Métrica | 2022 | 2023 | 2024 | 2025 |
-|---------|------|------|------|------|
-| Revenue | $22.2B | $25.1B | $28.2B | $32.8B |
-| Net Income | $9.9B | $11.2B | $12.9B | $15.0B |
-| EBITDA | $13.0B | $15.0B | $16.8B | $20.4B |
-| FCF | $10.1B | $10.9B | $13.6B | $16.4B |
-| Op. Margin | 57.2% | 58.3% | 58.0% | 59.5% |
+Mastercard opera la segunda mayor red de procesamiento de pagos del mundo (tras Visa). El modelo de negocio es un "peaje digital": cada vez que alguien paga con tarjeta Mastercard, la empresa cobra una pequeña comisión (~0.13% del valor de la transacción). No asume riesgo de crédito (eso lo hacen los bancos emisores) ni necesita capital significativo para operar.
 
-**Tendencias clave:**
-- Revenue creciendo 13.8% CAGR — aceleración impulsada por cross-border y value-added services
-- Operating margins estables >57% y expandiéndose hacia 60% — apalancamiento operativo
-- FCF de $16.4B (50.1% FCF margin) — extraordinario
-- Net Income creciendo 14.7% CAGR — superior al revenue por expansion de márgenes
-- Balance sheet impecable: deuda neta solo $8.4B (0.41x EBITDA)
+**Revenue mix (~$32.8B en 2025):**
+- **Payment network fees (~65%):** Comisiones por procesamiento de transacciones domésticas. Crecimiento estable (~10-12%).
+- **Cross-border volume fees (~25%):** Premium significativo en transacciones internacionales. El segmento de mayor crecimiento (+18% en Q4 2025) y más rentable.
+- **Value-added services (~10%):** Consultoría, analytics, ciberseguridad, tokenización. Crecimiento rápido, margen alto. Mastercard está diversificando más allá del puro procesamiento.
 
-**Balance y deuda:**
-- Deuda total: $19.0B | Cash: $10.6B | Deuda neta: $8.4B
-- Deuda neta / EBITDA: 0.41x — apalancamiento mínimo
-- Total equity: $7.7B (reducido por buybacks)
-- Beta: 0.836 — baja volatilidad, defensive compounder
-
-**Auditoría SEC: Confianza HIGH. Todos los datos coinciden al 100%** (revenue, cash, equity, EBITDA).
-
-**Asignación de capital (Rating: EXCELENTE):**
-
-- **Buybacks:** ~$9-10B anuales. Reducción consistente de shares outstanding ~3% anual
-- **Dividendos:** ~$2.4B, yield ~1.3%. Crecimiento del dividendo >15% anual
-- **CapEx:** Solo $1.4B (4.3% de revenue) — modelo extremadamente asset-light
-- **M&A:** Selectivo y estratégico (Dynamic Yield $300M, Finicity, Ekata). Enfocado en data/analytics
-- **ROIC vs WACC:** ROIC >50% vs WACC 8.9% — la mejor generación de valor del S&P500
+**Moat — Posiblemente el más fuerte del mercado:**
+1. **Efecto de red bilateral:** Más tarjetas emitidas → más comercios aceptan → más consumidores quieren la tarjeta → más bancos emiten. 3.400M+ tarjetas emitidas globalmente.
+2. **Duopolio regulatorio:** Visa + Mastercard procesan >90% de las transacciones de tarjeta fuera de China. Las barreras regulatorias y de escala hacen virtualmente imposible la entrada de un nuevo competidor.
+3. **Switching costs institucionales:** Los bancos que emiten tarjetas Mastercard tienen contratos plurianuales. Cambiar de red requiere reemitir millones de tarjetas.
+4. **Asset-light con apalancamiento operativo:** CapEx de solo 4.3% del revenue. Cada transacción incremental tiene coste marginal cercano a cero.
 
 ---
 
-### Valoración DCF
+## 3. Análisis financiero
 
-Modelo de 5 años con exit multiple sobre EBITDA Y5. **TV multiples ajustados para redes de pago** (16-24x, vs pipeline 9-13x que es inapropiado para un negocio de duopolio con 60% márgenes). CapEx bajo (4.3%).
+### Evolución histórica (FY2022-FY2025)
 
-| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
-|-----------|--------------|---------------|------|-------------|------------|-----------|
-| **Bear** | 15.0%→9.0% | 60.1% | 9.92% | 16x | **$430** | -11.2% |
-| **Base** | 17.6%→10.6% | 61.6% | 8.92% | 20x | **$670** | +38.4% |
-| **Bull** | 20.2%→12.1% | 63.1% | 7.92% | 24x | **$950** | +96.2% |
+| Métrica | FY2022 | FY2023 | FY2024 | FY2025 |
+|---------|--------|--------|--------|--------|
+| Revenue ($B) | $22.2 | $25.1 | $28.2 | $32.8 |
+| Net Income ($B) | $9.9 | $11.2 | $12.9 | $15.0 |
+| EBITDA ($B) | $12.8 | $15.0 | $17.2 | $20.4 |
+| FCF ($B) | $10.0 | $11.6 | $13.0 | $16.4 |
+| Margen operativo | 54.1% | 56.7% | 57.5% | 59.5% |
 
-**Fair value ponderado (40/40/20): $630** — potencial **+30.1%** vs $484.24 actual.
+Revenue CAGR 13.9% (FY22-25). Márgenes en expansión continua. FCF conversion del 80%+ — uno de los mejores generadores de caja del mercado. Q4 2025 mostró revenue +18% y EPS +25% por strong cross-border y pricing.
 
-**Desglose Base:**
-- Revenue Y5: $63.3B (CAGR 14.1%)
-- EBITDA Y5: $38.9B
-- Sum PV(UFCF): $93.2B
-- PV(Terminal Value): $508.2B
-- Enterprise Value: $601.4B
-- Net Debt: $8.4B
-- Equity Value: $593.0B
-- TV como % del EV: 84.5%
+**Balance:** Deuda $19.0B, Cash $10.6B, Net debt $8.4B. Deuda neta / EBITDA = 0.41x. Equity de solo $7.7B (negativo ajustado por goodwill) refleja el modelo asset-light y los buybacks agresivos.
 
-**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
-
-| WACC \ TV | 14x | 16x | 18x | 20x | 22x | 24x |
-|-----------|-----|-----|-----|-----|-----|-----|
-| 6.92% | $575 | $664 | $752 | $841 | $929 | $1,018 |
-| 7.92% | $511 | $589 | $668 | $747 | $826 | $905 |
-| 8.92% | $455 | $525 | $596 | $670 | $736 | $806 |
-| 9.92% | $407 | $469 | $532 | $597 | $657 | $720 |
-| 10.92% | $364 | $420 | $476 | $534 | $588 | $644 |
-
-**Análisis de impacto:**
-
-| Variable | Cambio | Impacto en Fair Value Base |
-|----------|--------|---------------------------|
-| TV Multiple | ±2x | ±$70 (~10%) — **mayor impacto** |
-| WACC | ±1% | ±$73 (~11%) |
-| Revenue Growth Y1 | ±2% | ±$28 (~4%) |
-| EBITDA Margin | ±1% | ±$30 (~4%) |
-
-**Sanity checks:**
-1. ✅ Bear ($430) vs mercado ($484.24): -11.2% — dentro del ±15%
-2. ✅ Ratio bull/bear: 950/430 = 2.21x — ligeramente fuera del rango ideal (TV multiples amplían el spread)
-3. ✅ TV como % del EV: 84.5%
-4. Consenso analistas: media $661.12 (rango $550-$739). Nuestro base $670 alineado con consenso
+**SEC audit: confianza HIGH** — todos los datos coinciden con 10-K.
 
 ---
 
-### Riesgos principales
+## 4. Valoración DCF
 
-**Perfil de riesgo global: BAJO**
+### Ajustes al modelo cuantitativo
+- **WACC:** Ajustado de 8.9% (CAPM, beta 0.83) a **10.0%** mínimo value. Mastercard merece un WACC en el rango bajo (negocio predecible, asset-light), pero nuestra filosofía exige ≥10%.
+- **TV múltiplo:** Ajustado de 11x (genérico Financial Services) a **20x** (payment networks: 16-24x per sector guidance). Mastercard cotiza históricamente a 22-28x EBITDA. Un TV de 20x implica compresión de múltiplo, conservador.
 
-| # | Riesgo | Severidad | Probabilidad | Impacto |
-|---|--------|-----------|--------------|---------|
-| 1 | **Regulación de interchange** | Media | Media | EU ya regula caps. EEUU (CCCA/Durbin expansion) podría regular más. Impacto: reduce pricing power pero no destruye el modelo |
-| 2 | **Disrupción por pagos alternativos** | Baja | Baja | Real-time payment rails (FedNow, PIX, UPI) ofrecen alternativa más barata. Pero MA/V dominan cross-border y crédito, donde los alternativos son débiles |
-| 3 | **Recesión global** | Media | Media | Volume-based revenue sufre si el gasto del consumidor cae. Pero MA no asume credit risk — solo bajan los volúmenes procesados |
-| 4 | **China y mercados cerrados** | Baja | Alta | China (UnionPay) y Rusia están efectivamente cerrados a MA. Limita el TAM pero ya descontado |
-| 5 | **Valoración premium** | Baja | — | A 21.6x EV/EBITDA, la acción no es barata en términos absolutos. Pero para esta calidad de negocio, es razonable |
+### Parámetros por escenario
 
-**Mitigantes:** Duopolio reforzándose. Value-added services reducen dependencia de interchange. Cross-border payments en crecimiento secular. Balance fortress.
+| Parámetro | Bear | Base | Bull |
+|-----------|------|------|------|
+| Crecimiento Y1 | 15.0% | 17.6% | 20.2% |
+| Crecimiento Y5 | 9.0% | 10.6% | 12.1% |
+| Margen operativo | 57.5% | 59.5% | 61.5% |
+| D&A% / CapEx% | 3.3% / 4.3% | 3.3% / 4.3% | 3.3% / 4.3% |
+| Tax | 16.0% | 16.0% | 16.0% |
+| WACC | 11.0% | 10.0% | 9.0% |
+| TV EV/EBITDA | 18x | 20x | 22x |
+
+### Proyecciones DCF — Caso Base
+
+| Año | Revenue ($B) | UFCF ($B) | PV UFCF ($B) |
+|-----|-------------|-----------|--------------|
+| Y1 | $38.6 | $18.9 | $17.2 |
+| Y2 | $44.7 | $21.9 | $18.1 |
+| Y3 | $51.0 | $25.0 | $18.8 |
+| Y4 | $57.3 | $28.1 | $19.2 |
+| Y5 | $63.3 | $31.0 | $19.3 |
+
+- **Suma PV(UFCF):** $92.5B
+- **EBITDA_Y5:** $39.8B × 20 = **TV: $795.3B** → PV(TV): $493.8B
+- **EV:** $586.3B → **Equity:** $577.9B
+- **FV/acción: $652** (shares: 885.2M)
+
+### Resultados por escenario
+
+| Escenario | Fair Value | vs Precio | Margen seguridad |
+|-----------|-----------|-----------|------------------|
+| **Bear** | **$472** | -4.3% | n/a |
+| **Base** | **$652** | +32.1% | 24.3% |
+| **Bull** | **$820** | +66.2% | 39.8% |
+
+**Fair Value ponderado: $608 | MoS: 18.9%**
+
+### Tabla de sensibilidad (WACC vs TV Multiple)
+
+| WACC \ TV | 16x | 18x | 20x | 22x | 24x |
+|-----------|-----|-----|-----|-----|-----|
+| **8.0%** | **$598** | **$679** | **$760** | **$841** | **$922** |
+| **9.0%** | **$556** | **$630** | **$704** | **$778** | **$852** |
+| **9.5%** | **$536** | **$607** | **$678** | **$749** | **$819** |
+| **10.0%** | **$517** | **$585** | **$652** | **$720** | **$788** |
+| **10.5%** | **$499** | **$564** | **$629** | **$693** | **$758** |
+| **11.0%** | $481 | **$543** | **$606** | **$668** | **$730** |
+| **12.0%** | $449 | **$506** | **$563** | **$621** | **$678** |
+
+*Todas las celdas excepto Bear corners superan el precio ($493.44). 95% de celdas dan upside.*
+
+### Sanity checks
+
+| Check | Resultado | Status |
+|-------|-----------|--------|
+| Bear vs precio | $472 vs $493 (-4%) | ✅ Bear muy cerca de precio |
+| Bull/Bear ratio | 820/472 = 1.74x | ✅ Dentro de 1.5-2.0x |
+| P/E implícito Y5 | ~22x | ✅ |
+| Growth vs histórico | 14% CAGR vs 13.9% histórico | ✅ Alineado |
+| Consenso | $657 vs $608 nuestro | ✅ ~8% debajo |
 
 ---
 
-### Catalizadores
+## 5. Riesgos principales
 
-**Positivos (12-24 meses):**
-- Cross-border payments acelerando por recuperación del turismo internacional y e-commerce global
-- Value-added services superando 40% del revenue total con márgenes superiores
-- Expansión de B2B payments (mercado de $125T, <5% penetrado por tarjeta)
-- Tokenización y push payments abriendo nuevos flujos (disbursements, P2P, crypto on/off ramps)
+1. **Regulación de interchange fees** (Severidad: MEDIA-ALTA | Prob: MEDIA) — Gobiernos podrían limitar las comisiones. Ya ocurrió en EU (interchange cap). **Mitigante:** Mastercard se está diversificando hacia value-added services menos regulados.
 
-**Negativos:**
-- Regulación de interchange en EEUU (CCCA aprobado)
-- Desaceleración macro reduce volúmenes de pagos
-- Competencia de payment rails alternativos (A2A, real-time)
+2. **Disrupción fintech / crypto** (Severidad: MEDIA | Prob: BAJA) — Stablecoins y wallets podrían bypass las redes de tarjetas. **Mitigante:** MA/V están integrando crypto (stablecoin settlements en Q4 2025). Si crypto gana, lo hará SOBRE los rails de Visa/MA, no en su lugar.
+
+3. **Desaceleración cross-border** (Severidad: MEDIA | Prob: MEDIA) — Recesión global o restricciones de viaje frenarían el segmento más rentable. **Mitigante:** Diversificación geográfica y e-commerce cross-border creciente.
+
+4. **Concentración en duopolio** (Severidad: BAJA | Prob: BAJA) — Riesgo antimonopolio. **Mitigante:** El duopolio ha existido >50 años y los reguladores lo consideran beneficioso para la competencia vs monopolio.
 
 ---
 
-### Conclusión y plan de acción
+## 6. Catalizadores
 
-**Recomendación: COMPRAR.**
+**Positivos:** Digitalización del efectivo en mercados emergentes (India, África, LatAm), crecimiento de e-commerce cross-border, expansion de value-added services, buybacks sostenidos (~$12B/año).
 
-Mastercard a $484.24 es un compounder de élite con un 30% de descuento sobre nuestro fair value. El negocio es prácticamente perfecto: moat indestructible, márgenes del 60%, ROIC >50%, crecimiento orgánico del 14%, balance limpio, y management disciplinado en capital allocation.
-
-La única razón por la que MA no cotiza más alto es una corrección general de múltiplos en tech/fintech. Pero el negocio subyacente sigue acelerando — cross-border payments, value-added services, y B2B son motores de crecimiento para la próxima década.
-
-- **Precio de entrada recomendado:** Hasta $500 (margen de seguridad ≥20% sobre FV)
-- **Precio actual ($484.24):** Comprar directamente
-- **Tamaño de posición sugerido:** 5-7% del portfolio (alta convicción, baja volatilidad, compounder)
-- **Horizonte de inversión:** 5-10+ años (compound machine)
-
-Mastercard es el tipo de empresa que Buffett describiría como "a wonderful business at a fair price." A $484, el precio es más que fair — es atractivo.
+**Negativos:** Recesión global (reduce spending volume), regulación de fees más agresiva, competencia de redes alternativas (UPI en India, PIX en Brasil).
 
 ---
-*Análisis generado el 2026-03-28. Datos: Yahoo Finance + SEC 10-K (auditoría: HIGH confidence, 0 alertas). TV multiples ajustados a redes de pago (16-24x). No es consejo de inversión.*
+
+## 7. Conclusión y plan de acción
+
+### Señal: 🟡 LIGERAMENTE INFRAVALORADA — MoS 18.9%
+
+Mastercard es uno de los mejores negocios del mundo: duopolio con márgenes del 60%, crecimiento secular, asset-light, y resiliente a ciclos. A $493.44 ofrece un margen de seguridad del 19%, insuficiente para compra agresiva value (>25%) pero atractivo para posición inicial dado la calidad excepcional del negocio.
+
+- **COMPRA MODERADA a precios actuales.** La calidad justifica aceptar un margen menor.
+- **Precio para añadir:** $450 o inferior (MoS ~26%).
+- **Posición recomendada:** 3-5% del portfolio.

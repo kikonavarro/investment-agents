@@ -40,5 +40,19 @@
     "growth_y1_base": 0.146,
     "wacc_base": 0.0872,
     "tv_base": 11
+  },
+  {
+    "date": "2026-04-04",
+    "file": "V_20260404_valuation.json",
+    "current_price": 300.8,
+    "currency": "$",
+    "fair_value_bear": 217.57,
+    "fair_value_base": 289.12,
+    "fair_value_bull": 377.08,
+    "revenue": 40000000000.0,
+    "gross_margin": 0.803625,
+    "growth_y1_base": 0.146,
+    "wacc_base": 0.0875,
+    "tv_base": 11
   }
 ]

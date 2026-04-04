@@ -742,6 +742,9 @@ def run_bot():
 
             # Encolar para Claude Code (Opus)
             msg_id = enqueue_message(chat_id, user_name, text, from_group=is_allowed_group)
+            if msg_id is None:
+                print(f"[Telegram] Duplicado ignorado de {user_name}")
+                continue
             send_message(api_base, chat_id,
                         "⏳ Tu mensaje está siendo analizado por Opus. Te respondo en breve.",
                         html=False)

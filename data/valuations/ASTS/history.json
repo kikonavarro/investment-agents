@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-30",
+    "file": "ASTS_20260330_valuation.json",
+    "current_price": 76.085,
+    "currency": "$",
+    "fair_value_bear": -17.73,
+    "fair_value_base": -19.44,
+    "fair_value_bull": -21.99,
+    "revenue": 70918000.0,
+    "gross_margin": 0.5034264925688824,
+    "growth_y1_base": -0.13,
+    "wacc_base": 0.1916,
+    "tv_base": 21
+  }
+]

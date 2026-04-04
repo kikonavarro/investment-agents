@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-04-02",
+    "file": "MAU_PA_20260402_valuation.json",
+    "current_price": 10.73,
+    "currency": "EUR ",
+    "fair_value_bear": 7.88,
+    "fair_value_base": 11.24,
+    "fair_value_bull": 15.51,
+    "revenue": 577524000.0,
+    "gross_margin": 0.5108965168547108,
+    "growth_y1_base": -0.13,
+    "wacc_base": 0.07,
+    "tv_base": 8
+  },
+  {
+    "date": "2026-04-04",
+    "file": "MAU_PA_20260404_valuation.json",
+    "current_price": 10.92,
+    "currency": "$",
+    "fair_value_bear": 3.96,
+    "fair_value_base": 5.95,
+    "fair_value_bull": 8.51,
+    "revenue": 577524000.0,
+    "gross_margin": 0.5108965168547108,
+    "growth_y1_base": -0.13,
+    "wacc_base": 0.07,
+    "tv_base": 8
+  }
+]

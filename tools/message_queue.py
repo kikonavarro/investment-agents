@@ -26,10 +26,32 @@ def _init():
     DONE_DIR.mkdir(parents=True, exist_ok=True)
 
 
+def _is_duplicate(chat_id: str, text: str, window_seconds: int = 30) -> bool:
+    """Detecta si el mismo texto del mismo chat se encoló en los últimos N segundos."""
+    _init()
+    now = datetime.now()
+    for f in sorted(INBOX_DIR.glob("*.json"), reverse=True):
+        try:
+            msg = json.loads(f.read_text(encoding="utf-8"))
+            if msg.get("chat_id") == chat_id and msg.get("text") == text:
+                msg_time = datetime.fromisoformat(msg["timestamp"])
+                if (now - msg_time).total_seconds() < window_seconds:
+                    return True
+        except (json.JSONDecodeError, Exception):
+            continue
+    return False
+
+
 def enqueue_message(chat_id: str, user_name: str, text: str,
                     from_group: bool = False) -> str:
-    """Encola un mensaje de Telegram. Retorna el msg_id."""
+    """Encola un mensaje de Telegram. Retorna el msg_id (o None si es duplicado)."""
     _init()
+
+    # Deduplicación: ignorar mensajes idénticos del mismo chat en ventana de 30s
+    if _is_duplicate(chat_id, text):
+        print(f"  [queue] Duplicado ignorado: '{text[:50]}...' de {chat_id}")
+        return None
+
     ts = datetime.now()
     msg_id = ts.strftime("%Y%m%d_%H%M%S") + f"_{chat_id}"
     msg = {
@@ -61,14 +83,17 @@ def get_pending() -> list[dict]:
     return msgs
 
 
-def save_response(msg_id: str, response: str):
-    """Guarda la respuesta de Claude Code para un mensaje."""
+def save_response(msg_id: str, response: str, auto_send: bool = False):
+    """Guarda la respuesta de Claude Code para un mensaje.
+    Si auto_send=True, usa status 'sending' para evitar que el bot lo envíe también."""
     path = INBOX_DIR / f"{msg_id}.json"
     if not path.exists():
         raise FileNotFoundError(f"Mensaje {msg_id} no encontrado")
     msg = json.loads(path.read_text(encoding="utf-8"))
     msg["response"] = response
-    msg["status"] = "responded"
+    # 'sending' = Claude Code lo enviará ahora (el bot no debe tocarlo)
+    # 'responded' = listo para que el bot lo envíe (fallback)
+    msg["status"] = "sending" if auto_send else "responded"
     msg["responded_at"] = datetime.now().isoformat()
     path.write_text(json.dumps(msg, ensure_ascii=False, indent=2), encoding="utf-8")
 

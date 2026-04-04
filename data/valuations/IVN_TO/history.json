@@ -12,5 +12,19 @@
     "growth_y1_base": 0.04,
     "wacc_base": 0.1306,
     "tv_base": 12
+  },
+  {
+    "date": "2026-04-04",
+    "file": "IVN_TO_20260404_valuation.json",
+    "current_price": 10.44,
+    "currency": "$",
+    "fair_value_bear": -8.19,
+    "fair_value_base": -7.47,
+    "fair_value_bull": -7.03,
+    "revenue": 441615000.0,
+    "gross_margin": 0.0383999637693466,
+    "growth_y1_base": 0.04,
+    "wacc_base": 0.1358,
+    "tv_base": 12
   }
 ]

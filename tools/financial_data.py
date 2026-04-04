@@ -224,6 +224,18 @@ def resolve_ticker(query: str) -> str | None:
     return results[0]["symbol"]
 
 
+def _to_yahoo_ticker(ticker: str) -> str:
+    """Convierte ticker de formato filesystem (MAU_PA) a Yahoo Finance (MAU.PA).
+    Solo convierte el ÚLTIMO underscore seguido de sufijo de mercado conocido."""
+    suffixes = ["MC", "PA", "DE", "AS", "BR", "MI", "SW", "L", "TO", "V",
+                "AX", "HK", "T", "TW", "NS", "BO", "SA", "MX", "KS", "SI"]
+    for suffix in suffixes:
+        fs_suffix = f"_{suffix}"
+        if ticker.endswith(fs_suffix):
+            return ticker[:-len(fs_suffix)] + f".{suffix}"
+    return ticker
+
+
 def get_company_data(ticker: str) -> dict:
     """
     Obtiene todos los datos financieros necesarios para la valoracion.
@@ -235,15 +247,20 @@ def get_company_data(ticker: str) -> dict:
         if cached is not None:
             return cached
 
-    print(f"  [data] Descargando datos financieros para {ticker}...")
+    # Normalizar ticker para Yahoo Finance (MAU_PA → MAU.PA)
+    yahoo_ticker = _to_yahoo_ticker(ticker)
+    if yahoo_ticker != ticker:
+        print(f"  [ticker] {ticker} → {yahoo_ticker} (formato Yahoo Finance)")
 
-    stock = Ticker(ticker)
+    print(f"  [data] Descargando datos financieros para {yahoo_ticker}...")
+
+    stock = Ticker(yahoo_ticker)
 
     def _safe_fetch(prop):
         result = prop
         if not isinstance(result, dict):
             return {}
-        val = result.get(ticker, {})
+        val = result.get(yahoo_ticker, {})
         return val if isinstance(val, dict) else {}
 
     price_data = _safe_fetch(stock.price)
@@ -252,13 +269,13 @@ def get_company_data(ticker: str) -> dict:
     key_stats = _safe_fetch(stock.key_stats)
     summary = _safe_fetch(stock.summary_detail)
 
-    info = _build_info_dict(price_data, fin_data, profile, key_stats, summary, ticker)
-    print(f"    Empresa: {info.get('longName', ticker)}")
+    info = _build_info_dict(price_data, fin_data, profile, key_stats, summary, yahoo_ticker)
+    print(f"    Empresa: {info.get('longName', yahoo_ticker)}")
     print(f"    Sector: {info.get('sector', 'N/A')}")
 
-    income_stmt = _pivot_financial_df(stock.income_statement(frequency='a'), ticker)
-    balance_sheet = _pivot_financial_df(stock.balance_sheet(frequency='a'), ticker)
-    cash_flow = _pivot_financial_df(stock.cash_flow(frequency='a'), ticker)
+    income_stmt = _pivot_financial_df(stock.income_statement(frequency='a'), yahoo_ticker)
+    balance_sheet = _pivot_financial_df(stock.balance_sheet(frequency='a'), yahoo_ticker)
+    cash_flow = _pivot_financial_df(stock.cash_flow(frequency='a'), yahoo_ticker)
 
     print(f"    Income Statement: {len(income_stmt.columns)} periodos")
     print(f"    Balance Sheet: {len(balance_sheet.columns)} periodos")
@@ -268,7 +285,7 @@ def get_company_data(ticker: str) -> dict:
     shares_outstanding = key_stats.get("sharesOutstanding", 0) or key_stats.get("impliedSharesOutstanding", 0) or 0
 
     estimates = _get_analyst_estimates(info, fin_data)
-    segments = _get_business_segments(ticker, info, income_stmt)
+    segments = _get_business_segments(yahoo_ticker, info, income_stmt)
 
     try:
         hist = stock.history(period="5y", interval="1mo")
@@ -701,21 +718,22 @@ def generate_scenarios(data, historical):
         sc["segments"] = [{"name": s["name"], "growth_rates": [sc[f"revenue_growth_y{y}"] for y in range(1, 6)]} for s in segments]
         scenarios[key] = sc
 
-    # Sanity check: EBITDA implícito vs real
-    # Si el margen EBITDA implícito (GM - SGA - R&D) difiere >10pp del real, ajustar SGA
+    # Sanity check: margen operativo (EBIT) implícito vs real
+    # GM - SGA - R&D = margen EBIT implícito. Comparar contra operating_income real.
+    # (Antes se comparaba contra EBITDA de Yahoo, que incluye SBC y creaba un gap artificial)
     latest_year = sorted_years[-1] if sorted_years else None
     if latest_year:
         real_rev = historical[latest_year].get("total_revenue", 0)
-        real_ebitda = historical[latest_year].get("ebitda", 0)
-        if real_rev and real_ebitda:
-            real_ebitda_margin = real_ebitda / real_rev
+        real_ebit = historical[latest_year].get("operating_income", 0)
+        if real_rev and real_ebit and real_rev > 0:
+            real_ebit_margin = real_ebit / real_rev
             base_sc = scenarios["base"]
-            implicit_ebitda_margin = base_sc["gross_margin"] - base_sc["sga_pct"] - base_sc["rd_pct"]
-            gap = real_ebitda_margin - implicit_ebitda_margin
+            implicit_ebit_margin = base_sc["gross_margin"] - base_sc["sga_pct"] - base_sc["rd_pct"]
+            gap = implicit_ebit_margin - real_ebit_margin
             if abs(gap) > 0.05:  # >5pp de diferencia
-                # Ajustar SGA para que el EBITDA implícito coincida con el real
+                # Si implicit > real: SGA demasiado bajo, aumentar. Y viceversa.
                 for key in scenarios:
-                    scenarios[key]["sga_pct"] = max(scenarios[key]["sga_pct"] - gap, 0.01)
+                    scenarios[key]["sga_pct"] = max(scenarios[key]["sga_pct"] + gap, 0.01)
 
     # Adjuntar info de adquisición y banco cautivo si se detectaron
     if acquisition:
@@ -883,14 +901,17 @@ def get_current_prices(tickers: list[str]) -> dict[str, float]:
     """Obtiene precios actuales para una lista de tickers via yahooquery."""
     if not tickers:
         return {}
-    stock = Ticker(tickers)
+    # Convertir tickers de formato filesystem a Yahoo Finance
+    yahoo_map = {t: _to_yahoo_ticker(t) for t in tickers}
+    yahoo_tickers = list(yahoo_map.values())
+    stock = Ticker(yahoo_tickers)
     prices = stock.price
     result = {}
-    for t in tickers:
+    for orig, yahoo in yahoo_map.items():
         try:
-            p = prices[t]
+            p = prices[yahoo]
             if isinstance(p, dict):
-                result[t] = p.get("regularMarketPrice", 0)
+                result[orig] = p.get("regularMarketPrice", 0)
         except Exception:
             continue
     return result

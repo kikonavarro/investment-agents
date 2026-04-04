@@ -40,5 +40,19 @@
     "growth_y1_base": 0.006,
     "wacc_base": 0.1074,
     "tv_base": 12
+  },
+  {
+    "date": "2026-04-04",
+    "file": "NKE_20260404_valuation.json",
+    "current_price": 44.19,
+    "currency": "$",
+    "fair_value_bear": 39.54,
+    "fair_value_base": 48.57,
+    "fair_value_bull": 68.18,
+    "revenue": 46309000000.0,
+    "gross_margin": 0.42734673605562634,
+    "growth_y1_base": 0.001,
+    "wacc_base": 0.1073,
+    "tv_base": 12
   }
 ]

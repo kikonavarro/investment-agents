@@ -26,5 +26,19 @@
     "growth_y1_base": -0.027,
     "wacc_base": 0.0796,
     "tv_base": 16
+  },
+  {
+    "date": "2026-04-04",
+    "file": "MC_PA_20260404_valuation.json",
+    "current_price": 471.05,
+    "currency": "$",
+    "fair_value_bear": 514.63,
+    "fair_value_base": 692.69,
+    "fair_value_bull": 884.64,
+    "revenue": 80807000000.0,
+    "gross_margin": 0.6624178598388754,
+    "growth_y1_base": -0.027,
+    "wacc_base": 0.082,
+    "tv_base": 16
   }
 ]

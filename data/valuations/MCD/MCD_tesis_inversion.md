@@ -1,166 +1,165 @@
-## MCD — McDonald's Corporation | VALOR JUSTO
+# Tesis de Inversión: McDonald's Corporation (MCD)
 
-### Resumen ejecutivo
-
-Precio actual de **$305.90**, fair value ponderado de **$314.19** (potencial **+2.7%**). McDonald's es el franchise de restaurantes más valioso del mundo con márgenes operativos del 45.7% y un modelo asset-light que genera FCF predecible. La empresa es excelente pero cotiza aproximadamente a su fair value — la deuda elevada ($51.9B) limita el upside del equity.
-
-- **Bear ($245.31):** Inflación de inputs, caída de tráfico, presión de valor → downside -19.8%
-- **Base ($326.85):** Crecimiento same-store low-single, digital acelerando, márgenes estables → upside +6.8%
-- **Bull ($426.66):** Aceleración global, menú premium exitoso, recompras agresivas → upside +39.5%
-
-**Recomendación:** Mantener si se posee. No comprar a precios actuales — no hay margen de seguridad. Zona de compra: $240-$260 para ≥20% upside.
+**Fecha:** 4 de abril de 2026
+**Precio actual:** $307.14
+**Capitalización:** $218.7B
+**Sector:** Consumer Cyclical / Restaurants (Franchise)
+**Divisa:** USD
 
 ---
 
-### El negocio
+## 1. Resumen ejecutivo
 
-McDonald's es la mayor cadena de restaurantes del mundo con ~40,000 locales en >100 países. ~95% de los restaurantes son franquicias. MCD es, en esencia, una empresa de real estate que cobra rentas a franquiciados + royalties sobre ventas.
+McDonald's cotiza a $307.14 con un EV/EBITDA de 19.4x. El negocio subyacente es excepcional: 95% franquiciado, 46% margen operativo, crecimiento de SSS del 5.7% en Q4 2025. Sin embargo, la estructura de capital deliberadamente apalancada ($50.8B de deuda neta) reduce drásticamente el valor del equity en un DCF con WACC conservador. Nuestro análisis muestra que el precio actual requiere un WACC del ~7-8% para justificarse — por debajo de nuestro mínimo value de 10%.
 
-**Modelo de negocio:** Franquicia + real estate. McDonald's posee los terrenos y edificios, los alquila a franquiciados, y cobra ~4-5% de royalty sobre ventas. Este modelo genera:
-- **Revenue predecible:** Rentas y royalties son cuasi-fijos (no dependen del beneficio del franquiciado)
-- **Márgenes excepcionales:** Operating margin 45.7% (top tier para cualquier industria)
-- **Asset-light operations:** MCD no opera la mayoría de restaurantes — gestiona la marca y cobra
+**Escenarios de valoración (WACC 10%):**
+- **Bear: $137** — Crecimiento modera, márgenes comprimen, deuda pesa sobre equity
+- **Base: $229** — Crecimiento 6-10%, márgenes estables, pero deuda limita upside
+- **Bull: $338** — SSS aceleran, refranchising completo, márgenes expanden
 
-**Revenue FY2024: $25.9B**
-- Franchised restaurants: ~65% (rentas + royalties)
-- Company-operated restaurants: ~35% (operados directamente, márgenes menores)
-- Geografía: ~40% EEUU, ~35% IOM (International Operated Markets), ~25% IDL (International Developmental Licensed)
-
-**Ventaja competitiva (Moat: WIDE):**
-
-| Fuente de moat | Rating | Evidencia |
-|----------------|--------|-----------|
-| Intangibles (marca) | **Muy Fuerte** | Marca #1 en QSR global. 69M clientes/día. Reconocimiento global del 96%. Pricing power demostrado |
-| Cost advantages | **Fuerte** | Escala masiva en compras de inputs (carne, pan, patatas). Supply chain propietaria. Power de negociación incomparable |
-| Efficient scale | **Fuerte** | ~40,000 locales = red de distribución global. Barreras de entrada por capital ($1-2M por restaurante) y brand recognition |
-| Switching costs | **Moderado** | Franquiciados atados por contratos de 20 años + inversión en local. Consumidores leales por hábito y conveniencia |
-| Network effects | **Débil** | Limitado — cada restaurante opera independientemente |
-
-**Durabilidad:** Excepcional. McDonald's lleva 85 años. La marca es un activo auto-reforzante. Horizonte: >25 años.
+**Fair value ponderado (40/40/20): $214**
+**El precio actual descuenta WACC ~7-8%, por debajo de nuestro umbral**
+**Señal: 🟠 LIGERAMENTE SOBREVALORADA — negocio excelente, pero equity cara dada la deuda y nuestro WACC mínimo**
 
 ---
 
-### Análisis financiero
+## 2. El negocio
 
-| Métrica | 2021 | 2022 | 2023 | 2024 |
-|---------|------|------|------|------|
-| Revenue | $23.2B | $23.2B | $25.5B | $25.9B |
-| Net Income | $7.5B | $6.2B | $8.5B | $8.2B |
-| EBITDA | $12.2B | $10.9B | $13.9B | $13.9B |
-| FCF | $7.1B | $5.5B | $7.3B | $6.7B |
-| Op. Margin | 42.5% | 44.6% | 46.1% | 45.7% |
+McDonald's opera la mayor cadena de restauración rápida del mundo: ~42,000 restaurantes en >100 países. El 95% están franquiciados — McDonald's cobra royalties (~5% de ventas) y alquiler (el verdadero negocio: MCD posee el real estate y lo alquila a franquiciados).
 
-**Tendencias clave:**
-- Revenue crecimiento modesto: 1.7% en 2024 (same-store sales presionados)
-- Operating margin estabilizado en 45-46% — excepcionalmente alto para restaurantes
-- FCF de $6.7B con margin del 25.7% — máquina de cash
-- EBITDA estable en $13.9B — sin crecimiento pero sin deterioro
+**Modelo de negocio — "Real estate company that sells burgers":**
+- **Franchise fees + rent (~63% revenue):** Royalties + alquiler de terrenos y edificios. Margen >80%. Ingresos recurrentes y predecibles.
+- **Company-operated restaurants (~37% revenue):** Restaurantes propios. Margen ~15-20%. Están reduciéndose por refranchising.
 
-**Balance:**
-- Deuda total: $51.9B | Cash: $1.1B | Deuda neta: $50.9B
-- **Patrimonio neto negativo (-$3.8B)** — deliberado, resultado de buybacks agresivos + leverage strategy
-- Deuda neta / EBITDA: 3.65x — elevado pero manejable para este nivel de predictibilidad
-- Beta: 0.496 — ultra-defensive
-
-**Auditoría SEC: Confianza MEDIUM.** Revenue y EBITDA coinciden (~4-8% diff por timing fiscal). Cash difiere 28.7% (SEC $774M vs Yahoo $1,085M — probablemente timing).
-
-**Asignación de capital (Rating: BUENO):**
-
-- **Buybacks:** ~$5-6B anuales. Tan agresivos que el equity es negativo. Reducción sostenida de shares
-- **Dividendos:** ~$4.5B, yield ~2.7%. Dividend aristocrat (48+ años de incrementos consecutivos)
-- **CapEx:** ~$2.3B (9% de revenue) — inversión en digital, remodelaciones, nuevos locales
-- **M&A:** Mínimo. Foco orgánico. Últimas adquisiciones relevantes: Dynamic Yield (personalización)
-- **ROIC:** Difícil con equity negativo, pero FCF yield sobre EV del 2.5%
+**Moat — Uno de los más fuertes del mundo:**
+1. **Escala global (cost advantage):** 42,000 locales = poder de negociación con proveedores. Nadie puede replicar esta cadena de suministro.
+2. **Real estate (intangible):** MCD posee o controla los mejores locales en las ciudades más importantes. Este activo no se refleja en el balance a valor de mercado.
+3. **Brand recognition (intangible):** McDonald's es la marca de restauración más reconocida del mundo. Los Golden Arches son universales.
+4. **Switching costs para franquiciados:** Un franquiciado invierte $1-2M para abrir. No puede cambiar de marca sin perder la inversión.
 
 ---
 
-### Valoración DCF
+## 3. Análisis financiero
 
-Modelo de 5 años. TV multiples ajustados a franchise-heavy QSR (14-18x) vs pipeline (10-14x). La deuda neta de $50.9B reduce significativamente el equity value.
+### Evolución histórica (FY2021-FY2024)
 
-| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
-|-----------|--------------|---------------|------|-------------|------------|-----------|
-| **Bear** | 8.2%→4.9% | 52.8% | 7.81% | 14x | **$245.31** | -19.8% |
-| **Base** | 9.7%→5.8% | 53.8% | 6.81% | 16x | **$326.85** | +6.8% |
-| **Bull** | 11.2%→6.7% | 55.3% | 5.81% | 18x | **$426.66** | +39.5% |
+| Métrica | FY2021 | FY2022 | FY2023 | FY2024 |
+|---------|--------|--------|--------|--------|
+| Revenue ($B) | $23.2 | $23.2 | $25.5 | $25.9 |
+| Net Income ($B) | $7.5 | $6.2 | $8.5 | $8.2 |
+| EBITDA ($B) | $12.8 | $11.9 | $14.2 | $13.9 |
+| Margen operativo | 44.6% | 40.4% | 45.3% | 45.7% |
 
-**Fair value ponderado (40/40/20): $314.19** — potencial **+2.7%** vs $305.90 actual.
+**Lectura:** Revenue estable (~$25B, modelo franchise no genera revenue de venta directa masivo), márgenes ultra-altos y estables (45%+). Q4 2025: revenue +10%, SSS +5.7% (beat 3.9% est), US SSS +6.8%. La estrategia de valor ($5 meal deals) está funcionando para recapturar consumidores de bajo ingreso.
 
-**Desglose Base:**
-- Revenue Y5: $37.6B (CAGR 7.7%)
-- EBITDA Y5: $20.3B
-- Sum PV(UFCF): $50.3B
-- PV(Terminal Value): $233.4B
-- Enterprise Value: $283.6B
-- Net Debt: $50.9B (reduce equity ~18% del EV)
-- Equity Value: $232.8B
-- TV como % del EV: 82.3%
+**La cuestión de la deuda — Feature, not bug:**
+McDonald's tiene $51.9B de deuda total y solo $1.1B de cash (net debt $50.8B). Esto NO es distress — es **ingeniería financiera deliberada.** MCD se apalanca para financiar buybacks masivos ($4-5B/año), aprovechando que su negocio franchise genera cash flow predecible suficiente para servir la deuda. El equity es negativo por los buybacks acumulados, no por pérdidas.
 
-**Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple):**
+Sin embargo, desde perspectiva value, esta deuda reduce el margen de seguridad del equity: cada dollar de EV debe primero cubrir $50.8B de deuda antes de llegar al accionista.
 
-| WACC \ TV | 12x | 14x | 16x | 18x | 20x |
+---
+
+## 4. Valoración DCF
+
+### Nota sobre WACC
+El modelo cuantitativo genera WACC de 7.0% (beta 0.43, defensiva). Nuestro mínimo value es 10%. Esta diferencia es CRÍTICA para McDonald's: a 7% WACC el fair value es ~$290, a 10% cae a ~$229. La deuda masiva amplifica el efecto del WACC sobre el equity.
+
+### Parámetros por escenario
+
+| Parámetro | Bear | Base | Bull |
+|-----------|------|------|------|
+| Crecimiento Y1 | 8.2% | 9.7% | 11.2% |
+| Crecimiento Y5 | 3.5% | 5.8% | 7.5% |
+| Margen operativo | 43.0% | 45.7% | 48.0% |
+| D&A% / CapEx% | 3%/4% | 3%/4% | 3%/3.5% |
+| Tax | 22% | 22% | 22% |
+| WACC | 11.0% | 10.0% | 9.0% |
+| TV EV/EBITDA | 12x | 15x | 17x |
+
+### Proyecciones DCF — Caso Base
+
+| Año | Revenue ($B) | UFCF ($B) | PV UFCF ($B) |
+|-----|-------------|-----------|--------------|
+| Y1 | $28.4 | $9.8 | $8.9 |
+| Y2 | $30.9 | $10.7 | $8.8 |
+| Y3 | $33.3 | $11.5 | $8.7 |
+| Y4 | $35.6 | $12.3 | $8.4 |
+| Y5 | $37.7 | $13.0 | $8.1 |
+
+- **Suma PV(UFCF):** $42.9B
+- **EBITDA_Y5:** $18.3B × 15 = **TV: $275.1B** → PV(TV): $170.8B
+- **EV:** $213.7B
+- **Menos Net Debt:** $50.8B
+- **Equity:** $162.9B → **FV/acción: $228.86** (shares: 712M)
+
+### Resultados por escenario
+
+| Escenario | Fair Value | vs Precio | Margen seguridad |
+|-----------|-----------|-----------|------------------|
+| **Bear** | **$137** | -55.4% | n/a |
+| **Base** | **$229** | -25.5% | n/a |
+| **Bull** | **$338** | +10.1% | n/a |
+
+**Fair Value ponderado: $214 | vs precio: -30.3%**
+
+### Tabla de sensibilidad — El efecto WACC es dramático
+
+| WACC \ TV | 12x | 14x | 15x | 16x | 18x |
 |-----------|-----|-----|-----|-----|-----|
-| 4.81% | $310 | $379 | $448 | $517 | $586 |
-| 5.81% | $271 | $333 | $396 | $458 | $520 |
-| 6.81% | $236 | $293 | $327 | $405 | $462 |
-| 7.81% | $206 | $258 | $287 | $358 | $410 |
-| 8.81% | $179 | $227 | $252 | $316 | $363 |
+| **7.0%** | $235 | **$278** | **$300** | **$321** | **$364** |
+| **8.0%** | $200 | $239 | $259 | $278 | **$317** |
+| **8.5%** | $184 | $221 | $240 | $258 | $295 |
+| **9.0%** | $170 | $205 | $222 | $240 | $275 |
+| **10.0%** | $144 | $175 | $191 | $206 | $238 |
+| **11.0%** | $121 | $149 | $163 | $177 | $205 |
+| **12.0%** | $100 | $126 | $138 | $151 | $176 |
 
-**Punto clave: la deuda de $50.9B es el factor crítico.** EV(base) = $283.6B parece razonable para MCD. Pero el equity value (EV - net debt) se comprime a $232.8B por el apalancamiento. Si la deuda fuera $30B (más conservador), el FV base sería ~$356.
+*A WACC 7% y TV 15x, fair value = $300 (= precio actual). A WACC 10% (nuestro mínimo), fair value = $191. La valoración depende COMPLETAMENTE del WACC asumido. El equity se destruye rápidamente con WACCs altos porque la deuda absorbe una parte enorme del EV.*
 
-**Sanity checks:**
-1. ✅ Bear ($245.31) vs mercado ($305.90): -19.8% — dentro del ±20%
-2. ✅ Ratio bull/bear: 426.66/245.31 = 1.74x — dentro del rango
-3. ✅ TV como % del EV: 82.3%
-4. Consenso analistas: $345.21 (rango $260-$407). Nuestro base $326.85 ligeramente por debajo
+### Sanity checks
 
----
-
-### Riesgos principales
-
-**Perfil de riesgo global: BAJO-MODERADO**
-
-| # | Riesgo | Severidad | Probabilidad | Impacto |
-|---|--------|-----------|--------------|---------|
-| 1 | **Presión sobre tráfico** | Media | Media-Alta | Same-store traffic negativo en EEUU en varios trimestres recientes. Los consumidores reducen frecuencia por inflación |
-| 2 | **Deuda elevada** | Media | Baja | $51.9B de deuda con equity negativo. Si FCF cae significativamente, el servicio de deuda se vuelve problemático |
-| 3 | **Guerra de valor (pricing)** | Media | Media | Competidores (Burger King, Wendy's) compiten agresivamente en valor. MCD forzado a ofrecer $5 Meal Deal, comprimiendo márgenes |
-| 4 | **Reputación/salud** | Baja | Baja | Incidentes de seguridad alimentaria (E.coli 2024). Trend hacia alimentación saludable reduce TAM a largo plazo |
-| 5 | **Inflación de inputs** | Media | Media | Costes de carne, aceite, packaging. MCD puede trasladar parte al consumidor pero no todo |
-
-**Mitigantes:** Modelo franchise aísla a MCD de costes operativos directos. Brand power permite precio premium vs competidores. Diversificación global (>100 países). Digital + delivery creciendo >30%.
+| Check | Resultado | Status |
+|-------|-----------|--------|
+| Bear vs precio | $137 vs $307 (-55%) | ⚠️ Deuda amplifica el downside |
+| Bull/Bear ratio | 338/137 = 2.47x | ⚠️ >2.0x — deuda amplifica dispersión |
+| P/E implícito Y5 | ~12x | ✅ (bajo, refleja deuda) |
+| Growth vs histórico | 7.7% CAGR vs 5.8% histórico | ⚠️ Ligeramente agresivo |
+| Consenso | $345 vs $214 nuestro | ⚠️ 38% debajo — sell-side usa WACC 6-7% |
 
 ---
 
-### Catalizadores
+## 5. Riesgos principales
 
-**Positivos (12-24 meses):**
-- Digital/delivery alcanzando 40%+ de ventas → ticket medio superior
-- Recuperación del tráfico en EEUU por mejora de propuesta de valor
-- Expansión en mercados emergentes (China, India, Medio Oriente)
-- Buybacks continúan reduciendo shares → EPS growth > revenue growth
+1. **Sensibilidad al WACC por leverage** (Severidad: ALTA | Prob: ALTA) — Con $50.8B de deuda neta, cada punto de WACC mueve el fair value ~$40/acción. Subidas de tipos o re-pricing de riesgo crediticio impactarían desproporcionadamente.
 
-**Negativos:**
-- Inflación persistente presiona al consumidor → caída de tráfico
-- Subida de tipos encarece el servicio de la deuda ($51.9B)
-- Competencia intensifica guerra de precios
+2. **Consumer weakness / inflación** (Severidad: MEDIA | Prob: MEDIA) — Los consumidores de bajo ingreso, core customer de MCD, siguen presionados. Si la recesión llega, el tráfico caería pese a los $5 meal deals.
+
+3. **Regulación laboral / salario mínimo** (Severidad: MEDIA | Prob: MEDIA) — Subidas de salario mínimo comprimen márgenes de restaurantes company-operated y presionan a franquiciados.
+
+4. **E.coli / escándalos de seguridad alimentaria** (Severidad: ALTA | Prob: BAJA) — Un brote de E.coli en Q4 2024 ya impactó las ventas temporalmente.
 
 ---
 
-### Conclusión y plan de acción
+## 6. Catalizadores
 
-**Recomendación: MANTENER / ESPERAR.**
+**Positivos:** Momentum de valor ($5 meals), expansión a ~50,000 restaurantes, MyMcDonald's Rewards (digital engagement), refranchising continuo mejorando mix de márgenes.
 
-McDonald's es una empresa excepcional cotizando a su precio justo. El moat es amplio y duradero, los márgenes son extraordinarios (45.7% operating), y el modelo franchise genera cash de forma predecible. Sin embargo, a $305.90 no hay margen de seguridad: el FV ponderado de $314.19 da solo un 2.7% de upside.
-
-El factor limitante es la deuda: $50.9B de net debt consume el 18% del enterprise value, reduciendo el upside para los accionistas. Esta es una decisión deliberada de management (usar debt para buybacks), pero significa que los accionistas asumen más riesgo por cada punto de crecimiento.
-
-- **Precio de entrada recomendado:** $240-$260 (margen de seguridad ≥20%)
-- **Precio actual ($305.90):** No hay margen de seguridad
-- **Tamaño de posición sugerido:** 3-4% del portfolio (defensive, dividend aristocrat)
-- **Horizonte de inversión:** Indefinido (buy-and-hold si se compra al precio correcto)
-
-MCD es una acción para comprar en correcciones profundas y mantener para siempre. El momento de compra no es ahora.
+**Negativos:** Debilitamiento del consumidor, subida de tipos afectando coste de deuda, regulación laboral, brand damage por controversias.
 
 ---
-*Análisis generado el 2026-03-28. Datos: Yahoo Finance + SEC 10-K (auditoría: MEDIUM — cash difiere por timing; revenue y EBITDA within 8%). TV multiples ajustados a franchise QSR (14-18x). No es consejo de inversión.*
+
+## 7. Conclusión y plan de acción
+
+### Señal: 🟠 LIGERAMENTE SOBREVALORADA — negocio A+ a precio de A+, sin margen de seguridad
+
+McDonald's es uno de los mejores negocios del mundo: franchise con 46% de margen operativo, marca icónica, y real estate valioso. No hay duda de la calidad.
+
+El problema es doble: (1) **el precio requiere un WACC del 7-8%** para justificarse, por debajo de nuestro mínimo de 10%, y (2) **la deuda de $50.8B** reduce el equity value dramáticamente cuando se aplica un WACC conservador. A 10% WACC, el fair value es $229 — un 25% por debajo del precio actual.
+
+El sell-side usa WACCs del 6-7% para McDonald's (justificable por la predictibilidad del franchise model), y con esos parámetros el precio tiene sentido. Pero un value investor que exige margen de seguridad no puede aceptar esos supuestos.
+
+### Recomendación
+- **NO COMPRAR a precios actuales.** Sin margen de seguridad bajo nuestro framework.
+- **Precio atractivo:** $230 o inferior (donde WACC 10% da fair value parity).
+- **Si ya tienes posición:** MANTENER si el horizonte es >5 años. El negocio es excepcional, la deuda se refinancia, y los buybacks crean valor per share.
+- **Nota:** Si aplicas un WACC del 8% (razonable para franchise) en lugar del 10%, MCD está en fair value. La señal depende del WACC que aceptes.

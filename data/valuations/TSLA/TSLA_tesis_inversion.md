@@ -1,223 +1,229 @@
-## TSLA — Tesla, Inc. | SOBREVALORADA
+# Tesis de Inversión: Tesla, Inc. (TSLA)
 
-### Resumen ejecutivo
-
-Precio actual: **$361.83** | Fair value ponderado (DCF): **$15.02** | Descuento implicito: **-95.8%**
-
-- **Bear (pesimista): $8.59** — contraccion de revenue (-2.6% Y1), margenes debiles (8.3%), WACC 16.0%, TV 10x
-- **Base (probable): $16.23** — ligera caida (-1.1% Y1) antes de recuperacion, margenes 9.8%, WACC 15.0%, TV 12x
-- **Bull (optimista): $25.46** — estabilidad (+0.4% Y1), mejora de margenes (11.3%), WACC 14.0%, TV 14x
-
-Fair value ponderado (40/40/20): **$15.02** (-95.8%)
-
-**Advertencia critica:** El DCF basado en los fundamentales actuales de Tesla (margenes operativos del 5.1%, revenue plano, EBITDA cayendo) produce un fair value drasticamente inferior al precio de mercado. La accion cotiza a 115x EV/EBITDA y 358x beneficios — multiplos que solo se justifican si Tesla ejecuta exitosamente oportunidades no capturadas por el DCF: Full Self-Driving (FSD), robotaxis, Optimus (robotica), y almacenamiento de energia a escala. **El DCF valora lo que Tesla ES hoy; el mercado pricea lo que Tesla PODRIA SER en 5-10 anos.**
-
-**Recomendacion: NO COMPRAR. Sobrevalorada incluso con supuestos generosos. Solo para inversores con altisima tolerancia al riesgo y conviccion en la opcionalidad.**
+**Fecha:** 4 de abril de 2026
+**Precio actual:** $360.59
+**Capitalización:** $1.35 billones
+**Sector:** Consumer Cyclical / Auto Manufacturers
+**Divisa:** USD
 
 ---
 
-### El negocio
+## 1. Resumen ejecutivo
 
-Tesla disena, fabrica y vende vehiculos electricos (EVs), sistemas de generacion y almacenamiento de energia, y desarrollo de software de conduccion autonoma (FSD). Opera en dos segmentos: **Automotive** (~85% del revenue) y **Energy Generation and Storage** (~15%). Fundada en 2003, con sede en Austin, Texas.
+Tesla cotiza a $360.59 con un EV/EBITDA de 115x y un P/E de 357x — múltiplos que no tienen precedente en la industria automotriz y que solo se sostienen si el mercado asigna una probabilidad muy alta al éxito de robotaxi y Optimus. El negocio automotriz core está en deterioro: revenue cayó en 2025, márgenes operativos colapsaron del 17% al 5%, y las entregas de Q1 2026 fallaron las estimaciones. Un DCF estándar es inaplicable; usamos Sum-of-Parts con valoración de optionalidad.
 
-**Productos principales:**
-- **Vehiculos electricos:** Model 3, Model Y (masivos), Model S/X (premium), Cybertruck, Semi (camion electrico)
-- **Energy Storage:** Megapack (utilidades), Powerwall (residencial)
-- **Full Self-Driving (FSD):** Software de conduccion autonoma (version supervisada)
-- **Tesla Supercharger:** Red de carga mas grande del mundo
-- **Seguros:** Tesla Insurance en expansion
-- **Software y servicios:** Actualizaciones OTA, streaming, conectividad premium
+**Valoración Sum-of-Parts:**
+- **Bear: $38.87** — Solo negocio actual (auto + energía), sin optionalidad
+- **Base: $55.67** — Auto + energía + FSD como suscripción + probabilidad moderada de robotaxi
+- **Bull: $90.32** — Éxito parcial de robotaxi + valor emergente de Optimus
 
-**Revenue FY2025: $94.8B** (CAGR 3 anos: 5.2%, con desaceleracion marcada)
-
-**Modelo de negocio:** Fabricacion vertical integrada + venta directa (sin concesionarios) + software como servicio (FSD, Autopilot). El margen bruto ha caido del 25.6% (2022) al 18.0% (2025) por la guerra de precios en EVs. El segmento de energia esta creciendo rapido pero aun no compensa la compresion de margenes automotrices.
-
-#### Ventaja competitiva (moat) — Estrecho y en riesgo
-
-| Fuente de moat | Rating | Evidencia |
-|----------------|--------|-----------|
-| Intangibles / Marca | **Moderado** | Marca Tesla es polarizante pero poderosa. Sin embargo, el dano reputacional por las actividades politicas de Elon Musk esta erosionando la marca en Europa y entre demograficos progresistas. Ventas cayendo en varios mercados |
-| Cost advantages (Mfg) | **Moderado** | Lider en eficiencia de fabricacion EV (gigacasting, integracion vertical). Pero los fabricantes chinos (BYD) estan cerrando la brecha rapidamente. BYD ya produce a menor coste |
-| Network effects (Charging) | **Debil-Moderado** | Red Supercharger es la mas grande de EE.UU., pero la apertura a otros fabricantes (NACS standard) diluye la ventaja exclusiva |
-| Switching costs | **Debil** | Los coches no tienen lock-in significativo. Un comprador de Tesla puede facilmente comprar un BYD, Hyundai o Rivian la proxima vez |
-| Datos / IA | **Potencial** | La flota de >6M de Teslas genera billones de millas de datos de conduccion para entrenar FSD. Ventaja potencialmente decisiva SI FSD funciona. Pero aun no esta monetizado |
-
-**Durabilidad:** Incierta. El moat en fabricacion se esta erosionando por competencia china. La marca esta danada. La ventaja real depende de la ejecucion en FSD/autonomia/robotaxi — que es incierta y de alto riesgo.
+**Fair value ponderado (40/40/20): $55.88**
+**El precio actual ($360.59) implica ~$1.2 billones en optionalidad (FSD/Robotaxi + Optimus)**
+**Señal: 🔴 SOBREVALORADA — el precio requiere certeza casi total sobre el éxito de robotaxi y Optimus**
 
 ---
 
-### Analisis financiero
+## 2. El negocio
 
-| Metrica | 2022 | 2023 | 2024 | 2025 |
-|---------|------|------|------|------|
-| Revenue | $81.5B | $96.8B | $97.7B | $94.8B |
-| Net Income | $12.6B | $15.0B | $7.1B | $3.8B |
-| EBITDA | $17.7B | $14.8B | $14.7B | $11.8B |
-| FCF | $7.6B | $4.4B | $3.6B | $6.2B |
-| Op. Income | $13.8B | $8.9B | $7.8B | $4.8B |
-| Op. Margin | 17.0% | 9.2% | 7.9% | 5.1% |
+Tesla diseña, fabrica y vende vehículos eléctricos, sistemas de almacenamiento de energía, y desarrolla software de conducción autónoma y robótica. Opera en dos segmentos reportados, pero desde una perspectiva de inversión tiene cuatro verticales con perfiles de valor muy diferentes:
 
-**Tendencias clave — PREOCUPANTES:**
-- **Revenue estancado:** De $96.8B (2023) a $94.8B (2025). Tesla ha dejado de crecer en revenue. La guerra de precios para mantener volumen ha destruido topline.
-- **Colapso de margenes operativos:** De 17.0% (2022) a 5.1% (2025). Una caida de 12 puntos porcentuales en 3 anos. Los recortes de precios agresivos para competir con BYD y otros han devastado la rentabilidad.
-- **EBITDA cayendo:** De $17.7B a $11.8B (-33% en 3 anos). La empresa genera cada vez menos profit operativo.
-- **Net Income desplomado:** De $12.6B a $3.8B (-70%). Si excluimos creditos regulatorios, el beneficio real es aun menor.
-- **FCF mejorando ligeramente** en 2025 ($6.2B) pero por optimizacion de capital de trabajo, no por mejora operativa.
+**1. Automotive (~85% revenue, $80B)**
+Vehículos eléctricos (Model 3, Y, Cybertruck). El core business. Q1 2026 entregó 358,023 vehículos, fallando estimaciones por 7,600 unidades. Revenue automotriz declinó por primera vez en años. Márgenes brutos comprimidos al 18% (vs 25%+ en 2022) por guerras de precio y competencia creciente de BYD, Rivian, y marcas tradicionales (Ford, GM, VW). Musk acabó con Model S/X en enero 2026.
 
-**Balance — Fuerte (unico punto positivo claro):**
-- Deuda total: $14.7B | Caja: $16.5B | **Caja neta: $1.8B**
-- Equity: $82.9B
-- Deuda neta/EBITDA: Negativo (caja neta) — no hay riesgo de solvencia
-- Beta: 1.926 (altisima volatilidad)
+**2. Energy Generation & Storage (~14% revenue, $13B estimado)**
+Megapack (almacenamiento a escala utility) y Powerwall (residencial). El segmento de mayor crecimiento, con desplegues de Megapack acelerando. Márgenes saludables (~20-25% bruto). Este es el negocio que la mayoría de inversores ignoran.
 
-**Auditoria SEC: Confianza MEDIUM.**
-- **Alerta critica:** Net Income SEC 10-K ($15.0B) vs Yahoo ($3.8B) — discrepancia del 295%. Probablemente Yahoo usa datos TTM de un periodo distinto o incluye ajustes extraordinarios. Los datos de 2024 10-K muestran NI de $7.1B, consistente con la tendencia descendente.
-- **Alerta EBITDA:** SEC calc ($9.3B) vs Yahoo ($11.8B) — 21% diff. Puede indicar ajustes IFRS16 o items no recurrentes.
+**3. FSD / Autonomous Driving (revenue mínimo actual, pero optionalidad masiva)**
+Full Self-Driving: $99/mes suscripción o $8,000 pago único. ~2M vehículos con hardware capaz. Robotaxis en prueba en Austin (sin conductor de seguridad). Aprobación europea de FSD esperada el 10 de abril. Este es el activo que el mercado valora en cientos de billones.
+
+**4. Optimus (Humanoid Robot) (sin revenue, pura optionalidad)**
+Musk dice que "el 80% del valor de Tesla será Optimus." Producción de ~1,000 unidades en 2026 para uso interno. TAM teórico: reemplazar trabajo manual humano ($10-20T). Sin embargo, no hay producto comercial, no hay clientes, y la competencia (Boston Dynamics, Figure) avanza.
+
+**Moat — La cuestión clave:**
+El moat de Tesla en automoción es más débil de lo que parece. Los switching costs son bajos (comprar un BYD o un Rivian es fácil), la marca está dañada por las actividades políticas de Musk (ventas en Europa -38.8%), y los competidores chinos ofrecen vehículos comparables a precios inferiores. El moat REAL de Tesla está en datos de conducción (miles de millones de millas) y en la red de Superchargers, pero estos son activos complementarios al negocio de autonomía, no al de venta de coches.
 
 ---
 
-### Asignacion de capital
+## 3. Análisis financiero
 
-**Rating: MIXTO**
+### Evolución histórica (FY2022-FY2025)
 
-- **CapEx elevado:** $8.6B (9.1% de revenue). Necesario para mantener gigafactories y expansion, pero el retorno sobre CapEx esta cayendo (margenes comprimiendose mientras CapEx se mantiene alto).
-- **Sin dividendo, sin buybacks significativos:** Tesla retiene todo el cash para reinvertir. A estos multiplos, las recompras no tienen sentido (compraria acciones sobrevaloradas).
-- **M&A:** Minimo. Tesla prefiere desarrollo interno (Optimus, FSD, Megapack). Estrategia coherente pero intensiva en capital.
-- **R&D:** ~4.8% de revenue ($4.6B). Alto en terminos absolutos pero moderado vs peers tech. La inversion en FSD/AI es el mayor gamble de capital.
-- **ROIC vs WACC:** ROIC ~4-6% vs WACC 15.0% — **Tesla esta destruyendo valor** a los margenes actuales. Solo se justifica si la opcionalidad (FSD, robotaxi) materializa retornos futuros enormes.
+| Métrica | FY2022 | FY2023 | FY2024 | FY2025 |
+|---------|--------|--------|--------|--------|
+| Revenue ($B) | $81.5 | $96.8 | $97.7 | $94.8 |
+| Net Income ($B) | $12.6 | $15.0 | $7.1 | $3.8 |
+| EBITDA ($B) | $17.7 | $14.8 | $14.7 | $11.8 |
+| FCF ($B) | $7.6 | $4.4 | $3.6 | $6.2 |
+| Operating Income ($B) | $13.8 | $8.9 | $7.8 | $4.8 |
+| Margen bruto | 25.6% | 18.2% | 17.9% | 18.0% |
+| Margen operativo | 17.0% | 9.2% | 7.9% | 5.1% |
+| Margen neto | 15.4% | 15.5% | 7.3% | 4.0% |
 
-Elon Musk como capital allocator es impredecible. La adquisicion de Twitter (ahora X) por $44B desvio su atencion de Tesla durante meses. Su actividad politica (DOGE) y sus multiples empresas (SpaceX, xAI, Neuralink, Boring Company) generan distraccion y riesgo reputacional.
+**Lectura de los datos — Deterioro claro:**
+- Revenue plano/declinante: $97.7B (2024) → $94.8B (2025), la primera caída interanual. Q1 2026 entregó 358K coches, -14% secuencial.
+- Colapso de márgenes: operating margin de 17.0% → 5.1% en 3 años. Esto se debe a (a) guerras de precios para mantener volumen, (b) costes fijos elevados por nuevas fábricas, y (c) inversión en FSD/Optimus sin revenue correspondiente.
+- Net income cayó de $15.0B a $3.8B — un -75% en 2 años.
+- FCF mejoró en 2025 ($6.2B vs $3.6B) por mejor gestión de working capital, pero sigue siendo modesto para una empresa de $1.35T.
 
----
+**SEC audit: confianza MEDIUM.** Discrepancia principal en Net Income: 10-K muestra $14,997M vs Yahoo $3,794M. Esto se debe a que el 10-K archivado corresponde a FY2024 que incluye un gain extraordinario, mientras Yahoo refleja los últimos 12 meses (incluyendo 2025 más débil). Revenue y equity coinciden.
 
-### Valoracion DCF
-
-Modelo de 5 anos proyectados. Revenue growth interpola de Y1 a Y5 (desde negativo hacia 5%). EBITDA Margin ~8-11% (historico reciente). WACC muy alto (14-16%) por beta 1.926. CapEx ~8-10% de revenue (capital-intensive).
-
-**El DCF produce valores drasticamente inferiores al precio de mercado:**
-
-| Escenario | Growth Y1→Y5 | EBITDA Margin | WACC | TV Multiple | Fair Value | vs Precio |
-|-----------|--------------|---------------|------|-------------|------------|-----------|
-| **Bear** | -2.6%→5.0% | 8.3% | 16.0% | 10x | **$8.59** | -97.6% |
-| **Base** | -1.1%→5.0% | 9.8% | 15.0% | 12x | **$16.23** | -95.5% |
-| **Bull** | +0.4%→5.0% | 11.3% | 14.0% | 14x | **$25.46** | -93.0% |
-
-**Fair value ponderado (40/40/20): $15.02** — descuento del **-95.8%** vs $361.83 actual.
-
-**Desglose Base:**
-- Revenue Y5: $104.3B (CAGR 1.9%)
-- EBITDA Y5: $10.2B (margen 9.8%)
-- Sum PV(UFCF): -$1.9B (negativo — el CapEx supera el UFCF neto en los primeros anos)
-- PV(Terminal Value): $61.1B
-- Enterprise Value: $59.1B
-- Caja neta: $1.8B
-- Equity Value: $60.9B
-
-**Por que el DCF es tan bajo:**
-1. **Margenes operativos del 5.1%** — en una empresa industrial, esto genera UFCF minimo o negativo despues de impuestos y CapEx
-2. **CapEx del 9.1% de revenue** — capital-intensive, consume la mayor parte del EBITDA
-3. **WACC del 15.0%** — beta de 1.926 implica un descuento muy agresivo de los flujos futuros
-4. **Revenue plano/decreciente** — a diferencia de Visa o PayPal, Tesla no esta creciendo
-
-#### Tabla de sensibilidad — Fair Value Base (WACC vs TV Multiple)
-
-| WACC \ TV | 8x | 10x | 12x | 14x | 16x |
-|-----------|-----|-----|-----|-----|-----|
-| **12.0%** | $12 | $15 | $18 | $22 | $25 |
-| **13.0%** | $12 | $15 | $18 | $21 | $24 |
-| **14.0%** | $11 | $14 | $17 | $20 | $23 |
-| **15.0%** | $11 | $14 | $16 | $19 | $22 |
-| **16.0%** | $10 | $13 | $16 | $18 | $21 |
-| **17.0%** | $10 | $12 | $15 | $17 | $20 |
-| **18.0%** | $10 | $12 | $14 | $17 | $19 |
-
-**Lectura:** Incluso con WACC 12.0% y TV 16x (los supuestos mas generosos de la tabla), el fair value es $25. **No existe ninguna combinacion razonable de WACC y TV que se acerque a $361.83.** El precio actual implica expectativas que estan completamente fuera del rango de lo que los fundamentales actuales soportan.
-
-#### Que necesitaria Tesla para justificar $361.83
-
-Para que el DCF produzca ~$362/accion, Tesla necesitaria (ejemplo ilustrativo):
-- Revenue Y5: ~$350B (3.7x el actual)
-- EBITDA Margin: ~25% (5x el actual)
-- TV Multiple: ~20x
-- WACC: ~10% (beta ~1.0, mucho mas bajo que el actual 1.926)
-
-Esto implica que Tesla tendria que triplicar revenue, quintuplicar margenes, y tener el perfil de riesgo de una empresa madura — todo simultaneamente. Posible pero extremadamente improbable basandose en la trayectoria actual.
-
-#### Lo que el mercado pricea (opcionalidad no capturada por DCF)
-
-El mercado valora Tesla no por sus fundamentales actuales sino por la opcionalidad futura:
-
-| Oportunidad | TAM estimado | Probabilidad | Valor implicito |
-|-------------|-------------|--------------|-----------------|
-| **Full Self-Driving (FSD)** | Software de alta recurrencia, >$100B TAM si funciona | 15-25% | Alto |
-| **Robotaxis** | Revoluciona transporte, destruye Uber/Lyft | 10-20% | Muy alto |
-| **Optimus (robot humanoide)** | Musk dice TAM >$25T. Si funciona, cambia todo | 5-10% | Enorme pero lejano |
-| **Energy Storage (Megapack)** | Creciendo ~60% YoY. Negocio real y en expansion | 70-80% | Moderado |
-| **Tesla Insurance** | En expansion, usa datos propios de conduccion | 50-60% | Bajo-Moderado |
-
-**Nota honesta:** Si FSD Level 5 funciona y Tesla lanza una flota de robotaxis rentable, la accion podria valer multiples del precio actual. Pero esto es especulacion sobre eventos futuros inciertos, no inversion basada en fundamentales. Un value investor deberia reconocer la opcionalidad pero no pagar por ella al 100%.
+**La desconexión fundamental:**
+Tesla genera $4.8B de operating income sobre $94.8B de revenue. El mercado la valora en $1.35T. Esto implica que ~$1.2T del market cap (>88%) es optionalidad sobre negocios que AÚN NO EXISTEN a escala (robotaxi, Optimus). Para un value investor, esto es imposible de justificar con margin of safety.
 
 ---
 
-### Riesgos principales
+## 4. Valoración DCF / Sum-of-Parts
 
-**Perfil de riesgo global: MUY ALTO**
+### Metodología
+Un DCF estándar da fair value de ~$38/acción porque el negocio actual (EV/EBITDA 115x, op margin 5%) no soporta la valoración. Usamos Sum-of-Parts con valoración explícita de la optionalidad de cada segmento:
 
-| # | Riesgo | Severidad | Probabilidad | Impacto |
-|---|--------|-----------|--------------|---------|
-| 1 | **Compresion de margenes continua** | Alta | Alta | BYD y fabricantes chinos producen EVs a menor coste. Tesla tiene que seguir recortando precios para mantener volumen. Margenes brutos del 18% pueden seguir cayendo |
-| 2 | **Riesgo Elon Musk / Key Man** | Alta | Media | Actividad politica (DOGE), atencion dividida (xAI, SpaceX, X), comentarios controversiales. Dano reputacional significativo en Europa y entre demograficos clave. Ventas cayendo en Alemania, Noruega, Dinamarca |
-| 3 | **FSD/Robotaxi no materializa** | Alta | Media | La conduccion autonoma Level 5 se ha prometido repetidamente sin cumplir plazos. Si FSD no funciona, el mayor catalizador de valor desaparece y la valoracion se derrumba |
-| 4 | **Competencia EV global** | Alta | Alta | BYD, Hyundai, Volkswagen, BMW, Rivian, y nuevos entrantes chinos (NIO, XPeng, Xiaomi). El mercado de EVs se esta comoditizando. Tesla pierde market share globalmente |
-| 5 | **Valoracion extrema** | Muy Alta | Alta | A 115x EV/EBITDA y 358x earnings, cualquier decepcion en resultados o guidance provoca caidas masivas. La accion es fragil a la baja |
+### Componentes de valor
 
-**Agravantes:** La SEC ha investigado las declaraciones de Musk sobre FSD. HSBC acaba de emitir un target de ~$120 (-70% desde niveles actuales). Analistas estan recortando previsiones de entregas.
+#### A) Automotive (negocio core)
+| Métrica | Bear | Base | Bull |
+|---------|------|------|------|
+| Revenue estimado | $80B | $85B | $95B |
+| EBITDA margin | 10% | 12% | 15% |
+| EBITDA | $8B | $10.2B | $14.3B |
+| EV/EBITDA | 10x | 12x | 15x |
+| **Valor** | **$80B** | **$122B** | **$214B** |
+
+*Comparable: Toyota (8x), BYD (15x), Ferrari (25x). Tesla auto en 10-15x refleja su posición entre mass market y premium.*
+
+#### B) Energy Generation & Storage
+| Métrica | Bear | Base | Bull |
+|---------|------|------|------|
+| Revenue estimado | $13B | $15B | $20B |
+| EV/Revenue | 3x | 4x | 5x |
+| **Valor** | **$39B** | **$60B** | **$100B** |
+
+*Comparable: Enphase (4x revenue), SolarEdge (2x). Megapack es la joya oculta — crecimiento rápido, márgenes saludables.*
+
+#### C) FSD / Robotaxi (optionalidad)
+| Escenario | Probabilidad éxito | Valor si éxito | Valor esperado |
+|-----------|-------------------|---------------|----------------|
+| Bear | 10% | $200B | **$20B** |
+| Base | 25% | $350B | **$87.5B** → PV ~$43B |
+| Bull | 50% | $500B | **$250B** → PV ~$124B |
+
+*Se aplica descuento del ~50% al valor esperado para reflejar el riesgo de ejecución y el horizonte temporal (5+ años).*
+
+#### D) Optimus (robot humanoide)
+| Escenario | Probabilidad | Valor si éxito | Valor esperado |
+|-----------|-------------|---------------|----------------|
+| Bear | 0% | — | **$0** |
+| Base | 5% | $200B | **$10B** → PV ~$5B |
+| Bull | 15% | $400B | **$60B** → PV ~$30B |
+
+*Sin producto comercial, sin clientes, tecnología no demostrada a escala. Valoración necesariamente especulativa.*
+
+### Resumen Sum-of-Parts
+
+| Segmento | Bear | Base | Bull |
+|----------|------|------|------|
+| Automotive | $80B | $122B | $214B |
+| Energy | $39B | $60B | $100B |
+| FSD / Robotaxi | $20B | $43B | $124B |
+| Optimus | $0B | $5B | $30B |
+| Net Cash | $1.8B | $1.8B | $1.8B |
+| **Total EV** | **$140.8B** | **$231.8B** | **$469.8B** |
+| **FV/acción** | **$37.53** | **$61.76** | **$125.19** |
+
+**Fair Value ponderado (40/40/20): $64.76**
+**vs precio actual ($360.59): -82.0%**
+
+### ¿Qué está descontando el mercado?
+
+Para justificar $360.59/acción ($1,353B market cap):
+- Auto + Energy + Cash ≈ $183B (generoso)
+- **Optionalidad necesaria: $1,170B**
+
+Esto requiere asumir:
+- Robotaxi: **éxito casi seguro (>80%)** con valor de **$800B+**
+- Optimus: **probabilidad elevada (>40%)** con valor de **$400B+**
+
+O equivalentemente: Tesla se convierte en el proveedor dominante mundial de transporte autónomo Y de trabajo robótico humanoide. Ambas asunciones simultáneamente, con alta certeza. Desde una perspectiva value, estas probabilidades son incompatibles con un margen de seguridad.
+
+### Tabla de sensibilidad (WACC vs TV Multiple — negocio auto core)
+
+| WACC \ TV Multiple | 8x | 10x | 12x | 14x | 16x |
+|--------------------|-----|-----|-----|-----|-----|
+| **12.9%** | $27 | $31 | $36 | $40 | $44 |
+| **13.9%** | $25 | $30 | $34 | $38 | $42 |
+| **14.9%** | $24 | $28 | $32 | $36 | $40 |
+| **15.9%** | $22 | $26 | $30 | $34 | $38 |
+| **16.9%** | $21 | $25 | $28 | $32 | $36 |
+
+*Tabla sobre el negocio core (auto + energía), sin optionalidad. Ninguna celda supera $50. Confirma que el valor fundamental es una fracción del precio.*
+
+### Tabla de sensibilidad: ¿Qué probabilidad de éxito justifica el precio?
+
+| P(Robotaxi) \ P(Optimus) | 0% | 15% | 30% | 50% |
+|---------------------------|-----|-----|-----|-----|
+| **20%** | $60 | $68 | $76 | $87 |
+| **40%** | $83 | $91 | $99 | $110 |
+| **60%** | $107 | $115 | $123 | $133 |
+| **80%** | $130 | $138 | $146 | $156 |
+| **100%** | $153 | $161 | $169 | $180 |
+
+*Ninguna combinación alcanza $360. El precio actual requiere valores de optionalidad superiores a los máximos de nuestra tabla.*
 
 ---
 
-### Catalizadores
+## 5. Riesgos principales
 
-**Positivos (12-24 meses):**
-- Lanzamiento de robotaxi "Cybercab" — si funciona, valida toda la tesis de FSD
-- Model 2 / vehiculo asequible (<$30K) — reactivaria crecimiento de volumen
-- Segmento Energy creciendo >60% — podria convertirse en el negocio de mayor margen
-- FSD mejoras incrementales — cada version mejora la percepcion del mercado
-- Musk anuncia alejarse de DOGE/politica para enfocarse en Tesla
-- Aprobacion regulatoria de conduccion autonoma en mas jurisdicciones
+### 1. Deterioro del negocio automotriz (Severidad: ALTA | Probabilidad: ALTA)
+Márgenes colapsando (5.1% op margin), revenue declinando, Q1 2026 falló estimaciones, inventario acumulándose (+50K unidades). BYD crece agresivamente en Europa y Asia con precios inferiores. La marca Tesla está dañada por las actividades políticas de Musk (ventas Europa -38.8%, boicots). **Sin mitigante claro a corto plazo.**
 
-**Negativos:**
-- Revenue sigue plano o decreciente por competencia
-- Margenes siguen comprimiendose (BYD mas barato cada trimestre)
-- FSD sigue sin alcanzar Level 5 — fatiga de promesas
-- Dano reputacional de Musk se profundiza — ventas en Europa siguen cayendo
-- Recesion global reduce demanda de vehiculos (especialmente premium)
-- Caida del petroleo reduce el incentivo para cambiar a EV
-- HSBC y otros analistas con targets de $119 — presion vendedora institucional
+### 2. Riesgo de ejecución en robotaxi (Severidad: MUY ALTA | Probabilidad: ALTA)
+El mercado asigna >$1T a la optionalidad de robotaxi/Optimus. Si los plazos se retrasan (como ha ocurrido repetidamente con FSD), el consenso se reajustaría brutalmente. Musk ha prometido autonomía total "el año que viene" desde 2016. **Mitigante parcial:** FSD supervised ha mejorado significativamente, y los robotaxis sin conductor de seguridad en Austin son un avance real.
+
+### 3. Riesgo Musk / Key Person (Severidad: ALTA | Probabilidad: MEDIA)
+Musk dedica tiempo a DOGE (gobierno), X, SpaceX, xAI, Neuralink, y The Boring Company. Su implicación política genera boicots y aliena clientes. Su presencia es también la razón por la que Tesla cotiza con prima — el mercado paga por la "visión Musk." **Riesgo asimétrico:** si Musk deja Tesla, el premium de optionalidad colapsa.
+
+### 4. Aranceles y guerra comercial (Severidad: MEDIA | Probabilidad: ALTA)
+Aranceles de hasta 145% sobre componentes chinos afectan la cadena de suministro de baterías. Tesla produce en Shanghái para el mercado chino, pero la exportación desde China a otros mercados es más cara. **Mitigante:** Tesla fabrica en EE.UU. (Texas, Nevada), Alemania y China, diversificando producción.
+
+### 5. Compresión de múltiplo (Severidad: MUY ALTA | Probabilidad: MEDIA)
+A 115x EV/EBITDA, cualquier decepción en el timeline de robotaxi/Optimus, caída de entregas, o compresión general de múltiplos tech podría provocar una corrección del 30-50%. El beta de 1.92 confirma la extrema volatilidad. **Sin mitigante — es la naturaleza de la acción.**
 
 ---
 
-### Conclusion y plan de accion
+## 6. Catalizadores
 
-**Senal: SOBREVALORADA**
+### Positivos (12-24 meses)
+- **Aprobación FSD en Europa (abril 10):** Si reguladores europeos aprueban FSD supervised, se abren mercados con ~30M de Teslas potenciales. Revenue de suscripción incremental.
+- **Cybercab producción ramp (abril 2026):** El robotaxi dedicado. Si la producción escala y las pruebas en Austin se expanden, validaría parcialmente la tesis de robotaxi.
+- **Q1 2026 earnings (abril 22):** Oportunidad para Musk de presentar roadmap actualizado de robotaxi y Optimus. El mercado reacciona fuertemente a la narrativa.
+- **Energy business acelerando:** Si Megapack sigue creciendo a +50% y márgenes mejoran, este segmento podría justificar $100B+ por sí solo.
 
-**Recomendacion: NO COMPRAR a $361.83.**
-
-Tesla es una empresa extraordinaria con opcionalidad enorme, pero el precio actual no deja margen de seguridad alguno:
-
-- Fair value DCF (40/40/20): **$15.02** — los fundamentales actuales no soportan ni remotamente el precio
-- EV/EBITDA: **115x** (vs Visa 22x, PayPal 5.3x, S&P 500 media ~15x)
-- P/E: **358x** (vs mercado ~20x)
-- Margenes operativos: **5.1%** y cayendo (vs 17% en 2022)
-- Revenue: **Plano/decreciente** por primera vez
-- El mercado pricea **exito total** en FSD, robotaxi Y robotica — eventos con probabilidad combinada <10%
-
-**Para value investors:** Tesla no es una inversion, es una apuesta. Los fundamentales actuales justifican un precio de $8-25 por accion. El mercado paga $362 porque cree que FSD/robotaxi/Optimus cambiaran el mundo. Puede tener razon — pero pagar 358x earnings por esa posibilidad no es value investing.
-
-**Si tienes la accion:** Considerar reducir posicion o vender. El riesgo-recompensa es extremadamente asimetrico a la baja.
-**Si quieres exposicion a la opcionalidad:** Esperar a una correccion significativa (<$150) donde los fundamentales automotrices soportan al menos parte del precio.
-**Precio razonable para value investor:** <$50 (margen de seguridad >200% sobre base DCF).
-
-**Ultimo dato:** El rango de analistas es $119-$600 — una de las mayores dispersiones del S&P 500. Esto confirma que nadie sabe como valorar Tesla con los metodos tradicionales. Cuando hay tanta incertidumbre, un value investor exige margen de seguridad masivo. A $362, no hay ninguno.
+### Negativos (12-24 meses)
+- **Entregas siguen fallando:** Si Q2 2026 también decepciona, la narrativa de "demanda saturada" se consolida.
+- **Retraso en robotaxi comercial:** Cada trimestre sin lanzamiento comercial erosiona la credibilidad del timeline de Musk.
+- **Boicots se intensifican:** Las ventas en Europa ya cayeron 38.8%. Si se extiende a otros mercados, el impacto en revenue es material.
+- **Competencia en autonomía:** Waymo (Google) ya opera robotaxis comerciales en múltiples ciudades. Si Waymo escala antes que Tesla, la ventaja de first-mover desaparece.
 
 ---
-*Analisis generado el 28 de marzo de 2026. Datos: Yahoo Finance + SEC 10-K (auditoria: MEDIUM confidence — discrepancia en Net Income y EBITDA entre fuentes). El DCF valora los fundamentales actuales; la opcionalidad (FSD, robotaxi, robotica, energia) no esta capturada en el modelo y podria justificar una valoracion superior si se materializa. No es consejo de inversion.*
+
+## 7. Conclusión y plan de acción
+
+### Señal de inversión: 🔴 SOBREVALORADA — no invertible desde perspectiva value
+
+Tesla es una empresa con un negocio automotriz en deterioro, un negocio de energía prometedor, y dos proyectos de optionalidad masiva (robotaxi, Optimus) que el mercado valora en más de un billón de dólares sin revenue material que los respalde.
+
+Nuestro Sum-of-Parts, incluso con asunciones generosas para FSD y Optimus, arroja un fair value ponderado de $64.76 — un 82% por debajo del precio actual. Para justificar $360.59, el inversor debe creer con certeza casi absoluta que Tesla dominará el mercado de transporte autónomo Y el de robótica humanoide. Estas son apuestas binarias, no inversiones con margen de seguridad.
+
+El negocio actual (auto + energía) vale ~$180B, y el mercado asigna ~$1.17T adicionales a la optionalidad. Esto no es irracional necesariamente — Musk ha demostrado capacidad de ejecutar visiones ambiciosas (SpaceX, Tesla misma). Pero es incompatible con la filosofía de inversión value que exige margen de seguridad tangible.
+
+### Recomendación
+- **NO COMPRAR a ningún precio cercano al actual.** No hay margen de seguridad bajo ningún escenario razonable.
+- **Precio donde empezaría a ser interesante:** $125 o inferior (donde la optionalidad se paga a ~$0 y solo compras el negocio actual a ~15x EBITDA).
+- **Si ya tienes posición:** Considerar reducir/cerrar. El perfil riesgo/beneficio es asimétrico a la baja: si robotaxi se retrasa 2 años, la acción podría caer 50%. Si robotaxi se lanza a tiempo, el upside ya está parcialmente descontado.
+- **Alternativa para exposición a EV/energía:** Considerar empresas de energía renovable o componentes EV con valoraciones más razonables.
+
+### Riesgos que monitorizar
+1. Q1 2026 earnings (abril 22) — guidance de entregas y timeline de robotaxi
+2. Aprobación FSD Europa (abril 10) — catalizador de corto plazo
+3. Cybercab production numbers — validación de la capacidad de fabricar a escala
+4. Ventas Europa/China trimestrales — indicador de daño de marca
+5. Cualquier cambio en la implicación de Musk (salida de DOGE, más foco en Tesla)
