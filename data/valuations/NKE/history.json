@@ -4,42 +4,24 @@
     "file": "NKE_20260321_valuation.json",
     "current_price": 52.37,
     "currency": "$",
-    "fair_value_bear": 0.11599999999999999,
-    "fair_value_base": 0.106,
-    "fair_value_bull": 0.096,
     "revenue": 46309000000.0,
-    "gross_margin": 0.42734673605562634,
-    "growth_y1_base": 0.006,
-    "wacc_base": 0.106,
-    "tv_base": 12
+    "gross_margin": 0.42734673605562634
   },
   {
     "date": "2026-03-28",
     "file": "NKE_20260328_valuation.json",
     "current_price": 51.37,
     "currency": "$",
-    "fair_value_bear": 0.11739999999999999,
-    "fair_value_base": 0.1074,
-    "fair_value_bull": 0.0974,
     "revenue": 46309000000.0,
-    "gross_margin": 0.42734673605562634,
-    "growth_y1_base": 0.006,
-    "wacc_base": 0.1074,
-    "tv_base": 12
+    "gross_margin": 0.42734673605562634
   },
   {
     "date": "2026-03-29",
     "file": "NKE_20260329_valuation.json",
     "current_price": 51.37,
     "currency": "$",
-    "fair_value_bear": 0.11739999999999999,
-    "fair_value_base": 0.1074,
-    "fair_value_bull": 0.0974,
     "revenue": 46309000000.0,
-    "gross_margin": 0.42734673605562634,
-    "growth_y1_base": 0.006,
-    "wacc_base": 0.1074,
-    "tv_base": 12
+    "gross_margin": 0.42734673605562634
   },
   {
     "date": "2026-04-04",
@@ -50,9 +32,6 @@
     "fair_value_base": 48.57,
     "fair_value_bull": 68.18,
     "revenue": 46309000000.0,
-    "gross_margin": 0.42734673605562634,
-    "growth_y1_base": 0.001,
-    "wacc_base": 0.1073,
-    "tv_base": 12
+    "gross_margin": 0.42734673605562634
   }
 ]

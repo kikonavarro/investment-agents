@@ -4,27 +4,15 @@
     "file": "SLP_20260328_valuation.json",
     "current_price": 11.42,
     "currency": "$",
-    "fair_value_bear": 0.12179999999999999,
-    "fair_value_base": 0.1118,
-    "fair_value_bull": 0.1018,
     "revenue": 79179000.0,
-    "gross_margin": 0.5837532679119464,
-    "growth_y1_base": -0.006999999999999999,
-    "wacc_base": 0.1118,
-    "tv_base": 15
+    "gross_margin": 0.5837532679119464
   },
   {
     "date": "2026-03-29",
     "file": "SLP_20260329_valuation.json",
     "current_price": 11.42,
     "currency": "$",
-    "fair_value_bear": 0.12179999999999999,
-    "fair_value_base": 0.1118,
-    "fair_value_bull": 0.1018,
     "revenue": 79179000.0,
-    "gross_margin": 0.5837532679119464,
-    "growth_y1_base": -0.006999999999999999,
-    "wacc_base": 0.1118,
-    "tv_base": 15
+    "gross_margin": 0.5837532679119464
   }
 ]

@@ -4,42 +4,24 @@
     "file": "PYPL_20260325_valuation.json",
     "current_price": 44.595,
     "currency": "$",
-    "fair_value_bear": 0.11839999999999999,
-    "fair_value_base": 0.1084,
-    "fair_value_bull": 0.0984,
     "revenue": 33172000000.0,
-    "gross_margin": 0.4662064391655613,
-    "growth_y1_base": 0.037,
-    "wacc_base": 0.1084,
-    "tv_base": 10
+    "gross_margin": 0.4662064391655613
   },
   {
     "date": "2026-03-28",
     "file": "PYPL_20260328_valuation.json",
     "current_price": 43.59,
     "currency": "$",
-    "fair_value_bear": 0.1181,
-    "fair_value_base": 0.1081,
-    "fair_value_bull": 0.0981,
     "revenue": 33172000000.0,
-    "gross_margin": 0.4662064391655613,
-    "growth_y1_base": 0.037,
-    "wacc_base": 0.1081,
-    "tv_base": 10
+    "gross_margin": 0.4662064391655613
   },
   {
     "date": "2026-03-29",
     "file": "PYPL_20260329_valuation.json",
     "current_price": 43.59,
     "currency": "$",
-    "fair_value_bear": 0.1181,
-    "fair_value_base": 0.1081,
-    "fair_value_bull": 0.0981,
     "revenue": 33172000000.0,
-    "gross_margin": 0.4662064391655613,
-    "growth_y1_base": 0.037,
-    "wacc_base": 0.1081,
-    "tv_base": 10
+    "gross_margin": 0.4662064391655613
   },
   {
     "date": "2026-04-04",
@@ -50,9 +32,6 @@
     "fair_value_base": 95.15,
     "fair_value_bull": 126.81,
     "revenue": 33172000000.0,
-    "gross_margin": 0.4662064391655613,
-    "growth_y1_base": 0.037,
-    "wacc_base": 0.1057,
-    "tv_base": 10
+    "gross_margin": 0.4662064391655613
   }
 ]

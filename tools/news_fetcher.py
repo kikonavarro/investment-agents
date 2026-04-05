@@ -49,8 +49,55 @@ def get_ticker_news(ticker: str, max_items: int = 10) -> list[dict]:
 
 
 def fetch_news(ticker: str, company_name: str = "", max_news: int = 15) -> list[dict]:
-    """Alias compatible con el sistema de valoracion."""
-    return get_ticker_news(ticker, max_news)
+    """Obtiene noticias filtradas para el ticker. Descarta falsos positivos."""
+    raw = get_ticker_news(ticker, max_news * 2)  # Pedir más para compensar filtrado
+    if not raw:
+        return []
+
+    # Filtrar noticias que claramente no son del ticker buscado
+    # Ej: "DE" trae noticias de BEI.DE, SYP.DE, TGT.DE (tickers alemanes)
+    base_ticker = ticker.split(".")[0].upper()
+    filtered = []
+    for item in raw:
+        title = item.get("title", "")
+        # Descartar si el título contiene otro ticker con .DE, .L, .PA etc.
+        # pero NO el ticker que buscamos
+        if _is_false_positive(title, ticker, base_ticker, company_name):
+            continue
+        filtered.append(item)
+
+    return filtered[:max_news]
+
+
+def _is_false_positive(title: str, ticker: str, base_ticker: str, company_name: str) -> bool:
+    """Detecta noticias que no son del ticker buscado."""
+    title_upper = title.upper()
+
+    # Si el título menciona el nombre de la empresa, es relevante seguro
+    if company_name and company_name.upper()[:10] in title_upper:
+        return False
+
+    # Si el título contiene "TICKER.XX" donde XX no es nuestro sufijo, es falso positivo
+    # Ej: buscamos "DE" (Deere) pero la noticia es sobre "BEI.DE" (Beiersdorf)
+    import re
+    other_tickers = re.findall(r'\b[A-Z0-9]{1,6}\.[A-Z]{1,3}\b', title_upper)
+    for other in other_tickers:
+        if other != ticker.upper() and base_ticker in other:
+            return True  # Ej: "SYP.DE" contiene "DE" pero no es Deere
+
+    # Tickers de 2 letras (DE, MA, V) son especialmente propensos a falsos positivos
+    # Descartar si el título parece ser de otra empresa en un mercado extranjero
+    if len(base_ticker) <= 2:
+        foreign_patterns = [
+            f"({base_ticker}.DE)", f"({base_ticker}.L)", f"({base_ticker}.PA)",
+            f"({base_ticker}.AS)", f"({base_ticker}.MI)",
+            f"{base_ticker}.DE ", f"{base_ticker}.L ", f"{base_ticker}.PA ",
+        ]
+        for pattern in foreign_patterns:
+            if pattern in title_upper and f"({ticker.upper()})" not in title_upper:
+                return True
+
+    return False
 
 
 def format_news_for_llm(news_items: list[dict], ticker: str) -> str:

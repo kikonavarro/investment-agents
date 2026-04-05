@@ -4,56 +4,32 @@
     "file": "NFLX_20260321_valuation.json",
     "current_price": 91.82,
     "currency": "$",
-    "fair_value_bear": 0.1451,
-    "fair_value_base": 0.1351,
-    "fair_value_bull": 0.1251,
     "revenue": 45183036000.0,
-    "gross_margin": 0.48486575802475956,
-    "growth_y1_base": 0.176,
-    "wacc_base": 0.1351,
-    "tv_base": 15
+    "gross_margin": 0.48486575802475956
   },
   {
     "date": "2026-03-22",
     "file": "NFLX_20260322_valuation.json",
     "current_price": 91.82,
     "currency": "$",
-    "fair_value_bear": 0.1451,
-    "fair_value_base": 0.1351,
-    "fair_value_bull": 0.1251,
     "revenue": 45183036000.0,
-    "gross_margin": 0.48486575802475956,
-    "growth_y1_base": 0.176,
-    "wacc_base": 0.1351,
-    "tv_base": 15
+    "gross_margin": 0.48486575802475956
   },
   {
     "date": "2026-03-28",
     "file": "NFLX_20260328_valuation.json",
     "current_price": 93.43,
     "currency": "$",
-    "fair_value_bear": 0.1457,
-    "fair_value_base": 0.1357,
-    "fair_value_bull": 0.12569999999999998,
     "revenue": 45183036000.0,
-    "gross_margin": 0.48486575802475956,
-    "growth_y1_base": 0.176,
-    "wacc_base": 0.1357,
-    "tv_base": 15
+    "gross_margin": 0.48486575802475956
   },
   {
     "date": "2026-03-29",
     "file": "NFLX_20260329_valuation.json",
     "current_price": 93.43,
     "currency": "$",
-    "fair_value_bear": 0.1457,
-    "fair_value_base": 0.1357,
-    "fair_value_bull": 0.12569999999999998,
     "revenue": 45183036000.0,
-    "gross_margin": 0.48486575802475956,
-    "growth_y1_base": 0.176,
-    "wacc_base": 0.1357,
-    "tv_base": 15
+    "gross_margin": 0.48486575802475956
   },
   {
     "date": "2026-04-04",
@@ -64,9 +40,6 @@
     "fair_value_base": 152.84,
     "fair_value_bull": 195.16,
     "revenue": 45183036000.0,
-    "gross_margin": 0.48486575802475956,
-    "growth_y1_base": 0.176,
-    "wacc_base": 0.1333,
-    "tv_base": 15
+    "gross_margin": 0.48486575802475956
   }
 ]

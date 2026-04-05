@@ -4,28 +4,16 @@
     "file": "WCP_TO_20260323_valuation.json",
     "current_price": 14.56,
     "currency": "C$",
-    "fair_value_bear": 0.0923,
-    "fair_value_base": 0.0823,
-    "fair_value_bull": 0.0723,
     "revenue": 5908800000.0,
-    "gross_margin": 0.5856349851069591,
-    "growth_y1_base": 0.4,
-    "wacc_base": 0.0823,
-    "tv_base": 11
+    "gross_margin": 0.5856349851069591
   },
   {
     "date": "2026-03-28",
     "file": "WCP_TO_20260328_valuation.json",
     "current_price": 15.54,
     "currency": "C$",
-    "fair_value_bear": 0.0899,
-    "fair_value_base": 0.0799,
-    "fair_value_bull": 0.0699,
     "revenue": 5908800000.0,
-    "gross_margin": 0.5856349851069591,
-    "growth_y1_base": -0.06586734051805011,
-    "wacc_base": 0.0799,
-    "tv_base": 11
+    "gross_margin": 0.5856349851069591
   },
   {
     "date": "2026-04-04",
@@ -36,9 +24,6 @@
     "fair_value_base": 12.64,
     "fair_value_bull": 18.95,
     "revenue": 5908800000.0,
-    "gross_margin": 0.5856349851069591,
-    "growth_y1_base": -0.06586734051805011,
-    "wacc_base": 0.0731,
-    "tv_base": 11
+    "gross_margin": 0.5856349851069591
   }
 ]

@@ -4,28 +4,16 @@
     "file": "MA_20260328_valuation.json",
     "current_price": 484.24,
     "currency": "$",
-    "fair_value_bear": 0.0992,
-    "fair_value_base": 0.0892,
-    "fair_value_bull": 0.0792,
     "revenue": 32791000000.0,
-    "gross_margin": 0.7788722515324327,
-    "growth_y1_base": 0.176,
-    "wacc_base": 0.0892,
-    "tv_base": 11
+    "gross_margin": 0.7788722515324327
   },
   {
     "date": "2026-03-29",
     "file": "MA_20260329_valuation.json",
     "current_price": 484.24,
     "currency": "$",
-    "fair_value_bear": 0.0992,
-    "fair_value_base": 0.0892,
-    "fair_value_bull": 0.0792,
     "revenue": 32791000000.0,
-    "gross_margin": 0.7788722515324327,
-    "growth_y1_base": 0.176,
-    "wacc_base": 0.0892,
-    "tv_base": 11
+    "gross_margin": 0.7788722515324327
   },
   {
     "date": "2026-04-04",
@@ -36,9 +24,6 @@
     "fair_value_base": 435.34,
     "fair_value_bull": 578.95,
     "revenue": 32791000000.0,
-    "gross_margin": 0.7788722515324327,
-    "growth_y1_base": 0.176,
-    "wacc_base": 0.0888,
-    "tv_base": 11
+    "gross_margin": 0.7788722515324327
   }
 ]

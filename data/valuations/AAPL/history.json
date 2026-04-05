@@ -4,28 +4,16 @@
     "file": "AAPL_20260321_valuation.json",
     "current_price": 247.99,
     "currency": "$",
-    "fair_value_bear": 0.1148,
-    "fair_value_base": 0.1048,
-    "fair_value_bull": 0.09480000000000001,
     "revenue": 416161000000.0,
-    "gross_margin": 0.4690516410716045,
-    "growth_y1_base": 0.157,
-    "wacc_base": 0.1048,
-    "tv_base": 19
+    "gross_margin": 0.4690516410716045
   },
   {
     "date": "2026-03-28",
     "file": "AAPL_20260328_valuation.json",
     "current_price": 248.8,
     "currency": "$",
-    "fair_value_bear": 0.1151,
-    "fair_value_base": 0.1051,
-    "fair_value_bull": 0.0951,
     "revenue": 416161000000.0,
-    "gross_margin": 0.4690516410716045,
-    "growth_y1_base": 0.157,
-    "wacc_base": 0.1051,
-    "tv_base": 19
+    "gross_margin": 0.4690516410716045
   },
   {
     "date": "2026-04-04",
@@ -36,9 +24,6 @@
     "fair_value_base": 234.87,
     "fair_value_bull": 303.12,
     "revenue": 416161000000.0,
-    "gross_margin": 0.4690516410716045,
-    "growth_y1_base": 0.157,
-    "wacc_base": 0.1046,
-    "tv_base": 19
+    "gross_margin": 0.4690516410716045
   }
 ]

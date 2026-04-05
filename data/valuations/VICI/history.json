@@ -4,42 +4,24 @@
     "file": "VICI_20260321_valuation.json",
     "current_price": 26.83,
     "currency": "$",
-    "fair_value_bear": 0.07669999999999999,
-    "fair_value_base": 0.0667,
-    "fair_value_bull": 0.05669999999999999,
     "revenue": 4006116000.0,
-    "gross_margin": 0.993327701943728,
-    "growth_y1_base": 0.038,
-    "wacc_base": 0.0667,
-    "tv_base": 12
+    "gross_margin": 0.993327701943728
   },
   {
     "date": "2026-03-28",
     "file": "VICI_20260328_valuation.json",
     "current_price": 26.61,
     "currency": "$",
-    "fair_value_bear": 0.08109999999999999,
-    "fair_value_base": 0.0711,
-    "fair_value_bull": 0.061099999999999995,
     "revenue": 4006116000.0,
-    "gross_margin": 0.993327701943728,
-    "growth_y1_base": 0.038,
-    "wacc_base": 0.0711,
-    "tv_base": 12
+    "gross_margin": 0.993327701943728
   },
   {
     "date": "2026-03-29",
     "file": "VICI_20260329_valuation.json",
     "current_price": 26.61,
     "currency": "$",
-    "fair_value_bear": 0.08109999999999999,
-    "fair_value_base": 0.0711,
-    "fair_value_bull": 0.061099999999999995,
     "revenue": 4006116000.0,
-    "gross_margin": 0.993327701943728,
-    "growth_y1_base": 0.038,
-    "wacc_base": 0.0711,
-    "tv_base": 12
+    "gross_margin": 0.993327701943728
   },
   {
     "date": "2026-04-04",
@@ -50,9 +32,6 @@
     "fair_value_base": 33.99,
     "fair_value_bull": 45.51,
     "revenue": 4006116000.0,
-    "gross_margin": 0.993327701943728,
-    "growth_y1_base": 0.038,
-    "wacc_base": 0.0724,
-    "tv_base": 12
+    "gross_margin": 0.993327701943728
   }
 ]

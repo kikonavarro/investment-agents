@@ -29,13 +29,13 @@ Las 14 skills en `.claude/skills/` son la referencia operativa principal. Cada s
 
 ## Pipeline de inversión (modo sin API)
 
-Usar el flag `--data-only` para ejecutar solo Python y luego interpretar con Claude Code.
+Python recoge datos, Claude Code (Opus) interpreta y valora.
 
 ### Valoración completa
 
 ```bash
-python main.py --analyst TICKER --data-only
-python main.py --analyst AAPL MSFT GOOGL --data-only  # múltiples
+python main.py --analyst TICKER
+python main.py --analyst AAPL MSFT GOOGL  # múltiples
 ```
 
 Genera en `data/valuations/{TICKER}/`: JSON con datos crudos + métricas de referencia + Excel template + SEC filings.
@@ -45,19 +45,19 @@ El JSON NO contiene escenarios ni fair values. Solo datos y métricas de referen
 ### Tesis de inversión
 
 ```bash
-python main.py --analyst TICKER --data-only
+python main.py --analyst TICKER
 ```
 
 Leer JSON + SEC filings. Tú decides WACC, TV, escenarios y calculas el DCF.
-Escribir tesis siguiendo skill `thesis-writer` (NO `config/prompts.py`).
+Escribir tesis siguiendo skill `thesis-writer`.
 Guardar en `data/valuations/{TICKER}/{TICKER}_tesis_inversion.md`.
-**Guardar fair values:** `python tools/save_fair_values.py TICKER --bear X --base Y --bull Z`
+**Finalizar (fair values + Excel):** `python tools/finalize_thesis.py TICKER thesis_data.json`
 **Review gate obligatorio:** `python tools/thesis_reviewer.py TICKER` antes de enviar.
 
 ### Comparar empresas
 
 ```bash
-python main.py --compare TICKER1 TICKER2 --data-only
+python main.py --compare TICKER1 TICKER2
 ```
 
 Genera datos de ambas. Comparar siguiendo skill `comparator`.
@@ -65,7 +65,7 @@ Genera datos de ambas. Comparar siguiendo skill `comparator`.
 ### Screener
 
 ```bash
-python main.py --screener graham_default --data-only
+python main.py --screener graham_default
 ```
 
 Filtros: `graham_default`, `value_aggressive`, `bargain_hunter`. Ranking cualitativo con skill `screener-ranking`.
@@ -91,7 +91,7 @@ El JSON (`{TICKER}_valuation.json`) contiene **solo datos crudos**:
 - `news`: noticias recientes
 
 **NO contiene:** `scenarios`, `dcf_reliable`, fair values, WACC ni TV auto-calculados.
-Los fair values se guardan en `history.json` al escribir la tesis (`tools/save_fair_values.py`).
+Los fair values se guardan en `history.json` al finalizar la tesis (`tools/finalize_thesis.py`).
 
 ## AL INICIAR SESION — Acciones obligatorias
 
@@ -123,7 +123,7 @@ El scheduler encola tareas (tweets, screener) como mensajes `[SCHEDULER]`.
 ## Estructura de archivos clave
 
 - `.claude/skills/` — **referencia principal** (14 skills con instrucciones detalladas)
-- `config/prompts.py` — system prompts para llamadas API (legacy, skills son preferentes)
+- `tools/finalize_thesis.py` — guarda fair values + regenera Excel con escenarios reales
 - `config/settings.py` — modelos, rutas, configuración
 - `config/screener_filters.yaml` — filtros cuantitativos del screener
 - `data/valuations/{TICKER}/` — output del analyst (JSON + Excel + SEC + tesis)
@@ -133,7 +133,7 @@ El scheduler encola tareas (tweets, screener) como mensajes `[SCHEDULER]`.
 - `tools/thesis_reviewer.py` — review gate antes de enviar tesis
 - `tools/` — módulos Python puros (sin LLM)
 
-**Nota:** Directorios parciales en `data/valuations/` (solo JSON+Excel, sin tesis) son normales — representan runs `--data-only` sin interpretación posterior.
+**Nota:** Directorios parciales en `data/valuations/` (solo JSON+Excel, sin tesis) son normales — representan datos recogidos sin tesis escrita aún.
 
 ## Tickers internacionales
 

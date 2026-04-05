@@ -4,42 +4,24 @@
     "file": "TSLA_20260322_valuation.json",
     "current_price": 367.96,
     "currency": "$",
-    "fair_value_bear": 0.1598,
-    "fair_value_base": 0.1498,
-    "fair_value_bull": 0.13979999999999998,
     "revenue": 94827000000.0,
-    "gross_margin": 0.18026511436616155,
-    "growth_y1_base": -0.011,
-    "wacc_base": 0.1498,
-    "tv_base": 12
+    "gross_margin": 0.18026511436616155
   },
   {
     "date": "2026-03-28",
     "file": "TSLA_20260328_valuation.json",
     "current_price": 361.83,
     "currency": "$",
-    "fair_value_bear": 0.15990000000000001,
-    "fair_value_base": 0.1499,
-    "fair_value_bull": 0.1399,
     "revenue": 94827000000.0,
-    "gross_margin": 0.18026511436616155,
-    "growth_y1_base": -0.011,
-    "wacc_base": 0.1499,
-    "tv_base": 24
+    "gross_margin": 0.18026511436616155
   },
   {
     "date": "2026-03-29",
     "file": "TSLA_20260329_valuation.json",
     "current_price": 361.83,
     "currency": "$",
-    "fair_value_bear": 0.15990000000000001,
-    "fair_value_base": 0.1499,
-    "fair_value_bull": 0.1399,
     "revenue": 94827000000.0,
-    "gross_margin": 0.18026511436616155,
-    "growth_y1_base": -0.011,
-    "wacc_base": 0.1499,
-    "tv_base": 24
+    "gross_margin": 0.18026511436616155
   },
   {
     "date": "2026-04-04",
@@ -50,9 +32,6 @@
     "fair_value_base": 53.69,
     "fair_value_bull": 70.31,
     "revenue": 94827000000.0,
-    "gross_margin": 0.18026511436616155,
-    "growth_y1_base": -0.011,
-    "wacc_base": 0.1492,
-    "tv_base": 24
+    "gross_margin": 0.18026511436616155
   }
 ]
