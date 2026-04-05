@@ -54,5 +54,19 @@
     "growth_y1_base": -0.091,
     "wacc_base": 0.0872,
     "tv_base": 11
+  },
+  {
+    "date": "2026-04-05",
+    "file": "DE_20260405_valuation.json",
+    "current_price": 575.71,
+    "currency": "$",
+    "revenue": 44665000000.0,
+    "gross_margin": 0.3648270457852905,
+    "ev_ebitda": 13.3,
+    "avg_growth": -0.0342,
+    "fair_value_bear": 395.0,
+    "fair_value_base": 550.0,
+    "fair_value_bull": 760.0,
+    "fair_value_weighted": 530.0
   }
 ]

@@ -184,14 +184,18 @@ def format_comparison_for_llm(val1: dict, val2: dict) -> str:
         v2 = val2.get("latest_financials", {}).get(key, 0)
         lines.append(f"{label:25s} | {v1:>11.1%} | {v2:>11.1%}")
 
-    # Escenarios
+    # Métricas de referencia
     lines.append("")
-    for scenario in ["bear", "base", "bull"]:
-        sc1 = val1.get("scenarios", {}).get(scenario, {})
-        sc2 = val2.get("scenarios", {}).get(scenario, {})
-        lines.append(f"{scenario.capitalize() + ' Growth Y1':25s} | {sc1.get('revenue_growth_y1', 0):>11.1%} | {sc2.get('revenue_growth_y1', 0):>11.1%}")
-        lines.append(f"{scenario.capitalize() + ' WACC':25s} | {sc1.get('wacc', 0):>11.1%} | {sc2.get('wacc', 0):>11.1%}")
-        lines.append(f"{scenario.capitalize() + ' TV Multiple':25s} | {sc1.get('terminal_multiple', 0):>11.0f}x | {sc2.get('terminal_multiple', 0):>11.0f}x")
+    m1 = val1.get("reference_metrics", {})
+    m2 = val2.get("reference_metrics", {})
+    for label, key, fmt in [
+        ("EV/EBITDA", "ev_ebitda", "{:>11.1f}x"),
+        ("Avg Growth", "avg_growth", "{:>11.1%}"),
+        ("Beta", "beta", "{:>12.2f}"),
+    ]:
+        v1 = m1.get(key, 0) or 0
+        v2 = m2.get(key, 0) or 0
+        lines.append(f"{label:25s} | {fmt.format(v1)} | {fmt.format(v2)}")
 
     return "\n".join(lines)
 

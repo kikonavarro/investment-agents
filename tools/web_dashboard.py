@@ -1,6 +1,7 @@
 """
-Genera una página HTML estática con el dashboard de valoraciones.
+Genera una página HTML estática con el dashboard de valoraciones + tesis embebidas.
 Lee todos los *_valuation.json y calcula fair values con la fórmula DCF corregida.
+Embebe tesis markdown con diseño premium.
 
 Uso:
     python tools/web_dashboard.py              # genera data/dashboard.html
@@ -9,6 +10,7 @@ Uso:
 import json
 import sys
 import webbrowser
+import re
 from pathlib import Path
 from datetime import datetime
 
@@ -52,6 +54,89 @@ def calc_dcf(revenue: float, scenario: dict, net_debt: float, shares: float) -> 
     }
 
 
+def markdown_to_html(text: str) -> str:
+    """Convierte markdown básico a HTML."""
+    # Escapar HTML
+    text = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+    # Headings
+    text = re.sub(r'^### (.*?)$', r'<h3>\1</h3>', text, flags=re.MULTILINE)
+    text = re.sub(r'^## (.*?)$', r'<h2>\1</h2>', text, flags=re.MULTILINE)
+    text = re.sub(r'^# (.*?)$', r'<h1>\1</h1>', text, flags=re.MULTILINE)
+
+    # Código inline
+    text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+
+    # Bold
+    text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'__(.*?)__', r'<strong>\1</strong>', text)
+
+    # Italic
+    text = re.sub(r'\*(.*?)\*', r'<em>\1</em>', text)
+    text = re.sub(r'_(.*?)_', r'<em>\1</em>', text)
+
+    # Párrafos (doble salto de línea)
+    text = re.sub(r'\n\n+', '</p><p>', text)
+    text = f'<p>{text}</p>'
+
+    # Listas
+    text = re.sub(r'<p>- (.*?)</p>', r'<ul><li>\1</li></ul>', text, flags=re.MULTILINE)
+    text = re.sub(r'</ul><p>- (.*?)</p><ul>', r'<li>\1</li>', text)
+
+    # Links
+    text = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', text)
+
+    # Tablas markdown
+    table_pattern = r'\|.*\|.*\n.*---.*\n((\|.*\n)+)'
+    if re.search(table_pattern, text):
+        text = re.sub(table_pattern, r'<table class="data-table">\1</table>', text)
+        text = re.sub(r'<table class="data-table">(\|.*\n)+</table>',
+                     lambda m: _convert_table_row(m.group(0)), text)
+
+    return text
+
+
+def _convert_table_row(table_html: str) -> str:
+    """Convierte filas markdown de tabla a HTML <tr><td>."""
+    lines = table_html.strip().split('\n')
+    result = '<table class="data-table"><thead><tr>'
+
+    # Headers (primera fila)
+    headers = [h.strip() for h in lines[0].split('|') if h.strip()]
+    for h in headers:
+        result += f'<th>{h}</th>'
+    result += '</tr></thead><tbody>'
+
+    # Filas (ignorar separador de dashes)
+    for line in lines[2:]:
+        if '---' not in line:
+            cells = [c.strip() for c in line.split('|') if c.strip()]
+            result += '<tr>'
+            for cell in cells:
+                result += f'<td>{cell}</td>'
+            result += '</tr>'
+
+    result += '</tbody></table>'
+    return result
+
+
+def load_thesis(ticker: str) -> str:
+    """Lee la tesis markdown de una empresa."""
+    thesis_path = VALUATIONS_DIR / ticker / f"{ticker}_tesis_inversion.md"
+    if not thesis_path.exists():
+        return ""
+
+    try:
+        content = thesis_path.read_text(encoding="utf-8")
+        # Extraer solo hasta "---" si hay múltiples, o todo
+        parts = content.split('---')
+        if len(parts) > 1:
+            content = '---'.join(parts[1:])  # Saltarse frontmatter si existe
+        return markdown_to_html(content)
+    except Exception as e:
+        return f"<p class='error'>Error cargando tesis: {e}</p>"
+
+
 def classify_signal(margin_of_safety: float) -> tuple:
     """Returns (emoji, label, css_class)."""
     if margin_of_safety >= 40:
@@ -69,7 +154,7 @@ def classify_signal(margin_of_safety: float) -> tuple:
 
 
 def load_all_valuations() -> list:
-    """Lee todos los JSON de valoración y calcula fair values."""
+    """Lee todos los JSON de valoración + fair values de history.json (escritos por Opus)."""
     results = []
 
     for json_path in sorted(VALUATIONS_DIR.glob("*/*_valuation.json")):
@@ -82,69 +167,43 @@ def load_all_valuations() -> list:
         except (json.JSONDecodeError, KeyError):
             continue
 
-        if not d.get('scenarios') or not d.get('current_price'):
+        if not d.get('current_price'):
             continue
 
-        if 'sga_pct' not in d['scenarios'].get('base', {}):
-            continue
-
-        revenue = d['latest_financials']['revenue']
-        net_debt = d['latest_financials']['total_debt'] - d['latest_financials']['cash']
-        shares = d['shares_outstanding']
         price = d['current_price']
 
-        fvs = {}
-        for sc_name in ['bear', 'base', 'bull']:
-            sc = d['scenarios'].get(sc_name)
-            if not sc:
-                continue
-            result = calc_dcf(revenue, sc, net_debt, shares)
-            fvs[sc_name] = result
+        # Leer fair values de history.json (escritos por Opus al hacer tesis)
+        history_path = json_path.parent / "history.json"
+        bear, base, bull = 0, 0, 0
+        has_fair_values = False
+        if history_path.exists():
+            try:
+                history = json.loads(history_path.read_text(encoding="utf-8"))
+                if history:
+                    latest = history[-1]
+                    bear = latest.get("fair_value_bear", 0) or 0
+                    base = latest.get("fair_value_base", 0) or 0
+                    bull = latest.get("fair_value_bull", 0) or 0
+                    has_fair_values = base > 0
+            except Exception:
+                pass
 
-        if not fvs.get('base'):
-            continue
-
-        weighted = (
-            0.40 * fvs.get('bear', {}).get('fair_value', 0) +
-            0.40 * fvs.get('base', {}).get('fair_value', 0) +
-            0.20 * fvs.get('bull', {}).get('fair_value', 0)
-        )
-
-        # Si el fair value ponderado es negativo o cero, el DCF no aplica
-        # (ej: CapEx > revenue, EBIT negativo, empresas pre-profit)
-        dcf_not_applicable = weighted <= 0 or fvs['base']['fair_value'] <= 0
-
-        # Respetar flag dcf_reliable del analyst (validación con auto-corrección)
-        if d.get('dcf_reliable') is False:
-            dcf_not_applicable = True
-
-        # EV/EBITDA > 50x: el mercado pricea opcionalidad que el DCF no captura
-        ebitda_check = d['latest_financials'].get('ebitda', 0)
-        if ebitda_check and ebitda_check > 0:
-            ev_check = d['market_cap'] + net_debt
-            ev_ebitda_check = ev_check / ebitda_check
-            if ev_ebitda_check > 50:
-                dcf_not_applicable = True
-
-        # D/E > 5x: distress financiero, DCF como going-concern no es fiable
-        de_check = d['latest_financials'].get('total_debt', 0) or 0
-        mc_check = d.get('market_cap', 0) or 0
-        if mc_check > 0 and de_check / mc_check > 5:
-            dcf_not_applicable = True
-
-        if dcf_not_applicable:
-            mos = 0
-            upside = 0
-            emoji, label, css_class = ('🟣', 'ESPECULATIVA', 'signal-speculative')
-        else:
-            mos = (weighted - price) / weighted * 100
+        if has_fair_values:
+            weighted = 0.40 * bear + 0.40 * base + 0.20 * bull
+            mos = (weighted - price) / weighted * 100 if weighted > 0 else 0
             upside = (weighted - price) / price * 100 if price != 0 else 0
             emoji, label, css_class = classify_signal(mos)
+        else:
+            weighted, mos, upside = 0, 0, 0
+            emoji, label, css_class = ('⚪', 'PENDIENTE', 'signal-speculative')
 
+        net_debt = (d.get('latest_financials', {}).get('total_debt', 0) or 0) - \
+                   (d.get('latest_financials', {}).get('cash', 0) or 0)
         ev_ebitda = 0
-        if d['latest_financials'].get('ebitda') and d['latest_financials']['ebitda'] > 0:
-            ev_market = d['market_cap'] + net_debt
-            ev_ebitda = ev_market / d['latest_financials']['ebitda']
+        ebitda = d.get('latest_financials', {}).get('ebitda', 0) or 0
+        if ebitda > 0:
+            ev_market = (d.get('market_cap', 0) or 0) + net_debt
+            ev_ebitda = ev_market / ebitda
 
         results.append({
             'ticker': d['ticker'],
@@ -152,9 +211,9 @@ def load_all_valuations() -> list:
             'sector': d.get('sector', ''),
             'price': price,
             'currency': d.get('currency', '$'),
-            'bear': fvs.get('bear', {}).get('fair_value', 0),
-            'base': fvs['base']['fair_value'],
-            'bull': fvs.get('bull', {}).get('fair_value', 0),
+            'bear': bear,
+            'base': base,
+            'bull': bull,
             'weighted': weighted,
             'upside': upside,
             'mos': mos,
@@ -162,13 +221,13 @@ def load_all_valuations() -> list:
             'signal_label': label,
             'signal_class': css_class,
             'ev_ebitda': ev_ebitda,
-            'market_cap': d['market_cap'],
+            'market_cap': d.get('market_cap', 0),
             'date': d.get('date', ''),
-            'wacc_base': d['scenarios']['base']['wacc'],
-            'tv_base': d['scenarios']['base']['terminal_multiple'],
+            'wacc_base': 0,
+            'tv_base': 0,
+            'thesis_html': load_thesis(d['ticker']),
         })
 
-    # Especulativas al final, el resto ordenado por upside
     results.sort(key=lambda x: (x['signal_class'] == 'signal-speculative', -x['upside']))
     return results
 
@@ -177,9 +236,11 @@ def generate_html(companies: list) -> str:
     now = datetime.now().strftime("%d/%m/%Y %H:%M")
 
     rows = ""
-    for c in companies:
+    modals = ""
+    for idx, c in enumerate(companies):
         is_spec = c['signal_class'] == 'signal-speculative'
         upside_class = "positive" if c['upside'] >= 0 else "negative"
+        modal_id = f"modal-{c['ticker']}"
 
         if is_spec:
             bear_str = "N/A"
@@ -196,7 +257,7 @@ def generate_html(companies: list) -> str:
             upside_str = f"{c['upside']:+.1f}%"
 
         rows += f"""
-        <tr class="{c['signal_class']}">
+        <tr class="{c['signal_class']}" onclick="openModal('{modal_id}')" style="cursor:pointer;">
             <td class="ticker-cell">
                 <span class="ticker">{c['ticker']}</span>
                 <span class="company-name">{c['company']}</span>
@@ -215,6 +276,25 @@ def generate_html(companies: list) -> str:
             <td class="date">{c['date']}</td>
         </tr>"""
 
+        # Modal con tesis
+        thesis_content = c.get('thesis_html', '<p>Sin tesis disponible.</p>')
+        modals += f"""
+    <div id="{modal_id}" class="modal">
+        <div class="modal-overlay" onclick="closeModal('{modal_id}')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h2>{c['ticker']} — {c['company']}</h2>
+                    <p class="modal-subtitle">{c['sector']} • {c['currency']}{c['price']:.2f}</p>
+                </div>
+                <button class="close-btn" onclick="closeModal('{modal_id}')">&times;</button>
+            </div>
+            <div class="modal-body thesis-content">
+                {thesis_content}
+            </div>
+        </div>
+    </div>"""
+
     summary_speculative = sum(1 for c in companies if c['signal_class'] == 'signal-speculative')
     non_spec = [c for c in companies if c['signal_class'] != 'signal-speculative']
     summary_buy = sum(1 for c in non_spec if c['mos'] >= 25)
@@ -227,134 +307,186 @@ def generate_html(companies: list) -> str:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investment Dashboard — Valoraciones DCF</title>
+    <title>Investment Dashboard — Análisis de Valor</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+
         :root {{
-            --bg: #0f1117;
-            --surface: #1a1d27;
-            --surface-hover: #22252f;
-            --border: #2a2d3a;
-            --text: #e4e4e7;
-            --text-muted: #71717a;
-            --green: #22c55e;
-            --green-dim: #166534;
+            --bg: #0a0e27;
+            --bg-secondary: #0f1220;
+            --surface: #151b3a;
+            --surface-hover: #1e2447;
+            --border: #2a3154;
+            --text: #e8eaf6;
+            --text-muted: #9ca3af;
+            --green: #10b981;
             --red: #ef4444;
-            --red-dim: #991b1b;
-            --yellow: #eab308;
+            --yellow: #f59e0b;
             --blue: #3b82f6;
+            --purple: #8b5cf6;
             --orange: #f97316;
+            --accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }}
 
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+
+        html {{ scroll-behavior: smooth; }}
 
         body {{
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.5;
-            padding: 2rem;
+            line-height: 1.6;
+            padding: 3rem 2rem;
+        }}
+
+        .container {{
+            max-width: 1600px;
+            margin: 0 auto;
         }}
 
         h1 {{
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }}
+
+        .header {{
+            margin-bottom: 3rem;
         }}
 
         .subtitle {{
             color: var(--text-muted);
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }}
 
         .summary {{
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }}
 
         .summary-card {{
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            min-width: 140px;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }}
+
+        .summary-card::before {{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            transform-origin: left;
+        }}
+
+        .summary-card:hover {{
+            border-color: var(--blue);
+            background: var(--surface-hover);
+            transform: translateY(-2px);
+        }}
+
+        .summary-card:hover::before {{
+            transform: scaleX(1);
         }}
 
         .summary-card .count {{
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 700;
             font-variant-numeric: tabular-nums;
+            margin-bottom: 0.5rem;
         }}
 
         .summary-card .label {{
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
+            font-weight: 500;
         }}
 
         .summary-card.buy .count {{ color: var(--green); }}
         .summary-card.watchlist .count {{ color: var(--yellow); }}
         .summary-card.fair .count {{ color: var(--text-muted); }}
-        .summary-card.overvalued .count {{ color: var(--red); }}
-        .summary-card.speculative .count {{ color: #a855f7; }}
+        .summary-card.overvalued .count {{ color: var(--orange); }}
+        .summary-card.speculative .count {{ color: var(--purple); }}
 
         .table-wrapper {{
-            overflow-x: auto;
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--surface);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }}
 
         table {{
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.8125rem;
-            white-space: nowrap;
+            font-size: 0.875rem;
         }}
 
         thead {{
-            background: var(--surface);
+            background: linear-gradient(to right, var(--surface), var(--surface-hover));
             position: sticky;
             top: 0;
-            z-index: 1;
+            z-index: 10;
         }}
 
         th {{
-            padding: 0.75rem 1rem;
+            padding: 1rem 1.25rem;
             text-align: left;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
-            font-size: 0.6875rem;
-            letter-spacing: 0.05em;
-            border-bottom: 1px solid var(--border);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            border-bottom: 2px solid var(--border);
         }}
 
         td {{
-            padding: 0.625rem 1rem;
+            padding: 0.875rem 1.25rem;
             border-bottom: 1px solid var(--border);
         }}
 
-        tr:hover {{
+        tbody tr {{
+            transition: all 0.2s;
+            cursor: pointer;
+        }}
+
+        tbody tr:hover {{
             background: var(--surface-hover);
+            border-left: 3px solid var(--blue);
         }}
 
         .ticker-cell {{
             display: flex;
             flex-direction: column;
-            gap: 0.125rem;
+            gap: 0.25rem;
         }}
 
         .ticker {{
             font-weight: 700;
-            font-size: 0.875rem;
+            font-size: 0.95rem;
             color: var(--blue);
         }}
 
         .company-name {{
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             white-space: normal;
             max-width: 180px;
@@ -362,131 +494,344 @@ def generate_html(companies: list) -> str:
 
         .sector {{
             color: var(--text-muted);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
         }}
 
         .number {{
             text-align: right;
             font-variant-numeric: tabular-nums;
-            font-family: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', monospace;
-            font-size: 0.8125rem;
+            font-family: 'Geist Mono', 'SF Mono', monospace;
+            font-size: 0.875rem;
         }}
 
         .positive {{ color: var(--green); font-weight: 600; }}
         .negative {{ color: var(--red); font-weight: 600; }}
 
-        .bear {{ color: var(--red); opacity: 0.8; }}
+        .bear {{ color: var(--red); opacity: 0.75; }}
         .base {{ color: var(--text); font-weight: 600; }}
-        .bull {{ color: var(--green); opacity: 0.8; }}
+        .bull {{ color: var(--green); opacity: 0.75; }}
         .weighted {{ color: var(--blue); font-weight: 700; }}
 
         .signal {{
-            font-size: 0.6875rem;
-            font-weight: 500;
+            font-size: 0.75rem;
+            font-weight: 600;
             white-space: nowrap;
         }}
-
-        .signal-strong-buy .signal {{ color: var(--green); }}
-        .signal-buy .signal {{ color: var(--green); }}
-        .signal-watchlist .signal {{ color: var(--yellow); }}
-        .signal-fair .signal {{ color: var(--text-muted); }}
-        .signal-overvalued .signal {{ color: var(--orange); }}
-        .signal-avoid .signal {{ color: var(--red); }}
-        .signal-speculative .signal {{ color: #a855f7; }}
 
         .date {{
             color: var(--text-muted);
             font-size: 0.75rem;
         }}
 
-        .footer {{
-            margin-top: 1.5rem;
+        /* Modales */
+        .modal {{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+        }}
+
+        .modal.active {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }}
+
+        .modal-overlay {{
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }}
+
+        .modal-content {{
+            position: relative;
+            z-index: 1001;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }}
+
+        @keyframes slideIn {{
+            from {{
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }}
+            to {{
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }}
+        }}
+
+        .modal-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 2rem;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to right, var(--surface), var(--surface-hover));
+        }}
+
+        .modal-header h2 {{
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }}
+
+        .modal-subtitle {{
             color: var(--text-muted);
-            font-size: 0.75rem;
-            text-align: center;
+            font-size: 0.9rem;
+        }}
+
+        .close-btn {{
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            transition: color 0.2s;
+            flex-shrink: 0;
+        }}
+
+        .close-btn:hover {{
+            color: var(--text);
+        }}
+
+        .modal-body {{
+            padding: 2rem;
+            overflow-y: auto;
+            max-height: calc(85vh - 150px);
+        }}
+
+        .thesis-content {{
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }}
+
+        .thesis-content h1 {{
+            background: none;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+            font-size: 1.75rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: var(--text);
+        }}
+
+        .thesis-content h2 {{
+            font-size: 1.35rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: var(--blue);
+        }}
+
+        .thesis-content h3 {{
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+            color: var(--text);
+        }}
+
+        .thesis-content p {{
+            margin-bottom: 1rem;
+            color: var(--text);
+        }}
+
+        .thesis-content strong {{
+            color: var(--text);
+            font-weight: 600;
+        }}
+
+        .thesis-content code {{
+            background: var(--bg);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Geist Mono', monospace;
+            color: var(--yellow);
+        }}
+
+        .thesis-content ul, .thesis-content ol {{
+            margin: 1rem 0 1rem 1.5rem;
+            color: var(--text);
+        }}
+
+        .thesis-content li {{
+            margin-bottom: 0.5rem;
+        }}
+
+        .thesis-content table.data-table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }}
+
+        .thesis-content table.data-table th {{
+            background: var(--bg-secondary);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+            font-weight: 600;
+        }}
+
+        .thesis-content table.data-table td {{
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+        }}
+
+        .thesis-content table.data-table tr:nth-child(even) {{
+            background: var(--bg-secondary);
         }}
 
         .methodology {{
-            margin-top: 1rem;
-            padding: 1rem;
+            margin-top: 3rem;
+            padding: 1.5rem;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
             color: var(--text-muted);
+            line-height: 1.7;
         }}
 
         .methodology strong {{
             color: var(--text);
         }}
 
+        .footer {{
+            margin-top: 2.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }}
+
         @media (max-width: 768px) {{
             body {{ padding: 1rem; }}
-            .summary {{ gap: 0.5rem; }}
-            .summary-card {{ min-width: 100px; padding: 0.75rem; }}
-            .summary-card .count {{ font-size: 1.25rem; }}
+            h1 {{ font-size: 1.75rem; }}
+            .summary {{ grid-template-columns: 1fr; }}
+            .modal-content {{
+                width: 95%;
+                max-height: 90vh;
+            }}
+            .modal-header {{
+                flex-direction: column;
+                gap: 1rem;
+            }}
+            .modal-header h2 {{
+                font-size: 1.25rem;
+            }}
+            table {{ font-size: 0.75rem; }}
+            td, th {{ padding: 0.5rem; }}
         }}
     </style>
 </head>
 <body>
-    <h1>Investment Dashboard</h1>
-    <p class="subtitle">Valoraciones DCF — {len(companies)} empresas analizadas — Actualizado {now}</p>
+    <div class="container">
+        <div class="header">
+            <h1>Investment Dashboard</h1>
+            <p class="subtitle">Análisis de Valor — {len(companies)} empresas analizadas</p>
+            <p class="subtitle" style="font-size: 0.85rem;">Actualizado {now}</p>
+        </div>
 
-    <div class="summary">
-        <div class="summary-card buy">
-            <div class="count">{summary_buy}</div>
-            <div class="label">Infravaloradas (MoS &ge;25%)</div>
+        <div class="summary">
+            <div class="summary-card buy">
+                <div class="count">{summary_buy}</div>
+                <div class="label">Infravaloradas</div>
+            </div>
+            <div class="summary-card watchlist">
+                <div class="count">{summary_watchlist}</div>
+                <div class="label">Watchlist</div>
+            </div>
+            <div class="summary-card fair">
+                <div class="count">{summary_fair}</div>
+                <div class="label">Valor Justo</div>
+            </div>
+            <div class="summary-card overvalued">
+                <div class="count">{summary_overvalued}</div>
+                <div class="label">Sobrevaloradas</div>
+            </div>
+            <div class="summary-card speculative">
+                <div class="count">{summary_speculative}</div>
+                <div class="label">Especulativas</div>
+            </div>
         </div>
-        <div class="summary-card watchlist">
-            <div class="count">{summary_watchlist}</div>
-            <div class="label">Watchlist (10-25%)</div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Empresa</th>
+                        <th>Sector</th>
+                        <th style="text-align:right">Precio</th>
+                        <th style="text-align:right">Bear</th>
+                        <th style="text-align:right">Base</th>
+                        <th style="text-align:right">Bull</th>
+                        <th style="text-align:right">Ponderado</th>
+                        <th style="text-align:right">Potencial</th>
+                        <th>Señal</th>
+                        <th style="text-align:right">EV/EBITDA</th>
+                        <th style="text-align:right">WACC</th>
+                        <th style="text-align:right">TV</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>
         </div>
-        <div class="summary-card fair">
-            <div class="count">{summary_fair}</div>
-            <div class="label">Valor justo (&plusmn;10%)</div>
+
+        <div class="methodology">
+            <strong>Metodología:</strong> Valuación por Descuento de Flujos de Caja (DCF) a 5 años.
+            <strong>UFCF</strong> = EBIT×(1-Tasa Fiscal) + D&amp;A − CapEx.
+            <strong>Terminal Value</strong> = EBITDA<sub>Y5</sub> × múltiplo de salida por sector.
+            <strong>Fair Value</strong> = 40% Bear + 40% Base + 20% Bull.
+            <strong>Señal</strong> se basa en margen de seguridad (MoS): precio vs. fair value ponderado.
+            Datos: Yahoo Finance, SEC 10-K, estimaciones analistas.
         </div>
-        <div class="summary-card overvalued">
-            <div class="count">{summary_overvalued}</div>
-            <div class="label">Sobrevaloradas</div>
-        </div>
-        <div class="summary-card speculative">
-            <div class="count">{summary_speculative}</div>
-            <div class="label">Especulativas (DCF N/A)</div>
-        </div>
+
+        <p class="footer">
+            ⚠️ Análisis personal con fines educativos. No es recomendación de inversión.
+            Generado automáticamente. Revisar siempre los supuestos antes de invertir.
+        </p>
     </div>
 
-    <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th>Empresa</th>
-                    <th>Sector</th>
-                    <th style="text-align:right">Precio</th>
-                    <th style="text-align:right">Bear</th>
-                    <th style="text-align:right">Base</th>
-                    <th style="text-align:right">Bull</th>
-                    <th style="text-align:right">Ponderado</th>
-                    <th style="text-align:right">Potencial</th>
-                    <th>Signal</th>
-                    <th style="text-align:right">EV/EBITDA</th>
-                    <th style="text-align:right">WACC</th>
-                    <th style="text-align:right">TV Exit</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            <tbody>
-                {rows}
-            </tbody>
-        </table>
-    </div>
+    {modals}
 
-    <div class="methodology">
-        <strong>Metodologia:</strong> DCF 5 anos, UFCF = EBIT&times;(1-T) + D&amp;A - CapEx, Terminal Value = EBITDA<sub>Y5</sub> &times; EV/EBITDA exit multiple.
-        Ponderado: 40% Bear + 40% Base + 20% Bull. Senal basada en margen de seguridad (MoS).
-        Los growth rates se aplican con haircut por market cap (max 8% large cap, 12% mid, 15% small). Datos: Yahoo Finance + SEC 10-K.
-    </div>
+    <script>
+        function openModal(modalId) {{
+            const modal = document.getElementById(modalId);
+            if (modal) {{
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }}
+        }}
 
-    <p class="footer">No es consejo de inversion. Analisis personal generado automaticamente.</p>
+        function closeModal(modalId) {{
+            const modal = document.getElementById(modalId);
+            if (modal) {{
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }}
+        }}
+
+        // Cerrar modal al presionar Escape
+        document.addEventListener('keydown', (e) => {{
+            if (e.key === 'Escape') {{
+                document.querySelectorAll('.modal.active').forEach(m => {{
+                    m.classList.remove('active');
+                }});
+                document.body.style.overflow = '';
+            }}
+        }});
+    </script>
 </body>
 </html>"""
 

@@ -1,28 +1,29 @@
 # Investment Agents — Instrucciones para Claude Code
 
 ## Principio clave
-Python hace el trabajo pesado (datos, cálculos, Excel, filtros). Claude Code hace la interpretación y escritura (sin coste API adicional, usa tu suscripción Max).
+
+**Python = datos. Opus = interpretación y valoración.** Python recoge datos financieros, SEC filings, noticias y métricas de referencia. Opus (Claude Code) decide WACC, TV, escenarios, calcula el DCF y escribe la tesis. Una sola fuente de verdad: la tesis.
 
 ## Sistema de skills (referencia principal)
 
 Las 14 skills en `.claude/skills/` son la referencia operativa principal. Cada skill define qué hacer, cómo hacerlo, y los quality gates. **Leer siempre la skill antes de ejecutar.**
 
-| Skill | Cuándo usarla |
-|-------|---------------|
-| `orchestrator` | **Entry point.** Enruta mensajes del bot y peticiones de inversión a la skill correcta |
-| `thesis-writer` | Tesis de inversión completa (incluye fórmula DCF corregida) |
-| `dcf-valuation` | Referencia teórica: normalización FCF, WACC, Gordon Growth, sanity checks |
-| `business-model` | Modelo de negocio, unit economics, pricing power (obligatorio en toda tesis) |
-| `moat-analyst` | Ventaja competitiva Morningstar/Buffett (obligatorio en toda tesis) |
-| `capital-allocation` | ROIC, dividendos, recompras, M&A (obligatorio en toda tesis) |
-| `risk-analyst` | Riesgos materiales priorizados (obligatorio en toda tesis) |
-| `screener-ranking` | Ranking cualitativo de las top 15 del screener cuantitativo |
-| `comparator` | Comparación lado a lado de dos empresas |
-| `thesis-reviewer` | Revisar/comparar tesis externa contra la nuestra |
-| `ir-auditor` | Auditar cifras del IR vs cuentas oficiales (detectar maquillaje) |
-| `tweet-generator` | Hilos Twitter/X sobre inversiones |
-| `content-writer` | Artículos Substack/blog |
-| `invest-new-agent` | Guía para crear nuevos agentes/capacidades del sistema |
+| Skill                  | Cuándo usarla                                                                                |
+| ---------------------- | --------------------------------------------------------------------------------------------- |
+| `orchestrator`       | **Entry point.** Enruta mensajes del bot y peticiones de inversión a la skill correcta |
+| `thesis-writer`      | Tesis de inversión completa (incluye fórmula DCF corregida)                                 |
+| `dcf-valuation`      | Referencia teórica: normalización FCF, WACC, Gordon Growth, sanity checks                   |
+| `business-model`     | Modelo de negocio, unit economics, pricing power (obligatorio en toda tesis)                  |
+| `moat-analyst`       | Ventaja competitiva Morningstar/Buffett (obligatorio en toda tesis)                           |
+| `capital-allocation` | ROIC, dividendos, recompras, M&A (obligatorio en toda tesis)                                  |
+| `risk-analyst`       | Riesgos materiales priorizados (obligatorio en toda tesis)                                    |
+| `screener-ranking`   | Ranking cualitativo de las top 15 del screener cuantitativo                                   |
+| `comparator`         | Comparación lado a lado de dos empresas                                                      |
+| `thesis-reviewer`    | Revisar/comparar tesis externa contra la nuestra                                              |
+| `ir-auditor`         | Auditar cifras del IR vs cuentas oficiales (detectar maquillaje)                              |
+| `tweet-generator`    | Hilos Twitter/X sobre inversiones                                                             |
+| `content-writer`     | Artículos Substack/blog                                                                      |
+| `invest-new-agent`   | Guía para crear nuevos agentes/capacidades del sistema                                       |
 
 **Nota sobre DCF:** La fórmula usa EBIT = Rev × (GM - SGA% - R&D%), EBITDA = EBIT + D&A. UFCF = EBIT×(1-T) + D&A - CapEx. Terminal Value sobre EBITDA (no EBIT). Ver `thesis-writer` Paso 1B.
 
@@ -31,34 +32,46 @@ Las 14 skills en `.claude/skills/` son la referencia operativa principal. Cada s
 Usar el flag `--data-only` para ejecutar solo Python y luego interpretar con Claude Code.
 
 ### Valoración completa
+
 ```bash
 python main.py --analyst TICKER --data-only
 python main.py --analyst AAPL MSFT GOOGL --data-only  # múltiples
 ```
-Genera en `data/valuations/{TICKER}/`: JSON + Excel DCF + SEC filings.
-Quality gates se ejecutan automáticamente — verificar confianza (HIGH/MEDIUM/LOW).
+
+Genera en `data/valuations/{TICKER}/`: JSON con datos crudos + métricas de referencia + Excel template + SEC filings.
+Quality gates validan calidad de datos (no escenarios — eso lo decides tú al escribir la tesis).
+El JSON NO contiene escenarios ni fair values. Solo datos y métricas de referencia.
 
 ### Tesis de inversión
+
 ```bash
 python main.py --analyst TICKER --data-only
 ```
-Leer JSON + SEC filings. Escribir tesis siguiendo skill `thesis-writer` (NO `config/prompts.py`).
+
+Leer JSON + SEC filings. Tú decides WACC, TV, escenarios y calculas el DCF.
+Escribir tesis siguiendo skill `thesis-writer` (NO `config/prompts.py`).
 Guardar en `data/valuations/{TICKER}/{TICKER}_tesis_inversion.md`.
+**Guardar fair values:** `python tools/save_fair_values.py TICKER --bear X --base Y --bull Z`
 **Review gate obligatorio:** `python tools/thesis_reviewer.py TICKER` antes de enviar.
 
 ### Comparar empresas
+
 ```bash
 python main.py --compare TICKER1 TICKER2 --data-only
 ```
+
 Genera datos de ambas. Comparar siguiendo skill `comparator`.
 
 ### Screener
+
 ```bash
 python main.py --screener graham_default --data-only
 ```
+
 Filtros: `graham_default`, `value_aggressive`, `bargain_hunter`. Ranking cualitativo con skill `screener-ranking`.
 
 ### Otros
+
 ```bash
 python main.py --tweets TICKER          # datos para tweets
 python main.py --article "topic"        # datos para artículo
@@ -66,6 +79,19 @@ python main.py --portfolio status       # cartera (usa API)
 python main.py --history TICKER         # historial de valoraciones
 python main.py --fresh --analyst TICKER # forzar refresh cache
 ```
+
+## Estructura del JSON de valoración
+
+El JSON (`{TICKER}_valuation.json`) contiene **solo datos crudos**:
+
+- `latest_financials`: revenue, EBITDA, FCF, márgenes, deuda, cash
+- `historical_data`: 3-5 años de métricas
+- `reference_metrics`: márgenes avg, growth rates históricos, beta, EV/EBITDA, detecciones
+- `sec_audit`: discrepancias Yahoo vs 10-K
+- `news`: noticias recientes
+
+**NO contiene:** `scenarios`, `dcf_reliable`, fair values, WACC ni TV auto-calculados.
+Los fair values se guardan en `history.json` al escribir la tesis (`tools/save_fair_values.py`).
 
 ## AL INICIAR SESION — Acciones obligatorias
 
@@ -95,6 +121,7 @@ El bot comprueba respuestas cada 60s y las envía automáticamente.
 El scheduler encola tareas (tweets, screener) como mensajes `[SCHEDULER]`.
 
 ## Estructura de archivos clave
+
 - `.claude/skills/` — **referencia principal** (14 skills con instrucciones detalladas)
 - `config/prompts.py` — system prompts para llamadas API (legacy, skills son preferentes)
 - `config/settings.py` — modelos, rutas, configuración
@@ -109,6 +136,7 @@ El scheduler encola tareas (tweets, screener) como mensajes `[SCHEDULER]`.
 **Nota:** Directorios parciales en `data/valuations/` (solo JSON+Excel, sin tesis) son normales — representan runs `--data-only` sin interpretación posterior.
 
 ## Tickers internacionales
+
 - España: añadir `.MC` (ej: TEF.MC, ITX.MC, SAN.MC)
 - Otros mercados europeos: consultar sufijo Yahoo Finance
 - USA: ticker directo (AAPL, MSFT, etc.)

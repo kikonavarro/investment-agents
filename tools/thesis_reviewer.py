@@ -185,11 +185,8 @@ def _check_extreme_valuation(thesis_text: str, valuation: dict) -> list:
     tv_matches = re.findall(r"\b(\d{1,2})x\b", thesis_text)
     tv_values = [int(m) for m in tv_matches if 3 <= int(m) <= 50]
 
-    # También comprobar el JSON (escenarios auto-generados del analyst)
-    json_tv = valuation.get("scenarios", {}).get("base", {}).get("terminal_multiple", 0)
-
-    # Determinar el TV máximo usado en la tesis
-    max_tv_in_thesis = max(tv_values) if tv_values else json_tv
+    # Determinar el TV máximo usado en la tesis (extraído del texto, no del JSON)
+    max_tv_in_thesis = max(tv_values) if tv_values else 0
 
     if max_tv_in_thesis and max_tv_in_thesis < 20:
         issues.append({

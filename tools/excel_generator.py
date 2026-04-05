@@ -72,19 +72,19 @@ def _col(n):
 # ============================================================
 
 def generate_valuation_excel(ticker: str, data: dict, historical: dict,
-                              scenarios: dict, output_path: str = None) -> str:
+                              metrics: dict, output_path: str = None) -> str:
     """
-    Genera el Excel de valoracion completo con 4 hojas.
+    Genera el Excel de valoración con datos históricos y template DCF.
+
+    Los 3 escenarios (Base/Bull/Bear) se rellenan con valores de referencia
+    históricos como punto de partida. El usuario o Opus los edita manualmente.
 
     Args:
         ticker: Ticker de la empresa
         data: Datos de get_company_data()
         historical: Datos de extract_historical_data()
-        scenarios: Datos de generate_scenarios()
+        metrics: Datos de extract_metrics() (márgenes, growth, detecciones)
         output_path: Path de salida
-
-    Returns:
-        Path del archivo generado
     """
     if output_path is None:
         output_path = os.path.join(ticker, f"{ticker}_modelo_valoracion.xlsx")
@@ -92,6 +92,29 @@ def generate_valuation_excel(ticker: str, data: dict, historical: dict,
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     print(f"  [excel] Generando modelo de valoracion para {ticker}...")
+
+    # Usar escenarios reales si los proporcionó Opus, si no placeholders de referencia
+    real = metrics.get("_real_scenarios") if isinstance(metrics, dict) else None
+    if real and all(k in real for k in ("bear", "base", "bull")):
+        scenarios = real
+        print(f"    → Usando escenarios reales de Opus")
+    else:
+        avg = metrics.get("avg_margins", {})
+        avg_growth = metrics.get("avg_growth", 0.05) or 0.05
+        ref_scenario = {
+            "gross_margin": avg.get("gross_margin", 0.40),
+            "sga_pct": avg.get("sga_pct", 0.15),
+            "rd_pct": avg.get("rd_pct", 0.0),
+            "da_pct": avg.get("da_pct", 0.03),
+            "capex_pct": avg.get("capex_pct", 0.04),
+            "tax_rate": avg.get("tax_rate", 0.21),
+            "wacc": 0.10,
+            "terminal_multiple": 12,
+        }
+        for y in range(1, 6):
+            ref_scenario[f"revenue_growth_y{y}"] = round(avg_growth * (1 - 0.1 * (y - 1)), 4)
+        scenarios = {"base": ref_scenario, "bull": dict(ref_scenario), "bear": dict(ref_scenario)}
+        print(f"    → Usando márgenes históricos como referencia (editar en Excel)")
 
     wb = Workbook()
     info = data["info"]
@@ -132,7 +155,8 @@ def generate_valuation_excel(ticker: str, data: dict, historical: dict,
     # HOJA 4: VALUATION
     ws_v = wb.create_sheet("Valuation")
     _build_valuation_sheet(ws_v, ticker, company_name, scenarios, data,
-                           proj_years, proj_cols, first_data_col, n_hist)
+                           proj_years, proj_cols, first_data_col, n_hist,
+                           metrics=metrics)
 
     # Ajustar anchos
     for ws in [ws_a, ws_fs, ws_m, ws_v]:
@@ -820,7 +844,8 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
 # ============================================================
 
 def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
-                           proj_years, proj_cols, first_data_col, n_hist):
+                           proj_years, proj_cols, first_data_col, n_hist,
+                           metrics=None):
 
     info = data["info"]
     shares = data["shares_outstanding"]
@@ -1012,7 +1037,7 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
         pass
 
     # Ajustar net debt si hay banco cautivo (Financial Services)
-    captive = scenarios.get("_captive_finance") if isinstance(scenarios, dict) else None
+    captive = metrics.get("captive_finance") if isinstance(metrics, dict) else None
     if captive and captive.get("detected"):
         industrial_debt = captive["estimated_industrial_debt"]
         cash_for_calc = cash_val if cash_val else 0

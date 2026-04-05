@@ -1,12 +1,11 @@
 """
 Datos financieros via yahooquery (principal) + SEC XBRL para segmentos.
-Proporciona: Income Statement, Balance Sheet, Cash Flow, info de empresa,
-segmentos de negocio, y estimaciones de analistas.
+Python solo recoge datos. Opus interpreta y valora.
 
 Funciones principales:
     get_company_data(ticker) -> dict con todos los datos crudos
     extract_historical_data(data) -> dict {year: {metrics}}
-    generate_scenarios(data, historical) -> dict {base/bull/bear: assumptions}
+    extract_metrics(data, historical) -> métricas de referencia para Opus
 """
 
 import re
@@ -620,128 +619,79 @@ def _detect_acquisition(historical, sorted_years):
     return None
 
 
-def generate_scenarios(data, historical):
+def extract_metrics(data, historical):
+    """
+    Extrae métricas de referencia para que Opus interprete.
+    NO genera escenarios, WACC, TV ni fair values — eso lo hace Opus al escribir la tesis.
+    """
     info = data["info"]
     estimates = data["estimates"]
-    segments = data["segments"]
 
     sorted_years = sorted(historical.keys())
+    margins = _calculate_avg_margins(historical, sorted_years)
+
+    # Growth rates históricos (datos observados, no proyecciones)
     revenue_growths = []
     for i in range(1, len(sorted_years)):
         prev = historical[sorted_years[i-1]].get("total_revenue", 0)
         curr = historical[sorted_years[i]].get("total_revenue", 0)
         if prev and curr and prev > 0:
-            revenue_growths.append(curr / prev - 1)
+            revenue_growths.append({"year": sorted_years[i], "yoy": round(curr / prev - 1, 4)})
 
-    avg_growth = np.mean(revenue_growths) if revenue_growths else 0.05
-    margins = _calculate_avg_margins(historical, sorted_years)
+    # CAGR si hay suficientes años
+    cagr_3y = None
+    if len(sorted_years) >= 4:
+        rev_first = historical[sorted_years[-4]].get("total_revenue", 0)
+        rev_last = historical[sorted_years[-1]].get("total_revenue", 0)
+        if rev_first and rev_last and rev_first > 0:
+            cagr_3y = round((rev_last / rev_first) ** (1/3) - 1, 4)
 
-    # --- Detección de banco cautivo (Financial Services) ---
+    # Detecciones
     captive_finance = _detect_captive_finance(info, historical, sorted_years)
     if captive_finance:
         print(f"  [!] BANCO CAUTIVO: {captive_finance['message']}")
 
-    # --- Detección de adquisiciones ---
     acquisition = _detect_acquisition(historical, sorted_years)
     if acquisition:
         print(f"  [!] ADQUISICIÓN DETECTADA: {acquisition['message']}")
-        # Excluir años con saltos inorgánicos (>30%) del cálculo de crecimiento promedio
-        organic_growths = [g for g in revenue_growths if g <= 0.30]
-        if organic_growths:
-            avg_growth = np.mean(organic_growths)
-        else:
-            # Si todos los años tienen saltos, usar crecimiento conservador del sector
-            sector = info.get("sector", "")
-            avg_growth = {"Consumer Defensive": 0.03, "Consumer Cyclical": 0.04,
-                          "Industrials": 0.04, "Technology": 0.08,
-                          "Healthcare": 0.06}.get(sector, 0.04)
-            print(f"  [!] Sin datos orgánicos — usando crecimiento sectorial: {avg_growth:.0%}")
 
-    analyst_growth = estimates.get("revenue_growth", {}).get("current", None)
-    base_growth = analyst_growth if analyst_growth and analyst_growth != 0 else avg_growth
+    # Métricas de mercado
+    mc = info.get("marketCap", 0) or 0
+    td = info.get("totalDebt", 0) or 0
+    cash = info.get("totalCash", 0) or info.get("cash", 0) or 0
+    ebitda = historical.get(sorted_years[-1], {}).get("ebitda", 0) if sorted_years else 0
+    beta = info.get("beta", None)
 
-    # Si hubo adquisición y el analyst growth parece inflado (>15%), ignorarlo
-    if acquisition and base_growth > 0.15:
-        print(f"  [!] Analyst growth ({base_growth:.0%}) parece inflado post-adquisición. "
-              f"Usando media orgánica: {avg_growth:.0%}")
-        base_growth = avg_growth
-
-    base_growth = max(min(base_growth, 0.40), -0.15)
-
-    # Offsets calibrados para dispersión profesional (~1.6-1.8x bull/bear)
-    # Growth: ±15% del base (vs ±30% anterior)
-    bull_premium = max(abs(base_growth) * 0.15, 0.015)
-    bear_discount = max(abs(base_growth) * 0.15, 0.015)
-    wacc_base = _estimate_wacc(info)
-    # Datos para coherencia TV vs mercado
-    _cp = data.get("current_price", 0)
-    _shares = data.get("shares_outstanding", 0)
-    _latest_ebitda = historical.get(sorted_years[-1], {}).get("ebitda", 0) if sorted_years else 0
-    tv_base = _estimate_terminal_multiple(info, current_price=_cp,
-                                           shares=_shares, ebitda_latest=_latest_ebitda)
-
-    def _tapering(g, i, positive):
-        if positive:
-            # Crecimiento positivo: desacelera gradualmente (10% menos cada año)
-            return g * (1 - 0.1 * i)
-        # Crecimiento negativo: recupera hacia 0 y luego crece ligeramente
-        # Ej: -5% Y1 → -2% Y2 → +1% Y3 → +3% Y4 → +4% Y5
-        recovery = g + 0.02 * (i + 1)
-        return min(recovery, 0.05)  # Cap en 5% de crecimiento post-recuperación
-
-    # Offsets calibrados para dispersión profesional (~1.5-1.8x bull/bear):
-    #   Growth: ±15% del base
-    #   Gross margin: ±1pp
-    #   SGA: ±0.5pp
-    #   R&D: sin cambio bear/bull
-    #   CapEx: bear 1.15x (menos eficiencia), bull 0.90x (más eficiencia)
-    #   WACC: ±1pp simétrico
-    #   TV Multiple: ±2 simétrico
-    scenarios = {}
-    for key, name, g_offset, gm_off, sga_off, rd_off, capex_mult, wacc_off, tv_off in [
-        ("base", "Base Case", 0, 0, 0, 0, 1.0, 0, 0),
-        ("bull", "Bull Case", bull_premium, 0.01, -0.005, 0, 0.90, -0.01, 2),
-        ("bear", "Bear Case", -bear_discount, -0.01, 0.005, 0, 1.15, 0.01, -2),
-    ]:
-        g = base_growth + g_offset
-        sc = {"name": name}
-        for y in range(1, 6):
-            sc[f"revenue_growth_y{y}"] = _tapering(g, y - 1, g > 0)
-        sc["gross_margin"] = max(min(margins["gross_margin"] + gm_off, 0.95), 0.1)
-        sc["sga_pct"] = max(margins["sga_pct"] + sga_off, 0.01)
-        sc["rd_pct"] = margins["rd_pct"] + rd_off
-        sc["da_pct"] = margins["da_pct"]
-        sc["capex_pct"] = margins["capex_pct"] * capex_mult
-        sc["tax_rate"] = margins["tax_rate"]
-        sc["wacc"] = wacc_base + wacc_off
-        sc["terminal_multiple"] = max(tv_base + tv_off, 5)
-        sc["segments"] = [{"name": s["name"], "growth_rates": [sc[f"revenue_growth_y{y}"] for y in range(1, 6)]} for s in segments]
-        scenarios[key] = sc
-
-    # Sanity check: margen operativo (EBIT) implícito vs real
-    # GM - SGA - R&D = margen EBIT implícito. Comparar contra operating_income real.
-    # (Antes se comparaba contra EBITDA de Yahoo, que incluye SBC y creaba un gap artificial)
-    latest_year = sorted_years[-1] if sorted_years else None
-    if latest_year:
-        real_rev = historical[latest_year].get("total_revenue", 0)
-        real_ebit = historical[latest_year].get("operating_income", 0)
-        if real_rev and real_ebit and real_rev > 0:
-            real_ebit_margin = real_ebit / real_rev
-            base_sc = scenarios["base"]
-            implicit_ebit_margin = base_sc["gross_margin"] - base_sc["sga_pct"] - base_sc["rd_pct"]
-            gap = implicit_ebit_margin - real_ebit_margin
-            if abs(gap) > 0.05:  # >5pp de diferencia
-                # Si implicit > real: SGA demasiado bajo, aumentar. Y viceversa.
-                for key in scenarios:
-                    scenarios[key]["sga_pct"] = max(scenarios[key]["sga_pct"] + gap, 0.01)
-
-    # Adjuntar info de adquisición y banco cautivo si se detectaron
-    if acquisition:
-        scenarios["_acquisition_detected"] = acquisition
+    # Net debt ajustada (industrial si hay captive)
     if captive_finance:
-        scenarios["_captive_finance"] = captive_finance
+        ind_debt = captive_finance.get("estimated_industrial_debt", 0)
+        net_debt = ind_debt - cash
+        net_debt_label = "industrial (excl. Financial Services)"
+    else:
+        net_debt = td - cash
+        net_debt_label = "total"
 
-    return scenarios
+    ev_ebitda = round((mc + net_debt) / ebitda, 1) if ebitda and ebitda > 0 else None
+
+    return {
+        "avg_margins": margins,
+        "revenue_growths": revenue_growths,
+        "avg_growth": round(np.mean([g["yoy"] for g in revenue_growths]), 4) if revenue_growths else None,
+        "cagr_3y": cagr_3y,
+        "beta": beta,
+        "ev_ebitda": ev_ebitda,
+        "net_debt": net_debt,
+        "net_debt_label": net_debt_label,
+        "total_debt": td,
+        "cash": cash,
+        "de_ratio": round(td / mc, 2) if mc > 0 else None,
+        "analyst_estimates": {
+            "revenue_growth": estimates.get("revenue_growth", {}),
+            "target_prices": estimates.get("target_prices", {}),
+        },
+        "captive_finance": captive_finance,
+        "acquisition_detected": acquisition,
+    }
 
 
 def _calculate_avg_margins(historical, sorted_years):
@@ -784,98 +734,10 @@ def _calculate_avg_margins(historical, sorted_years):
     }
 
 
-def _estimate_wacc(info):
-    beta = info.get("beta", 1.0) or 1.0
-    currency = info.get("currency", "USD") or "USD"
 
-    # Risk-free rate y ERP según divisa/mercado
-    wacc_cfg = settings.WACC_DEFAULTS
-    rf_rates = wacc_cfg["risk_free_rates"]
-    erp_rates = wacc_cfg["equity_risk_premiums"]
-    rf = rf_rates.get(currency, rf_rates["default"])
-    erp = erp_rates.get(currency, erp_rates["default"])
-
-    ke = rf + abs(beta) * erp
-    mc = info.get("marketCap", 0) or 0
-    td = info.get("totalDebt", 0) or 0
-    ew = mc / (mc + td) if mc > 0 else 0.8
-
-    # Credit spread dinámico basado en leverage (D/E ratio)
-    # Empresas con más deuda = mayor riesgo de default = mayor spread
-    de_ratio = td / mc if mc > 0 else 10.0
-    if de_ratio < 0.5:
-        credit_spread = 0.015   # 150bps — bajo apalancamiento (investment grade)
-    elif de_ratio < 1.0:
-        credit_spread = 0.02    # 200bps — apalancamiento moderado
-    elif de_ratio < 2.0:
-        credit_spread = 0.03    # 300bps — apalancamiento alto
-    elif de_ratio < 4.0:
-        credit_spread = 0.05    # 500bps — muy apalancada
-    else:
-        credit_spread = 0.08    # 800bps — distress financiero
-
-    kd = rf + credit_spread
-    tax_rate = 0.21  # Tasa corporativa genérica
-
-    wacc = ke * ew + kd * (1 - tax_rate) * (1 - ew)
-
-    # WACC floor: empresas de alto riesgo no pueden tener WACC < coste de equity razonable
-    # Sin floor, empresas con 90% deuda obtienen WACC ~5-6% (absurdo)
-    if beta > 1.5:
-        wacc_floor = 0.10   # High-beta: mínimo 10%
-    elif beta > 1.0:
-        wacc_floor = 0.08   # Beta moderado: mínimo 8%
-    else:
-        wacc_floor = 0.07   # Estable: mínimo 7%
-
-    return round(max(wacc, wacc_floor), 4)
-
-
-def _load_valuation_params():
-    """Carga parámetros de valoración desde config/valuation_params.yaml."""
-    import yaml
-    params_path = Path(__file__).parent.parent / "config" / "valuation_params.yaml"
-    with open(params_path) as f:
-        return yaml.safe_load(f)
-
-
-def _estimate_terminal_multiple(info, current_price=0, shares=0, ebitda_latest=0):
-    params = _load_valuation_params()
-    sector_tv = params.get("sector_tv", {})
-    industry_bonus = params.get("industry_tv_bonus", {})
-    growth_adj = params.get("growth_adjustments", {})
-
-    m = sector_tv.get(info.get("sector", ""), sector_tv.get("default", 12))
-    # Bonus por industria premium
-    industry = info.get("industry", "")
-    m += industry_bonus.get(industry, 0)
-    # Ajuste por crecimiento (solo para growth sostenido, no penalizar baches cíclicos)
-    g = info.get("revenueGrowth", 0) or 0
-    if g > growth_adj.get("high_growth_threshold", 0.20):
-        m += growth_adj.get("high_growth_bonus", 3)
-    elif g > growth_adj.get("moderate_growth_threshold", 0.10):
-        m += growth_adj.get("moderate_growth_bonus", 1)
-    # No penalizar growth negativo — puede ser un bache cíclico, no estructural
-    m = max(m, growth_adj.get("min_multiple", 5))
-
-    # Coherencia con valoración actual del mercado
-    market_cap = (current_price * shares) if current_price and shares else (info.get("marketCap", 0) or 0)
-    total_debt = info.get("totalDebt", 0) or 0
-    cash = info.get("totalCash", 0) or info.get("cash", 0) or 0
-    ebitda = ebitda_latest or (info.get("ebitda", 0) or 0)
-    if market_cap and ebitda and ebitda > 0:
-        ev = market_cap + total_debt - cash
-        current_ev_ebitda = ev / ebitda
-        if current_ev_ebitda > m * 5:
-            # Compresión extrema — ajustar TV al mínimo de: sector×2 o actual×0.5
-            adjusted = min(m * 2, current_ev_ebitda * 0.5)
-            adjusted = max(adjusted, m)  # nunca bajar del sector default
-            adjusted = min(adjusted, 35)  # cap en 35x
-            print(f"  [!] TV ajustado: {m:.0f}x → {adjusted:.0f}x "
-                  f"(EV/EBITDA actual={current_ev_ebitda:.0f}x, compresión {m}x→{current_ev_ebitda:.0f}x era incoherente)")
-            m = adjusted
-
-    return m
+# _estimate_wacc() y _estimate_terminal_multiple() ELIMINADOS.
+# Opus decide WACC, TV y escenarios al escribir la tesis.
+# Python solo extrae datos de referencia via extract_metrics().
 
 
 def _safe_get(df, key, col):

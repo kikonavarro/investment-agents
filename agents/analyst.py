@@ -1,14 +1,16 @@
 """
-Analyst Agent — valoracion completa de una empresa.
+Analyst Agent — recolección de datos de una empresa.
+
+Python solo recoge datos. Opus (Claude Code) interpreta, valora y escribe tesis.
 
 Flujo:
 1. Crea carpeta data/valuations/{TICKER}/
 2. Descarga 10-K filings de SEC (solo EEUU)
 3. Obtiene datos financieros via yahooquery
-4. Extrae historicos y genera 3 escenarios
+4. Extrae métricas de referencia (márgenes, growth, detecciones)
 5. Busca noticias recientes
-6. Genera Excel completo (4 hojas con formulas reales)
-7. Guarda JSON resumen para thesis_writer
+6. Genera Excel con datos y template DCF
+7. Guarda JSON con datos crudos + métricas de referencia
 
 Output:
     data/valuations/{TICKER}/
@@ -24,110 +26,10 @@ from datetime import datetime
 from pathlib import Path
 
 from config.settings import VALUATIONS_DIR
-from tools.financial_data import get_company_data, extract_historical_data, generate_scenarios, DataQualityError
+from tools.financial_data import get_company_data, extract_historical_data, extract_metrics, DataQualityError
 from tools.excel_generator import generate_valuation_excel
 from tools.sec_downloader import download_10k_filings
 from tools.news_fetcher import fetch_news
-from tools.web_dashboard import calc_dcf
-from agents.base import call_agent
-from config.prompts import QUICK_VALUATION
-
-
-def quick_summary(ticker: str) -> str:
-    """Genera resumen rápido con 3 escenarios + conclusión desde la valoración existente."""
-    valuation = load_valuation(ticker)
-    if valuation is None:
-        raise ValueError(f"No existe valoración para {ticker}. Ejecuta primero: python main.py --analyst {ticker}")
-    return call_agent(
-        system_prompt=QUICK_VALUATION,
-        user_message=json.dumps(valuation, ensure_ascii=False),
-        model_tier="quick",
-        max_tokens=800,
-    )
-
-
-def _validate_and_correct(data: dict, scenarios: dict, historical: dict) -> tuple[dict, bool, list]:
-    """
-    Valida los escenarios generados y auto-corrige problemas detectados.
-    Retorna (scenarios_corregidos, dcf_reliable, lista_de_acciones).
-
-    Sanity checks:
-    1. EV/EBITDA >50x → dcf_reliable=False (narrative stock)
-    2. D/E >5x → dcf_reliable=False (financial distress)
-    3. Fair value >5x precio (profitable company) → TV demasiado alto, reducir
-    4. Fair value negativo → dcf_reliable=False
-    """
-    info = data["info"]
-    price = data["current_price"]
-    shares = data["shares_outstanding"]
-    mc = info.get("marketCap", 0) or 0
-    td = info.get("totalDebt", 0) or 0
-    cash = info.get("totalCash", 0) or info.get("cash", 0) or 0
-    sorted_years = sorted(historical.keys())
-    ebitda = historical.get(sorted_years[-1], {}).get("ebitda", 0) if sorted_years else 0
-    revenue = historical.get(sorted_years[-1], {}).get("total_revenue", 0) if sorted_years else 0
-
-    actions = []
-    dcf_reliable = True
-    net_debt = td - cash
-
-    # --- Check 1: EV/EBITDA extremo ---
-    if ebitda and ebitda > 0 and mc:
-        ev = mc + net_debt
-        ev_ebitda = ev / ebitda
-        if ev_ebitda > 50:
-            dcf_reliable = False
-            actions.append(f"EV/EBITDA={ev_ebitda:.0f}x (>50x): narrative stock, DCF no fiable")
-
-    # --- Check 2: Distress financiero ---
-    de_ratio = td / mc if mc > 0 else 99
-    if de_ratio > 5:
-        dcf_reliable = False
-        actions.append(f"D/E={de_ratio:.1f}x (>5x): financial distress, DCF no fiable")
-
-    # --- Check 3 y 4: Fair values implícitos ---
-    base_sc = scenarios.get("base", {})
-    if revenue and shares and base_sc.get("sga_pct") is not None:
-        try:
-            result = calc_dcf(revenue, base_sc, net_debt, shares)
-            fv = result["fair_value"]
-
-            # Check 4: Fair value negativo
-            if fv <= 0:
-                dcf_reliable = False
-                actions.append(f"Fair value base negativo ({fv:.2f}): DCF no fiable")
-
-            # Check 3: Fair value >5x precio en empresa profitable
-            elif fv > price * 5 and price > 0 and ebitda > 0:
-                # TV probablemente demasiado alto — reducir hasta que FV < 3x precio
-                max_iterations = 5
-                for i in range(max_iterations):
-                    for key in ["base", "bull", "bear"]:
-                        sc = scenarios.get(key, {})
-                        if sc.get("terminal_multiple", 0) > 8:
-                            sc["terminal_multiple"] = max(sc["terminal_multiple"] - 2, 8)
-                    result = calc_dcf(revenue, scenarios["base"], net_debt, shares)
-                    fv = result["fair_value"]
-                    if fv <= price * 3:
-                        break
-
-                actions.append(
-                    f"FV base era >{price*5:.0f} (5x precio). TV reducido a "
-                    f"{scenarios['base']['terminal_multiple']:.0f}x. FV ajustado: {fv:.2f}"
-                )
-
-            # Check adicional: FV < 15% del precio (no ya capturado por check 1)
-            elif fv < price * 0.15 and dcf_reliable:
-                # No auto-corregible — pero marcar para revisión manual
-                actions.append(
-                    f"FV base ({fv:.2f}) = {fv/price:.0%} del precio ({price:.2f}). "
-                    f"Posible compresión de múltiplo excesiva"
-                )
-
-        except Exception as e:
-            actions.append(f"Error calculando FV implícito: {e}")
-
-    return scenarios, dcf_reliable, actions
 
 
 def _is_us_ticker(ticker: str) -> bool:
@@ -202,16 +104,7 @@ def run_analyst(ticker: str) -> dict:
         print(f"  No se puede generar valoración con datos inválidos.")
         return {"error": str(e), "ticker": ticker}
     historical = extract_historical_data(data)
-    scenarios = generate_scenarios(data, historical)
-
-    # VALIDACIÓN Y AUTO-CORRECCIÓN de escenarios
-    scenarios, dcf_reliable, corrections = _validate_and_correct(data, scenarios, historical)
-    if corrections:
-        print(f"\n  [VALIDACIÓN] {len(corrections)} ajuste(s):")
-        for c in corrections:
-            print(f"    → {c}")
-        if not dcf_reliable:
-            print(f"  [!!] DCF marcado como NO FIABLE — usar Sum-of-Parts o análisis cualitativo")
+    metrics = extract_metrics(data, historical)
 
     company_name = data["info"].get("longName", ticker)
     current_price = data["current_price"]
@@ -219,15 +112,15 @@ def run_analyst(ticker: str) -> dict:
     print(f"\n    Resumen:")
     print(f"    Empresa: {company_name}")
     print(f"    Precio actual: {currency}{current_price:,.2f}")
-    print(f"    Anios historicos: {sorted(historical.keys())}")
+    print(f"    Años históricos: {sorted(historical.keys())}")
     print(f"    Segmentos: {[s['name'] for s in data['segments']]}")
-    for k, v in scenarios.items():
-        if k.startswith("_"):
-            continue
-        print(f"    {k.capitalize()}: Growth Y1={v['revenue_growth_y1']:.1%}, "
-              f"WACC={v['wacc']:.1%}, TV={v['terminal_multiple']:.0f}x")
-    if not dcf_reliable:
-        print(f"    ⚠️  dcf_reliable: False")
+    m = metrics["avg_margins"]
+    print(f"    Márgenes (avg): GM={m['gross_margin']:.1%}, SGA={m['sga_pct']:.1%}, "
+          f"R&D={m['rd_pct']:.1%}, D&A={m['da_pct']:.1%}, CapEx={m['capex_pct']:.1%}")
+    if metrics["ev_ebitda"]:
+        print(f"    EV/EBITDA: {metrics['ev_ebitda']:.1f}x")
+    if metrics["beta"]:
+        print(f"    Beta: {metrics['beta']:.2f}")
 
     # PASO 2.5: Auditoría SEC 10-K (solo EEUU)
     sec_audit = None
@@ -256,10 +149,9 @@ def run_analyst(ticker: str) -> dict:
         print(f"    Aviso: Error noticias: {e}")
         news = []
 
-    # Si se detectó adquisición, buscar noticias de M&A específicas
-    if scenarios.get("_acquisition_detected"):
+    # Si se detectó adquisición, buscar noticias de M&A
+    if metrics.get("acquisition_detected"):
         try:
-            from tools.news_fetcher import get_ticker_news
             import urllib.parse
             from tools.news_fetcher import _fetch_rss
             acq_query = urllib.parse.quote(f"{company_name} acquisition merger")
@@ -274,18 +166,14 @@ def run_analyst(ticker: str) -> dict:
     # PASO 4: Excel
     print(f"\n--- PASO 4/5: Modelo Excel ---")
     excel_path = str(output_dir / f"{folder_name}_modelo_valoracion.xlsx")
-    generate_valuation_excel(ticker, data, historical, scenarios, excel_path)
+    generate_valuation_excel(ticker, data, historical, metrics, excel_path)
 
-    # PASO 5: JSON resumen (para thesis_writer)
+    # PASO 5: JSON resumen
     print(f"\n--- PASO 5/5: Guardando resumen ---")
     valuation_summary = _build_valuation_summary(
-        ticker, company_name, data, historical, scenarios, news,
+        ticker, company_name, data, historical, metrics, news,
         excel_path, downloaded_files, currency, sec_audit
     )
-    valuation_summary["dcf_reliable"] = dcf_reliable
-    if not dcf_reliable:
-        valuation_summary["dcf_unreliable_reasons"] = corrections
-    # Guardar versión actual (backward compat)
     json_path = str(output_dir / f"{folder_name}_valuation.json")
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(valuation_summary, f, ensure_ascii=False, indent=2, default=str)
@@ -297,7 +185,7 @@ def run_analyst(ticker: str) -> dict:
     # Resumen final
     elapsed = time.time() - start_time
     print(f"\n{'='*60}")
-    print(f"  VALORACION COMPLETADA: {company_name} ({ticker})")
+    print(f"  DATOS RECOPILADOS: {company_name} ({ticker})")
     print(f"{'='*60}")
     print(f"  Tiempo: {elapsed:.1f}s")
     print(f"  Archivos:")
@@ -307,8 +195,7 @@ def run_analyst(ticker: str) -> dict:
     print(f"    ├── {folder_name}_modelo_valoracion.xlsx")
     print(f"    └── {folder_name}_valuation.json")
     print(f"  Precio actual: {currency}{current_price:,.2f}")
-    print(f"  WACC (Base): {scenarios['base']['wacc']:.1%}")
-    print(f"  TV Multiple (Base): {scenarios['base']['terminal_multiple']:.0f}x")
+    print(f"  → Usa Claude Code para interpretar datos y escribir tesis")
 
     return valuation_summary
 
@@ -329,9 +216,9 @@ def load_valuation(ticker: str) -> dict | None:
         return json.load(f)
 
 
-def _build_valuation_summary(ticker, company_name, data, historical, scenarios, news,
+def _build_valuation_summary(ticker, company_name, data, historical, metrics, news,
                               excel_path, sec_files, currency, sec_audit=None):
-    """Construye el dict resumen completo de la valoracion."""
+    """Construye el dict resumen con datos crudos + métricas de referencia."""
     info = data["info"]
     sorted_years = sorted(historical.keys())
 
@@ -370,28 +257,12 @@ def _build_valuation_summary(ticker, company_name, data, historical, scenarios, 
         },
         "historical_data": {str(y): _summarize_year(d) for y, d in historical.items()},
         "segments": [{"name": s["name"], "revenues": s.get("revenues", {})} for s in data["segments"]],
-        "acquisition_detected": scenarios.get("_acquisition_detected"),
-        "captive_finance": scenarios.get("_captive_finance"),
+        "reference_metrics": metrics,
         "sec_audit": {
             "confidence": sec_audit.get("confidence"),
             "alerts": sec_audit.get("alerts", []),
             "comparisons": sec_audit.get("comparisons", []),
         } if sec_audit and sec_audit.get("has_10k") else None,
-        "scenarios": {
-            k: {
-                "revenue_growth_y1": v["revenue_growth_y1"],
-                "revenue_growth_y5": v["revenue_growth_y5"],
-                "gross_margin": v["gross_margin"],
-                "sga_pct": v.get("sga_pct"),
-                "rd_pct": v.get("rd_pct"),
-                "da_pct": v.get("da_pct"),
-                "capex_pct": v.get("capex_pct"),
-                "tax_rate": v.get("tax_rate"),
-                "wacc": v["wacc"],
-                "terminal_multiple": v["terminal_multiple"],
-            }
-            for k, v in scenarios.items() if not k.startswith("_")
-        },
         "news": [{"title": n["title"], "date": n["date"], "source": n.get("source", "")} for n in news[:10]],
         "files": {
             "excel": excel_path,
@@ -419,41 +290,19 @@ def _save_versioned(output_dir: Path, folder_name: str, valuation: dict):
     with open(versioned_path, "w", encoding="utf-8") as f:
         json.dump(valuation, f, ensure_ascii=False, indent=2, default=str)
 
-    # Extraer métricas clave para el historial — calcular fair values reales con DCF
-    scenarios = valuation.get("scenarios", {})
+    # Métricas clave para el historial (sin fair values — Opus los añade al escribir tesis)
     latest = valuation.get("latest_financials", {})
-    revenue = latest.get("revenue", 0)
-    net_debt = (latest.get("total_debt", 0) or 0) - (latest.get("cash", 0) or 0)
-    shares = valuation.get("shares_outstanding", 0)
-
-    fv_bear, fv_base, fv_bull = 0, 0, 0
-    for sc_name, attr in [("bear", "fv_bear"), ("base", "fv_base"), ("bull", "fv_bull")]:
-        sc = scenarios.get(sc_name, {})
-        if sc and revenue and shares and "sga_pct" in sc:
-            try:
-                result = calc_dcf(revenue, sc, net_debt, shares)
-                if sc_name == "bear":
-                    fv_bear = round(result["fair_value"], 2)
-                elif sc_name == "base":
-                    fv_base = round(result["fair_value"], 2)
-                else:
-                    fv_bull = round(result["fair_value"], 2)
-            except Exception:
-                pass
+    metrics = valuation.get("reference_metrics", {})
 
     entry = {
         "date": valuation.get("date", today),
         "file": versioned_path.name,
         "current_price": valuation.get("current_price", 0),
         "currency": valuation.get("currency", "$"),
-        "fair_value_bear": fv_bear,
-        "fair_value_base": fv_base,
-        "fair_value_bull": fv_bull,
         "revenue": latest.get("revenue", 0),
         "gross_margin": latest.get("gross_margin", 0),
-        "growth_y1_base": scenarios.get("base", {}).get("revenue_growth_y1", 0),
-        "wacc_base": scenarios.get("base", {}).get("wacc", 0),
-        "tv_base": scenarios.get("base", {}).get("terminal_multiple", 0),
+        "ev_ebitda": metrics.get("ev_ebitda"),
+        "avg_growth": metrics.get("avg_growth"),
     }
 
     # Leer/crear historial
