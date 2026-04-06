@@ -1,0 +1,194 @@
+{
+  "ticker": "NVDA",
+  "company": "NVIDIA Corporation",
+  "currency": "$",
+  "date": "2026-04-06",
+  "current_price": 176.15,
+  "shares_outstanding": 24300000000,
+  "market_cap": 4281325584384,
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States",
+  "business_summary": "NVIDIA Corporation operates as a data center scale AI infrastructure company. The company operates through two segments, Compute & Networking, and Graphics segments. The Compute & Networking segment provides data center accelerated computing and networking platforms and artificial intelligence solutions and software, and automotive platforms and autonomous and electric vehicle solutions, including software. The Graphics segment offers GeForce GPUs for gaming and PCs; Quadro/NVIDIA RTX GPUs for enterprise workstation graphics. The company's products are used in gaming, professional visualization, data center, and automotive markets. The company sells its products to original equipment manufacturers, original device manufacturers, system integrators and distributors, independent software vendors, cloud service providers, add-in board manufacturers, distributors, automotive manufacturers and tier-1 automotive suppliers, and other ecosystem participants worldwide. It has a collaboration with Tech Mahindra Limited to develop artificial intelligence powered telco network operations reasoning agent. The company has a strategic partnership with Lumentum Holdings Inc. to develop optics technologies for AI and data centers. It also has a strategic partnership with Nebius Group N.V. to develop and deploy hyperscale cloud for the artificial intelligence market. NVIDIA Corporation was incorporated in 1993 and is headquartered in Santa Clara, California.",
+  "beta": 2.335,
+  "analyst_targets": {
+    "high": 380.0,
+    "low": 140.0,
+    "mean": 268.22195,
+    "current": 176.15
+  },
+  "historical_years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "latest_financials": {
+    "revenue": 215938000000.0,
+    "net_income": 120067000000.0,
+    "ebitda": 144552000000.0,
+    "free_cashflow": 96676000000.0,
+    "gross_margin": 0.7106808435754708,
+    "operating_margin": 0.6038168363141272,
+    "net_margin": 0.5560253406070261,
+    "total_debt": 11040000000.0,
+    "cash": 10605000000.0,
+    "total_equity": 157293000000.0
+  },
+  "historical_data": {
+    "2023": {
+      "revenue": 26974000000.0,
+      "net_income": 4368000000.0,
+      "ebitda": 5986000000.0,
+      "fcf": 3808000000.0,
+      "operating_income": 5577000000.0
+    },
+    "2024": {
+      "revenue": 60922000000.0,
+      "net_income": 29760000000.0,
+      "ebitda": 35583000000.0,
+      "fcf": 27021000000.0,
+      "operating_income": 32972000000.0
+    },
+    "2025": {
+      "revenue": 130497000000.0,
+      "net_income": 72880000000.0,
+      "ebitda": 86137000000.0,
+      "fcf": 60853000000.0,
+      "operating_income": 81453000000.0
+    },
+    "2026": {
+      "revenue": 215938000000.0,
+      "net_income": 120067000000.0,
+      "ebitda": 144552000000.0,
+      "fcf": 96676000000.0,
+      "operating_income": 130387000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Semiconductors",
+      "revenues": {
+        "2023": 26974000000.0,
+        "2024": 60922000000.0,
+        "2025": 130497000000.0,
+        "2026": 215938000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.6892581229928632,
+      "sga_pct": 0.04549452813169108,
+      "rd_pct": 0.14977274610932298,
+      "da_pct": 0.027351466232520293,
+      "capex_pct": 0.026388879257396726,
+      "tax_rate": 0.11436018900884476
+    },
+    "revenue_growths": [
+      {
+        "year": 2024,
+        "yoy": 1.2585
+      },
+      {
+        "year": 2025,
+        "yoy": 1.142
+      },
+      {
+        "year": 2026,
+        "yoy": 0.6547
+      }
+    ],
+    "avg_growth": 1.0184,
+    "cagr_3y": 1.0005,
+    "beta": 2.335,
+    "ev_ebitda": 29.3,
+    "net_debt": -51144000512,
+    "net_debt_label": "total",
+    "total_debt": 11411999744,
+    "cash": 62556000256,
+    "de_ratio": 0.0,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.732
+      },
+      "target_prices": {
+        "high": 380.0,
+        "low": 140.0,
+        "mean": 268.22195,
+        "current": 176.15
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": {
+      "detected": true,
+      "year": 2024,
+      "prev_year": 2023,
+      "prev_revenue": 26974000000.0,
+      "new_revenue": 60922000000.0,
+      "jump_pct": 1.2585452658115224,
+      "message": "Revenue saltó 126% en 2024 (26,974M → 60,922M). Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). Crecimiento ajustado a tasas orgánicas (2-6%)."
+    }
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Nvidia (NVDA) Stock Trades Up, Here Is Why - Yahoo Finance",
+      "date": "Wed, 01 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Nvidia (NVDA) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+      "date": "Thu, 02 Ap",
+      "source": "Investor's Business Daily"
+    },
+    {
+      "title": "Prediction: Nvidia Will Do the Unthinkable and Hit $100 Before the End of 2026 - The Motley Fool",
+      "date": "Thu, 02 Ap",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Goldman Sachs sends blunt message on Nvidia stock after GTC - thestreet.com",
+      "date": "Sun, 22 Ma",
+      "source": "thestreet.com"
+    },
+    {
+      "title": "Prediction: This Will Be Nvidia's Stock Price by the End of the Year - Yahoo Finance",
+      "date": "Sun, 05 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NVIDIA CEO Jensen Huang Says AGI Is Here. If He’s Right, These Stocks Win Big - Yahoo Finance",
+      "date": "Sun, 05 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Nvidia Stock Forecast — How High or Low Can NVDA Stock Go? - tipranks.com",
+      "date": "Sun, 05 Ap",
+      "source": "tipranks.com"
+    },
+    {
+      "title": "Nvidia Stock vs. Broadcom Stock: A Wall Street Analyst Says Buy One and Sell the Other - The Motley Fool",
+      "date": "Sun, 05 Ap",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "A Generational Investment Opportunity: 3 AI Stocks I'm Buying Now - The Motley Fool",
+      "date": "Sun, 05 Ap",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Nvidia vs. CoreWeave: The Better AI Supercycle Stock Might Surprise You - The Motley Fool",
+      "date": "Sun, 05 Ap",
+      "source": "The Motley Fool"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NVDA/NVDA_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NVDA/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NVDA/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NVDA/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

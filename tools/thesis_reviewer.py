@@ -173,30 +173,116 @@ def _check_fair_value_sanity(ticker: str, thesis_text: str, valuation: dict) -> 
     return issues
 
 
+def _extract_tv_from_params_table(thesis_text: str) -> dict:
+    """Extrae TV multiples y tipo de la tabla de parámetros por escenario.
+
+    Busca filas como:
+        | TV Multiple (EV/EBITDA) | 10x | 14x | 18x |
+        | TV Multiple (EV/Revenue) | 4x | 6x | 8x |
+    Devuelve {"type": "EV/EBITDA"|"EV/Revenue"|"P/E"|..., "values": [10,14,18]}
+    """
+    # Buscar fila de TV Multiple en tabla markdown
+    tv_row = re.search(
+        r"\|\s*TV\s+Multiple\s*(?:\(([^)]+)\))?\s*\|([^\n]+)",
+        thesis_text, re.IGNORECASE,
+    )
+    if not tv_row:
+        # Fallback: buscar "terminal_multiple" o "Terminal Value" en tabla
+        tv_row = re.search(
+            r"\|\s*(?:Terminal|TV)\s*(?:Multiple|Value|Múltiplo)\s*(?:\(([^)]+)\))?\s*\|([^\n]+)",
+            thesis_text, re.IGNORECASE,
+        )
+
+    if not tv_row:
+        # Fallback: extraer del header de tabla de sensibilidad (WACC vs TV Multiple)
+        sens_header = re.search(
+            r"WACC\s*(?:\\|vs\.?|\|)\s*TV\s*(?:Multiple)?\s*(?:\(([^)]+)\))?",
+            thesis_text, re.IGNORECASE,
+        )
+        if sens_header:
+            tv_type_str = sens_header.group(1) or "EV/EBITDA"
+            # Buscar la fila de headers de la tabla de sensibilidad (contiene los valores Xx)
+            sens_table = re.search(
+                r"\|\s*WACC\s*\\\s*TV[^\n]*\|([^\n]+)",
+                thesis_text, re.IGNORECASE,
+            )
+            if sens_table:
+                header_row = sens_table.group(1)
+                tv_vals = [int(m) for m in re.findall(r"(\d{1,3})x", header_row) if 1 <= int(m) <= 100]
+                return {"type": tv_type_str.strip(), "values": tv_vals}
+        return {"type": None, "values": []}
+
+    tv_type = tv_row.group(1) or "EV/EBITDA"  # default si no especifica
+    row_content = tv_row.group(2)
+    tv_values = [int(m) for m in re.findall(r"(\d{1,3})x", row_content) if 1 <= int(m) <= 100]
+
+    return {"type": tv_type.strip(), "values": tv_values}
+
+
 def _check_extreme_valuation(thesis_text: str, valuation: dict) -> list:
-    """CRITICAL: Empresa de valoración extrema usando múltiplos automáticos."""
+    """CRITICAL: Empresa de valoración extrema usando múltiplos incoherentes."""
     issues = []
     ev_ebitda = _get_ev_ebitda(valuation)
 
     if ev_ebitda < 50:
         return issues
 
-    # Extraer múltiplos TV usados en la tesis (buscar Xx en la tabla de escenarios)
-    tv_matches = re.findall(r"\b(\d{1,2})x\b", thesis_text)
-    tv_values = [int(m) for m in tv_matches if 3 <= int(m) <= 50]
+    # Si usa Sum-of-Parts → el EV/EBITDA global no aplica, cada segmento tiene su múltiplo
+    uses_sop = bool(re.search(r"(?i)sum.of.parts|SoP|valoración.*por.*partes", thesis_text))
+    if uses_sop:
+        tv_info = _extract_tv_from_params_table(thesis_text)
+        max_tv = max(tv_info["values"]) if tv_info["values"] else 0
+        issues.append({
+            "level": "info",
+            "check": "valoracion_extrema",
+            "message": (
+                f"Empresa con valoración extrema (EV/EBITDA = {ev_ebitda:.0f}x). "
+                f"La tesis usa Sum-of-Parts — múltiplos por segmento (max {max_tv}x). "
+                f"Verificar coherencia de cada componente."
+            ),
+        })
+        return issues
 
-    # Determinar el TV máximo usado en la tesis (extraído del texto, no del JSON)
-    max_tv_in_thesis = max(tv_values) if tv_values else 0
+    tv_info = _extract_tv_from_params_table(thesis_text)
+    tv_type = tv_info["type"]
+    tv_values = tv_info["values"]
+    max_tv = max(tv_values) if tv_values else 0
 
-    if max_tv_in_thesis and max_tv_in_thesis < 20:
+    # Si usa EV/Revenue, P/E, P/FFO u otro múltiplo alternativo → la tesis ya reconoce
+    # que EV/EBITDA no aplica. Solo informar, no bloquear.
+    if tv_type and tv_type.upper() not in ("EV/EBITDA", "EBITDA"):
+        issues.append({
+            "level": "info",
+            "check": "valoracion_extrema",
+            "message": (
+                f"Empresa con valoración extrema (EV/EBITDA = {ev_ebitda:.0f}x). "
+                f"La tesis usa {tv_type} como múltiplo terminal ({max_tv}x max). "
+                f"Verificar coherencia."
+            ),
+        })
+        return issues
+
+    # Usa EV/EBITDA explícitamente o por defecto: verificar que el múltiplo tenga sentido
+    if not tv_values:
+        issues.append({
+            "level": "warning",
+            "check": "tv_no_encontrado",
+            "message": (
+                f"EV/EBITDA actual = {ev_ebitda:.0f}x pero no se encontraron TV multiples "
+                f"en la tabla de parámetros. Verificar que la tesis incluya escenarios con "
+                f"múltiplos explícitos."
+            ),
+        })
+        return issues
+
+    if max_tv < 20:
         issues.append({
             "level": "critical",
             "check": "multiplos_auto_extrema",
             "message": (
-                f"EV/EBITDA actual = {ev_ebitda:.0f}x pero el TV máximo en la tesis = {max_tv_in_thesis}x. "
-                f"Parece que se usaron múltiplos de sector estándar. "
-                f"Para empresas con EV/EBITDA > 50x, diseñar escenarios manuales con "
-                f"múltiplos coherentes (20-35x para tech/growth)."
+                f"EV/EBITDA actual = {ev_ebitda:.0f}x pero el TV máximo en la tabla de "
+                f"parámetros = {max_tv}x. Para empresas con EV/EBITDA > 50x, diseñar "
+                f"escenarios con múltiplos coherentes (20-35x para tech/growth)."
             ),
         })
     else:
@@ -205,7 +291,7 @@ def _check_extreme_valuation(thesis_text: str, valuation: dict) -> list:
             "check": "valoracion_extrema",
             "message": (
                 f"Empresa con valoración extrema (EV/EBITDA = {ev_ebitda:.0f}x). "
-                f"TV máximo en tesis = {max_tv_in_thesis}x. Verificar coherencia."
+                f"TV máximo en tabla de parámetros = {max_tv}x. Verificar coherencia."
             ),
         })
 

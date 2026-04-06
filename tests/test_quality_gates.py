@@ -38,25 +38,20 @@ def test_negative_gross_margin_warns():
     assert "margen_bruto" in checks
 
 
-def test_wacc_out_of_range_warns():
+def test_wacc_no_check_on_raw_data():
+    """WACC/TV checks se eliminaron de quality_gates (ahora solo valida datos crudos)."""
     v = _minimal(wacc=0.30)
     result = validate_valuation(v)
     checks = {w["check"] for w in result["warnings"]}
-    assert "wacc" in checks
+    assert "wacc" not in checks  # No hay check de WACC en datos crudos
 
 
-def test_wacc_in_range_ok():
-    v = _minimal(wacc=0.10)
-    result = validate_valuation(v)
-    wacc_warnings = [w for w in result["warnings"] if w["check"] == "wacc"]
-    assert len(wacc_warnings) == 0
-
-
-def test_terminal_multiple_out_of_range():
+def test_terminal_multiple_no_check_on_raw_data():
+    """TV check se eliminó de quality_gates (ahora solo valida datos crudos)."""
     v = _minimal(terminal_multiple=50)
     result = validate_valuation(v)
     checks = {w["check"] for w in result["warnings"]}
-    assert "terminal_multiple" in checks
+    assert "terminal_multiple" not in checks  # No hay check de TV en datos crudos
 
 
 def test_few_years_warns():

@@ -235,6 +235,7 @@ def _build_valuation_summary(ticker, company_name, data, historical, metrics, ne
         "date": datetime.now().strftime("%Y-%m-%d"),
         "current_price": data["current_price"],
         "shares_outstanding": data["shares_outstanding"],
+        "diluted_avg_shares": data.get("diluted_avg_shares", 0),
         "market_cap": info.get("marketCap", 0),
         "sector": info.get("sector", ""),
         "industry": info.get("industry", ""),

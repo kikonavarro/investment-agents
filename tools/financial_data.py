@@ -283,6 +283,15 @@ def get_company_data(ticker: str) -> dict:
     current_price = fin_data.get("currentPrice", 0) or price_data.get("regularMarketPrice", 0)
     shares_outstanding = key_stats.get("sharesOutstanding", 0) or key_stats.get("impliedSharesOutstanding", 0) or 0
 
+    # Extraer DilutedAverageShares del income statement más reciente para cross-validación
+    diluted_avg_shares = 0
+    if income_stmt is not None and not income_stmt.empty:
+        for col in income_stmt.columns:
+            val = _safe_get_multi(income_stmt, ["DilutedAverageShares", "BasicAverageShares"], col)
+            if val and val > 0:
+                diluted_avg_shares = int(val)
+                break  # El primer período es el más reciente
+
     estimates = _get_analyst_estimates(info, fin_data)
     segments = _get_business_segments(yahoo_ticker, info, income_stmt)
 
@@ -307,6 +316,7 @@ def get_company_data(ticker: str) -> dict:
         "estimates": estimates,
         "current_price": current_price,
         "shares_outstanding": shares_outstanding,
+        "diluted_avg_shares": diluted_avg_shares,
         "history": hist,
     }
 

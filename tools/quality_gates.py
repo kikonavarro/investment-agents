@@ -23,15 +23,17 @@ def validate_valuation(valuation: dict) -> dict:
     warnings.extend(_check_margins(valuation))
     warnings.extend(_check_historical_depth(valuation))
     warnings.extend(_check_shares(valuation))
+    warnings.extend(_check_shares_crossvalidation(valuation))
     warnings.extend(_check_debt_sanity(valuation))
     warnings.extend(_check_extreme_valuation(valuation))
     warnings.extend(_check_captive_finance(valuation))
     warnings.extend(_check_acquisition_detected(valuation))
+    warnings.extend(_check_segments_suspicious(valuation))
 
     critical = sum(1 for w in warnings if w["level"] == "critical")
     warning_count = sum(1 for w in warnings if w["level"] == "warning")
 
-    total_checks = 9
+    total_checks = 11
     failed = critical + warning_count
 
     if critical >= 2:
@@ -198,3 +200,41 @@ def _check_acquisition_detected(v: dict) -> list[dict]:
                      f"Usar tasas orgánicas de crecimiento en la tesis."
                  )}]
     return []
+
+
+def _check_shares_crossvalidation(v: dict) -> list[dict]:
+    """WARNING: sharesOutstanding diverge de DilutedAverageShares del income statement."""
+    shares = v.get("shares_outstanding", 0)
+    diluted = v.get("diluted_avg_shares", 0)
+    if not shares or not diluted:
+        return []
+    diff_pct = abs(shares - diluted) / shares
+    if diff_pct > 0.05:
+        return [{"level": "warning", "check": "shares_divergencia",
+                 "message": (
+                     f"sharesOutstanding ({shares/1e6:,.0f}M) difiere {diff_pct:.0%} de "
+                     f"DilutedAverageShares ({diluted/1e6:,.0f}M). Verificar en 10-K cuál "
+                     f"usar para market cap y fair value/acción."
+                 )}]
+    return []
+
+
+def _check_segments_suspicious(v: dict) -> list[dict]:
+    """WARNING: empresa grande con solo 1 segmento — probablemente faltan datos."""
+    segments = v.get("segments", [])
+    latest = v.get("latest_financials", {})
+    rev = latest.get("revenue", 0) or 0
+
+    if len(segments) > 1:
+        return []
+    if rev < 50e9:
+        return []
+
+    # Empresa con >$50B revenue pero solo 1 segmento reportado
+    seg_name = segments[0]["name"] if segments else "?"
+    return [{"level": "warning", "check": "segmentos_sospechosos",
+             "message": (
+                 f"Empresa con revenue de ${rev/1e9:,.0f}B pero solo 1 segmento "
+                 f"reportado ('{seg_name}'). Yahoo/SEC XBRL probablemente no desglosa "
+                 f"los segmentos. LEER el 10-K para obtener datos reales por segmento."
+             )}]

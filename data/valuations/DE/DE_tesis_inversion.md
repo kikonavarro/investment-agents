@@ -13,6 +13,7 @@
 Deere cotiza a $575.71 en lo que el propio CEO define como "el suelo del ciclo agrícola actual." Q1 FY2026 sorprendió positivamente (EPS $2.42 vs $2.02 est., revenue +13% YoY a $9.6B), con Construction & Forestry +34% y Small Ag +24%. Sin embargo, los aranceles ($1.2B impacto FY2026), precios de commodities por debajo de break-even para muchos farmers, y un revenue consolidado que cayó -27% desde el pico de $60.2B en FY2023 mantienen la presión. Deere tiene un banco cautivo ($55.3B en préstamos) que distorsiona el balance — la deuda industrial real es solo ~$8.9B.
 
 **Escenarios de valoración:**
+
 - **Bear: $395** — Ciclo agro no se recupera en FY2027, aranceles persisten, márgenes comprimen
 - **Base: $550** — 2026 es el suelo, recovery gradual FY2027-2029, normalización mid-cycle
 - **Bull: $760** — Recovery rápido, precision ag genera premium, Construction mantiene +30%
