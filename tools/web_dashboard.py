@@ -205,11 +205,10 @@ def load_all_valuations() -> list:
             ev_market = (d.get('market_cap', 0) or 0) + net_debt
             ev_ebitda = ev_market / ebitda
 
-        wacc_base = 0
-        tv_base = 0
-        if d.get('scenarios', {}).get('base'):
-            wacc_base = d['scenarios']['base'].get('wacc', 0)
-            tv_base = d['scenarios']['base'].get('terminal_multiple', 0)
+        # Calcular P/E
+        net_income = d.get('latest_financials', {}).get('net_income', 0) or 0
+        market_cap = d.get('market_cap', 0) or 0
+        pe_ratio = (market_cap / net_income) if net_income > 0 else 0
 
         results.append({
             'ticker': d['ticker'],
@@ -227,10 +226,9 @@ def load_all_valuations() -> list:
             'signal_label': label,
             'signal_class': css_class,
             'ev_ebitda': ev_ebitda,
-            'market_cap': d.get('market_cap', 0),
+            'market_cap': market_cap,
             'date': d.get('date', ''),
-            'wacc_base': wacc_base,
-            'tv_base': tv_base,
+            'pe_ratio': pe_ratio,
             'thesis_html': load_thesis(d['ticker']),
         })
 
@@ -277,8 +275,7 @@ def generate_html(companies: list) -> str:
             <td class="number {upside_class}">{upside_str}</td>
             <td class="signal">{c['signal_emoji']} {c['signal_label']}</td>
             <td class="number">{c['ev_ebitda']:.1f}x</td>
-            <td class="number">{c['wacc_base']:.1%}</td>
-            <td class="number">{c['tv_base']:.0f}x</td>
+            <td class="number">{c['pe_ratio']:.1f}x</td>
             <td class="date">{c['date']}</td>
         </tr>"""
 
@@ -790,8 +787,7 @@ def generate_html(companies: list) -> str:
                         <th style="text-align:right">Potencial</th>
                         <th>Señal</th>
                         <th style="text-align:right">EV/EBITDA</th>
-                        <th style="text-align:right">WACC</th>
-                        <th style="text-align:right">TV</th>
+                        <th style="text-align:right">P/E</th>
                         <th>Fecha</th>
                     </tr>
                 </thead>
