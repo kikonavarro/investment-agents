@@ -433,30 +433,37 @@
         <div class="header">
             <h1>Investment Dashboard</h1>
             <p class="subtitle">Análisis de Valor — 34 empresas analizadas</p>
-            <p class="subtitle" style="font-size: 0.85rem;">Actualizado 06/04/2026 23:26</p>
+            <p class="subtitle" style="font-size: 0.85rem;">Actualizado 06/04/2026 23:29</p>
         </div>
 
         <div class="summary">
-            <div class="summary-card buy">
+            <div class="summary-card buy" onclick="filterByClass('signal-buy')" style="cursor:pointer;">
                 <div class="count">12</div>
                 <div class="label">Infravaloradas</div>
             </div>
-            <div class="summary-card watchlist">
+            <div class="summary-card watchlist" onclick="filterByClass('signal-watchlist')" style="cursor:pointer;">
                 <div class="count">1</div>
                 <div class="label">Watchlist</div>
             </div>
-            <div class="summary-card fair">
+            <div class="summary-card fair" onclick="filterByClass('signal-fair')" style="cursor:pointer;">
                 <div class="count">4</div>
                 <div class="label">Valor Justo</div>
             </div>
-            <div class="summary-card overvalued">
+            <div class="summary-card overvalued" onclick="filterByClass('signal-overvalued')" style="cursor:pointer;">
                 <div class="count">8</div>
                 <div class="label">Sobrevaloradas</div>
             </div>
-            <div class="summary-card speculative">
+            <div class="summary-card speculative" onclick="filterByClass('signal-speculative')" style="cursor:pointer;">
                 <div class="count">9</div>
                 <div class="label">Especulativas</div>
             </div>
+            <div class="summary-card" onclick="clearFilter()" style="cursor:pointer; border: 1px dashed var(--border);">
+                <div class="count" style="font-size: 1.2rem;">✕</div>
+                <div class="label">Limpiar Filtro</div>
+            </div>
+        </div>
+        <div id="filter-indicator" style="display:none; text-align:center; margin-bottom:1rem; color:var(--text-muted); font-size:0.9rem;">
+            Mostrando: <strong id="filter-name"></strong> | <a href="#" onclick="clearFilter(); return false;" style="color:var(--blue); text-decoration:underline;">Limpiar</a>
         </div>
 
         <div class="table-wrapper">
@@ -2599,6 +2606,54 @@ Equity = $261.26M + $30.24M = $291.50M
                 document.body.style.overflow = '';
             }
         });
+
+        // Filtrado de tabla
+        let currentFilter = null;
+
+        function filterByClass(className) {
+            const table = document.querySelector('tbody');
+            const rows = table.querySelectorAll('tr');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                if (row.classList.contains(className)) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            currentFilter = className;
+
+            // Mostrar indicador
+            const indicator = document.getElementById('filter-indicator');
+            const filterName = document.getElementById('filter-name');
+
+            const filterLabels = {
+                'signal-buy': 'Infravaloradas (MoS ≥ 25%)',
+                'signal-watchlist': 'Watchlist (10-25%)',
+                'signal-fair': 'Valor Justo (±10%)',
+                'signal-overvalued': 'Sobrevaloradas',
+                'signal-speculative': 'Especulativas'
+            };
+
+            filterName.textContent = filterLabels[className] || className;
+            filterName.textContent += ' (' + visibleCount + ' empresas)';
+            indicator.style.display = 'block';
+        }
+
+        function clearFilter() {
+            const table = document.querySelector('tbody');
+            const rows = table.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+
+            currentFilter = null;
+            document.getElementById('filter-indicator').style.display = 'none';
+        }
     </script>
 </body>
 </html>
