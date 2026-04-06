@@ -205,6 +205,12 @@ def load_all_valuations() -> list:
             ev_market = (d.get('market_cap', 0) or 0) + net_debt
             ev_ebitda = ev_market / ebitda
 
+        wacc_base = 0
+        tv_base = 0
+        if d.get('scenarios', {}).get('base'):
+            wacc_base = d['scenarios']['base'].get('wacc', 0)
+            tv_base = d['scenarios']['base'].get('terminal_multiple', 0)
+
         results.append({
             'ticker': d['ticker'],
             'company': d['company'],
@@ -223,8 +229,8 @@ def load_all_valuations() -> list:
             'ev_ebitda': ev_ebitda,
             'market_cap': d.get('market_cap', 0),
             'date': d.get('date', ''),
-            'wacc_base': 0,
-            'tv_base': 0,
+            'wacc_base': wacc_base,
+            'tv_base': tv_base,
             'thesis_html': load_thesis(d['ticker']),
         })
 
