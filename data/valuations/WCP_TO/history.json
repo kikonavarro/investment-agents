@@ -20,10 +20,11 @@
     "file": "WCP_TO_20260404_valuation.json",
     "current_price": 15.04,
     "currency": "$",
-    "fair_value_bear": 7.35,
-    "fair_value_base": 12.64,
-    "fair_value_bull": 18.95,
+    "fair_value_bear": 8.4,
+    "fair_value_base": 14.71,
+    "fair_value_bull": 22.77,
     "revenue": 5908800000.0,
-    "gross_margin": 0.5856349851069591
+    "gross_margin": 0.5856349851069591,
+    "fair_value_weighted": 13.8
   }
 ]

@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-26",
+    "file": "UBER_20260426_valuation.json",
+    "current_price": 74.64,
+    "currency": "$",
+    "revenue": 52017000000.0,
+    "gross_margin": 0.39754311090604993,
+    "ev_ebitda": 22.7,
+    "avg_growth": 0.1773,
+    "fair_value_bear": 50.6,
+    "fair_value_base": 83.0,
+    "fair_value_bull": 135.8,
+    "fair_value_weighted": 80.6
+  }
+]

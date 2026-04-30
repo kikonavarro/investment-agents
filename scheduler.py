@@ -344,6 +344,43 @@ def _save_tweets_to_file(ticker: str, tweets: list[str]) -> Path:
     return file_path
 
 
+# ─── Tarea diaria: LEAPS scan (USA, lunes-viernes 08:00) ─────────────────────────
+
+def daily_leaps_scan():
+    """
+    1. Escanea universo USA buscando LEAPS calls ITM (delta 0.60-0.80, >12m)
+    2. Encola top candidatos para que Claude Code interprete y envíe 4-5 ideas
+    """
+    log.info("=== TAREA DIARIA: LEAPS scan ===")
+
+    from tools.leaps_scanner import scan_universe, save_scan, format_scan_for_inbox
+    from tools.message_queue import enqueue_message
+
+    scan = scan_universe(top_n=15)
+    save_scan(scan)
+    log.info(f"LEAPS scan: {scan['valid_count']}/{scan['universe_size']} válidos")
+
+    if not scan["top_candidates"]:
+        log.info("Sin candidatos LEAPS hoy.")
+        return
+
+    msg_text = format_scan_for_inbox(scan, n=10)
+    msg_text += "\n\nElige las 4-5 mejores y envía mensaje con justificación corta para cada una (skill leaps-finder)."
+
+    import os
+    from dotenv import load_dotenv
+    from pathlib import Path
+    load_dotenv(Path(__file__).parent / ".env")
+    owner_chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+
+    if owner_chat_id:
+        enqueue_message(owner_chat_id, "SCHEDULER", msg_text, from_group=False)
+        log.info("Encolado [SCHEDULER] LEAPS para Claude Code")
+
+    log.info("=== LEAPS scan completado ===\n")
+    return scan
+
+
 # ─── Tarea semanal: screener ────────────────────────────────────────────────────
 
 def weekly_screener():
@@ -523,6 +560,11 @@ def setup_schedule():
     schedule.every().monday.at("08:00").do(lambda: _safe_run(weekly_screener))
     log.info("Programado: weekly_screener los lunes a las 08:00")
 
+    # LEAPS scan: lunes-viernes 08:00 (Madrid)
+    for day in ("monday", "tuesday", "wednesday", "thursday", "friday"):
+        getattr(schedule.every(), day).at("08:00").do(lambda: _safe_run(daily_leaps_scan))
+    log.info("Programado: daily_leaps_scan L-V a las 08:00")
+
     # Re-valoración semanal: sábado 10:00 (mercado cerrado, sin interferir)
     schedule.every().saturday.at("10:00").do(lambda: _safe_run(weekly_revaluation))
     log.info("Programado: weekly_revaluation los sábados a las 10:00")
@@ -557,7 +599,7 @@ def main():
     parser = argparse.ArgumentParser(description="Scheduler de tareas de inversion")
     parser.add_argument(
         "--now",
-        choices=["daily", "weekly", "news", "tweets", "prices", "revalue", "summary", "status"],
+        choices=["daily", "weekly", "news", "tweets", "prices", "revalue", "summary", "status", "leaps"],
         help="Ejecuta una tarea inmediatamente sin esperar al horario",
     )
     args = parser.parse_args()
@@ -575,6 +617,10 @@ def main():
     elif args.now == "weekly":
         log.info("Ejecutando screener manualmente...")
         weekly_screener()
+
+    elif args.now == "leaps":
+        log.info("Ejecutando LEAPS scan manualmente...")
+        daily_leaps_scan()
 
     elif args.now == "news":
         log.info("Ejecutando news scan manualmente...")

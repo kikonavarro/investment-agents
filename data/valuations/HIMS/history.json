@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-26",
+    "file": "HIMS_20260426_valuation.json",
+    "current_price": 30.56,
+    "currency": "$",
+    "revenue": 2347637000.0,
+    "gross_margin": 0.7383500941585092,
+    "ev_ebitda": 46.9,
+    "avg_growth": 0.646,
+    "fair_value_bear": 15.49,
+    "fair_value_base": 31.59,
+    "fair_value_bull": 47.99,
+    "fair_value_weighted": 28.43
+  }
+]

@@ -1,0 +1,195 @@
+{
+  "ticker": "DUOL",
+  "company": "Duolingo, Inc.",
+  "currency": "$",
+  "date": "2026-04-26",
+  "current_price": 103.45,
+  "shares_outstanding": 40425975,
+  "diluted_avg_shares": 39452980,
+  "market_cap": 4839600640,
+  "sector": "Technology",
+  "industry": "Software - Application",
+  "country": "United States",
+  "business_summary": "Duolingo, Inc. operates as a mobile learning platform in the United States, the United Kingdom, and internationally. The company offers 250 language courses, including Spanish, English, French, German, Italian, Portuguese, Japanese, and Chinese through its Duolingo app. It also provides a digital English language proficiency assessment exam. The company was incorporated in 2011 and is headquartered in Pittsburgh, Pennsylvania.",
+  "beta": 0.883,
+  "analyst_targets": {
+    "high": 145.0,
+    "low": 81.0,
+    "mean": 104.96529,
+    "current": 103.45
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 1037589000.0,
+    "net_income": 414065000.0,
+    "ebitda": 149961000.0,
+    "free_cashflow": 360424000.0,
+    "gross_margin": 0.7223062310799363,
+    "operating_margin": 0.13065867120796384,
+    "net_margin": 0.39906456217249797,
+    "total_debt": 93779000.0,
+    "cash": 1036389000.0,
+    "total_equity": 1347006000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 369495000.0,
+      "net_income": -59574000.0,
+      "ebitda": -60325000.0,
+      "fcf": 43532000.0,
+      "operating_income": -65195000.0
+    },
+    "2023": {
+      "revenue": 531109000.0,
+      "net_income": 16067000.0,
+      "ebitda": -6164000.0,
+      "fcf": 139930000.0,
+      "operating_income": -13259000.0
+    },
+    "2024": {
+      "revenue": 748024000.0,
+      "net_income": 88574000.0,
+      "ebitda": 73449000.0,
+      "fcf": 264373000.0,
+      "operating_income": 62595000.0
+    },
+    "2025": {
+      "revenue": 1037589000.0,
+      "net_income": 414065000.0,
+      "ebitda": 149961000.0,
+      "fcf": 360424000.0,
+      "operating_income": 135570000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Software - Application",
+      "revenues": {
+        "2022": 369495000.0,
+        "2023": 531109000.0,
+        "2024": 748024000.0,
+        "2025": 1037589000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.7283499490464983,
+      "sga_pct": 0.379396607481769,
+      "rd_pct": 0.3457206231897326,
+      "da_pct": 0.013729718551975035,
+      "capex_pct": 0.026902984165815484,
+      "tax_rate": 0.35
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.4374
+      },
+      {
+        "year": 2024,
+        "yoy": 0.4084
+      },
+      {
+        "year": 2025,
+        "yoy": 0.3871
+      }
+    ],
+    "avg_growth": 0.411,
+    "cagr_3y": 0.4108,
+    "beta": 0.883,
+    "ev_ebitda": 25.3,
+    "net_debt": -1039483944,
+    "net_debt_label": "total",
+    "total_debt": 100983000,
+    "cash": 1140466944,
+    "de_ratio": 0.02,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.35
+      },
+      "target_prices": {
+        "high": 145.0,
+        "low": 81.0,
+        "mean": 104.96529,
+        "current": 103.45
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": {
+      "detected": true,
+      "year": 2023,
+      "prev_year": 2022,
+      "prev_revenue": 369495000.0,
+      "new_revenue": 531109000.0,
+      "jump_pct": 0.4373915749874828,
+      "message": "Revenue saltó 44% en 2023 (369M → 531M). Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). Crecimiento ajustado a tasas orgánicas (2-6%)."
+    }
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Does Duolingo’s (DUOL) UK Testing Bid Reframe Its Smart Learning Story Amid Analyst Skepticism?",
+      "date": "Wed, 22 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Smart Learning Market Global Forecast Report 2026-2036, Profiles of Key Players - Coursera, Duolingo, Udemy, Blackboard, Canvas, Microsoft, Google, Apple, Byju's, Yuanfudao, Pearson, and McGraw Hill",
+      "date": "Wed, 22 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is Duolingo (DUOL) Now Attractively Priced After A 69.5% One Year Share Price Slide - simplywall.st",
+      "date": "Wed, 22 Ap",
+      "source": "simplywall.st"
+    },
+    {
+      "title": "Duolingo, Inc. (DUOL) Stock Falls Amid Market Uptick: What Investors Need to Know - Yahoo Finance",
+      "date": "Wed, 21 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is Duolingo, Inc. (DUOL) The Best Money-making Stock To Buy Right Now? - Yahoo Finance",
+      "date": "Wed, 18 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Pinterest and Duolingo Shares Skyrocket, What You Need To Know",
+      "date": "Wed, 15 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Duolingo Reconsiders AI Mandate As Investors Weigh Culture And Valuation",
+      "date": "Wed, 15 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Duolingo, Inc. (DUOL) Stock Declines While Market Improves: Some Information for Investors - Yahoo Finance",
+      "date": "Tue, 27 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Duolingo (DUOL): Buy, Sell, or Hold Post Q4 Earnings? - StockStory",
+      "date": "Tue, 24 Ma",
+      "source": "StockStory"
+    },
+    {
+      "title": "Here's Why Duolingo, Inc. (DUOL) Fell More Than Broader Market",
+      "date": "Tue, 21 Ap",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DUOL/DUOL_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DUOL/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DUOL/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DUOL/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

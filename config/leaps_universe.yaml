@@ -1,0 +1,190 @@
+# Universo LEAPS — tickers USA con opciones líquidas a >12 meses.
+# Pre-filtrado para evitar escanear S&P 500 entero (lento).
+# Mega-caps + populares optionables. Ampliar/reducir según interese.
+
+universe:
+  # Tech mega-caps
+  - AAPL
+  - MSFT
+  - GOOGL
+  - GOOG
+  - AMZN
+  - META
+  - NVDA
+  - TSLA
+  - AVGO
+  - ORCL
+  - CRM
+  - ADBE
+  - AMD
+  - INTC
+  - QCOM
+  - CSCO
+  - TXN
+  - MU
+  - AMAT
+  - LRCX
+  - KLAC
+  - NOW
+  - INTU
+  - PANW
+  - CRWD
+  - NET
+  - SNOW
+  - DDOG
+  - MDB
+  - ZS
+  - SHOP
+  - SQ
+  - PYPL
+  - UBER
+  - LYFT
+  - ABNB
+  - DASH
+  - PLTR
+  - SMCI
+  - MRVL
+  - ARM
+
+  # Consumer
+  - WMT
+  - COST
+  - HD
+  - LOW
+  - TGT
+  - NKE
+  - LULU
+  - SBUX
+  - MCD
+  - CMG
+  - YUM
+  - DIS
+  - NFLX
+  - ROKU
+  - SPOT
+  - F
+  - GM
+  - RIVN
+  - LCID
+  - DKNG
+  - PENN
+  - CCL
+  - RCL
+  - MAR
+  - HLT
+  - BKNG
+
+  # Financials
+  - JPM
+  - BAC
+  - WFC
+  - C
+  - GS
+  - MS
+  - SCHW
+  - BLK
+  - V
+  - MA
+  - AXP
+  - COF
+  - PYPL
+  - SOFI
+  - HOOD
+  - COIN
+
+  # Healthcare
+  - UNH
+  - JNJ
+  - PFE
+  - MRK
+  - LLY
+  - ABBV
+  - TMO
+  - DHR
+  - ABT
+  - CVS
+  - GILD
+  - AMGN
+  - BMY
+  - MDT
+  - ISRG
+  - NVO
+  - HIMS
+
+  # Industrials / Energy / Materials
+  - BA
+  - CAT
+  - DE
+  - GE
+  - HON
+  - LMT
+  - RTX
+  - NOC
+  - UPS
+  - FDX
+  - DAL
+  - UAL
+  - AAL
+  - XOM
+  - CVX
+  - COP
+  - OXY
+  - SLB
+  - EOG
+  - MPC
+  - PSX
+  - VLO
+  - FCX
+  - NEM
+  - CLF
+  - X
+  - NUE
+
+  # Comms / Utilities / REITs
+  - T
+  - VZ
+  - TMUS
+  - CMCSA
+  - NEE
+  - SO
+  - DUK
+  - AMT
+  - PLD
+  - O
+  - SPG
+
+  # Staples
+  - PG
+  - KO
+  - PEP
+  - PM
+  - MO
+  - WBA
+
+  # ETFs (LEAPS sobre índices muy líquidas)
+  - SPY
+  - QQQ
+  - IWM
+  - DIA
+  - GLD
+  - SLV
+  - TLT
+  - XLE
+  - XLF
+  - XLK
+
+# Filtros mínimos de liquidez (aplicados en leaps_scanner.py)
+liquidity:
+  min_open_interest: 100      # contratos
+  max_spread_pct: 0.05        # bid-ask spread relativo al mid (5%)
+  min_volume_underlying: 1000000  # acciones/día
+
+# Criterios LEAP
+leap_criteria:
+  min_dte: 365                # vencimiento mínimo (días)
+  max_dte: 800                # ~2 años, evita iliquidez extrema
+  delta_min: 0.60
+  delta_max: 0.80
+
+# Earnings exclusion
+earnings_exclusion_days: 14

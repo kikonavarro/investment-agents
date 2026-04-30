@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-26",
+    "file": "DUOL_20260426_valuation.json",
+    "current_price": 103.45,
+    "currency": "$",
+    "revenue": 1037589000.0,
+    "gross_margin": 0.7223062310799363,
+    "ev_ebitda": 25.3,
+    "avg_growth": 0.411,
+    "fair_value_bear": 57.74,
+    "fair_value_base": 121.27,
+    "fair_value_bull": 171.5,
+    "fair_value_weighted": 105.9
+  }
+]

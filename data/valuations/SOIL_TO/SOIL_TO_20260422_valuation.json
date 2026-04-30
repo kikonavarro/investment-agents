@@ -1,0 +1,191 @@
+{
+  "ticker": "SOIL.TO",
+  "company": "Saturn Oil & Gas Inc.",
+  "currency": "C$",
+  "date": "2026-04-22",
+  "current_price": 5.945,
+  "shares_outstanding": 181608038,
+  "diluted_avg_shares": 44955000,
+  "market_cap": 1079659776,
+  "sector": "Energy",
+  "industry": "Oil & Gas E&P",
+  "country": "Canada",
+  "business_summary": "Saturn Oil & Gas Inc. engages in the acquisition, exploration, and development of petroleum and natural gas resource deposits in Canada. The company is involved in the exploration and development of light oil assets in the Oxbow area of Southeast Saskatchewan; Viking light oil assets in West-Central Saskatchewan; and Cardium light oil assets in Central Alberta. Saturn Oil & Gas Inc. was incorporated in 2001 and is headquartered in Calgary, Canada.",
+  "beta": 0.498,
+  "analyst_targets": {
+    "high": 9.0,
+    "low": 4.5,
+    "mean": 6.28571,
+    "current": 5.945
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 999625000.0,
+    "net_income": 167569000.0,
+    "ebitda": 608254000.0,
+    "free_cashflow": 216159000.0,
+    "gross_margin": 0.581498061773165,
+    "operating_margin": 0.19978091784419158,
+    "net_margin": 0.1676318619482306,
+    "total_debt": 827172000.0,
+    "cash": 0,
+    "total_equity": 946591000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 371132000.0,
+      "net_income": 74815000.0,
+      "ebitda": 144846000.0,
+      "fcf": 13209000.0,
+      "operating_income": 169880000.0
+    },
+    "2023": {
+      "revenue": 705153000.0,
+      "net_income": 290623000.0,
+      "ebitda": 567874000.0,
+      "fcf": 153415000.0,
+      "operating_income": 232146000.0
+    },
+    "2024": {
+      "revenue": 920795000.0,
+      "net_income": 54106000.0,
+      "ebitda": 387417000.0,
+      "fcf": 65621000.0,
+      "operating_income": 272265000.0
+    },
+    "2025": {
+      "revenue": 999625000.0,
+      "net_income": 167569000.0,
+      "ebitda": 608254000.0,
+      "fcf": 216159000.0,
+      "operating_income": 199706000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Oil & Gas E&P",
+      "revenues": {
+        "2022": 371132000.0,
+        "2023": 705153000.0,
+        "2024": 920795000.0,
+        "2025": 999625000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.6577614679610624,
+      "sga_pct": 0.029860220314054234,
+      "rd_pct": 0.0,
+      "da_pct": 0.22110627433558339,
+      "capex_pct": 0.24071013915739456,
+      "tax_rate": 0.12254341102058827
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.9
+      },
+      {
+        "year": 2024,
+        "yoy": 0.3058
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0856
+      }
+    ],
+    "avg_growth": 0.4305,
+    "cagr_3y": 0.3913,
+    "beta": 0.498,
+    "ev_ebitda": 3.1,
+    "net_debt": 796771968,
+    "net_debt_label": "total",
+    "total_debt": 827171968,
+    "cash": 30400000,
+    "de_ratio": 0.77,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": -0.119
+      },
+      "target_prices": {
+        "high": 9.0,
+        "low": 4.5,
+        "mean": 6.28571,
+        "current": 5.945
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": {
+      "detected": true,
+      "year": 2023,
+      "prev_year": 2022,
+      "prev_revenue": 371132000.0,
+      "new_revenue": 705153000.0,
+      "jump_pct": 0.9000059278100514,
+      "message": "Revenue saltó 90% en 2023 (371M → 705M). Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). Crecimiento ajustado a tasas orgánicas (2-6%)."
+    }
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Saturn Oil & Gas Inc. Announces Second Quarter 2025 Results Highlighted by $119MM Net Debt Reduction Over Q1/25 and Record Free Funds Flow",
+      "date": "Wed, 30 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Carbon stocks and potential sequestration of Uruguayan soils: a road map to a comprehensive characterization of temporal and spatial changes to assess carbon footprint - Frontiers",
+      "date": "Wed, 19 Ju",
+      "source": "Frontiers"
+    },
+    {
+      "title": "Saturn Oil & Gas Inc. Announces 2026 Capital Budget and Guidance Designed to Optimize Free Funds Flow, Continue Debt Repayment and Preserve Long-Term Value",
+      "date": "Wed, 17 De",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Progress at Lake Poinsett - Arkansas Game and Fish Commission",
+      "date": "Wed, 16 Se",
+      "source": "Arkansas Game and Fish Commission"
+    },
+    {
+      "title": "Saturn Oil & Gas Insiders Placed Bullish Bets Worth CA$2.68m",
+      "date": "Wed, 12 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Saturn Oil & Gas Inc. Announces 2025 Results and Reserves, With $110 Million of Debt Repayment, Record Q4 Production Ahead of Guidance and 50% Free Funds Flow Yield",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "A simple soil mass correction for a more accurate determination of soil carbon stock changes | Scientific Reports - Nature",
+      "date": "Wed, 08 Fe",
+      "source": "Nature"
+    },
+    {
+      "title": "/C O R R E C T I O N -- EnerCom, Inc./",
+      "date": "Wed, 06 Au",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Saturn Oil & Gas Inc. Announces Third Quarter 2025 Results, Highlighted by Production Ahead of Guidance and Continued Execution of Our Blueprint Strategy",
+      "date": "Wed, 05 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Low Wage Work Isn’t Just Bad for Employees — It Hurts Customers, Too - otherwords.org",
+      "date": "Wed, 04 Se",
+      "source": "otherwords.org"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SOIL_TO/SOIL_TO_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

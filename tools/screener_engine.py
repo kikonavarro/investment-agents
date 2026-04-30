@@ -164,7 +164,7 @@ def _get_screening_data(ticker: str) -> dict | None:
         "pb": info.get("priceToBook"),
         "current_ratio": info.get("currentRatio"),
         "de": info.get("debtToEquity"),
-        "roic": None,  # No disponible directamente en yfinance info
+        "roic": _calc_roic(info),
         "fcf_yield": _calc_fcf_yield(info),
         "dividend_yield": info.get("dividendYield"),
         "revenue_growth": info.get("revenueGrowth"),
@@ -227,6 +227,31 @@ def _calc_fcf_yield(info: dict) -> float | None:
     if fcf and mcap and mcap > 0:
         return round(fcf / mcap, 4)
     return None
+
+
+def _calc_roic(info: dict) -> float | None:
+    """Estima ROIC = NOPAT / capital invertido (deuda + equity - cash).
+
+    Usa operatingMargins × revenue como proxy de EBIT, tax rate 21% (corp USA).
+    Devuelve None si faltan inputs imprescindibles.
+    """
+    revenue = info.get("totalRevenue")
+    op_margin = info.get("operatingMargins")
+    debt = info.get("totalDebt") or 0
+    cash = info.get("totalCash") or 0
+    shares = info.get("sharesOutstanding")
+    book_value_ps = info.get("bookValue")
+
+    if not (revenue and op_margin and shares and book_value_ps):
+        return None
+
+    ebit = revenue * op_margin
+    nopat = ebit * (1 - 0.21)
+    equity = book_value_ps * shares
+    invested = debt + equity - cash
+    if invested <= 0:
+        return None
+    return round(nopat / invested, 4)
 
 
 def _load_filters(filter_name: str) -> dict:

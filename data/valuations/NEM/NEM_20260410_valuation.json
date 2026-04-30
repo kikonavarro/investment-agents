@@ -1,0 +1,195 @@
+{
+  "ticker": "NEM",
+  "company": "Newmont Corporation",
+  "currency": "$",
+  "date": "2026-04-10",
+  "current_price": 119.01,
+  "shares_outstanding": 1079933130,
+  "diluted_avg_shares": 795000000,
+  "market_cap": 129467908096,
+  "sector": "Basic Materials",
+  "industry": "Gold",
+  "country": "United States",
+  "business_summary": "Newmont Corporation operates as a gold producer. It also explores for copper, silver, lead, zinc, and other metals. It has operations and/or assets in the United States, Papua New Guinea, Australia, Ghana, Suriname, Argentina, Dominican Republic, Chile, Peru, Ecuador, Mexico, and Canada. The company was founded in 1916 and is headquartered in Denver, Colorado.",
+  "beta": 0.475,
+  "analyst_targets": {
+    "high": 177.0,
+    "low": 70.0,
+    "mean": 139.863,
+    "current": 119.01
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 22669000000.0,
+    "net_income": 7085000000.0,
+    "ebitda": 14092000000.0,
+    "free_cashflow": 7299000000.0,
+    "gross_margin": 0.5321363977237638,
+    "operating_margin": 0.4862587674798183,
+    "net_margin": 0.31254135603687855,
+    "total_debt": 5589000000.0,
+    "cash": 7647000000.0,
+    "total_equity": 34042000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 11915000000.0,
+      "net_income": -429000000.0,
+      "ebitda": 2361000000.0,
+      "fcf": 1089000000.0,
+      "operating_income": 1605000000.0
+    },
+    "2023": {
+      "revenue": 11812000000.0,
+      "net_income": -2494000000.0,
+      "ebitda": 320000000.0,
+      "fcf": 97000000.0,
+      "operating_income": 708000000.0
+    },
+    "2024": {
+      "revenue": 18682000000.0,
+      "net_income": 3348000000.0,
+      "ebitda": 7528000000.0,
+      "fcf": 2961000000.0,
+      "operating_income": 5910000000.0
+    },
+    "2025": {
+      "revenue": 22669000000.0,
+      "net_income": 7085000000.0,
+      "ebitda": 14092000000.0,
+      "fcf": 7299000000.0,
+      "operating_income": 11023000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Gold",
+      "revenues": {
+        "2022": 11915000000.0,
+        "2023": 11812000000.0,
+        "2024": 18682000000.0,
+        "2025": 22669000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.36066447497430076,
+      "sga_pct": 0.022246915823762398,
+      "rd_pct": 0.013504772504191045,
+      "da_pct": 0.15273518694682642,
+      "capex_pct": 0.18047530317589222,
+      "tax_rate": 0.35
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": -0.0086
+      },
+      {
+        "year": 2024,
+        "yoy": 0.5816
+      },
+      {
+        "year": 2025,
+        "yoy": 0.2134
+      }
+    ],
+    "avg_growth": 0.2621,
+    "cagr_3y": 0.2391,
+    "beta": 0.475,
+    "ev_ebitda": 9.0,
+    "net_debt": -2543000064,
+    "net_debt_label": "total",
+    "total_debt": 5697999872,
+    "cash": 8240999936,
+    "de_ratio": 0.04,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.206
+      },
+      "target_prices": {
+        "high": 177.0,
+        "low": 70.0,
+        "mean": 139.863,
+        "current": 119.01
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": {
+      "detected": true,
+      "year": 2024,
+      "prev_year": 2023,
+      "prev_revenue": 11812000000.0,
+      "new_revenue": 18682000000.0,
+      "jump_pct": 0.5816119200812733,
+      "message": "Revenue saltó 58% en 2024 (11,812M → 18,682M). Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). Crecimiento ajustado a tasas orgánicas (2-6%)."
+    }
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "How Newmont Stock Gained 180% - Trefis",
+      "date": "Wed, 11 Ma",
+      "source": "Trefis"
+    },
+    {
+      "title": "Oil Prices Bounce; Iran Says Hormuz Opening Hinges On Israel, But S&P 500 Rallies",
+      "date": "Wed, 08 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Will Arthur Gold Project Become a Tier-One Growth Driver for AU?",
+      "date": "Wed, 08 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Goldstorm Metals Announces Drill Targets for the Crown Property Utilizing Results of an Independent Geophysical Review, and Appoints Joel Ashburner as Chief Geologist",
+      "date": "Wed, 08 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Why Newmont (NEM) Is Up 5.9% After Gold Surges And AI Trading Turns Bullish - simplywall.st",
+      "date": "Wed, 08 Ap",
+      "source": "simplywall.st"
+    },
+    {
+      "title": "Centurion Appoints Dr. Dennis LaPoint as President and Director",
+      "date": "Wed, 01 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Newmont: Top Gold Miner Trading At 25% Discount (NYSE:NEM) - Seeking Alpha",
+      "date": "Tue, 31 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Newmont will post Q1 results after market close on April 23 - Stock Titan",
+      "date": "Tue, 31 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Newmont Rose 10% Year to Date. Here’s Where the Stock Could Be in 2026 - TIKR.com",
+      "date": "Tue, 17 Ma",
+      "source": "TIKR.com"
+    },
+    {
+      "title": "BofA Raises PT on Newmont (NEM) Stock - Yahoo Finance",
+      "date": "Tue, 09 De",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NEM/NEM_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NEM/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NEM/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NEM/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

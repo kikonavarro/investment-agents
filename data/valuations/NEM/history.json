@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-10",
+    "file": "NEM_20260410_valuation.json",
+    "current_price": 119.01,
+    "currency": "$",
+    "revenue": 22669000000.0,
+    "gross_margin": 0.5321363977237638,
+    "ev_ebitda": 9.0,
+    "avg_growth": 0.2621,
+    "fair_value_bear": 87,
+    "fair_value_base": 135,
+    "fair_value_bull": 185,
+    "fair_value_weighted": 125.8
+  }
+]

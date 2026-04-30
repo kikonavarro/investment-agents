@@ -1,0 +1,195 @@
+{
+  "ticker": "CNR",
+  "company": "Core Natural Resources, Inc.",
+  "currency": "$",
+  "date": "2026-04-15",
+  "current_price": 87.6,
+  "shares_outstanding": 50750366,
+  "diluted_avg_shares": 35729074,
+  "market_cap": 4465807872,
+  "sector": "Energy",
+  "industry": "Thermal Coal",
+  "country": "United States",
+  "business_summary": "Core Natural Resources, Inc., together with its subsidiaries, produces, sells, and exports metallurgical and thermal coals in the United States and internationally. It operates through the High CV Thermal; Metallurgical; Powder River Basin (PRB); and Core Marine Terminal segments. The High CV Thermal segment consists of Pennsylvania Mining Complex and the West Elk mine located in Colorado. The Metallurgical segment consists of Leer, Leer South, Beckley, Mountain Laurel, and Itmann coal mines in West Virginia. The PRB segment consists of Black Thunder and Coal Creek surface mining complexes located in Wyoming. The Core Marine Terminal segment consists of coal export terminal operations in the Port of Baltimore. The company was formerly known as CONSOL Energy Inc. and changed its name to Core Natural Resources, Inc. in January 2025. Core Natural Resources, Inc. was founded in 1864 and is headquartered in Canonsburg, Pennsylvania.",
+  "beta": 0.252,
+  "analyst_targets": {
+    "high": 119.0,
+    "low": 105.0,
+    "mean": 112.25,
+    "current": 87.6
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 4164775000.0,
+    "net_income": -153216000.0,
+    "ebitda": 427488000.0,
+    "free_cashflow": 21171000.0,
+    "gross_margin": -0.0002662808915247522,
+    "operating_margin": -0.0518551422345745,
+    "net_margin": -0.03678854199806712,
+    "total_debt": 452488000.0,
+    "cash": 432174000.0,
+    "total_equity": 3678234000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 2280018000.0,
+      "net_income": 466979000.0,
+      "ebitda": 847955000.0,
+      "fcf": 479484000.0,
+      "operating_income": 804781000.0
+    },
+    "2023": {
+      "revenue": 2506635000.0,
+      "net_income": 655892000.0,
+      "ebitda": 1048514000.0,
+      "fcf": 690158000.0,
+      "operating_income": 803336000.0
+    },
+    "2024": {
+      "revenue": 2164406000.0,
+      "net_income": 286405000.0,
+      "ebitda": 576365000.0,
+      "fcf": 298402000.0,
+      "operating_income": 394224000.0
+    },
+    "2025": {
+      "revenue": 4164775000.0,
+      "net_income": -153216000.0,
+      "ebitda": 427488000.0,
+      "fcf": 21171000.0,
+      "operating_income": -215965000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Thermal Coal",
+      "revenues": {
+        "2022": 2280018000.0,
+        "2023": 2506635000.0,
+        "2024": 2164406000.0,
+        "2025": 4164775000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.3524307024774833,
+      "sga_pct": 0.04932130339467759,
+      "rd_pct": 0.0,
+      "da_pct": 0.11204394689287456,
+      "capex_pct": 0.07177589900083525,
+      "tax_rate": 0.13004547867518762
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0994
+      },
+      {
+        "year": 2024,
+        "yoy": -0.1365
+      },
+      {
+        "year": 2025,
+        "yoy": 0.9242
+      }
+    ],
+    "avg_growth": 0.2957,
+    "cagr_3y": 0.2224,
+    "beta": 0.252,
+    "ev_ebitda": 10.5,
+    "net_debt": 33756992,
+    "net_debt_label": "total",
+    "total_debt": 465931008,
+    "cash": 432174016,
+    "de_ratio": 0.1,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.818
+      },
+      "target_prices": {
+        "high": 119.0,
+        "low": 105.0,
+        "mean": 112.25,
+        "current": 87.6
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": {
+      "detected": true,
+      "year": 2025,
+      "prev_year": 2024,
+      "prev_revenue": 2164406000.0,
+      "new_revenue": 4164775000.0,
+      "jump_pct": 0.924211538870249,
+      "message": "Revenue saltó 92% en 2025 (2,164M → 4,165M). Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). Crecimiento ajustado a tasas orgánicas (2-6%)."
+    }
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "A Fresh Look at CN Rail (TSX:CNR) Valuation After Recent Share Price Rebound - Yahoo Finance",
+      "date": "Wed, 08 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Core Natural Resources (NYSE:CNR) Shares Down 7.3% - Should You Sell? - MarketBeat",
+      "date": "Wed, 08 Ap",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "Is Canadian National Railway (TSX:CNR) Fairly Priced After Its Recent Share Price Strength - Yahoo Finance",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Assessing Canadian National Railway’s Valuation As Recent Momentum Lifts Interest In CNR Stock - Yahoo Finance",
+      "date": "Wed, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 Coal Stocks to Avoid as the Industry Battles Multiple Challenges",
+      "date": "Wed, 01 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "2 Mooning  Stocks to Target This Week and 1 We Question",
+      "date": "Tue, 31 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Core Natural Earnings Outlook Improving Into 2026-2027 on Rising Coal Prices, UBS Says",
+      "date": "Tue, 24 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Funds Get Shovels Of This Coal Stock Amid U.S.-Iran War; AI Data Center Boom Boosts Outlook",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Core Natural Resources (CNR) – Among the 10 Energy Stocks Positioned to Outperform as the Strait of Hormuz Remains Closed",
+      "date": "Tue, 17 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 Reasons I’d Buy CNR Stock Hand Over Fist - Yahoo! Finance Canada",
+      "date": "Tue, 16 Se",
+      "source": "Yahoo! Finance Canada"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CNR/CNR_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CNR/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CNR/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CNR/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

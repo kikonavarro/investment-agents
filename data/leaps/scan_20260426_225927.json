@@ -1,0 +1,569 @@
+{
+  "scan_date": "2026-04-26T22:59:27.449994",
+  "universe_size": 154,
+  "valid_count": 35,
+  "discarded_count": 118,
+  "top_candidates": [
+    {
+      "ticker": "TGT",
+      "ok": true,
+      "reason": null,
+      "spot": 129.26,
+      "company_name": "Target Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores",
+      "leap": {
+        "expiry": "2028-01-21",
+        "dte": 635,
+        "strike": 120.0,
+        "delta": 0.712,
+        "iv": 0.358,
+        "bid": 26.9,
+        "ask": 28.2,
+        "mid": 27.55,
+        "spread_pct": 4.72,
+        "open_interest": 1058,
+        "volume": 26,
+        "break_even": 147.55
+      },
+      "hv": {
+        "hv_current": 0.2532,
+        "hv_percentile": 13.1,
+        "hv_min": 0.1936,
+        "hv_max": 0.3874
+      },
+      "pullback": {
+        "price": 129.26,
+        "high_52w": 133.1,
+        "low_52w": 82.6,
+        "from_high_pct": -2.9,
+        "ret_6m_pct": 40.3
+      },
+      "earnings_days": 24
+    },
+    {
+      "ticker": "COST",
+      "ok": true,
+      "reason": null,
+      "spot": 1011.15,
+      "company_name": "Costco Wholesale Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores",
+      "leap": {
+        "expiry": "2028-01-21",
+        "dte": 635,
+        "strike": 950.0,
+        "delta": 0.708,
+        "iv": 0.315,
+        "bid": 186.0,
+        "ask": 193.85,
+        "mid": 189.93,
+        "spread_pct": 4.13,
+        "open_interest": 231,
+        "volume": 1,
+        "break_even": 1139.92
+      },
+      "hv": {
+        "hv_current": 0.1693,
+        "hv_percentile": 22.6,
+        "hv_min": 0.1247,
+        "hv_max": 0.223
+      },
+      "pullback": {
+        "price": 1011.15,
+        "high_52w": 1062.65,
+        "low_52w": 842.91,
+        "from_high_pct": -4.8,
+        "ret_6m_pct": 7.6
+      },
+      "earnings_days": 32
+    },
+    {
+      "ticker": "TSLA",
+      "ok": true,
+      "reason": null,
+      "spot": 376.3,
+      "company_name": "Tesla, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers",
+      "leap": {
+        "expiry": "2027-12-17",
+        "dte": 600,
+        "strike": 360.0,
+        "delta": 0.699,
+        "iv": 0.557,
+        "bid": 110.8,
+        "ask": 111.6,
+        "mid": 111.2,
+        "spread_pct": 0.72,
+        "open_interest": 1153,
+        "volume": 4,
+        "break_even": 471.2
+      },
+      "hv": {
+        "hv_current": 0.4443,
+        "hv_percentile": 48.0,
+        "hv_min": 0.31,
+        "hv_max": 0.7171
+      },
+      "pullback": {
+        "price": 376.3,
+        "high_52w": 498.83,
+        "low_52w": 259.63,
+        "from_high_pct": -24.6,
+        "ret_6m_pct": -16.2
+      },
+      "earnings_days": 87
+    },
+    {
+      "ticker": "ORCL",
+      "ok": true,
+      "reason": null,
+      "spot": 173.28,
+      "company_name": "Oracle Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure",
+      "leap": {
+        "expiry": "2027-06-17",
+        "dte": 417,
+        "strike": 160.0,
+        "delta": 0.7,
+        "iv": 0.602,
+        "bid": 47.95,
+        "ask": 50.15,
+        "mid": 49.05,
+        "spread_pct": 4.49,
+        "open_interest": 785,
+        "volume": 19,
+        "break_even": 209.05
+      },
+      "hv": {
+        "hv_current": 0.5808,
+        "hv_percentile": 74.7,
+        "hv_min": 0.2636,
+        "hv_max": 1.0611
+      },
+      "pullback": {
+        "price": 173.28,
+        "high_52w": 343.01,
+        "low_52w": 134.22,
+        "from_high_pct": -49.5,
+        "ret_6m_pct": -37.7
+      },
+      "earnings_days": 45
+    },
+    {
+      "ticker": "SLV",
+      "ok": true,
+      "reason": null,
+      "spot": 68.79,
+      "company_name": "iShares Silver Trust",
+      "sector": null,
+      "industry": null,
+      "leap": {
+        "expiry": "2027-06-17",
+        "dte": 417,
+        "strike": 64.0,
+        "delta": 0.691,
+        "iv": 0.505,
+        "bid": 16.35,
+        "ask": 16.95,
+        "mid": 16.65,
+        "spread_pct": 3.6,
+        "open_interest": 202,
+        "volume": 2,
+        "break_even": 80.65
+      },
+      "hv": {
+        "hv_current": 0.5519,
+        "hv_percentile": 67.9,
+        "hv_min": 0.1848,
+        "hv_max": 1.3744
+      },
+      "pullback": {
+        "price": 68.79,
+        "high_52w": 109.83,
+        "low_52w": 29.04,
+        "from_high_pct": -37.4,
+        "ret_6m_pct": 55.7
+      },
+      "earnings_days": null
+    },
+    {
+      "ticker": "NOW",
+      "ok": true,
+      "reason": null,
+      "spot": 90.17,
+      "company_name": "ServiceNow, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "leap": {
+        "expiry": "2028-01-21",
+        "dte": 635,
+        "strike": 90.0,
+        "delta": 0.695,
+        "iv": 0.626,
+        "bid": 28.3,
+        "ask": 29.6,
+        "mid": 28.95,
+        "spread_pct": 4.49,
+        "open_interest": 1348,
+        "volume": 286,
+        "break_even": 118.95
+      },
+      "hv": {
+        "hv_current": 0.8213,
+        "hv_percentile": 99.5,
+        "hv_min": 0.1717,
+        "hv_max": 0.8213
+      },
+      "pullback": {
+        "price": 90.17,
+        "high_52w": 211.48,
+        "low_52w": 81.24,
+        "from_high_pct": -57.4,
+        "ret_6m_pct": -52.0
+      },
+      "earnings_days": 87
+    },
+    {
+      "ticker": "UNH",
+      "ok": true,
+      "reason": null,
+      "spot": 354.92,
+      "company_name": "UnitedHealth Group Incorporated",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans",
+      "leap": {
+        "expiry": "2027-12-17",
+        "dte": 600,
+        "strike": 330.0,
+        "delta": 0.708,
+        "iv": 0.367,
+        "bid": 73.3,
+        "ask": 76.9,
+        "mid": 75.1,
+        "spread_pct": 4.79,
+        "open_interest": 322,
+        "volume": 2,
+        "break_even": 405.1
+      },
+      "hv": {
+        "hv_current": 0.3887,
+        "hv_percentile": 58.4,
+        "hv_min": 0.2052,
+        "hv_max": 0.7718
+      },
+      "pullback": {
+        "price": 354.92,
+        "high_52w": 412.49,
+        "low_52w": 229.79,
+        "from_high_pct": -14.0,
+        "ret_6m_pct": -0.1
+      },
+      "earnings_days": -5
+    },
+    {
+      "ticker": "NFLX",
+      "ok": true,
+      "reason": null,
+      "spot": 92.36,
+      "company_name": "Netflix, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment",
+      "leap": {
+        "expiry": "2028-01-21",
+        "dte": 635,
+        "strike": 90.0,
+        "delta": 0.682,
+        "iv": 0.457,
+        "bid": 21.85,
+        "ask": 22.8,
+        "mid": 22.33,
+        "spread_pct": 4.26,
+        "open_interest": 2361,
+        "volume": 225,
+        "break_even": 112.33
+      },
+      "hv": {
+        "hv_current": 0.4004,
+        "hv_percentile": 79.6,
+        "hv_min": 0.1838,
+        "hv_max": 0.5167
+      },
+      "pullback": {
+        "price": 92.44,
+        "high_52w": 134.12,
+        "low_52w": 75.01,
+        "from_high_pct": -31.1,
+        "ret_6m_pct": -17.0
+      },
+      "earnings_days": 81
+    },
+    {
+      "ticker": "JPM",
+      "ok": true,
+      "reason": null,
+      "spot": 308.28,
+      "company_name": "JPMorgan Chase & Co.",
+      "sector": "Financial Services",
+      "industry": "Banks - Diversified",
+      "leap": {
+        "expiry": "2028-01-21",
+        "dte": 635,
+        "strike": 290.0,
+        "delta": 0.706,
+        "iv": 0.317,
+        "bid": 56.5,
+        "ask": 59.25,
+        "mid": 57.88,
+        "spread_pct": 4.75,
+        "open_interest": 693,
+        "volume": 2,
+        "break_even": 347.88
+      },
+      "hv": {
+        "hv_current": 0.2171,
+        "hv_percentile": 57.5,
+        "hv_min": 0.1458,
+        "hv_max": 0.3007
+      },
+      "pullback": {
+        "price": 308.28,
+        "high_52w": 334.16,
+        "low_52w": 233.88,
+        "from_high_pct": -7.7,
+        "ret_6m_pct": 5.7
+      },
+      "earnings_days": 79
+    },
+    {
+      "ticker": "TLT",
+      "ok": true,
+      "reason": null,
+      "spot": 86.71,
+      "company_name": "iShares 20+ Year Treasury Bond ETF",
+      "sector": null,
+      "industry": null,
+      "leap": {
+        "expiry": "2028-01-21",
+        "dte": 635,
+        "strike": 86.0,
+        "delta": 0.744,
+        "iv": 0.113,
+        "bid": 5.35,
+        "ask": 5.5,
+        "mid": 5.42,
+        "spread_pct": 2.76,
+        "open_interest": 3974,
+        "volume": 239,
+        "break_even": 91.42
+      },
+      "hv": {
+        "hv_current": 0.104,
+        "hv_percentile": 57.5,
+        "hv_min": 0.0702,
+        "hv_max": 0.1354
+      },
+      "pullback": {
+        "price": 86.71,
+        "high_52w": 90.2,
+        "low_52w": 79.98,
+        "from_high_pct": -3.9,
+        "ret_6m_pct": -3.0
+      },
+      "earnings_days": null
+    },
+    {
+      "ticker": "NKE",
+      "ok": true,
+      "reason": null,
+      "spot": 44.69,
+      "company_name": "NIKE, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories",
+      "leap": {
+        "expiry": "2028-01-21",
+        "dte": 635,
+        "strike": 40.0,
+        "delta": 0.731,
+        "iv": 0.443,
+        "bid": 11.8,
+        "ask": 12.25,
+        "mid": 12.03,
+        "spread_pct": 3.74,
+        "open_interest": 2344,
+        "volume": 110,
+        "break_even": 52.02
+      },
+      "hv": {
+        "hv_current": 0.5563,
+        "hv_percentile": 97.3,
+        "hv_min": 0.193,
+        "hv_max": 0.5598
+      },
+      "pullback": {
+        "price": 44.69,
+        "high_52w": 78.73,
+        "low_52w": 42.09,
+        "from_high_pct": -43.2,
+        "ret_6m_pct": -35.0
+      },
+      "earnings_days": 60
+    },
+    {
+      "ticker": "NVDA",
+      "ok": true,
+      "reason": null,
+      "spot": 208.26,
+      "company_name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "leap": {
+        "expiry": "2028-06-16",
+        "dte": 782,
+        "strike": 205.0,
+        "delta": 0.7,
+        "iv": 0.512,
+        "bid": 61.15,
+        "ask": 62.95,
+        "mid": 62.05,
+        "spread_pct": 2.9,
+        "open_interest": 293,
+        "volume": 7,
+        "break_even": 267.05
+      },
+      "hv": {
+        "hv_current": 0.3353,
+        "hv_percentile": 56.1,
+        "hv_min": 0.2353,
+        "hv_max": 0.4467
+      },
+      "pullback": {
+        "price": 208.27,
+        "high_52w": 212.17,
+        "low_52w": 104.06,
+        "from_high_pct": -1.8,
+        "ret_6m_pct": 14.3
+      },
+      "earnings_days": 24
+    },
+    {
+      "ticker": "GS",
+      "ok": true,
+      "reason": null,
+      "spot": 926.91,
+      "company_name": "The Goldman Sachs Group, Inc.",
+      "sector": "Financial Services",
+      "industry": "Capital Markets",
+      "leap": {
+        "expiry": "2028-01-21",
+        "dte": 635,
+        "strike": 880.0,
+        "delta": 0.695,
+        "iv": 0.366,
+        "bid": 189.05,
+        "ask": 197.0,
+        "mid": 193.03,
+        "spread_pct": 4.12,
+        "open_interest": 336,
+        "volume": 2,
+        "break_even": 1073.03
+      },
+      "hv": {
+        "hv_current": 0.2718,
+        "hv_percentile": 59.7,
+        "hv_min": 0.1851,
+        "hv_max": 0.4008
+      },
+      "pullback": {
+        "price": 926.91,
+        "high_52w": 979.54,
+        "low_52w": 520.66,
+        "from_high_pct": -5.4,
+        "ret_6m_pct": 24.7
+      },
+      "earnings_days": 79
+    },
+    {
+      "ticker": "AVGO",
+      "ok": true,
+      "reason": null,
+      "spot": 422.76,
+      "company_name": "Broadcom Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "leap": {
+        "expiry": "2027-06-17",
+        "dte": 417,
+        "strike": 390.0,
+        "delta": 0.698,
+        "iv": 0.545,
+        "bid": 109.0,
+        "ask": 112.15,
+        "mid": 110.58,
+        "spread_pct": 2.85,
+        "open_interest": 2063,
+        "volume": 4,
+        "break_even": 500.57
+      },
+      "hv": {
+        "hv_current": 0.4404,
+        "hv_percentile": 56.1,
+        "hv_min": 0.2693,
+        "hv_max": 0.6159
+      },
+      "pullback": {
+        "price": 422.76,
+        "high_52w": 429.31,
+        "low_52w": 182.54,
+        "from_high_pct": -1.5,
+        "ret_6m_pct": 23.3
+      },
+      "earnings_days": 38
+    },
+    {
+      "ticker": "ADBE",
+      "ok": true,
+      "reason": null,
+      "spot": 245.44,
+      "company_name": "Adobe Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "leap": {
+        "expiry": "2027-06-17",
+        "dte": 417,
+        "strike": 190.0,
+        "delta": 0.793,
+        "iv": 0.551,
+        "bid": 80.95,
+        "ask": 84.45,
+        "mid": 82.7,
+        "spread_pct": 4.23,
+        "open_interest": 103,
+        "volume": 1,
+        "break_even": 272.7
+      },
+      "hv": {
+        "hv_current": 0.4737,
+        "hv_percentile": 99.5,
+        "hv_min": 0.1907,
+        "hv_max": 0.4737
+      },
+      "pullback": {
+        "price": 245.44,
+        "high_52w": 422.95,
+        "low_52w": 224.13,
+        "from_high_pct": -42.0,
+        "ret_6m_pct": -30.7
+      },
+      "earnings_days": 46
+    }
+  ],
+  "discarded_summary": {
+    "earnings_soon": 69,
+    "no_leap_match": 45,
+    "no_price": 3,
+    "error": 1
+  }
+}

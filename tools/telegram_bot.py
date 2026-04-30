@@ -7,7 +7,6 @@ Funciona tanto en chat privado como en grupos.
 import os
 import sys
 import time
-import io
 import requests
 import threading
 from pathlib import Path
@@ -533,132 +532,27 @@ def get_updates(api_base: str, offset: int = 0) -> list:
         return []
 
 
-# Agentes permitidos en el grupo (solo lectura, sin modificar datos)
-GROUP_ALLOWED_AGENTS = {"analyst", "thesis_writer", "social_media", "news_fetcher",
-                        "content_writer", "screener", "email_sender"}
-GROUP_BLOCKED_AGENTS = {"portfolio_tracker"}
-
-# Contexto por chat: ultimo ticker usado
-_chat_context: dict[str, str] = {}
-
-
-def _extract_ticker_from_steps(steps: list) -> str | None:
-    """Extrae el ticker de los steps del orquestador."""
-    import re
-    for step in steps:
-        inp = step.get("input", "")
-        if isinstance(inp, str) and re.match(r'^[A-Z]{1,5}(\.[A-Z]{1,3})?$', inp):
-            return inp
-    return None
-
-
-def _inject_context(text: str, chat_id: str) -> str:
-    """
-    Inyecta el ultimo ticker solo para mensajes de seguimiento claros:
-    - Mensajes muy cortos (<=4 palabras) sin nombre de empresa
-    - Mensajes con pronombres de referencia explícita
-    """
-    import re
-    words = text.strip().split()
-
-    # Si tiene ticker explícito (mayúsculas) -> no tocar
-    if re.search(r'\b[A-Z]{2,6}(\.[A-Z]{1,3})?\b', text):
-        return text
-
-    # Palabras que indican seguimiento claro
-    followup_words = {"mismo", "misma", "ese", "esa", "esta", "esto", "anterior",
-                      "esa", "dicha", "dicho", "ella", "el", "ahora", "tambien"}
-
-    is_short = len(words) <= 4
-    has_followup = any(w.lower() in followup_words for w in words)
-
-    # Solo inyectar si es un seguimiento claro (corto o con pronombre)
-    if is_short or has_followup:
-        last_ticker = _chat_context.get(chat_id)
-        if last_ticker:
-            return f"{text} (ticker: {last_ticker})"
-
-    return text
-
-
-def process_message(text: str, from_group: bool = False, chat_id: str = "") -> str:
-    """Pasa el mensaje por el pipeline y captura el output."""
-    import json
-
-    # Inyectar contexto si falta ticker
-    enriched_text = _inject_context(text, chat_id)
-
-    # Asegurar que el directorio del proyecto es el cwd para los imports
-    project_root = str(Path(__file__).parent.parent)
-    original_cwd = os.getcwd()
-    os.chdir(project_root)
-
-    try:
-        from main import run_pipeline
-        from agents.orchestrator import orchestrate
-
-        # Si viene del grupo, verificar que no pida agentes bloqueados
-        if from_group:
-            steps = orchestrate(enriched_text)
-            blocked = [s["agent"] for s in steps if s["agent"] in GROUP_BLOCKED_AGENTS]
-            if blocked:
-                return (f"En el grupo solo puedo hacer valoraciones, tesis, "
-                        f"noticias, screener y redes sociales. "
-                        f"Para cartera/portfolio, escríbeme en privado.")
-
-        old_stdout = sys.stdout
-        buffer = io.StringIO()
-        sys.stdout = buffer
-
-        try:
-            context = run_pipeline(enriched_text)
-            output = buffer.getvalue()
-        except Exception as e:
-            return f"Error procesando: {e}"
-        finally:
-            sys.stdout = old_stdout
-
-        # Guardar ticker del contexto para futuros mensajes
-        if isinstance(context, dict) and chat_id:
-            ticker = _extract_ticker_from_steps(context.get("_steps", []))
-            if not ticker:
-                for key, val in context.items():
-                    if isinstance(val, dict) and val.get("ticker"):
-                        ticker = val["ticker"]
-                        break
-            if ticker:
-                _chat_context[chat_id] = ticker
-
-        if not output.strip() and context:
-            parts = []
-            for key, value in context.items():
-                if key.startswith("_"):
-                    continue
-                if isinstance(value, str):
-                    parts.append(value)
-                elif isinstance(value, dict):
-                    parts.append(json.dumps(value, indent=2, ensure_ascii=False))
-            output = "\n".join(parts)
-
-        return output.strip() if output.strip() else "Procesado, pero sin output visible."
-
-    finally:
-        os.chdir(original_cwd)
-
-
 def _check_and_send_responses(api_base: str):
     """Revisa la cola por respuestas listas y las envía."""
     try:
         from tools.message_queue import get_pending, INBOX_DIR
+        from tools.voice import is_voice_on, send_voice
         import json
         for f in sorted(INBOX_DIR.glob("*.json")):
             try:
                 msg = json.loads(f.read_text(encoding="utf-8"))
                 if msg.get("status") == "responded" and msg.get("response"):
-                    send_message(api_base, msg["chat_id"], msg["response"])
+                    chat_id = msg["chat_id"]
+                    response = msg["response"]
+                    delivered_by_voice = False
+                    if is_voice_on(chat_id):
+                        delivered_by_voice = send_voice(api_base, chat_id, response)
+                    if not delivered_by_voice:
+                        send_message(api_base, chat_id, response)
                     from tools.message_queue import mark_sent
                     mark_sent(msg["id"])
-                    print(f"[Telegram] Respuesta de Opus enviada a {msg['user_name']} ({len(msg['response'])} chars)")
+                    mode = "voz" if delivered_by_voice else "texto"
+                    print(f"[Telegram] Respuesta de Opus enviada a {msg['user_name']} ({len(response)} chars, {mode})")
             except Exception as e:
                 print(f"[Telegram] Error enviando respuesta: {e}")
     except Exception:
@@ -723,14 +617,23 @@ def run_bot():
                     continue
                 continue
 
-            if text.startswith("/"):
-                continue
-
             is_allowed_group = allowed_group_id and chat_id == allowed_group_id
             is_allowed_private = chat_type == "private" and user_id == allowed_user_id
 
             if not is_allowed_group and not is_allowed_private:
                 print(f"[Telegram] Mensaje ignorado de user_id: {user_id} en chat: {chat_id}")
+                continue
+
+            if text.startswith("/"):
+                cmd = text.strip().lower()
+                if cmd in ("/voz on", "/voz off"):
+                    from tools.voice import set_voice
+                    on = cmd == "/voz on"
+                    set_voice(chat_id, on)
+                    reply = ("Voz activada. Te respondo hablando. (Max 800 chars por mensaje.)"
+                             if on else "Voz desactivada. Te respondo por texto.")
+                    send_message(api_base, chat_id, reply, html=False)
+                    print(f"[Telegram] Voz {'ON' if on else 'OFF'} para chat {chat_id}")
                 continue
 
             user_name = msg.get("from", {}).get("first_name", "Usuario")

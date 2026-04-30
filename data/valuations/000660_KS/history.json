@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-26",
+    "file": "000660_KS_20260426_valuation.json",
+    "current_price": 1222000.0,
+    "currency": "KRW ",
+    "revenue": 97146675000000.0,
+    "gross_margin": 0.6041461532265515,
+    "ev_ebitda": 12.7,
+    "avg_growth": 0.4074,
+    "fair_value_bear": 473154,
+    "fair_value_base": 769353,
+    "fair_value_bull": 1578700,
+    "fair_value_weighted": 812742.8
+  }
+]

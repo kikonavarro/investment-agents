@@ -70,32 +70,55 @@ def review_thesis(ticker: str, thesis_text: str, valuation: dict) -> dict:
 def _extract_fair_values(thesis_text: str) -> dict:
     """Extrae fair values bear/base/bull de la tesis (tabla markdown)."""
     values = {}
+    # Acepta símbolos ($€£) o códigos de moneda (KRW, JPY, CHF, CAD, etc.)
+    cur = r"(?:[\$€£]|(?:USD|EUR|GBP|KRW|JPY|CHF|CAD|AUD|HKD|SGD|SEK|NOK|DKK|MXN|BRL|INR|CNY|TWD|C\$|A\$)\s*)"
     for scenario in ["bear", "base", "bull"]:
-        # Buscar precio en negrita **$XXX** en la fila del escenario
-        pattern = rf"\|\s*\**{scenario}\**\s*\|.*?\*\*[\$€£]\s*([\d,.]+)\*\*"
+        # Buscar precio en negrita en la fila del escenario
+        pattern = rf"\|\s*\**{scenario}\**\s*\|.*?\*\*{cur}([\d,.]+)\*\*"
         match = re.search(pattern, thesis_text, re.IGNORECASE)
         if match:
-            price_str = match.group(1).replace(",", "")
+            price_str = _normalize_number(match.group(1))
             try:
                 values[scenario] = float(price_str)
             except ValueError:
                 pass
         else:
-            # Fallback: último $XXX en la fila (suele ser el precio)
+            # Fallback: último valor con moneda en la fila
             row_pattern = rf"\|\s*\**{scenario}\**\s*\|[^\n]+"
             row_match = re.search(row_pattern, thesis_text, re.IGNORECASE)
             if row_match:
                 row = row_match.group(0)
-                # Buscar todos los valores $ en la fila, tomar el que parece un precio por acción
-                # (no billones: sin B/M después)
-                price_matches = re.findall(r"[\$€£]\s*([\d,.]+)(?![BMbm])", row)
+                price_matches = re.findall(rf"{cur}([\d,.]+)(?![BMbm])", row, re.IGNORECASE)
                 if price_matches:
-                    price_str = price_matches[-1].replace(",", "")
+                    price_str = _normalize_number(price_matches[-1])
                     try:
                         values[scenario] = float(price_str)
                     except ValueError:
                         pass
     return values
+
+
+def _normalize_number(s: str) -> str:
+    """Normaliza números con separadores . o , a formato float."""
+    s = s.strip()
+    # Si tiene ambos . y , — el último es el decimal
+    if "," in s and "." in s:
+        if s.rfind(",") > s.rfind("."):
+            s = s.replace(".", "").replace(",", ".")
+        else:
+            s = s.replace(",", "")
+    elif "." in s:
+        # Si hay múltiples puntos o un punto seguido de 3 dígitos al final → separador de miles
+        parts = s.split(".")
+        if len(parts) > 2 or (len(parts) == 2 and len(parts[1]) == 3):
+            s = s.replace(".", "")
+    elif "," in s:
+        parts = s.split(",")
+        if len(parts) > 2 or (len(parts) == 2 and len(parts[1]) == 3):
+            s = s.replace(",", "")
+        else:
+            s = s.replace(",", ".")
+    return s
 
 
 def _get_ev_ebitda(valuation: dict) -> float:
@@ -210,6 +233,23 @@ def _extract_tv_from_params_table(thesis_text: str) -> dict:
                 header_row = sens_table.group(1)
                 tv_vals = [int(m) for m in re.findall(r"(\d{1,3})x", header_row) if 1 <= int(m) <= 100]
                 return {"type": tv_type_str.strip(), "values": tv_vals}
+
+        # Fallback final: tabla de escenarios con columna TV ("| Bear | WACC | TV | Precio |").
+        # Buscar el primer "Xx" en la fila de cada escenario (TV multiple por escenario).
+        tv_vals_from_rows = []
+        for sc in ("bear", "base", "bull"):
+            row = re.search(rf"\|\s*\**{sc}\**\s*\|[^\n]+", thesis_text, re.IGNORECASE)
+            if not row:
+                continue
+            xs = re.findall(r"(\d{1,3})x", row.group(0))
+            for x in xs:
+                val = int(x)
+                if 1 <= val <= 100:
+                    tv_vals_from_rows.append(val)
+                    break
+        if tv_vals_from_rows:
+            return {"type": "EV/EBITDA", "values": tv_vals_from_rows}
+
         return {"type": None, "values": []}
 
     tv_type = tv_row.group(1) or "EV/EBITDA"  # default si no especifica
@@ -217,6 +257,38 @@ def _extract_tv_from_params_table(thesis_text: str) -> dict:
     tv_values = [int(m) for m in re.findall(r"(\d{1,3})x", row_content) if 1 <= int(m) <= 100]
 
     return {"type": tv_type.strip(), "values": tv_values}
+
+
+def _extract_sop_segment_multiples(thesis_text: str) -> list[dict]:
+    """Detecta múltiplos por segmento en una tabla SoP.
+
+    Acepta filas tipo:
+        | Auto | $5B EBITDA | 7x EV/EBITDA | $35B |
+        | Robotaxi | 4x EV/Revenue | $80B |
+    Devuelve lista de {multiple, multiple_type, raw_line}.
+    """
+    segments = []
+    for line in thesis_text.splitlines():
+        if line.count("|") < 3:
+            continue
+        m = re.search(
+            r"(\d{1,3}(?:[.,]\d+)?)\s*x\s*(EV/EBITDA|EV/Revenue|EV/Sales|P/E|P/FFO|EBITDA|Revenue|FCF)",
+            line, re.IGNORECASE,
+        )
+        if not m:
+            continue
+        try:
+            val = float(m.group(1).replace(",", "."))
+        except ValueError:
+            continue
+        if not (0.1 <= val <= 200):
+            continue
+        segments.append({
+            "multiple": val,
+            "multiple_type": m.group(2).upper().replace("EV/SALES", "EV/REVENUE"),
+            "raw_line": line.strip(),
+        })
+    return segments
 
 
 def _check_extreme_valuation(thesis_text: str, valuation: dict) -> list:
@@ -228,16 +300,47 @@ def _check_extreme_valuation(thesis_text: str, valuation: dict) -> list:
         return issues
 
     # Si usa Sum-of-Parts → el EV/EBITDA global no aplica, cada segmento tiene su múltiplo
-    uses_sop = bool(re.search(r"(?i)sum.of.parts|SoP|valoración.*por.*partes", thesis_text))
+    uses_sop = bool(re.search(r"(?i)sum[\s\-.]of[\s\-.]parts|valoraci[oó]n\s+por\s+partes|\bSoP\b", thesis_text))
     if uses_sop:
-        tv_info = _extract_tv_from_params_table(thesis_text)
-        max_tv = max(tv_info["values"]) if tv_info["values"] else 0
+        segments = _extract_sop_segment_multiples(thesis_text)
+
+        if len(segments) < 2:
+            issues.append({
+                "level": "critical",
+                "check": "sop_sin_tabla_segmentos",
+                "message": (
+                    f"Empresa con valoración extrema (EV/EBITDA = {ev_ebitda:.0f}x). "
+                    f"La tesis menciona Sum-of-Parts pero no presenta una tabla con "
+                    f"al menos 2 segmentos cuantificados (múltiplo + métrica) — la "
+                    f"valoración no es verificable."
+                ),
+            })
+            return issues
+
+        # Múltiplos absurdos por segmento. Para EV/EBITDA y P/E, máx razonable ~30x.
+        # Para EV/Revenue, P/FFO o múltiplos sobre métricas distintas, no penalizar.
+        ebitda_like = [s for s in segments if s["multiple_type"] in ("EV/EBITDA", "EBITDA", "P/E")]
+        if ebitda_like:
+            worst = max(ebitda_like, key=lambda s: s["multiple"])
+            if worst["multiple"] > 30:
+                issues.append({
+                    "level": "critical",
+                    "check": "sop_multiplo_extremo",
+                    "message": (
+                        f"Sum-of-Parts: un segmento usa múltiplo {worst['multiple_type']} "
+                        f"= {worst['multiple']:.0f}x, por encima del máximo razonable (~30x) "
+                        f"incluso para growth. Línea: {worst['raw_line'][:120]}"
+                    ),
+                })
+                return issues
+
+        max_seg = max(s["multiple"] for s in segments)
         issues.append({
             "level": "info",
             "check": "valoracion_extrema",
             "message": (
                 f"Empresa con valoración extrema (EV/EBITDA = {ev_ebitda:.0f}x). "
-                f"La tesis usa Sum-of-Parts — múltiplos por segmento (max {max_tv}x). "
+                f"Sum-of-Parts: {len(segments)} segmentos, múltiplo máximo {max_seg:.0f}x. "
                 f"Verificar coherencia de cada componente."
             ),
         })

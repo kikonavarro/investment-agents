@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-15",
+    "file": "CNR_TO_20260415_valuation.json",
+    "current_price": 154.21,
+    "currency": "C$",
+    "revenue": 17304000000.0,
+    "gross_margin": 0.4237170596393897,
+    "ev_ebitda": 12.7,
+    "avg_growth": 0.0039,
+    "fair_value_bear": 128,
+    "fair_value_base": 155,
+    "fair_value_bull": 189,
+    "fair_value_weighted": 151.0
+  }
+]

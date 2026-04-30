@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-10",
+    "file": "SMG_SW_20260410_valuation.json",
+    "current_price": 27.65,
+    "currency": "CHF ",
+    "revenue": 331989000.0,
+    "gross_margin": 1.080888222200133,
+    "ev_ebitda": 20.0,
+    "avg_growth": 0.1298,
+    "fair_value_bear": 22,
+    "fair_value_base": 38,
+    "fair_value_bull": 52,
+    "fair_value_weighted": 34.4
+  }
+]

@@ -1,0 +1,178 @@
+{
+  "ticker": "DLG.MI",
+  "company": "De'Longhi S.p.A.",
+  "currency": "EUR ",
+  "date": "2026-04-20",
+  "current_price": 34.14,
+  "shares_outstanding": 149523224,
+  "diluted_avg_shares": 152955172,
+  "market_cap": 5104722944,
+  "sector": "Consumer Cyclical",
+  "industry": "Furnishings, Fixtures & Appliances",
+  "country": "Italy",
+  "business_summary": "De'Longhi S.p.A. produces and distributes coffee machines, small appliances for food preparation, coffee, nutrition, and cooking machines, air conditioning and portable heaters, domestic cleaning and ironing, and home care products. The company provides its products primarily under the De'Longhi, Kenwood, Braun, Ariete, Nutribullet, and Magic Bullet brands. It operates in Europe, the Americas, the Asia Pacific, the Middle East, India, and Africa. The company was founded in 1974 and is headquartered in Treviso, Italy. De'Longhi S.p.A. operates as a subsidiary of DE Longhi Industrial S.A.",
+  "beta": 1.583,
+  "analyst_targets": {
+    "high": 49.1,
+    "low": 40.0,
+    "mean": 43.21111,
+    "current": 34.14
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 3792511000.0,
+    "net_income": 316325000.0,
+    "ebitda": 603708000.0,
+    "free_cashflow": 455010000.0,
+    "gross_margin": 0.5818055636489914,
+    "operating_margin": 0.12021903166530037,
+    "net_margin": 0.08340780026742177,
+    "total_debt": 514591000.0,
+    "cash": 998444000.0,
+    "total_equity": 2224252000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 3156384000.0,
+      "net_income": 177428000.0,
+      "ebitda": 358019000.0,
+      "fcf": 23007000.0,
+      "operating_income": 262967000.0
+    },
+    "2023": {
+      "revenue": 3073505000.0,
+      "net_income": 250377000.0,
+      "ebitda": 437385000.0,
+      "fcf": 489065000.0,
+      "operating_income": 328891000.0
+    },
+    "2024": {
+      "revenue": 3489861000.0,
+      "net_income": 310737000.0,
+      "ebitda": 575387000.0,
+      "fcf": 382904000.0,
+      "operating_income": 430648000.0
+    },
+    "2025": {
+      "revenue": 3792511000.0,
+      "net_income": 316325000.0,
+      "ebitda": 603708000.0,
+      "fcf": 455010000.0,
+      "operating_income": 455932000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Furnishings, Fixtures & Appliances",
+      "revenues": {
+        "2022": 3156384000.0,
+        "2023": 3073505000.0,
+        "2024": 3489861000.0,
+        "2025": 3792511000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.5604005332460598,
+      "sga_pct": 0.14628324042883703,
+      "rd_pct": 0.0,
+      "da_pct": 0.034247533148972026,
+      "capex_pct": 0.030329316620076294,
+      "tax_rate": 0.2340808692222803
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": -0.0263
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1355
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0867
+      }
+    ],
+    "avg_growth": 0.0653,
+    "cagr_3y": 0.0631,
+    "beta": 1.583,
+    "ev_ebitda": 7.6,
+    "net_debt": -537396000,
+    "net_debt_label": "total",
+    "total_debt": 533592992,
+    "cash": 1070988992,
+    "de_ratio": 0.1,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.055
+      },
+      "target_prices": {
+        "high": 49.1,
+        "low": 40.0,
+        "mean": 43.21111,
+        "current": 34.14
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "3 European Dividend Stocks Yielding Up To 6.7%",
+      "date": "Wed, 11 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "European Dividend Stocks With Up To 3.7% Yield For Your Portfolio",
+      "date": "Tue, 18 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 European Dividend Stocks Yielding Up To 6.5%",
+      "date": "Tue, 13 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Are Shares of Banca IFIS Still Attractive After Solid 12-Month Rally?",
+      "date": "Tue, 09 Se",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Heineken’s Strongbow adds NaviLens levels to packaging",
+      "date": "Tue, 09 Se",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Novartis to acquire Tourmaline Bio for $1.4 billion",
+      "date": "Tue, 09 Se",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "European Dividend Stocks To Enhance Your Portfolio",
+      "date": "Mon, 20 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "De' Longhi teams up with La Marzocco to boost coffee machine business - Reuters",
+      "date": "Fri, 22 De",
+      "source": "Reuters"
+    },
+    {
+      "title": "3 European Dividend Stocks Yielding Up To 4.4%",
+      "date": "Fri, 12 Se",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DLG_MI/DLG_MI_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

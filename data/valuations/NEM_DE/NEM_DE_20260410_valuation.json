@@ -1,0 +1,183 @@
+{
+  "ticker": "NEM.DE",
+  "company": "Nemetschek SE",
+  "currency": "EUR ",
+  "date": "2026-04-10",
+  "current_price": 61.55,
+  "shares_outstanding": 115408795,
+  "diluted_avg_shares": 115500000,
+  "market_cap": 7103411712,
+  "sector": "Technology",
+  "industry": "Software - Application",
+  "country": "Germany",
+  "business_summary": "Nemetschek SE provides software solutions for architecture, engineering, construction, operation, and media industries in Germany, the rest of Europe, the Americas, the Asia Pacific, and internationally. The company operates in four segments: Design, Build, Manage, and Media. The Design segment offers software solutions primarily under the Allplan, Graphisoft, and dRofus brands for architects, designers, engineers, structural engineers, specialist planners, and landscape designers, as well as developers and general contractors. This segment provides building information modeling (BIM) solutions for computer-aided design and engineering. The Build segment offers 5D BIM solutions, commercial enterprise resource planning solutions, and cloud-based workflow solutions under the Nevaris and Bluebeam brands to construction companies, developers, suppliers, general contractors, planning offices, architects, and civil engineers. The Manage segment provides software solutions for property, facility, and workplace management; building platforms for the operation and management of buildings under the Spacewell and Crem Solutions brands to property managers, facility managers, global real estate companies, banks, and insurance companies. The Media segment offers software solutions under the Maxon name, including 3D modeling, painting, animation, sculpting, and rendering solutions to create 3D motion graphics, architectural or product visualizations, graphics for computer games, medical illustrations, industrial designs, and visual effects for architects and designers, film and TV studios, advertising agencies, the video game industry, product and graphic designers, and freelancers. Nemetschek SE was founded in 1963 and is headquartered in Munich, Germany.",
+  "beta": 0.552,
+  "analyst_targets": {
+    "high": 140.0,
+    "low": 76.0,
+    "mean": 98.29688,
+    "current": 61.55
+  },
+  "historical_years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "latest_financials": {
+    "revenue": 995565000.0,
+    "net_income": 175422000.0,
+    "ebitda": 311745000.0,
+    "free_cashflow": 293078000.0,
+    "gross_margin": 0.5932651308553435,
+    "operating_margin": 0.24134737561083405,
+    "net_margin": 0.17620346235554685,
+    "total_debt": 569867000.0,
+    "cash": 205733000.0,
+    "total_equity": 944377000.0
+  },
+  "historical_data": {
+    "2021": {
+      "revenue": 681471000.0,
+      "net_income": 134618000.0,
+      "ebitda": 223339000.0,
+      "fcf": 204436000.0,
+      "operating_income": 168979000.0
+    },
+    "2022": {
+      "revenue": 801813000.0,
+      "net_income": 161899000.0,
+      "ebitda": 260996000.0,
+      "fcf": 194756000.0,
+      "operating_income": 196255000.0
+    },
+    "2023": {
+      "revenue": 851563000.0,
+      "net_income": 161256000.0,
+      "ebitda": 266035000.0,
+      "fcf": 240202000.0,
+      "operating_income": 203131000.0
+    },
+    "2024": {
+      "revenue": 995565000.0,
+      "net_income": 175422000.0,
+      "ebitda": 311745000.0,
+      "fcf": 293078000.0,
+      "operating_income": 240277000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Software - Application",
+      "revenues": {
+        "2021": 681471000.0,
+        "2022": 801813000.0,
+        "2023": 851563000.0,
+        "2024": 995565000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.584750231393605,
+      "sga_pct": 0.07958614628484909,
+      "rd_pct": 0.0,
+      "da_pct": 0.07054173807616615,
+      "capex_pct": 0.014725413125157,
+      "tax_rate": 0.19507650102880564
+    },
+    "revenue_growths": [
+      {
+        "year": 2022,
+        "yoy": 0.1766
+      },
+      {
+        "year": 2023,
+        "yoy": 0.062
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1691
+      }
+    ],
+    "avg_growth": 0.1359,
+    "cagr_3y": 0.1347,
+    "beta": 0.552,
+    "ev_ebitda": 23.3,
+    "net_debt": 146169024,
+    "net_debt_label": "total",
+    "total_debt": 404534016,
+    "cash": 258364992,
+    "de_ratio": 0.06,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.118
+      },
+      "target_prices": {
+        "high": 140.0,
+        "low": 76.0,
+        "mean": 98.29688,
+        "current": 61.55
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Newmont (NYSE: NEM) executive sells stock, retains 17,147 shares - Stock Titan",
+      "date": "Wed, 18 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "[144] NEWMONT Corp /DE/ SEC Filing - Stock Titan",
+      "date": "Wed, 18 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Nemetschek's (ETR:NEM) Solid Earnings Have Been Accounted For Conservatively",
+      "date": "Wed, 12 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Newmont (NEM) executive Rodgers sells 1,361 shares in 10b5-1 trade - Stock Titan",
+      "date": "Wed, 04 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "We Like Nemetschek's (ETR:NEM) Earnings For More Than Just Statutory Profit",
+      "date": "Wed, 01 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3,000-share insider sale at NEM (NYSE: NEM) reported in Form 144 - Stock Titan",
+      "date": "Wed, 01 Ap",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "3 European Stocks Estimated To Be Up To 40.5% Below Intrinsic Value",
+      "date": "Tue, 27 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "European Companies Priced Below Estimated Value",
+      "date": "Tue, 23 De",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "European Stocks That May Be Trading Below Their Estimated Value In February 2026",
+      "date": "Tue, 17 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Global Market Highlights 3 Stocks That May Be Trading Below Their Estimated Value",
+      "date": "Tue, 17 Fe",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NEM_DE/NEM_DE_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

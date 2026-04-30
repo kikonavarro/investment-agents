@@ -1,0 +1,54 @@
+{
+  "fair_values": {
+    "bear": 15.49,
+    "base": 31.59,
+    "bull": 47.99
+  },
+  "scenarios": {
+    "bear": {
+      "revenue_growth_y1": 0.10,
+      "revenue_growth_y2": 0.08,
+      "revenue_growth_y3": 0.05,
+      "revenue_growth_y4": 0.04,
+      "revenue_growth_y5": 0.03,
+      "gross_margin": 0.76,
+      "sga_pct": 0.58,
+      "rd_pct": 0.05,
+      "da_pct": 0.015,
+      "capex_pct": 0.03,
+      "tax_rate": 0.12,
+      "wacc": 0.115,
+      "terminal_multiple": 11
+    },
+    "base": {
+      "revenue_growth_y1": 0.18,
+      "revenue_growth_y2": 0.15,
+      "revenue_growth_y3": 0.13,
+      "revenue_growth_y4": 0.10,
+      "revenue_growth_y5": 0.08,
+      "gross_margin": 0.78,
+      "sga_pct": 0.55,
+      "rd_pct": 0.05,
+      "da_pct": 0.015,
+      "capex_pct": 0.03,
+      "tax_rate": 0.25,
+      "wacc": 0.11,
+      "terminal_multiple": 12
+    },
+    "bull": {
+      "revenue_growth_y1": 0.22,
+      "revenue_growth_y2": 0.20,
+      "revenue_growth_y3": 0.18,
+      "revenue_growth_y4": 0.14,
+      "revenue_growth_y5": 0.10,
+      "gross_margin": 0.79,
+      "sga_pct": 0.52,
+      "rd_pct": 0.05,
+      "da_pct": 0.02,
+      "capex_pct": 0.035,
+      "tax_rate": 0.25,
+      "wacc": 0.105,
+      "terminal_multiple": 12
+    }
+  }
+}

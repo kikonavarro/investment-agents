@@ -1,0 +1,191 @@
+{
+  "ticker": "000660.KS",
+  "company": "SK hynix Inc.",
+  "currency": "KRW ",
+  "date": "2026-04-26",
+  "current_price": 1222000.0,
+  "shares_outstanding": 708693132,
+  "diluted_avg_shares": 686664474,
+  "market_cap": 866022978486272,
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "South Korea",
+  "business_summary": "SK hynix Inc. research, develops manufactures, and sells semiconductor devices in Korea, China, rest of Asia, the United States, and Europe. It offers DRAM, NAND storage, SSD, MCP, and CMM products. The company provides its products for server, networking, mobile, personal computer, consumer, and automotive applications. It is also involved in the construction, business support, industrial material distribution, semiconductor apparel manufacturing, baking, hospital, education, information and communication, investment, and money trust activities. The company was formerly known as Hynix Semiconductor Inc. and changed its name to SK hynix Inc. in March 2012. SK hynix Inc. was founded in 1949 and is headquartered in Icheon-si, South Korea.",
+  "beta": 1.751,
+  "analyst_targets": {
+    "high": 2500000.0,
+    "low": 255245.0,
+    "mean": 1661259.0,
+    "current": 1222000.0
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 97146675000000.0,
+    "net_income": 42919287000000.0,
+    "ebitda": 65319385000000.0,
+    "free_cashflow": 24793783000000.0,
+    "gross_margin": 0.6041461532265515,
+    "operating_margin": 0.4859283037736495,
+    "net_margin": 0.44179882636230217,
+    "total_debt": 24757848000000.0,
+    "cash": 14923766000000.0,
+    "total_equity": 120666751000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 44621568000000.0,
+      "net_income": 2229560000000.0,
+      "ebitda": 18687364000000.0,
+      "fcf": -4968365000000.0,
+      "operating_income": 6809417000000.0
+    },
+    "2023": {
+      "revenue": 32765719000000.0,
+      "net_income": -9112428000000.0,
+      "ebitda": 3484133000000.0,
+      "fcf": -4501657000000.0,
+      "operating_income": -7730313000000.0
+    },
+    "2024": {
+      "revenue": 66192960000000.0,
+      "net_income": 19788681000000.0,
+      "ebitda": 37812126000000.0,
+      "fcf": 13133245000000.0,
+      "operating_income": 23467319000000.0
+    },
+    "2025": {
+      "revenue": 97146675000000.0,
+      "net_income": 42919287000000.0,
+      "ebitda": 65319385000000.0,
+      "fcf": 24793783000000.0,
+      "operating_income": 47206319000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Semiconductors",
+      "revenues": {
+        "2022": 44621568000000.0,
+        "2023": 32765719000000.0,
+        "2024": 66192960000000.0,
+        "2025": 97146675000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.3547338215944378,
+      "sga_pct": 0.03667723038205493,
+      "rd_pct": 0.08708125591891581,
+      "da_pct": 0.26698177392954114,
+      "capex_pct": 0.28107295356000817,
+      "tax_rate": 0.1973661560222626
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": -0.2657
+      },
+      {
+        "year": 2024,
+        "yoy": 1.0202
+      },
+      {
+        "year": 2025,
+        "yoy": 0.4676
+      }
+    ],
+    "avg_growth": 0.4074,
+    "cagr_3y": 0.2961,
+    "beta": 1.751,
+    "ev_ebitda": 12.7,
+    "net_debt": -35011998777344,
+    "net_debt_label": "total",
+    "total_debt": 19317999534080,
+    "cash": 54329998311424,
+    "de_ratio": 0.02,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 1.981
+      },
+      "target_prices": {
+        "high": 2500000.0,
+        "low": 255245.0,
+        "mean": 1661259.0,
+        "current": 1222000.0
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": {
+      "detected": true,
+      "year": 2024,
+      "prev_year": 2023,
+      "prev_revenue": 32765719000000.0,
+      "new_revenue": 66192960000000.0,
+      "jump_pct": 1.020189454716376,
+      "message": "Revenue saltó 102% en 2024 (32,765,719M → 66,192,960M). Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). Crecimiento ajustado a tasas orgánicas (2-6%)."
+    }
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Samsung, SK Hynix reverse gains after rallying on stellar earnings - Investing.com",
+      "date": "Wed, 28 Ja",
+      "source": "Investing.com"
+    },
+    {
+      "title": "SK Hynix Pursues U.S. Listing via ADR, Stock Reclaims 1 Million Won Mark - Seoul Economic Daily",
+      "date": "Wed, 25 Ma",
+      "source": "Seoul Economic Daily"
+    },
+    {
+      "title": "Earnings To Watch: SK Hynix Inc (XKRX:000660) Reports Q2 2025 Result - Yahoo Finance",
+      "date": "Wed, 23 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "SK hynix Awards 15.3 Billion Won in Stock Compensation to 9 Executives and Directors - Seoul Economic Daily",
+      "date": "Wed, 22 Ap",
+      "source": "Seoul Economic Daily"
+    },
+    {
+      "title": "BOCOM International Initiates SK Hynix (000660.KS) at Buy, TP KRW1.3M; Upcycle May Last at Least Until 1Q27 - AASTOCKS.com",
+      "date": "Wed, 15 Ap",
+      "source": "AASTOCKS.com"
+    },
+    {
+      "title": "UBS Lists APAC Stocks That May Deliver Positive Surprises on 1Q26 Results (Table) - AASTOCKS.com",
+      "date": "Wed, 15 Ap",
+      "source": "AASTOCKS.com"
+    },
+    {
+      "title": "Samsung Electronics (005930) and SK Hynix (000660) Stocks Soar After Historic Q1 Results - MEXC",
+      "date": "Wed, 08 Ap",
+      "source": "MEXC"
+    },
+    {
+      "title": "000660.KS Stock Today, March 04: Kospi Halt, Won Slide Hit Chipmakers - Meyka",
+      "date": "Wed, 04 Ma",
+      "source": "Meyka"
+    },
+    {
+      "title": "Samsung Securities Raises SK Hynix (000660.KS) TP to 1.8M Won; 14 Brokers Lift Targets So Far This Month Ahead of Results - AASTOCKS.com",
+      "date": "Tue, 21 Ap",
+      "source": "AASTOCKS.com"
+    },
+    {
+      "title": "KOSPI Hits Record High as Stocks Surge to 52-Week Peaks - Seoul Economic Daily",
+      "date": "Tue, 21 Ap",
+      "source": "Seoul Economic Daily"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/000660_KS/000660_KS_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

@@ -33,5 +33,19 @@
     "fair_value_bull": 70.31,
     "revenue": 94827000000.0,
     "gross_margin": 0.18026511436616155
+  },
+  {
+    "date": "2026-04-26",
+    "file": "TSLA_20260426_valuation.json",
+    "current_price": 376.3,
+    "currency": "$",
+    "revenue": 94827000000.0,
+    "gross_margin": 0.18026511436616155,
+    "ev_ebitda": 117.7,
+    "avg_growth": 0.0561,
+    "fair_value_bear": 66.31,
+    "fair_value_base": 102.62,
+    "fair_value_bull": 196.13,
+    "fair_value_weighted": 106.8
   }
 ]

@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-15",
+    "file": "RMS_PA_20260415_valuation.json",
+    "current_price": 1636.5,
+    "currency": "EUR ",
+    "revenue": 16001000000.0,
+    "gross_margin": 0.7110805574651584,
+    "ev_ebitda": 20.8,
+    "avg_growth": 0.114,
+    "fair_value_bear": 1185,
+    "fair_value_base": 1728,
+    "fair_value_bull": 2288,
+    "fair_value_weighted": 1622.8
+  }
+]

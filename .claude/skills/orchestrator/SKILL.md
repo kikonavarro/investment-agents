@@ -42,6 +42,7 @@ Antes de ejecutar cualquier pipeline, DEBES:
 | `screener-ranking` | Ranking cualitativo de candidatas value |
 | `tweet-generator` | Hilos Twitter/X sobre inversiones |
 | `content-writer` | Artículos Substack/blog |
+| `leaps-finder` | LEAPS calls ITM (delta 0.60-0.80, >12m). Modo daily o on-demand sobre un ticker |
 | `dcf-valuation` | Referencia teórica de metodología DCF |
 | `thesis_reviewer.py` | Review gate automático antes de enviar (Python) |
 
@@ -170,7 +171,23 @@ Los mensajes del scheduler llevan el tag `[SCHEDULER]` al inicio.
 
 - `[SCHEDULER] Genera un hilo de tweets` → skill `tweet-generator`
 - `[SCHEDULER] Screener semanal` → skill `screener-ranking`
+- `[SCHEDULER] LEAPS scan` → skill `leaps-finder` (modo daily)
 - Otros → interpretar el contenido y actuar
+
+### 10. LEAPS / Opciones largo plazo
+**Skill a invocar:** `leaps-finder`
+**Detectar:** "leaps", "leap call", "buena leap", "options largo plazo", "call largo plazo en X",
+"qué leap puedo comprar", o pregunta sobre call ITM en un ticker concreto.
+
+**Pipeline (on-demand):**
+```bash
+python -m tools.leaps_scanner TICKER
+```
+Interpretar el JSON y responder según skill `leaps-finder` modo on-demand.
+
+**Pipeline (daily, mensaje [SCHEDULER] LEAPS):**
+El scheduler ya generó el scan. Leer top candidatos del mensaje, elegir 4-5 mejores
+y enviar mensaje con justificación corta para cada una.
 
 ## Resolución de tickers
 

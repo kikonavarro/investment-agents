@@ -7,6 +7,7 @@ Uso:
     python tools/web_dashboard.py              # genera data/dashboard.html
     python tools/web_dashboard.py --open       # genera y abre en navegador
 """
+import html
 import json
 import sys
 import webbrowser
@@ -56,6 +57,13 @@ def calc_dcf(revenue: float, scenario: dict, net_debt: float, shares: float) -> 
 
 def markdown_to_html(text: str) -> str:
     """Convierte markdown básico a HTML."""
+    # Extraer code blocks antes de escapar HTML
+    code_blocks = []
+    def save_code_block(m):
+        code_blocks.append(m.group(1))
+        return f'__CODE_BLOCK_{len(code_blocks) - 1}__'
+    text = re.sub(r'```(?:\w*)\n(.*?)```', save_code_block, text, flags=re.DOTALL)
+
     # Escapar HTML
     text = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
@@ -63,6 +71,9 @@ def markdown_to_html(text: str) -> str:
     text = re.sub(r'^### (.*?)$', r'<h3>\1</h3>', text, flags=re.MULTILINE)
     text = re.sub(r'^## (.*?)$', r'<h2>\1</h2>', text, flags=re.MULTILINE)
     text = re.sub(r'^# (.*?)$', r'<h1>\1</h1>', text, flags=re.MULTILINE)
+
+    # Horizontal rules
+    text = re.sub(r'^---+$', '<hr>', text, flags=re.MULTILINE)
 
     # Código inline
     text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
@@ -75,11 +86,14 @@ def markdown_to_html(text: str) -> str:
     text = re.sub(r'\*(.*?)\*', r'<em>\1</em>', text)
     text = re.sub(r'_(.*?)_', r'<em>\1</em>', text)
 
+    # Listas ordenadas (1. item)
+    text = re.sub(r'((?:^\d+\. .+\n?)+)', _convert_ordered_list, text, flags=re.MULTILINE)
+
     # Párrafos (doble salto de línea)
     text = re.sub(r'\n\n+', '</p><p>', text)
     text = f'<p>{text}</p>'
 
-    # Listas
+    # Listas desordenadas
     text = re.sub(r'<p>- (.*?)</p>', r'<ul><li>\1</li></ul>', text, flags=re.MULTILINE)
     text = re.sub(r'</ul><p>- (.*?)</p><ul>', r'<li>\1</li>', text)
 
@@ -93,7 +107,19 @@ def markdown_to_html(text: str) -> str:
         text = re.sub(r'<table class="data-table">(\|.*\n)+</table>',
                      lambda m: _convert_table_row(m.group(0)), text)
 
+    # Reinsertar code blocks
+    for i, block in enumerate(code_blocks):
+        escaped = block.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        text = text.replace(f'__CODE_BLOCK_{i}__', f'<pre><code>{escaped}</code></pre>')
+
     return text
+
+
+def _convert_ordered_list(match):
+    """Convierte lista ordenada markdown a HTML <ol>."""
+    items = re.findall(r'\d+\. (.+)', match.group(0))
+    li_items = ''.join(f'<li>{item}</li>' for item in items)
+    return f'<ol>{li_items}</ol>'
 
 
 def _convert_table_row(table_html: str) -> str:
@@ -211,11 +237,11 @@ def load_all_valuations() -> list:
         pe_ratio = (market_cap / net_income) if net_income > 0 else 0
 
         results.append({
-            'ticker': d['ticker'],
-            'company': d['company'],
-            'sector': d.get('sector', ''),
+            'ticker': html.escape(str(d['ticker'])),
+            'company': html.escape(str(d['company'])),
+            'sector': html.escape(str(d.get('sector', ''))),
             'price': price,
-            'currency': d.get('currency', '$'),
+            'currency': html.escape(str(d.get('currency', '$'))),
             'bear': bear,
             'base': base,
             'bull': bull,
@@ -227,7 +253,7 @@ def load_all_valuations() -> list:
             'signal_class': css_class,
             'ev_ebitda': ev_ebitda,
             'market_cap': market_cap,
-            'date': d.get('date', ''),
+            'date': html.escape(str(d.get('date', ''))),
             'pe_ratio': pe_ratio,
             'thesis_html': load_thesis(d['ticker']),
         })
@@ -241,6 +267,7 @@ def generate_html(companies: list) -> str:
 
     rows = ""
     modals = ""
+    mobile_cards = ""
     for idx, c in enumerate(companies):
         is_spec = c['signal_class'] == 'signal-speculative'
         upside_class = "positive" if c['upside'] >= 0 else "negative"
@@ -298,12 +325,30 @@ def generate_html(companies: list) -> str:
         </div>
     </div>"""
 
+        mobile_cards += f"""
+        <div class="mobile-card {c['signal_class']}" onclick="openModal('{modal_id}')">
+            <div class="mobile-card-header">
+                <span class="ticker">{c['ticker']}</span>
+                <span class="signal">{c['signal_emoji']} {c['signal_label']}</span>
+            </div>
+            <div class="mobile-card-company">{c['company']}</div>
+            <div class="mobile-card-sector">{c['sector']}</div>
+            <div class="mobile-card-metrics">
+                <div><span class="mc-label">Precio</span><span>{c['currency']}{c['price']:.2f}</span></div>
+                <div><span class="mc-label">Ponderado</span><span class="weighted">{weighted_str}</span></div>
+                <div><span class="mc-label">Potencial</span><span class="{upside_class}">{upside_str}</span></div>
+            </div>
+        </div>"""
+
     summary_speculative = sum(1 for c in companies if c['signal_class'] == 'signal-speculative')
     non_spec = [c for c in companies if c['signal_class'] != 'signal-speculative']
     summary_buy = sum(1 for c in non_spec if c['mos'] >= 25)
     summary_watchlist = sum(1 for c in non_spec if 10 <= c['mos'] < 25)
     summary_fair = sum(1 for c in non_spec if -10 <= c['mos'] < 10)
     summary_overvalued = sum(1 for c in non_spec if c['mos'] < -10)
+    companies_with_fv = [c for c in non_spec if c['weighted'] > 0]
+    avg_upside = sum(c['upside'] for c in companies_with_fv) / len(companies_with_fv) if companies_with_fv else 0
+    total_companies = len(companies)
 
     return f"""<!DOCTYPE html>
 <html lang="es">
@@ -370,7 +415,7 @@ def generate_html(companies: list) -> str:
 
         .summary {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2.5rem;
         }}
@@ -428,6 +473,7 @@ def generate_html(companies: list) -> str:
         .summary-card.fair .count {{ color: var(--text-muted); }}
         .summary-card.overvalued .count {{ color: var(--orange); }}
         .summary-card.speculative .count {{ color: var(--purple); }}
+        .summary-card.info .count {{ color: var(--blue); }}
 
         .table-wrapper {{
             border: 1px solid var(--border);
@@ -459,6 +505,7 @@ def generate_html(companies: list) -> str:
             font-size: 0.75rem;
             letter-spacing: 0.08em;
             border-bottom: 2px solid var(--border);
+            white-space: nowrap;
         }}
 
         td {{
@@ -715,10 +762,173 @@ def generate_html(companies: list) -> str:
             font-size: 0.8rem;
         }}
 
+        /* Search */
+        .header-top {{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }}
+
+        .search-wrapper {{
+            position: relative;
+            min-width: 280px;
+        }}
+
+        .search-icon {{
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            opacity: 0.5;
+        }}
+
+        #search {{
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }}
+
+        #search:focus {{
+            border-color: var(--blue);
+        }}
+
+        #search::placeholder {{
+            color: var(--text-muted);
+        }}
+
+        /* Sort */
+        .sortable {{
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s;
+        }}
+
+        .sortable:hover {{
+            color: var(--blue);
+        }}
+
+        .sort-indicator {{
+            font-size: 0.6rem;
+            opacity: 0;
+            margin-left: 2px;
+            vertical-align: middle;
+            transition: opacity 0.2s;
+        }}
+
+        .sortable:hover .sort-indicator {{
+            opacity: 0.6;
+        }}
+
+        .sort-indicator.active {{
+            opacity: 1 !important;
+        }}
+
+        /* Code blocks en tesis */
+        .thesis-content pre {{
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }}
+
+        .thesis-content pre code {{
+            background: none;
+            padding: 0;
+            color: var(--text);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }}
+
+        .thesis-content hr {{
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }}
+
+        /* Mobile cards */
+        .mobile-cards {{
+            display: none;
+        }}
+
+        .mobile-card {{
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+
+        .mobile-card:hover {{
+            background: var(--surface-hover);
+            border-color: var(--blue);
+        }}
+
+        .mobile-card-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }}
+
+        .mobile-card-company {{
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.15rem;
+        }}
+
+        .mobile-card-sector {{
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+            margin-bottom: 0.75rem;
+        }}
+
+        .mobile-card-metrics {{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-family: 'Geist Mono', monospace;
+        }}
+
+        .mobile-card-metrics div {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }}
+
+        .mc-label {{
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: 'Inter', sans-serif;
+        }}
+
         @media (max-width: 768px) {{
             body {{ padding: 1rem; }}
             h1 {{ font-size: 1.75rem; }}
-            .summary {{ grid-template-columns: 1fr; }}
+            .header-top {{ flex-direction: column; gap: 1rem; }}
+            .search-wrapper {{ min-width: unset; width: 100%; }}
+            .summary {{ grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }}
+            .summary-card {{ padding: 1rem; }}
+            .summary-card .count {{ font-size: 1.5rem; }}
+            .table-wrapper {{ display: none; }}
+            .mobile-cards {{ display: block; }}
             .modal-content {{
                 width: 95%;
                 max-height: 90vh;
@@ -730,17 +940,23 @@ def generate_html(companies: list) -> str:
             .modal-header h2 {{
                 font-size: 1.25rem;
             }}
-            table {{ font-size: 0.75rem; }}
-            td, th {{ padding: 0.5rem; }}
         }}
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Investment Dashboard</h1>
-            <p class="subtitle">Análisis de Valor — {len(companies)} empresas analizadas</p>
-            <p class="subtitle" style="font-size: 0.85rem;">Actualizado {now}</p>
+            <div class="header-top">
+                <div>
+                    <h1>Investment Dashboard</h1>
+                    <p class="subtitle">Análisis de Valor — {total_companies} empresas analizadas</p>
+                    <p class="subtitle" style="font-size: 0.85rem;">Actualizado {now}</p>
+                </div>
+                <div class="search-wrapper">
+                    <span class="search-icon">&#128269;</span>
+                    <input type="text" id="search" placeholder="Buscar ticker, empresa o sector..." oninput="filterBySearch(this.value)">
+                </div>
+            </div>
         </div>
 
         <div class="summary">
@@ -764,6 +980,14 @@ def generate_html(companies: list) -> str:
                 <div class="count">{summary_speculative}</div>
                 <div class="label">Especulativas</div>
             </div>
+            <div class="summary-card info">
+                <div class="count">{avg_upside:+.1f}%</div>
+                <div class="label">Upside Promedio</div>
+            </div>
+            <div class="summary-card info">
+                <div class="count">{total_companies}</div>
+                <div class="label">Total Empresas</div>
+            </div>
             <div class="summary-card" onclick="clearFilter()" style="cursor:pointer; border: 1px dashed var(--border);">
                 <div class="count" style="font-size: 1.2rem;">✕</div>
                 <div class="label">Limpiar Filtro</div>
@@ -777,24 +1001,28 @@ def generate_html(companies: list) -> str:
             <table>
                 <thead>
                     <tr>
-                        <th>Empresa</th>
-                        <th>Sector</th>
-                        <th style="text-align:right">Precio</th>
-                        <th style="text-align:right">Bear</th>
-                        <th style="text-align:right">Base</th>
-                        <th style="text-align:right">Bull</th>
-                        <th style="text-align:right">Ponderado</th>
-                        <th style="text-align:right">Potencial</th>
-                        <th>Señal</th>
-                        <th style="text-align:right">EV/EBITDA</th>
-                        <th style="text-align:right">P/E</th>
-                        <th>Fecha</th>
+                        <th class="sortable" onclick="sortTable(0, 'text')">Empresa <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" onclick="sortTable(1, 'text')">Sector <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" style="text-align:right" onclick="sortTable(2, 'number')">Precio <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" style="text-align:right" onclick="sortTable(3, 'number')">Bear <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" style="text-align:right" onclick="sortTable(4, 'number')">Base <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" style="text-align:right" onclick="sortTable(5, 'number')">Bull <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" style="text-align:right" onclick="sortTable(6, 'number')">Ponderado <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" style="text-align:right" onclick="sortTable(7, 'number')">Potencial <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" onclick="sortTable(8, 'text')">Señal <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" style="text-align:right" onclick="sortTable(9, 'number')">EV/EBITDA <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" style="text-align:right" onclick="sortTable(10, 'number')">P/E <span class="sort-indicator">↕</span></th>
+                        <th class="sortable" onclick="sortTable(11, 'text')">Fecha <span class="sort-indicator">↕</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     {rows}
                 </tbody>
             </table>
+        </div>
+
+        <div class="mobile-cards">
+            {mobile_cards}
         </div>
 
         <div class="methodology">
@@ -831,7 +1059,6 @@ def generate_html(companies: list) -> str:
             }}
         }}
 
-        // Cerrar modal al presionar Escape
         document.addEventListener('keydown', (e) => {{
             if (e.key === 'Escape') {{
                 document.querySelectorAll('.modal.active').forEach(m => {{
@@ -841,52 +1068,111 @@ def generate_html(companies: list) -> str:
             }}
         }});
 
-        // Filtrado de tabla
+        // Estado de filtros
         let currentFilter = null;
+        let currentSearch = '';
+        let sortCol = -1;
+        let sortAsc = true;
 
-        function filterByClass(className) {{
-            const table = document.querySelector('tbody');
-            const rows = table.querySelectorAll('tr');
+        function applyFilters() {{
+            const rows = document.querySelectorAll('tbody tr');
+            const cards = document.querySelectorAll('.mobile-card');
+            const query = currentSearch.toLowerCase();
             let visibleCount = 0;
 
             rows.forEach(row => {{
-                if (row.classList.contains(className)) {{
-                    row.style.display = '';
-                    visibleCount++;
-                }} else {{
-                    row.style.display = 'none';
-                }}
+                const matchesClass = !currentFilter || row.classList.contains(currentFilter);
+                const text = row.textContent.toLowerCase();
+                const matchesSearch = !query || text.includes(query);
+                const visible = matchesClass && matchesSearch;
+                row.style.display = visible ? '' : 'none';
+                if (visible) visibleCount++;
             }});
 
-            currentFilter = className;
+            cards.forEach(card => {{
+                const matchesClass = !currentFilter || card.classList.contains(currentFilter);
+                const text = card.textContent.toLowerCase();
+                const matchesSearch = !query || text.includes(query);
+                card.style.display = (matchesClass && matchesSearch) ? '' : 'none';
+            }});
 
-            // Mostrar indicador
             const indicator = document.getElementById('filter-indicator');
             const filterName = document.getElementById('filter-name');
-
             const filterLabels = {{
                 'signal-buy': 'Infravaloradas (MoS ≥ 25%)',
+                'signal-strong-buy': 'Muy Infravaloradas (MoS ≥ 40%)',
                 'signal-watchlist': 'Watchlist (10-25%)',
                 'signal-fair': 'Valor Justo (±10%)',
                 'signal-overvalued': 'Sobrevaloradas',
+                'signal-avoid': 'Muy Sobrevaloradas',
                 'signal-speculative': 'Especulativas'
             }};
 
-            filterName.textContent = filterLabels[className] || className;
-            filterName.textContent += ' (' + visibleCount + ' empresas)';
-            indicator.style.display = 'block';
+            if (currentFilter || query) {{
+                let label = '';
+                if (currentFilter) label = filterLabels[currentFilter] || currentFilter;
+                if (query) label += (label ? ' + ' : '') + '"' + currentSearch + '"';
+                filterName.textContent = label + ' (' + visibleCount + ' empresas)';
+                indicator.style.display = 'block';
+            }} else {{
+                indicator.style.display = 'none';
+            }}
+        }}
+
+        function filterByClass(className) {{
+            currentFilter = className;
+            applyFilters();
+        }}
+
+        function filterBySearch(query) {{
+            currentSearch = query;
+            applyFilters();
         }}
 
         function clearFilter() {{
-            const table = document.querySelector('tbody');
-            const rows = table.querySelectorAll('tr');
+            currentFilter = null;
+            currentSearch = '';
+            document.getElementById('search').value = '';
+            applyFilters();
+        }}
 
-            rows.forEach(row => {{
-                row.style.display = '';
+        function sortTable(colIndex, type) {{
+            const tbody = document.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+
+            if (sortCol === colIndex) {{
+                sortAsc = !sortAsc;
+            }} else {{
+                sortCol = colIndex;
+                sortAsc = true;
+            }}
+
+            rows.sort((a, b) => {{
+                let aVal = a.cells[colIndex].textContent.trim();
+                let bVal = b.cells[colIndex].textContent.trim();
+
+                if (type === 'number') {{
+                    aVal = parseFloat(aVal.replace(/[^\\-\\d.]/g, '')) || 0;
+                    bVal = parseFloat(bVal.replace(/[^\\-\\d.]/g, '')) || 0;
+                    return sortAsc ? aVal - bVal : bVal - aVal;
+                }}
+
+                return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
             }});
 
-            currentFilter = null;
-            document.getElementById('filter-indicator').style.display = 'none';
+            rows.forEach(row => tbody.appendChild(row));
+
+            // Indicadores visuales
+            document.querySelectorAll('.sort-indicator').forEach(el => {{
+                el.textContent = '↕';
+                el.classList.remove('active');
+            }});
+            const th = document.querySelectorAll('th')[colIndex];
+            const ind = th.querySelector('.sort-indicator');
+            if (ind) {{
+                ind.textContent = sortAsc ? '▲' : '▼';
+                ind.classList.add('active');
+            }}
         }}
     </script>
 </body>

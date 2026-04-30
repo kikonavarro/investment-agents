@@ -23,6 +23,7 @@ Las 14 skills en `.claude/skills/` son la referencia operativa principal. Cada s
 | `ir-auditor`         | Auditar cifras del IR vs cuentas oficiales (detectar maquillaje)                              |
 | `tweet-generator`    | Hilos Twitter/X sobre inversiones                                                             |
 | `content-writer`     | Artículos Substack/blog                                                                      |
+| `leaps-finder`       | LEAPS calls ITM USA (Δ 0.60-0.80, >12m). Daily scan 08:00 LV + on-demand                      |
 | `invest-new-agent`   | Guía para crear nuevos agentes/capacidades del sistema                                       |
 
 **Nota sobre DCF:** La fórmula usa EBIT = Rev × (GM - SGA% - R&D%), EBITDA = EBIT + D&A. UFCF = EBIT×(1-T) + D&A - CapEx. Terminal Value sobre EBITDA (no EBIT). Ver `thesis-writer` Paso 1B.
@@ -73,12 +74,12 @@ Filtros: `graham_default`, `value_aggressive`, `bargain_hunter`. Ranking cualita
 ### Otros
 
 ```bash
-python main.py --tweets TICKER          # datos para tweets
-python main.py --article "topic"        # datos para artículo
 python main.py --portfolio status       # cartera (usa API)
 python main.py --history TICKER         # historial de valoraciones
 python main.py --fresh --analyst TICKER # forzar refresh cache
 ```
+
+**Tweets y artículos** se generan desde Claude Code con las skills (`tweet-generator`, `content-writer`) o por la cola del Investment Bot (`[SCHEDULER] tweets`). No hay flag CLI para ellos.
 
 ## Estructura del JSON de valoración
 

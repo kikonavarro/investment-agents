@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-20",
+    "file": "DLG_MI_20260420_valuation.json",
+    "current_price": 34.14,
+    "currency": "EUR ",
+    "revenue": 3792511000.0,
+    "gross_margin": 0.5818055636489914,
+    "ev_ebitda": 7.6,
+    "avg_growth": 0.0653,
+    "fair_value_bear": 28.3,
+    "fair_value_base": 42.12,
+    "fair_value_bull": 64.96,
+    "fair_value_weighted": 41.16
+  }
+]

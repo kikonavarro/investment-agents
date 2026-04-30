@@ -1,0 +1,183 @@
+{
+  "ticker": "SU.TO",
+  "company": "Suncor Energy Inc.",
+  "currency": "C$",
+  "date": "2026-04-22",
+  "current_price": 86.47,
+  "shares_outstanding": 1186910947,
+  "diluted_avg_shares": 1390000000,
+  "market_cap": 102894264320,
+  "sector": "Energy",
+  "industry": "Oil & Gas Integrated",
+  "country": "Canada",
+  "business_summary": "Suncor Energy Inc. operates as an integrated energy company in Canada, the United States, and internationally. The company operates through Oil Sands; Exploration and Production; and Refining and Marketing segments. The Oil Sands segment produces bitumen; and markets, supplies, and transports and manages crude oil, power, and byproducts. The Exploration and Production segment is involved in the offshore operations on the east coast of Canada, and onshore assets in Libya and Syria; and marketing and risk management of crude oil. The Refining and Marketing segment refines and supplies crude oil and intermediate feedstock into a range of petroleum and petrochemical products, as well as sells refined petroleum products to retail customers. This segment is also involved in the trading of crude oil and refined products, natural gas, and power. The company was formerly known as Suncor Inc. and changed its name to Suncor Energy Inc. in April 1997. Suncor Energy Inc. was founded in 1917 and is headquartered in Calgary, Canada.",
+  "beta": 0.598,
+  "analyst_targets": {
+    "high": 118.0,
+    "low": 72.0,
+    "mean": 96.73684,
+    "current": 86.47
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 52377000000.0,
+    "net_income": 5918000000.0,
+    "ebitda": 15607000000.0,
+    "free_cashflow": 6925000000.0,
+    "gross_margin": 0.41380758729976896,
+    "operating_margin": 0.1526433358153388,
+    "net_margin": 0.11298852549783302,
+    "total_debt": 14504000000.0,
+    "cash": 3650000000.0,
+    "total_equity": 45124000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 62907000000.0,
+      "net_income": 9077000000.0,
+      "ebitda": 22008000000.0,
+      "fcf": 10560000000.0,
+      "operating_income": 13925000000.0
+    },
+    "2023": {
+      "revenue": 52206000000.0,
+      "net_income": 8295000000.0,
+      "ebitda": 17810000000.0,
+      "fcf": 6408000000.0,
+      "operating_income": 8953000000.0
+    },
+    "2024": {
+      "revenue": 54881000000.0,
+      "net_income": 6016000000.0,
+      "ebitda": 15835000000.0,
+      "fcf": 9477000000.0,
+      "operating_income": 9035000000.0
+    },
+    "2025": {
+      "revenue": 52377000000.0,
+      "net_income": 5918000000.0,
+      "ebitda": 15607000000.0,
+      "fcf": 6925000000.0,
+      "operating_income": 7995000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Oil & Gas Integrated",
+      "revenues": {
+        "2022": 62907000000.0,
+        "2023": 52206000000.0,
+        "2024": 54881000000.0,
+        "2025": 52377000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.4171699738546668,
+      "sga_pct": 0.19570441137517752,
+      "rd_pct": 0.0,
+      "da_pct": 0.13042034887015766,
+      "capex_pct": 0.11275410277775871,
+      "tax_rate": 0.2457566643360634
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": -0.1701
+      },
+      {
+        "year": 2024,
+        "yoy": 0.0512
+      },
+      {
+        "year": 2025,
+        "yoy": -0.0456
+      }
+    ],
+    "avg_growth": -0.0548,
+    "cagr_3y": -0.0592,
+    "beta": 0.598,
+    "ev_ebitda": 7.3,
+    "net_debt": 11219000320,
+    "net_debt_label": "total",
+    "total_debt": 14869000192,
+    "cash": 3649999872,
+    "de_ratio": 0.14,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": -0.039
+      },
+      "target_prices": {
+        "high": 118.0,
+        "low": 72.0,
+        "mean": 96.73684,
+        "current": 86.47
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Stock Analysis - Suncor Energy (SU) - Gotrade",
+      "date": "Wed, 31 De",
+      "source": "Gotrade"
+    },
+    {
+      "title": "Suncor Energy Stock May Be Worth Watching If Oil Pulls Back",
+      "date": "Wed, 22 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "JPMorgan upgrades Suncor, downgrades Cenovus - Yahoo! Finance Canada",
+      "date": "Wed, 21 Ja",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "Up 70% in 7 Months! Is it Too Late to Invest in Suncor Energy Stock? - Yahoo! Finance Canada",
+      "date": "Wed, 19 No",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "Oracle’s New CFO Comes From the Power Industry. That Tells You Everything.",
+      "date": "Wed, 08 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "SU.TO Stock Today, March 04: Suncor Unveils 9.99% Share Buyback - Meyka",
+      "date": "Wed, 04 Ma",
+      "source": "Meyka"
+    },
+    {
+      "title": "symbol__ Stock Quote Price and Forecast - CNN",
+      "date": "Tue, 31 Oc",
+      "source": "CNN"
+    },
+    {
+      "title": "Analysts Estimate Suncor Energy (SU) to Report a Decline in Earnings: What to Look Out for - Yahoo Finance",
+      "date": "Tue, 28 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Could Buying Suncor Energy Stock Today Set You Up for Life? - Yahoo! Finance Canada",
+      "date": "Tue, 26 Au",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "The Bull Case For Suncor Energy (TSX:SU) Could Change Following Bigger Buybacks And Climate Lawsuit Appeal – Learn Why - Yahoo Finance",
+      "date": "Tue, 24 Fe",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SU_TO/SU_TO_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

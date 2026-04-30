@@ -1,0 +1,183 @@
+{
+  "ticker": "SPOT",
+  "company": "Spotify Technology S.A.",
+  "currency": "$",
+  "date": "2026-04-28",
+  "current_price": 434.2,
+  "shares_outstanding": 205882340,
+  "diluted_avg_shares": 195846362,
+  "market_cap": 89394110464,
+  "sector": "Communication Services",
+  "industry": "Internet Content & Information",
+  "country": "Sweden",
+  "business_summary": "Spotify Technology S.A., together with its subsidiaries, provides audio streaming subscription services worldwide. It operates in two segments, Premium and Ad-Supported. The Premium segment offers online and offline streaming access to its catalog of music and podcasts, including video, lossless music, and audiobooks in select markets through subscription offerings primarily sold directly to end users and partners. The Ad-Supported segment provides limited on-demand online access to its catalog of music and online and offline access to its catalog of podcasts on computers, tablets, mobile devices, and other smart devices. The company also offers sales, distribution and marketing, contract research and development, and customer and other support services. Spotify Technology S.A. was incorporated in 2006 and is headquartered in Stockholm, Sweden.",
+  "beta": 1.702,
+  "analyst_targets": {
+    "high": 801.31244,
+    "low": 414.78323,
+    "mean": 642.2127,
+    "current": 434.2
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 17186000000.0,
+    "net_income": 2212000000.0,
+    "ebitda": 2357000000.0,
+    "free_cashflow": 2872000000.0,
+    "gross_margin": 0.3197951821249855,
+    "operating_margin": 0.1278947980914698,
+    "net_margin": 0.1287094146398231,
+    "total_debt": 1956000000.0,
+    "cash": 5258000000.0,
+    "total_equity": 8329000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 11727000000.0,
+      "net_income": -430000000.0,
+      "ebitda": -158000000.0,
+      "fcf": 21000000.0,
+      "operating_income": -659000000.0
+    },
+    "2023": {
+      "revenue": 13247000000.0,
+      "net_income": -532000000.0,
+      "ebitda": -309000000.0,
+      "fcf": 674000000.0,
+      "operating_income": -446000000.0
+    },
+    "2024": {
+      "revenue": 15673000000.0,
+      "net_income": 1138000000.0,
+      "ebitda": 1498000000.0,
+      "fcf": 2284000000.0,
+      "operating_income": 1365000000.0
+    },
+    "2025": {
+      "revenue": 17186000000.0,
+      "net_income": 2212000000.0,
+      "ebitda": 2357000000.0,
+      "fcf": 2872000000.0,
+      "operating_income": 2198000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Internet Content & Information",
+      "revenues": {
+        "2022": 11727000000.0,
+        "2023": 13247000000.0,
+        "2024": 15673000000.0,
+        "2025": 17186000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.28178758706378565,
+      "sga_pct": 0.14441672274005918,
+      "rd_pct": 0.1060898282076059,
+      "da_pct": 0.010041077494728514,
+      "capex_pct": 0.0016082502117237638,
+      "tax_rate": 0.07708872868108536
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.1296
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1831
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0965
+      }
+    ],
+    "avg_growth": 0.1364,
+    "cagr_3y": 0.1359,
+    "beta": 1.702,
+    "ev_ebitda": 35.5,
+    "net_debt": -5759999744,
+    "net_debt_label": "total",
+    "total_debt": 1956000000,
+    "cash": 7715999744,
+    "de_ratio": 0.02,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.068
+      },
+      "target_prices": {
+        "high": 801.31244,
+        "low": 414.78323,
+        "mean": 642.2127,
+        "current": 434.2
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Nasdaq, S&P 500 Retreat From Record Highs as Tech Stocks Fall",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Spotify Stock Falls As Subscriber Target Comes In Light After In-Line Q1",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Sector Update: Tech Stocks Fall Late Afternoon",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Sector Update: Tech Stocks Fall Tuesday Afternoon",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Equities Mostly Lower Intraday as OpenAI Report Sparks Tech Sell-Off",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Spotify Technology S.A. Q1 2026 Earnings Call Summary",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Spotify Drops 14% on Soft Q2 Guidance: Are the Price Hikes Finally Catching Up?",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Spotify (SPOT) Q1 2026 Earnings Transcript",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Top Midday Stories: OpenAI Reportedly Misses Internal Revenue, User Targets; Spotify Shares Fall After Tepid Guidance",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "AI Fears and Surging Crude Oil Prices Weigh on Stocks",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SPOT/SPOT_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

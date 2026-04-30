@@ -1,0 +1,183 @@
+{
+  "ticker": "CNR.TO",
+  "company": "Canadian National Railway Company",
+  "currency": "C$",
+  "date": "2026-04-15",
+  "current_price": 154.21,
+  "shares_outstanding": 611400000,
+  "diluted_avg_shares": 688300000,
+  "market_cap": 94283997184,
+  "sector": "Industrials",
+  "industry": "Railroads",
+  "country": "Canada",
+  "business_summary": "Canadian National Railway Company, together with its subsidiaries, engages in the rail, intermodal, trucking, and related transportation businesses in Canada and the United States. The company provides rail services, which include equipment, customs brokerage, transloading and warehousing, business development, dimensional loads, and private railcar storage, less-than-truckload, and mexico services; intermodal services, such as temperature controlled multimodal, mobile transport trays, port partnerships, transloading and distribution, logistics parks, trucking, and supply chain services. It also offers connecting to rail, short lines, maps and network services. The company serves automotive, coal, fertilizers, temperature controlled cargo, forest products, dimensional, grain, metal and minerals, petroleum and chemicals, consumer goods, and third party logistics applications. Canadian National Railway Company was incorporated in 1919 and is headquartered in Montreal, Canada.",
+  "beta": 0.961,
+  "analyst_targets": {
+    "high": 190.0,
+    "low": 132.0,
+    "mean": 154.75,
+    "current": 154.21
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 17304000000.0,
+    "net_income": 4720000000.0,
+    "ebitda": 9115000000.0,
+    "free_cashflow": 3391000000.0,
+    "gross_margin": 0.4237170596393897,
+    "operating_margin": 0.380663430420712,
+    "net_margin": 0.2727693018955155,
+    "total_debt": 21630000000.0,
+    "cash": 350000000.0,
+    "total_equity": 21568000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 17107000000.0,
+      "net_income": 5118000000.0,
+      "ebitda": 9040000000.0,
+      "fcf": 3917000000.0,
+      "operating_income": 6840000000.0
+    },
+    "2023": {
+      "revenue": 16828000000.0,
+      "net_income": 5625000000.0,
+      "ebitda": 9027000000.0,
+      "fcf": 3778000000.0,
+      "operating_income": 6597000000.0
+    },
+    "2024": {
+      "revenue": 17046000000.0,
+      "net_income": 4448000000.0,
+      "ebitda": 8635000000.0,
+      "fcf": 3150000000.0,
+      "operating_income": 6325000000.0
+    },
+    "2025": {
+      "revenue": 17304000000.0,
+      "net_income": 4720000000.0,
+      "ebitda": 9115000000.0,
+      "fcf": 3391000000.0,
+      "operating_income": 6587000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Railroads",
+      "revenues": {
+        "2022": 17107000000.0,
+        "2023": 16828000000.0,
+        "2024": 17046000000.0,
+        "2025": 17304000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.42242970115364575,
+      "sga_pct": 0.028787677133711838,
+      "rd_pct": 0.0,
+      "da_pct": 0.10800888725995693,
+      "capex_pct": 0.19879403697446313,
+      "tax_rate": 0.20692287292951536
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": -0.0163
+      },
+      {
+        "year": 2024,
+        "yoy": 0.013
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0151
+      }
+    ],
+    "avg_growth": 0.0039,
+    "cagr_3y": 0.0038,
+    "beta": 0.961,
+    "ev_ebitda": 12.7,
+    "net_debt": 21279999104,
+    "net_debt_label": "total",
+    "total_debt": 21629999104,
+    "cash": 350000000,
+    "de_ratio": 0.23,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.024
+      },
+      "target_prices": {
+        "high": 190.0,
+        "low": 132.0,
+        "mean": 154.75,
+        "current": 154.21
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "CNR.TO Canadian National TSX C$136.28 ahead of Jan 30 earnings: key metrics - Meyka",
+      "date": "Wed, 28 Ja",
+      "source": "Meyka"
+    },
+    {
+      "title": "Best TSX Stock to Buy Right Now: CN Rail vs. CP Rail? - Yahoo! Finance Canada",
+      "date": "Wed, 28 Ja",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "Canadian National Railway Stock Has Been Losing Steam: Bargain or Beware? - Yahoo! Finance Canada",
+      "date": "Wed, 24 Se",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "What’s Coming Down the Line for Canadian National Railway in 2026 - Yahoo! Finance Canada",
+      "date": "Wed, 11 Fe",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "A Fresh Look at CN Rail (TSX:CNR) Valuation After Recent Share Price Rebound - Yahoo Finance",
+      "date": "Wed, 08 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "JPMorgan, Citigroup Update CNI Targets as Freight Outlook Remains Uncertain",
+      "date": "Wed, 08 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "TSX Set To For Gains Of More Than 1,000 Pts Over Two Days; CIBC's Top-10 Ideas",
+      "date": "Wed, 01 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Should Investors Retain CSX Stock Despite Its Higher Valuation?",
+      "date": "Wed, 01 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Canadian Pacific Kansas City Price Target Lowered to $129 at Desjardins",
+      "date": "Tue, 31 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Canadian National Bets on Automation and Efficiency to Power Its 2026 Outlook - TIKR.com",
+      "date": "Tue, 28 Oc",
+      "source": "TIKR.com"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CNR_TO/CNR_TO_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-22",
+    "file": "SOIL_TO_20260422_valuation.json",
+    "current_price": 5.945,
+    "currency": "C$",
+    "revenue": 999625000.0,
+    "gross_margin": 0.581498061773165,
+    "ev_ebitda": 3.1,
+    "avg_growth": 0.4305,
+    "fair_value_bear": 3.78,
+    "fair_value_base": 7.86,
+    "fair_value_bull": 10.97,
+    "fair_value_weighted": 6.85
+  }
+]

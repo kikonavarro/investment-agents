@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-04-22",
+    "file": "SU_TO_20260422_valuation.json",
+    "current_price": 86.47,
+    "currency": "C$",
+    "revenue": 52377000000.0,
+    "gross_margin": 0.41380758729976896,
+    "ev_ebitda": 7.3,
+    "avg_growth": -0.0548,
+    "fair_value_bear": 56.02,
+    "fair_value_base": 88.49,
+    "fair_value_bull": 116.7,
+    "fair_value_weighted": 81.14
+  }
+]

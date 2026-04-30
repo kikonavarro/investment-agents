@@ -9,3 +9,31 @@
 2026-03-04 23:33:07,521 [INFO] Ejecutando tweet generation manualmente...
 2026-03-04 23:33:07,526 [INFO] --- Auto tweet generation ---
 2026-03-04 23:33:09,575 [INFO] Sin noticias de alto interes para tuitear.
+2026-04-26 22:57:05,162 [INFO] Ejecutando LEAPS scan manualmente...
+2026-04-26 22:57:05,163 [INFO] === TAREA DIARIA: LEAPS scan ===
+2026-04-26 22:57:05,814 [INFO] Scan LEAPS: 154 tickers
+2026-04-26 22:57:26,768 [INFO]   20/154...
+2026-04-26 22:57:38,857 [ERROR] $SQ: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-26 22:57:42,815 [INFO]   40/154...
+2026-04-26 22:58:01,349 [INFO]   60/154...
+2026-04-26 22:58:19,185 [INFO]   80/154...
+2026-04-26 22:58:33,470 [INFO]   100/154...
+2026-04-26 22:58:50,257 [INFO]   120/154...
+2026-04-26 22:58:55,880 [ERROR] $X: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-26 22:59:05,023 [INFO]   140/154...
+2026-04-26 22:59:08,790 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: WBA"}}}
+2026-04-26 22:59:09,564 [ERROR] $WBA: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-26 22:59:10,713 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: SPY"}}}
+2026-04-26 22:59:12,991 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: QQQ"}}}
+2026-04-26 22:59:15,277 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: IWM"}}}
+2026-04-26 22:59:17,181 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: DIA"}}}
+2026-04-26 22:59:18,947 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: GLD"}}}
+2026-04-26 22:59:20,658 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: SLV"}}}
+2026-04-26 22:59:22,424 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: TLT"}}}
+2026-04-26 22:59:24,188 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: XLE"}}}
+2026-04-26 22:59:25,822 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: XLF"}}}
+2026-04-26 22:59:26,946 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"No fundamentals data found for symbol: XLK"}}}
+2026-04-26 22:59:27,453 [INFO] LEAPS scan: 35/154 válidos
+2026-04-26 22:59:27,456 [INFO] Encolado [SCHEDULER] LEAPS para Claude Code
+2026-04-26 22:59:27,457 [INFO] === LEAPS scan completado ===
+

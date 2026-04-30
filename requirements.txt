@@ -3,6 +3,7 @@ anthropic>=0.39.0
 
 # Datos financieros
 yfinance>=0.2.40
+yahooquery>=2.3.7
 
 # Excel
 openpyxl>=3.1.0

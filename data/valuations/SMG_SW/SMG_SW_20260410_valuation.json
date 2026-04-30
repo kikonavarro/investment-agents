@@ -1,0 +1,145 @@
+{
+  "ticker": "SMG.SW",
+  "company": "SMG Swiss Marketplace Group Holding AG",
+  "currency": "CHF ",
+  "date": "2026-04-10",
+  "current_price": 27.65,
+  "shares_outstanding": 98085188,
+  "diluted_avg_shares": 98145200,
+  "market_cap": 2712055296,
+  "sector": "Communication Services",
+  "industry": "Internet Content & Information",
+  "country": "Switzerland",
+  "business_summary": "SMG Swiss Marketplace Group Holding AG operates as an online marketplace and digital company in Switzerland. It operates through three segments: Real Estate, Automotive, and General Marketplaces. The Real Estate segment provides digital platforms and services for renting, selling, and managing property. The Automotive segment operates digital marketplaces for new and used vehicles and motorbikes. The General Marketplaces segment operates digital marketplaces that facilitate transactions between buyers and sellers across a range of new and used goods and services. The company also offers platforms that allow users to compare and take out insurance for vehicles, household contents and healthcare, and consumer loans; and online advertising services for SME, agency, automotive, real estate, and companies. SMG Swiss Marketplace Group Holding AG was founded in 2021 and is headquartered in Zurich, Switzerland.",
+  "beta": 1.0,
+  "analyst_targets": {
+    "high": 51.9,
+    "low": 32.0,
+    "mean": 41.225,
+    "current": 27.65
+  },
+  "historical_years": [
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 331989000.0,
+    "net_income": 67694000.0,
+    "ebitda": 143651000.0,
+    "free_cashflow": 106628000.0,
+    "gross_margin": 1.080888222200133,
+    "operating_margin": 0.2690330101298537,
+    "net_margin": 0.2039043462283389,
+    "total_debt": 11846000.0,
+    "cash": 92664000.0,
+    "total_equity": 904731000.0
+  },
+  "historical_data": {
+    "2023": {
+      "revenue": 260137000.0,
+      "net_income": 46098000.0,
+      "ebitda": 104952000.0,
+      "fcf": 63423000.0,
+      "operating_income": 47894000.0
+    },
+    "2024": {
+      "revenue": 290879000.0,
+      "net_income": 61588000.0,
+      "ebitda": 129276000.0,
+      "fcf": 93118000.0,
+      "operating_income": 71036000.0
+    },
+    "2025": {
+      "revenue": 331989000.0,
+      "net_income": 67694000.0,
+      "ebitda": 143651000.0,
+      "fcf": 106628000.0,
+      "operating_income": 89316000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Internet Content & Information",
+      "revenues": {
+        "2023": 260137000.0,
+        "2024": 290879000.0,
+        "2025": 331989000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 1.0806897780066713,
+      "sga_pct": 0.10023444792835824,
+      "rd_pct": 0.0,
+      "da_pct": 0.19694230318118966,
+      "capex_pct": 0.10932316433264011,
+      "tax_rate": 0.09564050847541679
+    },
+    "revenue_growths": [
+      {
+        "year": 2024,
+        "yoy": 0.1182
+      },
+      {
+        "year": 2025,
+        "yoy": 0.1413
+      }
+    ],
+    "avg_growth": 0.1298,
+    "cagr_3y": null,
+    "beta": 1.0,
+    "ev_ebitda": 20.0,
+    "net_debt": 162987008,
+    "net_debt_label": "total",
+    "total_debt": 255651008,
+    "cash": 92664000,
+    "de_ratio": 0.09,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.116
+      },
+      "target_prices": {
+        "high": 51.9,
+        "low": 32.0,
+        "mean": 41.225,
+        "current": 27.65
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "SMG Swiss Marketplace Group Holding AG (WBO:SMGC) Full Year 2025 Earnings Call Highlights: ...",
+      "date": "Wed, 18 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Jefferies upgrades SMG Swiss Marketplace stock to Buy on AI resilience - Investing.com",
+      "date": "Tue, 06 Ja",
+      "source": "Investing.com"
+    },
+    {
+      "title": "SW Forecast — Price Prediction for 2026. Should I Buy SW? - Intellectia AI",
+      "date": "Thu, 30 Ja",
+      "source": "Intellectia AI"
+    },
+    {
+      "title": "Rightmove plc (RMV.L) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+      "date": "Mon, 06 Ap",
+      "source": "Yahoo! Finance Canada"
+    },
+    {
+      "title": "SMG Swiss Marketplace Group Bets On AI As Valuation Gap Widens",
+      "date": "Fri, 20 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SMG_SW/SMG_SW_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}
