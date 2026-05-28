@@ -46,7 +46,38 @@ def validate_fair_values(bear, base, bull):
     return None
 
 
-def finalize_thesis(ticker: str, data: dict):
+def _run_review_gate(ticker: str, output_dir, folder: str):
+    """Ejecuta el reviewer sobre la tesis .md y aborta si hay checks CRÍTICOS.
+    Antes el gate dependía de que Opus se acordara de correr el reviewer y respetarlo;
+    ahora el único camino a history.json/Excel pasa por aquí (salvo --force)."""
+    thesis_path = output_dir / f"{folder}_tesis_inversion.md"
+    val_path = output_dir / f"{folder}_valuation.json"
+    if not (thesis_path.exists() and val_path.exists()):
+        return  # sin tesis o sin datos no hay nada que revisar
+
+    try:
+        from tools.thesis_reviewer import review_thesis
+        thesis_text = thesis_path.read_text(encoding="utf-8")
+        valuation = json.loads(val_path.read_text(encoding="utf-8"))
+        review = review_thesis(ticker, thesis_text, valuation)
+    except Exception as e:
+        # Un bug del reviewer no debe impedir finalizar: avisar y continuar.
+        print(f"  [REVIEW GATE] No se pudo ejecutar el reviewer ({e}); se continúa sin bloquear.")
+        return
+
+    if review["verdict"] == "FAIL":
+        print(f"\n  [REVIEW GATE] FAIL — {review['summary']}")
+        for c in review["critical"]:
+            print(f"    [CRITICAL] {c['message']}")
+        print("\n  Tesis NO finalizada. Corrige los críticos o usa --force para forzar.")
+        sys.exit(1)
+    elif review["verdict"] == "REVIEW":
+        print(f"\n  [REVIEW GATE] {review['summary']} (warnings; se continúa)")
+    else:
+        print("\n  [REVIEW GATE] PASS")
+
+
+def finalize_thesis(ticker: str, data: dict, force: bool = False):
     """Guarda fair values en history.json y regenera Excel con escenarios reales."""
     folder = ticker.replace(".", "_")
     output_dir = VALUATIONS_DIR / folder
@@ -67,6 +98,10 @@ def finalize_thesis(ticker: str, data: dict):
     if err:
         print(f"Error: {err}")
         sys.exit(1)
+
+    # Review gate: no publicar una tesis con checks críticos en rojo (salvo --force).
+    if not force:
+        _run_review_gate(ticker, output_dir, folder)
 
     weighted = round(0.4 * bear + 0.4 * base + 0.2 * bull, 2)
 
@@ -201,6 +236,8 @@ if __name__ == "__main__":
     parser.add_argument("data_file", nargs="?", help="JSON con fair_values y scenarios")
     parser.add_argument("--clean-all", action="store_true",
                         help="Limpiar fair values basura de todos los tickers")
+    parser.add_argument("--force", action="store_true",
+                        help="Finalizar aunque el review gate falle (saltar checks críticos)")
     args = parser.parse_args()
 
     if args.clean_all:
@@ -208,6 +245,6 @@ if __name__ == "__main__":
     elif args.ticker and args.data_file:
         with open(args.data_file, encoding="utf-8") as f:
             data = json.load(f)
-        finalize_thesis(args.ticker, data)
+        finalize_thesis(args.ticker, data, force=args.force)
     else:
         parser.print_help()

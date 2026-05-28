@@ -68,36 +68,51 @@ def review_thesis(ticker: str, thesis_text: str, valuation: dict) -> dict:
 
 
 def _extract_fair_values(thesis_text: str) -> dict:
-    """Extrae fair values bear/base/bull de la tesis (tabla markdown)."""
+    """Extrae fair values bear/base/bull de la tesis.
+
+    Soporta dos formatos:
+      1. Tabla markdown:  | **Bear** | ... | **$185.00** |
+      2. Bullet con paréntesis:  **Bear ($150):** ...  (el que manda la memoria del
+         usuario — antes no se parseaba y los checks críticos quedaban en no-op).
+    """
     values = {}
     # Acepta símbolos ($€£) o códigos de moneda (KRW, JPY, CHF, CAD, etc.)
     cur = r"(?:[\$€£]|(?:USD|EUR|GBP|PLN|CZK|HUF|RON|KRW|JPY|CHF|CAD|AUD|HKD|SGD|SEK|NOK|DKK|MXN|BRL|INR|CNY|TWD|C\$|A\$)\s*)"
     # Moneda como sufijo (ej: "7,99 zł", "13,23 PLN") — algunos mercados la ponen después
     cur_sfx = r"(?:\s*(?:zł|zl|PLN|CZK|HUF|RON|USD|EUR|GBP|[\$€£]))"
     for scenario in ["bear", "base", "bull"]:
-        # Buscar precio en negrita en la fila del escenario
-        pattern = rf"\|\s*\**{scenario}\**\s*\|.*?\*\*(?:{cur})?([\d,.]+){cur_sfx}?\*\*"
-        match = re.search(pattern, thesis_text, re.IGNORECASE)
+        price_str = None
+
+        # 1) Tabla markdown: precio en negrita en la fila del escenario
+        match = re.search(
+            rf"\|\s*\**{scenario}\**\s*\|.*?\*\*(?:{cur})?([\d,.]+){cur_sfx}?\*\*",
+            thesis_text, re.IGNORECASE)
         if match:
-            price_str = _normalize_number(match.group(1))
-            try:
-                values[scenario] = float(price_str)
-            except ValueError:
-                pass
-        else:
-            # Fallback: último valor con moneda en la fila
-            row_pattern = rf"\|\s*\**{scenario}\**\s*\|[^\n]+"
-            row_match = re.search(row_pattern, thesis_text, re.IGNORECASE)
+            price_str = match.group(1)
+
+        # 2) Bullet con paréntesis: **Bear ($150):**
+        if price_str is None:
+            match = re.search(
+                rf"\*\*\s*{scenario}\s*\(\s*(?:{cur})?([\d,.]+){cur_sfx}?\s*[-–)]",
+                thesis_text, re.IGNORECASE)
+            if match:
+                price_str = match.group(1)
+
+        # 3) Fallback: último valor con moneda en la fila de tabla del escenario
+        if price_str is None:
+            row_match = re.search(rf"\|\s*\**{scenario}\**\s*\|[^\n]+", thesis_text, re.IGNORECASE)
             if row_match:
                 row = row_match.group(0)
                 price_matches = re.findall(rf"(?:{cur}([\d,.]+)|([\d,.]+){cur_sfx})(?![BMbm])", row, re.IGNORECASE)
                 price_matches = [a or b for (a, b) in price_matches] if price_matches and isinstance(price_matches[0], tuple) else price_matches
                 if price_matches:
-                    price_str = _normalize_number(price_matches[-1])
-                    try:
-                        values[scenario] = float(price_str)
-                    except ValueError:
-                        pass
+                    price_str = price_matches[-1]
+
+        if price_str is not None:
+            try:
+                values[scenario] = float(_normalize_number(price_str))
+            except ValueError:
+                pass
     return values
 
 
