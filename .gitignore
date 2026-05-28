@@ -30,6 +30,13 @@ data/valuations/*/SEC_filings/
 data/cache/
 data/telegram_queue/
 
+# Estado de runtime y datos personales (NO versionar — repo público)
+data/*.xlsx
+config/voice_state.json
+data/scheduler_state.db
+data/scheduler_state.db-shm
+data/scheduler_state.db-wal
+
 # Eval workspaces
 invest-new-agent-workspace/
 
