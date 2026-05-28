@@ -71,10 +71,12 @@ def _extract_fair_values(thesis_text: str) -> dict:
     """Extrae fair values bear/base/bull de la tesis (tabla markdown)."""
     values = {}
     # Acepta símbolos ($€£) o códigos de moneda (KRW, JPY, CHF, CAD, etc.)
-    cur = r"(?:[\$€£]|(?:USD|EUR|GBP|KRW|JPY|CHF|CAD|AUD|HKD|SGD|SEK|NOK|DKK|MXN|BRL|INR|CNY|TWD|C\$|A\$)\s*)"
+    cur = r"(?:[\$€£]|(?:USD|EUR|GBP|PLN|CZK|HUF|RON|KRW|JPY|CHF|CAD|AUD|HKD|SGD|SEK|NOK|DKK|MXN|BRL|INR|CNY|TWD|C\$|A\$)\s*)"
+    # Moneda como sufijo (ej: "7,99 zł", "13,23 PLN") — algunos mercados la ponen después
+    cur_sfx = r"(?:\s*(?:zł|zl|PLN|CZK|HUF|RON|USD|EUR|GBP|[\$€£]))"
     for scenario in ["bear", "base", "bull"]:
         # Buscar precio en negrita en la fila del escenario
-        pattern = rf"\|\s*\**{scenario}\**\s*\|.*?\*\*{cur}([\d,.]+)\*\*"
+        pattern = rf"\|\s*\**{scenario}\**\s*\|.*?\*\*(?:{cur})?([\d,.]+){cur_sfx}?\*\*"
         match = re.search(pattern, thesis_text, re.IGNORECASE)
         if match:
             price_str = _normalize_number(match.group(1))
@@ -88,7 +90,8 @@ def _extract_fair_values(thesis_text: str) -> dict:
             row_match = re.search(row_pattern, thesis_text, re.IGNORECASE)
             if row_match:
                 row = row_match.group(0)
-                price_matches = re.findall(rf"{cur}([\d,.]+)(?![BMbm])", row, re.IGNORECASE)
+                price_matches = re.findall(rf"(?:{cur}([\d,.]+)|([\d,.]+){cur_sfx})(?![BMbm])", row, re.IGNORECASE)
+                price_matches = [a or b for (a, b) in price_matches] if price_matches and isinstance(price_matches[0], tuple) else price_matches
                 if price_matches:
                     price_str = _normalize_number(price_matches[-1])
                     try:
@@ -131,7 +134,7 @@ def _get_ev_ebitda(valuation: dict) -> float:
     ebitda = latest.get("ebitda", 0) or 0
 
     if not ebitda or ebitda <= 0:
-        return 999
+        return None
 
     market_cap = price * shares
     ev = market_cap + debt - cash
@@ -160,7 +163,7 @@ def _check_fair_value_sanity(ticker: str, thesis_text: str, valuation: dict) -> 
     if bear and price:
         # EV/EBITDA < 50x: bear > 20% del precio (empresa "normal")
         # EV/EBITDA >= 50x: bear > 5% del precio (empresa de alta valoración, más tolerancia)
-        threshold = 0.20 if ev_ebitda < 50 else 0.05
+        threshold = 0.20 if (ev_ebitda is None or ev_ebitda < 50) else 0.05
         if bear < price * threshold:
             issues.append({
                 "level": "critical",
@@ -296,7 +299,7 @@ def _check_extreme_valuation(thesis_text: str, valuation: dict) -> list:
     issues = []
     ev_ebitda = _get_ev_ebitda(valuation)
 
-    if ev_ebitda < 50:
+    if ev_ebitda is None or ev_ebitda < 50:
         return issues
 
     # Si usa Sum-of-Parts → el EV/EBITDA global no aplica, cada segmento tiene su múltiplo
@@ -464,7 +467,7 @@ def _check_price_consistency(thesis_text: str, valuation: dict) -> list:
     # Buscar "Precio actual: $XXX" o "precio actual de $XXX"
     match = re.search(r"(?i)precio\s+actual[:\s]+\$\s*([\d,.]+)", thesis_text)
     if match:
-        thesis_price_str = match.group(1).replace(",", "")
+        thesis_price_str = _normalize_number(match.group(1))
         try:
             thesis_price = float(thesis_price_str)
             diff_pct = abs(thesis_price - price) / price
@@ -521,6 +524,31 @@ def _check_consensus_gap(thesis_text: str, valuation: dict) -> list:
                 "message": (
                     f"Fair value ponderado (${weighted:.2f}) está un {(1-ratio)*100:.0f}% "
                     f"por debajo del consenso (${mean_target:.2f}). Verificar supuestos."
+                ),
+            })
+        # Divergencia hacia ARRIBA: un DCF demasiado optimista es tan peligroso como
+        # uno pesimista. Antes solo se vigilaba el lado bajo (asimetría). Las tesis
+        # Sum-of-Parts divergen del consenso de forma legítima, así que ahí degradamos
+        # a warning en vez de critical.
+        elif ratio > 4.0:
+            is_sop = any(k in thesis_text.lower() for k in
+                         ("sum-of-parts", "sum of parts", "suma de partes", "sotp"))
+            issues.append({
+                "level": "warning" if is_sop else "critical",
+                "check": "gap_consenso_alcista_extremo",
+                "message": (
+                    f"Fair value ponderado (${weighted:.2f}) es {ratio:.0%} del consenso "
+                    f"(${mean_target:.2f}), un {(ratio-1)*100:.0f}% por encima. "
+                    f"El DCF parece demasiado optimista — revisar crecimiento/múltiplos."
+                ),
+            })
+        elif ratio > 2.5:
+            issues.append({
+                "level": "warning",
+                "check": "gap_consenso_alcista",
+                "message": (
+                    f"Fair value ponderado (${weighted:.2f}) está un {(ratio-1)*100:.0f}% "
+                    f"por encima del consenso (${mean_target:.2f}). Verificar supuestos."
                 ),
             })
     return issues

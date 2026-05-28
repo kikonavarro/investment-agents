@@ -32,6 +32,20 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from config.settings import VALUATIONS_DIR
 
 
+def validate_fair_values(bear, base, bull):
+    """Valida los fair values oficiales antes de persistirlos. Son el output que va a
+    Telegram/Substack: un signo o un orden invertido al teclear publicaría una
+    valoración absurda. Devuelve un mensaje de error, o None si son válidos."""
+    if not all([bear, base, bull]):
+        return "faltan fair_values (bear/base/bull)"
+    if bear <= 0 or base <= 0 or bull <= 0:
+        return f"los fair values deben ser positivos (bear={bear}, base={base}, bull={bull})"
+    if not (bear <= base <= bull):
+        return (f"los fair values deben cumplir bear <= base <= bull "
+                f"(bear={bear}, base={base}, bull={bull}). ¿Se invirtió algún escenario al teclear?")
+    return None
+
+
 def finalize_thesis(ticker: str, data: dict):
     """Guarda fair values en history.json y regenera Excel con escenarios reales."""
     folder = ticker.replace(".", "_")
@@ -49,8 +63,9 @@ def finalize_thesis(ticker: str, data: dict):
     base = fair_values.get("base", 0)
     bull = fair_values.get("bull", 0)
 
-    if not all([bear, base, bull]):
-        print("Error: faltan fair_values (bear/base/bull)")
+    err = validate_fair_values(bear, base, bull)
+    if err:
+        print(f"Error: {err}")
         sys.exit(1)
 
     weighted = round(0.4 * bear + 0.4 * base + 0.2 * bull, 2)
