@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 from yahooquery import Ticker
 from config import settings
+from tools.atomic_io import atomic_write_text
 
 
 HEADERS = {
@@ -88,8 +89,7 @@ def _save_cache(ticker: str, data: dict):
     path = _cache_path(ticker)
     try:
         serialized = _serialize_for_cache(data)
-        path.write_text(_json.dumps(serialized, default=str, ensure_ascii=False),
-                        encoding="utf-8")
+        atomic_write_text(path, _json.dumps(serialized, default=str, ensure_ascii=False))
         print(f"  [cache] Datos guardados en {path.name}")
     except Exception as e:
         print(f"  [cache] Error guardando caché: {e}")

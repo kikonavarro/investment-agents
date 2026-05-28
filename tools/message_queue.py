@@ -16,6 +16,8 @@ import os
 from datetime import datetime
 from pathlib import Path
 
+from tools.atomic_io import atomic_write_text
+
 QUEUE_DIR = Path(__file__).parent.parent / "data" / "telegram_queue"
 INBOX_DIR = QUEUE_DIR / "inbox"
 DONE_DIR = QUEUE_DIR / "done"
@@ -37,7 +39,8 @@ def _is_duplicate(chat_id: str, text: str, window_seconds: int = 30) -> bool:
                 msg_time = datetime.fromisoformat(msg["timestamp"])
                 if (now - msg_time).total_seconds() < window_seconds:
                     return True
-        except (json.JSONDecodeError, Exception):
+        except (json.JSONDecodeError, Exception) as e:
+            print(f"  [queue] AVISO: no se pudo leer {f.name} ({e}); se omite")
             continue
     return False
 
@@ -53,7 +56,9 @@ def enqueue_message(chat_id: str, user_name: str, text: str,
         return None
 
     ts = datetime.now()
-    msg_id = ts.strftime("%Y%m%d_%H%M%S") + f"_{chat_id}"
+    # Microsegundos en el id: dos mensajes del mismo chat en el mismo segundo ya no
+    # colisionan (antes compartían nombre de fichero y uno se perdía).
+    msg_id = ts.strftime("%Y%m%d_%H%M%S_%f") + f"_{chat_id}"
     msg = {
         "id": msg_id,
         "chat_id": chat_id,
@@ -65,7 +70,7 @@ def enqueue_message(chat_id: str, user_name: str, text: str,
         "response": None,
     }
     path = INBOX_DIR / f"{msg_id}.json"
-    path.write_text(json.dumps(msg, ensure_ascii=False, indent=2), encoding="utf-8")
+    atomic_write_text(path, json.dumps(msg, ensure_ascii=False, indent=2))
     return msg_id
 
 
@@ -78,7 +83,8 @@ def get_pending() -> list[dict]:
             msg = json.loads(f.read_text(encoding="utf-8"))
             if msg.get("status") == "pending":
                 msgs.append(msg)
-        except (json.JSONDecodeError, Exception):
+        except (json.JSONDecodeError, Exception) as e:
+            print(f"  [queue] AVISO: no se pudo leer {f.name} ({e}); se omite")
             continue
     return msgs
 
@@ -95,7 +101,7 @@ def save_response(msg_id: str, response: str, auto_send: bool = False):
     # 'responded' = listo para que el bot lo envíe (fallback)
     msg["status"] = "sending" if auto_send else "responded"
     msg["responded_at"] = datetime.now().isoformat()
-    path.write_text(json.dumps(msg, ensure_ascii=False, indent=2), encoding="utf-8")
+    atomic_write_text(path, json.dumps(msg, ensure_ascii=False, indent=2))
 
 
 def send_response(msg_id: str) -> bool:
@@ -111,7 +117,7 @@ def send_response(msg_id: str) -> bool:
 
     # Enviar por Telegram
     from tools.telegram_bot import send_message, _load_config
-    _, _, _, api_base = _load_config()
+    api_base = _load_config()[3]
     success = send_message(api_base, msg["chat_id"], msg["response"])
 
     if success:
@@ -122,7 +128,7 @@ def send_response(msg_id: str) -> bool:
         msg["status"] = "send_failed"
         msg["retry_count"] = msg.get("retry_count", 0) + 1
         msg["failed_at"] = datetime.now().isoformat()
-        path.write_text(json.dumps(msg, ensure_ascii=False, indent=2), encoding="utf-8")
+        atomic_write_text(path, json.dumps(msg, ensure_ascii=False, indent=2))
         print(f"  [queue] Fallo al enviar {msg_id} (intento {msg['retry_count']})")
         return False
 
@@ -136,7 +142,8 @@ def get_failed() -> list[dict]:
             msg = json.loads(f.read_text(encoding="utf-8"))
             if msg.get("status") == "send_failed":
                 msgs.append(msg)
-        except (json.JSONDecodeError, Exception):
+        except (json.JSONDecodeError, Exception) as e:
+            print(f"  [queue] AVISO: no se pudo leer {f.name} ({e}); se omite")
             continue
     return msgs
 
@@ -164,5 +171,5 @@ def mark_sent(msg_id: str):
     msg["status"] = "sent"
     msg["sent_at"] = datetime.now().isoformat()
     dst = DONE_DIR / f"{msg_id}.json"
-    dst.write_text(json.dumps(msg, ensure_ascii=False, indent=2), encoding="utf-8")
+    atomic_write_text(dst, json.dumps(msg, ensure_ascii=False, indent=2))
     src.unlink()
