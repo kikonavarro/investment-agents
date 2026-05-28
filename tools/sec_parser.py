@@ -96,23 +96,42 @@ def parse_10k(filepath: str) -> dict:
     with open(path, 'r', errors='ignore') as f:
         content = f.read()
 
-    # Extraer todos los valores numéricos XBRL
-    pattern = r'<ix:nonFraction[^>]*name="([^"]*)"[^>]*>([^<]+)</ix:nonFraction>'
-    matches = re.findall(pattern, content)
+    # Extraer todos los valores numéricos XBRL.
+    # Cada <ix:nonFraction> lleva atributos name, scale (potencia de 10 a aplicar al
+    # texto mostrado) y sign ("-" si es negativo). El valor real = texto * 10**scale,
+    # negado si sign="-". Empresas distintas reportan en unidades, miles (scale=3) o
+    # millones (scale=6); normalizamos TODO a MILLONES para que sea comparable con Yahoo
+    # sin importar la escala de reporte. (Antes se asumía millones siempre: una empresa
+    # que reporta en miles, como HIMS, daba cifras 1000x infladas y alertas falsas.)
+    pattern = r'<ix:nonFraction\s([^>]*?)>([^<]+)</ix:nonFraction>'
+    matches = re.findall(pattern, content, flags=re.DOTALL)
 
     if not matches:
         return {"error": "No XBRL data found in file"}
 
-    # Agrupar por tag
+    name_re = re.compile(r'name="([^"]*)"')
+    scale_re = re.compile(r'scale="(-?\d+)"')
+    sign_re = re.compile(r'sign="([^"]*)"')
+
+    # Agrupar por tag, normalizando cada valor a millones
     raw_tags = defaultdict(list)
-    for name, value in matches:
-        tag_name = name.split(':')[-1]  # Remove namespace prefix
+    for attrs, value in matches:
+        name_m = name_re.search(attrs)
+        if not name_m:
+            continue
+        tag_name = name_m.group(1).split(':')[-1]  # Remove namespace prefix
         clean_val = value.strip().replace(',', '').replace('$', '').replace('(', '-').replace(')', '')
         try:
             num = float(clean_val)
-            raw_tags[tag_name].append(num)
         except ValueError:
-            pass
+            continue
+        scale_m = scale_re.search(attrs)
+        if scale_m:
+            num *= 10 ** int(scale_m.group(1))
+        sign_m = sign_re.search(attrs)
+        if sign_m and sign_m.group(1) == '-':
+            num = -num
+        raw_tags[tag_name].append(num / 1e6)  # a millones
 
     # Extraer métricas mapeadas
     result = {"_source": str(filepath), "_total_tags": len(raw_tags)}
@@ -121,13 +140,16 @@ def parse_10k(filepath: str) -> dict:
         for tag in tag_names:
             if tag in raw_tags:
                 values = raw_tags[tag]
-                # Tomar el valor más grande (generalmente el full-year)
-                # Para métricas de balance, tomar el primer valor (más reciente)
+                # Heurística de selección de período (limitación conocida: no parsea
+                # contextRef, así que mezcla años/segmentos). Para P&L/cash flow tomamos
+                # el valor de mayor MAGNITUD (normalmente el full-year consolidado),
+                # conservando su signo — así una pérdida sigue siendo negativa en vez de
+                # convertirse en beneficio. Para balance, el primero (más reciente).
                 if metric in ("total_assets", "total_equity", "cash", "long_term_debt",
                               "total_debt", "current_assets", "current_liabilities"):
                     result[metric] = values[0]  # Most recent
                 else:
-                    result[metric] = max(values)  # Full year (largest)
+                    result[metric] = max(values, key=abs)  # Full year (mayor magnitud, con signo)
                 break
 
     # Calcular métricas derivadas
@@ -175,8 +197,8 @@ def cross_reference(sec_data: dict, yahoo_data: dict, ticker: str) -> dict:
         yahoo_val = yahoo_data.get(yahoo_key, 0) / 1e6 if yahoo_key and yahoo_data.get(yahoo_key) else None
 
         if sec_val is not None and yahoo_val is not None:
-            # SEC values are already in millions for most tags
-            # Yahoo values need /1e6
+            # Ambos en millones: SEC ya viene normalizado a millones en parse_10k,
+            # Yahoo se divide entre 1e6.
             diff_pct = abs(sec_val - yahoo_val) / yahoo_val * 100 if yahoo_val != 0 else 0
 
             comp = {
@@ -189,10 +211,14 @@ def cross_reference(sec_data: dict, yahoo_data: dict, ticker: str) -> dict:
             comparisons.append(comp)
 
             if diff_pct >= 5:
+                # Nunca "critical" desde este cruce automático: como el parser no
+                # resuelve el contextRef, una diferencia grande suele ser un desajuste
+                # de período/segmento, no maquillaje. Opus lo confirma contra el 10-K.
+                extra = " — verificar período/segmento en el 10-K" if diff_pct >= 15 else ""
                 alerts.append({
-                    "level": "warning" if diff_pct < 15 else "critical",
+                    "level": "warning",
                     "metric": label,
-                    "message": f"{label}: SEC 10-K = {sec_val:,.0f}M vs Yahoo = {yahoo_val:,.0f}M ({diff_pct:.1f}% diff)"
+                    "message": f"{label}: SEC 10-K = {sec_val:,.0f}M vs Yahoo = {yahoo_val:,.0f}M ({diff_pct:.1f}% diff){extra}"
                 })
 
     # Check for EBITDA (Yahoo reports it, SEC doesn't directly)
