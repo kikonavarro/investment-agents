@@ -137,7 +137,8 @@ def generate_valuation_excel(ticker: str, data: dict, historical: dict,
     # HOJA 1: ASSUMPTIONS
     ws_a = wb.active
     ws_a.title = "Assumptions"
-    _build_assumptions_sheet(ws_a, ticker, company_name, segments, scenarios,
+    assumption_rows = _build_assumptions_sheet(
+                             ws_a, ticker, company_name, segments, scenarios,
                              historical, sorted_years, proj_years, all_years,
                              first_data_col, hist_cols, proj_cols, all_cols)
 
@@ -150,13 +151,14 @@ def generate_valuation_excel(ticker: str, data: dict, historical: dict,
     ws_m = wb.create_sheet("Model")
     _build_model_sheet(ws_m, ticker, company_name, segments, scenarios,
                        historical, sorted_years, proj_years, all_years,
-                       first_data_col, hist_cols, proj_cols, all_cols, data)
+                       first_data_col, hist_cols, proj_cols, all_cols, data,
+                       assumption_rows)
 
     # HOJA 4: VALUATION
     ws_v = wb.create_sheet("Valuation")
     _build_valuation_sheet(ws_v, ticker, company_name, scenarios, data,
                            proj_years, proj_cols, first_data_col, n_hist,
-                           metrics=metrics)
+                           assumption_rows, metrics=metrics)
 
     # Ajustar anchos
     for ws in [ws_a, ws_fs, ws_m, ws_v]:
@@ -202,6 +204,9 @@ def _build_assumptions_sheet(ws, ticker, company_name, segments, scenarios,
     base_sc = scenarios["base"]
     bull_sc = scenarios["bull"]
     bear_sc = scenarios["bear"]
+
+    # Filas reales por segmento (las consume el Model sheet, sin recalcular offsets a mano)
+    seg_rev_proj_rows = []
 
     for seg_idx, segment in enumerate(segments):
         seg_name = segment["name"]
@@ -251,6 +256,7 @@ def _build_assumptions_sheet(ws, ticker, company_name, segments, scenarios,
         # Revenue proyectado
         _set_label(ws, row, 1, "  Revenue Projected ($M)", bold=True)
         rev_proj_row = row
+        seg_rev_proj_rows.append(rev_proj_row)
         for i in range(len(proj_years)):
             col = proj_cols[i]
             c_letter = _col(col)
@@ -279,6 +285,7 @@ def _build_assumptions_sheet(ws, ticker, company_name, segments, scenarios,
         _set_input(ws, row, col, bear_sc["gross_margin"], is_pct=True)
     row += 1
     _set_label(ws, row, 1, "Gross Margin (Selected)", bold=True)
+    gm_selected_row = row
     for col in proj_cols:
         c = _col(col)
         ws.cell(row=row, column=col, value=f'=OFFSET({c}{gm_base_row},$G$2-1,0)').number_format = PCT_FORMAT
@@ -299,6 +306,7 @@ def _build_assumptions_sheet(ws, ticker, company_name, segments, scenarios,
         _set_input(ws, row, col, bear_sc["sga_pct"], is_pct=True)
     row += 1
     _set_label(ws, row, 1, "SG&A % Revenue (Selected)", bold=True)
+    sga_selected_row = row
     for col in proj_cols:
         c = _col(col)
         ws.cell(row=row, column=col, value=f'=OFFSET({c}{sga_base_row},$G$2-1,0)').number_format = PCT_FORMAT
@@ -319,6 +327,7 @@ def _build_assumptions_sheet(ws, ticker, company_name, segments, scenarios,
         _set_input(ws, row, col, bear_sc["rd_pct"], is_pct=True)
     row += 1
     _set_label(ws, row, 1, "R&D % Revenue (Selected)", bold=True)
+    rd_selected_row = row
     for col in proj_cols:
         c = _col(col)
         ws.cell(row=row, column=col, value=f'=OFFSET({c}{rd_base_row},$G$2-1,0)').number_format = PCT_FORMAT
@@ -326,14 +335,17 @@ def _build_assumptions_sheet(ws, ticker, company_name, segments, scenarios,
 
     # D&A, CapEx, Tax (sin escenarios, solo base)
     _set_label(ws, row, 1, "D&A % Revenue")
+    da_row = row
     for col in proj_cols:
         _set_input(ws, row, col, base_sc["da_pct"], is_pct=True)
     row += 1
     _set_label(ws, row, 1, "CapEx % Revenue")
+    capex_row = row
     for col in proj_cols:
         _set_input(ws, row, col, base_sc["capex_pct"], is_pct=True)
     row += 1
     _set_label(ws, row, 1, "Tax Rate")
+    tax_row = row
     for col in proj_cols:
         _set_input(ws, row, col, base_sc["tax_rate"], is_pct=True)
     row += 2
@@ -353,6 +365,7 @@ def _build_assumptions_sheet(ws, ticker, company_name, segments, scenarios,
     _set_input(ws, row, first_data_col, bear_sc["wacc"], is_pct=True)
     row += 1
     _set_label(ws, row, 1, "WACC (Selected)", bold=True)
+    wacc_selected_row = row
     c = _col(first_data_col)
     ws.cell(row=row, column=first_data_col,
             value=f'=OFFSET({c}{wacc_base_row},$G$2-1,0)').number_format = PCT_FORMAT
@@ -372,9 +385,24 @@ def _build_assumptions_sheet(ws, ticker, company_name, segments, scenarios,
     ws.cell(row=row, column=first_data_col).number_format = '0.0"x"'
     row += 1
     _set_label(ws, row, 1, "Terminal Value Multiple (Selected)", bold=True)
+    tv_selected_row = row
     c = _col(first_data_col)
     ws.cell(row=row, column=first_data_col,
             value=f'=OFFSET({c}{tv_base_row},$G$2-1,0)').number_format = '0.0"x"'
+
+    # Devolver las filas REALES de cada assumption para que Model y Valuation
+    # las referencien sin recalcular offsets a mano (causa raíz del descuadre del DCF).
+    return {
+        "gm_selected": gm_selected_row,
+        "sga_selected": sga_selected_row,
+        "rd_selected": rd_selected_row,
+        "da": da_row,
+        "capex": capex_row,
+        "tax": tax_row,
+        "wacc_selected": wacc_selected_row,
+        "tv_selected": tv_selected_row,
+        "seg_rev_proj": seg_rev_proj_rows,
+    }
 
 
 # ============================================================
@@ -516,7 +544,8 @@ def _build_financial_statements_sheet(ws, ticker, company_name, historical,
 
 def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
                        historical, sorted_years, proj_years, all_years,
-                       first_data_col, hist_cols, proj_cols, all_cols, data):
+                       first_data_col, hist_cols, proj_cols, all_cols, data,
+                       assumption_rows):
 
     last_col = max(all_cols)
     _set_header(ws, 1, 1, last_col, f"{company_name} ({ticker}) - Financial Model")
@@ -556,7 +585,7 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
                 rev = historical[year]["total_revenue"] * pct
             _set_value(ws, row, col, rev / 1e6 if rev > 1e3 else rev, NUM_FORMAT_M)
 
-        assumptions_rev_proj_row = 6 + seg_idx * 8 + 6
+        assumptions_rev_proj_row = assumption_rows["seg_rev_proj"][seg_idx]
         for i in range(len(proj_years)):
             col = proj_cols[i]
             c_letter = _col(col)
@@ -618,8 +647,7 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
         val = historical.get(year, {}).get("cost_of_revenue", 0)
         _set_value(ws, row, col, val / 1e6 if abs(val) > 1e3 else val, NUM_FORMAT_M)
 
-    n_seg = len(segments)
-    gm_selected_row_assumptions = 6 + n_seg * 8 + 4
+    gm_selected_row_assumptions = assumption_rows["gm_selected"]
     for i in range(len(proj_years)):
         col = proj_cols[i]
         c = _col(col)
@@ -647,7 +675,7 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
         col = hist_cols[i]
         val = historical.get(year, {}).get("selling_general_admin", 0)
         _set_value(ws, row, col, val / 1e6 if abs(val) > 1e3 else val, NUM_FORMAT_M)
-    sga_selected_row_assumptions = gm_selected_row_assumptions + 6
+    sga_selected_row_assumptions = assumption_rows["sga_selected"]
     for i in range(len(proj_years)):
         col = proj_cols[i]
         c = _col(col)
@@ -662,7 +690,7 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
         col = hist_cols[i]
         val = historical.get(year, {}).get("research_development", 0)
         _set_value(ws, row, col, val / 1e6 if abs(val) > 1e3 else val, NUM_FORMAT_M)
-    rd_selected_row_assumptions = sga_selected_row_assumptions + 6
+    rd_selected_row_assumptions = assumption_rows["rd_selected"]
     for i in range(len(proj_years)):
         col = proj_cols[i]
         c = _col(col)
@@ -677,7 +705,7 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
         col = hist_cols[i]
         val = historical.get(year, {}).get("depreciation", 0) or historical.get(year, {}).get("depreciation_cf", 0)
         _set_value(ws, row, col, abs(val) / 1e6 if abs(val) > 1e3 else abs(val), NUM_FORMAT_M)
-    da_row_assumptions = rd_selected_row_assumptions + 2
+    da_row_assumptions = assumption_rows["da"]
     for i in range(len(proj_years)):
         col = proj_cols[i]
         c = _col(col)
@@ -736,7 +764,7 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
     # Taxes
     _set_label(ws, row, 1, "Taxes")
     taxes_row = row
-    tax_rate_assumptions = da_row_assumptions + 2
+    tax_rate_assumptions = assumption_rows["tax"]
     for i, year in enumerate(sorted_years):
         col = hist_cols[i]
         val = historical.get(year, {}).get("tax_provision", 0)
@@ -800,7 +828,7 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
     # CapEx
     _set_label(ws, row, 1, "(-) Capital Expenditure")
     capex_row = row
-    capex_row_assumptions = da_row_assumptions + 1
+    capex_row_assumptions = assumption_rows["capex"]
     for i, year in enumerate(sorted_years):
         col = hist_cols[i]
         val = historical.get(year, {}).get("capex", 0)
@@ -845,7 +873,7 @@ def _build_model_sheet(ws, ticker, company_name, segments, scenarios,
 
 def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
                            proj_years, proj_cols, first_data_col, n_hist,
-                           metrics=None):
+                           assumption_rows, metrics=None):
 
     info = data["info"]
     shares = data["shares_outstanding"]
@@ -939,8 +967,7 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
 
     _set_label(ws, row, 1, "WACC")
     wacc_row = row
-    n_seg = len(data["segments"])
-    wacc_selected_assumptions = 6 + n_seg * 8 + 1 + 5 + 1 + 5 + 1 + 5 + 1 + 1 + 1 + 1 + 1 + 1 + 4
+    wacc_selected_assumptions = assumption_rows["wacc_selected"]
     c = _col(first_data_col)
     ws.cell(row=row, column=first_data_col,
             value=f"=Assumptions!{c}{wacc_selected_assumptions}").number_format = PCT_FORMAT
@@ -948,7 +975,7 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
 
     _set_label(ws, row, 1, "Terminal Value Multiple")
     tv_mult_row = row
-    tv_selected_assumptions = wacc_selected_assumptions + 6
+    tv_selected_assumptions = assumption_rows["tv_selected"]
     ws.cell(row=row, column=first_data_col,
             value=f"=Assumptions!{c}{tv_selected_assumptions}").number_format = '0.0"x"'
     row += 2
