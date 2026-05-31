@@ -204,8 +204,8 @@ y enviar mensaje con justificación corta para cada una.
 ```
 1. python tools/check_inbox.py          → ver mensaje pendiente
 2. Identificar tipo de petición          → este documento
-3. Ejecutar pipeline Python              → --data-only (gratis)
-4. Leer datos generados                  → JSON/Excel
+3. Ejecutar pipeline Python              → --analyst (sin API)
+4. Leer datos generados                  → JSON + SEC filings
 5. Leer skills según tipo (OBLIGATORIO):
    - Tesis/valoración → thesis-writer + dcf-valuation + feedbacks DCF
    - Screener         → screener-ranking

@@ -41,8 +41,9 @@ Rehacer el sistema con cinco metas:
 | Overrides `_meta` | `finalize_thesis._normalize_meta`: esquema canónico único (`net_debt_override_m`, `shares_override`, `revenue_base_m`) leído POR IGUAL por la verificación y el Excel, con alias histórico `shares`. La verificación ahora respeta shares + revenue base (antes solo deuda). Migrado WOSG_L a claves canónicas. **Cierra WOSG_L (−10%→+0,1%) y CPAY (+4%→−0,1%).** +9 tests | local |
 | Motor con ajustes | `_meta.fv_adjustment = {pct, reason}`: la tesis declara una desviación DELIBERADA sobre el output del motor; la verificación compara contra `motor×(1+pct)`. Si diverge sin declararse, da un mensaje accionable (declara el ajuste o revisa el cálculo) — **informa, no bloquea** (el motor manda sobre la aritmética, no sobre la tesis). `_compare_engine` puro separa cálculo de impresión. +15 tests | local |
 | Excel obviado | El modelo `.xlsx` se quita del pipeline (`analyst` y `finalize` ya NO lo generan): era la 3ª copia del DCF y nadie lo consumía (ni el bot ni Kiko). Verificado que nada activo depende de él (el bot no lo envía; email_sender dormido degrada con `if exists`). **Efecto colateral: `finalize` ya no llama a la red.** `excel_generator` se conserva inactivo (reversible). Docs y CLAUDE.md actualizados | local |
+| Skill `thesis-writer` | Documentado el flujo real: 3 niveles (supuestos→motor→interpretación), esquema `_meta` canónico (overrides + `fv_adjustment`) y la verificación. Sincronizadas `orchestrator` y `dcf-valuation` (ancladas al motor, no al Excel); `main.py`/CLAUDE.md sin refs muertas. Solo metodología/docs | local |
 
-**Estado git:** rama `main`, ~10 commits en **local sin pushear** (decisión de Kiko: no subir aún). El tag `pre-rediseno-2026` sí está en GitHub. Para volver atrás: `git reset --hard pre-rediseno-2026`.
+**Estado git:** rama `main`, ~11 commits en **local sin pushear** (decisión de Kiko: no subir aún). El tag `pre-rediseno-2026` sí está en GitHub. Para volver atrás: `git reset --hard pre-rediseno-2026`.
 
 ## Cómo retomar (operativo)
 
@@ -54,11 +55,11 @@ Rehacer el sistema con cinco metas:
 
 ## SIGUIENTE PASO concreto
 
-**Documentar el flujo nuevo en la skill `thesis-writer`** (#5 del roadmap). Tras motor + verificación + overrides `_meta` + ajustes justificados + Excel obviado, la skill debe reflejar el flujo real: *Opus elige método/múltiplos → escribe `thesis_data.json` con escenarios y `_meta` (overrides + `fv_adjustment` justificado) → `finalize_thesis` calcula con el motor y verifica → Opus interpreta y recomienda*. Documentar el esquema `_meta` canónico y cuándo usar cada override. **Recordar: sincronizar la skill `orchestrator` al tocar skills** (regla de Kiko). No toca código de producción, solo metodología.
+El núcleo del rediseño (motor + verificación + overrides + ajustes + flujo documentado) está cerrado. Quedan tres frentes, por orden de impacto:
 
-**Alternativas si se prefiere antes:**
-- (a) **Cerrar residuos PUIG_MC e ITX_MC** — revisar sus tesis y declarar el `_meta` adecuado (esquema ya existe). Wins de correctitud directos.
-- (b) **#7 Loop cerrado** (lo que más mueve la aguja según meta #1): track record de tesis (¿acertó el fair value?), watchlist con triggers, sizing por convicción. Es el salto grande de valor.
+- **#7 Loop cerrado** (lo que más mueve la aguja, meta #1 "maximizar beneficio"): track record de tesis (¿acertó el fair value vs lo que hizo el precio?), watchlist con triggers de compra/venta sobre el fair value guardado, sizing por convicción. Es un build grande y multi-pieza → **empezar por un diseño/scope con Kiko** (qué señales, dónde viven los datos, cómo avisa — ¿Jarvis/Telegram?).
+- **Cerrar residuos PUIG_MC e ITX_MC** (rápido, concreto): revisar cada tesis, declarar el `_meta` adecuado (esquema ya existe) y verificar convergencia. Wins de correctitud directos sobre tesis reales.
+- **#6 Router de métodos** (metodología): clasificar la empresa y elegir DCF / SoP / NAV / reverse-DCF / múltiplos / P-Book, en vez de asumir DCF. Conecta con por qué PUIG o las financieras divergen.
 
 ## Residuos catalogados (casos puntuales, no bugs de clase)
 
@@ -74,7 +75,7 @@ Rehacer el sistema con cinco metas:
 2. ~~**Estandarizar overrides** en `_meta` (deuda, revenue base, acciones)~~ ✅ **HECHO** (2026-05-31): `_normalize_meta` + 9 tests; cierra WOSG_L y CPAY.
 3. ~~**Motor "manda" con ajustes justificados**~~ ✅ **HECHO** (2026-05-31): `_meta.fv_adjustment` + `_compare_engine`; informa, no bloquea.
 4. ~~**`excel_generator` consume del motor**~~ ✅ **RESUELTO de otra forma** (2026-05-31): en vez de hacer que el Excel consuma el motor, se **obvió el Excel** (nadie lo usaba). Eliminada la 3ª copia del DCF → una sola fuente de verdad (motor + verificación).
-5. **Skill `thesis-writer`:** documentar el flujo "Opus elige método/múltiplos → motor calcula → Opus interpreta y recomienda". (Recordar: sincronizar `orchestrator` al tocar skills.) — **el siguiente paso de arriba**.
+5. ~~**Skill `thesis-writer`:** documentar el flujo "Opus elige método/múltiplos → motor calcula → Opus interpreta"~~ ✅ **HECHO** (2026-05-31): 3 niveles + esquema `_meta` + verificación; `orchestrator` y `dcf-valuation` sincronizadas.
 6. **Router de métodos de valoración** (#4): clasificar la empresa y elegir DCF / SoP / NAV / reverse-DCF / múltiplos / P-Book.
 7. **Loop cerrado** (#1, lo que más mueve la aguja): track record de tesis (¿acertó el fair value?), watchlist con triggers de compra/venta, sizing por convicción.
 8. **Orquestación proactiva API→suscripción** (#5): el `scheduler.py` está apagado pero listo (encola para Claude Code, sin API). Activarlo vía cron→Claude Code headless.

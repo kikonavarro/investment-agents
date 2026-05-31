@@ -12,7 +12,9 @@ description: >
 
 ## Principio fundamental
 
-> Python recoge datos. Tú (Opus) **INTERPRETAS**, decides escenarios, calculas el DCF, y escribes la tesis. Una sola fuente de verdad: la tesis.
+> **Tres niveles de responsabilidad.** (1) **Supuestos** — método, escenarios, WACC, múltiplos, overrides: los decides **tú (Opus)**. (2) **Aritmética** — proyección, descuento, TV, equity, fair value: la hace el **motor** (`tools/valuation_engine.py`, determinista y testeado), que `finalize_thesis` usa para **verificar** tus números. (3) **Interpretación y recomendación**: otra vez **tú**.
+>
+> Python recoge datos. Una sola fuente de verdad: la tesis. El número del motor es el punto de partida ("valor de Graham"); la decisión final integra moat, riesgos y margen de seguridad (Buffett). Si te desvías del motor, que sea un **ajuste deliberado y justificado por escrito** (`_meta.fv_adjustment`), nunca un error de cálculo silencioso.
 
 ## REGLA INQUEBRANTABLE — Calidad sobre velocidad
 
@@ -37,7 +39,6 @@ python main.py --analyst TICKER
 
 Genera en `data/valuations/{TICKER}/`:
 - `{TICKER}_valuation.json` — datos crudos + métricas de referencia
-- `{TICKER}_modelo_valoracion.xlsx` — Excel template DCF
 - `SEC_filings/` — 10-K filings (solo EEUU)
 
 El JSON contiene: precio actual, shares outstanding, market cap, sector, industry, business summary,
@@ -108,6 +109,7 @@ Fair Value/acción = Equity Value / shares_outstanding
 - EBIT ≠ EBITDA. EBITDA = EBIT + D&A. Terminal Value sobre EBITDA.
 - UFCF = EBIT×(1-T) + D&A - CapEx. NO restar D&A dos veces.
 - Net Debt: usar la ajustada del JSON si hay captive finance.
+- **El motor (`tools/valuation_engine.py`) implementa EXACTAMENTE esta fórmula.** Tú decides los supuestos; al finalizar, el motor recalcula y **verifica** que tus fair values cuadran con ellos (≤3%). Concéntrate en supuestos sólidos e interpretación, no en la aritmética mental: el motor caza los errores de cálculo. Si te desvías a propósito (opcionalidad, SoP parcial…), decláralo como `_meta.fv_adjustment` (Paso 4) — una divergencia sin declarar es un error a corregir.
 
 #### 1C. Gordon Growth como validación (cuando TV >75% del EV)
 
@@ -170,28 +172,49 @@ Guardar en `data/valuations/{TICKER}/{TICKER}_tesis_inversion.md`
 # 1. Review gate
 python tools/thesis_reviewer.py TICKER
 
-# 2. Guardar fair values + regenerar Excel con escenarios reales
+# 2. Guardar fair values + verificar la aritmética con el motor
 python tools/finalize_thesis.py TICKER thesis_data.json
 ```
 
-El `thesis_data.json` tiene la estructura:
+**Qué hace `finalize_thesis`:**
+1. Valida y guarda tus fair values en `history.json` (ponderado 40/40/20).
+2. **Verifica con el motor:** recalcula el DCF de cada escenario con TUS supuestos y lo compara con TUS fair values. Coincide ≤3% → OK. Diverge → te avisa (no bloquea): o tu número tiene un error de cálculo, o es una desviación deliberada que debes declarar en `_meta.fv_adjustment`.
+3. **Ya NO genera Excel** (se obvió del pipeline; el motor + la verificación son la única fuente de verdad de la aritmética). `finalize` ya no llama a la red.
+
+El `thesis_data.json` tiene esta estructura:
 ```json
 {
     "fair_values": {"bear": 395, "base": 550, "bull": 760},
     "scenarios": {
         "bear": {
-            "revenue_growth_y1": -0.05, "revenue_growth_y2": 0.03, ...,
+            "revenue_growth_y1": -0.05, "revenue_growth_y2": 0.03, "revenue_growth_y3": 0.04,
+            "revenue_growth_y4": 0.04, "revenue_growth_y5": 0.03,
             "gross_margin": 0.345, "sga_pct": 0.085, "rd_pct": 0.043,
             "da_pct": 0.04, "capex_pct": 0.085, "tax_rate": 0.19,
             "wacc": 0.105, "terminal_multiple": 11
         },
         "base": { ... },
         "bull": { ... }
-    }
+    },
+    "_meta": { "...overrides opcionales, ver abajo..." }
 }
 ```
 
-Esto guarda los fair values en `history.json` Y regenera el Excel con los escenarios reales para que el usuario pueda jugar con los números.
+**Esquema `_meta` (todos los campos opcionales; es una sola fuente de verdad que respetan el motor y la verificación por igual):**
+
+```json
+"_meta": {
+    "net_debt_override_m": 57.0,
+    "shares_override": 231412113,
+    "revenue_base_m": 1828.0,
+    "fv_adjustment": {"pct": 0.10, "reason": "opcionalidad robotaxi no modelada en el DCF"}
+}
+```
+
+- **`net_debt_override_m`** (millones) — cuando el `total_debt` de Yahoo está inflado: IFRS-16 en retailers (leasing ya capturado en el EBIT ajustado) o banco cautivo (deuda del Financial Services).
+- **`shares_override`** (absoluto) — cuando Yahoo da un share count incompleto/erróneo y el 10-K dice otra cosa. (Las estructuras duales ya se corrigen solas en la fuente con `market_cap/precio`; usa el override solo si la portada del 10-K manda otra cifra.)
+- **`revenue_base_m`** (millones) — cuando el año 0 de tu proyección NO es el último FY reportado en el JSON (p. ej. un trading update FY-forward posterior).
+- **`fv_adjustment`** `{pct, reason}` — ajuste DELIBERADO sobre el OUTPUT del motor. La verificación compara tu fair value contra `motor × (1+pct)`. Úsalo cuando tu valor se desvía del DCF puro por algo que el DCF no captura (opcionalidad, suma de partes parcial, prima/descuento de control). `pct` es una fracción (0.10 = +10%); SIEMPRE con `reason`. Es la diferencia entre "ajuste justificado" y "error de cálculo".
 
 ## Reglas de calidad inquebrantables
 

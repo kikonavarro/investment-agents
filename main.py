@@ -4,7 +4,7 @@ main.py — CLI del sistema de inversión.
 Python recoge datos. Claude Code (Opus) interpreta y valora vía skills.
 
 Uso:
-    python main.py --analyst AAPL             # Recoger datos (Excel + JSON + SEC)
+    python main.py --analyst AAPL             # Recoger datos (JSON + SEC)
     python main.py --analyst AAPL MSFT GOOGL  # Múltiples tickers
     python main.py --compare AAPL MSFT        # Datos para comparar dos empresas
     python main.py --screener graham_default  # Buscar ideas value
@@ -142,8 +142,6 @@ def _print_data_summary(v):
               f"SGA={m.get('sga_pct', 0):.1%}")
         if metrics.get("ev_ebitda"):
             print(f"  EV/EBITDA: {metrics['ev_ebitda']:.1f}x")
-    if v.get("files", {}).get("excel"):
-        print(f"  Excel: {v['files']['excel']}")
     print(f"  → Usa Claude Code para interpretar datos y escribir tesis")
 
 

@@ -204,7 +204,7 @@ def estimate_growth_rate(financials: dict) -> dict:
 def project_growth_rates_5y(growth_y1: float, growth_y5: float) -> list:
     """
     Proyecta 5 años con interpolación lineal (método principal).
-    Consistente con el modelo Excel del sistema.
+    Consistente con el motor del sistema (`tools/valuation_engine.py`).
     """
     return [growth_y1 + (growth_y5 - growth_y1) * i / 4 for i in range(5)]
 ```
@@ -285,8 +285,8 @@ Es la parte más peligrosa del DCF porque suele representar mucho del valor tota
 Terminal Value = EBITDA_último_año × Múltiplo_EV/EBITDA
 ```
 
-El múltiplo se elige por sector/tipo de empresa. Es el mismo método que usa el modelo Python
-del sistema (`excel_generator.py`). Más intuitivo y anclado al mercado real.
+El múltiplo se elige por sector/tipo de empresa. Es el mismo método que implementa el motor
+determinista del sistema (`tools/valuation_engine.py`). Más intuitivo y anclado al mercado real.
 
 **Método alternativo: Gordon Growth Model (usar si Exit Multiple da resultados inconsistentes)**
 
@@ -335,7 +335,7 @@ def dcf_valuation(
 ) -> dict:
     """
     DCF completo. Método principal: 5 años + Exit Multiple sobre EBITDA.
-    Consistente con thesis-writer y el modelo Excel del sistema.
+    Consistente con thesis-writer y el motor del sistema (`tools/valuation_engine.py`).
 
     Para cada escenario calcula:
     - EBIT = Revenue × (GM - SGA% - R&D%)  (= Operating Income)
