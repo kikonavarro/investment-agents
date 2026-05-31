@@ -77,7 +77,7 @@ def _run_review_gate(ticker: str, output_dir, folder: str):
         print("\n  [REVIEW GATE] PASS")
 
 
-def _engine_fair_values(scenarios: dict, output_dir, folder: str):
+def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | None = None):
     """Recalcula los fair values con el motor (DCF determinista) a partir de los
     supuestos de cada escenario + los datos de la empresa. Es la comprobación de que
     los numeros de la tesis cuadran con sus propios supuestos: Opus decide los
@@ -108,15 +108,29 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str):
     if not revenue or not shares:
         return None
 
-    # Cotizacion en peniques (UK): Yahoo da el precio en GBp (peniques) pero los
-    # fundamentales en GBP (libras), asi que el fair value (en libras) hay que pasarlo
-    # a peniques para compararlo con el guardado. Misma correccion que el pence_factor
-    # del Excel, pero detectada por el ratio fisico (independiente de la etiqueta de
-    # moneda, que el valuation.json normaliza a "GBP" y pierde la marca de peniques):
-    # si el market cap es ~100x menor que precio*acciones, el precio esta inflado x100.
+    # El ratio market_cap / (precio * acciones) delata inconsistencias de escala en
+    # los datos de Yahoo (debe ser ~1.0 si todo es coherente):
     price = val.get("current_price") or 0
     mcap = val.get("market_cap") or 0
-    pence_factor = 100 if (mcap and price and mcap / (price * shares) < 0.02) else 1
+    ratio = mcap / (price * shares) if (mcap and price and shares) else 1.0
+
+    # (a) Peniques (UK): precio en GBp pero fundamentales en GBP -> ratio ~0.01.
+    #     El fair value se calcula en libras y se pasa a peniques (x100) para comparar
+    #     con el guardado. Misma correccion que el pence_factor del Excel, detectada por
+    #     el ratio porque el valuation.json normaliza la moneda a "GBP" y pierde la marca.
+    pence_factor = 100 if ratio < 0.02 else 1
+
+    # (b) Acciones de estructura dual: si el market cap es muy superior a precio*acciones,
+    #     shares_outstanding es solo de una clase (p. ej. PUIG). Las acciones reales son
+    #     market_cap / precio (la verdad la marca la capitalizacion).
+    if ratio > 1.5 and price:
+        shares = mcap / price
+
+    # (c) Deuda neta: la tesis puede declarar un override (p. ej. pre-IFRS16 en retailers
+    #     con muchos arrendamientos, donde el total_debt de Yahoo esta inflado por el
+    #     leasing). Se respeta ese criterio, igual que hace el Excel.
+    if meta and meta.get("net_debt_override_m") is not None:
+        net_debt = float(meta["net_debt_override_m"]) * 1e6
 
     try:
         from tools.valuation_engine import DCFAssumptions, run_dcf
@@ -231,7 +245,7 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
     # --- 1b. Verificacion con el motor de valoracion (DCF determinista) ---
     # Opus decide los supuestos; el motor comprueba que los fair values tecleados
     # cuadran con esos supuestos. Por ahora solo informa (no sobreescribe ni bloquea).
-    engine_fvs = _engine_fair_values(scenarios, output_dir, folder)
+    engine_fvs = _engine_fair_values(scenarios, output_dir, folder, data.get("_meta"))
     if engine_fvs:
         print(f"\n  === Verificacion del motor (DCF) ===")
         print(f"    {'Escenario':<9} {'Tesis':>10} {'Motor':>10} {'Dif':>8}")
