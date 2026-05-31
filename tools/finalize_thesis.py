@@ -77,6 +77,52 @@ def _run_review_gate(ticker: str, output_dir, folder: str):
         print("\n  [REVIEW GATE] PASS")
 
 
+def _engine_fair_values(scenarios: dict, output_dir, folder: str):
+    """Recalcula los fair values con el motor (DCF determinista) a partir de los
+    supuestos de cada escenario + los datos de la empresa. Es la comprobación de que
+    los numeros de la tesis cuadran con sus propios supuestos: Opus decide los
+    supuestos, el motor verifica la aritmetica.
+
+    Devuelve {'bear':.., 'base':.., 'bull':..} o None cuando no aplica (faltan
+    campos del escenario -> metodo no-DCF, o faltan datos de la empresa)."""
+    val_path = output_dir / f"{folder}_valuation.json"
+    if not (scenarios and val_path.exists()):
+        return None
+    try:
+        val = json.loads(val_path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    lf = val.get("latest_financials", {})
+    revenue = lf.get("revenue")
+    shares = val.get("shares_outstanding") or 0
+    net_debt = (lf.get("total_debt") or 0) - (lf.get("cash") or 0)
+    if not revenue or not shares:
+        return None
+
+    try:
+        from tools.valuation_engine import DCFAssumptions, run_dcf
+    except Exception:
+        return None
+
+    out = {}
+    for name in ("bear", "base", "bull"):
+        sc = scenarios.get(name)
+        if not isinstance(sc, dict):
+            return None
+        try:
+            growth = [sc[f"revenue_growth_y{i}"] for i in range(1, 6)]
+            assumptions = DCFAssumptions(
+                revenue_base=revenue, revenue_growth=growth,
+                gross_margin=sc["gross_margin"], sga_pct=sc["sga_pct"], rd_pct=sc["rd_pct"],
+                da_pct=sc["da_pct"], capex_pct=sc["capex_pct"], tax_rate=sc["tax_rate"],
+                wacc=sc["wacc"], terminal_multiple=sc["terminal_multiple"],
+            )
+            out[name] = run_dcf(assumptions, net_debt, shares, name).fair_value_per_share
+        except (KeyError, ValueError, ZeroDivisionError):
+            return None  # escenario incompleto o no apto para este DCF
+    return out
+
+
 def finalize_thesis(ticker: str, data: dict, force: bool = False):
     """Guarda fair values en history.json y regenera Excel con escenarios reales."""
     folder = ticker.replace(".", "_")
@@ -162,6 +208,31 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
         print(f"    Precio: ${price:,.2f} | MoS: {mos}")
     if cleaned:
         print(f"  Limpiados {cleaned} fair values basura del pipeline viejo")
+
+    # --- 1b. Verificacion con el motor de valoracion (DCF determinista) ---
+    # Opus decide los supuestos; el motor comprueba que los fair values tecleados
+    # cuadran con esos supuestos. Por ahora solo informa (no sobreescribe ni bloquea).
+    engine_fvs = _engine_fair_values(scenarios, output_dir, folder)
+    if engine_fvs:
+        print(f"\n  === Verificacion del motor (DCF) ===")
+        print(f"    {'Escenario':<9} {'Tesis':>10} {'Motor':>10} {'Dif':>8}")
+        max_diff = 0.0
+        for name, saved in (("bear", bear), ("base", base), ("bull", bull)):
+            m = engine_fvs.get(name)
+            if m is None or not saved:
+                continue
+            diff = (m - saved) / saved * 100
+            max_diff = max(max_diff, abs(diff))
+            flag = "OK" if abs(diff) <= 3 else "REVISAR"
+            print(f"    {name.capitalize():<9} {saved:>10.2f} {m:>10.2f} {diff:>+7.1f}%  {flag}")
+        if max_diff <= 3:
+            print(f"  [OK] Los fair values cuadran con los supuestos (motor coincide <=3%).")
+        else:
+            print(f"  [!] Divergencia de hasta {max_diff:.0f}% entre la tesis y sus supuestos.")
+            print(f"      O el numero de la tesis tiene un error de calculo, o los datos")
+            print(f"      del valuation.json cambiaron desde que se escribio. Conviene revisar.")
+    else:
+        print(f"\n  [Motor] Fair values no verificados (metodo no-DCF o datos insuficientes).")
 
     # --- 2. Regenerar Excel con escenarios reales ---
     if scenarios and all(k in scenarios for k in ("bear", "base", "bull")):
