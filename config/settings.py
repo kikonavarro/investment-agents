@@ -12,16 +12,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 VALUATIONS_DIR = DATA_DIR / "valuations"
 
-# --- API ---
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-
-# --- Modelos por tipo de tarea (optimización de coste) ---
-MODELS = {
-    "quick": "claude-haiku-4-5-20251001",       # Clasificar, formatear, extraer
-    "standard": "claude-sonnet-4-6",             # Análisis, redacción
-    "deep": "claude-opus-4-6",                   # Razonamiento complejo (usar poco)
-}
-
 # --- DCF defaults (referencia, reales en tools/financial_data.py) ---
 DCF_DEFAULTS = {
     "projection_years": 5,
@@ -59,16 +49,6 @@ FORCE_FRESH = False       # --fresh para forzar descarga nueva
 # --- Telegram Bot ---
 TELEGRAM_POLL_INTERVAL = 60     # Segundos entre polls
 TELEGRAM_MESSAGE_TIMEOUT = 180  # Max segundos procesando un mensaje
-
-# --- API call config ---
-API_TIMEOUTS = {"quick": 30, "standard": 60, "deep": 120}
-API_MAX_RETRIES = 3
-API_INITIAL_BACKOFF = 2  # Segundos
-API_COST_PER_M_TOKENS = {
-    "quick":    (1.00,  5.00),   # Haiku (input, output)
-    "standard": (3.00, 15.00),   # Sonnet
-    "deep":    (15.00, 75.00),   # Opus
-}
 
 # --- Scheduler ---
 TWEETS_DIR = DATA_DIR / "tweets"
