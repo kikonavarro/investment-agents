@@ -185,6 +185,17 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
             metrics = extract_metrics(yahoo_data, historical)
             metrics["_real_scenarios"] = scenarios
 
+            # Net debt decidido en la tesis (p. ej. pre-IFRS16 en retailers). Si el
+            # thesis_data trae _meta.net_debt_override_m, el Excel lo usa en vez del
+            # de Yahoo, que para acciones con muchos arrendamientos está inflado.
+            meta = data.get("_meta", {}) if isinstance(data, dict) else {}
+            nd_override = meta.get("net_debt_override_m")
+            if nd_override is not None:
+                metrics["_net_debt_override_m"] = nd_override
+            sh_override = meta.get("shares_override")
+            if sh_override is not None:
+                metrics["_shares_override"] = sh_override
+
             excel_path = str(output_dir / f"{folder}_modelo_valoracion.xlsx")
             generate_valuation_excel(ticker, yahoo_data, historical, metrics, excel_path)
 

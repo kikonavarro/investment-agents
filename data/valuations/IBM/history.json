@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-22",
+    "file": "IBM_20260522_valuation.json",
+    "current_price": 252.97,
+    "currency": "$",
+    "revenue": 67536000000.0,
+    "gross_margin": 0.5818674484719261,
+    "ev_ebitda": 17.1,
+    "avg_growth": 0.0375,
+    "fair_value_bear": 161,
+    "fair_value_base": 247,
+    "fair_value_bull": 367,
+    "fair_value_weighted": 236.6
+  }
+]

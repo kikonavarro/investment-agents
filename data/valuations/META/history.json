@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-04-30",
+    "current_price": 608.55,
+    "currency": "$",
+    "fair_values": {
+      "bear": 330,
+      "base": 660,
+      "bull": 1000,
+      "weighted": 596.0
+    },
+    "margin_of_safety_pct": -2.1
+  }
+]

@@ -1,0 +1,54 @@
+{
+    "fair_values": {"bear": 1350, "base": 2450, "bull": 3300},
+    "methodology_note": "Lender (UK specialty consumer credit). Valoracion multimetodo: P/E normalizado, P/TNAV con ROE sostenible, DDM. DCF tradicional no aplica.",
+    "scenarios": {
+        "bear": {
+            "revenue_growth_y1": -0.05,
+            "revenue_growth_y2": 0.02,
+            "revenue_growth_y3": 0.04,
+            "revenue_growth_y4": 0.04,
+            "revenue_growth_y5": 0.04,
+            "gross_margin": 0.40,
+            "sga_pct": 0.22,
+            "rd_pct": 0.0,
+            "da_pct": 0.005,
+            "capex_pct": 0.008,
+            "tax_rate": 0.25,
+            "wacc": 0.11,
+            "terminal_multiple": 7,
+            "narrative": "Motor finance redress peor de lo esperado, EPS deprimido 140-165p, P/E comprime 7-8x. ROE sostenible 8%."
+        },
+        "base": {
+            "revenue_growth_y1": 0.12,
+            "revenue_growth_y2": 0.10,
+            "revenue_growth_y3": 0.08,
+            "revenue_growth_y4": 0.07,
+            "revenue_growth_y5": 0.05,
+            "gross_margin": 0.40,
+            "sga_pct": 0.20,
+            "rd_pct": 0.0,
+            "da_pct": 0.005,
+            "capex_pct": 0.008,
+            "tax_rate": 0.25,
+            "wacc": 0.10,
+            "terminal_multiple": 11,
+            "narrative": "Recuperacion confirmada, securitizacion 300M completa, EPS normalizado 220p, ROE 12%, P/E 11x."
+        },
+        "bull": {
+            "revenue_growth_y1": 0.20,
+            "revenue_growth_y2": 0.15,
+            "revenue_growth_y3": 0.12,
+            "revenue_growth_y4": 0.10,
+            "revenue_growth_y5": 0.08,
+            "gross_margin": 0.42,
+            "sga_pct": 0.19,
+            "rd_pct": 0.0,
+            "da_pct": 0.005,
+            "capex_pct": 0.008,
+            "tax_rate": 0.25,
+            "wacc": 0.095,
+            "terminal_multiple": 12,
+            "narrative": "ROE vuelve a 15%, Aspen llega a 20M PBT, EPS 270p, P/E 12x."
+        }
+    }
+}

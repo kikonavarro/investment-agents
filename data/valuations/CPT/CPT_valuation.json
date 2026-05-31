@@ -1,0 +1,187 @@
+{
+  "ticker": "CPT",
+  "company": "Camden Property Trust",
+  "currency": "$",
+  "date": "2026-05-09",
+  "current_price": 103.77,
+  "shares_outstanding": 99090596,
+  "diluted_avg_shares": 108388000,
+  "market_cap": 10282630144,
+  "sector": "Real Estate",
+  "industry": "REIT - Residential",
+  "country": "United States",
+  "business_summary": "Camden Property Trust, an S&P 500 Company, is a real estate company. The firm is primarily engaged in the ownership, management, development, redevelopment, acquisition, and construction of multifamily apartment communities. Camden owns and operates 172 properties containing 58,759 apartment homes across the United States. Upon completion of 3 properties currently under development, the Company's portfolio will increase to 59,921 apartment homes in 175 properties. Camden Property Trust was established on May 25 1993 and incorporated in Texas.",
+  "beta": 0.822,
+  "analyst_targets": {
+    "high": 131.0,
+    "low": 102.0,
+    "mean": 113.80682,
+    "current": 103.77
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 1573544000.0,
+    "net_income": 384462000.0,
+    "ebitda": 1148181000.0,
+    "free_cashflow": 386219000.0,
+    "gross_margin": 0.6140965870671554,
+    "operating_margin": 0.18360211090379425,
+    "net_margin": 0.2443287254757414,
+    "total_debt": 3900790000.0,
+    "cash": 25203000.0,
+    "total_equity": 4438253000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 1422756000.0,
+      "net_income": 653613000.0,
+      "ebitda": 1354918000.0,
+      "fcf": 295281000.0,
+      "operating_income": 261313000.0
+    },
+    "2023": {
+      "revenue": 1542027000.0,
+      "net_income": 403309000.0,
+      "ebitda": 1122411000.0,
+      "fcf": 384016000.0,
+      "operating_income": 323816000.0
+    },
+    "2024": {
+      "revenue": 1543842000.0,
+      "net_income": 163293000.0,
+      "ebitda": 885595000.0,
+      "fcf": 381142000.0,
+      "operating_income": 297264000.0
+    },
+    "2025": {
+      "revenue": 1573544000.0,
+      "net_income": 384462000.0,
+      "ebitda": 1148181000.0,
+      "fcf": 386219000.0,
+      "operating_income": 288906000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "REIT - Residential",
+      "revenues": {
+        "2022": 1422756000.0,
+        "2023": 1542027000.0,
+        "2024": 1543842000.0,
+        "2025": 1573544000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.6187471011253907,
+      "sga_pct": 0.0450734972719079,
+      "rd_pct": 0.0,
+      "da_pct": 0.3859078818093121,
+      "capex_pct": 0.27318427367945236,
+      "tax_rate": 0.01159410196264484
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0838
+      },
+      {
+        "year": 2024,
+        "yoy": 0.0012
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0192
+      }
+    ],
+    "avg_growth": 0.0347,
+    "cagr_3y": 0.0341,
+    "beta": 0.822,
+    "ev_ebitda": 12.6,
+    "net_debt": 4234384928,
+    "net_debt_label": "total",
+    "total_debt": 4275068928,
+    "cash": 40684000,
+    "de_ratio": 0.42,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": -0.005
+      },
+      "target_prices": {
+        "high": 131.0,
+        "low": 102.0,
+        "mean": 113.80682,
+        "current": 103.77
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Mid-America Apartment Communities (MAA) Beats Q1 FFO Estimates",
+      "date": "Wed, 29 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Vanguard reports 7.69M shares in Camden Property Trust (NYSE: CPT) - Stock Titan",
+      "date": "Wed, 29 Ap",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Vanguard Portfolio Management (CPT) Holds 8.43% — 8.84M Shares Reported - Stock Titan",
+      "date": "Wed, 29 Ap",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "FMR LLC reports 7.02M shares of Camden Property Trust (NYSE: CPT) - Stock Titan",
+      "date": "Wed, 06 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Highland Capital Management LLC Has $1.66 Million Holdings in Camden Property Trust $CPT - MarketBeat",
+      "date": "Wed, 06 Ma",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "Camden Property Trust Named One of Fortune’s 100 Best Companies to Work For®",
+      "date": "Wed, 01 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "A Look At Camden Property Trust’s Valuation As Analysts See Modest Undervaluation Despite Mixed Returns",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Camden Property Trust (CPT) Shares Surge 4.3% -- What GF Score o - GuruFocus",
+      "date": "Tue, 28 Ap",
+      "source": "GuruFocus"
+    },
+    {
+      "title": "What to Expect From Camden Property's Next Quarterly Earnings Report",
+      "date": "Tue, 21 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Camden Property Trust raises $600M to trim credit lines, fund property deals - Stock Titan",
+      "date": "Tue, 17 Fe",
+      "source": "Stock Titan"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CPT/CPT_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CPT/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CPT/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CPT/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

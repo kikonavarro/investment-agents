@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-12",
+    "file": "ITX_MC_20260512_valuation.json",
+    "current_price": 48.48,
+    "currency": "EUR ",
+    "revenue": 39864173000.0,
+    "gross_margin": 0.5825394897819653,
+    "ev_ebitda": 12.5,
+    "avg_growth": 0.0701,
+    "fair_value_bear": 40,
+    "fair_value_base": 55,
+    "fair_value_bull": 70,
+    "fair_value_weighted": 52.0
+  }
+]

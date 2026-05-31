@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-12",
+    "file": "VTRS_20260512_valuation.json",
+    "current_price": 16.92,
+    "currency": "$",
+    "revenue": 14299900000.0,
+    "gross_margin": 0.3505968573206806,
+    "ev_ebitda": null,
+    "avg_growth": -0.0419,
+    "fair_value_bear": 11,
+    "fair_value_base": 20,
+    "fair_value_bull": 27,
+    "fair_value_weighted": 17.8
+  }
+]

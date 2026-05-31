@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-17",
+    "file": "MELI_20260517_valuation.json",
+    "current_price": 1546.81,
+    "currency": "$",
+    "revenue": 28893000000.0,
+    "gross_margin": 0.44502128543245767,
+    "ev_ebitda": 22.3,
+    "avg_growth": 0.3891,
+    "fair_value_bear": 986,
+    "fair_value_base": 2127,
+    "fair_value_bull": 3038,
+    "fair_value_weighted": 1852.8
+  }
+]

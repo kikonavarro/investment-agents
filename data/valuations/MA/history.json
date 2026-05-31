@@ -25,5 +25,15 @@
     "fair_value_bull": 578.95,
     "revenue": 32791000000.0,
     "gross_margin": 0.7788722515324327
+  },
+  {
+    "date": "2026-05-27",
+    "file": "MA_20260527_valuation.json",
+    "current_price": 493.01,
+    "currency": "$",
+    "revenue": 32791000000.0,
+    "gross_margin": 0.7788722515324327,
+    "ev_ebitda": 21.8,
+    "avg_growth": 0.1384
   }
 ]

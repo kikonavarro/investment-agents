@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-17",
+    "file": "MICC_20260517_valuation.json",
+    "current_price": 16.66,
+    "currency": "$",
+    "revenue": 7910000000.0,
+    "gross_margin": 0.3462705436156764,
+    "ev_ebitda": 14.3,
+    "avg_growth": 0.0178,
+    "fair_value_bear": 9.11,
+    "fair_value_base": 14.46,
+    "fair_value_bull": 20.41,
+    "fair_value_weighted": 13.51
+  }
+]

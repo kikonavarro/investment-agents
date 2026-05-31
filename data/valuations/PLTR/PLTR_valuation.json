@@ -1,0 +1,195 @@
+{
+  "ticker": "PLTR",
+  "company": "Palantir Technologies Inc.",
+  "currency": "$",
+  "date": "2026-05-04",
+  "current_price": 147.185,
+  "shares_outstanding": 2295915766,
+  "diluted_avg_shares": 2060785103,
+  "market_cap": 352825573376,
+  "sector": "Technology",
+  "industry": "Software - Infrastructure",
+  "country": "United States",
+  "business_summary": "Palantir Technologies Inc. builds and deploys software platforms for the intelligence community to assist in counterterrorism investigations and operations in the United States, the United Kingdom, and internationally. It provides Palantir Gotham integrates with other platforms for defense offerings which enables users to see, understand, and act in the modern battlespace; operations centers to the tactical edge; integrating data from domains and sensors in near real-time; and situational awareness and accelerating operational decision-making, as well as facilitates the hand-off between analysts and operational users, helping operators plan and execute real-world responses to threats that have been identified within the platform. The company also offers Palantir Foundry, a platform that helps organizations operate by creating a central operating system for their data; and allows individual users to integrate and analyze the data they need in one place. In addition, it provides Palantir Apollo, a software that delivers software and updates across the business, as well as enables customers to deploy their software virtually in any environment; and Palantir Artificial Intelligence Platform that provides unified access to open-source, self-hosted, and commercial large language models (LLMs) that can transform structured and unstructured data into LLM-understandable objects and can turn organizations' actions and processes into tools for humans and LLM-driven agents. The company also has a strategic partnership with Ondas Inc. to develop and deploy AI-enabled operational capabilities to scale stratospheric, aerial, and land-based ISR missions. The company was incorporated in 2003 and is headquartered in Aventura, Florida.",
+  "beta": 1.521,
+  "analyst_targets": {
+    "high": 255.0,
+    "low": 70.0,
+    "mean": 182.98769,
+    "current": 147.185
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 4475446000.0,
+    "net_income": 1625033000.0,
+    "ebitda": 1440160000.0,
+    "free_cashflow": 2100591000.0,
+    "gross_margin": 0.8236651721415028,
+    "operating_margin": 0.3159495165398041,
+    "net_margin": 0.3630996776634105,
+    "total_debt": 229338000.0,
+    "cash": 1423796000.0,
+    "total_equity": 7488011000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 1905871000.0,
+      "net_income": -373705000.0,
+      "ebitda": -138679000.0,
+      "fcf": 183710000.0,
+      "operating_income": -161201000.0
+    },
+    "2023": {
+      "revenue": 2225012000.0,
+      "net_income": 209825000.0,
+      "ebitda": 153320000.0,
+      "fcf": 697069000.0,
+      "operating_income": 119966000.0
+    },
+    "2024": {
+      "revenue": 2865507000.0,
+      "net_income": 462190000.0,
+      "ebitda": 341990000.0,
+      "fcf": 1141231000.0,
+      "operating_income": 310403000.0
+    },
+    "2025": {
+      "revenue": 4475446000.0,
+      "net_income": 1625033000.0,
+      "ebitda": 1440160000.0,
+      "fcf": 2100591000.0,
+      "operating_income": 1414015000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Software - Infrastructure",
+      "revenues": {
+        "2022": 1905871000.0,
+        "2023": 2225012000.0,
+        "2024": 2865507000.0,
+        "2025": 4475446000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.8045073698135612,
+      "sga_pct": 0.5379999040101717,
+      "rd_pct": 0.16810516810970733,
+      "da_pct": 0.010918176542583844,
+      "capex_pct": 0.007181707237532628,
+      "tax_rate": 0.08296420457329097
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.1675
+      },
+      {
+        "year": 2024,
+        "yoy": 0.2879
+      },
+      {
+        "year": 2025,
+        "yoy": 0.5618
+      }
+    ],
+    "avg_growth": 0.3391,
+    "cagr_3y": 0.3292,
+    "beta": 1.521,
+    "ev_ebitda": 240.2,
+    "net_debt": -6947704944,
+    "net_debt_label": "total",
+    "total_debt": 229338000,
+    "cash": 7177042944,
+    "de_ratio": 0.0,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.7
+      },
+      "target_prices": {
+        "high": 255.0,
+        "low": 70.0,
+        "mean": 182.98769,
+        "current": 147.185
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": {
+      "detected": true,
+      "year": 2025,
+      "prev_year": 2024,
+      "prev_revenue": 2865507000.0,
+      "new_revenue": 4475446000.0,
+      "jump_pct": 0.5618339093221549,
+      "message": "Revenue saltó 56% en 2025 (2,866M → 4,475M). Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). Crecimiento ajustado a tasas orgánicas (2-6%)."
+    }
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Michael Burry says Anthropic is 'eating Palantir's lunch' as enterprise AI spending shifts - Business Insider",
+      "date": "Thu, 09 Ap",
+      "source": "Business Insider"
+    },
+    {
+      "title": "Palantir Stock Faces A Post-Earnings Decline (NASDAQ:PLTR) - Seeking Alpha",
+      "date": "Sun, 03 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "May The Fourth Be With Palantir (Earnings Preview) - Seeking Alpha",
+      "date": "Sun, 03 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Palantir (PLTR) Stock Price Heads Into Q1 Earnings With Options Pointing Lower Despite Analyst Upside Consensus - foreignpolicyjournal.com",
+      "date": "Sun, 03 Ma",
+      "source": "foreignpolicyjournal.com"
+    },
+    {
+      "title": "Forget Palantir: This Beaten-Down “Fed” AI Stock Has More Upside Potential - 24/7 Wall St.",
+      "date": "Mon, 06 Ap",
+      "source": "24/7 Wall St."
+    },
+    {
+      "title": "Palantir Earnings: Will AI Commercial Revenue Drive Up Software Stocks?",
+      "date": "Mon, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Did Anthropic Suck the Air From Palantir’s Commercial Contract Tailwinds?",
+      "date": "Mon, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "S&P 500 Companies' Quarterly Profit, Revenue Growth Accelerates, Oppenheimer Says",
+      "date": "Mon, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Burry Isn’t Alone in Loading Up on PayPal — Here’s Why It’s Time to Follow the Smart Money",
+      "date": "Mon, 04 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "These Stocks Are Today’s Movers: eBay, GameStop, FedEx, UPS, Norwegian, Micron, and More",
+      "date": "Mon, 04 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PLTR/PLTR_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PLTR/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PLTR/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/PLTR/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

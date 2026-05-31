@@ -1,0 +1,187 @@
+{
+  "ticker": "VTRS",
+  "company": "Viatris Inc.",
+  "currency": "$",
+  "date": "2026-05-12",
+  "current_price": 16.92,
+  "shares_outstanding": 1164552654,
+  "diluted_avg_shares": 1217400000,
+  "market_cap": 19704231936,
+  "sector": "Healthcare",
+  "industry": "Drug Manufacturers - Specialty & Generic",
+  "country": "United States",
+  "business_summary": "Viatris Inc., together with its subsidiaries, operates as a healthcare company in North America, Europe, China, Taiwan, Hong Kong, Japan, Australia, New Zealand, rest of Asia, Africa, Latin America, and the Middle East. It operates in four segments: Developed Markets, Greater China, JANZ, and Emerging Markets. The company offers prescription brand drugs, generic drugs, complex generic drugs, and biosimilars. It also provides drugs in various therapeutic areas covering various noncommunicable and infectious diseases, including cardiovascular, CNS and anesthesia, dermatology, diabetes and metabolism, eye care, gastroenterology, immunology, oncology, and respiratory and allergy, as well as support services, such as diagnostic clinics, educational seminars, and digital tools to help patients better manage their health. In addition, the company offers medicines in the form of oral solid doses, injectables, and complex dosage forms to retail and pharmacy establishments, wholesalers and distributors, payers, insurers and governments, and institutions. It distributes its products through pharmaceutical wholesalers/distributors, pharmaceutical retailers, institutional pharmacies, mail-order and e-commerce pharmacies, and specialty pharmacies under the Lyrica, Lipitor, Celebrex, Viagra, Creon, Influvac, Wixela Inhub, EpiPen Auto-Injector, Fraxiparine, Yupelri, Norvasc, Amitiza, Effexor, Lipacreon, Zoloft, Xalabrands, Dymista, Xanax, and Breyna brands. The company has collaboration agreements with Mapi Pharma Ltd. to develop and commercialize long-acting glatiramer acetate depot products and additional products; Revance Therapeutics, Inc. to develop, manufacture, and commercialize a biosimilar to the branded biologic product, BOTOX; and Theravance Biopharma, Inc. to develop and commercialize revefenacin. Viatris Inc. was founded in 1961 and is headquartered in Canonsburg, Pennsylvania.",
+  "beta": 0.872,
+  "analyst_targets": {
+    "high": 23.0,
+    "low": 12.0,
+    "mean": 17.5,
+    "current": 16.92
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 14299900000.0,
+    "net_income": -3514900000.0,
+    "ebitda": -395400000.0,
+    "free_cashflow": 1850800000.0,
+    "gross_margin": 0.3505968573206806,
+    "operating_margin": 0.017727396695081783,
+    "net_margin": -0.2457989216707809,
+    "total_debt": 14698000000.0,
+    "cash": 1322400000.0,
+    "total_equity": 14711300000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 16262700000.0,
+      "net_income": 2078600000.0,
+      "ebitda": 6433200000.0,
+      "fcf": 2509600000.0,
+      "operating_income": 1655700000.0
+    },
+    "2023": {
+      "revenue": 15426900000.0,
+      "net_income": 54700000.0,
+      "ebitda": 3516500000.0,
+      "fcf": 2325100000.0,
+      "operating_income": 1563400000.0
+    },
+    "2024": {
+      "revenue": 14739300000.0,
+      "net_income": -634200000.0,
+      "ebitda": 2820000000.0,
+      "fcf": 1943800000.0,
+      "operating_income": 710300000.0
+    },
+    "2025": {
+      "revenue": 14299900000.0,
+      "net_income": -3514900000.0,
+      "ebitda": -395400000.0,
+      "fcf": 1850800000.0,
+      "operating_income": 253500000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Drug Manufacturers - Specialty & Generic",
+      "revenues": {
+        "2022": 16262700000.0,
+        "2023": 15426900000.0,
+        "2024": 14739300000.0,
+        "2025": 14299900000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.3872499223103463,
+      "sga_pct": 0.2661507355664974,
+      "rd_pct": 0.053831584102726635,
+      "da_pct": 0.18894770585861703,
+      "capex_pct": 0.03130905344713422,
+      "tax_rate": 0.2865174193408766
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": -0.0514
+      },
+      {
+        "year": 2024,
+        "yoy": -0.0446
+      },
+      {
+        "year": 2025,
+        "yoy": -0.0298
+      }
+    ],
+    "avg_growth": -0.0419,
+    "cagr_3y": -0.042,
+    "beta": 0.872,
+    "ev_ebitda": null,
+    "net_debt": 12209799936,
+    "net_debt_label": "total",
+    "total_debt": 14609999872,
+    "cash": 2400199936,
+    "de_ratio": 0.74,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.081
+      },
+      "target_prices": {
+        "high": 23.0,
+        "low": 12.0,
+        "mean": 17.5,
+        "current": 16.92
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "3 Reasons to Sell VTRS and 1 Stock to Buy Instead - Yahoo Finance",
+      "date": "Wed, 21 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Exploring Analyst Estimates for Viatris (VTRS) Q1 Earnings, Beyond Revenue and EPS",
+      "date": "Wed, 06 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Are Wall Street Analysts Bullish on Viatris Stock?",
+      "date": "Wed, 06 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Viatris Q1 2026 Earnings Preview: Caution remains around ongoing turnaround (VTRS:NASDAQ) - Seeking Alpha",
+      "date": "Wed, 06 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Earnings To Watch: Viatris (VTRS) Reports Q1 Results Tomorrow - StockStory",
+      "date": "Wed, 06 Ma",
+      "source": "StockStory"
+    },
+    {
+      "title": "Viatris: From Cost Story To Pipeline-Driven Re-Rating (Rating Upgrade) (NASDAQ:VTRS) - Seeking Alpha",
+      "date": "Tue, 12 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Where is Viatris Inc. (VTRS) Headed According to the Street? - Yahoo Finance",
+      "date": "Tue, 10 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Viatris (VTRS) Upgraded to Buy: What Does It Mean for the Stock? - Yahoo Finance",
+      "date": "Tue, 06 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Viatris Gears Up to Report Q1 Earnings: What's in the Cards?",
+      "date": "Tue, 05 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Viatris Announces Quarterly Dividend",
+      "date": "Tue, 05 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VTRS/VTRS_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VTRS/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VTRS/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VTRS/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

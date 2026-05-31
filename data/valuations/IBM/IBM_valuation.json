@@ -1,0 +1,187 @@
+{
+  "ticker": "IBM",
+  "company": "International Business Machines Corporation",
+  "currency": "$",
+  "date": "2026-05-22",
+  "current_price": 252.97,
+  "shares_outstanding": 939885280,
+  "diluted_avg_shares": 912300000,
+  "market_cap": 237762789376,
+  "sector": "Technology",
+  "industry": "Information Technology Services",
+  "country": "United States",
+  "business_summary": "International Business Machines Corporation, together with its subsidiaries, provides integrated solutions and services in the Americas, Europe, the Middle East, Africa, and the Asia Pacific. It operates through Software, Consulting, Infrastructure, and Financing segments. The Software segment offers hybrid cloud and AI platforms that allow clients to realize their digital and AI transformations across the applications, data, and environments in which they operate. The Consulting segment delivers strategy and technology services and intelligent operations, providing business transformation, technology implementation, managed services, application modernization, and AI-powered solutions. The Infrastructure segment provides on-premises and cloud-based server, and storage solutions, as well as life-cycle services for hybrid cloud infrastructure deployment. Its Financing segment offers client and commercial financing, and facilitates IBM clients' acquisition of hardware, software, and services. It has strategic partnerships with various companies, including hyperscalers, service providers, global system integrators, and software and hardware vendors that include Adobe, Amazon Web Services, Microsoft, Oracle, Salesforce, Samsung Electronics and SAP, and others. Additionally, the company operate a data streaming platform. The company has a strategic collaboration with Arm Holdings plc for the development of new dual-architecture hardware that helps enterprises run future AI and data intensive workloads. The company was formerly known as Computing-Tabulating-Recording Co. International Business Machines Corporation was incorporated in 1911 and is headquartered in Armonk, New York.",
+  "beta": 0.581,
+  "analyst_targets": {
+    "high": 335.0,
+    "low": 195.0,
+    "mean": 277.68,
+    "current": 252.97
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 67536000000.0,
+    "net_income": 10593000000.0,
+    "ebitda": 17284000000.0,
+    "free_cashflow": 11455000000.0,
+    "gross_margin": 0.5818674484719261,
+    "operating_margin": 0.1849680170575693,
+    "net_margin": 0.15684968017057568,
+    "total_debt": 64607000000.0,
+    "cash": 13587000000.0,
+    "total_equity": 32741000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 60530000000.0,
+      "net_income": 1640000000.0,
+      "ebitda": 7174000000.0,
+      "fcf": 8463000000.0,
+      "operating_income": 8174000000.0
+    },
+    "2023": {
+      "revenue": 61860000000.0,
+      "net_income": 7502000000.0,
+      "ebitda": 14693000000.0,
+      "fcf": 12121000000.0,
+      "operating_income": 9382000000.0
+    },
+    "2024": {
+      "revenue": 62753000000.0,
+      "net_income": 6023000000.0,
+      "ebitda": 12176000000.0,
+      "fcf": 11760000000.0,
+      "operating_income": 10074000000.0
+    },
+    "2025": {
+      "revenue": 67536000000.0,
+      "net_income": 10593000000.0,
+      "ebitda": 17284000000.0,
+      "fcf": 11455000000.0,
+      "operating_income": 12492000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Information Technology Services",
+      "revenues": {
+        "2022": 60530000000.0,
+        "2023": 61860000000.0,
+        "2024": 62753000000.0,
+        "2025": 67536000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.560720308580283,
+      "sga_pct": 0.2921612426767297,
+      "rd_pct": 0.11508225965564906,
+      "da_pct": 0.07477818380412793,
+      "capex_pct": 0.028055462203516814,
+      "tax_rate": 0.0607357407514405
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.022
+      },
+      {
+        "year": 2024,
+        "yoy": 0.0144
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0762
+      }
+    ],
+    "avg_growth": 0.0375,
+    "cagr_3y": 0.0372,
+    "beta": 0.581,
+    "ev_ebitda": 17.1,
+    "net_debt": 58019000320,
+    "net_debt_label": "total",
+    "total_debt": 69802000384,
+    "cash": 11783000064,
+    "de_ratio": 0.29,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.095
+      },
+      "target_prices": {
+        "high": 335.0,
+        "low": 195.0,
+        "mean": 277.68,
+        "current": 252.97
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "International Business Machines (NYSE:IBM) Stock Price Up 1.1% - Here's What Happened - MarketBeat",
+      "date": "Wed, 20 Ma",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "What's Going On With IBM Stock Today? - IBM (NYSE:IBM) - Benzinga",
+      "date": "Wed, 20 Ma",
+      "source": "Benzinga"
+    },
+    {
+      "title": "IBM Stock Leads Mega-Cap Stock Decliners as Market Volatility Triggers Steep Selloff. That Doesn’t Tell You the Whole Story. - Barchart.com",
+      "date": "Tue, 19 Ma",
+      "source": "Barchart.com"
+    },
+    {
+      "title": "IBM’s US$1b Anderon Quantum Foundry Puts Valuation And Debt In Focus",
+      "date": "Thu, 21 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Trump Admin to Invest $2 Billion in Quantum Computing Firms, Take Equity Stakes",
+      "date": "Thu, 21 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 S&P 500 Stocks We Approach with Caution",
+      "date": "Thu, 21 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dow Hits Record Highs, S&P 500 And Nasdaq Climb Amid Hopes Of Diplomatic Resolution Between US and Iran— IBM, STLA, SPOT, FCEL, EL In Focus",
+      "date": "Thu, 21 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Stock Market Today, May 21: Markets Edge Upwards Again on Iran Peace Hopes",
+      "date": "Thu, 21 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "The Quantum Leap: The Logic Behind the Deals Sending IBM and D-Wave to the Moon",
+      "date": "Thu, 21 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "These Stocks Are Today’s Movers: Nvidia, IBM, Rigetti, Nebius, Bloom Energy, Applied Digital, Intuit, D-Wave, Spotify, and More",
+      "date": "Thu, 21 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/IBM/IBM_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/IBM/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/IBM/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/IBM/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

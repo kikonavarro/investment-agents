@@ -1,0 +1,183 @@
+{
+  "ticker": "BFIT.AS",
+  "company": "Basic-Fit N.V.",
+  "currency": "EUR ",
+  "date": "2026-05-26",
+  "current_price": 30.5,
+  "shares_outstanding": 64809323,
+  "diluted_avg_shares": 71999012,
+  "market_cap": 1993959424,
+  "sector": "Consumer Cyclical",
+  "industry": "Leisure",
+  "country": "Netherlands",
+  "business_summary": "Basic-Fit N.V. operates and franchises fitness clubs under the Basic-Fit brand in the Netherlands, Belgium, Luxembourg, France, Spain, Germany, Austria, Switzerland, Slovenia, Romania, Croatia, and the Czech Republic. It also engages in the online sale of home tools and other fitness-related products through its webshop and in-house NXT Level nutrition brand through online and other distribution channels, including wholesale outlets, supermarkets, and chemists. The company was formerly known as Miktom Topco B.V and changed its name to Basic-Fit N.V. in July 2016. Basic-Fit N.V. was founded in 1984 and is headquartered in Hoofddorp, the Netherlands.",
+  "beta": 0.903,
+  "analyst_targets": {
+    "high": 49.0,
+    "low": 23.5,
+    "mean": 38.3,
+    "current": 30.5
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 1420500000.0,
+    "net_income": 14500000.0,
+    "ebitda": 639800000.0,
+    "free_cashflow": 369400000.0,
+    "gross_margin": 0.9635339669130588,
+    "operating_margin": 0.13699401619148188,
+    "net_margin": 0.010207673354452657,
+    "total_debt": 3163000000.0,
+    "cash": 114400000.0,
+    "total_equity": 397100000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 794571000.0,
+      "net_income": -3687000.0,
+      "ebitda": 389427000.0,
+      "fcf": 93466000.0,
+      "operating_income": 63283000.0
+    },
+    "2023": {
+      "revenue": 1047200000.0,
+      "net_income": -2700000.0,
+      "ebitda": 473000000.0,
+      "fcf": 157800000.0,
+      "operating_income": 120000000.0
+    },
+    "2024": {
+      "revenue": 1215200000.0,
+      "net_income": 8000000.0,
+      "ebitda": 562400000.0,
+      "fcf": 246900000.0,
+      "operating_income": 153600000.0
+    },
+    "2025": {
+      "revenue": 1420500000.0,
+      "net_income": 14500000.0,
+      "ebitda": 639800000.0,
+      "fcf": 369400000.0,
+      "operating_income": 194600000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Leisure",
+      "revenues": {
+        "2022": 794571000.0,
+        "2023": 1047200000.0,
+        "2024": 1215200000.0,
+        "2025": 1420500000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.9690301869469324,
+      "sga_pct": 0.0968992116797487,
+      "rd_pct": 0.0,
+      "da_pct": 0.3734474050339652,
+      "capex_pct": 0.296600678394525,
+      "tax_rate": 0.02141412747079663
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.3179
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1604
+      },
+      {
+        "year": 2025,
+        "yoy": 0.1689
+      }
+    ],
+    "avg_growth": 0.2157,
+    "cagr_3y": 0.2137,
+    "beta": 0.903,
+    "ev_ebitda": 7.9,
+    "net_debt": 3049800000,
+    "net_debt_label": "total",
+    "total_debt": 3164800000,
+    "cash": 115000000,
+    "de_ratio": 1.59,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.179
+      },
+      "target_prices": {
+        "high": 49.0,
+        "low": 23.5,
+        "mean": 38.3,
+        "current": 30.5
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "The Tide Is Shifting For Basic-Fit To Increased Profitability & A Higher Multiple - Seeking Alpha",
+      "date": "Wed, 23 Ju",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "European Undervalued Small Caps With Insider Action To Consider",
+      "date": "Wed, 15 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Basic-Fit N.V. stock (NL0011872650): Gains 1.59% to 29.32 EUR - AD HOC NEWS",
+      "date": "Wed, 13 Ma",
+      "source": "AD HOC NEWS"
+    },
+    {
+      "title": "Ascencio acquires the Horizon Provence retail park in the south-east of France",
+      "date": "Tue, 30 De",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 European Insider Picks With Earnings Growth Up To 34%",
+      "date": "Tue, 26 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "European Growth Stocks With High Insider Ownership And 76% Earnings Growth",
+      "date": "Tue, 21 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "European Growth Stocks Insiders Are Betting On",
+      "date": "Tue, 17 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 European Stocks Possibly Undervalued By 28.2% To 37.7%",
+      "date": "Thu, 20 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 European Stocks That May Be Priced Below Their Estimated Value",
+      "date": "Thu, 19 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "European Growth Companies With High Insider Ownership December 2025",
+      "date": "Thu, 18 De",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/BFIT_AS/BFIT_AS_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

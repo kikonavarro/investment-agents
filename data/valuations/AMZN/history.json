@@ -33,5 +33,17 @@
     "fair_value_bull": 296.99,
     "revenue": 716924000000.0,
     "gross_margin": 0.5028566486824266
+  },
+  {
+    "date": "2026-04-30",
+    "current_price": 258.66,
+    "currency": "$",
+    "fair_values": {
+      "bear": 200,
+      "base": 390,
+      "bull": 500,
+      "weighted": 336.0
+    },
+    "margin_of_safety_pct": 29.9
   }
 ]

@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-26",
+    "file": "APP_20260526_valuation.json",
+    "current_price": 508.94,
+    "currency": "$",
+    "revenue": 5480717000.0,
+    "gross_margin": 0.8786399662671873,
+    "ev_ebitda": 39.5,
+    "avg_growth": 0.3681,
+    "fair_value_bear": 320,
+    "fair_value_base": 600,
+    "fair_value_bull": 850,
+    "fair_value_weighted": 538.0
+  }
+]

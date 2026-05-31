@@ -12,5 +12,15 @@
     "growth_y1_base": -0.13,
     "wacc_base": 0.1916,
     "tv_base": 21
+  },
+  {
+    "date": "2026-05-04",
+    "file": "ASTS_20260504_valuation.json",
+    "current_price": 68.93,
+    "currency": "$",
+    "revenue": 70918000.0,
+    "gross_margin": 0.5034264925688824,
+    "ev_ebitda": null,
+    "avg_growth": 7.1858
   }
 ]

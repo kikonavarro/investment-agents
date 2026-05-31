@@ -1,0 +1,256 @@
+{
+  "ticker": "DE",
+  "company": "Deere & Company",
+  "currency": "$",
+  "date": "2026-05-20",
+  "current_price": 558.07,
+  "shares_outstanding": 270107282,
+  "diluted_avg_shares": 306300000,
+  "market_cap": 150738780160,
+  "sector": "Industrials",
+  "industry": "Farm & Heavy Construction Machinery",
+  "country": "United States",
+  "business_summary": "Deere & Company engages in the manufacture and distribution of various equipment worldwide. The company operates through four segments: Production and Precision Agriculture, Small Agriculture and Turf, Construction and Forestry, and Financial Services. The Production and Precision Agriculture segment provides four-wheel-drive track and row crop tractors, harvesters, cotton pickers and strippers, sugarcane harvesters and loaders, soil preparation, tillage, seeding, and crop care equipment, as well as application equipment, including sprayers and nutrient management, soil preparation machinery, and related attachments and service parts. The Small Agriculture and Turf segment offers specialty, utility, and compact tractors; self-propelled forage harvesters and attachments; rotary mowers, hay and forage equipment, and utility vehicles; turf and utility equipment, including riding lawn, commercial mowing, and golf course equipment, and utility vehicles, as well as implements for mowing, tilling, snow and debris handling, aerating, residential, commercial, golf, and sports turf care applications. The Construction and Forestry segment provides backhoe loaders, crawler dozers and loaders, four-wheel-drive loaders, excavators, motor graders, articulated dump trucks, skid-steer loaders, milling machines, recyclers, slipform and asphalt pavers, surface miners, compactors, tandem, static rollers, mobile crushers and screens, mobile and stationary asphalt plants, and log harvesters; and road building and rehabilitation equipment. The Financial Services segment finances sales and leases agriculture and turf, and construction and forestry equipment. It also offers wholesale financing to dealers of the foregoing equipment; and extended equipment warranties. Deere & Company has a strategic partnership with Tarter USA to develop and produce flex wing rotary cutters. The company was founded in 1837 and is headquartered in Moline, Illinois.",
+  "beta": 0.969,
+  "analyst_targets": {
+    "high": 793.0,
+    "low": 500.0,
+    "mean": 665.09955,
+    "current": 558.07
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 44665000000.0,
+    "net_income": 5027000000.0,
+    "ebitda": 11656000000.0,
+    "free_cashflow": 3231000000.0,
+    "gross_margin": 0.3648270457852905,
+    "operating_margin": 0.18842494122915035,
+    "net_margin": 0.11254897570804881,
+    "total_debt": 64250000000.0,
+    "cash": 8276000000.0,
+    "total_equity": 26007000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 51282000000.0,
+      "net_income": 7131000000.0,
+      "ebitda": 12084000000.0,
+      "fcf": 911000000.0,
+      "operating_income": 9026000000.0
+    },
+    "2023": {
+      "revenue": 60248000000.0,
+      "net_income": 10166000000.0,
+      "ebitda": 17476000000.0,
+      "fcf": 4121000000.0,
+      "operating_income": 14591000000.0
+    },
+    "2024": {
+      "revenue": 50518000000.0,
+      "net_income": 7100000000.0,
+      "ebitda": 14672000000.0,
+      "fcf": 4429000000.0,
+      "operating_income": 11427000000.0
+    },
+    "2025": {
+      "revenue": 44665000000.0,
+      "net_income": 5027000000.0,
+      "ebitda": 11656000000.0,
+      "fcf": 3231000000.0,
+      "operating_income": 8416000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Farm & Heavy Construction Machinery",
+      "revenues": {
+        "2022": 51282000000.0,
+        "2023": 60248000000.0,
+        "2024": 50518000000.0,
+        "2025": 44665000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.3569251909068355,
+      "sga_pct": 0.08169141166514646,
+      "rd_pct": 0.04262228268028432,
+      "da_pct": 0.040511387337463886,
+      "capex_pct": 0.08441019330630305,
+      "tax_rate": 0.18799224179976898
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.1748
+      },
+      {
+        "year": 2024,
+        "yoy": -0.1615
+      },
+      {
+        "year": 2025,
+        "yoy": -0.1159
+      }
+    ],
+    "avg_growth": -0.0342,
+    "cagr_3y": -0.045,
+    "beta": 0.969,
+    "ev_ebitda": 12.9,
+    "net_debt": 102999872.0,
+    "net_debt_label": "industrial (excl. Financial Services)",
+    "total_debt": 48473001984,
+    "cash": 8830000128,
+    "de_ratio": 0.32,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": -0.111
+      },
+      "target_prices": {
+        "high": 793.0,
+        "low": 500.0,
+        "mean": 665.09955,
+        "current": 558.07
+      }
+    },
+    "captive_finance": {
+      "detected": true,
+      "total_debt": 64250000000.0,
+      "estimated_industrial_debt": 8933000000.0,
+      "estimated_fs_debt": 55317000000.0,
+      "debt_to_revenue": 1.4384865106906974,
+      "debt_to_ebitda": 5.512182566918326,
+      "message": "Banco cautivo detectado (Financial Services en Industrials). Deuda total 64,250M incluye ~55,317M de préstamos del segmento financiero. Deuda industrial estimada: ~8,933M. Deuda/Revenue=1.4x, Deuda/EBITDA=5.5x."
+    },
+    "acquisition_detected": null
+  },
+  "sec_audit": {
+    "confidence": "LOW",
+    "alerts": [
+      {
+        "level": "critical",
+        "metric": "Revenue",
+        "message": "Revenue: SEC 10-K = 26,450M vs Yahoo = 44,665M (40.8% diff)"
+      },
+      {
+        "level": "critical",
+        "metric": "Net Income",
+        "message": "Net Income: SEC 10-K = 10,166M vs Yahoo = 5,027M (102.2% diff)"
+      },
+      {
+        "level": "warning",
+        "metric": "EBITDA",
+        "message": "EBITDA: SEC calc = 15,187M vs Yahoo = 11,656M (30.3% diff). Puede indicar ajustes IFRS16 o items no recurrentes."
+      },
+      {
+        "level": "warning",
+        "metric": "Gross Margin",
+        "message": "Gross Margin: SEC = -42.7% vs Yahoo = 36.5%"
+      }
+    ],
+    "comparisons": [
+      {
+        "metric": "Revenue",
+        "sec_10k": 26450.0,
+        "yahoo": 44665.0,
+        "diff_pct": 40.78137243927012,
+        "match": false
+      },
+      {
+        "metric": "Net Income",
+        "sec_10k": 10166.0,
+        "yahoo": 5027.0,
+        "diff_pct": 102.2279689675751,
+        "match": false
+      },
+      {
+        "metric": "Cash",
+        "sec_10k": 8276.0,
+        "yahoo": 8276.0,
+        "diff_pct": 0.0,
+        "match": true
+      },
+      {
+        "metric": "Total Equity",
+        "sec_10k": 25950.0,
+        "yahoo": 26007.0,
+        "diff_pct": 0.21917176144884068,
+        "match": true
+      },
+      {
+        "metric": "EBITDA (calculated)",
+        "sec_10k": 15187.0,
+        "yahoo": 11656.0,
+        "diff_pct": 30.29341111873713,
+        "match": false
+      }
+    ]
+  },
+  "news": [
+    {
+      "title": "Why Deere (DE) Stock Is Nosediving - Yahoo Finance",
+      "date": "Wed, 26 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Deere (DE) Stock Sinks As Market Gains: What You Should Know - Yahoo Finance",
+      "date": "Wed, 22 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Deere (DE) Stock Falls Amid Market Uptick: What Investors Need to Know",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Nvidia Chips, Boeing Jets: Stock Traders Eye Trump in China",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NVIDIA, Boeing, Deere: 3 Stocks With the Most to Gain From Trump’s Beijing Summit",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Assessing Deere’s (DE) Valuation After A Strong Three-Year Run And Mixed Recent Share Moves",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Deere & Company (DE) is Attracting Investor Attention: Here is What You Should Know",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "John Deere Tests Brand Reach With Every Man Jack Walmart Grooming Line",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Zacks Industry Outlook Highlights Deere & Co., CNH, AGCO and Alamo",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Deere (DE) Stock Trades Up, Here Is Why - StockStory",
+      "date": "Wed, 06 Ma",
+      "source": "StockStory"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DE/DE_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DE/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DE/SEC_filings/10K_2024.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/DE/SEC_filings/10K_2023.htm"
+    ]
+  }
+}

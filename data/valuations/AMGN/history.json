@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-23",
+    "file": "AMGN_20260523_valuation.json",
+    "current_price": 339.3,
+    "currency": "$",
+    "revenue": 36751000000.0,
+    "gross_margin": 0.6724714973742211,
+    "ev_ebitda": 13.5,
+    "avg_growth": 0.1187,
+    "fair_value_bear": 213.52,
+    "fair_value_base": 354.4,
+    "fair_value_bull": 516.42,
+    "fair_value_weighted": 330.45
+  }
+]

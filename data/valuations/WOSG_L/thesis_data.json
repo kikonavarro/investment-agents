@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "note": "Valoracion pre-IFRS16: adjusted EBIT/EBITDA tratan el alquiler como gasto operativo, por eso net_debt = pre-IFRS16 (£57M FY26), NO post-IFRS16 (£548M). Base de partida revenue FY26 £1.828M (trading update 14-may-26). Moneda: peniques (GBp). EBIT margin = gross_margin - sga_pct.",
+    "net_debt_override_m": 57.0,
+    "revenue_base_fy26_gbp_m": 1828.0,
+    "shares": 231412113
+  },
+  "fair_values": {"bear": 483, "base": 802, "bull": 1046},
+  "scenarios": {
+    "bear": {
+      "revenue_growth_y1": 0.02, "revenue_growth_y2": 0.00, "revenue_growth_y3": 0.01,
+      "revenue_growth_y4": 0.02, "revenue_growth_y5": 0.025,
+      "gross_margin": 0.118, "sga_pct": 0.040, "rd_pct": 0.0,
+      "da_pct": 0.026, "capex_pct": 0.030, "tax_rate": 0.27,
+      "wacc": 0.120, "terminal_multiple": 7.0
+    },
+    "base": {
+      "revenue_growth_y1": 0.08, "revenue_growth_y2": 0.07, "revenue_growth_y3": 0.06,
+      "revenue_growth_y4": 0.055, "revenue_growth_y5": 0.05,
+      "gross_margin": 0.128, "sga_pct": 0.038, "rd_pct": 0.0,
+      "da_pct": 0.026, "capex_pct": 0.035, "tax_rate": 0.27,
+      "wacc": 0.110, "terminal_multiple": 8.5
+    },
+    "bull": {
+      "revenue_growth_y1": 0.09, "revenue_growth_y2": 0.08, "revenue_growth_y3": 0.075,
+      "revenue_growth_y4": 0.07, "revenue_growth_y5": 0.065,
+      "gross_margin": 0.133, "sga_pct": 0.038, "rd_pct": 0.0,
+      "da_pct": 0.026, "capex_pct": 0.038, "tax_rate": 0.27,
+      "wacc": 0.100, "terminal_multiple": 10.0
+    }
+  }
+}

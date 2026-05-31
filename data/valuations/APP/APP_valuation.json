@@ -1,0 +1,195 @@
+{
+  "ticker": "APP",
+  "company": "AppLovin Corporation",
+  "currency": "$",
+  "date": "2026-05-26",
+  "current_price": 508.94,
+  "shares_outstanding": 305732000,
+  "diluted_avg_shares": 371568011,
+  "market_cap": 170973052928,
+  "sector": "Communication Services",
+  "industry": "Advertising Agencies",
+  "country": "United States",
+  "business_summary": "AppLovin Corporation provides end-to-end artificial intelligence-powered advertising solutions for businesses in the United States and internationally. It operates through two segments, Advertising and Apps. The company offers Axon Ads Manager, a suite of marketing solutions that enables developers to automate, optimize, and manage marketing efforts; MAX, an in-app bidding technology that optimizes the value of a publisher's advertising inventory by running a real-time competitive auction; Adjust, a measurement and analytics marketing platform; and Wurl, a connected TV platform, which distributes streaming video for content companies, provides advertising and publishing solutions. It serves individuals, small and independent businesses, enterprises, advertisers and advertising networks, mobile app publishers, and indie studio developers. The company was incorporated in 2011 and is headquartered in Palo Alto, California.",
+  "beta": 2.366,
+  "analyst_targets": {
+    "high": 860.0,
+    "low": 340.0,
+    "mean": 644.4667,
+    "current": 508.94
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 5480717000.0,
+    "net_income": 3333764000.0,
+    "ebitda": 4354704000.0,
+    "free_cashflow": 3942776000.0,
+    "gross_margin": 0.8786399662671873,
+    "operating_margin": 0.757549422821868,
+    "net_margin": 0.6082715090014682,
+    "total_debt": 3544741000.0,
+    "cash": 2487096000.0,
+    "total_equity": 2134671000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 2817058000.0,
+      "net_income": -192746000.0,
+      "ebitda": 513770000.0,
+      "fcf": 412111000.0,
+      "operating_income": -47791000.0
+    },
+    "2023": {
+      "revenue": 1841762000.0,
+      "net_income": 357211000.0,
+      "ebitda": 1264118000.0,
+      "fcf": 997611000.0,
+      "operating_income": 772411000.0
+    },
+    "2024": {
+      "revenue": 3224058000.0,
+      "net_income": 1579790000.0,
+      "ebitda": 2377832000.0,
+      "fcf": 2073458000.0,
+      "operating_income": 1910956000.0
+    },
+    "2025": {
+      "revenue": 5480717000.0,
+      "net_income": 3333764000.0,
+      "ebitda": 4354704000.0,
+      "fcf": 3942776000.0,
+      "operating_income": 4151914000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Advertising Agencies",
+      "revenues": {
+        "2022": 2817058000.0,
+        "2023": 1841762000.0,
+        "2024": 3224058000.0,
+        "2025": 5480717000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.7694145321176347,
+      "sga_pct": 0.20149942400144688,
+      "rd_pct": 0.12974281710499752,
+      "da_pct": 0.15860499941196837,
+      "capex_pct": 0.006546284061754712,
+      "tax_rate": 0.06452703794463038
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": -0.3462
+      },
+      {
+        "year": 2024,
+        "yoy": 0.7505
+      },
+      {
+        "year": 2025,
+        "yoy": 0.6999
+      }
+    ],
+    "avg_growth": 0.3681,
+    "cagr_3y": 0.2484,
+    "beta": 2.366,
+    "ev_ebitda": 39.5,
+    "net_debt": 1091169024,
+    "net_debt_label": "total",
+    "total_debt": 3849840128,
+    "cash": 2758671104,
+    "de_ratio": 0.02,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.59
+      },
+      "target_prices": {
+        "high": 860.0,
+        "low": 340.0,
+        "mean": 644.4667,
+        "current": 508.94
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": {
+      "detected": true,
+      "year": 2024,
+      "prev_year": 2023,
+      "prev_revenue": 1841762000.0,
+      "new_revenue": 3224058000.0,
+      "jump_pct": 0.7505291128821205,
+      "message": "Revenue saltó 75% en 2024 (1,842M → 3,224M). Probable adquisición — datos de Yahoo pueden ser parciales (no pro-forma). Crecimiento ajustado a tasas orgánicas (2-6%)."
+    }
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Wurl’s Latest CTV Trends Report Uncovers Significant Opportunity for Advertisers on Streaming News Channels",
+      "date": "Wed, 20 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "AppFolio And 2 Other High Growth Companies With Strong Insider Ownership",
+      "date": "Wed, 20 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Q1 Earnings Roundup: AppLovin (NASDAQ:APP) And The Rest Of The Advertising Software Segment",
+      "date": "Wed, 20 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Stock Market Today: Nasdaq Rises In Mixed Trade; Micron Cross Above $1 Trillion Mark (Live Coverage)",
+      "date": "Tue, 26 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Why Shares of AppLovin Were Soaring Today",
+      "date": "Tue, 26 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "US High Growth Tech Stocks To Watch Now",
+      "date": "Tue, 26 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 Promising Growth Companies With Insider Ownership Up To 27%",
+      "date": "Tue, 26 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "$APP stock is up 9% today. Here's what we see in our data. - Quiver Quantitative",
+      "date": "Tue, 26 Ma",
+      "source": "Quiver Quantitative"
+    },
+    {
+      "title": "Citizens reiterates Reddit stock rating on strong app install growth - Investing.com",
+      "date": "Tue, 26 Ma",
+      "source": "Investing.com"
+    },
+    {
+      "title": "Tuesday's session: gap up and gap down stock in the S&P500 index - ChartMill",
+      "date": "Tue, 26 Ma",
+      "source": "ChartMill"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/APP/APP_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/APP/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/APP/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/APP/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

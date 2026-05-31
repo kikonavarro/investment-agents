@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-30",
+    "file": "WOSG_L_20260530_valuation.json",
+    "current_price": 722.0,
+    "currency": "GBP ",
+    "revenue": 1651500000.0,
+    "gross_margin": 0.12788374205267938,
+    "ev_ebitda": 10.5,
+    "avg_growth": 0.1056,
+    "fair_value_bear": 483,
+    "fair_value_base": 802,
+    "fair_value_bull": 1046,
+    "fair_value_weighted": 723.2
+  }
+]

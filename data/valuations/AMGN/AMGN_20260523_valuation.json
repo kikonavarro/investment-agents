@@ -1,0 +1,187 @@
+{
+  "ticker": "AMGN",
+  "company": "Amgen Inc.",
+  "currency": "$",
+  "date": "2026-05-23",
+  "current_price": 339.3,
+  "shares_outstanding": 539708274,
+  "diluted_avg_shares": 541000000,
+  "market_cap": 183123017728,
+  "sector": "Healthcare",
+  "industry": "Drug Manufacturers - General",
+  "country": "United States",
+  "business_summary": "Amgen Inc. discovers, develops, manufactures, and delivers human therapeutics worldwide. The company's principal products include Enbrel for the treatment of rheumatoid arthritis, plaque psoriasis, and psoriatic arthritis; Otezla for the treatment of adult patients with plaque psoriasis, psoriatic arthritis, and oral ulcers associated with Behçet's disease; Prolia to treat postmenopausal women with osteoporosis; XGEVA for skeletal-related events prevention; Repatha, which reduces the risks of myocardial infarction, stroke, and coronary revascularization; Nplate for the treatment of patients with immune thrombocytopenia; KYPROLIS to treat patients with relapsed or refractory multiple myeloma; Aranesp to treat a lower-than-normal number of red blood cells and anemia; EVENITY for the treatment of osteoporosis in postmenopausal for women; Vectibix to treat patients with wild-type RAS metastatic colorectal cancer; BLINCYTO for the treatment of patients with acute lymphoblastic leukemia; TEPEZZA to treat thyroid eye disease; and KRYSTEXXA for the treatment of chronic refractory gout. It also markets other products, including PROLIA, REPATHA, OTEZLA, ENBREL, EVENITY, XGEVA, TEPEZZA, BLINCYTO, NPLATE, TEZSPIRE, KYPROLIS, ARANESP, KRYSTEXXA AND VECTIBIX, MVASI, PAVBLU, UPLIZNA, IMDELLTRA/IMDYLLTRA, AMJEVITA/AMGEVITA, TAVNEOS, NEULASTA, LUMAKRAS/LUMYKRAS, RAVICTI, PARSABIV, AIMOVIG, WEZLANA/WEZENLA, AND PROCYSBI. The company serves healthcare providers, including physicians or their clinics, dialysis centers, hospitals, and pharmacies. It distributes its products through pharmaceutical wholesale distributors. The company has collaboration agreements with AstraZeneca plc for the development and commercialization of TEZSPIRE; BEONE MEDICINES LTD. to develop and commercialize Aimovig; UCB for the development and commercialization of EVENITY; Kyowa Kirin Co., Ltd. for rocatinlimab development and commercialization; and BeiGene, Ltd. for oncology products expansion and development. The company was incorporated in 1980 and is headquartered in Thousand Oaks, California.",
+  "beta": 0.435,
+  "analyst_targets": {
+    "high": 427.0,
+    "low": 200.0,
+    "mean": 352.23334,
+    "current": 339.3
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 36751000000.0,
+    "net_income": 7711000000.0,
+    "ebitda": 16898000000.0,
+    "free_cashflow": 8100000000.0,
+    "gross_margin": 0.6724714973742211,
+    "operating_margin": 0.24706810699028597,
+    "net_margin": 0.20981741993415146,
+    "total_debt": 54604000000.0,
+    "cash": 9129000000.0,
+    "total_equity": 8658000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 26323000000.0,
+      "net_income": 6552000000.0,
+      "ebitda": 12169000000.0,
+      "fcf": 8785000000.0,
+      "operating_income": 9566000000.0
+    },
+    "2023": {
+      "revenue": 28190000000.0,
+      "net_income": 6717000000.0,
+      "ebitda": 14801000000.0,
+      "fcf": 7359000000.0,
+      "operating_income": 7897000000.0
+    },
+    "2024": {
+      "revenue": 33424000000.0,
+      "net_income": 4090000000.0,
+      "ebitda": 13356000000.0,
+      "fcf": 10394000000.0,
+      "operating_income": 7258000000.0
+    },
+    "2025": {
+      "revenue": 36751000000.0,
+      "net_income": 7711000000.0,
+      "ebitda": 16898000000.0,
+      "fcf": 8100000000.0,
+      "operating_income": 9080000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Drug Manufacturers - General",
+      "revenues": {
+        "2022": 26323000000.0,
+        "2023": 28190000000.0,
+        "2024": 33424000000.0,
+        "2025": 36751000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.6861573466228456,
+      "sga_pct": 0.2072502248288014,
+      "rd_pct": 0.17861455991595196,
+      "da_pct": 0.14553077216432198,
+      "capex_pct": 0.037502434655713845,
+      "tax_rate": 0.10948303479504633
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0709
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1857
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0995
+      }
+    ],
+    "avg_growth": 0.1187,
+    "cagr_3y": 0.1177,
+    "beta": 0.435,
+    "ev_ebitda": 13.5,
+    "net_debt": 45285000192,
+    "net_debt_label": "total",
+    "total_debt": 57322999808,
+    "cash": 12037999616,
+    "de_ratio": 0.31,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.058
+      },
+      "target_prices": {
+        "high": 427.0,
+        "low": 200.0,
+        "mean": 352.23334,
+        "current": 339.3
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Is Amgen Stock Outperforming the Dow? - Yahoo Finance",
+      "date": "Wed, 25 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "3 Large-Cap Stocks Worth Investigating",
+      "date": "Wed, 20 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "AMGN Technical Analysis | Trend, Signals & Chart Patterns | AMGEN INC (NASDAQ:AMGN) - ChartMill",
+      "date": "Wed, 20 Ma",
+      "source": "ChartMill"
+    },
+    {
+      "title": "AMGN News | AMGEN INC (NASDAQ:AMGN) - ChartMill",
+      "date": "Wed, 20 Ma",
+      "source": "ChartMill"
+    },
+    {
+      "title": "Harvest Portfolios Group Inc. Lowers Stock Position in Amgen Inc. $AMGN - MarketBeat",
+      "date": "Wed, 20 Ma",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "Cullen Frost Bankers Inc. Cuts Stake in Amgen Inc. $AMGN - MarketBeat",
+      "date": "Wed, 20 Ma",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "Atle Fund Management AB Has $7.17 Million Stake in Amgen Inc. $AMGN - MarketBeat",
+      "date": "Wed, 20 Ma",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "Amgen to Report Q1 Earnings: Can It Keep the Beat Streak Alive? - Yahoo Finance",
+      "date": "Tue, 28 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "AMGEN ANNOUNCES RETIREMENT OF CHIEF FINANCIAL OFFICER PETER GRIFFITH",
+      "date": "Tue, 19 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "2 Cash-Producing Stocks on Our Watchlist and 1 We Turn Down",
+      "date": "Tue, 19 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMGN/AMGN_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMGN/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMGN/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMGN/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

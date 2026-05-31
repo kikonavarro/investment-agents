@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "note": "Base FY2025 revenue $4.528M. shares_override = 68.05M (portada 10-K feb-2026; Yahoo daba 65.4M y diluted avg 76.9M). net_debt_override = $7.930M (incl. Alpha Group, cerrada nov-2025). EBIT margin = gross_margin - sga_pct (~43% operating margin reportado). D&A 8.5% incluye amortizacion de intangibles de M&A (no-cash, se readd en UFCF).",
+    "net_debt_override_m": 7930.0,
+    "shares_override": 68050296
+  },
+  "fair_values": {"bear": 238, "base": 430, "bull": 573},
+  "scenarios": {
+    "bear": {
+      "revenue_growth_y1": 0.13, "revenue_growth_y2": 0.05, "revenue_growth_y3": 0.04,
+      "revenue_growth_y4": 0.04, "revenue_growth_y5": 0.04,
+      "gross_margin": 0.78, "sga_pct": 0.38, "rd_pct": 0.0,
+      "da_pct": 0.085, "capex_pct": 0.045, "tax_rate": 0.22,
+      "wacc": 0.115, "terminal_multiple": 10.0
+    },
+    "base": {
+      "revenue_growth_y1": 0.16, "revenue_growth_y2": 0.11, "revenue_growth_y3": 0.10,
+      "revenue_growth_y4": 0.09, "revenue_growth_y5": 0.08,
+      "gross_margin": 0.78, "sga_pct": 0.35, "rd_pct": 0.0,
+      "da_pct": 0.085, "capex_pct": 0.045, "tax_rate": 0.22,
+      "wacc": 0.105, "terminal_multiple": 12.0
+    },
+    "bull": {
+      "revenue_growth_y1": 0.18, "revenue_growth_y2": 0.13, "revenue_growth_y3": 0.12,
+      "revenue_growth_y4": 0.11, "revenue_growth_y5": 0.10,
+      "gross_margin": 0.78, "sga_pct": 0.34, "rd_pct": 0.0,
+      "da_pct": 0.085, "capex_pct": 0.045, "tax_rate": 0.22,
+      "wacc": 0.095, "terminal_multiple": 13.5
+    }
+  }
+}

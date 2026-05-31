@@ -10,6 +10,12 @@ import time
 import requests
 import threading
 from pathlib import Path
+from requests.adapters import HTTPAdapter
+
+try:
+    from urllib3.util.retry import Retry
+except Exception:  # pragma: no cover - fallback si cambia la ruta de urllib3
+    from requests.packages.urllib3.util.retry import Retry
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
@@ -23,9 +29,13 @@ def _load_config():
 
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
     user_id = os.environ.get("TELEGRAM_CHAT_ID", "")
-    group_id = os.environ.get("TELEGRAM_GROUP_ID", "")
+    # Soporta TELEGRAM_GROUP_IDS (lista separada por comas) o TELEGRAM_GROUP_ID (legacy, un solo grupo)
+    group_ids_raw = os.environ.get("TELEGRAM_GROUP_IDS", "") or os.environ.get("TELEGRAM_GROUP_ID", "")
+    group_ids = [g.strip() for g in group_ids_raw.split(",") if g.strip()]
+    mention_only_raw = os.environ.get("TELEGRAM_MENTION_ONLY_GROUPS", "")
+    mention_only = {g.strip() for g in mention_only_raw.split(",") if g.strip()}
     api_base = f"https://api.telegram.org/bot{token}"
-    return token, user_id, group_id, api_base
+    return token, user_id, group_ids, api_base, mention_only
 
 
 def _escape_html(text: str) -> str:
@@ -519,16 +529,57 @@ def send_message(api_base: str, chat_id: str, text: str, html: bool = True) -> b
     return True
 
 
+_SESSION = None
+
+
+def _new_session():
+    """Sesión HTTP. SIN reintentos en el long-poll: reintentar getUpdates
+    mientras Telegram aún mantiene el poll anterior provoca 409 en cadena.
+    El propio bucle re-polea de forma limpia tras un fallo."""
+    s = requests.Session()
+    # connect=2 cubre fallos de DNS/red al abrir; read=0 (no reintentar lectura
+    # del long-poll). Backoff corto.
+    retry = Retry(
+        total=2, connect=2, read=0, redirect=0,
+        backoff_factor=1.0,
+        status_forcelist=(),
+        allowed_methods=frozenset(["GET", "POST"]),
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    s.mount("https://", adapter)
+    s.mount("http://", adapter)
+    return s
+
+
 def get_updates(api_base: str, offset: int = 0) -> list:
-    """Obtiene nuevos mensajes desde Telegram."""
+    """Obtiene nuevos mensajes desde Telegram.
+
+    Long-poll de 25s con timeout (conexión, lectura) SEPARADO: un socket
+    muerto lanza ReadTimeout en ~35s en vez de colgarse para siempre.
+    """
+    global _SESSION
+    if _SESSION is None:
+        _SESSION = _new_session()
     url = f"{api_base}/getUpdates"
-    params = {"timeout": 30, "offset": offset}
+    params = {"timeout": 25, "offset": offset}
     try:
-        resp = requests.get(url, params=params, timeout=35)
+        # (connect=10s, read=35s) — read > long-poll (25s) para no cortar polls sanos
+        resp = _SESSION.get(url, params=params, timeout=(10, 35))
         data = resp.json()
+        if not data.get("ok", False):
+            print(f"[Telegram] getUpdates no-ok: {data.get('error_code')} "
+                  f"{data.get('description')}", flush=True)
+            return []
         return data.get("result", [])
     except Exception as e:
-        print(f"[Telegram] Error obteniendo updates: {e}")
+        print(f"[Telegram] Error obteniendo updates: {type(e).__name__}: {e}",
+              flush=True)
+        # Socket potencialmente envenenado: tirar la sesión y recrearla limpia
+        try:
+            _SESSION.close()
+        except Exception:
+            pass
+        _SESSION = None
         return []
 
 
@@ -561,7 +612,15 @@ def _check_and_send_responses(api_base: str):
 
 def run_bot():
     """Loop principal del bot: polling + cola de mensajes para Claude Code (Opus)."""
-    token, allowed_user_id, allowed_group_id, api_base = _load_config()
+    token, allowed_user_id, allowed_group_ids, api_base, mention_only_groups = _load_config()
+
+    # Resolver username del bot para detectar menciones
+    bot_username = ""
+    try:
+        me = requests.get(f"{api_base}/getMe", timeout=10).json()
+        bot_username = me.get("result", {}).get("username", "")
+    except Exception:
+        pass
 
     if not token:
         raise RuntimeError("[Telegram] TELEGRAM_BOT_TOKEN no configurado en .env")
@@ -571,8 +630,10 @@ def run_bot():
     print(f"[Telegram] Bot activo (modo cola → Claude Code Opus).")
     print(f"[Telegram] Polling cada {POLL_INTERVAL}s.")
     print(f"[Telegram] Chat privado: solo user_id {allowed_user_id}")
-    if allowed_group_id:
-        print(f"[Telegram] Grupo autorizado: {allowed_group_id} (todos los miembros)")
+    if allowed_group_ids:
+        print(f"[Telegram] Grupos autorizados: {', '.join(allowed_group_ids)} (todos los miembros)")
+    if mention_only_groups:
+        print(f"[Telegram] Grupos mention-only: {', '.join(sorted(mention_only_groups))} (solo @{bot_username} o reply)")
     print("[Telegram] Ctrl+C para detener.\n")
 
     # Descartar mensajes pendientes al arrancar (evitar reprocesar mensajes viejos)
@@ -588,7 +649,16 @@ def run_bot():
 
     from tools.message_queue import enqueue_message
 
+    _cycle = 0
+    _last_beat = time.time()
     while True:
+        # Latido: prueba visible de que el bucle está vivo y poleando.
+        _cycle += 1
+        if time.time() - _last_beat >= 300:  # cada ~5 min
+            print(f"[Telegram] ♥ vivo (ciclo {_cycle}, offset {offset})",
+                  flush=True)
+            _last_beat = time.time()
+
         # 1. Recibir nuevos mensajes y encolarlos
         updates = get_updates(api_base, offset)
 
@@ -617,12 +687,25 @@ def run_bot():
                     continue
                 continue
 
-            is_allowed_group = allowed_group_id and chat_id == allowed_group_id
+            is_allowed_group = chat_id in allowed_group_ids
             is_allowed_private = chat_type == "private" and user_id == allowed_user_id
 
             if not is_allowed_group and not is_allowed_private:
                 print(f"[Telegram] Mensaje ignorado de user_id: {user_id} en chat: {chat_id}")
                 continue
+
+            # Grupos que solo responden cuando se menciona al bot o se hace reply a un mensaje suyo
+            if is_allowed_group and chat_id in mention_only_groups:
+                reply_to = msg.get("reply_to_message", {}) or {}
+                replied_to_bot = (
+                    bot_username
+                    and reply_to.get("from", {}).get("username", "").lower() == bot_username.lower()
+                )
+                mention_tag = f"@{bot_username}".lower() if bot_username else ""
+                mentioned = mention_tag and mention_tag in text.lower()
+                if not mentioned and not replied_to_bot:
+                    print(f"[Telegram] Sin mención en {chat_id}, ignorado: {text[:60]}")
+                    continue
 
             if text.startswith("/"):
                 cmd = text.strip().lower()

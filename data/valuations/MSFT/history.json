@@ -41,5 +41,31 @@
     "fair_value_bull": 736.04,
     "revenue": 281724000000.0,
     "gross_margin": 0.6882374238616519
+  },
+  {
+    "date": "2026-04-30",
+    "current_price": 403.04,
+    "currency": "$",
+    "fair_values": {
+      "bear": 330,
+      "base": 510,
+      "bull": 700,
+      "weighted": 476.0
+    },
+    "margin_of_safety_pct": 18.1
+  },
+  {
+    "date": "2026-05-13",
+    "file": "MSFT_20260513_valuation.json",
+    "current_price": 405.58,
+    "currency": "$",
+    "revenue": 281724000000.0,
+    "gross_margin": 0.6882374238616519,
+    "ev_ebitda": 19.1,
+    "avg_growth": 0.1249,
+    "fair_value_bear": 300,
+    "fair_value_base": 480,
+    "fair_value_bull": 650,
+    "fair_value_weighted": 442.0
   }
 ]

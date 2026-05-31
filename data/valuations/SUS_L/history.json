@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-25",
+    "file": "SUS_L_20260525_valuation.json",
+    "current_price": 1960.0,
+    "currency": "GBP ",
+    "revenue": 93224000.0,
+    "gross_margin": 0.0,
+    "ev_ebitda": null,
+    "avg_growth": -0.0066,
+    "fair_value_bear": 1350,
+    "fair_value_base": 2450,
+    "fair_value_bull": 3300,
+    "fair_value_weighted": 2180.0
+  }
+]

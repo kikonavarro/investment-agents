@@ -47,5 +47,33 @@
     "fair_value_base": 550,
     "fair_value_bull": 760,
     "fair_value_weighted": 530.0
+  },
+  {
+    "date": "2026-05-20",
+    "file": "DE_20260520_valuation.json",
+    "current_price": 558.07,
+    "currency": "$",
+    "revenue": 44665000000.0,
+    "gross_margin": 0.3648270457852905,
+    "ev_ebitda": 12.9,
+    "avg_growth": -0.0342,
+    "fair_value_bear": 300,
+    "fair_value_base": 525,
+    "fair_value_bull": 743,
+    "fair_value_weighted": 478.6
+  },
+  {
+    "date": "2026-05-30",
+    "file": "DE_20260530_valuation.json",
+    "current_price": 542.18,
+    "currency": "$",
+    "revenue": 44665000000.0,
+    "gross_margin": 0.3648270457852905,
+    "ev_ebitda": 12.6,
+    "avg_growth": -0.0342,
+    "fair_value_bear": 298,
+    "fair_value_base": 524,
+    "fair_value_bull": 698,
+    "fair_value_weighted": 468.4
   }
 ]

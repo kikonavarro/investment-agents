@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "note": "Valoracion Sum-of-Parts por el captive finance (punto clave de Kiko: el banco distorsiona). (1) Equipment Operations por DCF sobre net sales FY2025 $38.917M (no revenue total), normalizando el ciclo agricola desde el suelo (margen EBIT 12,6%) a mid-cycle ~19%; net debt INDUSTRIAL ~$103M (la deuda total $64,25bn es ~$55bn del Financial Services). (2) Financial Services a 1,0-1,4x book ($7.069M, NI $890M, ROE 12,6%) — NO a multiplo industrial. El DCF unico del sistema sobre revenue total daria base ~$586 porque aplica 12x EBITDA al banco; eso sobrevalora. Por eso no se pasan scenarios (Excel no regenerado). Shares 270,4M (10-K nov-2025).",
+    "metodologia": "sum-of-parts",
+    "shares": 270445437,
+    "net_debt_industrial_m": 103.0,
+    "fs_book_value_m": 7069.0
+  },
+  "fair_values": {"bear": 298, "base": 524, "bull": 698}
+}

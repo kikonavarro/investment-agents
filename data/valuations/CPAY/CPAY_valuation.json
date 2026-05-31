@@ -1,0 +1,187 @@
+{
+  "ticker": "CPAY",
+  "company": "Corpay, Inc.",
+  "currency": "$",
+  "date": "2026-05-30",
+  "current_price": 361.8,
+  "shares_outstanding": 65361919,
+  "diluted_avg_shares": 76862000,
+  "market_cap": 23647942656,
+  "sector": "Technology",
+  "industry": "Software - Infrastructure",
+  "country": "United States",
+  "business_summary": "Corpay, Inc. operates as a payments company that helps businesses and consumers to manage and pay their expenses.\nIt operates through Corporate Payments, Vehicle Payments, Lodging Payments, and Other segments. The company offers vehicle payment solutions for fuel, tolls and parking, vehicle compliance, auto insurance and road assistance, fleet maintenance, and long-haul transportation services, as well as prepaid food and transportation vouchers and cards. It also provides corporate payment solutions, such as cross-border payments, spend management solutions, AP modernization, virtual cards, and purchasing and T&E cards. Additionally, it offers lodging payments solutions for employees who travel overnight for work purposes; traveling crews and stranded passengers from airlines and cruise lines; workforce lodging solutions for business travel programs; airline logistics, crew management, insurance, and other payments solutions. Further, the company offers gifts and payroll cards. It serves business, merchant, consumer, and payment network customers. The company was formerly known as FLEETCOR Technologies, Inc. and changed its name to Corpay, Inc. in June 2002. Corpay, Inc. was founded in 1986 and is headquartered in Atlanta, Georgia.",
+  "beta": 0.816,
+  "analyst_targets": {
+    "high": 415.0,
+    "low": 340.0,
+    "mean": 389.7857,
+    "current": 361.8
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 4528403000.0,
+    "net_income": 1069826000.0,
+    "ebitda": 2338830000.0,
+    "free_cashflow": 1299145000.0,
+    "gross_margin": 0.7859781914286339,
+    "operating_margin": 0.43102325477657355,
+    "net_margin": 0.23624796644644921,
+    "total_debt": 10001687000.0,
+    "cash": 2408097000.0,
+    "total_equity": 4228677000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 3427129000.0,
+      "net_income": 954327000.0,
+      "ebitda": 1762604000.0,
+      "fcf": 603369000.0,
+      "operating_income": 1446641000.0
+    },
+    "2023": {
+      "revenue": 3757719000.0,
+      "net_income": 981890000.0,
+      "ebitda": 2010216000.0,
+      "fcf": 1947310000.0,
+      "operating_income": 1656873000.0
+    },
+    "2024": {
+      "revenue": 3974589000.0,
+      "net_income": 1003746000.0,
+      "ebitda": 2119244000.0,
+      "fcf": 1765389000.0,
+      "operating_income": 1755847000.0
+    },
+    "2025": {
+      "revenue": 4528403000.0,
+      "net_income": 1069826000.0,
+      "ebitda": 2338830000.0,
+      "fcf": 1299145000.0,
+      "operating_income": 1951847000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Software - Infrastructure",
+      "revenues": {
+        "2022": 3427129000.0,
+        "2023": 3757719000.0,
+        "2024": 3974589000.0,
+        "2025": 4528403000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.7814978565797059,
+      "sga_pct": 0.257605837703211,
+      "rd_pct": 0.0,
+      "da_pct": 0.08970019827303642,
+      "capex_pct": 0.0441295400408938,
+      "tax_rate": 0.2217688578263694
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0965
+      },
+      {
+        "year": 2024,
+        "yoy": 0.0577
+      },
+      {
+        "year": 2025,
+        "yoy": 0.1393
+      }
+    ],
+    "avg_growth": 0.0978,
+    "cagr_3y": 0.0973,
+    "beta": 0.816,
+    "ev_ebitda": 13.5,
+    "net_debt": 7930028288,
+    "net_debt_label": "total",
+    "total_debt": 10483340288,
+    "cash": 2553312000,
+    "de_ratio": 0.44,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.254
+      },
+      "target_prices": {
+        "high": 415.0,
+        "low": 340.0,
+        "mean": 389.7857,
+        "current": 361.8
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Why Corpay (CPAY) Stock Is Nosediving - Yahoo Finance",
+      "date": "Wed, 29 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "CPAY Stock Price Prediction 2025-2026 | Corpay Inc Forecast - 24/7 Wall St.",
+      "date": "Wed, 27 Ma",
+      "source": "24/7 Wall St."
+    },
+    {
+      "title": "418 CPAY shares proposed for resale by Morgan Stanley Smith Barney (CPAY) - Stock Titan",
+      "date": "Wed, 27 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Why Corpay (CPAY) Stock Is Trading Up Today - Yahoo Finance",
+      "date": "Wed, 21 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "CPAY Q1 Deep Dive: Corporate Payments Expansion and Portfolio Rotation Define Quarter",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Reasons Why You Should Retain Corpay Stock in Your Portfolio - Yahoo Finance",
+      "date": "Wed, 11 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "A Look At Corpay (CPAY) Valuation After Q3 Beat And Insider Share Purchase - Yahoo Finance",
+      "date": "Wed, 07 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Do Wall Street Analysts Like Corpay Stock?",
+      "date": "Tue, 26 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Corpay(CPAY) Stock Options Chain | Quotes & News - Moomoo",
+      "date": "Tue, 26 Ma",
+      "source": "Moomoo"
+    },
+    {
+      "title": "Do Wall Street Analysts Like Corpay Stock? - Barchart",
+      "date": "Tue, 26 Ma",
+      "source": "Barchart"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CPAY/CPAY_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CPAY/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CPAY/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CPAY/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-15",
+    "file": "AMD_20260515_valuation.json",
+    "current_price": 449.7,
+    "currency": "$",
+    "revenue": 34639000000.0,
+    "gross_margin": 0.4951644100580271,
+    "ev_ebitda": 99.6,
+    "avg_growth": 0.1471,
+    "fair_value_bear": 139,
+    "fair_value_base": 314,
+    "fair_value_bull": 459,
+    "fair_value_weighted": 273.0
+  }
+]

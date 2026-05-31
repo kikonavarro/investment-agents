@@ -12,5 +12,19 @@
     "fair_value_base": 460,
     "fair_value_bull": 664,
     "fair_value_weighted": 424.0
+  },
+  {
+    "date": "2026-05-26",
+    "file": "UNH_20260526_valuation.json",
+    "current_price": 376.86,
+    "currency": "$",
+    "revenue": 447567000000.0,
+    "gross_margin": 0.1852616479767275,
+    "ev_ebitda": 16.9,
+    "avg_growth": 0.1139,
+    "fair_value_bear": 260,
+    "fair_value_base": 440,
+    "fair_value_bull": 560,
+    "fair_value_weighted": 392.0
   }
 ]

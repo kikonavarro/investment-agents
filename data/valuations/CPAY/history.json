@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-30",
+    "file": "CPAY_20260530_valuation.json",
+    "current_price": 361.8,
+    "currency": "$",
+    "revenue": 4528403000.0,
+    "gross_margin": 0.7859781914286339,
+    "ev_ebitda": 13.5,
+    "avg_growth": 0.0978,
+    "fair_value_bear": 238,
+    "fair_value_base": 430,
+    "fair_value_bull": 573,
+    "fair_value_weighted": 381.8
+  }
+]

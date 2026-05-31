@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-23",
+    "file": "PUIG_MC_20260523_valuation.json",
+    "current_price": 15.27,
+    "currency": "EUR ",
+    "revenue": 5042026000.0,
+    "gross_margin": 0.751065940556435,
+    "ev_ebitda": 13.1,
+    "avg_growth": 0.1182,
+    "fair_value_bear": 13.65,
+    "fair_value_base": 23.19,
+    "fair_value_bull": 32.19,
+    "fair_value_weighted": 21.17
+  }
+]

@@ -1,0 +1,183 @@
+{
+  "ticker": "SUS.L",
+  "company": "S&U plc",
+  "currency": "GBP ",
+  "date": "2026-05-25",
+  "current_price": 1960.0,
+  "shares_outstanding": 12150760,
+  "diluted_avg_shares": 12145096,
+  "market_cap": 238154896,
+  "sector": "Financial Services",
+  "industry": "Credit Services",
+  "country": "United Kingdom",
+  "business_summary": "S&U plc provides motor, property bridging, and specialist finance services in the United Kingdom. The company was incorporated in 1938 and is headquartered in Solihull, the United Kingdom.",
+  "beta": 0.561,
+  "analyst_targets": {
+    "high": 2600.0,
+    "low": 2310.0,
+    "mean": 2456.667,
+    "current": 1960.0
+  },
+  "historical_years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "latest_financials": {
+    "revenue": 93224000.0,
+    "net_income": 23713000.0,
+    "ebitda": 0,
+    "free_cashflow": -22385000.0,
+    "gross_margin": 0.0,
+    "operating_margin": 0.0,
+    "net_margin": 0.25436582854200634,
+    "total_debt": 241978000.0,
+    "cash": 0,
+    "total_equity": 249001000.0
+  },
+  "historical_data": {
+    "2023": {
+      "revenue": 95360000.0,
+      "net_income": 33718000.0,
+      "ebitda": 0,
+      "fcf": -56091000.0,
+      "operating_income": 0
+    },
+    "2024": {
+      "revenue": 100516000.0,
+      "net_income": 25437000.0,
+      "ebitda": 0,
+      "fcf": -711000.0,
+      "operating_income": 0
+    },
+    "2025": {
+      "revenue": 97634000.0,
+      "net_income": 17913000.0,
+      "ebitda": 0,
+      "fcf": 64265000.0,
+      "operating_income": 0
+    },
+    "2026": {
+      "revenue": 93224000.0,
+      "net_income": 23713000.0,
+      "ebitda": 0,
+      "fcf": -22385000.0,
+      "operating_income": 0
+    }
+  },
+  "segments": [
+    {
+      "name": "Credit Services",
+      "revenues": {
+        "2023": 95360000.0,
+        "2024": 100516000.0,
+        "2025": 97634000.0,
+        "2026": 93224000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.4,
+      "sga_pct": 0.2061795261446788,
+      "rd_pct": 0.0,
+      "da_pct": 0.005168923116215438,
+      "capex_pct": 0.00804892347746336,
+      "tax_rate": 0.21
+    },
+    "revenue_growths": [
+      {
+        "year": 2024,
+        "yoy": 0.0541
+      },
+      {
+        "year": 2025,
+        "yoy": -0.0287
+      },
+      {
+        "year": 2026,
+        "yoy": -0.0452
+      }
+    ],
+    "avg_growth": -0.0066,
+    "cagr_3y": -0.0075,
+    "beta": 0.561,
+    "ev_ebitda": null,
+    "net_debt": 242428000,
+    "net_debt_label": "total",
+    "total_debt": 242428000,
+    "cash": 0,
+    "de_ratio": 1.02,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.433
+      },
+      "target_prices": {
+        "high": 2600.0,
+        "low": 2310.0,
+        "mean": 2456.667,
+        "current": 1960.0
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "3 UK Stocks Trading At Up To 41.7% Below Intrinsic Valuations",
+      "date": "Wed, 28 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Discover 3 UK Stocks Estimated To Be Up To 48.7% Below Their Intrinsic Value",
+      "date": "Wed, 26 No",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "S&U, 88 Energy, Serval Resources, Shoe Zone, hVIVO - Small Cap Snapshot",
+      "date": "Wed, 20 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "S&U shares surge 11% as Peel Hunt highlights value in strong first-quarter trading - Yahoo Finance UK",
+      "date": "Wed, 20 Ma",
+      "source": "Yahoo Finance UK"
+    },
+    {
+      "title": "Saga makes a splash with swing back to profit - UPDATE - Yahoo Finance UK",
+      "date": "Wed, 15 Ap",
+      "source": "Yahoo Finance UK"
+    },
+    {
+      "title": "Savills shares look undervalued after robust trading update, says Peel Hunt - Yahoo Finance UK",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance UK"
+    },
+    {
+      "title": "3 UK Stocks Estimated To Be Up To 38.4% Below Intrinsic Value - Yahoo Finance",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "S&U sees confidence return in 2026 outlook",
+      "date": "Wed, 11 Fe",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "FTSE 100 at new high as gold rush boosts miners",
+      "date": "Wed, 08 Oc",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "S&U shares jump 9% as motor finance liabilities halve; broker sees other beneficiaries from FCA ruling - Yahoo Finance UK",
+      "date": "Wed, 01 Ap",
+      "source": "Yahoo Finance UK"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/SUS_L/SUS_L_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

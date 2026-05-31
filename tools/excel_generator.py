@@ -877,8 +877,18 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
 
     info = data["info"]
     shares = data["shares_outstanding"]
+    # Override de share count decidido en la tesis (p. ej. el de la portada del 10-K
+    # cuando Yahoo diverge de las diluted average shares). Resuelve shares_divergencia.
+    if isinstance(metrics, dict) and metrics.get("_shares_override"):
+        shares = metrics["_shares_override"]
     current_price = data["current_price"]
     base_sc = scenarios["base"]
+
+    # Acciones cotizadas en peniques (Yahoo currency == "GBp", p. ej. WOSG.L): el precio
+    # está en peniques pero las cuentas (revenue, deuda) en libras. El equity value por
+    # acción sale en libras, así que lo escalamos a peniques (×100) para que cuadre con
+    # el precio y el upside no salga -99%. Resto de monedas: factor 1, sin cambio.
+    pence_factor = 100 if (info or {}).get("currency") == "GBp" else 1
 
     last_proj_col = max(proj_cols) if proj_cols else 10
     n_proj = len(proj_years)
@@ -1063,9 +1073,17 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
     except Exception:
         pass
 
+    # Override de net debt decidido en la tesis (Opus). Caso típico: retailers bajo
+    # IFRS-16, donde la deuda de Yahoo incluye pasivos por arrendamiento ya capturados
+    # en el EBIT ajustado (pre-IFRS16). Restarlos sería doble cómputo. Viene en millones.
+    override_nd = metrics.get("_net_debt_override_m") if isinstance(metrics, dict) else None
+
     # Ajustar net debt si hay banco cautivo (Financial Services)
     captive = metrics.get("captive_finance") if isinstance(metrics, dict) else None
-    if captive and captive.get("detected"):
+    if override_nd is not None:
+        net_debt = float(override_nd) * 1e6
+        _set_label(ws, row, 1, "(-) Net Debt ($M) [pre-IFRS16, decidida en tesis]")
+    elif captive and captive.get("detected"):
         industrial_debt = captive["estimated_industrial_debt"]
         cash_for_calc = cash_val if cash_val else 0
         net_debt = industrial_debt - cash_for_calc
@@ -1093,7 +1111,7 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
     _set_label(ws, row, 1, "Equity Value per Share ($)", bold=True)
     evps_row = row
     c = _col(first_data_col)
-    cell = ws.cell(row=row, column=first_data_col, value=f"={c}{equity_row}/{c}{shares_row}")
+    cell = ws.cell(row=row, column=first_data_col, value=f"=({c}{equity_row}/{c}{shares_row})*{pence_factor}")
     cell.number_format = CURRENCY_FORMAT
     cell.font = Font(name="Calibri", size=14, bold=True, color="FF006600")
     row += 1
@@ -1148,7 +1166,7 @@ def _build_valuation_sheet(ws, ticker, company_name, scenarios, data,
             sh_cell = f"${_col(first_data_col)}${shares_row}"
 
             sum_parts = "+".join(parts)
-            full_formula = f"=({sum_parts}+{tv_formula}+{nd_cell})/{sh_cell}"
+            full_formula = f"=(({sum_parts}+{tv_formula}+{nd_cell})/{sh_cell})*{pence_factor}"
 
             cell = ws.cell(row=sens_row, column=col, value=full_formula)
             cell.number_format = CURRENCY_FORMAT

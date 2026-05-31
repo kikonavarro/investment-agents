@@ -12,5 +12,19 @@
     "fair_value_base": 83.0,
     "fair_value_bull": 135.8,
     "fair_value_weighted": 80.6
+  },
+  {
+    "date": "2026-05-11",
+    "file": "UBER_20260511_valuation.json",
+    "current_price": 76.06,
+    "currency": "$",
+    "revenue": 52017000000.0,
+    "gross_margin": 0.39754311090604993,
+    "ev_ebitda": 23.1,
+    "avg_growth": 0.1773,
+    "fair_value_bear": 65,
+    "fair_value_base": 95,
+    "fair_value_bull": 140,
+    "fair_value_weighted": 92.0
   }
 ]

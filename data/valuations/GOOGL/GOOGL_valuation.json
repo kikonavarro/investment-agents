@@ -1,0 +1,187 @@
+{
+  "ticker": "GOOGL",
+  "company": "Alphabet Inc.",
+  "currency": "$",
+  "date": "2026-04-30",
+  "current_price": 374.81,
+  "shares_outstanding": 5823665113,
+  "diluted_avg_shares": 13159000000,
+  "market_cap": 4534242902016,
+  "sector": "Communication Services",
+  "industry": "Internet Content & Information",
+  "country": "United States",
+  "business_summary": "Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, including ads, Android, Chrome, devices, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in Google Play and YouTube; and devices, as well as the provision of YouTube consumer subscription services, such as YouTube TV, YouTube Music and Premium, NFL Sunday Ticket, and Google One. The Google Cloud segment offers consumption-based fees and subscriptions for AI solutions, including AI infrastructure, Vertex AI platform, and Gemini enterprise. It also provides cybersecurity, and data and analytics services; Google Workspace that include cloud-based communication and collaboration tools for enterprises, such as Calendar, Gmail, Docs, Drive, and Meet; and other enterprise services. The Other Bets segment sells transportation and internet services. Alphabet Inc. was incorporated in 1998 and is headquartered in Mountain View, California.",
+  "beta": 1.128,
+  "analyst_targets": {
+    "high": 443.0,
+    "low": 185.0,
+    "mean": 378.50394,
+    "current": 374.81
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 402836000000.0,
+    "net_income": 132170000000.0,
+    "ebitda": 180698000000.0,
+    "free_cashflow": 73266000000.0,
+    "gross_margin": 0.5965231508603998,
+    "operating_margin": 0.32032638592380025,
+    "net_margin": 0.3280987796522654,
+    "total_debt": 59291000000.0,
+    "cash": 30708000000.0,
+    "total_equity": 415265000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 282836000000.0,
+      "net_income": 59972000000.0,
+      "ebitda": 85160000000.0,
+      "fcf": 60010000000.0,
+      "operating_income": 74842000000.0
+    },
+    "2023": {
+      "revenue": 307394000000.0,
+      "net_income": 73795000000.0,
+      "ebitda": 97971000000.0,
+      "fcf": 69495000000.0,
+      "operating_income": 84293000000.0
+    },
+    "2024": {
+      "revenue": 350018000000.0,
+      "net_income": 100118000000.0,
+      "ebitda": 135394000000.0,
+      "fcf": 72764000000.0,
+      "operating_income": 112390000000.0
+    },
+    "2025": {
+      "revenue": 402836000000.0,
+      "net_income": 132170000000.0,
+      "ebitda": 180698000000.0,
+      "fcf": 73266000000.0,
+      "operating_income": 129039000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Internet Content & Information",
+      "revenues": {
+        "2022": 282836000000.0,
+        "2023": 307394000000.0,
+        "2024": 350018000000.0,
+        "2025": 402836000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.5746431024500567,
+      "sga_pct": 0.13457824369871801,
+      "rd_pct": 0.1450011160225103,
+      "da_pct": 0.0456790233526975,
+      "capex_pct": 0.13070560391884423,
+      "tax_rate": 0.16874930706242247
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0868
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1387
+      },
+      {
+        "year": 2025,
+        "yoy": 0.1509
+      }
+    ],
+    "avg_growth": 0.1255,
+    "cagr_3y": 0.1251,
+    "beta": 1.128,
+    "ev_ebitda": 24.8,
+    "net_debt": -59847004160,
+    "net_debt_label": "total",
+    "total_debt": 66995998720,
+    "cash": 126843002880,
+    "de_ratio": 0.01,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.18
+      },
+      "target_prices": {
+        "high": 443.0,
+        "low": 185.0,
+        "mean": 378.50394,
+        "current": 374.81
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Google Profit Jumps 81% as Cloud Business Booms - WSJ",
+      "date": "Wed, 29 Ap",
+      "source": "WSJ"
+    },
+    {
+      "title": "Goldman Sachs Says Google Stock Will Reach $400 After Earnings Call - Watcher Guru",
+      "date": "Wed, 29 Ap",
+      "source": "Watcher Guru"
+    },
+    {
+      "title": "Stocks making the biggest moves after hours: Alphabet, Microsoft, Amazon, Meta & more - CNBC",
+      "date": "Wed, 29 Ap",
+      "source": "CNBC"
+    },
+    {
+      "title": "BMO Capital Raises Alphabet (GOOGL) Price Target by $10 – Here’s Why - Yahoo Finance",
+      "date": "Wed, 29 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Why Palantir Suddenly Looks Vulnerable After Google’s Move - MarketBeat",
+      "date": "Wed, 29 Ap",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "Alphabet stock rises on strong financial growth and quarterly beat: Key takeaways (GOOG:NASDAQ) - Seeking Alpha",
+      "date": "Wed, 29 Ap",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Here's How Much Traders Expect Google Parent Alphabet's Stock to Move After Earnings - Investopedia",
+      "date": "Wed, 29 Ap",
+      "source": "Investopedia"
+    },
+    {
+      "title": "Alphabet shares rise as cloud boom validates Google’s AI push - CNBC",
+      "date": "Wed, 29 Ap",
+      "source": "CNBC"
+    },
+    {
+      "title": "Goldman Sachs has decisive message on Google stock ahead of earnings - thestreet.com",
+      "date": "Tue, 28 Ap",
+      "source": "thestreet.com"
+    },
+    {
+      "title": "Stock Market Today: Dow Up 600 Points; Meta Falls But These AI Data Center Names Lead Gains (Live Coverage)",
+      "date": "Thu, 30 Ap",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/GOOGL/GOOGL_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/GOOGL/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/GOOGL/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/GOOGL/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

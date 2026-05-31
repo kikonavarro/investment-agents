@@ -12,5 +12,19 @@
     "fair_value_base": 168,
     "fair_value_bull": 218,
     "fair_value_weighted": 152.8
+  },
+  {
+    "date": "2026-05-13",
+    "file": "NVDA_20260513_valuation.json",
+    "current_price": 224.831,
+    "currency": "$",
+    "revenue": 215938000000.0,
+    "gross_margin": 0.7106808435754708,
+    "ev_ebitda": 37.4,
+    "avg_growth": 1.0184,
+    "fair_value_bear": 150,
+    "fair_value_base": 300,
+    "fair_value_bull": 520,
+    "fair_value_weighted": 284.0
   }
 ]

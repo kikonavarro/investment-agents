@@ -1,0 +1,183 @@
+{
+  "ticker": "MICC",
+  "company": "The Magnum Ice Cream Company N.V.",
+  "currency": "$",
+  "date": "2026-05-17",
+  "current_price": 16.66,
+  "shares_outstanding": 612259739,
+  "diluted_avg_shares": 612259739,
+  "market_cap": 10209866752,
+  "sector": "Consumer Defensive",
+  "industry": "Packaged Foods",
+  "country": "Netherlands",
+  "business_summary": "The Magnum Ice Cream Company N.V. engages in the ice cream business in the Netherlands. The company offers its products under the Magnum, Ben & Jerry's, Cornetto, and Wall's brands. It also operates in rest of Europe, North America, South America, Africa, Asia, the Middle East, Australia, and New Zealand. The company was incorporated in 2025 and is headquartered in Amsterdam, the Netherlands.",
+  "beta": 1.0,
+  "analyst_targets": {
+    "high": 19.8,
+    "low": 15.1,
+    "mean": 17.525,
+    "current": 16.66
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 7910000000.0,
+    "net_income": 293000000.0,
+    "ebitda": 924000000.0,
+    "free_cashflow": 123000000.0,
+    "gross_margin": 0.3462705436156764,
+    "operating_margin": 0.11479140328697851,
+    "net_margin": 0.0370417193426043,
+    "total_debt": 3255000000.0,
+    "cash": 441000000.0,
+    "total_equity": 633000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 7506000000.0,
+      "net_income": 509000000.0,
+      "ebitda": 1101000000.0,
+      "fcf": 426000000.0,
+      "operating_income": 866000000.0
+    },
+    "2023": {
+      "revenue": 7618000000.0,
+      "net_income": 492000000.0,
+      "ebitda": 1079000000.0,
+      "fcf": 634000000.0,
+      "operating_income": 843000000.0
+    },
+    "2024": {
+      "revenue": 7947000000.0,
+      "net_income": 579000000.0,
+      "ebitda": 1130000000.0,
+      "fcf": 792000000.0,
+      "operating_income": 952000000.0
+    },
+    "2025": {
+      "revenue": 7910000000.0,
+      "net_income": 293000000.0,
+      "ebitda": 924000000.0,
+      "fcf": 123000000.0,
+      "operating_income": 908000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Packaged Foods",
+      "revenues": {
+        "2022": 7506000000.0,
+        "2023": 7618000000.0,
+        "2024": 7947000000.0,
+        "2025": 7910000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.3444911961314692,
+      "sga_pct": 0.21747784000755524,
+      "rd_pct": 0.011858763902640698,
+      "da_pct": 0.04661680439069677,
+      "capex_pct": 0.03984724640068994,
+      "tax_rate": 0.18860614590807684
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0149
+      },
+      {
+        "year": 2024,
+        "yoy": 0.0432
+      },
+      {
+        "year": 2025,
+        "yoy": -0.0047
+      }
+    ],
+    "avg_growth": 0.0178,
+    "cagr_3y": 0.0176,
+    "beta": 1.0,
+    "ev_ebitda": 14.3,
+    "net_debt": 2975000000,
+    "net_debt_label": "total",
+    "total_debt": 3416000000,
+    "cash": 441000000,
+    "de_ratio": 0.33,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": -0.041
+      },
+      "target_prices": {
+        "high": 19.8,
+        "low": 15.1,
+        "mean": 17.525,
+        "current": 16.66
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Euro strength cut revenue, but Magnum Ice Cream kept 2026 goals - Stock Titan",
+      "date": "Wed, 29 Ap",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Magnum Ice Cream's chief HR officer spends $499,453 on company shares - Stock Titan",
+      "date": "Wed, 13 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Magnum Ice Cream (MICC) Insider Trading Activity 2026 - MarketBeat",
+      "date": "Wed, 13 Ma",
+      "source": "MarketBeat"
+    },
+    {
+      "title": "Magnum Ice Cream (MICC) CFO acquires 4,998 shares in €67,473 purchase - Stock Titan",
+      "date": "Tue, 24 Fe",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Magnum Ice Cream HR chief buys $501,423.78 of stock - Stock Titan",
+      "date": "Tue, 12 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "“Operational rigour” pays dividends for The Magnum Ice Cream volumes",
+      "date": "Thu, 30 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Q1 2026 Trading Update",
+      "date": "Thu, 30 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Magnum Ice Cream (MICC) registers 121.6M shares; Q1 €1.77B revenue reaffirmed - Stock Titan",
+      "date": "Thu, 30 Ap",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "Result of AGM",
+      "date": "Thu, 07 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Magnum owns Ben & Jerry’s. Now it’s destroying what made the brand worth buying",
+      "date": "Thu, 07 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MICC/MICC_modelo_valoracion.xlsx",
+    "sec_filings": []
+  }
+}

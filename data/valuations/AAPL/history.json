@@ -25,5 +25,19 @@
     "fair_value_bull": 303.12,
     "revenue": 416161000000.0,
     "gross_margin": 0.4690516410716045
+  },
+  {
+    "date": "2026-05-15",
+    "file": "AAPL_20260515_valuation.json",
+    "current_price": 300.23,
+    "currency": "$",
+    "revenue": 416161000000.0,
+    "gross_margin": 0.4690516410716045,
+    "ev_ebitda": 30.6,
+    "avg_growth": 0.0188,
+    "fair_value_bear": 108,
+    "fair_value_base": 184,
+    "fair_value_bull": 245,
+    "fair_value_weighted": 165.8
   }
 ]

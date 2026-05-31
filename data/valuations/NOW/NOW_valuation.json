@@ -1,0 +1,187 @@
+{
+  "ticker": "NOW",
+  "company": "ServiceNow, Inc.",
+  "currency": "$",
+  "date": "2026-05-11",
+  "current_price": 91.57,
+  "shares_outstanding": 1031308000,
+  "diluted_avg_shares": 1020000000,
+  "market_cap": 94436876288,
+  "sector": "Technology",
+  "industry": "Software - Application",
+  "country": "United States",
+  "business_summary": "ServiceNow, Inc. provides cloud-based solution for digital workflows in the North America, Europe, the Middle East and Africa, Asia Pacific, and internationally. The company provides asset management, integrated risk management, IT service management, Operational Technology management, Security Operations, strategic portfolio management, IT operations management products; customer service management product; field service management applications; and sales and order management services. It also offers human resources delivery; legal and contract operations; workplace service delivery products; app engine product; automation engine; platform privacy and security product; and source-to-pay operations. In addition, the company provides RaptorDB, a database built to manage workloads at scale; ServiceNow Impact that provides customers with software tools, guided plans, and AI-driven recommendations; customer support; and workflow data fabric. It serves government, financial services, healthcare and life science, manufacturing, Public Sector, retail, technology, and Telecom sectors through service providers and resale partners. The company has a strategic collaboration with Cohesity, Inc. to develop, operate, and safeguard autonomous AI agents and data with enterprise-grade reliability. The company was formerly known as Service-now.com and changed its name to ServiceNow, Inc. in May 2012. ServiceNow, Inc. was founded in 2004 and is headquartered in Santa Clara, California.",
+  "beta": 0.819,
+  "analyst_targets": {
+    "high": 240.0,
+    "low": 85.0,
+    "mean": 145.26773,
+    "current": 91.57
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 13278000000.0,
+    "net_income": 1748000000.0,
+    "ebitda": 3022000000.0,
+    "free_cashflow": 4533000000.0,
+    "gross_margin": 0.7753426720891701,
+    "operating_margin": 0.13737008585630367,
+    "net_margin": 0.13164633227895767,
+    "total_debt": 2403000000.0,
+    "cash": 3726000000.0,
+    "total_equity": 12964000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 7245000000.0,
+      "net_income": 325000000.0,
+      "ebitda": 788000000.0,
+      "fcf": 2173000000.0,
+      "operating_income": 355000000.0
+    },
+    "2023": {
+      "revenue": 8971000000.0,
+      "net_income": 1731000000.0,
+      "ebitda": 1324000000.0,
+      "fcf": 2701000000.0,
+      "operating_income": 762000000.0
+    },
+    "2024": {
+      "revenue": 10984000000.0,
+      "net_income": 1425000000.0,
+      "ebitda": 2325000000.0,
+      "fcf": 3375000000.0,
+      "operating_income": 1364000000.0
+    },
+    "2025": {
+      "revenue": 13278000000.0,
+      "net_income": 1748000000.0,
+      "ebitda": 3022000000.0,
+      "fcf": 4533000000.0,
+      "operating_income": 1824000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Software - Application",
+      "revenues": {
+        "2022": 7245000000.0,
+        "2023": 8971000000.0,
+        "2024": 10984000000.0,
+        "2025": 13278000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.7839702605927479,
+      "sga_pct": 0.45128841915846146,
+      "rd_pct": 0.2338092450632971,
+      "da_pct": 0.057334933584049785,
+      "capex_pct": 0.0768046090389099,
+      "tax_rate": 0.35
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.2382
+      },
+      {
+        "year": 2024,
+        "yoy": 0.2244
+      },
+      {
+        "year": 2025,
+        "yoy": 0.2088
+      }
+    ],
+    "avg_growth": 0.2238,
+    "cagr_3y": 0.2238,
+    "beta": 0.819,
+    "ev_ebitda": 30.3,
+    "net_debt": -2751000064,
+    "net_debt_label": "total",
+    "total_debt": 2431000064,
+    "cash": 5182000128,
+    "de_ratio": 0.03,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.221
+      },
+      "target_prices": {
+        "high": 240.0,
+        "low": 85.0,
+        "mean": 145.26773,
+        "current": 91.57
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "ServiceNow stock sinks 14% as subscription revenue takes hit from Iran war - CNBC",
+      "date": "Wed, 22 Ap",
+      "source": "CNBC"
+    },
+    {
+      "title": "Why Is ServiceNow (NOW) Stock Rocketing Higher Today - Yahoo Finance",
+      "date": "Wed, 15 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Microsoft AI Governance And Teams Integrations Meet Undervalued Stock Story",
+      "date": "Thu, 07 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "How Amazon’s Expanded Logistics Network At FedEx (FDX) Has Changed Its Investment Story",
+      "date": "Thu, 07 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "ServiceNow Targets $30 Billion As AI Revenue Story Accelerates",
+      "date": "Thu, 07 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Why Is ServiceNow (NOW) Stock Soaring Today - StockStory",
+      "date": "Thu, 07 Ma",
+      "source": "StockStory"
+    },
+    {
+      "title": "The 5 Best Stocks To Buy And Watch Right Now - Investor's Business Daily",
+      "date": "Thu, 07 Ma",
+      "source": "Investor's Business Daily"
+    },
+    {
+      "title": "Here is Why NVIDIA (NVDA) Is Among the Unstoppable Stocks to Buy in 2026",
+      "date": "Sun, 10 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is ServiceNow (NOW) Resetting After A 52% Slide And DCF Upside Scenario?",
+      "date": "Sun, 10 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Why ServiceNow (NOW) Is Expanding Control Over Enterprise AI Agents",
+      "date": "Sun, 10 Ma",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NOW/NOW_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NOW/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NOW/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/NOW/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

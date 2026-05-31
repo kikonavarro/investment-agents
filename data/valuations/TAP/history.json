@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-28",
+    "file": "TAP_20260528_valuation.json",
+    "current_price": 40.995,
+    "currency": "$",
+    "revenue": 11140800000.0,
+    "gross_margin": 0.3836887835703002,
+    "ev_ebitda": null,
+    "avg_growth": 0.0151,
+    "fair_value_bear": 36.42,
+    "fair_value_base": 57.94,
+    "fair_value_bull": 74.7,
+    "fair_value_weighted": 52.68
+  }
+]

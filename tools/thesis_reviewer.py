@@ -151,7 +151,12 @@ def _get_ev_ebitda(valuation: dict) -> float:
     if not ebitda or ebitda <= 0:
         return None
 
-    market_cap = price * shares
+    # El market_cap del JSON ya viene en la moneda de las cuentas (£, $, etc.).
+    # Recalcular price*shares rompe en acciones cotizadas en peniques (GBp, p. ej.
+    # WOSG.L): el precio está en peniques pero EBITDA/deuda en libras, así que el
+    # EV/EBITDA sale ~100x inflado y dispara un falso "valoración extrema".
+    # Preferir el market_cap del JSON; price*shares solo como fallback.
+    market_cap = valuation.get("market_cap", 0) or (price * shares)
     ev = market_cap + debt - cash
     return ev / ebitda
 

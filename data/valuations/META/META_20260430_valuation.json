@@ -1,0 +1,186 @@
+{
+  "ticker": "META",
+  "company": "Meta Platforms, Inc.",
+  "currency": "$",
+  "date": "2026-04-30",
+  "current_price": 608.55,
+  "shares_outstanding": 2196045588,
+  "diluted_avg_shares": 2859000000,
+  "market_cap": 1544757444608,
+  "sector": "Communication Services",
+  "industry": "Internet Content & Information",
+  "country": "United States",
+  "business_summary": "Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality (VR) headsets, and AI glasses in the United States, Canada, Europe, Asia-Pacific, and internationally. It operates through two segments, Family of Apps (FoA) and Reality Labs (RL). The FoA segment offers Facebook, which enables people to build community through feed, reels, stories, groups, marketplace, and other; Instagram that brings people closer through Instagram feed, stories, reels, live, and messaging; Messenger, a messaging application for people to connect with friends, family, communities, and businesses across platforms and devices through text, audio, and video calls; Meta AI, an assistant that's available across apps, as a stand-alone app, on AI glasses, and on the web; Threads, an application for text-based updates and public conversations; and WhatsApp, a messaging application that is used by people and businesses to communicate and transact. The RL segment provides virtual and augmented reality products, including consumer hardware, software, and content that help people feel connected, as well as Meta Quest devices that enable social experiences across gaming, fitness, entertainment, and more. The segment also includes wearables such as AI glasses like Ray Ban Meta and Oakley Meta glasses; and the Meta Ray Ban Display, which combines AI glasses with an integrated lens display and the Meta Neural Band, a wrist worn device using electromyography that lets people control their AI glasses through neuromuscular signals. Meta Platforms, Inc. has a collaboration with Microsoft Corporation, NVIDIA Corporation, Advanced Micro Devices, Inc., Broadcom Inc., and OpenAI, L.L.C. The company was formerly known as Facebook, Inc. and changed its name to Meta Platforms, Inc. in October 2021. The company was incorporated in 2004 and is headquartered in Menlo Park, California.",
+  "beta": 1.309,
+  "analyst_targets": {
+    "high": 1015.0,
+    "low": 614.0,
+    "mean": 855.1127,
+    "current": 608.55
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 200966000000.0,
+    "net_income": 60458000000.0,
+    "ebitda": 105713000000.0,
+    "free_cashflow": 46109000000.0,
+    "gross_margin": 0.8199944269179861,
+    "operating_margin": 0.41437855159579234,
+    "net_margin": 0.3008369574952977,
+    "total_debt": 83897000000.0,
+    "cash": 35873000000.0,
+    "total_equity": 217243000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 116609000000.0,
+      "net_income": 23200000000.0,
+      "ebitda": 37690000000.0,
+      "fcf": 19289000000.0,
+      "operating_income": 28944000000.0
+    },
+    "2023": {
+      "revenue": 134902000000.0,
+      "net_income": 39098000000.0,
+      "ebitda": 59052000000.0,
+      "fcf": 44068000000.0,
+      "operating_income": 46751000000.0
+    },
+    "2024": {
+      "revenue": 164501000000.0,
+      "net_income": 62360000000.0,
+      "ebitda": 86876000000.0,
+      "fcf": 54072000000.0,
+      "operating_income": 69380000000.0
+    },
+    "2025": {
+      "revenue": 200966000000.0,
+      "net_income": 60458000000.0,
+      "ebitda": 105713000000.0,
+      "fcf": 46109000000.0,
+      "operating_income": 83276000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Internet Content & Information",
+      "revenues": {
+        "2022": 116609000000.0,
+        "2023": 134902000000.0,
+        "2024": 164501000000.0,
+        "2025": 200966000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.8069225983567377,
+      "sga_pct": 0.1640710363017857,
+      "rd_pct": 0.2851244870389438,
+      "da_pct": 0.08604829380860707,
+      "capex_pct": 0.2469598149836477,
+      "tax_rate": 0.19947105547718036
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.1569
+      },
+      {
+        "year": 2024,
+        "yoy": 0.2194
+      },
+      {
+        "year": 2025,
+        "yoy": 0.2217
+      }
+    ],
+    "avg_growth": 0.1993,
+    "cagr_3y": 0.1989,
+    "beta": 1.309,
+    "ev_ebitda": 14.6,
+    "net_debt": 3488997376,
+    "net_debt_label": "total",
+    "total_debt": 85080997888,
+    "cash": 81592000512,
+    "de_ratio": 0.06,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.238
+      },
+      "target_prices": {
+        "high": 1015.0,
+        "low": 614.0,
+        "mean": 855.1127,
+        "current": 608.55
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Meta Stock Edges Lower With Q1 Results Due. Here Are 2 Earnings Numbers To Watch. - Investor's Business Daily",
+      "date": "Wed, 29 Ap",
+      "source": "Investor's Business Daily"
+    },
+    {
+      "title": "Meta shares plummet despite beat on earnings and revenue, raises capex guidance - CNBC",
+      "date": "Wed, 29 Ap",
+      "source": "CNBC"
+    },
+    {
+      "title": "Meta stock drops on quarterly results as 'internet disruptions' in Iran drag down user numbers - CNBC",
+      "date": "Wed, 29 Ap",
+      "source": "CNBC"
+    },
+    {
+      "title": "Meta's Earnings Paradox: A Brilliant Quarter The Market Chose To Punish (NASDAQ:META) - Seeking Alpha",
+      "date": "Wed, 29 Ap",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "'Fast Money' traders talk Meta shares sliding after miss on Q1 DAP, increased capex spending - CNBC",
+      "date": "Wed, 29 Ap",
+      "source": "CNBC"
+    },
+    {
+      "title": "Stocks making the biggest moves after hours: Alphabet, Microsoft, Amazon, Meta & more - CNBC",
+      "date": "Wed, 29 Ap",
+      "source": "CNBC"
+    },
+    {
+      "title": "Meta is paying top executives to hit a $9.5 trillion valuation—and no one’s ever done it before - Fortune",
+      "date": "Wed, 29 Ap",
+      "source": "Fortune"
+    },
+    {
+      "title": "Meta shares fall on concerns over AI spending, legal scrutiny - Reuters",
+      "date": "Wed, 29 Ap",
+      "source": "Reuters"
+    },
+    {
+      "title": "Meta (NASDAQ:META) Exceeds Q1 CY2026 Expectations But Stock Drops - Yahoo Finance",
+      "date": "Wed, 29 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Meta stock sinks as company raises 2026 AI spending forecast to $125 billion-$145 billion - Yahoo Finance",
+      "date": "Wed, 29 Ap",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/META/META_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/META/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/META/SEC_filings/10K_2025.htm"
+    ]
+  }
+}

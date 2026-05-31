@@ -1,0 +1,24 @@
+{
+  "fair_values": {"bear": 30, "base": 37, "bull": 46},
+  "valuation_method": "NAV / Sum-of-the-Parts (real estate holding) — DCF no aplicable",
+  "scenarios": {
+    "bear": {
+      "revenue_growth_y1": 0.02, "revenue_growth_y2": 0.02, "revenue_growth_y3": 0.03, "revenue_growth_y4": 0.03, "revenue_growth_y5": 0.03,
+      "gross_margin": 0.88, "sga_pct": 0.23, "rd_pct": 0.0,
+      "da_pct": 0.27, "capex_pct": 0.04, "tax_rate": 0.16,
+      "wacc": 0.085, "terminal_multiple": 22
+    },
+    "base": {
+      "revenue_growth_y1": 0.04, "revenue_growth_y2": 0.05, "revenue_growth_y3": 0.05, "revenue_growth_y4": 0.05, "revenue_growth_y5": 0.05,
+      "gross_margin": 0.91, "sga_pct": 0.21, "rd_pct": 0.0,
+      "da_pct": 0.27, "capex_pct": 0.04, "tax_rate": 0.15,
+      "wacc": 0.08, "terminal_multiple": 28
+    },
+    "bull": {
+      "revenue_growth_y1": 0.07, "revenue_growth_y2": 0.08, "revenue_growth_y3": 0.08, "revenue_growth_y4": 0.07, "revenue_growth_y5": 0.06,
+      "gross_margin": 0.92, "sga_pct": 0.19, "rd_pct": 0.0,
+      "da_pct": 0.27, "capex_pct": 0.04, "tax_rate": 0.14,
+      "wacc": 0.075, "terminal_multiple": 34
+    }
+  }
+}

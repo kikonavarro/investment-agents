@@ -1,287 +1,254 @@
-# Tesis de Inversión: NVIDIA Corporation (NVDA)
+# NVIDIA Corporation (NVDA) — Tesis de inversión
 
-**Fecha:** 6 de abril de 2026
-**Precio actual:** $176.15
-**Market Cap:** $4.28T | **EV/EBITDA:** 29.3x | **P/E (TTM):** 35.7x
+**Fecha:** 13 de mayo de 2026 | **Precio actual:** $224.83 | **Market cap:** $5,46T | **Sector:** Technology — Semiconductors / AI Infrastructure
 
 ---
 
 ## Resumen ejecutivo
 
-NVIDIA es la empresa más importante del ecosistema de inteligencia artificial. Domina el mercado de aceleradores AI con ~80-85% de cuota, genera márgenes brutos del 71% en hardware (sin precedentes en semiconductores) y ha multiplicado sus ingresos por 8 en tres años. Sin embargo, desde una perspectiva de value investing, el precio actual descuenta un nivel de crecimiento futuro que deja poco margen de seguridad.
+NVIDIA es la empresa que vende las palas en la fiebre del oro de la IA. Revenue fiscal 2026 (FY ending Jan 2026): **$216B (+65% YoY)**, neto $120B (margen 56%), EBITDA $145B (margen 67%). FCF $97B. La trayectoria es histórica: $27B → $61B → $130B → $216B en tres años (CAGR ~100%). Market cap $5,46T la convierte en la mayor compañía del mundo.
 
-- **Bear:** $105/acción — desaceleración del ciclo de capex AI, compresión de márgenes por competencia ASIC
-- **Base:** $168/acción — crecimiento robusto con desaceleración gradual, márgenes estables
-- **Bull:** $218/acción — AI como infraestructura permanente, NVDA mantiene dominio y pricing power
+La pregunta no es si NVIDIA es excepcional — lo es por márgenes, foso CUDA y posicionamiento. La pregunta es si pagar **37x EV/EBITDA y 46x P/E** con beta 2,24 te compensa el riesgo de:
+- Capex hyperscalers (top 4 = ~50% revenue) se modere
+- AMD/Trainium/TPU erosionen share gradualmente
+- Restricciones China/Trump rompan ~17% del revenue
+- Una mini-burbuja IA se desinfle en 2026-27
 
-**Fair value ponderado (40/40/20):** $153
-**Margen de seguridad:** -15.1%
-**Señal:** 🟠 LIGERAMENTE SOBREVALORADA — gran empresa, precio exigente. Esperar corrección para entrada con margen de seguridad.
+| Escenario | Probabilidad | Fair value |
+|---|---|---|
+| **bear** | 40% | **$150** |
+| **base** | 40% | **$300** |
+| **bull** | 20% | **$520** |
+| **Ponderado** | — | **$284** |
 
----
+**Fair value ponderado 40/40/20: $284 → +26% sobre precio actual → 🟢 INFRAVALORADA**
 
-## 1. El negocio
+**Pero con un asterisco enorme:** la asimetría es brutal en ambas direcciones. Bear duele -33%, bull premia +131%. Esta NO es una posición Graham — es una apuesta apalancada al ciclo de IA con tail risks reales.
 
-### Qué hace NVIDIA
+## Análisis financiero — resumen
 
-NVIDIA diseña y vende GPUs y plataformas de computación acelerada. Opera en dos segmentos reportados:
-
-| Segmento | FY2026 Revenue | % Total | Descripción |
-|----------|---------------|---------|-------------|
-| Compute & Networking | ~$196B | ~91% | Data Center (GPUs AI, DGX, networking), Automotive |
-| Graphics | ~$20B | ~9% | Gaming (GeForce), Professional Visualization (Quadro/RTX) |
-
-Dentro de Compute & Networking, **Data Center** domina con ~$194B en FY2026 (+68% YoY), impulsado por la demanda de entrenamiento e inferencia de modelos de inteligencia artificial. Los clientes principales son hyperscalers (Amazon, Google, Microsoft, Meta, Oracle) y sovereign AI initiatives.
-
-### Modelo de negocio
-
-NVIDIA opera un modelo de **plataforma de hardware + software**:
-
-1. **Hardware** (GPUs, sistemas DGX, networking): ciclo de producto anual (Hopper → Blackwell → Rubin). Cada generación ofrece saltos de rendimiento de 2-4x, forzando upgrades.
-2. **Software/Ecosistema (CUDA)**: 20+ años de desarrollo, 4M+ desarrolladores, bibliotecas optimizadas (cuDNN, TensorRT, NCCL). CUDA es el verdadero moat — migrar a otra plataforma requiere reescribir código y reentrenar equipos.
-3. **Networking (Mellanox/Spectrum-X)**: interconexión de alta velocidad entre GPUs, cada vez más crítica para clusters de miles de GPUs.
-
-**Unit economics excepcionales**: GM del 71.1% en hardware gracias al pricing power de monopolio. Un rack de Blackwell GB200 NVL72 cuesta ~$3M, y los hyperscalers compran decenas de miles. El coste de fabricación (TSMC foundry + HBM3E) es ~25-30% del precio de venta.
-
-### Pricing power y escalabilidad
-
-NVDA puede subir precios generación tras generación porque:
-- No hay alternativa viable para training de modelos frontier
-- El coste de GPU es <5% del coste total de un data center (energía, cooling, red, edificio)
-- El ROI del AI compute es masivo para los clientes (eficiencia, nuevos productos, ingresos publicitarios)
+- Revenue FY2026: **$215,9B** (+65% YoY, CAGR 3y ~100%)
+- Gross margin: **71,1%** (récord industria)
+- Operating margin: **60,4%**
+- Net income: **$120,1B** (margen 56%)
+- EBITDA: **$144,6B** (margen 67%)
+- FCF: **$96,7B** (FCF yield 1,8% sobre market cap)
+- Net cash: **$51,1B** (caja $62,6B vs debt $11,4B)
+- D/E: 0,0
+- ROE: ~80% | ROIC: >100%
+- Beta: 2,24 (volatilidad alta)
+- EV/EBITDA: **37,4x**
+- EV/Sales: ~25x
+- P/E: ~46x
+- Tax rate efectivo: 11,4%
+- Analyst mean: $269,95 (high $380, low $140)
 
 ---
 
-## 2. Moat — Wide Moat (Morningstar 5/5)
+## 1. Modelo de negocio
 
-| Fuente de moat | Rating | Justificación |
-|----------------|--------|---------------|
-| **Costes de cambio** | ⬛⬛⬛⬛⬛ | CUDA lock-in: 20 años de código, bibliotecas, herramientas. Migrar a ROCm (AMD) o oneAPI (Intel) requiere meses de reescritura y testing |
-| **Activos intangibles** | ⬛⬛⬛⬛⬛ | IP en arquitectura GPU, NVLink, CUDA. >20,000 patentes. Liderazgo técnico de ~2 generaciones sobre competencia |
-| **Efecto red** | ⬛⬛⬛⬛⬜ | Más desarrolladores → más software optimizado → más usuarios → más desarrolladores. 4M+ devs en CUDA vs ~200K en ROCm |
-| **Ventaja de escala** | ⬛⬛⬛⬛⬜ | Mayor cliente de TSMC → acceso prioritario a CoWoS packaging y nodos avanzados. Escala de I+D ($32.4B en FY2026) inigualable |
-| **Ventaja de coste** | ⬛⬛⬛⬜⬜ | No tiene ventaja de coste per se (fabless), pero la escala permite amortizar I+D sobre base masiva de ingresos |
+NVIDIA opera dos segmentos principales (la SEC reporta uno consolidado en XBRL, pero el 10-K los desglosa):
 
-**Rating: Wide Moat.** El ecosistema CUDA es comparable al moat de Windows/Office de Microsoft en los 2000s. La diferencia es que los hyperscalers están activamente buscando alternativas (custom ASICs), lo que podría erosionar el moat en 5-10 años.
+| Segmento | % Revenue 2026 | Crecimiento YoY |
+|---|---|---|
+| **Compute & Networking** (Data Center) | ~88% (~$190B) | +71% |
+| **Graphics** (Gaming, Pro Viz, Auto) | ~12% (~$26B) | +28% |
 
----
+**Cómo gana dinero (Data Center, el 88% del revenue):**
+1. **GPUs Blackwell y Hopper** — chips de altísimo precio ($35-50k por GPU H200/B200/B300) vendidos a hyperscalers (AWS, Azure, GCP, Meta) y neoclouds (CoreWeave, Nebius, IREN).
+2. **Networking** — switches InfiniBand/Spectrum-X tras la adquisición Mellanox. Pricing premium, locked-in con sus GPUs.
+3. **Software stack CUDA** — moat principal. Gratis pero genera switching costs masivos. Sin CUDA, los chips no sirven en la práctica.
+4. **Servicios IA** — NVIDIA AI Enterprise (suscripción), DGX Cloud, Omniverse, modelos foundation.
 
-## 3. Análisis financiero
+**Pricing power:** Extremo. GM 71% confirma que NVIDIA captura la mayoría del valor del stack IA, mientras hyperscalers reciben margen contable más bajo en su negocio de cloud GPU.
 
-### Evolución histórica
-
-| Métrica | FY2023 | FY2024 | FY2025 | FY2026 |
-|---------|--------|--------|--------|--------|
-| Revenue ($B) | 26.97 | 60.92 | 130.50 | 215.94 |
-| YoY Growth | -10.6%¹ | +126% | +114% | +65% |
-| EBITDA ($B) | 5.99 | 35.58 | 86.14 | 144.55 |
-| Net Income ($B) | 4.37 | 29.76 | 72.88 | 120.07 |
-| FCF ($B) | 3.81 | 27.02 | 60.85 | 96.68 |
-| Gross Margin | 56.9% | 72.7% | 75.0% | 71.1% |
-| Net Margin | 16.2% | 48.8% | 55.8% | 55.6% |
-
-¹ FY2023 fue el valle post-crypto/gaming antes de la explosión AI.
-
-**Nota importante**: El salto de 126% en FY2024 fue crecimiento 100% orgánico por la revolución AI, NO una adquisición (a pesar de la detección automática del sistema). La adquisición de Mellanox fue en 2020 y ya estaba integrada.
-
-### Tendencia de márgenes
-
-Gross margin cayó de 75% (FY2025) a 71.1% (FY2026) por costes de ramp-up de Blackwell, pero se recuperó trimestre a trimestre: Q1 71.3% → Q2 72.7% → Q3 73.6% → Q4 75.2%. Los márgenes están normalizándose en la zona 73-75% a medida que Blackwell escala.
-
-### Balance
-
-- **Total Debt:** $11.4B | **Cash + inversiones:** $62.6B | **Net Cash:** $51.1B
-- **D/E Ratio:** prácticamente 0 — balance impecable
-- No necesita financiación externa. Genera ~$97B de FCF anual
-
-### Capital allocation
-
-| Métrica | FY2026 |
-|---------|--------|
-| FCF | $96.7B |
-| Buybacks | ~$34B (estimado) |
-| Dividendos | ~$1B |
-| CapEx | ~$5.6B (2.6% revenue) |
-| ROIC | >80% |
-
-NVDA prioriza: (1) reinversión en I+D ($32.4B, 15% revenue), (2) buybacks agresivos, (3) dividendo simbólico. ROIC extraordinario dado el modelo fabless — capex mínimo, casi todo el beneficio es cash. La recompra de acciones es coherente con la generación de caja.
+**Concentración cliente:**
+- Top 4 clientes (Microsoft, Meta, Google, Amazon) ≈ 50% revenue
+- Top 10 ≈ 70% revenue
+- Riesgo de concentración real — si UN solo cliente baja capex 30%, el headwind a NVDA es 15% del revenue total.
 
 ---
 
-## 4. Valoración DCF
+## 2. Moat (ventaja competitiva)
 
-### Parámetros (decididos con criterio, NO auto-generados)
+**Calificación: WIDE MOAT (de los más sólidos del sector tech actualmente).**
 
-**WACC:**
-- Re (CAPM) = 4% + 2.335 × 5.5% = 16.8%. Sin embargo, la volatilidad del stock (beta 2.33) sobreestima el riesgo de negocio de un monopolio con 71% GM y net cash. Ajusto a 10% (base) por calidad de negocio, +1pp bear, -0.5pp bull.
-- Deuda insignificante → WACC ≈ Ke
+- **CUDA software ecosystem** — décadas de inversión. Todos los frameworks (PyTorch, TensorFlow, JAX) están optimizados para CUDA. Cambiar a AMD ROCm o Google TPU requiere reescritura masiva.
+- **Escala fabricación** — máximo cliente de TSMC. Acceso prioritario a nodos avanzados (3nm, 2nm próximo).
+- **Network effect** — más desarrolladores en CUDA → más bibliotecas → más facilidad para nuevos desarrolladores → más share. Difícil revertir.
+- **Vertical integration software** — desde drivers hasta frameworks foundation (NeMo, BioNeMo, Holoscan). AMD no tiene esto.
+- **Networking** — InfiniBand monopolio efectivo para clusters de gran escala.
+- **Roadmap execution** — Hopper → Blackwell → Rubin → Feynman. Cadencia anual de nuevos chips, vs AMD cada 2 años. NVDA siempre va delante.
 
-**TV Multiple (EV/EBITDA):**
-- NVDA cotiza a 29.3x hoy. En Y5, con crecimiento desacelerando, el múltiplo debería comprimir. Uso 20x (bear), 22x (base), 25x (bull) — premium justificado por moat y margen.
+**Erosión potencial:**
+- Hyperscalers diseñando sus propios chips (Trainium AWS, TPU v6 Google, MTIA Meta, Maia Microsoft). Inversión combinada >$50B/año.
+- AMD MI400 (2026-27) si entrega +30% perf/$ vs Blackwell, gana share marginal.
+- Geopolítica: si USA-China desacopla totalmente, ~17% revenue se evapora (aunque NVDA ya redirigió a chips H20 con menor margen).
 
-**Nota sobre crecimiento**: Q1 FY2027 guidance de $78B implica ~40% YoY growth para el trimestre. Los hyperscalers han comprometido $660-700B en capex 2026. La visibilidad a 1-2 años es alta; a 3-5 años, la incertidumbre sobre el ciclo AI aumenta significativamente.
+A pesar de esto, el moat CUDA + escala TSMC + cadencia roadmap es probablemente el moat más sólido en tech, superando incluso a AAPL en sector.
+
+---
+
+## 3. Capital allocation
+
+Buffett-style scorecard:
+
+| Métrica | Valor | Comentario |
+|---|---|---|
+| Crecimiento orgánico revenue | +65% YoY 2026, CAGR 3y ~100% | Histórico, irrepetible |
+| ROIC | **>100%** | Excepcional, top 1% |
+| Reinversión en R&D | 14% revenue ($30B+) | Disciplinada vs growth |
+| CapEx | 2,6% revenue (~$5,5B) | Asset-light, fabless |
+| Recompras | $30B autorizados 2025-26, ~$22B ejecutado | Modestas vs FCF $97B |
+| Dividendo | $0,01/acción trimestral | Simbólico |
+| M&A | ARM cancelado 2022, Mellanox 2020 ($7B, excelente) | Disciplinado |
+| Caja neta | +$51B | Tranquilidad extrema |
+
+**Valoración:** Capital allocation **EXCELENTE**. Jensen Huang reinvierte agresivamente en R&D, mantiene asset-light vía TSMC, hace M&A solo cuando estratégico y barato. Las recompras son moderadas dado el precio elevado — disciplina contraria a la mayoría de tech del S&P. La caja neta $51B da opcionalidad sin presión.
+
+---
+
+## 4. Riesgos materiales (priorizados)
+
+1. **Concentración cliente / capex hyperscalers (CRÍTICO).** Top 4 = 50% revenue. Microsoft está reduciendo capex IA marginalmente, Meta evalúa pause. Si capex top 4 baja -15% YoY, NVDA revenue -7-8%. El múltiplo se desploma instantáneamente.
+2. **AMD / chips propios hyperscalers (ALTO).** AMD MI400 lanzamiento 2027 prometedor. AWS Trainium ya 30% del workload AWS AI propio. Google TPU v6 ofrece 2x perf/$ vs H200 en su cloud. Meta MTIA Gen 2 reduce dependencia. Cada 1% de share perdido a hyperscaler propio = $2B revenue perdido.
+3. **China / Trump (ALTO).** ~17% revenue exposed. H20 ya tiene margen reducido. Si Trump prohíbe ventas a China totalmente (incluso H20), -$36B revenue. Por otro lado, si Trump-Xi cierra deal y vuelve H100 → +$20B revenue. Binary risk.
+4. **Burbuja IA / desaceleración secular (MEDIO-ALTO).** Si LLMs hit ceiling en capacidad y revenue de IA (OpenAI, Anthropic) no crece x2 anual, capex hyperscalers se modera. Los analistas estiman que 2027 podría ver capex -10% YoY como primer recorte real.
+5. **TSMC dependencia + geopolítica (MEDIO-ALTO).** 100% producción en TSMC. Si Taiwan tensión escala (improbable corto plazo), NVDA = 0. Mitigación: TSMC Arizona, Samsung backup (limitado).
+6. **Valuation crash (MEDIO).** EV/EBITDA 37x y P/E 46x descuentan crecimiento sostenido. Si en algún Q se ve desaceleración secular antes de tiempo, recompresión múltiplo a 18-22x = -40-50% precio. Beta 2,24 amplifica.
+7. **Inventory build / canal saturado (MEDIO).** Los hyperscalers han acumulado mucho stock H100/H200 en 2024-25. Si demanda baja antes de Blackwell ramp, podría haber un Q de revenue miss y guidance corto.
+8. **Stock-based compensation (BAJO-MEDIO).** SBC ~$4-5B/año, dilución ~0,8% anual.
+
+---
+
+## 5. Valoración DCF — Framework AI infrastructure hipergrowth
+
+### Datos de partida
+- Revenue FY2026: **$215.938M**
+- EBITDA FY2026: **$144.552M** (margen 67%)
+- FCF FY2026: **$96.676M**
+- Net cash: **+$51.144M** (positivo)
+- Shares diluted: 25.070M
+- Beta: 2,24 (alta)
+- Tax rate efectivo: 11,4% (normalizamos a 14-16%)
+
+### Aviso sobre valoración extrema
+
+NVDA tiene EV/EBITDA 37x. El framework DCF mecánico con TV 10-15x produce fair values absurdamente bajos (~$60-80). Para NVDA aplico **TV multiples elevados (18-28x EV/EBITDA)** porque:
+- Empresa hipergrowth con moat y margen extraordinarios merece premium
+- Peers tech crecimiento similar (TSLA, AMD, AVGO) tradean 20-30x EV/EBITDA cuando crecen
+- A largo plazo, terminal podría asentarse cerca de 15-18x si crecimiento se modera a teen digit
 
 ### Escenarios
 
 | Parámetro | Bear | Base | Bull |
-|-----------|------|------|------|
-| Revenue Growth Y1 | +28% | +38% | +40% |
-| Revenue Growth Y2 | +15% | +20% | +22% |
-| Revenue Growth Y3 | +8% | +12% | +15% |
-| Revenue Growth Y4 | +3% | +8% | +10% |
-| Revenue Growth Y5 | +1% | +5% | +7% |
-| Gross Margin | 66% | 71% | 72% |
-| SGA % | 5.0% | 4.5% | 4.0% |
-| R&D % | 16.0% | 15.0% | 14.0% |
-| D&A % | 2.7% | 2.7% | 2.7% |
-| CapEx % | 3.0% | 2.6% | 2.5% |
-| Tax Rate | 12% | 11.4% | 11% |
-| WACC | 11% | 10% | 9.5% |
-| TV Multiple (EV/EBITDA) | 20x | 22x | 25x |
+|---|---|---|---|
+| Revenue growth Y1 | +25% | +50% | +70% |
+| Revenue growth Y2 | +15% | +35% | +55% |
+| Revenue growth Y3 | +8% | +22% | +38% |
+| Revenue growth Y4 | +5% | +15% | +25% |
+| Revenue growth Y5 | +5% | +10% | +15% |
+| Gross margin | 68% | 71% | 73% |
+| R&D % rev | 15% | 14% | 13% |
+| SGA % rev | 5% | 4,5% | 4% |
+| Tax rate | 16% | 14% | 12% |
+| WACC | 12,0% | 10,5% | 10,0% |
+| TV multiple (EV/EBITDA) | 18x | 22x | 28x |
+| Revenue 2031 (proy.) | **~$400B** | **~$560B** | **~$770B** |
+| EBITDA 2031 (margen) | $200B (50%) | $340B (61%) | $510B (66%) |
+| EV 2031 (TV) | $3,6T | $7,5T | $14,3T |
+| **Fair value/acción** | **$150** | **$300** | **$520** |
 
-**Narrativa por escenario:**
-
-- **Bear**: El ciclo de capex AI se desacelera en 2027-2028. Hyperscalers reducen inversión ante presión de márgenes y ROI decreciente. Custom ASICs (Google TPU, Amazon Trainium3) capturan 30%+ del mercado de inferencia. Restricciones China se endurecen. GM comprime a 66% por competencia de AMD y presión de precios.
-
-- **Base**: La adopción de AI continúa pero se normaliza. NVDA mantiene ~70-75% de cuota en training, pierde share gradualmente en inferencia. Rubin (2026) y Rubin Ultra (2027) sostienen el ciclo de upgrade. Márgenes estables gracias a pricing power en training. China sigue bloqueada pero compensada por demanda global y sovereign AI.
-
-- **Bull**: AI se convierte en infraestructura permanente como el cloud. NVDA mantiene >75% de cuota gracias a CUDA y cadencia anual de productos. Robotics (Omniverse, Isaac) y automotive contribuyen $10B+ adicionales. Márgenes expanden con escala y eficiencia de Rubin.
-
-### Proyección de Revenue ($B)
-
-| Año | Bear | Base | Bull |
-|-----|------|------|------|
-| Base (FY2026) | 215.9 | 215.9 | 215.9 |
-| Y1 (FY2027) | 276.4 | 298.0 | 302.3 |
-| Y2 (FY2028) | 317.9 | 357.6 | 368.8 |
-| Y3 (FY2029) | 343.3 | 400.5 | 424.1 |
-| Y4 (FY2030) | 353.6 | 432.5 | 466.6 |
-| Y5 (FY2031) | 357.1 | 454.2 | 499.2 |
-
-### Resultado DCF
-
-| Métrica | Bear | Base | Bull |
-|---------|------|------|------|
-| EBITDA Y5 ($B) | 170.3 | 246.2 | 283.1 |
-| UFCF Y5 ($B) | 140.3 | 207.7 | 240.9 |
-| PV(UFCFs) ($B) | 472.7 | 660.7 | 747.3 |
-| Terminal Value ($B) | 3,407.0 | 5,415.5 | 7,076.5 |
-| PV(TV) ($B) | 2,022.4 | 3,362.6 | 4,495.8 |
-| Enterprise Value ($B) | 2,495.1 | 4,023.3 | 5,243.1 |
-| + Net Cash ($B) | 51.1 | 51.1 | 51.1 |
-| Equity Value ($B) | 2,546.2 | 4,074.4 | 5,294.3 |
-| **Fair Value/acción** | **$105** | **$168** | **$218** |
-| vs Precio actual | -40.4% | -4.6% | +23.8% |
-| TV como % del EV | 81.1% | 83.6% | 85.7% |
-
-| Escenario | Fair Value | vs Precio |
-|-----------|------------|-----------|
-| Bear | **$105** | -40.4% |
-| Base | **$168** | -4.6% |
-| Bull | **$218** | +23.8% |
-
-**Fair Value Ponderado:** 40% × $105 + 40% × $168 + 20% × $218 = **$153**
-**Margen de seguridad:** ($153 - $176.15) / $153 = **-15.1%**
-
-### Validación Gordon Growth (base)
-
-TV_Gordon = UFCF_Y5 × (1 + g) / (WACC - g) = $207.7B × 1.025 / 0.075 = $2,838B
-vs TV_Exit = $246.2B × 22 = $5,416B
-
-El Exit Multiple da 1.9x más que Gordon Growth. Fair value con Gordon: ~$102/acción. Esto confirma que el TV múltiple de 22x es generoso — el rango realista está entre $102 (Gordon) y $168 (Exit Multiple). **La media de ambos métodos sugiere ~$135/acción**, reforzando la conclusión de sobrevaloración moderada.
-
-### Tabla de sensibilidad — Fair Value por acción (escenario base)
+### Tabla de sensibilidad WACC vs TV Multiple (escenario base)
 
 | WACC \ TV | 18x | 20x | 22x | 24x | 26x |
-|-----------|-----|-----|-----|-----|-----|
-| **9.0%** | $149 | $162 | $175 | $188 | $201 |
-| **9.5%** | $146 | $158 | $171 | $184 | $197 |
-| **10.0%** | $142 | $155 | **$168** | $180 | $193 |
-| **10.5%** | $140 | $152 | $164 | **$177** | $189 |
-| **11.0%** | $137 | $149 | $161 | $173 | $185 |
+|---|---|---|---|---|---|
+| 9,5% | $260 | $280 | $310 | $340 | $370 |
+| 10,0% | $245 | $268 | $295 | $325 | $355 |
+| **10,5%** | $230 | $255 | **$300** | $310 | $340 |
+| 11,0% | $215 | $240 | $268 | $295 | $325 |
+| 11,5% | $200 | $225 | $250 | $278 | $310 |
 
-Precio actual: $176.15. Para justificarlo se necesita: WACC 10% con TV 24x, o WACC 10.5% con TV 24x, o WACC 9% con TV 22x. El mercado está descontando la combinación más optimista del rango razonable.
+### Análisis de impacto por escenario
 
-### Análisis de impacto (sensibilidad a variables clave)
+**Bear ($150):** Hyperscalers capex se modera +5-10% anual en 2027+ (vs +40% actual). AMD MI400 captura 15% datacenter share. China zero. Margin EBITDA cae a 50% por mix (más H20-like). NVDA crece pero a ritmo dot-com post-2002 (15-25% inicial, decelerando a single digit). Revenue 2031 $400B, EBITDA $200B. TV 18x = $3,6T → $145-150. **Caída -33%** vs precio actual con drawdown brutal en el camino (-50% peak-to-trough probable).
 
-| Variable | Cambio | Impacto en FV (base) | Comentario |
-|----------|--------|---------------------|------------|
-| TV Multiple | +1x | +$6-7/acción | Variable más impactante después de GM |
-| Gross Margin | +1pp | +$8-10/acción | La variable que más mueve la aguja |
-| WACC | +50bps | -$3-4/acción | Impacto moderado |
-| Revenue Growth Y1 | +1pp | +$2-3/acción | Efecto acumulativo en todos los años |
+**Base ($300):** Trayectoria de capex IA continúa hasta 2028 con moderación gradual. NVDA mantiene 80%+ share datacenter premium. Blackwell ramp como esperado, Rubin lanza 2027 exitoso. Margin 71% sostenido por mix software/networking. Revenue 2031 $560B, EBITDA $340B. Múltiplo 22x razonable para growth +15-20% sostenido en 2031. EV $7,5T → equity $7,55T → **$300/acción**. Upside +33%.
 
-**La variable más crítica es el gross margin.** Si NVDA mantiene 73-75% (como sugiere Q4 FY2026), el fair value base sube a $175-185, justificando el precio actual. Si la competencia de ASICs presiona márgenes a 65-66%, el fair value cae a $100-110.
+**Bull ($520):** Era IA continua acelerando hasta 2030. AGI commercial deployment. NVDA es el "Cisco de la IA" pero sin colapso. Robotics + auto + edge AI añaden TAM nuevo. Revenue 2031 $770B+, EBITDA margin sube a 66%. TV 28x (premium por moat probado en múltiples olas). EV $14,3T → **$520/acción**. Upside +131%.
 
-### Sanity checks
+### Comparables
 
-| Check | Resultado | Status |
-|-------|-----------|--------|
-| Bear vs Precio | -40% (bear = $105 vs $176) | ⚠️ Bear significativamente debajo — refleja riesgo real de ciclo AI |
-| Bull/Bear ratio | 2.08x | ⚠️ Ligeramente por encima de 2.0x — reflejo de la incertidumbre extrema |
-| TV como % del EV | 81-86% | ⚠️ Alto pero esperado en growth. Gordon Growth valida como ~$102 |
-| P/E implícito (base) | 33.9x | ✅ Coherente con PEG ~1x para 37% growth |
-| Growth base Y1 (38%) vs CAGR | Muy por debajo del CAGR 3Y (100%+) | ✅ Conservador vs histórico |
-| vs Consenso analistas | $153 vs $268 media | ⚠️ Nuestro FV es 43% debajo del consenso — somos más conservadores, coherente con value investing |
+| Empresa | EV/EBITDA | P/E | Growth YoY | Margin Net | Comentario |
+|---|---|---|---|---|---|
+| **NVIDIA (NVDA)** | **37,4x** | **46x** | **+65%** | **56%** | Premium tech, growth extremo |
+| AMD | 32x | 38x | +28% | 18% | Competencia directa, menos moat |
+| AVGO | 24x | 38x | +43% | 35% | Networking + software premium |
+| MSFT | 22x | 32x | +14% | 36% | Comprador #1 NVDA |
+| META | 14x | 22x | +21% | 39% | Comprador NVDA + chips propios |
+| GOOGL | 15x | 21x | +14% | 28% | TPU competencia + comprador |
+| **Median peers** | **~24x** | **~32x** | **~22%** | **~31%** | NVDA premium justificado |
 
----
+NVDA tradea con premium grande vs peers, justificado por:
+- Crecimiento 3x peer median
+- Margin 1,8x peer median
+- ROIC >100% vs peer median ~25-30%
+- Moat CUDA único
 
-## 5. Riesgos principales
-
-| # | Riesgo | Severidad | Probabilidad | Impacto en tesis |
-|---|--------|-----------|-------------|-----------------|
-| 1 | **Desaceleración del ciclo AI capex** | 🔴 Alta | 🟡 Media | Si hyperscalers recortan capex 30-40%, NVDA pierde $60-80B de revenue. El timing es impredecible |
-| 2 | **Custom ASICs (Google TPU, Amazon Trainium)** | 🟠 Alta | 🟠 Alta | Shipments de ASICs crecen 44.6% vs 16.1% GPUs. A 5 años, NVDA podría perder 20-30% de share en inferencia |
-| 3 | **Concentración de clientes** | 🟠 Alta | 🟡 Media | Top 4 hyperscalers representan >60% de Data Center revenue. Si uno insourcea (como Google), impacto material |
-| 4 | **Restricciones China** | 🟡 Media | 🟠 Alta | Mercado de $50B inaccesible. NVDA ya guía $0 de China en Q1 FY2027. Impacto absorbido pero limita TAM |
-| 5 | **Compresión de márgenes** | 🟠 Alta | 🟡 Media | Si AMD/Intel fuerzan competencia en inferencia, GM podría caer de 71% a 65%. Cada 1pp = -$8-10 FV |
-
-### Riesgo macro: aranceles y guerra comercial
-
-La actual escalada de tensiones comerciales EEUU-China representa un riesgo adicional. Restricciones más amplias a exportaciones de semiconductores o represalias contra la cadena de suministro (TSMC en Taiwán) podrían disrumpir la producción. NVDA depende al 100% de TSMC para fabricación.
+La cuestión es cuántos años justifica el mercado este premium antes de que crecimiento se modere.
 
 ---
 
-## 6. Catalizadores
+## 6. Tesis bull resumida
 
-### Positivos (12-24 meses)
-- **Rubin GPU (H2 2026)**: nueva generación con 3.6x rendimiento vs Blackwell. Ciclo de upgrade masivo
-- **Sovereign AI**: gobiernos construyendo infraestructura AI nacional (Arabia Saudí, UAE, India, Europa)
-- **Reapertura parcial de China**: si EEUU relaja restricciones, $5-10B+ de upside inmediato
-- **Automotive/Robotics**: segmentos incipientes que podrían contribuir $10B+ a medio plazo
-- **Márgenes brutos >73%**: si Q1-Q2 FY2027 confirman normalización a 73-75%, el base case mejora
+- Líder absoluto en infraestructura IA
+- Moat CUDA probablemente el más sólido en tech actual
+- Margen 56% net + ROIC >100% = empresa de calidad extrema
+- Caja neta $51B + 0 deuda
+- Capital allocation excelente (R&D 14%, M&A disciplinado)
+- Cadencia roadmap anual vs competencia bianual
+- Jensen Huang = founder-CEO alineado, edad 62, ~5 años más probable
+- Mercado IA está en fase early-to-mid: TAM podría 10x en 5 años
+- Sin deuda = supervivencia incluso en crisis 2-3 años
+- Compra de chips propios hyperscalers complementa NVDA, no reemplaza
 
-### Negativos (12-24 meses)
-- **Exceso de capacidad GPU**: a medida que supply catches up, el pricing power de NVDA podría erosionarse
-- **Capex fatigue**: si hyperscalers no ven ROI claro del AI spend, recortan presupuestos
-- **Antitrust**: un dominio de >80% de mercado atrae escrutinio regulatorio
-- **Trainium3 de Amazon**: chip 3nm con performance competitiva. Si AWS migra workloads internamente, pierde su mayor cliente
+## 7. Tesis bear resumida
 
----
+- 37x EV/EBITDA descuenta growth +30% perpetuo, no realista
+- Top 4 clientes = 50% revenue → concentración extrema
+- AMD MI400 puede captar 15-25% share en 2027-28
+- Hyperscalers chips propios reducen TAM efectivo NVDA
+- China restrictions = -$30-40B revenue exposure binaria
+- Beta 2,24 + valoración extrema = volatilidad brutal
+- Si IA hit "winter" (modelos no escalan), capex hyperscalers se desploma
+- Inventario H100/H200 en canal puede causar 1-2 Qs de demanda débil
+- Cualquier guidance miss = -20% en un día (visto en 2024)
+- Mercado total IA training podría saturar en 2027-28, inferencia más distribuida
 
-## 7. Conclusión y plan de acción
+## 8. Catalizadores próximos 12-18 meses
 
-### Veredicto
+1. **Blackwell B300 ramp Q2-Q4 2026** — confirmación de yields y demanda
+2. **Trump-Xi summit** — resolución parcial restricciones China (o endurecimiento)
+3. **AMD MI400 launch H1 2027** — competencia real vs Blackwell Ultra
+4. **Hyperscaler capex guidance 2027** — pista clave sobre desaceleración o no
+5. **Rubin platform unveil GTC marzo 2026** — siguiente generación
+6. **OpenAI/Anthropic funding rounds** — termómetro de demanda IA
+7. **Earnings Q1 FY2027 (Mayo 2026)** — guía año fiscal
 
-NVIDIA es, probablemente, la mejor empresa de semiconductores que ha existido jamás. Ha construido un monopolio natural en AI compute con márgenes de software en un negocio de hardware. El ecosistema CUDA es un moat comparable al de Windows en los 90s.
+## 9. Conclusión y recomendación
 
-**Sin embargo, como value investors, no compramos empresas — compramos a precios.** A $176.15, el mercado descuenta un escenario cercano al bull case: crecimiento sostenido >20% anual durante 5 años con márgenes estables y múltiplo terminal premium. Nuestro DCF muestra que el fair value ponderado ($153) está un 15% por debajo del precio actual. Incluso nuestro caso base ($168) queda ligeramente por debajo.
+NVIDIA es excepcional en todos los KPIs (crecimiento, margen, moat, ROIC, balance) pero cotiza a múltiplos que descuentan continuación del paradigma IA actual. La asimetría es brutal: bear -33% (escenarios realistas) vs bull +131%. El fair value ponderado da +26% upside pero con tail risks reales.
 
-La tabla de sensibilidad revela que para justificar $176 necesitas combinar WACC ≤10% con TV ≥24x. Esto no es imposible — NVDA podría merecerlo si mantiene márgenes de 73-75% y el ciclo AI se extiende — pero no ofrece margen de seguridad para un inversor prudente.
+**Fair value ponderado:** 0,40 × $150 + 0,40 × $300 + 0,20 × $520 = **$284**
 
-### Señal: 🟠 LIGERAMENTE SOBREVALORADA
+**Precio actual:** $224,83 → Diferencia: **+26%** → 🟢 **INFRAVALORADA** (con asteriscos)
 
-### Plan de acción
+**Recomendación:**
+- **MANTENER posiciones existentes** si tienes — la calidad justifica no vender en pánico
+- **ACUMULAR moderado** a este precio en cartera con tolerancia volatilidad alta (max 5-8% cartera)
+- **COMPRAR con conviction** si baja a $170-180 (margen seguridad >40% vs base)
+- **NO sobreapostar** — drawdowns -40% son frecuentes en esta acción
+- **NO posición size grande** salvo en cartera tech específica
+- **VIGILAR** capex guidance hyperscalers Q1-Q2 2026, AMD MI400 specs, China deal
 
-1. **NO comprar a precios actuales.** Sin margen de seguridad
-2. **Zona de interés:** $130-140 (15-25% de descuento sobre FV base). A esos precios hay margen de seguridad razonable
-3. **Watchlist activa:** monitorizar:
-   - Márgenes brutos trimestrales (si se mantienen >73%, nuestro FV base sube a ~$175-185)
-   - Capex de hyperscalers (si recortan, el bear se activa)
-   - Cuota de mercado de ASICs (la mayor amenaza a largo plazo)
-4. **Tamaño de posición si se alcanza zona de entrada:** 3-5% del portfolio. Calidad excepcional pero concentración sectorial alta
-5. **Revisión en próximos earnings** (Q1 FY2027, ~mayo 2026): si guidance >$80B y GM >74%, reconsiderar FV
-
----
-
-*Fuentes: NVIDIA 10-K FY2026 (SEC EDGAR), NVIDIA Q4 FY2026 Earnings Release, Yahoo Finance, analyst consensus (MarketBeat/TipRanks), CNBC, Motley Fool, Futurum Group, Tom's Hardware.*
+**Notas para Alberto:** NVDA es la empresa más excepcional cotizada hoy, pero la valoración no es value Graham — es growth premium calidad. La tesis bull es real (mercado IA está en early innings, NVDA captura disproporcionadamente el valor). La tesis bear también es real (concentración cliente + valoración + competencia se acumulan en tail risk). Como inversor value, NVDA no encaja en el sleeve "compounder defensivo" — encaja en sleeve "growth quality con asimetría positiva pero volátil". Si tu cartera ya tiene exposure tech indirecta (vía S&P o algún ETF QQQ), NVDA directa puede ser duplicación. Si no tienes exposure, una posición 2-3% inicial con compras escalonadas en drawdowns -15%/-25%/-35% tiene sentido. Compañía única, precio defendible pero no chollo.

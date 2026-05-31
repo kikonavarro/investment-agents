@@ -1,0 +1,220 @@
+{
+  "ticker": "MSFT",
+  "company": "Microsoft Corporation",
+  "currency": "$",
+  "date": "2026-04-30",
+  "current_price": 403.04,
+  "shares_outstanding": 7425629076,
+  "diluted_avg_shares": 7540000000,
+  "market_cap": 2995545702400,
+  "sector": "Technology",
+  "industry": "Software - Infrastructure",
+  "country": "United States",
+  "business_summary": "Microsoft Corporation develops and supports software, services, devices, and solutions worldwide. The Productivity and Business Processes segment offers Microsoft 365 commercial, enterprise mobility + security, windows commercial, power BI, exchange, sharepoint, Microsoft teams, security and compliance, and copilot; Microsoft 365 commercial products, such as Windows commercial on-premises and office licensed services; Microsoft 365 consumer products and cloud services, including Microsoft 365 consumer subscriptions, office licensed on-premises, and other consumer services; LinkedIn; dynamics products and cloud services, such as dynamics 365, cloud-based applications, and on-premises ERP and CRM applications. Its Intelligent Cloud segment provides Server products and cloud services comprising Azure and other cloud services, GitHub, Nuance Healthcare, virtual desktop offerings, and other cloud services; server products, including SQL and windows server, visual studio and system center related client access licenses, and other on-premises offerings; enterprise and partner services, such as enterprise support and nuance professional services, industry solutions, Microsoft partner network, and learning experience. The Personal Computing segment provides windows and devices, such as Windows OEM licensing and devices and surface and PC accessories; gaming services and solutions, such as Xbox hardware, content, and services, first- and third-party content Xbox game pass, subscriptions, and cloud gaming, advertising, and other cloud services; search and news advertising services that includes Bing and Copilot, Microsoft News and Edge, and third-party affiliates. It sells its products through OEMs, distributors, and resellers; and online and retail stores. The company was founded in 1975 and is headquartered in Redmond, Washington.",
+  "beta": 1.107,
+  "analyst_targets": {
+    "high": 730.0,
+    "low": 392.0,
+    "mean": 570.7213,
+    "current": 403.04
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 281724000000.0,
+    "net_income": 101832000000.0,
+    "ebitda": 160165000000.0,
+    "free_cashflow": 71611000000.0,
+    "gross_margin": 0.6882374238616519,
+    "operating_margin": 0.4562195624085985,
+    "net_margin": 0.3614601524896707,
+    "total_debt": 60588000000.0,
+    "cash": 30242000000.0,
+    "total_equity": 343479000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 198270000000.0,
+      "net_income": 72738000000.0,
+      "ebitda": 100239000000.0,
+      "fcf": 65149000000.0,
+      "operating_income": 83383000000.0
+    },
+    "2023": {
+      "revenue": 211915000000.0,
+      "net_income": 72361000000.0,
+      "ebitda": 105140000000.0,
+      "fcf": 59475000000.0,
+      "operating_income": 88523000000.0
+    },
+    "2024": {
+      "revenue": 245122000000.0,
+      "net_income": 88136000000.0,
+      "ebitda": 133009000000.0,
+      "fcf": 74071000000.0,
+      "operating_income": 109433000000.0
+    },
+    "2025": {
+      "revenue": 281724000000.0,
+      "net_income": 101832000000.0,
+      "ebitda": 160165000000.0,
+      "fcf": 71611000000.0,
+      "operating_income": 128528000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Software - Infrastructure",
+      "revenues": {
+        "2022": 198270000000.0,
+        "2023": 211915000000.0,
+        "2024": 245122000000.0,
+        "2025": 281724000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.6897748664547917,
+      "sga_pct": 0.13262215029035002,
+      "rd_pct": 0.12191667964872294,
+      "da_pct": 0.08762245053742115,
+      "capex_pct": 0.15704089437711413,
+      "tax_rate": 0.16806955013145408
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0688
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1567
+      },
+      {
+        "year": 2025,
+        "yoy": 0.1493
+      }
+    ],
+    "avg_growth": 0.1249,
+    "cagr_3y": 0.1242,
+    "beta": 1.107,
+    "ev_ebitda": 18.9,
+    "net_debt": 33816002560,
+    "net_debt_label": "total",
+    "total_debt": 123278000128,
+    "cash": 89461997568,
+    "de_ratio": 0.04,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.167
+      },
+      "target_prices": {
+        "high": 730.0,
+        "low": 392.0,
+        "mean": 570.7213,
+        "current": 403.04
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": {
+    "confidence": "HIGH",
+    "alerts": [],
+    "comparisons": [
+      {
+        "metric": "Revenue",
+        "sec_10k": 281724.0,
+        "yahoo": 281724.0,
+        "diff_pct": 0.0,
+        "match": true
+      },
+      {
+        "metric": "Net Income",
+        "sec_10k": 101832.0,
+        "yahoo": 101832.0,
+        "diff_pct": 0.0,
+        "match": true
+      },
+      {
+        "metric": "Cash",
+        "sec_10k": 30242.0,
+        "yahoo": 30242.0,
+        "diff_pct": 0.0,
+        "match": true
+      },
+      {
+        "metric": "Total Equity",
+        "sec_10k": 343479.0,
+        "yahoo": 343479.0,
+        "diff_pct": 0.0,
+        "match": true
+      }
+    ]
+  },
+  "news": [
+    {
+      "title": "Microsoft slides even as Q3 results top estimates (MSFT:NASDAQ) - Seeking Alpha",
+      "date": "Wed, 29 Ap",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Is MSFT a “Baby Thrown Out with the Bath Water” Stock? - Yahoo Finance",
+      "date": "Wed, 29 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Stocks making the biggest moves after hours: Alphabet, Microsoft, Amazon, Meta & more - CNBC",
+      "date": "Wed, 29 Ap",
+      "source": "CNBC"
+    },
+    {
+      "title": "Microsoft vs. Amazon: Comparing Consistent Revenue Growth in Tech Giants - The Motley Fool",
+      "date": "Wed, 29 Ap",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Big Tech Earningspalooza: Microsoft, Meta, Amazon and Alphabet Results Are Here - Investopedia",
+      "date": "Wed, 29 Ap",
+      "source": "Investopedia"
+    },
+    {
+      "title": "Microsoft and OpenAI Just Ended Their Exclusive Deal, and Wall Street Is Trying Hard to Shake Off the Negatives for MSFT Stock - Barchart.com",
+      "date": "Wed, 29 Ap",
+      "source": "Barchart.com"
+    },
+    {
+      "title": "Microsoft (MSFT) spent $4.627 billion on share buybacks during Q3 2026 - Shacknews",
+      "date": "Wed, 29 Ap",
+      "source": "Shacknews"
+    },
+    {
+      "title": "Microsoft Stock In Focus As Q3 Earnings Approach - Benzinga",
+      "date": "Wed, 29 Ap",
+      "source": "Benzinga"
+    },
+    {
+      "title": "Microsoft Beats Fiscal Q3 Views On Cloud Computing, AI Strength - Investor's Business Daily",
+      "date": "Wed, 29 Ap",
+      "source": "Investor's Business Daily"
+    },
+    {
+      "title": "Microsoft calls for $190 billion in 2026 capital spending on soaring memory prices - CNBC",
+      "date": "Wed, 29 Ap",
+      "source": "CNBC"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MSFT/MSFT_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MSFT/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MSFT/SEC_filings/10K_2024.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/MSFT/SEC_filings/10K_2023.htm"
+    ]
+  }
+}

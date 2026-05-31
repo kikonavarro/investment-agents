@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-15",
+    "file": "FRPH_20260515_valuation.json",
+    "current_price": 21.65,
+    "currency": "$",
+    "revenue": 42846000.0,
+    "gross_margin": 0.908812958035756,
+    "ev_ebitda": 28.8,
+    "avg_growth": 0.0465,
+    "fair_value_bear": 30,
+    "fair_value_base": 37,
+    "fair_value_bull": 46,
+    "fair_value_weighted": 36.0
+  }
+]

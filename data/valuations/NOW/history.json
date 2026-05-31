@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-11",
+    "file": "NOW_20260511_valuation.json",
+    "current_price": 91.57,
+    "currency": "$",
+    "revenue": 13278000000.0,
+    "gross_margin": 0.7753426720891701,
+    "ev_ebitda": 30.3,
+    "avg_growth": 0.2238,
+    "fair_value_bear": 72,
+    "fair_value_base": 122,
+    "fair_value_bull": 180,
+    "fair_value_weighted": 113.6
+  }
+]

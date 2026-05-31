@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-17",
+    "file": "TOA_WA_20260517_valuation.json",
+    "current_price": 8.81,
+    "currency": "$",
+    "revenue": 907705000.0,
+    "gross_margin": 0.33989016255281174,
+    "ev_ebitda": 4.8,
+    "avg_growth": 0.0623,
+    "fair_value_bear": 6.08,
+    "fair_value_base": 11.46,
+    "fair_value_bull": 17.09,
+    "fair_value_weighted": 10.43
+  }
+]

@@ -12,5 +12,19 @@
     "fair_value_base": 31.59,
     "fair_value_bull": 47.99,
     "fair_value_weighted": 28.43
+  },
+  {
+    "date": "2026-05-12",
+    "file": "HIMS_20260512_valuation.json",
+    "current_price": 25.13,
+    "currency": "$",
+    "revenue": 2347637000.0,
+    "gross_margin": 0.7383500941585092,
+    "ev_ebitda": 38.6,
+    "avg_growth": 0.646,
+    "fair_value_bear": 15,
+    "fair_value_base": 32,
+    "fair_value_bull": 52,
+    "fair_value_weighted": 29.2
   }
 ]

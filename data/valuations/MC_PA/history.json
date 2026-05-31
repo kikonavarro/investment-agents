@@ -39,5 +39,19 @@
     "fair_value_base": 587.9,
     "fair_value_bull": 838.14,
     "fair_value_weighted": 553.14
+  },
+  {
+    "date": "2026-05-18",
+    "file": "MC_PA_20260518_valuation.json",
+    "current_price": 456.25,
+    "currency": "EUR ",
+    "revenue": 80807000000.0,
+    "gross_margin": 0.6624178598388754,
+    "ev_ebitda": 9.6,
+    "avg_growth": 0.0084,
+    "fair_value_bear": 348,
+    "fair_value_base": 662,
+    "fair_value_bull": 976,
+    "fair_value_weighted": 599.2
   }
 ]

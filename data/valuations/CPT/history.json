@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-09",
+    "file": "CPT_20260509_valuation.json",
+    "current_price": 103.77,
+    "currency": "$",
+    "revenue": 1573544000.0,
+    "gross_margin": 0.6140965870671554,
+    "ev_ebitda": 12.6,
+    "avg_growth": 0.0347,
+    "fair_value_bear": 84,
+    "fair_value_base": 115,
+    "fair_value_bull": 143,
+    "fair_value_weighted": 108.2
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-05-26",
+    "file": "BFIT_AS_20260526_valuation.json",
+    "current_price": 30.5,
+    "currency": "EUR ",
+    "revenue": 1420500000.0,
+    "gross_margin": 0.9635339669130588,
+    "ev_ebitda": 7.9,
+    "avg_growth": 0.2157,
+    "fair_value_bear": 22,
+    "fair_value_base": 40,
+    "fair_value_bull": 55,
+    "fair_value_weighted": 35.8
+  }
+]

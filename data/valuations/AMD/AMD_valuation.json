@@ -1,0 +1,187 @@
+{
+  "ticker": "AMD",
+  "company": "Advanced Micro Devices, Inc.",
+  "currency": "$",
+  "date": "2026-05-15",
+  "current_price": 449.7,
+  "shares_outstanding": 1630600639,
+  "diluted_avg_shares": 1571000000,
+  "market_cap": 733281124352,
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States",
+  "business_summary": "Advanced Micro Devices, Inc. operates as a semiconductor company internationally. It operates in three segments: Data Center, Client and Gaming, and Embedded. The company offers artificial intelligence (AI) accelerators, microprocessors, and graphics processing units (GPUs) as standalone devices or as incorporated into accelerated processing units, chipsets, and data center and professional GPUs; and embedded processors and semi-custom system-on-chip (SoC) products, microprocessor and SoC development services and technology, data processing units, field programmable gate arrays (FPGA), system on modules, AI network interface cards, and adaptive SoC products. It provides processors under the AMD Ryzen, AMD Ryzen AI, AMD Ryzen PRO, AMD Ryzen Threadripper, AMD Ryzen Threadripper PRO, AMD Athlon, and AMD PRO A-Series brands; graphics under the AMD Radeon graphics and AMD Embedded Radeon graphics; professional graphics under the AMD Radeon Pro graphics brand; and AI and general-purpose compute infrastructure for hyperscale providers. The company offers data center graphics under the AMD Instinct accelerators and Radeon PRO V-series brands; server microprocessors under the AMD EPYC brand; low power solutions under the AMD Athlon, AMD Geode, AMD Ryzen, AMD EPYC, and AMD R-Series and G-Series brands; FPGA products under the Virtex-6, Virtex-7, Virtex UltraScale+, Kintex-7, Kintex UltraScale, Kintex UltraScale+, Artix-7, Artix UltraScale+, Spartan-6, and Spartan-7 brands; adaptive SOCs under the Zynq-7000, Zynq UltraScale+ MPSoC, Zynq UltraScale+ RFSoCs, Versal HBM, Versal Premium, Versal Prime, Versal AI Core, Versal AI Edge, Vitis, and Vivado brands; and compute and network acceleration board products under the Alveo and Pensando brands. It serves original equipment and design manufacturers, public cloud service providers, system integrators, distributors, and add-in-board manufacturers. The company was incorporated in 1969 and is headquartered in Santa Clara, California.",
+  "beta": 2.399,
+  "analyst_targets": {
+    "high": 625.0,
+    "low": 225.0,
+    "mean": 451.58334,
+    "current": 449.7
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 34639000000.0,
+    "net_income": 4335000000.0,
+    "ebitda": 7275000000.0,
+    "free_cashflow": 6735000000.0,
+    "gross_margin": 0.4951644100580271,
+    "operating_margin": 0.10664280146655504,
+    "net_margin": 0.12514795461762754,
+    "total_debt": 3847000000.0,
+    "cash": 5539000000.0,
+    "total_equity": 62999000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 23601000000.0,
+      "net_income": 1320000000.0,
+      "ebitda": 5534000000.0,
+      "fcf": 3115000000.0,
+      "operating_income": 1264000000.0
+    },
+    "2023": {
+      "revenue": 22680000000.0,
+      "net_income": 854000000.0,
+      "ebitda": 4051000000.0,
+      "fcf": 1121000000.0,
+      "operating_income": 401000000.0
+    },
+    "2024": {
+      "revenue": 25785000000.0,
+      "net_income": 1641000000.0,
+      "ebitda": 5145000000.0,
+      "fcf": 2405000000.0,
+      "operating_income": 2086000000.0
+    },
+    "2025": {
+      "revenue": 34639000000.0,
+      "net_income": 4335000000.0,
+      "ebitda": 7275000000.0,
+      "fcf": 6735000000.0,
+      "operating_income": 3694000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Semiconductors",
+      "revenues": {
+        "2022": 23601000000.0,
+        "2023": 22680000000.0,
+        "2024": 25785000000.0,
+        "2025": 34639000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.4747820760799575,
+      "sga_pct": 0.10672170029891487,
+      "rd_pct": 0.23873314594204653,
+      "da_pct": 0.1345965199755475,
+      "capex_pct": 0.024369788636804342,
+      "tax_rate": 0.29247278663946
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": -0.039
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1369
+      },
+      {
+        "year": 2025,
+        "yoy": 0.3434
+      }
+    ],
+    "avg_growth": 0.1471,
+    "cagr_3y": 0.1364,
+    "beta": 2.399,
+    "ev_ebitda": 99.6,
+    "net_debt": -8475999744,
+    "net_debt_label": "total",
+    "total_debt": 3871000064,
+    "cash": 12346999808,
+    "de_ratio": 0.01,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.378
+      },
+      "target_prices": {
+        "high": 625.0,
+        "low": 225.0,
+        "mean": 451.58334,
+        "current": 449.7
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Wall Street Splits on AMD: BofA Hikes Price Target to $500, Daiwa Downgrades on Valuation - 24/7 Wall St.",
+      "date": "Wed, 13 Ma",
+      "source": "24/7 Wall St."
+    },
+    {
+      "title": "AMD Stock Gains As Trump Taps Nvidia CEO For China Trip - Yahoo Finance",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Intel, AMD, Qualcomm Stocks Rise as AI Chip Rally Reignites - Barron's",
+      "date": "Wed, 13 Ma",
+      "source": "Barron's"
+    },
+    {
+      "title": "Nvidia, AMD still among BofA's top chip stocks as AI likely to stay 'stronger for longer' (NVDA:NASDAQ) - Seeking Alpha",
+      "date": "Wed, 13 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "Nvidia vs. AMD: The Better AI Chip Stock for 2026 - The Motley Fool",
+      "date": "Wed, 13 Ma",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Marvell in focus as AMD discloses stake (AMD:NASDAQ) - Seeking Alpha",
+      "date": "Wed, 13 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "AMD, Arm gain server CPU share at Intel's expense in Q1: UBS - Seeking Alpha",
+      "date": "Wed, 13 Ma",
+      "source": "Seeking Alpha"
+    },
+    {
+      "title": "AMD's stock soars after earnings. What Wall Street has to say. - MarketWatch",
+      "date": "Wed, 06 Ma",
+      "source": "MarketWatch"
+    },
+    {
+      "title": "AI Stocks Nvidia, AMD, Broadcom Nab Price-Target Hikes - Investor's Business Daily",
+      "date": "Tue, 12 Ma",
+      "source": "Investor's Business Daily"
+    },
+    {
+      "title": "NVIDIA to release earnings May 20 as stock lags behind AMD, Intel - Fox Business",
+      "date": "Tue, 12 Ma",
+      "source": "Fox Business"
+    }
+  ],
+  "files": {
+    "excel": "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMD/AMD_modelo_valoracion.xlsx",
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMD/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMD/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/AMD/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

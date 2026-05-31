@@ -12,5 +12,19 @@
     "fair_value_base": 121.27,
     "fair_value_bull": 171.5,
     "fair_value_weighted": 105.9
+  },
+  {
+    "date": "2026-05-11",
+    "file": "DUOL_20260511_valuation.json",
+    "current_price": 107.935,
+    "currency": "$",
+    "revenue": 1037589000.0,
+    "gross_margin": 0.7223062310799363,
+    "ev_ebitda": 25.8,
+    "avg_growth": 0.411,
+    "fair_value_bear": 80,
+    "fair_value_base": 130,
+    "fair_value_bull": 200,
+    "fair_value_weighted": 124.0
   }
 ]
