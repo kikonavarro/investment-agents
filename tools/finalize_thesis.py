@@ -21,8 +21,9 @@ Donde scenarios.json tiene:
     "_meta": {                          # overrides opcionales (esquema canonico unico)
         "net_debt_override_m": 57.0,    # deuda neta a usar en el DCF, en millones
         "shares_override": 231412113,   # nº de acciones, absoluto (alias antiguo: "shares")
-        "revenue_base_m": 1828.0        # revenue del año 0 de la proyeccion, en millones
-    }
+        "revenue_base_m": 1828.0,       # revenue del año 0 de la proyeccion, en millones
+        "fv_adjustment": {"pct": 0.10, "reason": "opcionalidad no modelada en el DCF"}
+    }                                   # ^ ajuste deliberado sobre el OUTPUT del motor
 }
 
 El _meta lo decide Opus y lo respetan POR IGUAL la verificacion del motor y el Excel
@@ -92,7 +93,24 @@ def _run_review_gate(ticker: str, output_dir, folder: str):
 #   net_debt_override_m : deuda neta a usar en el DCF, en millones (moneda de la empresa).
 #   shares_override     : nº de acciones a usar (absoluto, no millones).
 #   revenue_base_m      : revenue del año 0 de la proyeccion, en millones.
+#   fv_adjustment       : {pct, reason} — ajuste deliberado sobre el OUTPUT del motor
+#                         (la tesis se compara contra motor*(1+pct)). Unico que actua
+#                         sobre el resultado, no sobre los inputs del DCF.
 # Alias historicos aceptados (compatibilidad con tesis ya escritas): "shares" -> shares_override.
+def _parse_fv_adjustment(raw):
+    """Valida _meta.fv_adjustment = {"pct": <fraccion, p.ej. 0.10>, "reason": "..."}.
+
+    Devuelve {pct, reason} o None si no se declaro o esta mal formado (se ignora sin
+    romper). pct es una FRACCION (0.10 = +10%), coherente con el resto de supuestos.
+    Se rechaza bool (True/False son int en Python) para no colar pct=1.0 por error."""
+    if not isinstance(raw, dict):
+        return None
+    pct = raw.get("pct")
+    if isinstance(pct, bool) or not isinstance(pct, (int, float)):
+        return None
+    return {"pct": float(pct), "reason": str(raw.get("reason") or "(sin razon declarada)")}
+
+
 def _normalize_meta(meta: dict | None) -> dict:
     """Normaliza el _meta de la tesis al esquema canonico de overrides del DCF.
 
@@ -113,6 +131,7 @@ def _normalize_meta(meta: dict | None) -> dict:
         "net_debt_override_m": _first("net_debt_override_m"),
         "shares_override": _first("shares_override", "shares"),
         "revenue_base_m": _first("revenue_base_m"),
+        "fv_adjustment": _parse_fv_adjustment(meta.get("fv_adjustment")),
     }
 
 
@@ -213,6 +232,33 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | N
     return out
 
 
+def _compare_engine(saved: dict, engine_fvs: dict | None, fv_adj: dict | None) -> dict | None:
+    """Compara los fair values de la tesis contra el motor, aplicando el ajuste
+    deliberado declarado por la tesis (motor*(1+pct)) si lo hay. Puro: no imprime.
+
+    'saved' = {bear, base, bull} de la tesis. Devuelve None si no hay nada que
+    comparar; si no, {rows, max_diff, adj_pct, explained}, donde rows lista
+    {name, saved, engine, target, diff_pct} (target = motor ajustado) y 'explained'
+    indica si la divergencia residual (tesis vs motor ajustado) entra en tolerancia."""
+    if not engine_fvs:
+        return None
+    adj_pct = fv_adj["pct"] if fv_adj else 0.0
+    rows = []
+    max_diff = 0.0
+    for name in ("bear", "base", "bull"):
+        s = saved.get(name)
+        m = engine_fvs.get(name)
+        if not s or m is None:
+            continue
+        target = m * (1 + adj_pct)
+        diff = (target - s) / s * 100
+        max_diff = max(max_diff, abs(diff))
+        rows.append({"name": name, "saved": s, "engine": m, "target": target, "diff_pct": diff})
+    if not rows:
+        return None
+    return {"rows": rows, "max_diff": max_diff, "adj_pct": adj_pct, "explained": max_diff <= 3}
+
+
 def finalize_thesis(ticker: str, data: dict, force: bool = False):
     """Guarda fair values en history.json y regenera Excel con escenarios reales."""
     folder = ticker.replace(".", "_")
@@ -301,26 +347,39 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
 
     # --- 1b. Verificacion con el motor de valoracion (DCF determinista) ---
     # Opus decide los supuestos; el motor comprueba que los fair values tecleados
-    # cuadran con esos supuestos. Por ahora solo informa (no sobreescribe ni bloquea).
+    # cuadran con esos supuestos. Una desviacion DELIBERADA se declara como
+    # _meta.fv_adjustment (la verificacion la respeta comparando contra motor*(1+pct)).
+    # Solo informa, nunca bloquea: el motor manda sobre la aritmetica, no sobre la tesis.
     engine_fvs = _engine_fair_values(scenarios, output_dir, folder, data.get("_meta"))
-    if engine_fvs:
+    fv_adj = _normalize_meta(data.get("_meta")).get("fv_adjustment")
+    cmp = _compare_engine({"bear": bear, "base": base, "bull": bull}, engine_fvs, fv_adj)
+    if cmp:
         print(f"\n  === Verificacion del motor (DCF) ===")
-        print(f"    {'Escenario':<9} {'Tesis':>10} {'Motor':>10} {'Dif':>8}")
-        max_diff = 0.0
-        for name, saved in (("bear", bear), ("base", base), ("bull", bull)):
-            m = engine_fvs.get(name)
-            if m is None or not saved:
-                continue
-            diff = (m - saved) / saved * 100
-            max_diff = max(max_diff, abs(diff))
-            flag = "OK" if abs(diff) <= 3 else "REVISAR"
-            print(f"    {name.capitalize():<9} {saved:>10.2f} {m:>10.2f} {diff:>+7.1f}%  {flag}")
-        if max_diff <= 3:
-            print(f"  [OK] Los fair values cuadran con los supuestos (motor coincide <=3%).")
+        if fv_adj:
+            print(f"    Ajuste declarado: {fv_adj['pct']:+.0%} — {fv_adj['reason']}")
+            print(f"    {'Escenario':<9} {'Tesis':>10} {'Motor':>10} {'Motor aj.':>10} {'Dif':>8}")
+            for r in cmp["rows"]:
+                flag = "OK" if abs(r["diff_pct"]) <= 3 else "REVISAR"
+                print(f"    {r['name'].capitalize():<9} {r['saved']:>10.2f} {r['engine']:>10.2f} "
+                      f"{r['target']:>10.2f} {r['diff_pct']:>+7.1f}%  {flag}")
         else:
-            print(f"  [!] Divergencia de hasta {max_diff:.0f}% entre la tesis y sus supuestos.")
-            print(f"      O el numero de la tesis tiene un error de calculo, o los datos")
-            print(f"      del valuation.json cambiaron desde que se escribio. Conviene revisar.")
+            print(f"    {'Escenario':<9} {'Tesis':>10} {'Motor':>10} {'Dif':>8}")
+            for r in cmp["rows"]:
+                flag = "OK" if abs(r["diff_pct"]) <= 3 else "REVISAR"
+                print(f"    {r['name'].capitalize():<9} {r['saved']:>10.2f} {r['engine']:>10.2f} "
+                      f"{r['diff_pct']:>+7.1f}%  {flag}")
+        if cmp["explained"]:
+            tail = " + el ajuste declarado" if fv_adj else ""
+            print(f"  [OK] Los fair values cuadran con los supuestos{tail} (<=3%).")
+        elif fv_adj:
+            print(f"  [!] Divergencia de hasta {cmp['max_diff']:.0f}% INCLUSO tras el ajuste "
+                  f"declarado ({fv_adj['pct']:+.0%}). Revisa el calculo, el pct o los supuestos.")
+        else:
+            print(f"  [!] Divergencia de hasta {cmp['max_diff']:.0f}% entre la tesis y sus "
+                  f"supuestos, sin ajuste declarado.")
+            print(f"      Si es deliberada (opcionalidad, SoP parcial, prima/descuento...),")
+            print(f"      declarala: _meta.fv_adjustment = {{\"pct\": <±0.NN>, \"reason\": \"...\"}}.")
+            print(f"      Si no, el numero tiene un error de calculo o los datos cambiaron: revisar.")
     else:
         print(f"\n  [Motor] Fair values no verificados (metodo no-DCF o datos insuficientes).")
 

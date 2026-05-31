@@ -26,7 +26,8 @@ from tools import finalize_thesis as ft
 def test_normalize_meta_vacio_o_none():
     for m in (None, {}):
         out = ft._normalize_meta(m)
-        assert out == {"net_debt_override_m": None, "shares_override": None, "revenue_base_m": None}
+        assert out == {"net_debt_override_m": None, "shares_override": None,
+                       "revenue_base_m": None, "fv_adjustment": None}
 
 
 def test_normalize_meta_claves_canonicas():
@@ -133,3 +134,77 @@ def test_net_debt_override_sube_el_equity(tmp_path):
     sin_deuda = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"net_debt_override_m": 0.0})
     assert base and sin_deuda
     assert sin_deuda["base"] > base["base"]
+
+
+# --------------------------------------------------------------------------- #
+# fv_adjustment: ajuste deliberado sobre el OUTPUT del motor (#3 roadmap)
+# --------------------------------------------------------------------------- #
+
+def test_parse_fv_adjustment_valido():
+    out = ft._parse_fv_adjustment({"pct": 0.10, "reason": "opcionalidad"})
+    assert out == {"pct": 0.10, "reason": "opcionalidad"}
+
+
+def test_parse_fv_adjustment_sin_reason_pone_default():
+    out = ft._parse_fv_adjustment({"pct": -0.05})
+    assert out["pct"] == -0.05
+    assert out["reason"]  # hay una razón por defecto, no vacía
+
+
+@pytest.mark.parametrize("raw", [
+    None, {}, {"reason": "sin pct"}, {"pct": "0.1"}, {"pct": True}, {"pct": None}, "0.1",
+])
+def test_parse_fv_adjustment_malformado_es_none(raw):
+    """Mal formado o ausente -> None (se ignora sin romper). Bool y string NO cuelan."""
+    assert ft._parse_fv_adjustment(raw) is None
+
+
+def test_normalize_meta_incluye_fv_adjustment():
+    out = ft._normalize_meta({"fv_adjustment": {"pct": 0.10, "reason": "x"}})
+    assert out["fv_adjustment"] == {"pct": 0.10, "reason": "x"}
+    assert ft._normalize_meta({})["fv_adjustment"] is None
+
+
+# --------------------------------------------------------------------------- #
+# _compare_engine: comparación tesis vs motor (ajustado), pura
+# --------------------------------------------------------------------------- #
+
+_ENGINE = {"bear": 100.0, "base": 200.0, "bull": 300.0}
+
+
+def test_compare_engine_sin_datos_es_none():
+    assert ft._compare_engine({"bear": 1, "base": 2, "bull": 3}, None, None) is None
+    assert ft._compare_engine({}, _ENGINE, None) is None  # sin fair values de la tesis
+
+
+def test_compare_engine_cuadra_sin_ajuste():
+    out = ft._compare_engine(dict(_ENGINE), _ENGINE, None)
+    assert out["explained"] is True
+    assert out["max_diff"] == pytest.approx(0.0, abs=1e-9)
+    assert out["adj_pct"] == 0.0
+    assert {r["name"] for r in out["rows"]} == {"bear", "base", "bull"}
+
+
+def test_compare_engine_diverge_sin_ajuste():
+    saved = {"bear": 110.0, "base": 220.0, "bull": 330.0}   # tesis 10% por encima del motor
+    out = ft._compare_engine(saved, _ENGINE, None)
+    assert out["explained"] is False
+    assert out["max_diff"] == pytest.approx(100 * 10 / 110, rel=1e-6)  # (100-110)/110
+
+
+def test_compare_engine_ajuste_explica_la_divergencia():
+    """La tesis está +10% sobre el motor y declara fv_adjustment +10%: cuadra."""
+    saved = {"bear": 110.0, "base": 220.0, "bull": 330.0}
+    out = ft._compare_engine(saved, _ENGINE, {"pct": 0.10, "reason": "opcionalidad"})
+    assert out["explained"] is True
+    assert out["adj_pct"] == 0.10
+    base_row = next(r for r in out["rows"] if r["name"] == "base")
+    assert base_row["target"] == pytest.approx(220.0)        # motor 200 * 1.10
+    assert base_row["diff_pct"] == pytest.approx(0.0, abs=1e-9)
+
+
+def test_compare_engine_ajuste_insuficiente_sigue_divergiendo():
+    """Declara +10% pero la tesis está +30%: sigue sin cuadrar (no se 'explica' todo)."""
+    saved = {"bear": 130.0, "base": 260.0, "bull": 390.0}
+    out = ft._compare_engine(saved, _ENGINE, {"pct": 0.10, "reason": "x"})
+    assert out["explained"] is False
