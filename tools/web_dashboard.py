@@ -19,6 +19,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 VALUATIONS_DIR = BASE_DIR / "data" / "valuations"
 OUTPUT_PATH = BASE_DIR / "data" / "dashboard.html"
 
+# classify_signal vive en tools/signals.py (única fuente de verdad de las bandas value).
+# El insert permite seguir ejecutando este archivo como script (`python tools/web_dashboard.py`).
+sys.path.insert(0, str(BASE_DIR))
+from tools.signals import classify_signal
+
 
 def calc_dcf(revenue: float, scenario: dict, net_debt: float, shares: float) -> dict:
     """Calcula fair value con fórmula corregida: UFCF = EBIT×(1-T) + D&A - CapEx, TV sobre EBITDA."""
@@ -161,22 +166,6 @@ def load_thesis(ticker: str) -> str:
         return markdown_to_html(content)
     except Exception as e:
         return f"<p class='error'>Error cargando tesis: {e}</p>"
-
-
-def classify_signal(margin_of_safety: float) -> tuple:
-    """Returns (emoji, label, css_class)."""
-    if margin_of_safety >= 40:
-        return ('🟢', 'MUY INFRAVALORADA', 'signal-strong-buy')
-    elif margin_of_safety >= 25:
-        return ('🟢', 'INFRAVALORADA', 'signal-buy')
-    elif margin_of_safety >= 10:
-        return ('🟡', 'LIGERAMENTE INFRAVALORADA', 'signal-watchlist')
-    elif margin_of_safety >= -10:
-        return ('⚪', 'VALOR JUSTO', 'signal-fair')
-    elif margin_of_safety >= -25:
-        return ('🟠', 'SOBREVALORADA', 'signal-overvalued')
-    else:
-        return ('🔴', 'MUY SOBREVALORADA', 'signal-avoid')
 
 
 def load_all_valuations() -> list:

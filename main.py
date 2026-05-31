@@ -41,7 +41,7 @@ Ejemplos:
     )
 
     parser.add_argument("--analyst", nargs="+", metavar="TICKER",
-                        help="Recoger datos: Excel + JSON + SEC filings")
+                        help="Recoger datos: JSON + SEC filings")
     parser.add_argument("--compare", nargs=2, metavar="TICKER",
                         help="Recoger datos de dos empresas para comparar")
     parser.add_argument("--screener", metavar="FILTER", nargs="?", const="graham_default",
@@ -50,6 +50,8 @@ Ejemplos:
                         help="Historial de valoraciones de un ticker")
     parser.add_argument("--portfolio", metavar="ACTION", default=None,
                         help="Gestiona cartera: status|update_prices")
+    parser.add_argument("--watchlist", action="store_true",
+                        help="Escanea fair values guardados vs precio vivo (loop cerrado)")
     parser.add_argument("--fresh", action="store_true",
                         help="Forzar descarga de datos frescos (ignorar caché)")
 
@@ -122,6 +124,16 @@ Ejemplos:
             name = c.get("name", c.get("shortName", ""))
             print(f"  {ticker:8s} {name}")
 
+    elif args.watchlist:
+        from tools.watchlist import run_scan
+        print("\n=== Watchlist — fair value guardado vs precio vivo ===")
+        print("  Escaneando precios de mercado (yahooquery, batched)...")
+        rows = run_scan()
+        if not rows:
+            print("  Sin tesis con fair value guardado, o no se pudieron obtener precios.")
+        else:
+            _print_watchlist(rows)
+
     else:
         parser.print_help()
 
@@ -143,6 +155,25 @@ def _print_data_summary(v):
         if metrics.get("ev_ebitda"):
             print(f"  EV/EBITDA: {metrics['ev_ebitda']:.1f}x")
     print(f"  → Usa Claude Code para interpretar datos y escribir tesis")
+
+
+def _print_watchlist(rows):
+    """Imprime el escaneo ordenado: más infravaloradas (mejores compras) arriba.
+    Emoji + etiqueta al final para que la desalineación del emoji no rompa las columnas."""
+    print(f"\n  {'Ticker':<10} {'Precio':>12} {'FV pond':>12} {'MoS':>6} {'Δtesis':>7}  Señal")
+    print(f"  {'-'*10} {'-'*12} {'-'*12} {'-'*6} {'-'*7}  {'-'*30}")
+    for r in rows:
+        cur = r["currency"]
+        chg = f"{r['price_change_pct']:+.0f}%" if r["price_change_pct"] is not None else "—"
+        flag = " ⬇bear" if r["below_bear"] else (" ⬆bull" if r["above_bull"] else "")
+        print(f"  {r['ticker']:<10} {cur}{r['live_price']:>11,.2f} {cur}{r['weighted']:>11,.2f} "
+              f"{r['mos']:>+5.0f}% {chg:>7}  {r['emoji']} {r['label']}{flag}")
+    buys = [r for r in rows if r["action"] == "BUY"]
+    sells = [r for r in rows if r["action"] == "SELL"]
+    print(f"\n  {len(rows)} tesis escaneadas · {len(buys)} en COMPRA (MoS≥25%) · "
+          f"{len(sells)} en VENTA (MoS≤−25%)")
+    if buys:
+        print("  Mejores compras: " + ", ".join(f"{r['ticker']} {r['mos']:+.0f}%" for r in buys[:8]))
 
 
 if __name__ == "__main__":
