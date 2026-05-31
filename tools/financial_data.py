@@ -219,6 +219,45 @@ def _to_yahoo_ticker(ticker: str) -> str:
     return ticker
 
 
+# Umbral del ratio market_cap / (precio * acciones) por encima del cual asumimos
+# que shares_outstanding refleja solo una clase de una estructura dual. Mismo
+# criterio que la verificacion de finalize_thesis, ahora tambien en la fuente.
+_DUAL_CLASS_RATIO = 1.5
+
+
+def _reconcile_shares(shares, market_cap, price):
+    """Reconcilia las acciones en circulacion con la capitalizacion bursatil.
+
+    Yahoo (key_stats.sharesOutstanding) a veces devuelve solo UNA clase de
+    acciones en empresas de estructura dual (p. ej. PUIG: clase A cotizada +
+    clase B de la familia, fuera de mercado). En esos casos market_cap es muy
+    superior a precio * shares y el fair value por accion saldria inflado. La
+    verdad la marca la capitalizacion: acciones reales = market_cap / precio.
+
+    El ratio market_cap / (precio * shares) clasifica el caso:
+      - ~1.0  -> datos coherentes; no se toca nada.
+      - >1.5  -> estructura dual; se corrige a market_cap / precio.
+      - <0.02 -> peniques UK (precio en GBp, fundamentales en GBP). NO es un
+                 problema de numero de acciones sino de escala de precio; se
+                 corrige en otro sitio. Por ser < 1.5, aqui se deja intacto.
+
+    Devuelve (shares, info): info es None si no se toco nada, o un dict
+    {raw, corrected, ratio, reason} para dejar traza (no se oculta la correccion).
+    """
+    if shares <= 0 or market_cap <= 0 or price <= 0:
+        return shares, None
+    ratio = market_cap / (price * shares)
+    if ratio > _DUAL_CLASS_RATIO:
+        corrected = market_cap / price
+        return corrected, {
+            "raw": shares,
+            "corrected": corrected,
+            "ratio": round(ratio, 3),
+            "reason": "dual_class",
+        }
+    return shares, None
+
+
 def get_company_data(ticker: str) -> dict:
     """
     Obtiene todos los datos financieros necesarios para la valoracion.
@@ -267,6 +306,17 @@ def get_company_data(ticker: str) -> dict:
     current_price = fin_data.get("currentPrice", 0) or price_data.get("regularMarketPrice", 0)
     shares_outstanding = key_stats.get("sharesOutstanding", 0) or key_stats.get("impliedSharesOutstanding", 0) or 0
 
+    # Reconciliar acciones con la capitalizacion: en estructuras duales Yahoo da solo
+    # una clase y el fair value/accion saldria inflado. Se corrige aqui, en la fuente,
+    # para que TODO aguas abajo (Excel, JSON, dashboard) nazca con las acciones reales.
+    shares_outstanding, shares_reconciliation = _reconcile_shares(
+        shares_outstanding, info.get("marketCap", 0), current_price
+    )
+    if shares_reconciliation:
+        print(f"    [acciones] estructura dual (ratio {shares_reconciliation['ratio']}): "
+              f"{shares_reconciliation['raw']/1e6:,.0f}M (1 clase) -> "
+              f"{shares_outstanding/1e6:,.0f}M (market_cap/precio)")
+
     # Extraer DilutedAverageShares del income statement más reciente para cross-validación
     diluted_avg_shares = 0
     if income_stmt is not None and not income_stmt.empty:
@@ -303,6 +353,8 @@ def get_company_data(ticker: str) -> dict:
         "diluted_avg_shares": diluted_avg_shares,
         "history": hist,
     }
+    if shares_reconciliation:
+        result["shares_reconciliation"] = shares_reconciliation  # traza de la correccion dual
 
     # Validar datos ANTES de cachear (evitar envenenar caché con datos basura)
     _validate_raw_data(result, ticker)

@@ -37,6 +37,7 @@ Rehacer el sistema con cinco metas:
 | Validación | El motor reproduce las tesis DCF-estándar con <2% (AAPL, MELI, AMD, RMS_PA, MC_PA…) | — |
 | Integración v1 | `finalize_thesis._engine_fair_values` verifica en cada finalización y muestra la comparación tesis vs motor. **Solo informa** (no manda ni bloquea) | local |
 | Fiabilidad de datos | En la verificación: detector de escala `market_cap/(precio×acciones)` → peniques UK (×100), financieras (no-DCF), acciones duales (`market_cap/precio`), override de deuda (`_meta.net_debt_override_m`) | local |
+| Fix en la fuente | `financial_data._reconcile_shares`: la corrección de acciones duales (ratio>1.5 → `market_cap/precio`) ahora nace en `get_company_data`, no solo en la verificación. Toda valoración (Excel, JSON, dashboard) parte de las acciones reales. Helper puro + 10 tests. Preserva el valor crudo en `shares_reconciliation` (traza, nada oculto). Idempotente con la verificación | local |
 
 **Estado git:** rama `main`, ~6 commits en **local sin pushear** (decisión de Kiko: no subir aún). El tag `pre-rediseno-2026` sí está en GitHub. Para volver atrás: `git reset --hard pre-rediseno-2026`.
 
@@ -50,7 +51,13 @@ Rehacer el sistema con cinco metas:
 
 ## SIGUIENTE PASO concreto
 
-Llevar la corrección de **acciones duales** (`shares = market_cap/precio` cuando el ratio > 1.5) de la verificación a la **FUENTE** (`tools/financial_data.py`), para que **toda valoración nazca con las acciones correctas**, no solo la verificación. Hacerlo con tests y con cuidado: **toca el archivo que usa el bot en producción** → pedir OK a Kiko antes de tocarlo.
+**Estandarizar los overrides de `_meta`** (#2 del roadmap) con un esquema único que **tanto el Excel como la verificación** respeten. Hoy conviven overrides ad-hoc que la verificación (`_engine_fair_values`) no siempre lee:
+
+- `_meta.net_debt_override_m` (deuda) — lo leen finalize y el Excel. ✅
+- `_meta.shares_override` — lo lee el Excel (`finalize_thesis.py:299`) pero **NO** la verificación → posible divergencia.
+- Revenue base ad-hoc tipo `_meta.revenue_base_fy26_gbp_m` (caso **WOSG_L**, −10%) — la verificación no lo lee → divergencia.
+
+Objetivo: un esquema `_meta` documentado (deuda, revenue base, acciones) leído por ambos caminos, para cerrar los residuos **WOSG_L** e **ITX_MC**. Con tests. No toca el bot en producción (solo finalize + verificación), pero confirmar el esquema con Kiko antes de migrar las tesis existentes.
 
 ## Residuos catalogados (casos puntuales, no bugs de clase)
 
@@ -62,8 +69,8 @@ Llevar la corrección de **acciones duales** (`shares = market_cap/precio` cuand
 
 ## Roadmap pendiente (fases mayores)
 
-1. **Fix de acciones en la fuente** (`financial_data`) — el siguiente paso de arriba.
-2. **Estandarizar overrides** en `_meta` (deuda, revenue base, acciones) con esquema único.
+1. ~~**Fix de acciones en la fuente** (`financial_data`)~~ ✅ **HECHO** (2026-05-31): `_reconcile_shares` en `get_company_data` + 10 tests.
+2. **Estandarizar overrides** en `_meta` (deuda, revenue base, acciones) con esquema único — **el siguiente paso de arriba**.
 3. **Motor "manda" con ajustes justificados:** permitir que una tesis declare un ajuste explícito sobre el DCF puro, para que la verificación no lo marque como error.
 4. **`excel_generator` consume del motor** — eliminar el tercer sitio donde hoy se recalcula el DCF (una sola fuente de verdad).
 5. **Skill `thesis-writer`:** documentar el flujo "Opus elige método/múltiplos → motor calcula → Opus interpreta y recomienda". (Recordar: sincronizar `orchestrator` al tocar skills.)

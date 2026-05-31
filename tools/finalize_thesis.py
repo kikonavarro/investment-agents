@@ -123,6 +123,9 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | N
     # (b) Acciones de estructura dual: si el market cap es muy superior a precio*acciones,
     #     shares_outstanding es solo de una clase (p. ej. PUIG). Las acciones reales son
     #     market_cap / precio (la verdad la marca la capitalizacion).
+    #     Desde el fix en la fuente (financial_data._reconcile_shares) los valuation.json
+    #     nuevos ya nacen corregidos (ratio ~1.0, esta rama es no-op). Se mantiene como
+    #     red defensiva para los JSON antiguos en disco, escritos antes de ese cambio.
     if ratio > 1.5 and price:
         shares = mcap / price
 
