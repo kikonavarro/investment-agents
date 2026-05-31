@@ -21,6 +21,12 @@ from tools.signals import classify_signal
 BUY_MOS = 25.0    # MoS >= 25% → zona de compra
 SELL_MOS = -25.0  # MoS <= -25% → zona de venta / evitar
 
+# Si el MoS ya era extremo en la PROPIA finalización (FV vs precio de entonces), el fair
+# value/método es sospechoso: o la tesis está obsoleta, o usó un método equivocado (p. ej.
+# DCF simple sobre Tesla, que pide SoP). Distinto de una oportunidad real por caída reciente
+# (ahí el precio se movió DESPUÉS de la tesis, no estaba extremo al escribirla).
+SUSPECT_MOS_ORIGIN = 50.0
+
 
 def evaluate(fv: dict, live_price: float) -> dict:
     """Evalúa una posición contra su fair value guardado. PURO.
@@ -48,11 +54,15 @@ def evaluate(fv: dict, live_price: float) -> dict:
     if weighted <= 0:
         row.update({"mos": 0.0, "emoji": "❓", "action": "NA",
                     "label": "N/A (FV ≤ 0 — método no-DCF o revisar)",
-                    "below_bear": False, "above_bull": False})
+                    "below_bear": False, "above_bull": False,
+                    "mos_origin": None, "suspect": False})
         return row
 
     mos = (weighted - live_price) / weighted * 100
     emoji, label, _ = classify_signal(mos)
+    # MoS en la finalización (FV vs precio de entonces): si ya era extremo, el FV/método
+    # es sospechoso (obsoleto o equivocado), no una oportunidad por caída reciente.
+    mos_origin = (weighted - saved) / weighted * 100 if saved > 0 else None
     row.update({
         "mos": mos,
         "emoji": emoji,
@@ -60,6 +70,8 @@ def evaluate(fv: dict, live_price: float) -> dict:
         "action": "BUY" if mos >= BUY_MOS else ("SELL" if mos <= SELL_MOS else "HOLD"),
         "below_bear": bool(bear and live_price <= bear),  # suelo: por debajo del bear
         "above_bull": bool(bull and live_price >= bull),  # techo: por encima del bull
+        "mos_origin": mos_origin,
+        "suspect": mos_origin is not None and abs(mos_origin) >= SUSPECT_MOS_ORIGIN,
     })
     return row
 

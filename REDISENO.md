@@ -42,7 +42,7 @@ Rehacer el sistema con cinco metas:
 | Motor con ajustes | `_meta.fv_adjustment = {pct, reason}`: la tesis declara una desviación DELIBERADA sobre el output del motor; la verificación compara contra `motor×(1+pct)`. Si diverge sin declararse, da un mensaje accionable (declara el ajuste o revisa el cálculo) — **informa, no bloquea** (el motor manda sobre la aritmética, no sobre la tesis). `_compare_engine` puro separa cálculo de impresión. +15 tests | local |
 | Excel obviado | El modelo `.xlsx` se quita del pipeline (`analyst` y `finalize` ya NO lo generan): era la 3ª copia del DCF y nadie lo consumía (ni el bot ni Kiko). Verificado que nada activo depende de él (el bot no lo envía; email_sender dormido degrada con `if exists`). **Efecto colateral: `finalize` ya no llama a la red.** `excel_generator` se conserva inactivo (reversible). Docs y CLAUDE.md actualizados | local |
 | Skill `thesis-writer` | Documentado el flujo real: 3 niveles (supuestos→motor→interpretación), esquema `_meta` canónico (overrides + `fv_adjustment`) y la verificación. Sincronizadas `orchestrator` y `dcf-valuation` (ancladas al motor, no al Excel); `main.py`/CLAUDE.md sin refs muertas. Solo metodología/docs | local |
-| Loop cerrado v1 | `tools/watchlist.py` + `python main.py --watchlist`: cruza los fair values guardados con el **precio vivo** (yahooquery batched, 1 llamada) y clasifica cada tesis por MoS (banda value) con triggers de suelo/techo. `classify_signal` extraído a `tools/signals.py` (única fuente; dashboard lo usa). Read-only, lógica pura testeada (+15 tests). Escaneó 59 tesis: 9 compra / 10 venta. FV≤0 → N/A (no engaña) | local |
+| Loop cerrado v1 | `tools/watchlist.py` + `python main.py --watchlist`: cruza los fair values guardados con el **precio vivo** (yahooquery batched, 1 llamada) y clasifica cada tesis por MoS (banda value) con triggers de suelo/techo. `classify_signal` extraído a `tools/signals.py` (única fuente; dashboard lo usa). Read-only, lógica pura testeada (179 tests). Escaneó 59 tesis: 9 compra / 10 venta. FV≤0 → N/A. **Auto-detecta tesis con FV extremo desde su finalización (`suspect`, ⚠) → distingue ganga real de FV roto/obsoleto** | local |
 
 **Estado git:** rama `main`, ~12 commits en **local sin pushear** (decisión de Kiko: no subir aún). El tag `pre-rediseno-2026` sí está en GitHub. Para volver atrás: `git reset --hard pre-rediseno-2026`.
 
@@ -62,7 +62,10 @@ Rehacer el sistema con cinco metas:
 2. **Track record:** loguear snapshots de precio en el tiempo y medir hit-rate (¿las infravaloradas subieron, las sobrevaloradas bajaron?). El `--watchlist` ya muestra `Δtesis` (movimiento desde la tesis) — es la semilla. Necesita acumular tiempo (las tesis son de abr-may, ~1 mes).
 3. **Sizing por convicción:** tamaño de posición = f(MoS, convicción). La convicción (moat/riesgo) vive en la tesis `.md`, no en `history.json` → hay que parsearla o declararla.
 
-**Otros frentes (independientes):** cerrar residuos **PUIG_MC**/**ITX_MC** con `_meta` (rápido); **#6 Router de métodos** (DCF/SoP/NAV/… según empresa — conecta con los FV≤0 que el escáner marca N/A: ASTS, IVN_TO, PLAY).
+**Otros frentes (independientes):**
+- **Re-hacer tesis con FV roto/obsoleto** — el escáner las destapa con ⚠ (`suspect`): **OXY** (FV $228 vs precio $63 — EV/revenue ~12x, imposible; sin `thesis_data.json`), **PYPL**, **CSU_TO**, **HPQ** (FV extremo desde el origen). Más que un `_meta` override, varias piden re-correr la tesis con datos actuales. Es analítico y cambia tesis reales → con criterio de Kiko.
+- **Residuos conocidos** PUIG_MC/ITX_MC con `_meta` (rápido).
+- **#6 Router de métodos** (DCF/SoP/NAV/… según empresa) — conecta con los FV≤0 (N/A: ASTS, IVN_TO, PLAY) y con TSLA (DCF simple da -252%; pide SoP).
 
 ## Residuos catalogados (casos puntuales, no bugs de clase)
 

@@ -174,6 +174,14 @@ def _print_watchlist(rows):
           f"{len(sells)} en VENTA (MoS≤−25%)")
     if buys:
         print("  Mejores compras: " + ", ".join(f"{r['ticker']} {r['mos']:+.0f}%" for r in buys[:8]))
+    # Tesis cuya valoración ya era extrema al finalizarse → FV/método sospechoso (obsoleto
+    # o equivocado), NO una oportunidad por caída reciente. Conviene re-hacer la tesis.
+    suspects = [r for r in rows if r.get("suspect")]
+    if suspects:
+        print(f"\n  ⚠ {len(suspects)} con valoración extrema desde su finalización "
+              f"(revisar método/datos, no asumir que es ganga/venta):")
+        print("    " + ", ".join(f"{r['ticker']} (FV {r['mos_origin']:+.0f}% vs precio de la tesis)"
+                                  for r in suspects))
 
 
 if __name__ == "__main__":

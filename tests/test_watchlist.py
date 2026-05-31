@@ -71,6 +71,23 @@ def test_evaluate_sin_saved_price_change_none():
     assert r["price_change_pct"] is None
 
 
+def test_evaluate_suspect_si_mos_extremo_al_finalizar():
+    """FV ya extremo vs el precio DE LA TESIS (caso OXY) → suspect: FV/método a revisar."""
+    # saved=63, weighted=228 → mos_origin = (228-63)/228 ≈ +72% ≥ 50 → suspect
+    r = wl.evaluate(_fv(bear=171, base=238, bull=321, weighted=228, saved=63), live_price=57)
+    assert r["mos_origin"] == pytest.approx((228 - 63) / 228 * 100)
+    assert r["suspect"] is True
+
+
+def test_evaluate_no_suspect_si_oportunidad_por_caida_reciente():
+    """FV cerca del precio al finalizar (mos_origin pequeño); la oportunidad nace de una
+    caída POSTERIOR → no es sospechosa, es real."""
+    # saved=100, weighted=105 → mos_origin ≈ +4.8% < 50 → no suspect, aunque el precio caiga
+    r = wl.evaluate(_fv(bear=90, base=105, bull=120, weighted=105, saved=100), live_price=70)
+    assert r["suspect"] is False
+    assert r["mos"] > 25  # ahora sí en zona de compra (el precio cayó tras la tesis)
+
+
 # --- watchlist.scan ---
 
 def test_scan_ordena_por_mos_desc_y_omite_sin_precio():
