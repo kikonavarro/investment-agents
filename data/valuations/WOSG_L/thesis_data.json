@@ -2,8 +2,8 @@
   "_meta": {
     "note": "Valoracion pre-IFRS16: adjusted EBIT/EBITDA tratan el alquiler como gasto operativo, por eso net_debt = pre-IFRS16 (£57M FY26), NO post-IFRS16 (£548M). Base de partida revenue FY26 £1.828M (trading update 14-may-26). Moneda: peniques (GBp). EBIT margin = gross_margin - sga_pct.",
     "net_debt_override_m": 57.0,
-    "revenue_base_fy26_gbp_m": 1828.0,
-    "shares": 231412113
+    "revenue_base_m": 1828.0,
+    "shares_override": 231412113
   },
   "fair_values": {"bear": 483, "base": 802, "bull": 1046},
   "scenarios": {

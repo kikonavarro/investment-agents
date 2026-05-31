@@ -17,8 +17,17 @@ Donde scenarios.json tiene:
         },
         "base": { ... },
         "bull": { ... }
+    },
+    "_meta": {                          # overrides opcionales (esquema canonico unico)
+        "net_debt_override_m": 57.0,    # deuda neta a usar en el DCF, en millones
+        "shares_override": 231412113,   # nº de acciones, absoluto (alias antiguo: "shares")
+        "revenue_base_m": 1828.0        # revenue del año 0 de la proyeccion, en millones
     }
 }
+
+El _meta lo decide Opus y lo respetan POR IGUAL la verificacion del motor y el Excel
+(salvo revenue_base en el Excel, pendiente — ver REDISENO). _normalize_meta es la unica
+fuente de verdad del esquema y acepta alias historicos para no romper tesis antiguas.
 """
 
 import json
@@ -77,6 +86,36 @@ def _run_review_gate(ticker: str, output_dir, folder: str):
         print("\n  [REVIEW GATE] PASS")
 
 
+# Esquema canonico de overrides que una tesis puede declarar en thesis_data["_meta"].
+# Opus decide estos valores (juicio); el motor (verificacion) y el Excel los respetan
+# por igual, para que un ajuste deliberado no se confunda con un error de calculo.
+#   net_debt_override_m : deuda neta a usar en el DCF, en millones (moneda de la empresa).
+#   shares_override     : nº de acciones a usar (absoluto, no millones).
+#   revenue_base_m      : revenue del año 0 de la proyeccion, en millones.
+# Alias historicos aceptados (compatibilidad con tesis ya escritas): "shares" -> shares_override.
+def _normalize_meta(meta: dict | None) -> dict:
+    """Normaliza el _meta de la tesis al esquema canonico de overrides del DCF.
+
+    Devuelve SIEMPRE un dict con las tres claves canonicas (valor None si no se
+    declararon). Es la unica fuente de verdad del esquema: tanto la verificacion
+    como la preparacion del Excel leen los overrides desde aqui, asi que no pueden
+    divergir. Acepta alias historicos para no romper las tesis ya guardadas."""
+    meta = meta or {}
+
+    def _first(*keys):
+        for k in keys:
+            v = meta.get(k)
+            if v is not None:
+                return v
+        return None
+
+    return {
+        "net_debt_override_m": _first("net_debt_override_m"),
+        "shares_override": _first("shares_override", "shares"),
+        "revenue_base_m": _first("revenue_base_m"),
+    }
+
+
 def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | None = None):
     """Recalcula los fair values con el motor (DCF determinista) a partir de los
     supuestos de cada escenario + los datos de la empresa. Es la comprobación de que
@@ -108,6 +147,12 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | N
     if not revenue or not shares:
         return None
 
+    # Overrides que la tesis pudo declarar (esquema canonico unico — ver _normalize_meta).
+    # Opus decide; la verificacion los respeta IGUAL que el Excel, para no marcar como
+    # "error de calculo" una decision deliberada (revenue base FY-forward, share count del
+    # 10-K, deuda pre-IFRS16). Un override explicito manda sobre las heuristicas de abajo.
+    norm = _normalize_meta(meta)
+
     # El ratio market_cap / (precio * acciones) delata inconsistencias de escala en
     # los datos de Yahoo (debe ser ~1.0 si todo es coherente):
     price = val.get("current_price") or 0
@@ -126,14 +171,23 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | N
     #     Desde el fix en la fuente (financial_data._reconcile_shares) los valuation.json
     #     nuevos ya nacen corregidos (ratio ~1.0, esta rama es no-op). Se mantiene como
     #     red defensiva para los JSON antiguos en disco, escritos antes de ese cambio.
-    if ratio > 1.5 and price:
+    #     Un shares_override explicito de la tesis manda sobre esta heuristica.
+    if norm["shares_override"] is not None:
+        shares = norm["shares_override"]
+    elif ratio > 1.5 and price:
         shares = mcap / price
 
     # (c) Deuda neta: la tesis puede declarar un override (p. ej. pre-IFRS16 en retailers
     #     con muchos arrendamientos, donde el total_debt de Yahoo esta inflado por el
     #     leasing). Se respeta ese criterio, igual que hace el Excel.
-    if meta and meta.get("net_debt_override_m") is not None:
-        net_debt = float(meta["net_debt_override_m"]) * 1e6
+    if norm["net_debt_override_m"] is not None:
+        net_debt = float(norm["net_debt_override_m"]) * 1e6
+
+    # (d) Revenue base: la tesis puede fijar el revenue del año 0 (p. ej. un trading
+    #     update FY-forward posterior al ultimo FY reportado en el valuation.json).
+    #     Viene en millones. Cierra divergencias como WOSG_L (-10% por base distinta).
+    if norm["revenue_base_m"] is not None:
+        revenue = float(norm["revenue_base_m"]) * 1e6
 
     try:
         from tools.valuation_engine import DCFAssumptions, run_dcf
@@ -292,16 +346,17 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
             metrics = extract_metrics(yahoo_data, historical)
             metrics["_real_scenarios"] = scenarios
 
-            # Net debt decidido en la tesis (p. ej. pre-IFRS16 en retailers). Si el
-            # thesis_data trae _meta.net_debt_override_m, el Excel lo usa en vez del
-            # de Yahoo, que para acciones con muchos arrendamientos está inflado.
-            meta = data.get("_meta", {}) if isinstance(data, dict) else {}
-            nd_override = meta.get("net_debt_override_m")
-            if nd_override is not None:
-                metrics["_net_debt_override_m"] = nd_override
-            sh_override = meta.get("shares_override")
-            if sh_override is not None:
-                metrics["_shares_override"] = sh_override
+            # Overrides decididos en la tesis, leidos desde el MISMO normalizador que la
+            # verificacion (esquema canonico unico): net debt pre-IFRS16 y share count del
+            # 10-K. Asi el Excel y el motor no pueden divergir en que override aplican.
+            norm = _normalize_meta(data.get("_meta") if isinstance(data, dict) else None)
+            if norm["net_debt_override_m"] is not None:
+                metrics["_net_debt_override_m"] = norm["net_debt_override_m"]
+            if norm["shares_override"] is not None:
+                metrics["_shares_override"] = norm["shares_override"]
+            # revenue_base_m: el Excel construye el revenue por segmento (sin un punto unico
+            # de base total), asi que su override queda pendiente (ver REDISENO). El gate
+            # autoritativo es la verificacion del motor, que si lo respeta.
 
             excel_path = str(output_dir / f"{folder}_modelo_valoracion.xlsx")
             generate_valuation_excel(ticker, yahoo_data, historical, metrics, excel_path)
