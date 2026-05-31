@@ -44,7 +44,7 @@ Rehacer el sistema con cinco metas:
 | Skill `thesis-writer` | Documentado el flujo real: 3 niveles (supuestos→motor→interpretación), esquema `_meta` canónico (overrides + `fv_adjustment`) y la verificación. Sincronizadas `orchestrator` y `dcf-valuation` (ancladas al motor, no al Excel); `main.py`/CLAUDE.md sin refs muertas. Solo metodología/docs | local |
 | Loop cerrado v1 | `tools/watchlist.py` + `python main.py --watchlist`: cruza los fair values guardados con el **precio vivo** (yahooquery batched, 1 llamada) y clasifica cada tesis por MoS (banda value) con triggers de suelo/techo. `classify_signal` extraído a `tools/signals.py` (única fuente; dashboard lo usa). Read-only, lógica pura testeada (179 tests). Escaneó 59 tesis: 9 compra / 10 venta. FV≤0 → N/A. **Auto-detecta tesis con FV extremo desde su finalización (`suspect`, ⚠) → distingue ganga real de FV roto/obsoleto** | local |
 
-**Estado git:** rama `main`, ~12 commits en **local sin pushear** (decisión de Kiko: no subir aún). El tag `pre-rediseno-2026` sí está en GitHub. Para volver atrás: `git reset --hard pre-rediseno-2026`.
+**Estado git:** rama `main`, **pusheado a GitHub** (Kiko autorizó subir el 2026-05-31; antes se mantenía en local). El tag `pre-rediseno-2026` sigue en GitHub como punto de retorno: `git reset --hard pre-rediseno-2026`.
 
 ## Cómo retomar (operativo)
 
