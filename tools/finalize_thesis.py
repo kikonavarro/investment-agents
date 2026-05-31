@@ -92,12 +92,31 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str):
         val = json.loads(val_path.read_text(encoding="utf-8"))
     except Exception:
         return None
+    # El DCF no aplica a financieras/REITs/aseguradoras (se valoran por P/Book, P/FFO,
+    # embedded value...). Se marcan como no verificables en vez de forzar una
+    # comparacion absurda. Mismo criterio que el futuro router de metodos.
+    sector = (val.get("sector") or "").lower()
+    industry = (val.get("industry") or "").lower()
+    if any(x in sector for x in ("financial", "bank", "insurance")) \
+       or any(x in industry for x in ("reit", "real estate", "insurance", "bank")):
+        return None
+
     lf = val.get("latest_financials", {})
     revenue = lf.get("revenue")
     shares = val.get("shares_outstanding") or 0
     net_debt = (lf.get("total_debt") or 0) - (lf.get("cash") or 0)
     if not revenue or not shares:
         return None
+
+    # Cotizacion en peniques (UK): Yahoo da el precio en GBp (peniques) pero los
+    # fundamentales en GBP (libras), asi que el fair value (en libras) hay que pasarlo
+    # a peniques para compararlo con el guardado. Misma correccion que el pence_factor
+    # del Excel, pero detectada por el ratio fisico (independiente de la etiqueta de
+    # moneda, que el valuation.json normaliza a "GBP" y pierde la marca de peniques):
+    # si el market cap es ~100x menor que precio*acciones, el precio esta inflado x100.
+    price = val.get("current_price") or 0
+    mcap = val.get("market_cap") or 0
+    pence_factor = 100 if (mcap and price and mcap / (price * shares) < 0.02) else 1
 
     try:
         from tools.valuation_engine import DCFAssumptions, run_dcf
@@ -117,7 +136,7 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str):
                 da_pct=sc["da_pct"], capex_pct=sc["capex_pct"], tax_rate=sc["tax_rate"],
                 wacc=sc["wacc"], terminal_multiple=sc["terminal_multiple"],
             )
-            out[name] = run_dcf(assumptions, net_debt, shares, name).fair_value_per_share
+            out[name] = run_dcf(assumptions, net_debt, shares, name).fair_value_per_share * pence_factor
         except (KeyError, ValueError, ZeroDivisionError):
             return None  # escenario incompleto o no apto para este DCF
     return out
