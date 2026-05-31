@@ -100,24 +100,6 @@ def _is_false_positive(title: str, ticker: str, base_ticker: str, company_name: 
     return False
 
 
-def format_news_for_llm(news_items: list[dict], ticker: str) -> str:
-    """Comprime noticias recientes a formato minimo para Claude."""
-    if not news_items:
-        return f"{ticker} | Sin noticias recientes disponibles"
-
-    lines = [f"{ticker} | Noticias recientes ({len(news_items)})"]
-    for item in news_items:
-        date_str = item.get("date", "")[:10]
-        title = item.get("title", "")[:100]
-        snippet = item.get("summary", "")[:80].replace("\n", " ")
-        if snippet:
-            lines.append(f"[{date_str}] {title} -- \"{snippet}...\"")
-        else:
-            lines.append(f"[{date_str}] {title}")
-
-    return "\n".join(lines)
-
-
 def get_multi_ticker_news(tickers: list[str], max_per_ticker: int = 3) -> dict[str, list[dict]]:
     """Obtiene noticias para multiples tickers."""
     return {ticker: get_ticker_news(ticker, max_per_ticker) for ticker in tickers}

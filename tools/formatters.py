@@ -4,81 +4,6 @@ REGLA: Nunca envíes un DataFrame completo. Envía un resumen compacto.
 """
 
 
-def format_financials_for_llm(financials: dict, dcf_report: str) -> str:
-    """
-    Comprime datos de extract_financials() + DCF report para Claude.
-
-    Args:
-        financials: dict plano de extract_financials()
-        dcf_report: string formateado de format_dcf_report()
-
-    Output ejemplo:
-        AAPL | Apple Inc | Technology | USD
-        Precio: $185.50 | MCap: $2,870B
-        === MÉTRICAS CLAVE ===
-        Revenue: $394B | Net Income: $97B | FCF: $99B
-        Revenue ($B): 274→294→365→383→394
-        FCF ($B): 73→80→93→111→99
-        Margins: Gross 44% | Op 30% | Net 25% | FCF 25%
-        ROIC: 56% | ROE: 147% | D/E: 1.8
-        P/E: 29.5 | P/B: 45.2 | FCF Yield: 3.5%
-        Rev CAGR 5Y: 7.8% | FCF CAGR 5Y: 6.2%
-        === DCF VALUATION ===
-        [full DCF report with scenarios, sensitivity, sanity checks]
-    """
-    f = financials
-    lines = []
-
-    # --- Header ---
-    lines.append(f"{f['ticker']} | {f['name']} | {f['sector']} | {f['currency']}")
-
-    price_str = f"{f['current_price']:,.2f}" if f.get("current_price") else "N/A"
-    mcap_str = _format_large_number(f["market_cap"]) if f.get("market_cap") else "N/A"
-    lines.append(f"Precio: {price_str} | MCap: {mcap_str}")
-
-    # --- Key financials ---
-    lines.append("=== MÉTRICAS CLAVE ===")
-    lines.append(
-        f"Revenue: {_format_large_number(f['revenue'])} | "
-        f"Net Income: {_format_large_number(f['net_income'])} | "
-        f"FCF: {_format_large_number(f['fcf'])}"
-    )
-
-    # Revenue history (arrows)
-    rev_hist = f.get("revenue_history", [])
-    if len(rev_hist) >= 2:
-        arrow = "->".join(f"{v/1e9:.0f}" for v in rev_hist[-5:])
-        lines.append(f"Revenue ($B): {arrow}")
-
-    # FCF history (arrows)
-    fcf_hist = f.get("fcf_history", [])
-    if len(fcf_hist) >= 2:
-        arrow = "->".join(f"{v/1e9:.0f}" for v in fcf_hist[-5:])
-        lines.append(f"FCF ($B): {arrow}")
-
-    # Margins
-    lines.append(
-        f"Margins: Gross {f['gross_margin']:.0%} | Op {f['operating_margin']:.0%} | "
-        f"Net {f['net_margin']:.0%} | FCF {f['fcf_margin']:.0%}"
-    )
-
-    # Ratios
-    de_str = f"{f['debt_to_equity']:.1f}" if f['debt_to_equity'] < 100 else "N/A"
-    lines.append(f"ROIC: {f['roic']:.0%} | ROE: {f['roe']:.0%} | D/E: {de_str}")
-
-    pe_str = f"{f['pe']:.1f}" if f['pe'] < 500 else "N/A"
-    pb_str = f"{f['pb']:.1f}" if f['pb'] < 500 else "N/A"
-    lines.append(f"P/E: {pe_str} | P/B: {pb_str} | FCF Yield: {f['fcf_yield']:.1%}")
-
-    lines.append(f"Rev CAGR 5Y: {f['revenue_cagr_5y']:.1%} | FCF CAGR 5Y: {f['fcf_cagr_5y']:.1%}")
-
-    # --- DCF report ---
-    lines.append("")
-    lines.append(dcf_report)
-
-    return "\n".join(lines)
-
-
 def format_portfolio_for_llm(portfolio_data: list[dict]) -> str:
     """
     Comprime estado de cartera a ~200 tokens.
@@ -219,9 +144,3 @@ def _series_to_arrow(series: dict, divisor: float = 1) -> str:
     values = [f"{series[y] / divisor:.0f}" for y in years]
     return "→".join(values)
 
-
-def _growth_to_arrow(growth: dict) -> str:
-    """{'2021': 0.073, '2022': 0.241} → '7%→24%'"""
-    years = sorted(growth.keys())
-    values = [f"{growth[y]:.0%}" for y in years]
-    return "→".join(values)

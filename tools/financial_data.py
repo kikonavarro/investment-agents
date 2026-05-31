@@ -207,22 +207,6 @@ def search_ticker(query: str, max_results: int = 5) -> list[dict]:
         return []
 
 
-def resolve_ticker(query: str) -> str | None:
-    """
-    Dado un nombre de empresa o ticker sin sufijo, devuelve el ticker correcto de Yahoo Finance.
-    Devuelve None si no encuentra nada.
-
-    Ejemplo:
-        resolve_ticker("Watches of Switzerland") -> "WOSG.L"
-        resolve_ticker("Inditex") -> "ITX.MC"
-        resolve_ticker("AAPL") -> "AAPL"
-    """
-    results = search_ticker(query, max_results=5)
-    if not results:
-        return None
-    return results[0]["symbol"]
-
-
 def _to_yahoo_ticker(ticker: str) -> str:
     """Convierte ticker de formato filesystem (MAU_PA) a Yahoo Finance (MAU.PA).
     Solo convierte el ÚLTIMO underscore seguido de sufijo de mercado conocido."""
@@ -742,7 +726,6 @@ def _calculate_avg_margins(historical, sorted_years):
         "capex_pct": capex_val,
         "tax_rate": min(np.mean(tax), 0.35) if tax else 0.21,
     }
-
 
 
 # _estimate_wacc() y _estimate_terminal_multiple() ELIMINADOS.

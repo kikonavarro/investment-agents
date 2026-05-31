@@ -6,7 +6,6 @@ Protege contra el bug del atributo `scale`: una empresa que reporta en miles
 'critical' falsas (HIMS daba 99.900% de diferencia vs Yahoo). También verifica
 que se respeta el atributo `sign` (una pérdida no debe convertirse en beneficio).
 """
-import textwrap
 
 from tools.sec_parser import parse_10k, cross_reference
 

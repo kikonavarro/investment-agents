@@ -4,7 +4,7 @@ Tres hojas: Posiciones, Transacciones, Watchlist.
 Python hace todo el trabajo — Claude solo recibe el resumen formateado.
 """
 import openpyxl
-from openpyxl.styles import Font, PatternFill, Alignment, numbers
+from openpyxl.styles import Font, PatternFill, Alignment
 from datetime import date, datetime
 from pathlib import Path
 from config.settings import PORTFOLIO_FILE

@@ -19,7 +19,7 @@ except Exception:  # pragma: no cover - fallback si cambia la ruta de urllib3
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from config.settings import TELEGRAM_POLL_INTERVAL as POLL_INTERVAL, TELEGRAM_MESSAGE_TIMEOUT as MESSAGE_TIMEOUT
+from config.settings import TELEGRAM_POLL_INTERVAL as POLL_INTERVAL
 
 
 def _load_config():
