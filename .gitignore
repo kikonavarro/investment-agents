@@ -43,5 +43,6 @@ invest-new-agent-workspace/
 # Screening PDF reports
 data/Informe_Screening_*.pdf
 
-# Claude Code
-.claude/
+# Claude Code (ignorar todo MENOS las skills, que son metodología versionable)
+.claude/*
+!.claude/skills/

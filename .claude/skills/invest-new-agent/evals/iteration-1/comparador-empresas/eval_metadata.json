@@ -1,0 +1,6 @@
+{
+  "eval_id": 1,
+  "eval_name": "comparador-empresas",
+  "prompt": "Quiero un agente que compare dos empresas lado a lado — que reciba dos tickers y muestre las metricas clave y el DCF de cada una en paralelo, para decidir cual es mejor inversion",
+  "assertions": []
+}
