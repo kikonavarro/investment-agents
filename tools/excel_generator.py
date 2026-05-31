@@ -6,6 +6,12 @@ Assumptions, Financial Statements, Model, Valuation.
 Todas las proyecciones usan formulas reales de Excel (no valores hardcodeados).
 Selector de escenario con OFFSET para cambiar entre Base/Bull/Bear.
 Tabla de sensibilidad WACC x Terminal Value Multiple.
+
+INACTIVO (2026-05-31): este modulo se obvió del pipeline (analyst y finalize ya NO
+generan el .xlsx) porque era la 3ª copia del DCF y nadie consumía el archivo (ni el
+bot ni Kiko). Reimplementaba la aritmética que hoy hace el motor (valuation_engine) y
+verifica finalize, y era la fuente de las divergencias residuales. Se conserva por si
+se reactiva como "render del motor" (ver REDISENO). Sus tests siguen vivos.
 """
 
 import os

@@ -383,52 +383,20 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
     else:
         print(f"\n  [Motor] Fair values no verificados (metodo no-DCF o datos insuficientes).")
 
-    # --- 2. Regenerar Excel con escenarios reales ---
+    # --- 2. Resumen de escenarios ---
+    # Antes aquí se regeneraba el modelo Excel (otra vez get_company_data + un DCF por
+    # fórmulas). Se obvió del pipeline: el motor hace la aritmética, la verificación la
+    # confirma y nadie consumía el .xlsx. Como efecto colateral, finalize YA NO llama a
+    # la red. excel_generator se conserva inactivo por si se reactiva (ver REDISENO).
     if scenarios and all(k in scenarios for k in ("bear", "base", "bull")):
-        # Validar campos mínimos
-        required = ["revenue_growth_y1", "gross_margin", "sga_pct", "wacc", "terminal_multiple"]
-        valid = True
-        for sc_name in ["bear", "base", "bull"]:
-            missing = [k for k in required if k not in scenarios[sc_name]]
-            if missing:
-                print(f"  [!] Escenario '{sc_name}' le faltan: {missing} — Excel no actualizado")
-                valid = False
-                break
-
-        if valid:
-            from tools.financial_data import get_company_data, extract_historical_data, extract_metrics
-            from tools.excel_generator import generate_valuation_excel
-
-            print(f"\n  Regenerando Excel con escenarios reales...")
-            yahoo_data = get_company_data(ticker)
-            historical = extract_historical_data(yahoo_data)
-            metrics = extract_metrics(yahoo_data, historical)
-            metrics["_real_scenarios"] = scenarios
-
-            # Overrides decididos en la tesis, leidos desde el MISMO normalizador que la
-            # verificacion (esquema canonico unico): net debt pre-IFRS16 y share count del
-            # 10-K. Asi el Excel y el motor no pueden divergir en que override aplican.
-            norm = _normalize_meta(data.get("_meta") if isinstance(data, dict) else None)
-            if norm["net_debt_override_m"] is not None:
-                metrics["_net_debt_override_m"] = norm["net_debt_override_m"]
-            if norm["shares_override"] is not None:
-                metrics["_shares_override"] = norm["shares_override"]
-            # revenue_base_m: el Excel construye el revenue por segmento (sin un punto unico
-            # de base total), asi que su override queda pendiente (ver REDISENO). El gate
-            # autoritativo es la verificacion del motor, que si lo respeta.
-
-            excel_path = str(output_dir / f"{folder}_modelo_valoracion.xlsx")
-            generate_valuation_excel(ticker, yahoo_data, historical, metrics, excel_path)
-
-            print(f"  Escenarios:")
-            for name in ["bear", "base", "bull"]:
-                sc = scenarios[name]
+        print(f"\n  Escenarios (supuestos de la tesis):")
+        for name in ["bear", "base", "bull"]:
+            sc = scenarios[name]
+            if all(k in sc for k in ("wacc", "terminal_multiple", "revenue_growth_y1", "gross_margin")):
                 print(f"    {name.capitalize():5s}: WACC={sc['wacc']:.1%}, "
                       f"TV={sc['terminal_multiple']:.0f}x, "
                       f"Growth Y1={sc['revenue_growth_y1']:.1%}, "
                       f"GM={sc['gross_margin']:.1%}")
-    else:
-        print(f"\n  Sin escenarios completos — Excel no actualizado")
 
 
 def clean_all_history():

@@ -39,7 +39,7 @@ python main.py --analyst TICKER
 python main.py --analyst AAPL MSFT GOOGL  # múltiples
 ```
 
-Genera en `data/valuations/{TICKER}/`: JSON con datos crudos + métricas de referencia + Excel template + SEC filings.
+Genera en `data/valuations/{TICKER}/`: JSON con datos crudos + métricas de referencia + SEC filings.
 Quality gates validan calidad de datos (no escenarios — eso lo decides tú al escribir la tesis).
 El JSON NO contiene escenarios ni fair values. Solo datos y métricas de referencia.
 
@@ -52,7 +52,7 @@ python main.py --analyst TICKER
 Leer JSON + SEC filings. Tú decides WACC, TV, escenarios y calculas el DCF.
 Escribir tesis siguiendo skill `thesis-writer`.
 Guardar en `data/valuations/{TICKER}/{TICKER}_tesis_inversion.md`.
-**Finalizar (fair values + Excel):** `python tools/finalize_thesis.py TICKER thesis_data.json`
+**Finalizar (fair values + verificación del motor):** `python tools/finalize_thesis.py TICKER thesis_data.json`
 **Review gate obligatorio:** `python tools/thesis_reviewer.py TICKER` antes de enviar.
 
 ### Comparar empresas
@@ -124,17 +124,17 @@ El scheduler encola tareas (tweets, screener) como mensajes `[SCHEDULER]`.
 ## Estructura de archivos clave
 
 - `.claude/skills/` — **referencia principal** (14 skills con instrucciones detalladas)
-- `tools/finalize_thesis.py` — guarda fair values + regenera Excel con escenarios reales
+- `tools/finalize_thesis.py` — guarda fair values + verifica con el motor (ya no genera Excel)
 - `config/settings.py` — modelos, rutas, configuración
 - `config/screener_filters.yaml` — filtros cuantitativos del screener
-- `data/valuations/{TICKER}/` — output del analyst (JSON + Excel + SEC + tesis)
+- `data/valuations/{TICKER}/` — output del analyst (JSON + SEC + tesis)
 - `data/telegram_queue/` — cola de mensajes Investment Bot ↔ Claude Code
 - `tools/check_inbox.py` — CLI para gestionar la cola
 - `tools/quality_gates.py` — validación automática de cada valoración
 - `tools/thesis_reviewer.py` — review gate antes de enviar tesis
 - `tools/` — módulos Python puros (sin LLM)
 
-**Nota:** Directorios parciales en `data/valuations/` (solo JSON+Excel, sin tesis) son normales — representan datos recogidos sin tesis escrita aún.
+**Nota:** Directorios parciales en `data/valuations/` (solo JSON, sin tesis) son normales — representan datos recogidos sin tesis escrita aún.
 
 ## Tickers internacionales
 

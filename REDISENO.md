@@ -40,8 +40,9 @@ Rehacer el sistema con cinco metas:
 | Fix en la fuente | `financial_data._reconcile_shares`: la corrección de acciones duales (ratio>1.5 → `market_cap/precio`) ahora nace en `get_company_data`, no solo en la verificación. Toda valoración (Excel, JSON, dashboard) parte de las acciones reales. Helper puro + 10 tests. Preserva el valor crudo en `shares_reconciliation` (traza, nada oculto). Idempotente con la verificación | local |
 | Overrides `_meta` | `finalize_thesis._normalize_meta`: esquema canónico único (`net_debt_override_m`, `shares_override`, `revenue_base_m`) leído POR IGUAL por la verificación y el Excel, con alias histórico `shares`. La verificación ahora respeta shares + revenue base (antes solo deuda). Migrado WOSG_L a claves canónicas. **Cierra WOSG_L (−10%→+0,1%) y CPAY (+4%→−0,1%).** +9 tests | local |
 | Motor con ajustes | `_meta.fv_adjustment = {pct, reason}`: la tesis declara una desviación DELIBERADA sobre el output del motor; la verificación compara contra `motor×(1+pct)`. Si diverge sin declararse, da un mensaje accionable (declara el ajuste o revisa el cálculo) — **informa, no bloquea** (el motor manda sobre la aritmética, no sobre la tesis). `_compare_engine` puro separa cálculo de impresión. +15 tests | local |
+| Excel obviado | El modelo `.xlsx` se quita del pipeline (`analyst` y `finalize` ya NO lo generan): era la 3ª copia del DCF y nadie lo consumía (ni el bot ni Kiko). Verificado que nada activo depende de él (el bot no lo envía; email_sender dormido degrada con `if exists`). **Efecto colateral: `finalize` ya no llama a la red.** `excel_generator` se conserva inactivo (reversible). Docs y CLAUDE.md actualizados | local |
 
-**Estado git:** rama `main`, ~9 commits en **local sin pushear** (decisión de Kiko: no subir aún). El tag `pre-rediseno-2026` sí está en GitHub. Para volver atrás: `git reset --hard pre-rediseno-2026`.
+**Estado git:** rama `main`, ~10 commits en **local sin pushear** (decisión de Kiko: no subir aún). El tag `pre-rediseno-2026` sí está en GitHub. Para volver atrás: `git reset --hard pre-rediseno-2026`.
 
 ## Cómo retomar (operativo)
 
@@ -53,11 +54,11 @@ Rehacer el sistema con cinco metas:
 
 ## SIGUIENTE PASO concreto
 
-**`excel_generator` consume del motor** (#4 del roadmap) — la consolidación de "una sola fuente de verdad". Hoy el DCF se calcula en TRES sitios: el motor (`valuation_engine`), la verificación (que ya usa el motor) y el **Excel** (que lo reimplementa con fórmulas por segmento). Esa tercera copia es la que produce las divergencias residuales (p. ej. el Excel ignora `revenue_base_m`). Objetivo: que el Excel use el motor como backend de cálculo (o, como mínimo, que sus celdas de fair value coincidan con el motor dado los mismos supuestos), de modo que tesis, verificación y Excel no puedan divergir.
+**Documentar el flujo nuevo en la skill `thesis-writer`** (#5 del roadmap). Tras motor + verificación + overrides `_meta` + ajustes justificados + Excel obviado, la skill debe reflejar el flujo real: *Opus elige método/múltiplos → escribe `thesis_data.json` con escenarios y `_meta` (overrides + `fv_adjustment` justificado) → `finalize_thesis` calcula con el motor y verifica → Opus interpreta y recomienda*. Documentar el esquema `_meta` canónico y cuándo usar cada override. **Recordar: sincronizar la skill `orchestrator` al tocar skills** (regla de Kiko). No toca código de producción, solo metodología.
 
-⚠️ **Es un refactor grande y toca el Excel que Kiko usa** → empezar por un diseño/scope y confirmarlo antes de tocar `excel_generator`. Subsume la sub-tarea del override de `revenue_base_m` en el Excel.
-
-**Alternativas más pequeñas si se prefiere antes:** (a) cerrar los residuos **PUIG_MC** e **ITX_MC** revisando sus tesis y declarando el `_meta` adecuado (el esquema ya existe); (b) el override de revenue base en el Excel de forma aislada (decidir reparto entre segmentos con Kiko).
+**Alternativas si se prefiere antes:**
+- (a) **Cerrar residuos PUIG_MC e ITX_MC** — revisar sus tesis y declarar el `_meta` adecuado (esquema ya existe). Wins de correctitud directos.
+- (b) **#7 Loop cerrado** (lo que más mueve la aguja según meta #1): track record de tesis (¿acertó el fair value?), watchlist con triggers, sizing por convicción. Es el salto grande de valor.
 
 ## Residuos catalogados (casos puntuales, no bugs de clase)
 
@@ -72,8 +73,8 @@ Rehacer el sistema con cinco metas:
 1. ~~**Fix de acciones en la fuente** (`financial_data`)~~ ✅ **HECHO** (2026-05-31): `_reconcile_shares` en `get_company_data` + 10 tests.
 2. ~~**Estandarizar overrides** en `_meta` (deuda, revenue base, acciones)~~ ✅ **HECHO** (2026-05-31): `_normalize_meta` + 9 tests; cierra WOSG_L y CPAY.
 3. ~~**Motor "manda" con ajustes justificados**~~ ✅ **HECHO** (2026-05-31): `_meta.fv_adjustment` + `_compare_engine`; informa, no bloquea.
-4. **`excel_generator` consume del motor** — eliminar el tercer sitio donde hoy se recalcula el DCF (una sola fuente de verdad) — **el siguiente paso de arriba**.
-5. **Skill `thesis-writer`:** documentar el flujo "Opus elige método/múltiplos → motor calcula → Opus interpreta y recomienda". (Recordar: sincronizar `orchestrator` al tocar skills.)
+4. ~~**`excel_generator` consume del motor**~~ ✅ **RESUELTO de otra forma** (2026-05-31): en vez de hacer que el Excel consuma el motor, se **obvió el Excel** (nadie lo usaba). Eliminada la 3ª copia del DCF → una sola fuente de verdad (motor + verificación).
+5. **Skill `thesis-writer`:** documentar el flujo "Opus elige método/múltiplos → motor calcula → Opus interpreta y recomienda". (Recordar: sincronizar `orchestrator` al tocar skills.) — **el siguiente paso de arriba**.
 6. **Router de métodos de valoración** (#4): clasificar la empresa y elegir DCF / SoP / NAV / reverse-DCF / múltiplos / P-Book.
 7. **Loop cerrado** (#1, lo que más mueve la aguja): track record de tesis (¿acertó el fair value?), watchlist con triggers de compra/venta, sizing por convicción.
 8. **Orquestación proactiva API→suscripción** (#5): el `scheduler.py` está apagado pero listo (encola para Claude Code, sin API). Activarlo vía cron→Claude Code headless.
@@ -85,6 +86,7 @@ Rehacer el sistema con cinco metas:
 - **Scheduler:** se queda **dormido** (ni activar ni borrar por ahora).
 - **Dashboard** (`web_dashboard.py`): **se mantiene** (Kiko lo usa).
 - **Email/PDF** (`email_sender`, `pdf_report`, `document_generator`): **se conservan** para reactivar (no borrar).
+- **Modelo Excel** (`excel_generator`): **obviado del pipeline** (2026-05-31) — Kiko no lo usa y ningún agente lo consume. El módulo se conserva inactivo por si se reactiva como "render del motor" (no como 3ª copia del DCF). Si se reactiva el email, adjuntará la tesis + SEC sin el Excel (degrada con `if exists`).
 - **Servicio a amigos:** 2 personas, solo consumen (tesis, valoraciones, screener, comparativas).
 
 ## Arquitectura objetivo (resumen)

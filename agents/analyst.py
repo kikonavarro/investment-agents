@@ -9,13 +9,14 @@ Flujo:
 3. Obtiene datos financieros via yahooquery
 4. Extrae métricas de referencia (márgenes, growth, detecciones)
 5. Busca noticias recientes
-6. Genera Excel con datos y template DCF
-7. Guarda JSON con datos crudos + métricas de referencia
+6. Guarda JSON con datos crudos + métricas de referencia
+
+(El modelo Excel se obvió del pipeline: el motor de valoración hace la aritmética
+ y la verificación la confirma; nadie consumía el .xlsx. Ver REDISENO.)
 
 Output:
     data/valuations/{TICKER}/
     ├── SEC_filings/          (solo EEUU)
-    ├── {TICKER}_modelo_valoracion.xlsx
     └── {TICKER}_valuation.json
 """
 
@@ -27,7 +28,6 @@ from pathlib import Path
 
 from config.settings import VALUATIONS_DIR
 from tools.financial_data import get_company_data, extract_historical_data, extract_metrics, DataQualityError
-from tools.excel_generator import generate_valuation_excel
 from tools.sec_downloader import download_10k_filings
 from tools.news_fetcher import fetch_news
 
@@ -84,7 +84,7 @@ def run_analyst(ticker: str) -> dict:
     # PASO 1: SEC Filings (solo EEUU)
     downloaded_files = []
     if is_us:
-        print(f"\n--- PASO 1/5: SEC EDGAR (10-K) ---")
+        print(f"\n--- PASO 1/4: SEC EDGAR (10-K) ---")
         try:
             sec_dir = str(output_dir / "SEC_filings")
             downloaded_files = download_10k_filings(ticker, sec_dir)
@@ -92,11 +92,11 @@ def run_analyst(ticker: str) -> dict:
         except Exception as e:
             print(f"    Aviso: Error SEC filings: {e}")
     else:
-        print(f"\n--- PASO 1/5: Filings ---")
+        print(f"\n--- PASO 1/4: Filings ---")
         print(f"    Ticker internacional ({ticker}): SEC no aplica")
 
     # PASO 2: Datos financieros
-    print(f"\n--- PASO 2/5: Datos financieros (yahooquery) ---")
+    print(f"\n--- PASO 2/4: Datos financieros (yahooquery) ---")
     try:
         data = get_company_data(ticker)
     except DataQualityError as e:
@@ -141,7 +141,7 @@ def run_analyst(ticker: str) -> dict:
             print(f"  [!] SEC audit error: {e}")
 
     # PASO 3: Noticias
-    print(f"\n--- PASO 3/5: Noticias recientes ---")
+    print(f"\n--- PASO 3/4: Noticias recientes ---")
     try:
         news = fetch_news(ticker, company_name)
         print(f"    {len(news)} noticias encontradas")
@@ -163,16 +163,14 @@ def run_analyst(ticker: str) -> dict:
         except Exception:
             pass
 
-    # PASO 4: Excel
-    print(f"\n--- PASO 4/5: Modelo Excel ---")
-    excel_path = str(output_dir / f"{folder_name}_modelo_valoracion.xlsx")
-    generate_valuation_excel(ticker, data, historical, metrics, excel_path)
-
-    # PASO 5: JSON resumen
-    print(f"\n--- PASO 5/5: Guardando resumen ---")
+    # PASO 4: JSON resumen
+    # El modelo Excel se obvió del pipeline: el motor de valoración hace la aritmética y
+    # la verificación la confirma; nadie consumía el .xlsx (ni el bot ni Kiko). excel_generator
+    # se conserva inactivo por si se reactiva. Ver REDISENO.
+    print(f"\n--- PASO 4/4: Guardando resumen ---")
     valuation_summary = _build_valuation_summary(
         ticker, company_name, data, historical, metrics, news,
-        excel_path, downloaded_files, currency, sec_audit
+        downloaded_files, currency, sec_audit
     )
     json_path = str(output_dir / f"{folder_name}_valuation.json")
     with open(json_path, "w", encoding="utf-8") as f:
@@ -192,7 +190,6 @@ def run_analyst(ticker: str) -> dict:
     print(f"    {output_dir}/")
     if downloaded_files:
         print(f"    ├── SEC_filings/ ({len(downloaded_files)} filings)")
-    print(f"    ├── {folder_name}_modelo_valoracion.xlsx")
     print(f"    └── {folder_name}_valuation.json")
     print(f"  Precio actual: {currency}{current_price:,.2f}")
     print(f"  → Usa Claude Code para interpretar datos y escribir tesis")
@@ -217,7 +214,7 @@ def load_valuation(ticker: str) -> dict | None:
 
 
 def _build_valuation_summary(ticker, company_name, data, historical, metrics, news,
-                              excel_path, sec_files, currency, sec_audit=None):
+                              sec_files, currency, sec_audit=None):
     """Construye el dict resumen con datos crudos + métricas de referencia."""
     info = data["info"]
     sorted_years = sorted(historical.keys())
@@ -266,7 +263,6 @@ def _build_valuation_summary(ticker, company_name, data, historical, metrics, ne
         } if sec_audit and sec_audit.get("has_10k") else None,
         "news": [{"title": n["title"], "date": n["date"], "source": n.get("source", "")} for n in news[:10]],
         "files": {
-            "excel": excel_path,
             "sec_filings": sec_files,
         },
     }
