@@ -144,7 +144,7 @@ def main():
         retry_all_failed()
     elif args.action == "count":
         # Señal barata para el procesador (launchd): exit 0 = hay pendientes, 1 = vacío.
-        # Sin output ni LLM. Lo usa process_inbox.sh para no encender Opus en vacío.
+        # Sin output ni LLM. Lo usa process_inbox.py para no encender Opus en vacío.
         sys.exit(0 if get_pending() else 1)
 
 

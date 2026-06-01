@@ -6,9 +6,12 @@
     <string>com.investment.inbox</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/bin/bash</string>
-        <string>/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/tools/process_inbox.sh</string>
+        <string>/Users/franciscojaviernavarro/.pyenv/versions/3.12.2/bin/python3</string>
+        <string>-u</string>
+        <string>/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/tools/process_inbox.py</string>
     </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents</string>
     <key>StartInterval</key>
     <integer>60</integer>
     <key>RunAtLoad</key>
@@ -16,11 +19,11 @@
     <key>EnvironmentVariables</key>
     <dict>
         <key>PATH</key>
-        <string>/Users/franciscojaviernavarro/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <string>/Users/franciscojaviernavarro/.local/bin:/Users/franciscojaviernavarro/.nvm/versions/node/v20.11.0/bin:/Users/franciscojaviernavarro/.pyenv/versions/3.12.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/processor.launchd.log</string>
+    <string>/tmp/investment_inbox.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/processor.launchd.log</string>
+    <string>/tmp/investment_inbox.log</string>
 </dict>
 </plist>

@@ -16,7 +16,6 @@ cp "$HERE/com.investment.inbox.plist"          "$AGENTS/"
 cp "$HERE/com.investment.inbox-watchdog.plist" "$AGENTS/"
 cp "$HERE/bandeja"                              "$BIN/bandeja"
 chmod +x "$BIN/bandeja"
-chmod +x "$HERE/../tools/process_inbox.sh"
 
 echo "Validando plists..."
 plutil -lint "$AGENTS/com.investment.inbox.plist" "$AGENTS/com.investment.inbox-watchdog.plist"

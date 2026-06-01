@@ -103,7 +103,7 @@ LLM) y, solo si hay mensaje, lanza Claude Code headless (Opus) que procesa con l
 tiene un watchdog (`com.investment.inbox-watchdog`) que avisa por Telegram si se rompe.
 
 Control desde el Mac: `bandeja status | restart | logs | stop | start` (helper `~/bin/bandeja`).
-Ficheros: `tools/process_inbox.sh` (wrapper), `tools/watchdog_inbox.py`, y los `.plist` en
+Ficheros: `tools/process_inbox.py` (wrapper), `tools/watchdog_inbox.py`, y los `.plist` en
 `~/Library/LaunchAgents/com.investment.inbox*.plist`.
 
 **⚠️ NO arranques `/loop ... check_inbox` en una sesión interactiva:** duplicaría el
