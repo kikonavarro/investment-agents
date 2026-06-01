@@ -94,12 +94,25 @@ El JSON (`{TICKER}_valuation.json`) contiene **solo datos crudos**:
 **NO contiene:** `scenarios`, `dcf_reliable`, fair values, WACC ni TV auto-calculados.
 Los fair values se guardan en `history.json` al finalizar la tesis (`tools/finalize_thesis.py`).
 
-## AL INICIAR SESION — Acciones obligatorias
+## Procesamiento de la bandeja — AUTÓNOMO (launchd)
 
-1. **Activar polling de Telegram:** Ejecutar `/loop 1m python tools/check_inbox.py` para comprobar la bandeja de entrada cada minuto. Sin esto, los mensajes del Investment Bot no se procesan.
-2. Si hay mensajes pendientes, procesarlos según el tipo (tesis, screener, tweets, etc.)
+La bandeja del Investment Bot la procesa un **servicio launchd permanente**
+(`com.investment.inbox`), NO esta sesión. Cada 60s hace un pre-check barato (Python, sin
+LLM) y, solo si hay mensaje, lanza Claude Code headless (Opus) que procesa con la skill
+`orchestrator` y responde. Es durable (sobrevive a cerrar la sesión / reiniciar el Mac) y
+tiene un watchdog (`com.investment.inbox-watchdog`) que avisa por Telegram si se rompe.
 
-**⚠️ NUNCA lanzar `telegram_bot.py` desde esta sesión.** El bot ya corre como servicio permanente via launchd (`com.investment.telegrambot`). Lanzar otra copia causa mensajes duplicados. Solo usar `check_inbox.py` para leer y responder la cola.
+Control desde el Mac: `bandeja status | restart | logs | stop | start` (helper `~/bin/bandeja`).
+Ficheros: `tools/process_inbox.sh` (wrapper), `tools/watchdog_inbox.py`, y los `.plist` en
+`~/Library/LaunchAgents/com.investment.inbox*.plist`.
+
+**⚠️ NO arranques `/loop ... check_inbox` en una sesión interactiva:** duplicaría el
+procesamiento (la sesión y el launchd cogerían el mismo mensaje). Usa `check_inbox.py` a
+mano SOLO para depurar/inspeccionar, nunca como poller permanente.
+
+**⚠️ NUNCA lanzar `telegram_bot.py` desde esta sesión.** El bot ya corre como servicio
+permanente via launchd (`com.investment.telegrambot`). Lanzar otra copia causa mensajes
+duplicados. Solo usar `check_inbox.py` para leer y responder la cola.
 
 ## Cola de mensajes Telegram (Investment Bot → Claude Code)
 

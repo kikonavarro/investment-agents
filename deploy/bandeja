@@ -1,0 +1,51 @@
+#!/bin/bash
+# Helper de control del procesador de bandeja del Investment Bot.
+# Uso: bandeja [status|restart|logs|stop|start]
+LABEL="com.investment.inbox"
+WLABEL="com.investment.inbox-watchdog"
+PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
+WPLIST="$HOME/Library/LaunchAgents/$WLABEL.plist"
+REPO="/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents"
+PYBIN="/Users/franciscojaviernavarro/.pyenv/versions/3.12.2/bin/python3"
+GUI="gui/$(id -u)"
+
+case "${1:-status}" in
+  status)
+    echo "== Procesador de bandeja =="
+    if launchctl print "$GUI/$LABEL" >/dev/null 2>&1; then echo "  job: cargado"; else echo "  job: NO cargado"; fi
+    if [ -f "$REPO/data/.processor_heartbeat" ]; then
+        hb=$(( $(date +%s) - $(cat "$REPO/data/.processor_heartbeat") ))
+        echo "  ultimo latido: hace ${hb}s"
+    else
+        echo "  ultimo latido: nunca"
+    fi
+    if PYTHONPATH="$REPO" "$PYBIN" "$REPO/tools/check_inbox.py" count >/dev/null 2>&1; then
+        echo "  cola: HAY mensajes pendientes"
+    else
+        echo "  cola: vacia"
+    fi
+    echo "== Watchdog =="
+    if launchctl print "$GUI/$WLABEL" >/dev/null 2>&1; then echo "  job: cargado"; else echo "  job: NO cargado"; fi
+    ;;
+  restart)
+    launchctl bootout "$GUI/$LABEL" 2>/dev/null
+    launchctl bootstrap "$GUI" "$PLIST" 2>/dev/null
+    launchctl kickstart -k "$GUI/$LABEL" 2>/dev/null
+    echo "Procesador reiniciado."
+    ;;
+  start)
+    launchctl bootstrap "$GUI" "$PLIST" 2>/dev/null && echo "Procesador arrancado."
+    launchctl bootstrap "$GUI" "$WPLIST" 2>/dev/null && echo "Watchdog arrancado."
+    ;;
+  stop)
+    launchctl bootout "$GUI/$LABEL" 2>/dev/null && echo "Procesador parado."
+    launchctl bootout "$GUI/$WLABEL" 2>/dev/null && echo "Watchdog parado."
+    ;;
+  logs)
+    echo "(Ctrl-C para salir) — $REPO/data/processor.log"
+    tail -n 40 -f "$REPO/data/processor.log"
+    ;;
+  *)
+    echo "Uso: bandeja [status|restart|logs|stop|start]"
+    ;;
+esac

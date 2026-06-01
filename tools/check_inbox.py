@@ -117,7 +117,7 @@ def retry_all_failed():
 def main():
     parser = argparse.ArgumentParser(description="Gestionar cola de mensajes del Investment Bot")
     parser.add_argument("action", nargs="?", default="pending",
-                       choices=["pending", "respond", "send", "send-all", "failed", "retry"])
+                       choices=["pending", "respond", "send", "send-all", "failed", "retry", "count"])
     parser.add_argument("msg_id", nargs="?", help="ID del mensaje")
     parser.add_argument("file", nargs="?", help="Archivo con la respuesta")
     parser.add_argument("--text", "-t", help="Respuesta inline")
@@ -142,6 +142,10 @@ def main():
         show_failed()
     elif args.action == "retry":
         retry_all_failed()
+    elif args.action == "count":
+        # Señal barata para el procesador (launchd): exit 0 = hay pendientes, 1 = vacío.
+        # Sin output ni LLM. Lo usa process_inbox.sh para no encender Opus en vacío.
+        sys.exit(0 if get_pending() else 1)
 
 
 if __name__ == "__main__":
