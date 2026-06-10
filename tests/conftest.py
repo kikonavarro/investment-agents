@@ -55,6 +55,7 @@ def good_valuation():
             {"name": "iPhone", "revenues": {2024: 200e9, 2025: 210e9}},
             {"name": "Services", "revenues": {2024: 85e9, 2025: 95e9}},
         ],
+        "reference_metrics": {"beta": 1.2, "beta_is_default": False},
         "historical_data": {
             "2023": {"revenue": 383e9, "net_income": 94e9, "ebitda": 125e9, "fcf": 93e9, "operating_income": 114e9},
             "2024": {"revenue": 390e9, "net_income": 95e9, "ebitda": 128e9, "fcf": 96e9, "operating_income": 115e9},

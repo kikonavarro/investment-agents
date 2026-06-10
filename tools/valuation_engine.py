@@ -58,14 +58,40 @@ class DCFAssumptions:
     terminal_multiple: float      # Múltiplo EV/EBITDA terminal (exit)
 
     def __post_init__(self) -> None:
+        # Validación dura de rangos: el motor rechaza supuestos IMPOSIBLES (típicamente
+        # un typo porcentaje-vs-fracción: 8 en vez de 0.08). No impone metodología
+        # (el WACC floor o el múltiplo razonable son juicio del analista/reviewer);
+        # solo evita que un input absurdo produzca un fair value con cara de serio.
         if self.revenue_base <= 0:
             raise ValueError(f"revenue_base debe ser > 0 (recibido: {self.revenue_base})")
         if not self.revenue_growth:
             raise ValueError("revenue_growth no puede estar vacío")
-        if self.wacc <= 0:
-            raise ValueError(f"wacc debe ser > 0 (recibido: {self.wacc})")
-        if self.terminal_multiple <= 0:
-            raise ValueError(f"terminal_multiple debe ser > 0 (recibido: {self.terminal_multiple})")
+        for i, g in enumerate(self.revenue_growth, start=1):
+            if not -0.9 <= g <= 3.0:
+                raise ValueError(
+                    f"revenue_growth año {i} = {g} fuera de rango [-0.9, 3.0]. "
+                    f"¿Se tecleó porcentaje en vez de fracción (8 vs 0.08)?")
+        if not 0 < self.gross_margin <= 1:
+            raise ValueError(
+                f"gross_margin = {self.gross_margin} fuera de rango (0, 1] "
+                f"(debe ser fracción: 0.45 = 45%)")
+        for campo in ("sga_pct", "rd_pct", "da_pct", "capex_pct"):
+            v = getattr(self, campo)
+            if not 0 <= v < 1:
+                raise ValueError(
+                    f"{campo} = {v} fuera de rango [0, 1) (fracción de revenue, no %)")
+        if not 0 <= self.tax_rate <= 0.6:
+            raise ValueError(
+                f"tax_rate = {self.tax_rate} fuera de rango [0, 0.6] "
+                f"(fracción: 0.21 = 21%)")
+        if not 0 < self.wacc < 1:
+            raise ValueError(
+                f"wacc = {self.wacc} fuera de rango (0, 1). "
+                f"¿Se tecleó 10 en vez de 0.10?")
+        if not 0 < self.terminal_multiple <= 60:
+            raise ValueError(
+                f"terminal_multiple = {self.terminal_multiple} fuera de rango (0, 60] "
+                f"(EV/EBITDA terminal; >60x no es un supuesto terminal defendible)")
 
 
 @dataclass

@@ -392,7 +392,11 @@ def _build_info_dict(price_data, fin_data, profile, key_stats, summary, ticker):
         info["totalDebt"] = fin_data.get("totalDebt", 0)
         info["enterpriseValue"] = key_stats.get("enterpriseValue", 0) if isinstance(key_stats, dict) else 0
     if isinstance(key_stats, dict):
-        info["beta"] = key_stats.get("beta", 1.0)
+        raw_beta = key_stats.get("beta")
+        # Beta ausente -> 1.0 por defecto, PERO con rastro: un WACC por CAPM con beta
+        # inventada parece "normal" sin serlo. El quality gate avisa usando este flag.
+        info["beta"] = raw_beta if raw_beta is not None else 1.0
+        info["beta_is_default"] = raw_beta is None
         info["sharesOutstanding"] = key_stats.get("sharesOutstanding", 0)
         info["forwardPE"] = key_stats.get("forwardPE", 0)
         info["enterpriseToEbitda"] = key_stats.get("enterpriseToEbitda", 0)
@@ -725,6 +729,7 @@ def extract_metrics(data, historical):
         "avg_growth": round(np.mean([g["yoy"] for g in revenue_growths]), 4) if revenue_growths else None,
         "cagr_3y": cagr_3y,
         "beta": beta,
+        "beta_is_default": bool(info.get("beta_is_default")),
         "ev_ebitda": ev_ebitda,
         "net_debt": net_debt,
         "net_debt_label": net_debt_label,

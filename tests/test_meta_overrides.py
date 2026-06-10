@@ -99,8 +99,8 @@ def test_revenue_base_override_escala_el_fair_value(tmp_path):
     """Con net_debt 0, el fair value es lineal en la base de revenue: doblar
     revenue_base_m dobla el fair value (el bug de WOSG_L, al revés)."""
     folder = _write_valuation(tmp_path, revenue=1000e6)
-    base = ft._engine_fair_values(_scenarios(), tmp_path, folder, None)
-    doble = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"revenue_base_m": 2000.0})
+    base, _ = ft._engine_fair_values(_scenarios(), tmp_path, folder, None)
+    doble, _ = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"revenue_base_m": 2000.0})
     assert base and doble
     assert doble["base"] == pytest.approx(2 * base["base"], rel=1e-6)
 
@@ -108,8 +108,8 @@ def test_revenue_base_override_escala_el_fair_value(tmp_path):
 def test_shares_override_escala_inverso_el_fair_value(tmp_path):
     """fair value/acción ∝ 1/acciones: la mitad de acciones dobla el fair value."""
     folder = _write_valuation(tmp_path, shares=100e6)
-    base = ft._engine_fair_values(_scenarios(), tmp_path, folder, None)
-    mitad = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"shares_override": 50e6})
+    base, _ = ft._engine_fair_values(_scenarios(), tmp_path, folder, None)
+    mitad, _ = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"shares_override": 50e6})
     assert base and mitad
     assert mitad["base"] == pytest.approx(2 * base["base"], rel=1e-6)
 
@@ -119,8 +119,8 @@ def test_shares_override_manda_sobre_heuristica_dual(tmp_path):
     = 3× las acciones. Un shares_override explícito debe MANDAR sobre esa heurística."""
     # market_cap = 3 × precio × acciones -> ratio 3.0; heurística -> 300M acciones.
     folder = _write_valuation(tmp_path, shares=100e6, price=10.0, market_cap=3e9)
-    sin_override = ft._engine_fair_values(_scenarios(), tmp_path, folder, None)          # usa 300M
-    con_override = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"shares_override": 100e6})
+    sin_override, _ = ft._engine_fair_values(_scenarios(), tmp_path, folder, None)       # usa 300M
+    con_override, _ = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"shares_override": 100e6})
     assert sin_override and con_override
     # 100M (override) vs 300M (heurística) -> el override da 3× el fair value/acción.
     assert con_override["base"] == pytest.approx(3 * sin_override["base"], rel=1e-6)
@@ -130,8 +130,8 @@ def test_net_debt_override_sube_el_equity(tmp_path):
     """Menos deuda neta -> más equity -> mayor fair value. El override (en millones)
     debe leerse vía el normalizador, igual que en el Excel."""
     folder = _write_valuation(tmp_path, total_debt=500e6, cash=0)   # net_debt base = 500M
-    base = ft._engine_fair_values(_scenarios(), tmp_path, folder, None)
-    sin_deuda = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"net_debt_override_m": 0.0})
+    base, _ = ft._engine_fair_values(_scenarios(), tmp_path, folder, None)
+    sin_deuda, _ = ft._engine_fair_values(_scenarios(), tmp_path, folder, {"net_debt_override_m": 0.0})
     assert base and sin_deuda
     assert sin_deuda["base"] > base["base"]
 

@@ -88,7 +88,7 @@ def test_shares_no_diluted_data_ok():
 
 # --- Test total_checks ---
 
-def test_total_checks_is_11():
+def test_total_checks_is_12():
     v = _minimal()
     result = validate_valuation(v)
-    assert result["passed"] + result["failed"] == 11
+    assert result["passed"] + result["failed"] == 12

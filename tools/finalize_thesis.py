@@ -135,21 +135,27 @@ def _normalize_meta(meta: dict | None) -> dict:
     }
 
 
-def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | None = None):
-    """Recalcula los fair values con el motor (DCF determinista) a partir de los
-    supuestos de cada escenario + los datos de la empresa. Es la comprobación de que
-    los numeros de la tesis cuadran con sus propios supuestos: Opus decide los
-    supuestos, el motor verifica la aritmetica.
+def _dcf_inputs(output_dir, folder: str, meta: dict | None = None):
+    """Prepara los inputs de empresa para el motor desde el valuation.json + overrides
+    de la tesis (_meta). Devuelve (inputs, info):
 
-    Devuelve {'bear':.., 'base':.., 'bull':..} o None cuando no aplica (faltan
-    campos del escenario -> metodo no-DCF, o faltan datos de la empresa)."""
+      inputs = {revenue, shares, net_debt, pence_factor, price} o None si no aplica.
+      info   = {"reason": <por qué no aplica, o None>, "notes": [avisos/correcciones]}
+
+    La RAZÓN siempre se rellena cuando inputs es None: que el motor no verifique nunca
+    puede ser silencioso — un caso legítimo (financiera) y un bug (JSON roto) no deben
+    parecer lo mismo. Las NOTES dejan rastro de cada heurística/override aplicado."""
+    notes = []
     val_path = output_dir / f"{folder}_valuation.json"
-    if not (scenarios and val_path.exists()):
-        return None
+    if not val_path.exists():
+        return None, {"reason": f"no existe {val_path.name} "
+                                f"(genera los datos: python main.py --analyst {folder})",
+                      "notes": notes}
     try:
         val = json.loads(val_path.read_text(encoding="utf-8"))
-    except Exception:
-        return None
+    except Exception as e:
+        return None, {"reason": f"{val_path.name} ilegible (JSON corrupto): {e}", "notes": notes}
+
     # El DCF no aplica a financieras/REITs/aseguradoras (se valoran por P/Book, P/FFO,
     # embedded value...). Se marcan como no verificables en vez de forzar una
     # comparacion absurda. Mismo criterio que el futuro router de metodos.
@@ -157,19 +163,26 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | N
     industry = (val.get("industry") or "").lower()
     if any(x in sector for x in ("financial", "bank", "insurance")) \
        or any(x in industry for x in ("reit", "real estate", "insurance", "bank")):
-        return None
+        return None, {"reason": (
+            f"sector financiero/inmobiliario (sector='{val.get('sector')}', "
+            f"industry='{val.get('industry')}'): el DCF estándar no aplica. Los fair "
+            f"values NO quedan verificados por el motor — valora por P/Book, SoP o "
+            f"embedded value y deja el método y su aritmética explícitos en la tesis"),
+            "notes": notes}
 
     lf = val.get("latest_financials", {})
     revenue = lf.get("revenue")
     shares = val.get("shares_outstanding") or 0
     net_debt = (lf.get("total_debt") or 0) - (lf.get("cash") or 0)
     if not revenue or not shares:
-        return None
+        return None, {"reason": (
+            f"faltan revenue o shares_outstanding en {val_path.name} "
+            f"(revenue={revenue}, shares={shares})"), "notes": notes}
 
     # Overrides que la tesis pudo declarar (esquema canonico unico — ver _normalize_meta).
-    # Opus decide; la verificacion los respeta IGUAL que el Excel, para no marcar como
-    # "error de calculo" una decision deliberada (revenue base FY-forward, share count del
-    # 10-K, deuda pre-IFRS16). Un override explicito manda sobre las heuristicas de abajo.
+    # Opus decide; la verificacion los respeta para no marcar como "error de calculo"
+    # una decision deliberada (revenue base FY-forward, share count del 10-K, deuda
+    # pre-IFRS16). Un override explicito manda sobre las heuristicas de abajo.
     norm = _normalize_meta(meta)
 
     # El ratio market_cap / (precio * acciones) delata inconsistencias de escala en
@@ -180,9 +193,13 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | N
 
     # (a) Peniques (UK): precio en GBp pero fundamentales en GBP -> ratio ~0.01.
     #     El fair value se calcula en libras y se pasa a peniques (x100) para comparar
-    #     con el guardado. Misma correccion que el pence_factor del Excel, detectada por
-    #     el ratio porque el valuation.json normaliza la moneda a "GBP" y pierde la marca.
-    pence_factor = 100 if ratio < 0.02 else 1
+    #     con el guardado. Misma correccion que hacia el Excel, detectada por el ratio
+    #     porque el valuation.json normaliza la moneda a "GBP" y pierde la marca.
+    pence_factor = 1
+    if ratio < 0.02:
+        pence_factor = 100
+        notes.append(f"precio en peniques GBp detectado (ratio mcap/(precio×acciones) = "
+                     f"{ratio:.4f}): fair values calculados en GBP y convertidos ×100")
 
     # (b) Acciones de estructura dual: si el market cap es muy superior a precio*acciones,
     #     shares_outstanding es solo de una clase (p. ej. PUIG). Las acciones reales son
@@ -193,43 +210,83 @@ def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | N
     #     Un shares_override explicito de la tesis manda sobre esta heuristica.
     if norm["shares_override"] is not None:
         shares = norm["shares_override"]
+        notes.append(f"override de acciones de la tesis: {shares:,.0f}")
     elif ratio > 1.5 and price:
         shares = mcap / price
+        notes.append(f"acciones duales detectadas (ratio {ratio:.2f}): usando "
+                     f"market_cap/precio = {shares:,.0f} acciones")
+    elif pence_factor == 1 and not 0.8 <= ratio <= 1.2:
+        # Zona gris: ni peniques ni dual-class, pero la escala no cuadra. Ninguna
+        # heuristica corrige -> el fair value hereda el error. Avisar, no adivinar.
+        notes.append(f"ratio mcap/(precio×acciones) = {ratio:.2f} fuera de lo sano (~1.0) "
+                     f"y sin corrección aplicable: revisa market_cap, precio o acciones "
+                     f"del valuation.json antes de fiarte de esta verificación")
 
     # (c) Deuda neta: la tesis puede declarar un override (p. ej. pre-IFRS16 en retailers
     #     con muchos arrendamientos, donde el total_debt de Yahoo esta inflado por el
-    #     leasing). Se respeta ese criterio, igual que hace el Excel.
+    #     leasing). Se respeta ese criterio.
     if norm["net_debt_override_m"] is not None:
         net_debt = float(norm["net_debt_override_m"]) * 1e6
+        notes.append(f"override de deuda neta de la tesis: {norm['net_debt_override_m']:,.0f}M")
 
     # (d) Revenue base: la tesis puede fijar el revenue del año 0 (p. ej. un trading
     #     update FY-forward posterior al ultimo FY reportado en el valuation.json).
     #     Viene en millones. Cierra divergencias como WOSG_L (-10% por base distinta).
     if norm["revenue_base_m"] is not None:
         revenue = float(norm["revenue_base_m"]) * 1e6
+        notes.append(f"override de revenue base de la tesis: {norm['revenue_base_m']:,.0f}M")
+
+    return ({"revenue": revenue, "shares": shares, "net_debt": net_debt,
+             "pence_factor": pence_factor, "price": price},
+            {"reason": None, "notes": notes})
+
+
+def _engine_fair_values(scenarios: dict, output_dir, folder: str, meta: dict | None = None):
+    """Recalcula los fair values con el motor (DCF determinista) a partir de los
+    supuestos de cada escenario + los datos de la empresa. Es la comprobación de que
+    los numeros de la tesis cuadran con sus propios supuestos: Opus decide los
+    supuestos, el motor verifica la aritmetica.
+
+    Devuelve (fvs, info): fvs = {'bear':.., 'base':.., 'bull':..} o None cuando no
+    aplica; info = {"reason", "notes"} SIEMPRE explica el porqué (nunca silencioso)."""
+    if not scenarios:
+        return None, {"reason": "thesis_data.json sin bloque 'scenarios' (si la tesis usa "
+                                "un método no-DCF, decláralo y documenta su aritmética en "
+                                "la propia tesis)", "notes": []}
+    inputs, info = _dcf_inputs(output_dir, folder, meta)
+    if inputs is None:
+        return None, info
 
     try:
         from tools.valuation_engine import DCFAssumptions, run_dcf
-    except Exception:
-        return None
+    except Exception as e:
+        info["reason"] = f"no se pudo importar el motor de valoración: {e}"
+        return None, info
 
     out = {}
     for name in ("bear", "base", "bull"):
         sc = scenarios.get(name)
         if not isinstance(sc, dict):
-            return None
+            info["reason"] = f"falta el escenario '{name}' en thesis_data.json"
+            return None, info
         try:
             growth = [sc[f"revenue_growth_y{i}"] for i in range(1, 6)]
             assumptions = DCFAssumptions(
-                revenue_base=revenue, revenue_growth=growth,
+                revenue_base=inputs["revenue"], revenue_growth=growth,
                 gross_margin=sc["gross_margin"], sga_pct=sc["sga_pct"], rd_pct=sc["rd_pct"],
                 da_pct=sc["da_pct"], capex_pct=sc["capex_pct"], tax_rate=sc["tax_rate"],
                 wacc=sc["wacc"], terminal_multiple=sc["terminal_multiple"],
             )
-            out[name] = run_dcf(assumptions, net_debt, shares, name).fair_value_per_share * pence_factor
-        except (KeyError, ValueError, ZeroDivisionError):
-            return None  # escenario incompleto o no apto para este DCF
-    return out
+            out[name] = (run_dcf(assumptions, inputs["net_debt"], inputs["shares"], name)
+                         .fair_value_per_share * inputs["pence_factor"])
+        except KeyError as e:
+            info["reason"] = (f"escenario '{name}': falta el campo {e} "
+                              f"(¿método no-DCF? decláralo en la tesis)")
+            return None, info
+        except (ValueError, ZeroDivisionError) as e:
+            info["reason"] = f"escenario '{name}': {e}"
+            return None, info
+    return out, info
 
 
 def _compare_engine(saved: dict, engine_fvs: dict | None, fv_adj: dict | None) -> dict | None:
@@ -257,6 +314,94 @@ def _compare_engine(saved: dict, engine_fvs: dict | None, fv_adj: dict | None) -
     if not rows:
         return None
     return {"rows": rows, "max_diff": max_diff, "adj_pct": adj_pct, "explained": max_diff <= 3}
+
+
+def _scenario_assumptions(sc: dict, revenue: float, **overrides):
+    """Construye DCFAssumptions desde un escenario de thesis_data, con overrides
+    puntuales (wacc, terminal_multiple, revenue_growth...). Lanza KeyError/ValueError
+    si el escenario está incompleto o fuera de rango — el llamador decide qué hacer."""
+    from tools.valuation_engine import DCFAssumptions
+    params = dict(
+        revenue_base=revenue,
+        revenue_growth=[sc[f"revenue_growth_y{i}"] for i in range(1, 6)],
+        gross_margin=sc["gross_margin"], sga_pct=sc["sga_pct"], rd_pct=sc["rd_pct"],
+        da_pct=sc["da_pct"], capex_pct=sc["capex_pct"], tax_rate=sc["tax_rate"],
+        wacc=sc["wacc"], terminal_multiple=sc["terminal_multiple"],
+    )
+    params.update(overrides)
+    return DCFAssumptions(**params)
+
+
+def _sensitivity_grid(base_sc: dict, inputs: dict) -> dict | None:
+    """Tabla de sensibilidad del fair value (escenario base): WACC ±1pt × múltiplo
+    terminal ±2x. PURO (no imprime). El motor es determinista, así que esta tabla sale
+    gratis y evita que la de la tesis se calcule a mano (donde se cuela un error).
+
+    Devuelve {"waccs": [..3], "multiples": [..3], "grid": [[fv|None]]} o None si el
+    escenario base no es apto para el DCF (campos ausentes o fuera de rango)."""
+    from tools.valuation_engine import run_dcf
+    try:
+        w0 = float(base_sc["wacc"])
+        m0 = float(base_sc["terminal_multiple"])
+    except (KeyError, TypeError):
+        return None
+    waccs = [w0 - 0.01, w0, w0 + 0.01]
+    multiples = [m0 - 2, m0, m0 + 2]
+    grid = []
+    any_ok = False
+    for w in waccs:
+        row = []
+        for m in multiples:
+            try:
+                a = _scenario_assumptions(base_sc, inputs["revenue"],
+                                          wacc=w, terminal_multiple=m)
+                fv = (run_dcf(a, inputs["net_debt"], inputs["shares"], "sens")
+                      .fair_value_per_share * inputs["pence_factor"])
+                row.append(fv)
+                any_ok = True
+            except (KeyError, ValueError, ZeroDivisionError):
+                row.append(None)  # celda fuera de rango (p. ej. múltiplo <= 0)
+        grid.append(row)
+    return {"waccs": waccs, "multiples": multiples, "grid": grid} if any_ok else None
+
+
+def _implied_growth(base_sc: dict, inputs: dict) -> float | None:
+    """Reverse DCF: crecimiento anual UNIFORME que justifica el precio actual con el
+    resto de supuestos del escenario base (márgenes, WACC, múltiplo). PURO.
+
+    Es el chequeo anti-optimismo más barato: si el precio ya descuenta más crecimiento
+    del que asume tu base, el 'margen de seguridad' es una opinión, no un margen.
+    Devuelve g (fracción) o None si el precio no se alcanza en g ∈ [-0.5, 1.0] o el
+    escenario no es apto (p. ej. método no-DCF)."""
+    from tools.valuation_engine import run_dcf
+    price = inputs.get("price") or 0
+    if price <= 0:
+        return None
+    target = price / inputs["pence_factor"]   # el motor calcula en GBP; precio en GBp
+
+    def fv(g: float) -> float:
+        a = _scenario_assumptions(base_sc, inputs["revenue"], revenue_growth=[g] * 5)
+        return run_dcf(a, inputs["net_debt"], inputs["shares"], "reverse").fair_value_per_share
+
+    try:
+        lo, hi = -0.5, 1.0
+        f_lo, f_hi = fv(lo), fv(hi)
+    except (KeyError, ValueError, ZeroDivisionError):
+        return None
+    if not (min(f_lo, f_hi) <= target <= max(f_lo, f_hi)):
+        return None  # el precio implica crecimiento fuera de [-50%, +100%]: revisar método
+    creciente = f_hi >= f_lo
+    for _ in range(60):  # bisección: 60 iteraciones ≈ precisión 1e-18, de sobra
+        mid = (lo + hi) / 2
+        try:
+            f_mid = fv(mid)
+        except (ValueError, ZeroDivisionError):
+            return None
+        if (f_mid < target) == creciente:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
 
 
 def finalize_thesis(ticker: str, data: dict, force: bool = False):
@@ -350,7 +495,7 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
     # cuadran con esos supuestos. Una desviacion DELIBERADA se declara como
     # _meta.fv_adjustment (la verificacion la respeta comparando contra motor*(1+pct)).
     # Solo informa, nunca bloquea: el motor manda sobre la aritmetica, no sobre la tesis.
-    engine_fvs = _engine_fair_values(scenarios, output_dir, folder, data.get("_meta"))
+    engine_fvs, engine_info = _engine_fair_values(scenarios, output_dir, folder, data.get("_meta"))
     fv_adj = _normalize_meta(data.get("_meta")).get("fv_adjustment")
     cmp = _compare_engine({"bear": bear, "base": base, "bull": bull}, engine_fvs, fv_adj)
     if cmp:
@@ -368,6 +513,8 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
                 flag = "OK" if abs(r["diff_pct"]) <= 3 else "REVISAR"
                 print(f"    {r['name'].capitalize():<9} {r['saved']:>10.2f} {r['engine']:>10.2f} "
                       f"{r['diff_pct']:>+7.1f}%  {flag}")
+        for n in engine_info["notes"]:
+            print(f"    [aviso] {n}")
         if cmp["explained"]:
             tail = " + el ajuste declarado" if fv_adj else ""
             print(f"  [OK] Los fair values cuadran con los supuestos{tail} (<=3%).")
@@ -381,7 +528,42 @@ def finalize_thesis(ticker: str, data: dict, force: bool = False):
             print(f"      declarala: _meta.fv_adjustment = {{\"pct\": <±0.NN>, \"reason\": \"...\"}}.")
             print(f"      Si no, el numero tiene un error de calculo o los datos cambiaron: revisar.")
     else:
-        print(f"\n  [Motor] Fair values no verificados (metodo no-DCF o datos insuficientes).")
+        # NUNCA silencioso: distinguir el caso legítimo (financiera, método no-DCF
+        # declarado) del bug (JSON roto, campo que falta, input fuera de rango).
+        print(f"\n  [Motor] Fair values NO verificados: {engine_info['reason']}")
+        for n in engine_info["notes"]:
+            print(f"    [aviso] {n}")
+
+    # --- 1c. Sensibilidad y reverse-DCF (informativos, salen gratis del motor) ---
+    if engine_fvs:
+        inputs, _ = _dcf_inputs(output_dir, folder, data.get("_meta"))
+        base_sc = scenarios.get("base") or {}
+        sens = _sensitivity_grid(base_sc, inputs) if inputs else None
+        if sens:
+            print(f"\n  === Sensibilidad (motor, escenario base) ===")
+            header = "    {:<12}".format("")
+            header += "".join(f"{'TV ' + format(m, '.0f') + 'x':>12}" for m in sens["multiples"])
+            print(header)
+            for w, row in zip(sens["waccs"], sens["grid"]):
+                cells = "".join(f"{fv:>12,.2f}" if fv is not None else f"{'—':>12}" for fv in row)
+                print(f"    WACC {w:>5.1%} {cells}")
+        if inputs and inputs.get("price"):
+            g = _implied_growth(base_sc, inputs)
+            growths = [base_sc.get(f"revenue_growth_y{i}") for i in range(1, 6)]
+            avg_base = (sum(growths) / 5) if all(isinstance(x, (int, float)) for x in growths) else None
+            if g is not None:
+                print(f"\n  === Reverse DCF (motor) ===")
+                line = (f"    El precio actual ({inputs['price']:,.2f}) implica ~{g:+.1%} de "
+                        f"crecimiento anual (5a) con los márgenes/WACC/múltiplo del base")
+                if avg_base is not None:
+                    line += f"; tu base asume {avg_base:+.1%} medio."
+                    print(line)
+                    if avg_base - g > 0.02:
+                        print(f"    [!] Tu base asume {(avg_base - g) * 100:.1f} puntos MÁS de "
+                              f"crecimiento del que el precio ya descuenta: el margen de "
+                              f"seguridad depende de ese exceso. Justifícalo en la tesis.")
+                else:
+                    print(line + ".")
 
     # --- 2. Resumen de escenarios ---
     # Antes aquí se regeneraba el modelo Excel (otra vez get_company_data + un DCF por

@@ -29,11 +29,12 @@ def validate_valuation(valuation: dict) -> dict:
     warnings.extend(_check_captive_finance(valuation))
     warnings.extend(_check_acquisition_detected(valuation))
     warnings.extend(_check_segments_suspicious(valuation))
+    warnings.extend(_check_beta(valuation))
 
     critical = sum(1 for w in warnings if w["level"] == "critical")
     warning_count = sum(1 for w in warnings if w["level"] == "warning")
 
-    total_checks = 11
+    total_checks = 12
     failed = critical + warning_count
 
     if critical >= 2:
@@ -215,6 +216,24 @@ def _check_shares_crossvalidation(v: dict) -> list[dict]:
                      f"sharesOutstanding ({shares/1e6:,.0f}M) difiere {diff_pct:.0%} de "
                      f"DilutedAverageShares ({diluted/1e6:,.0f}M). Verificar en 10-K cuál "
                      f"usar para market cap y fair value/acción."
+                 )}]
+    return []
+
+
+def _check_beta(v: dict) -> list[dict]:
+    """WARNING: beta ausente en Yahoo (rellenada con 1.0 por defecto) o directamente
+    no disponible. Un WACC por CAPM con beta inventada sale 'normal' sin serlo: la
+    tasa de descuento — y por tanto el fair value — no es fiable sin revisarla."""
+    metrics = v.get("reference_metrics", {}) or {}
+    beta = metrics.get("beta")
+    is_default = metrics.get("beta_is_default")
+    if beta is None or is_default:
+        detalle = " (se rellenó 1.0 por defecto)" if is_default else ""
+        return [{"level": "warning", "check": "beta",
+                 "message": (
+                     f"Beta no disponible en Yahoo{detalle}. El WACC por CAPM no es "
+                     f"fiable: decide la beta con comparables del sector y justifícala "
+                     f"en la tesis."
                  )}]
     return []
 
