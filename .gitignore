@@ -36,6 +36,13 @@ config/voice_state.json
 data/scheduler_state.db
 data/scheduler_state.db-shm
 data/scheduler_state.db-wal
+data/processor.log
+data/processor.launchd.log
+data/watchdog.launchd.log
+data/.processor_heartbeat
+
+# Modelos Excel (eliminados del pipeline — ver REDISENO.md "Excel obviado")
+data/valuations/*/*_modelo_valoracion.xlsx
 
 # Eval workspaces
 invest-new-agent-workspace/
