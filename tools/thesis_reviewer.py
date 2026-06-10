@@ -90,10 +90,13 @@ def _extract_fair_values(thesis_text: str) -> dict:
         if match:
             price_str = match.group(1)
 
-        # 2) Bullet con paréntesis: **Bear ($150):**
+        # 2) Bullet con paréntesis: **Bear ($150):** o **Bear ($70.84, -54%):**
+        #    El grupo numérico debe terminar en dígito (no capturar la coma/punto
+        #    colgante que precede al porcentaje) y el terminador acepta coma y '+'
+        #    para tolerar variantes "$X, -Y%" y "$X, +Y%" (bull con upside positivo).
         if price_str is None:
             match = re.search(
-                rf"\*\*\s*{scenario}\s*\(\s*(?:{cur})?([\d,.]+){cur_sfx}?\s*[-–)]",
+                rf"\*\*\s*{scenario}\s*\(\s*(?:{cur})?([\d.,]*\d){cur_sfx}?\s*[-–),+]",
                 thesis_text, re.IGNORECASE)
             if match:
                 price_str = match.group(1)

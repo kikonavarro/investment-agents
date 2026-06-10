@@ -415,31 +415,65 @@ def _strip_html(text: str) -> str:
     return text
 
 
-def _smart_chunk(text: str, max_len: int = 4096) -> list[str]:
-    """Divide texto en chunks sin romper tags HTML ni palabras."""
-    if len(text) <= max_len:
+def _tg_len(text: str) -> int:
+    """Longitud en unidades de código UTF-16 — así cuenta Telegram el límite de
+    4096. Un carácter fuera del BMP (emoji 📈🐻🐂, etc.) cuenta como 2; len() lo
+    cuenta como 1, por eso medir con len() subestima y un chunto se pasa."""
+    return len(text.encode("utf-16-le")) // 2
+
+
+# Tags HTML que soporta Telegram y que hay que mantener balanceados al cortar.
+# ORDEN IMPORTANTE en la alternancia: las opciones más largas van primero para
+# que el regex capture 'blockquote' entero y no solo la 'b' inicial.
+_TG_TAGS = r'blockquote|pre|code|b|i|s|u|a'
+
+
+def _smart_chunk(text: str, max_len: int = 4000) -> list[str]:
+    """Divide texto en chunks sin romper tags HTML ni palabras.
+
+    Mide la longitud en unidades UTF-16 (como cuenta Telegram el límite de
+    4096) y deja margen para los tags de cierre que se añaden al cortar.
+    Mantiene balanceados todos los tags soportados, incluido <blockquote>."""
+    import re
+    if _tg_len(text) <= max_len:
         return [text]
 
     chunks = []
     while text:
-        if len(text) <= max_len:
+        if _tg_len(text) <= max_len:
             chunks.append(text)
             break
 
-        # Buscar ultimo salto de linea dentro del limite
-        cut = text.rfind("\n", 0, max_len)
+        # Mayor índice de carácter cuyo prefijo cabe en max_len unidades UTF-16
+        # (búsqueda binaria: len(text) >= _tg_len por los caracteres astrales).
+        lo, hi = 1, len(text)
+        while lo < hi:
+            mid = (lo + hi + 1) // 2
+            if _tg_len(text[:mid]) <= max_len:
+                lo = mid
+            else:
+                hi = mid - 1
+        limit = lo
+
+        # Preferir cortar en salto de linea, luego en espacio
+        cut = text.rfind("\n", 0, limit)
         if cut <= 0:
-            # Sin salto de linea, buscar ultimo espacio
-            cut = text.rfind(" ", 0, max_len)
+            cut = text.rfind(" ", 0, limit)
         if cut <= 0:
-            cut = max_len
+            cut = limit
 
         chunk = text[:cut]
 
-        # Verificar tags abiertos sin cerrar en este chunk
-        import re
-        open_tags = re.findall(r'<(b|i|s|u|code|pre|a)[^>]*>', chunk)
-        close_tags = re.findall(r'</(b|i|s|u|code|pre|a)>', chunk)
+        # Si el corte deja un tag a medias (p.ej. <a href=... sin cerrar el >),
+        # retroceder al inicio de ese tag para no partirlo.
+        last_lt = chunk.rfind("<")
+        if last_lt > 0 and last_lt > chunk.rfind(">"):
+            cut = last_lt
+            chunk = text[:cut]
+
+        # Verificar tags abiertos sin cerrar en este chunk (incl. blockquote)
+        open_tags = re.findall(rf'<({_TG_TAGS})[^>]*>', chunk)
+        close_tags = re.findall(rf'</({_TG_TAGS})>', chunk)
 
         # Cerrar tags abiertos al final del chunk
         unclosed = list(open_tags)
@@ -452,9 +486,10 @@ def _smart_chunk(text: str, max_len: int = 4096) -> list[str]:
 
         chunks.append(chunk)
 
-        # Reabrir tags al inicio del siguiente chunk
+        # Reabrir tags al inicio del siguiente chunk, respetando el anidamiento
+        # (el más externo primero): se prepende en orden inverso al de apertura.
         remainder = text[cut:].lstrip("\n")
-        for tag in unclosed:
+        for tag in reversed(unclosed):
             remainder = f"<{tag}>" + remainder
 
         text = remainder
@@ -505,7 +540,7 @@ def send_message(api_base: str, chat_id: str, text: str, html: bool = True) -> b
     else:
         formatted = text
 
-    chunks = _smart_chunk(formatted) if html else [formatted[i:i + 4096] for i in range(0, len(formatted), 4096)]
+    chunks = _smart_chunk(formatted)
     for chunk in chunks:
         try:
             payload = {"chat_id": chat_id, "text": chunk}
@@ -517,7 +552,7 @@ def send_message(api_base: str, chat_id: str, text: str, html: bool = True) -> b
                 print(f"[Telegram] HTML falló: {resp_data.get('description', 'unknown')}")
                 # Fallback: enviar version limpia (sin tags) en vez de texto crudo
                 clean = _strip_html(formatted)
-                plain_chunks = [clean[i:i + 4096] for i in range(0, len(clean), 4096)]
+                plain_chunks = _smart_chunk(clean)
                 for plain_chunk in plain_chunks:
                     fallback_resp = requests.post(url, json={"chat_id": chat_id, "text": plain_chunk})
                     if not fallback_resp.json().get("ok"):
