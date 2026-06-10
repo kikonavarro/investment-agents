@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "note": "Dynacor reporta en USD pero cotiza en CAD (TSX). La tesis valora en USD y convierte a CAD con FX USD/CAD=1.37. Para que la verificacion del motor corra en CAD y cuadre con los fair_values (CAD), se pasan revenue_base_m y net_debt_override_m YA convertidos a CAD: revenue base FY2025 US$397.6M -> C$544.7M; caja neta ~US$30M -> C$-41.1M. Negocio de spread apalancado al oro: el bear modela reversion del oro (no solo menor crecimiento).",
+    "revenue_base_m": 544.7,
+    "net_debt_override_m": -41.1
+  },
+  "fair_values": {"bear": 4.89, "base": 10.71, "bull": 16.10},
+  "scenarios": {
+    "bear": {
+      "revenue_growth_y1": 0.03, "revenue_growth_y2": -0.10, "revenue_growth_y3": -0.05,
+      "revenue_growth_y4": 0.0, "revenue_growth_y5": 0.02,
+      "gross_margin": 0.095, "sga_pct": 0.035, "rd_pct": 0.0,
+      "da_pct": 0.02, "capex_pct": 0.03, "tax_rate": 0.35,
+      "wacc": 0.12, "terminal_multiple": 5.0
+    },
+    "base": {
+      "revenue_growth_y1": 0.30, "revenue_growth_y2": 0.07, "revenue_growth_y3": 0.05,
+      "revenue_growth_y4": 0.04, "revenue_growth_y5": 0.03,
+      "gross_margin": 0.115, "sga_pct": 0.03, "rd_pct": 0.0,
+      "da_pct": 0.02, "capex_pct": 0.035, "tax_rate": 0.35,
+      "wacc": 0.11, "terminal_multiple": 5.5
+    },
+    "bull": {
+      "revenue_growth_y1": 0.45, "revenue_growth_y2": 0.12, "revenue_growth_y3": 0.09,
+      "revenue_growth_y4": 0.07, "revenue_growth_y5": 0.05,
+      "gross_margin": 0.12, "sga_pct": 0.028, "rd_pct": 0.0,
+      "da_pct": 0.02, "capex_pct": 0.04, "tax_rate": 0.34,
+      "wacc": 0.10, "terminal_multiple": 6.5
+    }
+  }
+}

@@ -33,5 +33,19 @@
     "fair_value_bull": 126.81,
     "revenue": 33172000000.0,
     "gross_margin": 0.4662064391655613
+  },
+  {
+    "date": "2026-06-07",
+    "file": "PYPL_20260607_valuation.json",
+    "current_price": 41.29,
+    "currency": "$",
+    "revenue": 33172000000.0,
+    "gross_margin": 0.4662064391655613,
+    "ev_ebitda": 5.0,
+    "avg_growth": 0.0644,
+    "fair_value_bear": 35.67,
+    "fair_value_base": 63.06,
+    "fair_value_bull": 92.93,
+    "fair_value_weighted": 58.08
   }
 ]

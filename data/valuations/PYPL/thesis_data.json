@@ -1,0 +1,32 @@
+{
+  "fair_values": {"bear": 35.67, "base": 63.06, "bull": 92.93},
+  "scenarios": {
+    "bear": {
+      "revenue_growth_y1": 0.005, "revenue_growth_y2": -0.01, "revenue_growth_y3": -0.015,
+      "revenue_growth_y4": -0.02, "revenue_growth_y5": -0.02,
+      "gross_margin": 0.430, "sga_pct": 0.155, "rd_pct": 0.120,
+      "da_pct": 0.040, "capex_pct": 0.026, "tax_rate": 0.20,
+      "wacc": 0.12, "terminal_multiple": 5.5
+    },
+    "base": {
+      "revenue_growth_y1": 0.025, "revenue_growth_y2": 0.025, "revenue_growth_y3": 0.02,
+      "revenue_growth_y4": 0.02, "revenue_growth_y5": 0.02,
+      "gross_margin": 0.450, "sga_pct": 0.150, "rd_pct": 0.117,
+      "da_pct": 0.040, "capex_pct": 0.024, "tax_rate": 0.20,
+      "wacc": 0.11, "terminal_multiple": 8
+    },
+    "bull": {
+      "revenue_growth_y1": 0.045, "revenue_growth_y2": 0.045, "revenue_growth_y3": 0.045,
+      "revenue_growth_y4": 0.04, "revenue_growth_y5": 0.04,
+      "gross_margin": 0.460, "sga_pct": 0.145, "rd_pct": 0.110,
+      "da_pct": 0.040, "capex_pct": 0.024, "tax_rate": 0.20,
+      "wacc": 0.10, "terminal_multiple": 10
+    }
+  },
+  "_meta": {
+    "shares_override": 920664542,
+    "net_debt_override_m": 2328.0,
+    "revenue_base_m": 33172.0,
+    "note": "Sector 'Financial Services' -> finalize omite re-verificacion DCF del motor; fair values calculados con tools.valuation_engine.run_three_scenarios directamente. Share count del 10-K FY2025 (920.66M), no Yahoo (882M)."
+  }
+}

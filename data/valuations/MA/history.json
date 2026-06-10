@@ -35,5 +35,19 @@
     "gross_margin": 0.7788722515324327,
     "ev_ebitda": 21.8,
     "avg_growth": 0.1384
+  },
+  {
+    "date": "2026-06-03",
+    "file": "MA_20260603_valuation.json",
+    "current_price": 471.55,
+    "currency": "$",
+    "revenue": 32791000000.0,
+    "gross_margin": 0.7788722515324327,
+    "ev_ebitda": 20.9,
+    "avg_growth": 0.1384,
+    "fair_value_bear": 362.55,
+    "fair_value_base": 555.6,
+    "fair_value_bull": 702.25,
+    "fair_value_weighted": 507.71
   }
 ]

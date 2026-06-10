@@ -1,8 +1,8 @@
-# Tesis de Inversión: Mastercard Incorporated (MA)
+# MA — Mastercard Incorporated | ⚪ VALOR JUSTO
 
-**Fecha:** 4 de abril de 2026
-**Precio actual:** $493.44
-**Capitalización:** $440.4B
+**Fecha:** 3 de junio de 2026
+**Precio actual:** $471.55
+**Capitalización:** ~$420.5B (891,812,311 acciones: 885,216,386 Clase A + 6,595,925 Clase B, según portada del 10-K a 6-feb-2026)
 **Sector:** Financial Services / Credit Services
 **Divisa:** USD
 
@@ -10,33 +10,33 @@
 
 ## 1. Resumen ejecutivo
 
-Mastercard cotiza a $493.44, un 25% por debajo de su máximo y del consenso de analistas ($657). La empresa opera un duopolio global de procesamiento de pagos con Visa, con márgenes operativos del 60%, crecimiento del 18%, y prácticamente cero riesgo de crédito. Nuestro DCF con WACC del 10% (mínimo value) y TV de 20x (rango payment networks: 16-24x) muestra un fair value significativamente superior al precio actual.
+Precio actual: $471.55 | Fair value ponderado: $507.71 | Potencial: +7.7%
 
-**Escenarios de valoración:**
-- **Bear: $472** — Crecimiento modera al 9-15%, múltiplo comprime a 18x, cross-border desacelera
-- **Base: $639** — Crecimiento 11-18%, digitalización del cash sostiene volúmenes, márgenes estables
-- **Bull: $820** — Cross-border y value-added services aceleran, márgenes expanden
+**ESCENARIOS DE VALORACIÓN:**
+- **Bear (pesimista): $362.55 → −23.1% vs precio actual**
+- **Base (probable): $555.60 → +17.8% upside**
+- **Bull (optimista): $702.25 → +48.9% upside**
 
-**Fair value ponderado (40/40/20): $608**
-**Margen de seguridad: 18.9%**
-**Señal: 🟡 LIGERAMENTE INFRAVALORADA — atractiva para posición inicial**
+**Fair value ponderado (40/40/20): $507.71 (+7.7%, MoS +7.1%)**
+
+Mastercard es, junto a Visa, una de las dos mejores franquicias de pagos del mundo: un "peaje digital" sobre $10B+ de volumen anual con margen operativo del 59.5%, conversión de FCF del 50% y casi nada de capital empleado (equity de solo $7.7B tras años de recompras). Cotiza a ~21x EV/EBITDA y ~28x beneficios, múltiplos altos en términos absolutos pero coherentes con su historia. Con disciplina value estricta (suelo de WACC del 10% y múltiplo terminal conservador de 19x), el DCF da un fair value ponderado de $507.71, apenas un 7-8% por encima del precio — margen de seguridad insuficiente para el umbral value del 25%. **Recomendación: MANTENER / acumular en debilidad.** Es un negocio excepcional a precio razonable, no una ganga; la compra agresiva pide ~$420 o menos.
 
 ---
 
 ## 2. El negocio
 
-Mastercard opera la segunda mayor red de procesamiento de pagos del mundo (tras Visa). El modelo de negocio es un "peaje digital": cada vez que alguien paga con tarjeta Mastercard, la empresa cobra una pequeña comisión (~0.13% del valor de la transacción). No asume riesgo de crédito (eso lo hacen los bancos emisores) ni necesita capital significativo para operar.
+Mastercard opera la segunda mayor red de procesamiento de pagos del planeta. Su modelo es un **peaje sobre el volumen de transacciones**: cada vez que un consumidor paga con una tarjeta de marca Mastercard, la empresa cobra una comisión diminuta (un *take rate* del orden del 0.13-0.20% del valor) por autorizar, compensar y liquidar la operación. No asume riesgo de crédito (eso recae en los bancos emisores), no presta dinero y no necesita capital significativo para crecer. El coste marginal de procesar una transacción adicional es cercano a cero — de ahí el brutal apalancamiento operativo.
 
-**Revenue mix (~$32.8B en 2025):**
-- **Payment network fees (~65%):** Comisiones por procesamiento de transacciones domésticas. Crecimiento estable (~10-12%).
-- **Cross-border volume fees (~25%):** Premium significativo en transacciones internacionales. El segmento de mayor crecimiento (+18% en Q4 2025) y más rentable.
-- **Value-added services (~10%):** Consultoría, analytics, ciberseguridad, tokenización. Crecimiento rápido, margen alto. Mastercard está diversificando más allá del puro procesamiento.
+**Estructura de ingresos (~$32.8B en FY2025):**
+- **Payment network / domestic assessments (~55-60%):** comisiones por switching y volumen doméstico. Crecimiento estable de doble dígito bajo, ligado al desplazamiento secular del efectivo hacia el pago digital.
+- **Cross-border (~25%):** comisiones sobre transacciones internacionales. Es la línea **más rentable y de mayor crecimiento** (volumen +13% en moneda local en Q1 2026), pero también la más cíclica: depende del turismo, el comercio internacional y la geopolítica.
+- **Value-added services & solutions (~20% y subiendo):** consultoría, analítica, ciberseguridad, tokenización, identidad/autenticación. En Q1 2026 crecieron **+22% interanual hasta $3.5B**. Es la apuesta estratégica para diversificar más allá del puro switching y subir el margen mix.
 
-**Moat — Posiblemente el más fuerte del mercado:**
-1. **Efecto de red bilateral:** Más tarjetas emitidas → más comercios aceptan → más consumidores quieren la tarjeta → más bancos emiten. 3.400M+ tarjetas emitidas globalmente.
-2. **Duopolio regulatorio:** Visa + Mastercard procesan >90% de las transacciones de tarjeta fuera de China. Las barreras regulatorias y de escala hacen virtualmente imposible la entrada de un nuevo competidor.
-3. **Switching costs institucionales:** Los bancos que emiten tarjetas Mastercard tienen contratos plurianuales. Cambiar de red requiere reemitir millones de tarjetas.
-4. **Asset-light con apalancamiento operativo:** CapEx de solo 4.3% del revenue. Cada transacción incremental tiene coste marginal cercano a cero.
+**Contexto reciente (junio 2026):**
+- **Q1 2026:** revenue neto $8,398M (+16% reportado, +14% a tipo de cambio constante), batiendo consenso (~$8.25B). BPA ajustado $4.60 (+23.3%), beneficio neto $3.9B (+18%). GDV +7% en moneda local hasta $2.7B; transacciones switched +9%.
+- **Señal de alerta:** el crecimiento de transacciones cross-border **se desaceleró en abril** respecto al ritmo del Q1, por presiones geopolíticas (impacto del conflicto de Irán sobre los flujos de viajes) y posibles cambios de comercio por aranceles. Justo la línea de mayor margen empieza a notar el ciclo.
+- **Reorganización directiva (2-jun-2026, efectiva 3-ago):** Ling Hai (presidente de APAC/EMEA) será nuevo CFO en sustitución de Sachin Mehra, que pasa a un rol nuevo de Chief Business Officer; Linda Kirkpatrick será Chief Services Officer. Reordenan finanzas, crecimiento y operaciones bajo una estructura go-to-market única. Es una transición a vigilar, no una bandera roja.
+- **Estrategia stablecoin:** Mastercard ha acelerado la liquidación con stablecoins (USDC de Circle, RLUSD de Ripple, integración con Solana y Polygon, settlement 24/7) y figura en los rumores de una plataforma de stablecoins junto a Stripe y Visa. La lectura correcta: **si las criptomonedas ganan tracción en pagos, lo harán SOBRE los rails de Mastercard, no en su lugar** — la empresa se posiciona como capa de conversión y settlement, defendiendo y extendiendo el peaje.
 
 ---
 
@@ -44,117 +44,147 @@ Mastercard opera la segunda mayor red de procesamiento de pagos del mundo (tras 
 
 ### Evolución histórica (FY2022-FY2025)
 
-| Métrica | FY2022 | FY2023 | FY2024 | FY2025 |
-|---------|--------|--------|--------|--------|
-| Revenue ($B) | $22.2 | $25.1 | $28.2 | $32.8 |
-| Net Income ($B) | $9.9 | $11.2 | $12.9 | $15.0 |
-| EBITDA ($B) | $12.8 | $15.0 | $17.2 | $20.4 |
-| FCF ($B) | $10.0 | $11.6 | $13.0 | $16.4 |
-| Margen operativo | 54.1% | 56.7% | 57.5% | 59.5% |
+| Métrica            | FY2022  | FY2023  | FY2024  | FY2025  |
+| ------------------ | ------- | ------- | ------- | ------- |
+| Revenue ($B)       | 22.24   | 25.10   | 28.17   | 32.79   |
+| Net Income ($B)    | 9.93    | 11.20   | 12.87   | 14.97   |
+| EBITDA ($B)        | 12.95   | 15.01   | 16.80   | 20.44   |
+| FCF ($B)           | 10.10   | 10.89   | 13.59   | 16.43   |
+| Margen operativo   | 57.2%   | 58.3%   | 58.0%   | 59.5%   |
 
-Revenue CAGR 13.9% (FY22-25). Márgenes en expansión continua. FCF conversion del 80%+ — uno de los mejores generadores de caja del mercado. Q4 2025 mostró revenue +18% y EPS +25% por strong cross-border y pricing.
+Revenue CAGR del 13.8% (FY22-25). Márgenes operativos en expansión continua (del 57.2% al 59.5%), prueba del apalancamiento operativo. La conversión de FCF ronda el 50% del revenue — de los mejores generadores de caja del mercado. El Q4 2025 y el Q1 2026 mantuvieron el patrón: revenue +16%, BPA +23-25% gracias a cross-border, pricing y recompras.
 
-**Balance:** Deuda $19.0B, Cash $10.6B, Net debt $8.4B. Deuda neta / EBITDA = 0.41x. Equity de solo $7.7B (negativo ajustado por goodwill) refleja el modelo asset-light y los buybacks agresivos.
+**Balance:** Deuda total $19.0B, caja $10.6B → **deuda neta $8.4B**. Deuda neta / EBITDA = 0.41x: prácticamente sin apalancamiento financiero relevante. El equity contable es de solo $7.7B — no es debilidad, sino el resultado de devolver casi todo el beneficio vía recompras (el modelo asset-light no necesita retener capital).
 
-**SEC audit: confianza HIGH** — todos los datos coinciden con 10-K.
+**Métricas de valoración a precio actual:** P/E ~28.1x (BPA ~$16.79), P/FCF ~25.6x, EV/EBITDA ~21.0x. Beta 0.76 (defensiva).
+
+**Auditoría SEC: confianza HIGH** — revenue, caja, equity y EBITDA calculado del 10-K coinciden con Yahoo (desviaciones <2%). *Nota de calidad de datos:* Yahoo reportaba 877M acciones y un campo "diluted" erróneo de 971M; se ha usado la cifra autoritativa de la **portada del 10-K (891.8M, Clase A + B)** para el fair value por acción.
 
 ---
 
 ## 4. Valoración DCF
 
-### Ajustes al modelo cuantitativo
-- **WACC:** Ajustado de 8.9% (CAPM, beta 0.83) a **10.0%** mínimo value. Mastercard merece un WACC en el rango bajo (negocio predecible, asset-light), pero nuestra filosofía exige ≥10%.
-- **TV múltiplo:** Ajustado de 11x (genérico Financial Services) a **20x** (payment networks: 16-24x per sector guidance). Mastercard cotiza históricamente a 22-28x EBITDA. Un TV de 20x implica compresión de múltiplo, conservador.
+### Filosofía y ajustes
+
+- **WACC:** el CAPM con beta 0.76 daría ~8.2% (4% risk-free + 0.76 × 5.5% ERP). Mastercard merece de hecho un coste de capital bajísimo por su predictibilidad. Pero la filosofía value impone un **suelo del 10%**: bear 10.5%, base 10.0%, bull 10.0%. Este es el factor que más separa mi valoración del consenso (ver abajo).
+- **Múltiplo terminal (EV/EBITDA):** rango de payment networks 16-24x. Uso bear 16x (de-rating a múltiplo de red de bajo crecimiento), base 19x (compresión leve desde los 21x actuales), bull 22x. Conservador frente al histórico de MA (20-28x).
 
 ### Parámetros por escenario
 
-| Parámetro | Bear | Base | Bull |
-|-----------|------|------|------|
-| Crecimiento Y1 | 15.0% | 17.6% | 20.2% |
-| Crecimiento Y5 | 9.0% | 10.6% | 12.1% |
-| Margen operativo | 57.5% | 59.5% | 61.5% |
-| D&A% / CapEx% | 3.3% / 4.3% | 3.3% / 4.3% | 3.3% / 4.3% |
-| Tax | 16.0% | 16.0% | 16.0% |
-| WACC | 11.0% | 10.0% | 9.0% |
-| TV EV/EBITDA | 18x | 20x | 22x |
+| Parámetro          | Bear   | Base   | Bull   |
+| ------------------ | ------ | ------ | ------ |
+| Crecimiento Y1     | 9.0%   | 14.0%  | 16.0%  |
+| Crecimiento Y5     | 4.0%   | 9.0%   | 11.0%  |
+| CAGR revenue 5a    | ~6.5%  | ~11.5% | ~13.5% |
+| Margen operativo   | 57.0%  | 59.5%  | 61.0%  |
+| D&A% / CapEx%      | 3.3% / 4.3% | 3.3% / 4.3% | 3.3% / 4.3% |
+| Tax rate           | 18.0%  | 16.0%  | 16.0%  |
+| WACC               | 10.5%  | 10.0%  | 10.0%  |
+| TV EV/EBITDA       | 16x    | 19x    | 22x    |
 
-### Proyecciones DCF — Caso Base
+### Proyección DCF — Caso Base (verificado por el motor)
 
 | Año | Revenue ($B) | UFCF ($B) | PV UFCF ($B) |
-|-----|-------------|-----------|--------------|
-| Y1 | $38.6 | $18.9 | $17.2 |
-| Y2 | $44.7 | $21.9 | $18.1 |
-| Y3 | $51.0 | $25.0 | $18.8 |
-| Y4 | $57.3 | $28.1 | $19.2 |
-| Y5 | $63.3 | $31.0 | $19.3 |
+| --- | ------------ | --------- | ------------ |
+| Y1  | 37.4         | 18.3      | 16.6         |
+| Y2  | 42.1         | 20.6      | 17.1         |
+| Y3  | 47.0         | 23.0      | 17.3         |
+| Y4  | 51.8         | 25.4      | 17.3         |
+| Y5  | 56.5         | 27.7      | 17.2         |
 
-- **Suma PV(UFCF):** $92.5B
-- **EBITDA_Y5:** $39.8B × 20 = **TV: $795.3B** → PV(TV): $493.8B
-- **EV:** $586.3B → **Equity:** $577.9B
-- **FV/acción: $652** (shares: 885.2M)
+- **Suma PV(UFCF):** $85.5B
+- **EBITDA_Y5:** $35.5B × 19 = **TV $673.9B** → PV(TV): $418.4B
+- **EV:** $503.9B → **Equity:** $495.5B
+- **FV/acción: $555.60** (891.8M acciones)
 
 ### Resultados por escenario
 
-| Escenario | Fair Value | vs Precio | Margen seguridad |
-|-----------|-----------|-----------|------------------|
-| **Bear** | **$472** | -4.3% | n/a |
-| **Base** | **$652** | +32.1% | 24.3% |
-| **Bull** | **$820** | +66.2% | 39.8% |
+| Escenario   | Fair Value  | vs Precio   | Margen seguridad |
+| ----------- | ----------- | ----------- | ---------------- |
+| **Bear**    | **$362.55** | −23.1%      | n/a (downside)   |
+| **Base**    | **$555.60** | +17.8%      | +14.6%           |
+| **Bull**    | **$702.25** | +48.9%      | +32.8%           |
 
-**Fair Value ponderado: $608 | MoS: 18.9%**
+**Fair Value ponderado (40/40/20): $507.71 | MoS: +7.1%**
 
-### Tabla de sensibilidad (WACC vs TV Multiple)
+### Tabla de sensibilidad (escenario base: WACC × TV multiple → FV/acción)
 
-| WACC \ TV | 16x | 18x | 20x | 22x | 24x |
-|-----------|-----|-----|-----|-----|-----|
-| **8.0%** | **$598** | **$679** | **$760** | **$841** | **$922** |
-| **9.0%** | **$556** | **$630** | **$704** | **$778** | **$852** |
-| **9.5%** | **$536** | **$607** | **$678** | **$749** | **$819** |
-| **10.0%** | **$517** | **$585** | **$652** | **$720** | **$788** |
-| **10.5%** | **$499** | **$564** | **$629** | **$693** | **$758** |
-| **11.0%** | $481 | **$543** | **$606** | **$668** | **$730** |
-| **12.0%** | $449 | **$506** | **$563** | **$621** | **$678** |
+| WACC \ TV | 16x   | 18x   | 19x   | 20x   | 22x   | 24x   |
+| --------- | ----- | ----- | ----- | ----- | ----- | ----- |
+| **9.0%**  | $503  | $554  | $580  | $606  | $658  | $709  |
+| **9.5%**  | $492  | $542  | $568  | $593  | $644  | $694  |
+| **10.0%** | $482  | $531  | **$556** | $580  | $630  | $679  |
+| **10.5%** | $471  | $520  | $544  | $568  | $616  | $664  |
+| **11.0%** | $461  | $509  | $532  | $556  | $603  | $650  |
+| **12.0%** | $442  | $488  | $510  | $533  | $578  | $623  |
 
-*Todas las celdas excepto Bear corners superan el precio ($493.44). 95% de celdas dan upside.*
+*Observación crítica:* el precio actual ($471.55) coincide casi exactamente con la **esquina conservadora** de la tabla base (WACC 10.5% / TV 16x = $471). Es decir, **el mercado ya está descontando supuestos terminales prudentes**; el upside del base exige que MA mantenga su múltiplo de red, y el downside (bear) exige que el crecimiento se derrumbe Y el múltiplo se comprima a la vez.
+
+### Análisis de impacto
+
+La variable que más mueve el valor es el **múltiplo terminal** (el TV pesa el 83% del EV), seguido del **WACC**. El crecimiento a 5 años importa menos de lo que parece porque casi todo el valor está en el TV. Esto significa que la tesis de MA es, en el fondo, una apuesta a que **la red sigue mereciendo ~19-21x EBITDA dentro de 5 años**, lo cual depende de que el desplazamiento secular del efectivo y los value-added services sostengan el crecimiento de doble dígito.
 
 ### Sanity checks
 
-| Check | Resultado | Status |
-|-------|-----------|--------|
-| Bear vs precio | $472 vs $493 (-4%) | ✅ Bear muy cerca de precio |
-| Bull/Bear ratio | 820/472 = 1.74x | ✅ Dentro de 1.5-2.0x |
-| P/E implícito Y5 | ~22x | ✅ |
-| Growth vs histórico | 14% CAGR vs 13.9% histórico | ✅ Alineado |
-| Consenso | $657 vs $608 nuestro | ✅ ~8% debajo |
+| Check                     | Resultado                              | Status |
+| ------------------------- | -------------------------------------- | ------ |
+| Bear refleja downside real | $362.55 = −23.1% vs precio             | ✅ (duele de verdad) |
+| Bull/Bear ratio           | 702/363 = 1.94x                        | ✅ (en 1.5-2.0x) |
+| TV % del EV (base)        | 83%                                    | ⚠️ alto → validado con Gordon |
+| Growth base vs histórico  | 11.5% CAGR vs 13.8% histórico          | ✅ (conservador) |
+| P/E implícito (ponderado) | ~30x sobre BPA actual                  | ⚠️ exigente |
+| Consenso analistas        | $646.97 medio vs $507.71 nuestro       | ⚠️ ver abajo |
+
+### Dos honestidades importantes
+
+**1. Exit-multiple vs Gordon Growth.** El TV pesa el 83% del EV y el método de exit-multiple (19x) y el de perpetuidad (Gordon) divergen mucho: con g terminal del 2.5% y WACC 10%, el Gordon da un base de **~$350** frente a los **$556** del exit-multiple. El múltiplo de 19x implica una *g* perpetua de ~5.7%, por encima del techo del 3.5%. Traducción: buena parte del valor del base depende de que el mercado siga pagando múltiplo de red por MA dentro de 5 años. Es razonable (MA lleva una década cotizando a 20-28x EBITDA), pero es la fuente principal de fragilidad de la valoración.
+
+**2. Por qué estoy por debajo del consenso.** Mi ponderado ($507.71) queda incluso por debajo del target más bajo de los analistas ($550; medio $647). La diferencia es casi enteramente el **WACC**: con el suelo value del 10% obtengo $556 de base; si usara la WACC "real" de MA (~8.5%, coherente con su beta 0.76 y su calidad), el base subiría a ~$600+ y MA encajaría con el consenso. **No es que el consenso esté equivocado — es que aplica un coste de capital más bajo que el que mi disciplina value permite.** Para Kiko: si aceptas que un negocio de esta calidad merece descontarse al 8.5%, MA está claramente infravalorada; bajo disciplina value estricta (10% + 25% de MoS), está en valor justo y conviene esperar.
 
 ---
 
 ## 5. Riesgos principales
 
-1. **Regulación de interchange fees** (Severidad: MEDIA-ALTA | Prob: MEDIA) — Gobiernos podrían limitar las comisiones. Ya ocurrió en EU (interchange cap). **Mitigante:** Mastercard se está diversificando hacia value-added services menos regulados.
+1. **Desintermediación de las redes de tarjeta** (Severidad: ALTA | Probabilidad: MEDIA). Es el corazón del bear. Rails de pago cuenta-a-cuenta (UPI en India, PIX en Brasil, FedNow/RTP en EE.UU.), wallets y stablecoins podrían enrutar pagos *sin pasar* por Visa/Mastercard, erosionando volumen y pricing. **Mitigante:** MA está integrando stablecoins sobre sus propios rails (USDC, RLUSD, Solana, Polygon), posee activos A2A (Vocalink, open banking) y diversifica hacia VAS. Si las cripto ganan en pagos, lo harán como capa *encima* del peaje, no sustituyéndolo — pero el riesgo de que el take rate se comprima a largo plazo es real.
 
-2. **Disrupción fintech / crypto** (Severidad: MEDIA | Prob: BAJA) — Stablecoins y wallets podrían bypass las redes de tarjetas. **Mitigante:** MA/V están integrando crypto (stablecoin settlements en Q4 2025). Si crypto gana, lo hará SOBRE los rails de Visa/MA, no en su lugar.
+2. **Regulación de interchange y antitrust** (Severidad: MEDIA-ALTA | Probabilidad: MEDIA). Topes de interchange (ya en la UE), litigios de comercios en EE.UU. (el contencioso histórico Visa/MA con merchants), presión sobre fees. **Mitigante:** la diversificación hacia VAS, menos regulados, reduce la exposición; el duopolio lleva >50 años conviviendo con reguladores.
 
-3. **Desaceleración cross-border** (Severidad: MEDIA | Prob: MEDIA) — Recesión global o restricciones de viaje frenarían el segmento más rentable. **Mitigante:** Diversificación geográfica y e-commerce cross-border creciente.
+3. **Cross-border y macro** (Severidad: MEDIA | Probabilidad: MEDIA-ALTA a corto plazo). Justo la línea de mayor margen ya mostró **desaceleración en abril 2026** por geopolítica (conflicto de Irán, viajes) y aranceles. Una recesión global o un shock de viajes golpearía desproporcionadamente el segmento más rentable. **Mitigante:** diversificación geográfica y crecimiento del e-commerce cross-border.
 
-4. **Concentración en duopolio** (Severidad: BAJA | Prob: BAJA) — Riesgo antimonopolio. **Mitigante:** El duopolio ha existido >50 años y los reguladores lo consideran beneficioso para la competencia vs monopolio.
+4. **Compresión de múltiplo / valoración** (Severidad: MEDIA | Probabilidad: MEDIA). A ~28x beneficios, cualquier decepción de crecimiento de-ratea con fuerza. La valoración deja poco margen de error: el 83% del valor está en el TV.
+
+5. **Transición directiva** (Severidad: BAJA | Probabilidad: BAJA). Nuevo CFO y reestructuración del equipo go-to-market efectivos en agosto 2026. Riesgo de ejecución bajo, pero a vigilar.
 
 ---
 
 ## 6. Catalizadores
 
-**Positivos:** Digitalización del efectivo en mercados emergentes (India, África, LatAm), crecimiento de e-commerce cross-border, expansion de value-added services, buybacks sostenidos (~$12B/año).
+**Positivos (12-24 meses):**
+- Value-added services creciendo >20% y subiendo el margen mix.
+- Digitalización del efectivo en mercados emergentes (India, África, LatAm) y flywheel de B2B / Mastercard Move.
+- Posicionamiento en settlement con stablecoins como rail de conversión cripto-fiat.
+- Recompras sostenidas (~$11B/año) que comprimen el share count y apalancan el BPA.
 
-**Negativos:** Recesión global (reduce spending volume), regulación de fees más agresiva, competencia de redes alternativas (UPI en India, PIX en Brasil).
+**Negativos:**
+- Continuación de la desaceleración cross-border (la alerta de abril).
+- Escalada regulatoria o desenlaces adversos en litigios de comercios.
+- Aceleración de la desintermediación por A2A/stablecoins más rápida de lo esperado.
 
 ---
 
 ## 7. Conclusión y plan de acción
 
-### Señal: 🟡 LIGERAMENTE INFRAVALORADA — MoS 18.9%
+### Señal: ⚪ VALOR JUSTO — MoS +7.1%
 
-Mastercard es uno de los mejores negocios del mundo: duopolio con márgenes del 60%, crecimiento secular, asset-light, y resiliente a ciclos. A $493.44 ofrece un margen de seguridad del 19%, insuficiente para compra agresiva value (>25%) pero atractivo para posición inicial dado la calidad excepcional del negocio.
+Mastercard es uno de los mejores negocios cotizados del mundo: duopolio de red con margen operativo del 59.5%, crecimiento secular de doble dígito, asset-light, sin riesgo de crédito y resiliente a ciclos. El problema nunca es la calidad — es el precio. A $471.55 cotiza a ~21x EV/EBITDA y ~28x beneficios, y mi DCF con disciplina value (WACC 10%, TV 19x) da un ponderado de $507.71: apenas un **+7.7%**, por debajo del umbral del 25% que exige una compra value agresiva.
 
-- **COMPRA MODERADA a precios actuales.** La calidad justifica aceptar un margen menor.
-- **Precio para añadir:** $450 o inferior (MoS ~26%).
-- **Posición recomendada:** 3-5% del portfolio.
+- **MANTENER si ya se posee; acumular en debilidad.** La calidad justifica tener la acción, pero no pagar de más.
+- **Precio para compra agresiva:** ~$420 o inferior (MoS ~25% sobre el ponderado). En la tabla de sensibilidad, eso corresponde a comprar por debajo de la esquina conservadora.
+- **Posición de inicio:** aceptable un 2-3% del portfolio a precio actual dada la calidad excepcional, dejando munición para añadir si la desaceleración cross-border lleva la acción a los $400-430.
+- **Qué vigilar:** el ritmo cross-border en los próximos trimestres (la variable que más puede mover la tesis a corto), la evolución de VAS (>20%), y cualquier novedad regulatoria sobre interchange.
+
+**El matiz para quien crea en la calidad:** si uno acepta descontar un negocio de esta excepcionalidad al 8.5% (su coste de capital real, no el suelo value del 10%), MA vale ~$600+ y está infravalorada — que es justo lo que dice el consenso ($647). La diferencia entre "valor justo" e "infravalorada" en Mastercard es, literalmente, 150 puntos básicos de WACC. Esa es la decisión que cada inversor debe tomar.
+
+---
+
+*Fuentes: 10-K FY2025 (SEC, portada a 6-feb-2026 para share count), datos financieros Yahoo Finance verificados contra 10-K (auditoría SEC confianza HIGH), resultados Q1 2026 y nota de prensa de reorganización directiva (jun-2026). Valoración por motor determinista `valuation_engine.py` (verificado). Análisis propio; el consenso de analistas es contexto, no la tesis.*

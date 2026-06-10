@@ -1,0 +1,186 @@
+{
+  "ticker": "ICE",
+  "company": "Intercontinental Exchange, Inc.",
+  "currency": "$",
+  "date": "2026-06-08",
+  "current_price": 140.1,
+  "shares_outstanding": 565512495,
+  "diluted_avg_shares": 561000000,
+  "market_cap": 79228305408,
+  "sector": "Financial Services",
+  "industry": "Financial Data & Stock Exchanges",
+  "country": "United States",
+  "business_summary": "Intercontinental Exchange, Inc., together with its subsidiaries, provides technology and data to financial institutions, corporations, and government entities in the United States, the United Kingdom, the European Union, Canada, Asia Pacific, and the Middle East. It operates through three segments: Exchanges, Fixed Income and Data Services, and Mortgage Technology. The Exchanges segment operates regulated marketplace technology for the listing, trading, and clearing of an array of derivatives contracts and financial securities, such as commodities, interest rates, foreign exchange and equities, and corporate and exchange-traded funds, as well as data and connectivity services related to its exchanges and clearing houses. The Fixed Income and Data Services segment provides fixed income pricing, reference data, indices, analytics, and execution services, as well as global CDS clearing and multi-asset class data delivery technology. The Mortgage Technology segment offers a technology platform that provides customers comprehensive and digital workflow tools to address inefficiencies and mitigate risks that exist in the U.S. residential mortgage market life cycle from application through closing, servicing, and the secondary market. The company was founded in 2000 and is headquartered in Atlanta, Georgia.",
+  "beta": 0.922,
+  "analyst_targets": {
+    "high": 251.0,
+    "low": 174.0,
+    "mean": 199.53333,
+    "current": 140.1
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 12640000000.0,
+    "net_income": 3315000000.0,
+    "ebitda": 6709000000.0,
+    "free_cashflow": 3871000000.0,
+    "gross_margin": 0.5615506329113924,
+    "operating_margin": 0.3954905063291139,
+    "net_margin": 0.2622626582278481,
+    "total_debt": 20279000000.0,
+    "cash": 837000000.0,
+    "total_equity": 28991000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 9636000000.0,
+      "net_income": 1446000000.0,
+      "ebitda": 3455000000.0,
+      "fcf": 3072000000.0,
+      "operating_income": 3731000000.0
+    },
+    "2023": {
+      "revenue": 9903000000.0,
+      "net_income": 2368000000.0,
+      "ebitda": 4917000000.0,
+      "fcf": 3053000000.0,
+      "operating_income": 3963000000.0
+    },
+    "2024": {
+      "revenue": 11761000000.0,
+      "net_income": 2754000000.0,
+      "ebitda": 6075000000.0,
+      "fcf": 3857000000.0,
+      "operating_income": 4413000000.0
+    },
+    "2025": {
+      "revenue": 12640000000.0,
+      "net_income": 3315000000.0,
+      "ebitda": 6709000000.0,
+      "fcf": 3871000000.0,
+      "operating_income": 4999000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Financial Data & Stock Exchanges",
+      "revenues": {
+        "2022": 9636000000.0,
+        "2023": 9903000000.0,
+        "2024": 11761000000.0,
+        "2025": 12640000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.5568472179890471,
+      "sga_pct": 0.04637774142607998,
+      "rd_pct": 0.0,
+      "da_pct": 0.12094714628555106,
+      "capex_pct": 0.056299934712129095,
+      "tax_rate": 0.1451413237350783
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0277
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1876
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0747
+      }
+    ],
+    "avg_growth": 0.0967,
+    "cagr_3y": 0.0947,
+    "beta": 0.922,
+    "ev_ebitda": 14.8,
+    "net_debt": 20121999936,
+    "net_debt_label": "total",
+    "total_debt": 20984999936,
+    "cash": 863000000,
+    "de_ratio": 0.26,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.204
+      },
+      "target_prices": {
+        "high": 251.0,
+        "low": 174.0,
+        "mean": 199.53333,
+        "current": 140.1
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "ICE's Total Futures and Options at Record Open Interest as Global Natural Gas and Power Markets Reach Record Levels of Liquidity - Business Wire",
+      "date": "Wed, 27 Ma",
+      "source": "Business Wire"
+    },
+    {
+      "title": "UBS reiterates Intercontinental Exchange stock rating citing momentum - Investing.com",
+      "date": "Wed, 20 Ma",
+      "source": "Investing.com"
+    },
+    {
+      "title": "Intercontinental Exchange (ICE) director receives 1,538 restricted stock units award - Stock Titan",
+      "date": "Wed, 20 Ma",
+      "source": "Stock Titan"
+    },
+    {
+      "title": "NYSE Content Update: Intercontinental Exchange Joins Anthropic's Project Glasswing",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "ICE Expands AI-Powered Cybersecurity Across NYSE and Financial Infrastructure Network (ICE)",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is Intercontinental Exchange Stock Underperforming the Nasdaq?",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "NYSE Content Update: Applied Aerospace & Defense Raises $650 Million in IPO",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Intercontinental Exchange Reports May 2026 Statistics",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Intercontinental Exchange Joins Anthropic’s Project Glasswing",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Trump Officials Held Millions of Dollars of SpaceX Ahead of IPO",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/ICE/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/ICE/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/ICE/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

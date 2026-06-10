@@ -1,0 +1,28 @@
+{
+    "fair_values": {"bear": 50.36, "base": 104.63, "bull": 139.78},
+    "_method": "equity_dcf_earnings_power",
+    "_note": "Financiera (broker + savings&loan holding). NO se valora por DCF de UFCF: se descuenta el BPA a 5 anios + P/E de salida al coste de equity. El motor (finalize) salta la verificacion DCF para sector Financial Services; los campos de 'scenarios' son representativos del modelo de equity (wacc=coste de equity, terminal_multiple=P/E de salida, revenue_growth=crecimiento de ingresos proxy).",
+    "scenarios": {
+        "bear": {
+            "revenue_growth_y1": 0.00, "revenue_growth_y2": 0.00, "revenue_growth_y3": 0.02,
+            "revenue_growth_y4": 0.03, "revenue_growth_y5": 0.03,
+            "gross_margin": 0.37, "sga_pct": 0.0, "rd_pct": 0.0,
+            "da_pct": 0.0, "capex_pct": 0.0, "tax_rate": 0.23,
+            "wacc": 0.100, "terminal_multiple": 14
+        },
+        "base": {
+            "revenue_growth_y1": 0.10, "revenue_growth_y2": 0.10, "revenue_growth_y3": 0.09,
+            "revenue_growth_y4": 0.08, "revenue_growth_y5": 0.08,
+            "gross_margin": 0.37, "sga_pct": 0.0, "rd_pct": 0.0,
+            "da_pct": 0.0, "capex_pct": 0.0, "tax_rate": 0.23,
+            "wacc": 0.095, "terminal_multiple": 18.5
+        },
+        "bull": {
+            "revenue_growth_y1": 0.13, "revenue_growth_y2": 0.13, "revenue_growth_y3": 0.12,
+            "revenue_growth_y4": 0.11, "revenue_growth_y5": 0.10,
+            "gross_margin": 0.37, "sga_pct": 0.0, "rd_pct": 0.0,
+            "da_pct": 0.0, "capex_pct": 0.0, "tax_rate": 0.23,
+            "wacc": 0.090, "terminal_multiple": 21
+        }
+    }
+}

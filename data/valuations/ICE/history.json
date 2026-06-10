@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-06-08",
+    "file": "ICE_20260608_valuation.json",
+    "current_price": 140.1,
+    "currency": "$",
+    "revenue": 12640000000.0,
+    "gross_margin": 0.5615506329113924,
+    "ev_ebitda": 14.8,
+    "avg_growth": 0.0967,
+    "fair_value_bear": 102.12,
+    "fair_value_base": 165.5,
+    "fair_value_bull": 205.48,
+    "fair_value_weighted": 148.14
+  }
+]

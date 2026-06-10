@@ -10,5 +10,19 @@
       "weighted": 596.0
     },
     "margin_of_safety_pct": -2.1
+  },
+  {
+    "date": "2026-06-01",
+    "file": "META_20260601_valuation.json",
+    "current_price": 600.47,
+    "currency": "$",
+    "revenue": 200966000000.0,
+    "gross_margin": 0.8199944269179861,
+    "ev_ebitda": 14.5,
+    "avg_growth": 0.1993,
+    "fair_value_bear": 428.61,
+    "fair_value_base": 734.54,
+    "fair_value_bull": 1018.32,
+    "fair_value_weighted": 668.92
   }
 ]

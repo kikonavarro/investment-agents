@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-06-08",
+    "file": "SCHW_20260608_valuation.json",
+    "current_price": 88.84,
+    "currency": "$",
+    "revenue": 23921000000.0,
+    "gross_margin": 0.0,
+    "ev_ebitda": null,
+    "avg_growth": 0.0561,
+    "fair_value_bear": 50.36,
+    "fair_value_base": 104.63,
+    "fair_value_bull": 139.78,
+    "fair_value_weighted": 89.95
+  }
+]

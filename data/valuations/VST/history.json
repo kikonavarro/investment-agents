@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-06-04",
+    "file": "VST_20260604_valuation.json",
+    "current_price": 153.8,
+    "currency": "$",
+    "revenue": 17738000000.0,
+    "gross_margin": 0.3288984101928064,
+    "ev_ebitda": 14.1,
+    "avg_growth": 0.0906,
+    "fair_value_bear": 70.84,
+    "fair_value_base": 145.65,
+    "fair_value_bull": 201.91,
+    "fair_value_weighted": 126.98
+  }
+]

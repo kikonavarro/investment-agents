@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-06-01",
+    "file": "DNG_TO_20260601_valuation.json",
+    "current_price": 6.27,
+    "currency": "C$",
+    "revenue": 397594544.0,
+    "gross_margin": 0.10892471904745252,
+    "ev_ebitda": 6.8,
+    "avg_growth": 0.2671,
+    "fair_value_bear": 4.89,
+    "fair_value_base": 10.71,
+    "fair_value_bull": 16.1,
+    "fair_value_weighted": 9.46
+  }
+]

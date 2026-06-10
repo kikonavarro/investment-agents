@@ -1,0 +1,186 @@
+{
+  "ticker": "VST",
+  "company": "Vistra Corp.",
+  "currency": "$",
+  "date": "2026-06-04",
+  "current_price": 153.8,
+  "shares_outstanding": 337182468,
+  "diluted_avg_shares": 389754870,
+  "market_cap": 51858665472,
+  "sector": "Utilities",
+  "industry": "Utilities - Independent Power Producers",
+  "country": "United States",
+  "business_summary": "Vistra Corp., together with its subsidiaries, operates as an integrated retail electricity and power generation company in the United States. The company operates through five segments: Retail, Texas, East, West, and Asset Closure. The company retails electricity and natural gas to residential, commercial, and industrial customers across states in the United States and the District of Columbia. It is also involved in electricity generation, wholesale energy purchases and sales, commodity risk management, fuel procurement, and fuel logistics management activities. In addition, the company engages in decommissioning and reclamation of retired generation facilities, including mines, and battery removal and remediation activities. It serves approximately 5 million customers with a generation capacity of approximately 44,000 megawatts with a portfolio of natural gas, nuclear, coal, solar, and battery energy storage facilities. The company was formerly known as Vistra Energy Corp. and changed its name to Vistra Corp. in July 2020. Vistra Corp. was founded in 1882 and is based in Irving, Texas.",
+  "beta": 1.447,
+  "analyst_targets": {
+    "high": 320.0,
+    "low": 99.0,
+    "mean": 225.29411,
+    "current": 153.8
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 17738000000.0,
+    "net_income": 944000000.0,
+    "ebitda": 5055000000.0,
+    "free_cashflow": 1318000000.0,
+    "gross_margin": 0.3288984101928064,
+    "operating_margin": 0.12030668621039577,
+    "net_margin": 0.05321907768632315,
+    "total_debt": 20068000000.0,
+    "cash": 785000000.0,
+    "total_equity": 5110000000.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 13728000000.0,
+      "net_income": -1227000000.0,
+      "ebitda": 1049000000.0,
+      "fcf": -816000000.0,
+      "operating_income": -1103000000.0
+    },
+    "2023": {
+      "revenue": 14779000000.0,
+      "net_income": 1493000000.0,
+      "ebitda": 4573000000.0,
+      "fcf": 3777000000.0,
+      "operating_income": 2710000000.0
+    },
+    "2024": {
+      "revenue": 17224000000.0,
+      "net_income": 2659000000.0,
+      "ebitda": 6957000000.0,
+      "fcf": 2485000000.0,
+      "operating_income": 4081000000.0
+    },
+    "2025": {
+      "revenue": 17738000000.0,
+      "net_income": 944000000.0,
+      "ebitda": 5055000000.0,
+      "fcf": 1318000000.0,
+      "operating_income": 2134000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Utilities - Independent Power Producers",
+      "revenues": {
+        "2022": 13728000000.0,
+        "2023": 14779000000.0,
+        "2024": 17224000000.0,
+        "2025": 17738000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.3154537622725738,
+      "sga_pct": 0.09117391643018119,
+      "rd_pct": 0.0,
+      "da_pct": 0.1501307132848805,
+      "capex_pct": 0.11702488265963552,
+      "tax_rate": 0.14394459650267996
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.0766
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1654
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0298
+      }
+    ],
+    "avg_growth": 0.0906,
+    "cagr_3y": 0.0892,
+    "beta": 1.447,
+    "ev_ebitda": 14.1,
+    "net_debt": 19267999616,
+    "net_debt_label": "total",
+    "total_debt": 19925999616,
+    "cash": 658000000,
+    "de_ratio": 0.38,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.434
+      },
+      "target_prices": {
+        "high": 320.0,
+        "low": 99.0,
+        "mean": 225.29411,
+        "current": 153.8
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Here is What to Know Beyond Why Vistra Corp. (VST) is a Trending Stock",
+      "date": "Wed, 27 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Vistra Q1 2026 Earnings Beat Hides a Bigger Story: The Power Demand Case Has Not Been Priced In - TIKR.com",
+      "date": "Wed, 20 Ma",
+      "source": "TIKR.com"
+    },
+    {
+      "title": "Did Vistra’s (VST) Q1 Profit Surge and Completed Buyback Just Recast Its Capital Story? - Yahoo Finance",
+      "date": "Wed, 20 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is Trending Stock Vistra Corp. (VST) a Buy Now? - Yahoo Finance",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is Vistra (VST) Still a Good AI Stock to Buy? Grok Says Yes - Yahoo Finance",
+      "date": "Wed, 13 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is It Too Late To Consider Vistra (VST) After Its Multi Year Surge In Returns - Yahoo Finance",
+      "date": "Wed, 06 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "The Smartest Energy Stocks to Buy With $1,000 Right Now - The Motley Fool",
+      "date": "Wed, 06 Ma",
+      "source": "The Motley Fool"
+    },
+    {
+      "title": "Texas Instruments Is a Major Winner of the AI Power Bottleneck, Investors Just Aren’t Seeing It Yet",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Vistra Friction Index: Singapore ranked most operationally efficient APAC market as businesses navigate regional complexity",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Can GE Vernova Benefit From the Global Gas Turbine Supply Crunch?",
+      "date": "Wed, 03 Ju",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VST/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VST/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/VST/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

@@ -26,5 +26,19 @@
     "revenue": 5908800000.0,
     "gross_margin": 0.5856349851069591,
     "fair_value_weighted": 13.8
+  },
+  {
+    "date": "2026-06-03",
+    "file": "WCP_TO_20260603_valuation.json",
+    "current_price": 16.705,
+    "currency": "C$",
+    "revenue": 5908800000.0,
+    "gross_margin": 0.5856349851069591,
+    "ev_ebitda": 7.5,
+    "avg_growth": 0.1096,
+    "fair_value_bear": 8.97,
+    "fair_value_base": 14.97,
+    "fair_value_bull": 20.68,
+    "fair_value_weighted": 13.71
   }
 ]

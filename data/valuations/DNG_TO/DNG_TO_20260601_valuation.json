@@ -1,0 +1,182 @@
+{
+  "ticker": "DNG.TO",
+  "company": "Dynacor Group Inc.",
+  "currency": "C$",
+  "date": "2026-06-01",
+  "current_price": 6.27,
+  "shares_outstanding": 41948772,
+  "diluted_avg_shares": 39651827,
+  "market_cap": 263018800,
+  "sector": "Basic Materials",
+  "industry": "Other Precious Metals & Mining",
+  "country": "Canada",
+  "business_summary": "Dynacor Group Inc. engages in the exploration, development, and mining of minerals properties in Peru. The company explores gold, silver, copper, and other precious metal deposits. Its flagship property include Tumipampa project covering an area of 4,000 hectares located in the Circa District, Peru. The company was formerly known as Dynacor Gold Mines Inc. and changed its name to Dynacor Group Inc. in June 2022. Dynacor Group Inc. was founded in 1996 and is headquartered in Montreal, Canada.",
+  "beta": 0.66,
+  "analyst_targets": {
+    "high": 9.567526,
+    "low": 8.487299,
+    "mean": 9.027412,
+    "current": 6.27
+  },
+  "historical_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_financials": {
+    "revenue": 397594544.0,
+    "net_income": 21288528.0,
+    "ebitda": 34333503.0,
+    "free_cashflow": -6891663.0,
+    "gross_margin": 0.10892471904745252,
+    "operating_margin": 0.06698660080204723,
+    "net_margin": 0.053543310191902435,
+    "total_debt": 519354.0,
+    "cash": 32843216.0,
+    "total_equity": 134902124.0
+  },
+  "historical_data": {
+    "2022": {
+      "revenue": 197545309.0,
+      "net_income": 12014050.0,
+      "ebitda": 21528171.0,
+      "fcf": 2568328.0,
+      "operating_income": 18057283.0
+    },
+    "2023": {
+      "revenue": 250188604.0,
+      "net_income": 15068344.0,
+      "ebitda": 26612577.0,
+      "fcf": 3039625.0,
+      "operating_income": 22017253.0
+    },
+    "2024": {
+      "revenue": 284404773.0,
+      "net_income": 16877275.0,
+      "ebitda": 30795330.0,
+      "fcf": 10977702.0,
+      "operating_income": 26026037.0
+    },
+    "2025": {
+      "revenue": 397594544.0,
+      "net_income": 21288528.0,
+      "ebitda": 34333503.0,
+      "fcf": -6891663.0,
+      "operating_income": 26633507.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Other Precious Metals & Mining",
+      "revenues": {
+        "2022": 197545309.0,
+        "2023": 250188604.0,
+        "2024": 284404773.0,
+        "2025": 397594544.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.11978571383675876,
+      "sga_pct": 0.02965653588346221,
+      "rd_pct": 0.0,
+      "da_pct": 0.013142377448528027,
+      "capex_pct": 0.022391266368828544,
+      "tax_rate": 0.34770073315229333
+    },
+    "revenue_growths": [
+      {
+        "year": 2023,
+        "yoy": 0.2665
+      },
+      {
+        "year": 2024,
+        "yoy": 0.1368
+      },
+      {
+        "year": 2025,
+        "yoy": 0.398
+      }
+    ],
+    "avg_growth": 0.2671,
+    "cagr_3y": 0.2626,
+    "beta": 0.66,
+    "ev_ebitda": 6.8,
+    "net_debt": -30146361,
+    "net_debt_label": "total",
+    "total_debt": 512851,
+    "cash": 30659212,
+    "de_ratio": 0.0,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.927
+      },
+      "target_prices": {
+        "high": 9.567526,
+        "low": 8.487299,
+        "mean": 9.027412,
+        "current": 6.27
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "If EPS Growth Is Important To You, Dynacor Group (TSE:DNG) Presents An Opportunity",
+      "date": "Wed, 29 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dynacor Provides Expansion and Corporate Update",
+      "date": "Wed, 22 Ap",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "A Look At Dynacor Group (TSX:DNG) Valuation After Strong 2025 Results And 2026 Growth Guidance - Yahoo Finance",
+      "date": "Wed, 21 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dynacor Group Announces Changes to Board of Directors",
+      "date": "Wed, 20 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "TSX Penny Stocks To Watch In June 2025 - Yahoo Finance",
+      "date": "Wed, 18 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dynacor Provides Expansion Update Including Steady Progress in Senegal and Ecuador",
+      "date": "Wed, 11 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dynacor Group Announces February 2026 Dividend",
+      "date": "Tue, 27 Ja",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dynacor Group Announces June 2026 Dividend",
+      "date": "Tue, 26 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dynacor Group Announces April 2026 Dividend",
+      "date": "Tue, 24 Ma",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Dynacor Group Announces March 2026 Dividend",
+      "date": "Tue, 24 Fe",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "sec_filings": []
+  }
+}
