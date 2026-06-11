@@ -8,10 +8,12 @@ vigila el precio contra ese fair value → se actúa cuando hay margen.
 
 Diseño: la lógica de cruce y clasificación es PURA y testeable (`evaluate`, `scan`).
 El precio vivo (`fetch_live_prices`) se aísla en una función con red (yahooquery
-batched, una sola llamada para todos los tickers). Read-only: no opera, no escribe.
+batched, una sola llamada para todos los tickers). No opera ni toca las tesis; lo
+único que escribe es el log append-only de snapshots (track record, ver abajo).
 """
 
 import json
+from datetime import date
 from pathlib import Path
 
 from tools.signals import classify_signal
@@ -146,6 +148,49 @@ def fetch_live_prices(tickers: list) -> dict:
             if isinstance(price, (int, float)) and price > 0:
                 out[folder] = float(price)
     return out
+
+
+def append_snapshot(rows: list, path=None) -> tuple:
+    """Acumula el escaneo de hoy en un log append-only (JSONL) — la materia prima del
+    track record (#7 del roadmap): con snapshots en el tiempo se puede medir hit-rate
+    (¿las infravaloradas subieron, las sobrevaloradas bajaron?) y calibrar sesgos
+    sistemáticos de las tesis (¿los bull son siempre demasiado optimistas?).
+
+    Una línea JSON por tesis escaneada. Idempotente por día y ticker: re-ejecutar el
+    scan el mismo día no duplica líneas. Devuelve (path, nº de líneas nuevas)."""
+    if path is None:
+        from config.settings import DATA_DIR
+        path = DATA_DIR / "watchlist_snapshots.jsonl"
+    path = Path(path)
+    today = date.today().isoformat()
+
+    ya_logueados = set()
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            try:
+                e = json.loads(line)
+            except json.JSONDecodeError:
+                continue  # línea corrupta: se ignora, no rompe el scan
+            if e.get("date") == today:
+                ya_logueados.add(e.get("ticker"))
+
+    nuevos = 0
+    with path.open("a", encoding="utf-8") as f:
+        for r in rows:
+            if r["ticker"] in ya_logueados:
+                continue
+            f.write(json.dumps({
+                "date": today,
+                "ticker": r["ticker"],
+                "price": r["live_price"],
+                "fv_weighted": r["weighted"],
+                "mos": round(r["mos"], 2),
+                "action": r["action"],
+                "suspect": bool(r.get("suspect")),
+                "thesis_date": r.get("date"),
+            }, ensure_ascii=False) + "\n")
+            nuevos += 1
+    return path, nuevos
 
 
 def run_scan() -> list:

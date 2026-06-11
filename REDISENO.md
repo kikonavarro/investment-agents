@@ -1,6 +1,6 @@
 # Rediseño del sistema — Estado y hoja de ruta
 
-> Documento de continuidad entre sesiones. Última actualización: **2026-05-31**.
+> Documento de continuidad entre sesiones. Última actualización: **2026-06-11**.
 > Si retomas el rediseño, **lee esto primero**. El detalle conceptual está aquí;
 > el estado resumido y el siguiente paso también están en la memoria persistente.
 
@@ -45,13 +45,26 @@ Rehacer el sistema con cinco metas:
 | Loop cerrado v1 | `tools/watchlist.py` + `python main.py --watchlist`: cruza los fair values guardados con el **precio vivo** (yahooquery batched, 1 llamada) y clasifica cada tesis por MoS (banda value) con triggers de suelo/techo. `classify_signal` extraído a `tools/signals.py` (única fuente; dashboard lo usa). Read-only, lógica pura testeada (179 tests). Escaneó 59 tesis: 9 compra / 10 venta. FV≤0 → N/A. **Auto-detecta tesis con FV extremo desde su finalización (`suspect`, ⚠) → distingue ganga real de FV roto/obsoleto** | local |
 | Procesador autónomo | La bandeja la procesa un servicio **launchd** `com.investment.inbox` (cada 60s: pre-check Python gratis con `check_inbox.py count` → si hay mensaje, `claude -p --model opus` con la skill `orchestrator` → responde). **Durable** (sobrevive a cerrar sesión / reinicio), **suscripción** (no API), **coste cero en vacío**. + **watchdog** `com.investment.inbox-watchdog` (avisa por Telegram con causa + comando si se rompe) + helper `~/bin/bandeja` (status/restart/logs). Regla anti-inyección en el prompt. Cierra #8 y el watchdog de #9 | local |
 
+## Qué se ha hecho (sesión 2026-06-11 — auditoría + fiabilidad)
+
+| Fase | Qué | Dónde |
+| --- | --- | --- |
+| Verificación con razones | `_engine_fair_values` ya **nunca falla en silencio**: devuelve `(fvs, info)` e `info.reason` explica cada None (financiera, JSON roto, campo ausente, input fuera de rango). El caso MA/V (Financial Services se saltaba sin avisar) ahora imprime el porqué y qué hacer. `_dcf_inputs` extraído (preparación de inputs única) | GitHub |
+| Motor valida rangos | `DCFAssumptions.__post_init__` caza typos porcentaje-vs-fracción (wacc=10, growth=8) y supuestos imposibles (GM>100 %, tax>60 %, TV>60x) con el campo culpable en el mensaje. NO impone metodología (el floor del WACC sigue siendo juicio) | GitHub |
+| Rastro de heurísticas | Peniques GBp, acciones duales y overrides `_meta` dejan nota impresa en cada finalize; la **zona gris del ratio** (ni sano ~1.0 ni corregible) avisa en vez de heredar el error de escala | GitHub |
+| Beta con rastro | `financial_data`: beta ausente en Yahoo → `beta_is_default=true` en el JSON + **quality gate** que avisa (un CAPM con beta inventada parece normal sin serlo). 12 checks | GitHub |
+| Sensibilidad + reverse-DCF | Cada finalize imprime la tabla WACC±1pt × TV±2x del base y el **crecimiento implícito en el precio** (reverse DCF por bisección): el chequeo anti-optimismo más barato — si tu base asume más growth del que el precio ya descuenta, lo dice | GitHub |
+| Track record (semilla #7) | `watchlist.append_snapshot`: cada `--watchlist` acumula una línea JSONL por tesis (`data/watchlist_snapshots.jsonl`, idempotente por día). Materia prima del hit-rate y de la calibración de sesgos. Primer snapshot: 2026-06-11 (65 tesis) | GitHub |
+| Limpieza | `valuation_params.yaml` + `WACC_DEFAULTS`/`DCF_DEFAULTS` borrados (config huérfana que nadie leía); `references/dcf_implementation.py` **vaciado** (~950 líneas — era la 2ª implementación del DCF y podía divergir; la skill apunta al motor); cabecera ⛔ DORMIDO en email_sender/pdf_report/document_generator/excel_generator/scheduler; requirements sin streamlit/markdown/rich (cero imports), schedule y python-docx a `requirements-optional.txt`; orchestrator: flag muerto `--data-only` corregido + numeración | GitHub |
+| Tests | **217 en verde** (validación de rangos, razones, notas, sensibilidad, reverse-DCF, gate beta, snapshots) | GitHub |
+
 **Estado git:** rama `main`, **pusheado a GitHub** (Kiko autorizó subir el 2026-05-31; antes se mantenía en local). El tag `pre-rediseno-2026` sigue en GitHub como punto de retorno: `git reset --hard pre-rediseno-2026`.
 
 ## Cómo retomar (operativo)
 
 - **Intérprete Python:** usar la ruta explícita del proyecto, NO `python3` a secas (resuelve al del sistema sin dependencias):
   `/Users/franciscojaviernavarro/.pyenv/versions/3.12.2/bin/python3`
-- **Tests:** `PYBIN -m pytest -q` (deben pasar **128**).
+- **Tests:** `PYBIN -m pytest -q` (deben pasar **217**, a 2026-06-11).
 - **Verificar una tesis con el motor** (sin guardar): importar `tools.finalize_thesis._engine_fair_values(scenarios, output_dir, folder, meta)` con `PYTHONPATH="$(pwd)"`.
 - **Herramienta de diagnóstico:** el ratio `market_cap/(precio×acciones)` clasifica inconsistencias de datos: ~0.01 = peniques, ~1.0 = sano, >1.5 = acciones duales.
 
@@ -60,7 +73,7 @@ Rehacer el sistema con cinco metas:
 **#7 Loop cerrado — EN CURSO.** Hecho el escáner on-demand (`--watchlist`). Piezas que faltan:
 
 1. **Alertas automáticas (cierra el loop):** daily scan → avisar (Telegram/Jarvis) cuando una tesis cruza un trigger (entra en compra MoS≥25% o venta ≤-25%, o cruza bear/bull). La primitiva **ya existe**: `notifier.notify_fair_value_cross`. ⚠️ **Toca el scheduler (dormido por decisión) + Telegram → pedir OK a Kiko** y añadir un watchdog (avisar si el loop muere). Decidir: ¿reactivar scheduler vía cron→Claude Code headless, o un loop más simple?
-2. **Track record:** loguear snapshots de precio en el tiempo y medir hit-rate (¿las infravaloradas subieron, las sobrevaloradas bajaron?). El `--watchlist` ya muestra `Δtesis` (movimiento desde la tesis) — es la semilla. Necesita acumular tiempo (las tesis son de abr-may, ~1 mes).
+2. **Track record:** ✅ la acumulación ya existe (2026-06-11): cada `--watchlist` guarda snapshot diario en `data/watchlist_snapshots.jsonl` (precio, FV, MoS, señal por tesis). Falta: el ANÁLISIS (hit-rate, calibración de sesgos) cuando haya semanas/meses acumulados.
 3. **Sizing por convicción:** tamaño de posición = f(MoS, convicción). La convicción (moat/riesgo) vive en la tesis `.md`, no en `history.json` → hay que parsearla o declararla.
 
 **Otros frentes (independientes):**

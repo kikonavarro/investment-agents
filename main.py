@@ -125,7 +125,7 @@ Ejemplos:
             print(f"  {ticker:8s} {name}")
 
     elif args.watchlist:
-        from tools.watchlist import run_scan
+        from tools.watchlist import run_scan, append_snapshot
         print("\n=== Watchlist — fair value guardado vs precio vivo ===")
         print("  Escaneando precios de mercado (yahooquery, batched)...")
         rows = run_scan()
@@ -133,6 +133,12 @@ Ejemplos:
             print("  Sin tesis con fair value guardado, o no se pudieron obtener precios.")
         else:
             _print_watchlist(rows)
+            # Track record: cada scan deja su huella del día (append-only, idempotente).
+            snap_path, nuevos = append_snapshot(rows)
+            if nuevos:
+                print(f"\n  Snapshot del día guardado: {nuevos} tesis → {snap_path.name}")
+            else:
+                print(f"\n  Snapshot de hoy ya registrado en {snap_path.name} (no se duplica)")
 
     else:
         parser.print_help()

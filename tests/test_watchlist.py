@@ -143,3 +143,43 @@ def test_load_saved_fair_values_calcula_weighted_si_falta(tmp_path):
     ])
     out = wl.load_saved_fair_values(valuations_dir=tmp_path)
     assert out["CCC"]["weighted"] == pytest.approx(0.4 * 100 + 0.4 * 200 + 0.2 * 300)  # 180
+
+
+# --------------------------------------------------------------------------- #
+# append_snapshot: log append-only del track record (#7)
+# --------------------------------------------------------------------------- #
+
+def _row(ticker="AAA", price=50.0, weighted=100.0, mos=50.0, action="BUY",
+         suspect=False, date_="2026-05-01"):
+    return {"ticker": ticker, "live_price": price, "weighted": weighted,
+            "mos": mos, "action": action, "suspect": suspect, "date": date_}
+
+
+def test_append_snapshot_escribe_una_linea_por_tesis(tmp_path):
+    path = tmp_path / "snaps.jsonl"
+    out_path, nuevos = wl.append_snapshot([_row("AAA"), _row("BBB", action="HOLD")], path)
+    assert out_path == path and nuevos == 2
+    lineas = [json.loads(l) for l in path.read_text(encoding="utf-8").splitlines()]
+    assert {l["ticker"] for l in lineas} == {"AAA", "BBB"}
+    aaa = next(l for l in lineas if l["ticker"] == "AAA")
+    assert aaa["price"] == 50.0 and aaa["fv_weighted"] == 100.0
+    assert aaa["mos"] == 50.0 and aaa["action"] == "BUY"
+    assert aaa["thesis_date"] == "2026-05-01"
+    assert aaa["date"]  # fecha del snapshot (hoy)
+
+
+def test_append_snapshot_idempotente_por_dia(tmp_path):
+    """Re-ejecutar el scan el mismo día NO duplica líneas; un ticker nuevo sí entra."""
+    path = tmp_path / "snaps.jsonl"
+    _, n1 = wl.append_snapshot([_row("AAA")], path)
+    _, n2 = wl.append_snapshot([_row("AAA"), _row("BBB")], path)
+    assert (n1, n2) == (1, 1)  # la 2ª pasada solo añade BBB
+    lineas = path.read_text(encoding="utf-8").splitlines()
+    assert len(lineas) == 2
+
+
+def test_append_snapshot_tolera_linea_corrupta(tmp_path):
+    path = tmp_path / "snaps.jsonl"
+    path.write_text("{esto no es json}\n", encoding="utf-8")
+    _, nuevos = wl.append_snapshot([_row("AAA")], path)
+    assert nuevos == 1  # la línea corrupta se ignora, el log sigue funcionando
