@@ -1,0 +1,187 @@
+{
+  "ticker": "CRM",
+  "company": "Salesforce, Inc.",
+  "currency": "$",
+  "date": "2026-06-11",
+  "current_price": 166.04,
+  "shares_outstanding": 819000000,
+  "diluted_avg_shares": 997000000,
+  "market_cap": 135986757632,
+  "sector": "Technology",
+  "industry": "Software - Application",
+  "country": "United States",
+  "business_summary": "Salesforce, Inc. provides customer relationship management technology services that connect companies and customers together in the United States, Europe, and the Asia Pacific. The company offers Agentforce, which enables customers to build, deploy, and manage enterprise-grade, autonomous AI agents at scale, enabling humans and agents to work together; Agentforce Sales, an integrated platform that brings together the power of humans with AI agents to help sales teams for selling, managing, and automating entire sales processes; Agentforce Service, which enables companies in every industry to bring all of their customer, employee, IT, and field service needs onto one integrated AI-powered platform; Data 360, a data engine that gives AI agents their context and serves as the foundation for how customers unify service offerings, making their data actionable for both humans and agents; Informatica, an AI-powered data management platform that enables customers to discover, integrate, govern, and deliver trusted data at scale across hybrid and multi-cloud environments; and Slack, a conversational interface for the agentic enterprise where people and agents work together, connecting knowledge, actions, and data in real time. It also provides marketing platforms; commerce services, which empower shopping experiences across various customer touchpoints; integration and analytics solutions; Salesforce Starter, a suite for small and medium-sized businesses that brings sales, service, marketing, and commerce together; and a field service solution that enables companies to connect service agents, dispatchers, and mobile employees through one centralized platform to schedule and dispatch work, as well as track and manage jobs. It serves financial services, healthcare and life sciences, manufacturing, automotive, and government sectors. Salesforce, Inc. was incorporated in 1999 and is headquartered in San Francisco, California.",
+  "beta": 1.151,
+  "analyst_targets": {
+    "high": 475.0,
+    "low": 160.0,
+    "mean": 254.98906,
+    "current": 166.04
+  },
+  "historical_years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "latest_financials": {
+    "revenue": 41525000000.0,
+    "net_income": 7457000000.0,
+    "ebitda": 12548000000.0,
+    "free_cashflow": 14402000000.0,
+    "gross_margin": 0.7767609873570138,
+    "operating_margin": 0.21473810957254666,
+    "net_margin": 0.179578567128236,
+    "total_debt": 17176000000.0,
+    "cash": 7327000000.0,
+    "total_equity": 59142000000.0
+  },
+  "historical_data": {
+    "2023": {
+      "revenue": 31352000000.0,
+      "net_income": 208000000.0,
+      "ebitda": 5644000000.0,
+      "fcf": 6313000000.0,
+      "operating_income": 1858000000.0
+    },
+    "2024": {
+      "revenue": 34857000000.0,
+      "net_income": 4136000000.0,
+      "ebitda": 9958000000.0,
+      "fcf": 9498000000.0,
+      "operating_income": 5999000000.0
+    },
+    "2025": {
+      "revenue": 37895000000.0,
+      "net_income": 6197000000.0,
+      "ebitda": 11143000000.0,
+      "fcf": 12434000000.0,
+      "operating_income": 7666000000.0
+    },
+    "2026": {
+      "revenue": 41525000000.0,
+      "net_income": 7457000000.0,
+      "ebitda": 12548000000.0,
+      "fcf": 14402000000.0,
+      "operating_income": 8917000000.0
+    }
+  },
+  "segments": [
+    {
+      "name": "Software - Application",
+      "revenues": {
+        "2023": 31352000000.0,
+        "2024": 34857000000.0,
+        "2025": 37895000000.0,
+        "2026": 41525000000.0
+      }
+    }
+  ],
+  "reference_metrics": {
+    "avg_margins": {
+      "gross_margin": 0.7592510140733597,
+      "sga_pct": 0.43101226406717136,
+      "rd_pct": 0.1478140171955576,
+      "da_pct": 0.10338275265940808,
+      "capex_pct": 0.019239304470878647,
+      "tax_rate": 0.19305027415317896
+    },
+    "revenue_growths": [
+      {
+        "year": 2024,
+        "yoy": 0.1118
+      },
+      {
+        "year": 2025,
+        "yoy": 0.0872
+      },
+      {
+        "year": 2026,
+        "yoy": 0.0958
+      }
+    ],
+    "avg_growth": 0.0983,
+    "cagr_3y": 0.0982,
+    "beta": 1.151,
+    "beta_is_default": false,
+    "ev_ebitda": 13.3,
+    "net_debt": 30710999040,
+    "net_debt_label": "total",
+    "total_debt": 42547998720,
+    "cash": 11836999680,
+    "de_ratio": 0.31,
+    "analyst_estimates": {
+      "revenue_growth": {
+        "current": 0.133
+      },
+      "target_prices": {
+        "high": 475.0,
+        "low": 160.0,
+        "mean": 254.98906,
+        "current": 166.04
+      }
+    },
+    "captive_finance": null,
+    "acquisition_detected": null
+  },
+  "sec_audit": null,
+  "news": [
+    {
+      "title": "Salesforce beats on earnings and revenue but full-year guidance comes in light - CNBC",
+      "date": "Wed, 27 Ma",
+      "source": "CNBC"
+    },
+    {
+      "title": "Salesforce CEO Marc Benioff outlines his plan to turn around his struggling stock - CNBC",
+      "date": "Wed, 27 Ma",
+      "source": "CNBC"
+    },
+    {
+      "title": "87,714 Jobs Have Already Been Lost This Year To AI, But Billionaire Nvidia CEO Jensen Huang Says AI Taking Jobs Is ‘Complete Nonsense’",
+      "date": "Wed, 10 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Did The Market Panic On Oracle’s Best Signal?",
+      "date": "Wed, 10 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "The Hidden Flywheel That Could Reignite Salesforce Stock",
+      "date": "Wed, 10 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "MANH Pushes Deeper Into a Cloud-First Model: Buy or Hold the Stock?",
+      "date": "Wed, 10 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Is Microsoft Stock Too Cheap To Ignore?",
+      "date": "Wed, 10 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Salesforce layoffs hit Agentforce, MuleSoft, Marketing Cloud 2026",
+      "date": "Wed, 10 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "Salesforce Trades Near 52-Week Low: Time to Hold the Stock or Exit?",
+      "date": "Wed, 10 Ju",
+      "source": "Yahoo Finance"
+    },
+    {
+      "title": "How Will Adobe Stock React To Its Upcoming Earnings?",
+      "date": "Wed, 10 Ju",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "files": {
+    "sec_filings": [
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CRM/SEC_filings/10K_2026.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CRM/SEC_filings/10K_2025.htm",
+      "/Users/franciscojaviernavarro/Documents/Claude_Projects/investment-agents/data/valuations/CRM/SEC_filings/10K_2024.htm"
+    ]
+  }
+}

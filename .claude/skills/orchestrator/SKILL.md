@@ -104,7 +104,7 @@ Luego evaluar las candidatas siguiendo la skill `screener-ranking`.
 
 **Pipeline:**
 Si hay datos de valoración del ticker → usar el JSON existente.
-Si no → ejecutar `python main.py --analyst TICKER --data-only` primero.
+Si no → ejecutar `python main.py --analyst TICKER` primero.
 Luego generar el hilo siguiendo la skill `tweet-generator`.
 
 ### 4. Noticias
@@ -150,11 +150,11 @@ archivo adjunto con tesis (PDF/Excel), "[Archivo: ...]" en el texto del mensaje
 1. Leer el archivo adjunto (PDF con Read tool, Excel con openpyxl)
 2. Identificar el ticker de la empresa analizada
 3. Leer nuestra tesis si existe: `data/valuations/{TICKER}/{TICKER}_tesis_inversion.md`
-4. Si no existe nuestra tesis, ejecutar `python main.py --analyst TICKER --data-only` primero
+4. Si no existe nuestra tesis, ejecutar `python main.py --analyst TICKER` primero
 5. Comparar siguiendo la skill `thesis-reviewer`
 6. Guardar en `data/valuations/{TICKER}/review_{fuente}_{fecha}.md`
 
-### 9. Sub-análisis individuales (antes #8)
+### 9. Sub-análisis individuales
 Las skills dedicadas se pueden invocar de forma independiente:
 
 | Petición | Skill |
@@ -164,9 +164,9 @@ Las skills dedicadas se pueden invocar de forma independiente:
 | "modelo de negocio de X", "cómo gana dinero X" | `business-model` |
 | "capital allocation de X", "dividendos de X", "recompras de X" | `capital-allocation` |
 
-**Pipeline:** Ejecutar `python main.py --analyst TICKER --data-only` si no hay JSON, luego aplicar el skill correspondiente.
+**Pipeline:** Ejecutar `python main.py --analyst TICKER` si no hay JSON, luego aplicar el skill correspondiente.
 
-### 9. Mensaje del scheduler [SCHEDULER]
+### 10. Mensaje del scheduler [SCHEDULER]
 Los mensajes del scheduler llevan el tag `[SCHEDULER]` al inicio.
 
 - `[SCHEDULER] Genera un hilo de tweets` → skill `tweet-generator`
@@ -174,7 +174,7 @@ Los mensajes del scheduler llevan el tag `[SCHEDULER]` al inicio.
 - `[SCHEDULER] LEAPS scan` → skill `leaps-finder` (modo daily)
 - Otros → interpretar el contenido y actuar
 
-### 10. LEAPS / Opciones largo plazo
+### 11. LEAPS / Opciones largo plazo
 **Skill a invocar:** `leaps-finder`
 **Detectar:** "leaps", "leap call", "buena leap", "options largo plazo", "call largo plazo en X",
 "qué leap puedo comprar", o pregunta sobre call ITM en un ticker concreto.

@@ -630,4 +630,8 @@ CapEx en DCF:                 Usar capex_pct histórico real, NO solo D&A
 ## Archivos de referencia adicionales
 
 - `references/data_validation.md` — Cómo validar datos de yfinance
-- `references/dcf_implementation.py` — Implementación completa en Python lista para usar
+- **La implementación real del DCF es `tools/valuation_engine.py`** (motor determinista,
+  única fuente de verdad de la aritmética, verificada en cada finalize por
+  `tools/finalize_thesis.py`). NO copiar ni reimplementar el DCF en otro sitio: la
+  duplicación de la aritmética fue la causa de las divergencias históricas que el
+  rediseño eliminó.

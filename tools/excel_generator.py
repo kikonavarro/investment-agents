@@ -1,4 +1,9 @@
 """
+⛔ DORMIDO (no borrar — decisión 2026-05-31, ver REDISENO.md): el Excel se obvió del
+pipeline (era la 3ª copia del DCF y nadie lo consumía; la aritmética la hace
+tools/valuation_engine.py). Solo lo importa su test de regresión. Si se reactiva,
+debe consumir del motor, no recalcular.
+
 Genera el Excel de valoracion completo.
 Replica la estructura del modelo Netflix con 4 hojas:
 Assumptions, Financial Statements, Model, Valuation.

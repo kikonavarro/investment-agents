@@ -1,4 +1,7 @@
 """
+⛔ DORMIDO (no borrar — decisión 2026-05-31, ver REDISENO.md): ningún módulo lo importa.
+Se conserva para reactivar informes PDF del screener.
+
 Generador de informes PDF para análisis de screening multi-empresa.
 Usa fpdf2 con soporte Unicode (DejaVu).
 """

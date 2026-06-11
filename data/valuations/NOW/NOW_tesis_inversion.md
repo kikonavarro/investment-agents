@@ -1,421 +1,185 @@
-## NOW — ServiceNow, Inc. | 🟢 INFRAVALORADA
+# ServiceNow, Inc. (NOW) — Tesis de inversión
 
-### Resumen ejecutivo
+**Fecha:** 11 de junio de 2026
+**Precio actual:** $103.84 · **Market cap:** $107.1 B · **Acciones:** 1.031 M (post-split ~5:1)
+**Sector:** Software empresarial (workflow / plataforma) · **Beta:** 0.93
 
-Precio actual: $91.57 | Fair value ponderado: $114.00 | Potencial: +24.5%
-
-ESCENARIOS DE VALORACIÓN:
-• Bear (DOGE persistente + AI canibaliza per-seat + multiple compression): $72 → -21% vs precio actual
-• Base (normalización federal 2027, Now Assist >$2B ACV, growth 16-20%): $122 → +33% upside
-• Bull (Now Assist >$3B ACV, re-rating SaaS premium): $180 → +97% upside
-
-Fair value ponderado (40/40/20): $114.00 (+24.5%)
-
-ServiceNow cotiza tras una corrección del 43% YTD por dos shocks distintos: (1) recortes federales DOGE (federal era ~10% del revenue, contratos -72% YoY en Q1), y (2) "SaaS-pocalypse" — temor de que AI agents canibalicen el modelo per-seat. Pero Q1 2026 fue beat-and-raise: subscription rev +22% YoY, cRPO +22.5% YoY, guidance 2026 subido a $15.74-15.78B, y target AI ACV elevado de $1B a $1.5B con clientes >$1M en Now Assist creciendo +130% YoY. A EV/Sales 6x (vs histórico 12-18x), EV/EBITDA 30x, y P/FCF 20x, el mercado descuenta una desaceleración material que las cifras operativas todavía no muestran. Recomendación: COMPRAR. Posición core en SaaS enterprise infrastructure con balance neto positivo ($1.3B net cash) y FCF margin 34%. Entrada agresiva por debajo de $95.
+> *Nota sobre cifras: todas las magnitudes por acción están ajustadas al split de acciones ~5:1 efectivo en 2026 (el 10-K reexpresa retroactivamente las series). El análisis financiero se hace sobre cifras absolutas (revenue, FCF, RPO), inmunes al split.*
 
 ---
 
-### 1. El negocio — Plataforma SaaS de digital workflows enterprise
+## 1. Resumen ejecutivo
 
-ServiceNow (NOW) es una plataforma cloud-based de "digital workflow automation" para grandes empresas. Su producto original era ITSM (IT Service Management), pero ha expandido la plataforma a HRSD (human resources), CSM (customer service), SecOps, GRC (governance/risk/compliance), Field Service, Strategic Portfolio Management, y más recientemente — Now Assist, su capa de AI nativa.
+ServiceNow es, por calidad de franquicia, uno de los mejores negocios de software del mundo: plataforma de workflow con **tasa de renovación del 98%**, **$28.2 B de RPO** (2.1× los ingresos anuales) y un margen de FCF del 34%. Y, sin embargo, la acción **ha caído ~45-52% en seis meses** (-37% en el año) hasta $103.84. No es un problema de números —Q1 FY2026 batió y la guía se **subió**— sino de **narrativa**: el mercado teme que los agentes de IA destruyan el modelo de licencia por asiento ("seat compression"). El selloff arrancó cuando Anthropic lanzó plug-ins agénticos en febrero y se llevó por delante ~17% del índice de software en seis sesiones.
 
-**Modelo de negocio:**
-1. **Subscription revenue (97% del total):** contratos plurianuales (típicamente 3 años) por usuario / por módulo. ACV creciente con upsell/cross-sell agresivo.
-2. **Professional services (3%):** implementación y consultoría — barrera de salida adicional.
-3. **Renovaciones:** Gross retention rate consistentemente >97% (mejor de la industria SaaS enterprise).
-4. **Land-and-expand:** clientes que empiezan con ITSM se expanden a HR, security, customer service. Net retention rate >120% históricamente.
+La pregunta de inversión no es si ServiceNow es un gran negocio (lo es), sino **cuánto vale una vez que descuento honestamente el coste real del stock-based compensation (SBC) y que la IA podría ser tanto viento de cola como de cara.**
 
-**Clientes:**
-- **8,400+ enterprise customers** (Q1 2026)
-- **2,000+ customers con ACV >$1M** (vs ~1,700 hace un año)
-- 85% de las Fortune 500 son clientes
-- Mix: tecnología, financiero, healthcare, government, manufacturing, telecom
+Mi valoración DCF (descontando el SBC como coste real, no como FCF gratis):
 
-**Unit economics:**
-- Gross margin software: 84-85% (excelente)
-- Gross margin total: 78% (deprime por professional services)
-- Operating margin GAAP: 14% (no GAAP cerca de 30%)
-- FCF margin: **34%** (entre los mejores de SaaS)
-- LTV/CAC implícito: >5x
+- 🔴 **Bear ($78.81, -24%):** la "SaaS-pocalypse" es real. Los agentes comprimen asientos, el crecimiento se desacelera al 8-9%, el margen bruto sigue erosionándose por el coste de compute de IA y el múltiplo normaliza a 19× EBITDA. *Duele de verdad: la tesis estaría equivocada.*
+- ⚪ **Base ($118.34, +14%):** la desaceleración es ordenada (22%→12%), ServiceNow se convierte en la **capa de orquestación** de los agentes de IA (no en su víctima), el margen operativo se expande hacia el 21% y el múltiplo terminal se asienta en 22× EBITDA.
+- 🟢 **Bull ($151.72, +46%):** Now Assist y el pricing por consumo **reaceleran** el ACV; los productos de IA superan los $1.500 M de McDermott, el crecimiento se mantiene ~20% y el margen avanza al 23-24%.
 
-**Diferenciación competitiva:**
-- Plataforma unificada (Now Platform) vs. herramientas dispersas. Un único data model.
-- Workflow engine extensible — clientes y partners construyen apps custom encima.
-- Strong gobierno y permisos enterprise-grade.
-- Integraciones nativas con ERP (SAP, Workday, Oracle), CRM (Salesforce), seguridad (CrowdStrike, Okta).
-- Ahora: Now Assist (Gen AI) embebido en flujos de trabajo, no como producto separado.
+**Fair value ponderado (40/40/20): $109.20 · Margen de seguridad: +4.9% → ⚪ VALOR JUSTO (sesgo ligeramente positivo).**
 
-**El movimiento estratégico hacia AI:**
-ServiceNow ha rediseñado su mensaje en torno a "AI agents" — automatizar tareas que antes requerían operadores humanos. Esto es defensivo (responder a "AI elimina per-seat") y ofensivo (Now Assist como upsell sobre base instalada).
-
-**Adquisición reciente — Armis (Q1 2026):** $5B, integración para OT/IoT security en SecOps. Refuerza la oferta de seguridad para infraestructura crítica.
+**Conclusión rápida:** negocio excepcional a precio razonable, no a precio de ganga. La diferencia entre mi $109 y el consenso de $141.86 **no es un desacuerdo sobre el negocio: es metodológico** —yo expenso el SBC como lo que es (dilución real); la calle valora sobre FCF reportado. A $104 hay calidad pero el margen de seguridad es fino. Es una posición para **iniciar pequeño y ampliar por debajo de ~$90**, no para cargar de golpe.
 
 ---
 
-### 2. Análisis financiero — Crecimiento estructural
+## 2. El negocio
 
-**Tabla histórica (cifras GAAP en $M, FY termina diciembre):**
+### Modelo de negocio (cómo gana dinero)
 
-| Métrica            | 2022   | 2023   | 2024   | 2025   | YoY 2025 |
-| ------------------ | ------ | ------ | ------ | ------ | -------- |
-| Revenue            | 7,245  | 8,971  | 10,984 | 13,278 | +20.9%   |
-| Subscription rev   | 7,034  | 8,723  | 10,651 | 12,872 | +20.9%   |
-| EBITDA             | 788    | 1,324  | 2,089  | 3,022  | +44.6%   |
-| Net Income GAAP    | 325    | 1,731  | 1,425  | 1,748  | +22.7%   |
-| FCF                | 2,173  | 2,727  | 3,549  | 4,533  | +27.7%   |
-| FCF margin         | 30.0%  | 30.4%  | 32.3%  | 34.1%  | +180bp   |
-| Cash + ST inv      | 5,082  | 5,950  | 6,500  | 6,800  | -        |
-| Total debt         | 1,490  | 1,494  | 1,800  | 2,403  | -        |
-| Shares (M)         | 200    | 204    | 1,028* | 1,031  | -        |
+ServiceNow vende **suscripciones plurianuales (típicamente 3 años) a una plataforma cloud única** sobre la que corren todos sus productos: gestión de servicios de IT (ITSM, su origen y aún su corazón), IT operations, gestión de riesgo, seguridad (SecOps), customer service, RRHH, workflows de empleado, y ahora una capa de IA (Now Assist) y datos (Workflow Data Fabric, RaptorDB). El 97% de los ingresos son **suscripción recurrente**; el resto, servicios profesionales.
 
-*Aplicado split 5-for-1 dic 2025
+La mecánica de las "unit economics" es la mejor del SaaS empresarial:
 
-**Lo que dice el histórico:**
-- Revenue CAGR 3y: **22.4%**. Subscription rev consistentemente ≥20%.
-- EBITDA expandiéndose: de 11% margen 2022 a 23% en 2025. Operating leverage real.
-- FCF margin **expandiendo cada año**: 30% → 34%. Pocas empresas en SaaS muestran esto.
-- Balance: net cash position de +$1.3B (cash $3.7B vs debt $2.4B). Sin riesgo financiero.
-- Capital allocation: stock-based comp ~13-15% revenue (alto pero típico SaaS). Buybacks crecientes (ya recomprados $1B+ en 2025). Dividendo no.
+- **Land & expand.** Entra por un departamento (normalmente IT) y se expande a RRHH, legal, finanzas, atención al cliente. Cada workflow nuevo reutiliza la misma plataforma → coste marginal de venta bajísimo y net expansion alto.
+- **Facturación por adelantado.** Cobra el año por anticipado y reconoce el ingreso de forma lineal. Eso genera **deferred revenue** (float de clientes que financia el crecimiento) y explica por qué el FCF (34% de margen) supera con creces al beneficio GAAP.
+- **Visibilidad extrema.** $28.2 B de RPO (+27% YoY) son ingresos ya contratados aún no reconocidos: **2.1 años de ingresos vendidos de antemano**. El cRPO ($13.0 B, +25%) es lo que entra en los próximos 12 meses. Pocos negocios del mundo tienen esta predictibilidad.
 
-**Q1 2026 — última actualización (publicado 22 abril 2026):**
-- Subscription revenue: $3,671M (+22% YoY, +19% en moneda constante)
-- Total revenue: $3,775M (+22% YoY)
-- Non-GAAP operating margin: 32.5% (récord)
-- FCF Q1: $1,927M (+24% YoY) — Q1 estacionalmente fuerte
-- **cRPO: $12.64B (+22.5% YoY, +21% en cc)** — backlog facturable próximos 12 meses
-- RPO total: $24.5B (+24% YoY) — backlog total
-- Renewal rate: 98% (gross)
-- Customers >$1M ACV: 2,028 (+10% YoY)
-- Customers >$5M ACV: 545 (+13% YoY)
-- Customers >$20M ACV: 105 (+34% YoY) — clave: los grandes crecen más rápido
+### Moat — **Wide moat** (calificación: Amplio)
 
-**Now Assist (AI) — Métricas:**
-- Customers spending >$1M en Now Assist ACV: **+130% YoY**
-- Deals con 3+ productos Now Assist: +70% YoY
-- 36 deals con 5+ productos Now Assist
-- Target AI ACV 2026: subido de $1B a **$1.5B** (sería ~10% del subscription revenue)
+Cuatro de las cinco fuentes de ventaja de Morningstar están presentes, de forma robusta:
 
-**Guidance 2026 (post Q1):**
-- Subscription revenue: $15,735-15,775M (+20.5-21% YoY)
-- Subscription gross margin: 83.5%
-- Operating margin (non-GAAP): 31.0%
-- FCF margin: 32% → implícito FCF $5,200M+
-- Conservadora: gestión históricamente sobreentrega
+1. **Costes de cambio (la fuente dominante).** ServiceNow se incrusta en los procesos operativos críticos de la empresa. Migrar significa reescribir flujos de trabajo, reentrenar a miles de empleados y arriesgar la operativa diaria. El **98% de renovación, sostenido tres años seguidos**, es la prueba cuantitativa del moat. Es un número que solo exhiben las mejores franquicias de software del planeta.
+2. **Efecto de red / plataforma.** Cuantos más módulos adopta un cliente, más datos y procesos viven en la "single system of record", y más valioso (y pegajoso) se vuelve. La extensión hacia el App Engine y el ecosistema de partners refuerza el efecto.
+3. **Intangibles.** Dos décadas entendiendo cómo fluye el trabajo entre silos. El propio 10-K lo expresa con precisión: el valor está en *"controlar y gestionar lo que ocurre después de que la información se genera"* —exactamente la capa de orquestación que la IA necesita.
+4. **Escala/coste.** I+D de >$3 B anuales que un competidor de nicho no puede replicar.
 
-**Reacción del mercado:** A pesar de beat-and-raise, la acción cayó 17% el día siguiente al earnings. El mercado no está creyendo el guidance.
+El debate de 2026 es si la IA **erosiona** este moat (menos asientos humanos = menos licencias) o lo **refuerza** (alguien tiene que orquestar, gobernar y auditar a los agentes, y esa es justo la plataforma de ServiceNow). Mi base case se inclina por lo segundo, pero el bear es plausible y por eso pesa el 40%.
 
 ---
 
-### 3. Modelo de negocio — Por qué es resiliente (y por qué hay miedo ahora)
+## 3. Análisis financiero
 
-**Razones de resiliencia tradicional:**
+| Año | Revenue ($M) | YoY | Op. income ($M) | Op. margin (GAAP) | Net income ($M) | FCF ($M) | FCF margin |
+|------|--------------|--------|------------------|--------------------|------------------|-----------|------------|
+| 2022 | 7,245 | — | 355 | 4.9% | 325 | 2,173 | 30.0% |
+| 2023 | 8,971 | +23.8% | 762 | 8.5% | 1,731 | 2,701 | 30.1% |
+| 2024 | 10,984 | +22.4% | 1,364 | 12.4% | 1,425 | 3,375 | 30.7% |
+| 2025 | 13,278 | +20.9% | 1,824 | 13.7% | 1,748 | 4,533 | 34.1% |
 
-1. **Stickiness extrema:** una vez ServiceNow está embebido en los flujos de trabajo de un Fortune 500 (gestión incidentes IT, onboarding HR, casos clientes), arrancarlo cuesta 18-24 meses de proyecto y $50-200M para una empresa grande. El switching cost es altísimo.
+**Lo que cuenta esta tabla:**
 
-2. **Net retention >120%:** los clientes existentes pagan más cada año, no menos. Esto es base de "infinite compounding" en SaaS premium.
+- **Crecimiento de élite y duradero:** +22.4% CAGR a 3 años partiendo ya de una base de >$7 B. Q1 FY2026 mantuvo el ritmo (+22% en suscripción) y la dirección **subió** la guía FY26 a $15.74-15.78 B (+20.5-21%).
+- **Apalancamiento operativo real:** el margen operativo GAAP casi se triplica (4.9% → 13.7%) en tres años. La operación escala.
+- **El "puzzle" del SBC.** Aquí está la clave de toda la valoración. El **FCF ($4.533 B) cuadruplica el beneficio neto GAAP ($1.748 B)**. La diferencia es, sobre todo, el **stock-based compensation** (no-cash, pero **dilución muy real** para el accionista) y el deferred revenue. Un value investor honesto **no puede tratar el SBC como FCF gratis.** Mi DCF lo descuenta como coste (vía margen EBIT GAAP), y de ahí que mi fair value quede por debajo del consenso, que valora sobre FCF reportado. *El gap entre mi $109 y los $142 de la calle es, casi exactamente, el SBC capitalizado.*
+- **Erosión de margen bruto a vigilar:** el margen bruto de suscripción bajó de 82% (2024) a **80% (2025)** y el 10-K anticipa otra ligera caída en 2026, por el **coste de compute de IA de terceros** y la amortización de intangibles de adquisiciones (Armis). No es trivial: el pivote de licencia-por-asiento a pricing-por-consumo de IA traslada coste de compute al P&L. Es el principal argumento del bear sobre márgenes.
 
-3. **Mission-critical:** no es un nice-to-have. Si NOW se cae, no funciona el helpdesk corporativo, los empleados no pueden onboarding, etc.
+### Capital allocation
 
-4. **Plataforma vs producto:** los clientes construyen workflows custom encima. Reemplazarla = reconstruir años de lógica de negocio.
-
-5. **Multi-product attach:** la mayoría de los clientes nuevos empiezan con ITSM, luego añaden HRSD, SecOps, CSM. Cada upsell genera +30-50% ACV.
-
-**El argumento bear ("SaaS-pocalypse"):**
-
-1. **AI agents reducen seats:** si AI hace el trabajo que antes hacían 10 humanos, ¿por qué necesito 10 licencias?
-
-2. **Per-seat pricing está bajo amenaza:** clientes empiezan a exigir pricing per-outcome o per-task. ServiceNow tiene riesgo real aquí.
-
-3. **AI-native competitors:** startups construyendo sobre LLMs desde día uno (Glean, Decagon, Sierra, etc.) pueden tener ventajas estructurales.
-
-4. **Stack consolidation:** CFOs presionando por consolidar vendors. Posibles ganadores: Microsoft (Copilot + Dynamics + Power Platform), Salesforce (Agentforce). NOW podría ser absorbido o squeeze.
-
-5. **Federal headwind:** DOGE cortando contratos. ~10% del revenue NOW era federal. Si el corte se prolonga, hit material.
-
-**Mi lectura — el bull case sigue intacto:**
-
-- Now Assist tracking +130% en >$1M ACV implica que los clientes están comprando AI ON TOP de NOW, no reemplazándola.
-- cRPO +22% confirma que el backlog crece. Los clientes no están reduciendo compromisos.
-- Renewal rate 98% sin deterioro. Si hubiera "SaaSpocalypse" real, ya se vería.
-- La narrativa "AI mata SaaS" es una sobre-simplificación. AI cambia *quién/qué* hace el trabajo, pero las plataformas que lo orquestan (NOW) capturan más valor, no menos.
-- Federal -72% es shock 1-trimestre, no estructural. El gasto federal volverá; los procesos digitales no se "des-digitalizan".
+- **ROIC muy por encima del WACC.** Con $1.8 B de op. income GAAP (y ~$4 B no-GAAP) sobre una base de capital invertido modesta —es un negocio asset-light—, el retorno sobre capital incremental es de doble dígito alto, holgadamente por encima de un WACC del 10%. Crea valor cada dólar que reinvierte.
+- **Sin dividendo, reinversión + recompra.** ServiceNow reinvierte agresivamente en I+D y go-to-market (lo correcto a estas tasas de retorno) y usa recompras **principalmente para neutralizar la dilución del SBC**, no para reducir significativamente el share count. El inversor debe entender que la recompra aquí es más "tapar el agujero del SBC" que retorno neto de caja.
+- **M&A disciplinada y estratégica:** Armis (seguridad/visibilidad de activos) y la colaboración con Cohesity encajan en la narrativa de plataforma + IA + datos. Balance impecable: **caja neta** (~$2.75 B), deuda/equity de 0.02. Sin riesgo financiero.
 
 ---
 
-### 4. Moat — Wide Moat (Morningstar) con riesgo táctico
+## 4. Valoración DCF
 
-**Rating: WIDE MOAT** (consistente con la opinión Morningstar histórica).
+### Metodología y parámetros
 
-Fuentes del moat:
+Valoro por DCF unlevered a 5 años con valor terminal sobre EV/EBITDA. **Decisión metodológica central: uso EBIT GAAP** (que ya descuenta el SBC como gasto) en lugar de partir del FCF reportado. Esto trata el SBC como coste real del accionista —la postura value correcta— y produce un "owner earnings" más conservador que el FCF de $4.5 B. WACC vía CAPM: risk-free 4% + beta 0.93 × ERP 5.5% ≈ 9.1%, elevado al suelo value del 10% en base.
 
-**1. Switching costs (la fuente principal):** una vez instalado NOW en flujos críticos de un Fortune 500, cambiarlo cuesta multi-años y $100M+. Es prácticamente prohibitivo arrancarlo. Esto crea pricing power y retention.
+| Parámetro | 🔴 Bear | ⚪ Base | 🟢 Bull |
+|------------|---------|---------|---------|
+| Crecimiento ingresos Y1-Y5 | 19/15/12/10/9% | 22/19/16/14/12% | 23/21/19/16/14% |
+| CAGR 5 años implícito | ~12.8% | ~16.6% | ~18.6% |
+| Margen bruto | 75% | 77% | 78% |
+| SG&A % / I+D % | 36% / 21% | 35% / 21% | 34% / 21% |
+| **Margen EBIT resultante** | **18%** | **21%** | **23%** |
+| D&A % / CapEx % | 5.5% / 3.0% | 5.5% / 3.0% | 5.5% / 3.0% |
+| Tasa impositiva | 21% | 20% | 19% |
+| WACC | 10.5% | 10.0% | 9.5% |
+| Múltiplo terminal (EV/EBITDA) | 19× | 22× | 24× |
+| **Fair value / acción** | **$78.81** | **$118.34** | **$151.72** |
+| Upside vs $103.84 | -24.1% | +14.0% | +46.1% |
 
-**2. Network effects (moderado):** ecosistema de partners (Accenture, Deloitte, EY, etc.) que han certificado miles de consultores en la plataforma. Cuanto mayor el ecosistema, más fácil contratar talento NOW que el de un competidor.
+**Fair value ponderado (40% / 40% / 20%) = $109.20**
 
-**3. Intangible assets (plataforma):** años de desarrollo de la Now Platform — workflow engine, modelo de datos unificado, integraciones, AI. Difícil replicar.
+> Justificación de los múltiplos terminales: ServiceNow cotiza hoy a 34.5× EV/EBITDA (sobre EBITDA reportado). Un grower de calidad que en el año 5 aún crece ~12-14% con 26%+ de margen EBITDA merece 20-25× (rango SaaS premium). El bear (19×) asume de-rating hacia software maduro; el bull (24×) asume que conserva la prima de compounder.
 
-**4. Scale economics:** R&D 23% revenue ($3B en 2025) financia mejoras continuas. Competidores small/mid no pueden igualar.
+### Tabla de sensibilidad (base case: FV/acción)
 
-**5. Brand:** "ServiceNow" es prácticamente sinónimo de ITSM enterprise. Para CIOs Fortune 500, NOW está en la shortlist por defecto.
+| WACC \ EV/EBITDA | 18× | 20× | 22× | 24× | 26× |
+|-------------------|------|------|------|------|------|
+| **9.0%** | $104 | $114 | $123 | $133 | $143 |
+| **9.5%** | $102 | $112 | $121 | $130 | $140 |
+| **10.0%** | $100 | $109 | **$118** | $127 | $137 |
+| **10.5%** | $98 | $107 | $116 | $125 | $134 |
+| **11.0%** | $96 | $105 | $113 | $122 | $131 |
+| **11.5%** | $94 | $103 | $111 | $120 | $128 |
 
-**El riesgo al moat:**
+### Análisis de impacto: ¿qué mueve el precio?
 
-- Si Microsoft Copilot + Power Platform alcanza paridad funcional con NOW + Now Assist al 50% del precio, el moat se erosiona rápido. Aún no está claro que lo haga, pero es el riesgo real.
-- Si los CFOs empiezan a renegociar contratos agresivamente bajo presión de "AI consolidation", el pricing power se reduce.
-- Si AI-native startups (Glean, Decagon) ganan tracción en CIOs nuevos, el TAM futuro de NOW se reduce.
+La variable más sensible es, con diferencia, **el múltiplo terminal**: cada 2× de EV/EBITDA mueve el fair value ~$9-10/acción (≈9% del precio). El WACC es secundario (±0.5% mueve ~$2-3). Esto **no es casualidad**: el valor terminal pesa el **~87% del EV** en todos los escenarios —típico de un compounder de alto crecimiento—. La implicación incómoda: **estoy valorando, en gran parte, la persistencia del múltiplo premium de ServiceNow.**
 
-**Conclusión moat:** Wide Moat hoy, pero con riesgo táctico significativo en los próximos 24-36 meses. El switching cost protege la base instalada — el riesgo es el crecimiento futuro.
+### Reverse DCF: ¿qué descuenta el precio?
 
----
+Invirtiendo el modelo, **a $103.84 el mercado descuenta solo ~13.8% de crecimiento anual** (5 años) con mis márgenes, WACC y múltiplo base. Mi base asume **16.6%** —2.8 puntos por encima—, y **ahí vive el margen de seguridad**. ¿Está justificado ese exceso? La dirección **guía FY26 a +20.5-21%** en suscripción, el CAGR histórico a 3 años es **22.4%**, y el RPO de $28.2 B (+27%) da visibilidad a 2 años. Es decir: **el mercado está extrapolando una desaceleración brusca (hacia ~14%) que ni la guía ni el backlog respaldan todavía.** Si ServiceNow simplemente cumple su propia guía y desacelera de forma ordenada, bate el crecimiento implícito en el precio. Ese es, en una frase, el caso alcista: *no necesitas que la IA sea un milagro, solo que el miedo a la "seat compression" esté exagerando la desaceleración.*
 
-### 5. Capital allocation — Excelente
+### Sanity checks (y la advertencia honesta)
 
-**Track record:**
-
-- **Reinversión en producto/R&D:** 23% de revenue. Han construido Now Assist orgánicamente y rápido. La adquisición de Armis ($5B) refuerza SecOps.
-- **M&A disciplinado:** Armis es la mayor adquisición histórica. Antes habían comprado Element AI, Lightstep, etc. — pequeñas, integradas bien. Track record sin grandes write-offs.
-- **Recompras crecientes:** $500M en 2023, $1B+ en 2025. A precios actuales (post -43%), la autorización vigente ($3.5B) representa ~4% del market cap.
-- **Sin dividendo:** capital se reinvierte. Consistente con etapa de crecimiento.
-- **Stock-based comp:** 13-15% de revenue. Alto pero descendente como % desde 18-20% hace 5 años. Compensan con buybacks netos.
-- **Balance:** net cash $1.3B. Sin presión de deuda. Capacidad para M&A grande (>$10B) si surge oportunidad.
-
-**ROIC:**
-- ROIC 2025: ~22% (excelente)
-- WACC estimado: 9-10% (beta 0.82, ERP 5.5%, risk-free 4%, mix equity-heavy)
-- Spread ROIC-WACC: +12pp positivos. Negocio compone valor agresivamente.
-
-**Conclusión capital allocation:** Top decile. Reinversión efectiva, M&A disciplinada, capital returns crecientes, balance impecable. Una de las plataformas SaaS mejor gestionadas.
-
----
-
-### 6. Riesgos materiales
-
-**RIESGO 1 — "SaaS-pocalypse" / AI canibaliza per-seat pricing (severidad ALTA, probabilidad MEDIA)**
-- El modelo per-seat es ~80% del revenue NOW. Si los clientes presionan por modelos per-outcome/per-task más baratos, el revenue podría comprimirse 10-20% al recontratar.
-- Timing: 2-4 años (ciclos de contratos 3 años).
-- Materialización: revenue growth desacelera de 20% a 12-14%, FCF margin se mantiene pero el múltiplo colapsa a EV/Sales 4-5x → equity perdiendo 30-40%.
-
-**RIESGO 2 — DOGE / federal spending cuts (severidad MEDIA, probabilidad ALTA en 2026, MEDIA en 2027+)**
-- Federal era ~10% revenue. Si el corte es persistente, hit anual de $1.2-1.5B revenue (-8-10% growth).
-- Mitigante: NOW tiene Public Sector grande, no solo federal USA (state, local, internacional). El federal específico es 5-7% real.
-- Timing del impacto: 2026 muy probable, 2027 incierto. La administración podría revertir.
-
-**RIESGO 3 — Stack consolidation hacia Microsoft (severidad ALTA, probabilidad MEDIA)**
-- Microsoft Copilot + Dynamics + Power Platform compite directamente. Microsoft tiene ventaja de bundling con Office/Teams/Azure.
-- Si CFOs empiezan a consolidar "todo Microsoft", NOW pierde share gradualmente en clientes existentes (no inmediato pero erosivo).
-- Probabilidad: real, pero el switching cost de NOW lo limita en los próximos 3-5 años.
-
-**RIESGO 4 — Valoración aún elevada en absoluto (severidad MEDIA, probabilidad ALTA si hay otro shock)**
-- A precios actuales: EV/Sales 6x, EV/EBITDA 30x, P/E 54x, P/FCF 20x.
-- Si hay un segundo shock (recesión, AI competition agresiva, mal trimestre), el múltiplo aún puede comprimir más.
-- Históricamente NOW ha cotizado entre EV/Sales 8-22x — actualmente está en el extremo bajo, pero teóricamente puede ir a 4-5x.
-
-**RIESGO 5 — Stock-based comp dilución (severidad MEDIA-BAJA, probabilidad ALTA crónica)**
-- SBC 13-15% revenue es alto. Diluye accionistas en ~1-1.5% anual (compensado parcialmente por buybacks).
-- No es un riesgo agudo pero erosiona returns 100-150bp anuales.
-
-**Bear case ($72) materializa:** combinación de Riesgos 1+2+3 — DOGE persiste, Microsoft gana share, AI presiona pricing, growth desacelera a 12% para 2028, FCF margin se mantiene 32%, múltiplo comprime a EV/Sales 4.5x → $72/share = -21%.
+1. ✅ **Bull/Bear ratio = 1.93×** (dentro de 1.5-2.0×).
+2. ⚠️ **Bear a -24%** (fuera del ±15% de la regla). Justificado: en un valor de múltiplo alto el bear debe doler de verdad, y aquí el riesgo de seat compression por IA es estructural, no cíclico. Mantengo el bear "duro" deliberadamente.
+3. ⚠️ **TV = ~87% del EV.** Validación Gordon Growth (g=3%): el valor terminal por Gordon sería ~45% inferior al de exit-multiple. **Con un terminal Gordon, el base case caería a ~$67** (cerca del bear). Esto es el corazón del riesgo: si ServiceNow **no** retiene una prima de múltiplo —porque la IA lo convierte en software "commodity"— el valor real está más cerca de $70-80 que de $118. El exit-multiple de 22× es defendible *solo si* uno cree que en el año 5 todavía crece doble dígito con moat intacto.
+4. ✅ **Crecimiento base (Y1 22%) = guía de la dirección**; CAGR 5 años (16.6%) por debajo del histórico (22.4%) → conservador.
+5. ⚠️ **P/E implícito elevado** (~40-45× sobre owner earnings normalizados). Alto, pero coherente con un compounder de calidad superior.
+6. **Consenso: $141.86** (high $236, low $85). Mi ponderado ($109) queda un 23% por debajo —por la metodología SBC—. Cómodo dentro del rango; no es un outlier.
 
 ---
 
-### 7. Valoración DCF — DCF + comparables SaaS + sanity checks
+## 5. Riesgos principales
 
-**Aviso metodológico:** NOW es una empresa SaaS premium con alto FCF margin y crecimiento sostenido. Aplico DCF UFCF estándar con WACC ajustado (mínimo 9% por filosofía value), pero también cross-check con P/FCF y EV/Sales (los múltiplos que el mercado usa para SaaS).
-
-**Tabla resumen fair values (escenarios DCF):**
-
-| Escenario | WACC | TV Multiple (EV/EBITDA) | Fair value/share |
-| --------- | ---- | ----------------------- | ---------------- |
-| **bear**  | 10.5% | 14x                    | **$72**          |
-| **base**  | 9.5%  | 18x                    | **$122**         |
-| **bull**  | 9.0%  | 22x                    | **$180**         |
-
-Ponderado 40/40/20: **$114.00**
-
-#### 7A. Parámetros y proyecciones
-
-**Punto de partida (FY2025):**
-- Revenue: $13,278M
-- EBITDA: $3,022M (22.8% margen)
-- FCF: $4,533M (34.1% margen)
-- Shares dilutadas: 1,020M
-
-**Escenario BEAR (multiple compression + DOGE persistente + AI presiona):**
-
-Revenue growth Y1-Y5: +14%, +12%, +11%, +10%, +9% (CAGR 11%)
-- 2026E: $15,137M (vs guidance $15,755M — -4% miss)
-- 2030E: $22,300M
-
-GM: 75%, SGA: 47%, R&D: 24%, D&A: 6%, CapEx: 8% → Op margin GAAP ~15%
-EBITDA: 21% margen → EBITDA 2030 = $4,683M
-TV: $4,683M × 14 = $65,562M
-WACC: 10.5%
-UFCF Y5: $2,800M
-PV(UFCF) + PV(TV) ≈ $43B equity / 1,020M = **$72/share**
-
-**Escenario BASE (normalización federal 2027, AI Assist tracción, growth +18% promedio):**
-
-Revenue growth Y1-Y5: +20%, +18%, +16%, +14%, +12% (CAGR 16%)
-- 2026E: $15,934M (in-line guidance)
-- 2030E: $30,500M
-
-GM: 78%, SGA: 44%, R&D: 23%, D&A: 6%, CapEx: 7.5% → Op margin GAAP ~19%
-EBITDA: 25% margen → EBITDA 2030 = $7,625M
-TV: $7,625M × 18 = $137,250M
-WACC: 9.5%
-UFCF Y5: $5,500M
-PV(UFCF) + PV(TV) ≈ $125B equity / 1,020M = **$122/share**
-
-**Escenario BULL (Now Assist >$3B ACV, re-rating premium, federal recupera):**
-
-Revenue growth Y1-Y5: +22%, +22%, +20%, +17%, +14% (CAGR 19%)
-- 2026E: $16,200M (beat)
-- 2030E: $36,800M
-
-GM: 79%, SGA: 42%, R&D: 22%, D&A: 6%, CapEx: 7% → Op margin GAAP ~22%
-EBITDA: 28% margen → EBITDA 2030 = $10,304M
-TV: $10,304M × 22 = $226,688M
-WACC: 9.0%
-UFCF Y5: $7,200M
-PV(UFCF) + PV(TV) ≈ $184B equity / 1,020M = **$180/share**
-
-#### 7B. Fair value ponderado y señal
-
-**Fair value ponderado (40/40/20):**
-$72 × 0.4 + $122 × 0.4 + $180 × 0.2 = $28.8 + $48.8 + $36.0 = **$113.6 ≈ $114**
-
-**Margen de seguridad sobre $91.57:**
-($114 - $91.57) / $114 = +19.7% → 🟢 **LIGERAMENTE INFRAVALORADA**
-
-Aplicando margen ponderado puro: +24.5% upside potencial.
-
-#### 7C. Tabla de sensibilidad WACC vs TV Multiple (DCF base, fair value/share)
-
-| WACC \ TV (EV/EBITDA) | 13x   | 16x   | 18x   | 20x   | 22x   |
-| --------------------- | ----- | ----- | ----- | ----- | ----- |
-| 8.0%                  | $108  | $128  | $142  | $156  | $170  |
-| 9.0%                  | $98   | $117  | $130  | $144  | $157  |
-| 9.5%                  | $94   | $112  | $125  | $138  | $151  |
-| 10.0%                 | $89   | $107  | $119  | $131  | $144  |
-| 10.5%                 | $85   | $102  | $114  | $126  | $137  |
-
-Lectura: el fair value oscila entre $85-170 según supuestos razonables. La asimetría favorece el alza desde $91.57.
-
-#### 7D. Cross-check con múltiplos SaaS
-
-**Múltiplos NOW actuales (a $91.57):**
-- EV/Sales 2026E: $93B / $15.75B = **5.9x** (histórico 10-18x)
-- EV/EBITDA 2026E: $93B / $3.6B est = **25.8x** (histórico 35-60x)
-- P/FCF 2026E: $94B / $5.2B est = **18.1x** (histórico 30-45x)
-- P/E forward GAAP: **45x** (histórico 60-100x)
-
-**Comparables SaaS premium (a 2026E):**
-- CRM (Salesforce): EV/Sales 5.5x, P/FCF 22x, growth +8%
-- ADBE (Adobe): EV/Sales 7.5x, P/FCF 22x, growth +10%
-- NOW: EV/Sales 5.9x, P/FCF 18x, growth +20%
-- DDOG (Datadog): EV/Sales 12x, P/FCF 50x, growth +20%
-- SNOW (Snowflake): EV/Sales 14x, P/FCF >50x, growth +25%
-
-**NOW está cotizando como Salesforce/Adobe (8-10% growth) cuando crece 20%.** Esa es la oportunidad principal.
-
-Si NOW recupera múltiplo de growth-peer (DDOG, SNOW) por estar en SaaS infrastructure premium, fácilmente vale $150-200/share. Si se queda como "Salesforce stalwart", vale $100-130. Si va a "value trap" (BMC pre-take-private), $70-90.
-
-#### 7E. Sanity checks
-
-1. **Bear vs precio (-21%):** ✓ Bear duele (refleja escenario "SaaSpocalypse real"). Cumple feedback "bear must hurt".
-2. **Bull/Bear ratio: 2.5x.** ⚠️ Algo más alto que el rango típico 1.5-2.0x — refleja la amplia incertidumbre actual entre re-rating positivo o continuación del de-rating.
-3. **Múltiplo base (EV/EBITDA 18x TV):** ✓ Razonable para SaaS premium con margen FCF 34%.
-4. **Growth base CAGR 16%:** ✓ Conservador vs CAGR histórico 22%. Asume desaceleración estructural moderada.
-5. **Comparación con consenso:** Analyst mean $145. Mi base $122 está 16% por debajo del consenso (más conservador). Mi bull $180 sigue por debajo del high $240.
-6. **Reality check:** NOW genera $4.5B FCF/año. A market cap actual $94B, son 21x FCF. Para un negocio creciendo 20% con FCF margin 34% y net cash. Es bajo en absoluto y muy bajo histórico.
-
-#### 7F. Análisis de impacto — Qué tienes que creer para cada escenario
-
-**Para Bear ($72):**
-- AI agents canibalizan el modelo per-seat profundamente (caer subscription a 12% growth y mantenerse así)
-- DOGE persiste 2027-2028, no es shock pasajero
-- Microsoft Copilot + Dynamics capturan share enterprise relevante
-- Múltiplo nunca recupera (EV/Sales 4-5x permanentemente)
-
-**Para Base ($122):**
-- Federal recupera parcialmente en 2027
-- Now Assist alcanza >$2B ACV 2027 (vs $1.5B target 2026)
-- Growth se mantiene 16-20% próximos 3-4 años
-- Múltiplo se estabiliza en EV/Sales 7-8x (no re-rate completo pero tampoco compresión adicional)
-- Mgmt entrega guidance sin sorpresas
-
-**Para Bull ($180):**
-- Now Assist es game-changer, alcanza >$3B ACV 2027
-- AI agents NO canibalizan sino que aumentan el TAM (NOW captura más por organización)
-- Federal recupera y se aceleran public sector internacional
-- Re-rating moderado: EV/Sales 10-12x (vs histórico 12-18x)
-- M&A acelera plataforma (Armis es solo el primer movimiento)
+| # | Riesgo | Severidad | Probabilidad | Comentario |
+|---|--------|-----------|--------------|------------|
+| 1 | **Seat compression por IA agéntica** | Alta | Media | El núcleo de la tesis bajista. Si los agentes reducen los asientos humanos, el modelo per-seat se erosiona antes de que el pricing-por-consumo lo compense. Es un riesgo de *transición*, no necesariamente terminal, pero puede comprimir crecimiento **y** múltiplo a la vez. |
+| 2 | **Compresión de múltiplo / de-rating** | Alta | Media-Alta | El 87% del valor es terminal. El mercado ya pasó de "premium perpetuo" a dudar. Si el de-rating de SaaS continúa, el dolor llega vía múltiplo aunque los fundamentales aguanten. |
+| 3 | **Erosión de margen bruto por compute de IA** | Media | Alta (ya ocurriendo) | GM de suscripción 82%→80% y bajando. El compute de IA de terceros traslada coste al P&L; el pricing-por-consumo aún no compensa del todo. |
+| 4 | **SBC y dilución** | Media | Alta (estructural) | ~14-16% de los ingresos en SBC. El "FCF" reportado sobreestima el owner earnings; la recompra apenas tapa la dilución. Riesgo de que el mercado "despierte" a esto en un entorno risk-off. |
+| 5 | **Valoración aún exigente** | Media | Media | Incluso tras el -50%, a 23× P/FCF y 34× EV/EBITDA reportado no es barata en absoluto; cualquier miss de guía castiga con fuerza (ya pasó: -14% post-Q1 pese al beat). |
 
 ---
 
-### 8. Catalizadores
+## 6. Catalizadores (12-24 meses)
 
-**Positivos a 12-24 meses:**
-
-1. **Q2 2026 (julio):** si subscription rev acelera o se mantiene >22%, vuelve confianza en tesis. cRPO crítico.
-2. **Now Assist ACV update:** si en H2 2026 anuncian >$1.5B (sobreentrega), reseteo de narrativa.
-3. **Federal contracts** "stabilization" — si DOGE muestra que el corte se asienta, no se profundiza más.
-4. **Investor Day 2026 (octubre):** ServiceNow históricamente da guidance long-term de 25-30% revenue (a 2028 objetivo $25B). Si reafirman, momentum.
-5. **Acquisition speculation:** a precios actuales, NOW es target potencial para Microsoft, Oracle, Salesforce o PE. Especulación M&A puede aportar piso.
-6. **Buybacks acelerados:** con autorización $3.5B remaining, mgmt puede comprar agresivamente a estos precios.
-7. **Recortes de tipos Fed:** SaaS premium con duración larga se beneficiaría desproporcionalmente.
+**Positivos:**
+- **Now Assist supera los $1.500 M de ACV de IA en 2026** (guía de McDermott, +50% sobre la previsión anterior). Los clientes Now Assist >$1 M ACV **crecieron +130% YoY** —evidencia temprana de que ServiceNow *monetiza* la IA en vez de ser desplazado por ella.
+- **Prueba de que la IA expande, no comprime:** si el ACV por cliente sube con agentes (más workflows orquestados), se invalida el bear y el múltiplo se recupera.
+- Integración de Armis (seguridad) y datos (Workflow Data Fabric) ampliando TAM.
+- Un simple cambio de sentimiento macro/risk-on en software re-califica al líder de calidad primero.
 
 **Negativos:**
-
-1. **Q2-Q3 2026 miss:** si subscription rev cae bajo 20% growth, confirmation bias del bear case.
-2. **DOGE acelera:** si se ven nuevos contratos federales rechazados, headwind se materializa.
-3. **Microsoft anuncia integración Copilot + Dynamics + Power Platform** que canibalice funcionalmente NOW.
-4. **Recesión enterprise software spending:** CFOs cortan SaaS budget, NOW es target obvio.
-5. **AI-native startup gana cliente enterprise marquee** — narrativa "AI mata SaaS" se valida.
+- Cualquier recorte de guía o desaceleración de cRPO por debajo del ~20% confirmaría el bear y dispararía más de-rating.
+- Nuevos lanzamientos de competidores de IA (Microsoft Copilot, Salesforce Agentforce, hyperscalers) que erosionen el caso de uso.
+- Continuación del selloff de software por miedo agéntico (riesgo de "value trap" temporal).
 
 ---
 
-### 9. Conclusión y plan de acción
+## 7. Conclusión y plan de acción
 
-**Veredicto: 🟢 INFRAVALORADA al precio actual ($91.57 vs FV $114, +24.5%). Recomendación COMPRAR.**
+ServiceNow es **un negocio de calidad excepcional** —98% de renovación, $28 B de RPO, plataforma con wide moat— que el mercado está vendiendo por un **miedo legítimo pero posiblemente exagerado**: que la IA agéntica destruya el modelo per-seat. La evidencia temprana (Q1 beat, guía subida, Now Assist +130%) apunta a que ServiceNow es más probablemente **el orquestador de los agentes que su víctima**. Pero el riesgo es real y bidireccional, y por eso el rango bear-bull es ancho.
 
-**Por qué es entrada interesante:**
+**Mi número honesto, descontando el SBC como coste real, es $109 — apenas un 5% sobre los $104 de hoy.** En términos de Graham, el margen de seguridad es demasiado fino para una compra agresiva. La brecha con el consenso ($142) es metodológica, no de tesis: si uno acepta valorar sobre FCF reportado, la acción parece un 25-35% infravalorada; si uno expensa el SBC (mi postura), está en valor justo.
 
-- Valoración: EV/Sales 6x (vs histórico 12-18x), EV/EBITDA 30x (vs histórico 35-60x), P/FCF 18x (vs histórico 30-45x). Mercado descuenta tesis bear ya.
-- Fundamentales: Q1 2026 beat-and-raise, cRPO +22%, Now Assist tracción confirmada. Sin deterioro operativo.
-- Balance: Net cash $1.3B. Cero riesgo financiero.
-- Catalizadores binarios próximos 6-12 meses (Q2/Q3 earnings, Investor Day).
-- Asimetría favorable: bear -21%, base +33%, bull +97%. Risk/reward 2-3x.
+**Señal: ⚪ VALOR JUSTO (sesgo ligeramente positivo).**
 
-**Plan de acción concreto:**
+**Plan de acción:**
+- **Iniciar posición pequeña (1/3 del tamaño objetivo) a precio actual** para tener exposición a una de las mejores franquicias de software a su valoración más barata en años.
+- **Ampliar agresivamente por debajo de ~$90** (donde el margen de seguridad supera el 20% incluso descontando SBC), y **cargar fuerte hacia $78-80** (zona bear), donde se compraría calidad de primer nivel a precio de software maduro.
+- **No perseguir hacia arriba de $120** sin nueva evidencia de que la IA reacelera el ACV (catalizador #1).
+- **Tesis se invalida si:** el cRPO desacelera por debajo del 18% dos trimestres seguidos, o el margen bruto de suscripción cae por debajo del 76% sin compensación en crecimiento → el bear se materializaría y el suelo estaría más cerca de $70.
 
-**Si NO tienes posición:**
-- Empezar build inmediatamente, entrada agresiva por debajo de $95.
-- Tamaño objetivo: 3-4% de cartera (high conviction core SaaS).
-- Escalonar: 1/3 a $92, 1/3 a $87, 1/3 a $80 (si llega).
-- Stop psicológico: si subscription rev cae bajo 18% growth dos trimestres consecutivos, revisar tesis (deterioro estructural).
-- Catalizador clave: Q2 2026 earnings (julio).
-
-**Si YA tienes posición:**
-- Mantener o promediar a la baja. No vender en zona $80-100.
-- Trimear parcialmente si supera $160 sin que guidance lo justifique (sería re-rating prematuro).
-
-**Horizonte de inversión:** 3-5 años. NOW es un play estructural sobre digital transformation enterprise + AI. El próximo año habrá volatilidad fuerte por noise (DOGE, AI narratives), pero la base instalada y el FCF generan compounding sólido.
-
-**Retorno esperado base:** 3 años a $122 fair value = 33% appreciation + ~0% dividendo (no paga) = 10% anualizado. En bull case 26% anualizado. En bear case -7% anualizado.
-
-**Comparación contextual con consenso:**
-- Analyst mean: $145.27 (rango $85-240). Mi base $122 está 16% por debajo del consenso (más conservador). El mercado está dividido — algunos analistas reflejan ya el escenario bull, otros el bear.
-- Stifel cortó target a $135. Otros casas siguen en $180-220.
+> Negocio de 10. Precio de 6. Paciencia: esta es de las que el mercado, tarde o temprano, vuelve a pagar a múltiplo premium —pero hay que comprarla con margen, no con fe.
 
 ---
 
-**Fuentes utilizadas:**
-- ServiceNow Q1 2026 Earnings Release (22 abril 2026)
-- ServiceNow Q1 2026 Earnings Call Transcript (Motley Fool, 22 abril 2026)
-- xtype.io: "ServiceNow Q1 2026 Earnings Recap: A Beat-and-Raise, a $1.5B AI Target"
-- Fortune: "ServiceNow's strong earnings fail to shift AI-driven anti-SaaS vibes" (23 abril 2026)
-- FinancialContent: "ServiceNow Plunges 10% as 'SaaSpocalypse' and Federal Budget Cuts" (abril 2026)
-- 10-K filings 2024, 2025, 2026 (SEC EDGAR, en `data/valuations/NOW/SEC_filings/`)
-- Análisis propio sobre datos en `data/valuations/NOW/NOW_valuation.json`
-- Comparables SaaS: CRM, ADBE, DDOG, SNOW (datos públicos)
+### Fuentes
+
+- ServiceNow 10-K FY2025 (SEC, filing 2026): renovación 98%, RPO $28.2 B, GM suscripción 80%, reexpresión por split.
+- ServiceNow 8-K Q1 FY2026 (22-abr-2026): suscripción $3,671 M (+22%), guía FY26 subida a $15.74-15.78 B.
+- SEC audit interno: discrepancia EBITDA (SEC calc $2,562 M vs Yahoo $3,022 M, +15.2%) por tratamiento de ajustes/SBC.
+- Fortune, CNBC, Motley Fool, Seeking Alpha, TIKR (abr-may 2026): selloff de software, narrativa anti-SaaS / seat compression, -45/52% en 6 meses, Now Assist +130% YoY, guía de $1.500 M en IA.
+- Datos de mercado: `data/valuations/NOW/NOW_valuation.json` (11-jun-2026).
+
+*Documento de análisis de inversión. No es recomendación personalizada. Elaborado para uso propio.*

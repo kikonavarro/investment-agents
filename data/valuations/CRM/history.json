@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-06-11",
+    "file": "CRM_20260611_valuation.json",
+    "current_price": 166.04,
+    "currency": "$",
+    "revenue": 41525000000.0,
+    "gross_margin": 0.7767609873570138,
+    "ev_ebitda": 13.3,
+    "avg_growth": 0.0983,
+    "fair_value_bear": 137.23,
+    "fair_value_base": 209.09,
+    "fair_value_bull": 286.75,
+    "fair_value_weighted": 195.88
+  }
+]

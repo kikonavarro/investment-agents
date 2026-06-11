@@ -12,5 +12,19 @@
     "fair_value_base": 122,
     "fair_value_bull": 180,
     "fair_value_weighted": 113.6
+  },
+  {
+    "date": "2026-06-11",
+    "file": "NOW_20260611_valuation.json",
+    "current_price": 103.84,
+    "currency": "$",
+    "revenue": 13278000000.0,
+    "gross_margin": 0.7753426720891701,
+    "ev_ebitda": 34.5,
+    "avg_growth": 0.2238,
+    "fair_value_bear": 78.81,
+    "fair_value_base": 118.34,
+    "fair_value_bull": 151.72,
+    "fair_value_weighted": 109.2
   }
 ]

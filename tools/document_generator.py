@@ -1,4 +1,8 @@
 """
+⛔ DORMIDO (no borrar — decisión 2026-05-31, ver REDISENO.md): ningún módulo lo importa.
+Se conserva para reactivar la exportación DOCX/Markdown. Requiere python-docx
+(en requirements-optional.txt, ya no en requirements.txt).
+
 Document Generator — exporta tesis y análisis a DOCX y Markdown.
 Sin dependencias de LaTeX. python-docx para Word, pathlib para Markdown.
 """

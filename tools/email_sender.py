@@ -1,4 +1,8 @@
 """
+⛔ DORMIDO (no borrar — decisión 2026-05-31, ver REDISENO.md): ningún módulo lo importa.
+Se conserva para reactivar el envío de tesis por email. Si se reactiva: adjunta tesis + SEC
+sin el Excel (degrada con if exists).
+
 Email Sender — envío de tesis de inversión por email con adjuntos.
 Usa Gmail SMTP con app password. Si no está configurado, falla silenciosamente.
 """

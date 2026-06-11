@@ -1,4 +1,8 @@
 """
+⛔ DORMIDO por decisión (2026-05-31, ver REDISENO.md): ni activar ni borrar. No corre como
+servicio launchd; la bandeja la procesa com.investment.inbox (tools/process_inbox.py).
+Requiere el paquete `schedule` (en requirements-optional.txt, ya no en requirements.txt).
+
 scheduler.py — automatización de tareas periódicas (always-on).
 
 Tareas programadas:

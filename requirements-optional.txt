@@ -1,0 +1,14 @@
+# Dependencias de módulos DORMIDOS (conservados pero fuera del pipeline activo).
+# Instalar SOLO si se reactiva el módulo correspondiente:
+#   pip install -r requirements-optional.txt
+
+# scheduler.py (dormido por decisión 2026-05-31 — ver REDISENO.md)
+schedule>=1.2.0
+
+# tools/document_generator.py (exportación DOCX, sin importadores)
+python-docx>=1.1.0
+
+# Eliminados del todo (2026-06-11) por no tener ningún importador:
+#   streamlit  — web_dashboard.py genera HTML estático, nunca usó streamlit
+#   markdown   — telegram_bot convierte MD→HTML con regex propios
+#   rich       — sin imports en el código
