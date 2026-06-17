@@ -10,6 +10,7 @@ Opus (suscripción, no API) solo se enciende cuando hay un mensaje real.
 """
 import subprocess
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -19,7 +20,9 @@ sys.path.insert(0, str(REPO))
 HEARTBEAT = REPO / "data" / ".processor_heartbeat"
 LOG = REPO / "data" / "processor.log"
 CLAUDE = "/Users/franciscojaviernavarro/.local/bin/claude"
-TIMEOUT_SECS = 900  # 15 min máx por mensaje; si claude se cuelga, se corta
+TIMEOUT_SECS = 1800  # 30 min máx por mensaje; una tesis completa (datos+DCF+envío) no cabe en 15
+MAX_ATTEMPTS = 3     # tras N timeouts/fallos seguidos en el MISMO mensaje, se rinde y avisa
+                     # (mata el bucle: antes una tesis > timeout se reintentaba para siempre)
 
 PROMPT = (
     "Procesa el mensaje pendiente MAS ANTIGUO de la bandeja del Investment Bot siguiendo "
@@ -39,16 +42,90 @@ def _log(msg: str):
         f.write(f"[{time.strftime('%F %T')}] {msg}\n")
 
 
+def _beat():
+    """Latido inicial."""
+    HEARTBEAT.write_text(str(int(time.time())))
+
+
+def _start_heartbeat(stop: threading.Event) -> threading.Thread:
+    """Refresca el latido cada 30s mientras claude -p bloquea. Sin esto el latido se
+    congela toda la tesis y el watchdog lo confunde con un procesador caído."""
+    def loop():
+        while not stop.wait(30):
+            try:
+                _beat()
+            except Exception:
+                pass
+    t = threading.Thread(target=loop, daemon=True)
+    t.start()
+    return t
+
+
+def _bump_attempts(msg_id: str) -> int:
+    """Incrementa el contador de intentos del mensaje y lo devuelve. 0 si no se puede leer."""
+    import json
+    from tools.atomic_io import atomic_write_text
+    from tools.message_queue import INBOX_DIR
+    path = INBOX_DIR / f"{msg_id}.json"
+    try:
+        msg = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return 0
+    msg["processing_attempts"] = msg.get("processing_attempts", 0) + 1
+    msg["last_attempt_at"] = time.strftime("%F %T")
+    atomic_write_text(path, json.dumps(msg, ensure_ascii=False, indent=2))
+    return msg["processing_attempts"]
+
+
+def _give_up(msg: dict):
+    """Marca el mensaje como fallido (sale de la cola) y avisa por Telegram. Rompe el bucle."""
+    import json
+    from tools.atomic_io import atomic_write_text
+    from tools.message_queue import INBOX_DIR
+    path = INBOX_DIR / f"{msg['id']}.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        data["status"] = "failed"          # get_pending() ya no lo devuelve -> no más reintentos
+        data["failed_at"] = time.strftime("%F %T")
+        atomic_write_text(path, json.dumps(data, ensure_ascii=False, indent=2))
+    except Exception as e:
+        _log(f"ERROR marcando fallido {msg['id']}: {e}")
+    text = (msg.get("text") or "")[:80]
+    who = msg.get("user_name", "?")
+    _log(f"RENDICION: {msg['id']} ({who}: '{text}') tras {MAX_ATTEMPTS} intentos -> marcado failed + aviso")
+    try:
+        from tools import notifier
+        notifier.send_alert(
+            "⚠️ <b>Mensaje no procesado</b>\n"
+            f"De: {who}\n"
+            f"Petición: «{text}»\n"
+            f"Falló {MAX_ATTEMPTS} veces (probablemente excede el límite de {TIMEOUT_SECS // 60} min).\n"
+            "Lo he sacado de la cola para no repetir. Procésalo a mano en una sesión."
+        )
+    except Exception as e:
+        _log(f"no se pudo enviar aviso de rendición: {e}")
+
+
 def main():
     # Latido: prueba de que el job sigue vivo (lo vigila el watchdog), pase lo que pase.
-    HEARTBEAT.write_text(str(int(time.time())))
+    _beat()
 
     # Pre-check baratísimo (sin LLM). Vacío → no gastamos nada.
     from tools.message_queue import get_pending
-    if not get_pending():
+    pending = get_pending()
+    if not pending:
         return
 
-    _log("Pendiente(s) en cola -> procesando con Opus")
+    # El prompt procesa el MAS ANTIGUO; controlamos SUS intentos para no bucle-ar.
+    oldest = min(pending, key=lambda m: m.get("timestamp", ""))
+    attempts = _bump_attempts(oldest["id"])
+    if attempts > MAX_ATTEMPTS:
+        _give_up(oldest)
+        return
+
+    _log(f"Pendiente(s) en cola -> procesando con Opus (intento {attempts}/{MAX_ATTEMPTS})")
+    stop = threading.Event()
+    _start_heartbeat(stop)  # mantiene vivo el latido mientras Opus trabaja (minutos)
     try:
         with open(LOG, "a", encoding="utf-8") as out:
             subprocess.run(
@@ -59,6 +136,8 @@ def main():
         _log("TIMEOUT: claude excedió el límite; abortado (lo retoma el próximo tick)")
     except Exception as e:
         _log(f"ERROR lanzando claude: {e}")
+    finally:
+        stop.set()  # corta el hilo de latido
     _log("Run terminado")
 
 

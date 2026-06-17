@@ -22,8 +22,12 @@ sys.path.insert(0, str(REPO))
 HEARTBEAT = REPO / "data" / ".processor_heartbeat"
 STATE = REPO / "data" / ".watchdog_alerted"   # marca de "ya avisé de este episodio"
 
-HEARTBEAT_MAX_AGE = 240   # 4 min (el procesador corre cada 60s)
-PENDING_MAX_AGE = 600     # 10 min sin procesar un mensaje = algo va mal
+# process_inbox.py refresca el latido cada 30s con un hilo de fondo MIENTRAS claude -p
+# corre, así que un latido congelado vuelve a significar "muerto" (no "ocupado en una tesis
+# larga"). Por eso el umbral puede ser bajo: detecta una caída real en minutos, sin falsos
+# positivos en tesis largas. NO subirlo al nivel del timeout (retrasaría la detección real).
+HEARTBEAT_MAX_AGE = 360   # 6 min (el procesador late cada 60s, y cada 30s durante un run)
+PENDING_MAX_AGE = 3600    # 60 min: con 3 intentos x 30 min, un mensaje puede tardar legítimamente
 
 
 def _heartbeat_age():
