@@ -141,5 +141,26 @@ def main():
     _log("Run terminado")
 
 
+LOOP_INTERVAL = 60  # s entre ticks cuando corre como proceso residente (KeepAlive)
+
+
+def run_loop():
+    """Modo residente (KeepAlive en launchd): un solo proceso vivo que hace tick cada 60s.
+    Sustituye al StartInterval (que launchd dejó de relanzar de forma fiable). El sleep
+    no consume CPU; el pre-check es gratis si la cola está vacía. Un mensaje que falle no
+    tumba el bucle (try/except), y si el proceso muriera, KeepAlive lo rearranca."""
+    _log("Procesador arrancado en modo bucle persistente (KeepAlive)")
+    while True:
+        try:
+            main()
+        except Exception as e:
+            _log(f"ERROR en el tick (sigo vivo): {e}")
+        time.sleep(LOOP_INTERVAL)
+
+
 if __name__ == "__main__":
-    main()
+    # --loop: residente (lo usa launchd). Sin flag: un único tick (depuración manual).
+    if "--loop" in sys.argv:
+        run_loop()
+    else:
+        main()
